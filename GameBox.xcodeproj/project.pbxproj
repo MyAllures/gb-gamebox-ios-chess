@@ -1,0 +1,525 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5401C53120ECA10F0027246D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C53020ECA10F0027246D /* AppDelegate.m */; };
+		5401C53420ECA10F0027246D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C53320ECA10F0027246D /* ViewController.m */; };
+		5401C53720ECA10F0027246D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5401C53520ECA10F0027246D /* Main.storyboard */; };
+		5401C53920ECA1100027246D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5401C53820ECA1100027246D /* Assets.xcassets */; };
+		5401C53C20ECA1100027246D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5401C53A20ECA1100027246D /* LaunchScreen.storyboard */; };
+		5401C53F20ECA1100027246D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C53E20ECA1100027246D /* main.m */; };
+		5401C55020ECA1B80027246D /* SH_NetWorkService+LineCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C54820ECA1B80027246D /* SH_NetWorkService+LineCheck.m */; };
+		5401C55120ECA1B80027246D /* GameWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5401C54B20ECA1B80027246D /* GameWebViewController.xib */; };
+		5401C55220ECA1B80027246D /* GameWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C54C20ECA1B80027246D /* GameWebViewController.m */; };
+		5401C55320ECA1B80027246D /* SH_NetWorkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C54E20ECA1B80027246D /* SH_NetWorkService.m */; };
+		5401C55620ECA2CC0027246D /* IPsCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C55520ECA2CC0027246D /* IPsCacheManager.m */; };
+		5401C55A20ECA48D0027246D /* NetWorkLineMangaer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C55920ECA48D0027246D /* NetWorkLineMangaer.m */; };
+		5401C56220ECF9EA0027246D /* SH_HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C56020ECF9EA0027246D /* SH_HomeViewController.m */; };
+		5401C56320ECF9EA0027246D /* SH_HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5401C56120ECF9EA0027246D /* SH_HomeViewController.xib */; };
+		5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C56520ECFB3E0027246D /* SH_NetWorkService+Login.m */; };
+		F88297C8CDA8BE450455395E /* libPods-GameBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C23814E2A7636D1CE6B89BC /* libPods-GameBox.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3BBE090F9B091E073F4BB10C /* Pods-GameBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameBox/Pods-GameBox.release.xcconfig"; sourceTree = "<group>"; };
+		4C23814E2A7636D1CE6B89BC /* libPods-GameBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GameBox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5401C52C20ECA10F0027246D /* GameBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5401C52F20ECA10F0027246D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5401C53020ECA10F0027246D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5401C53220ECA10F0027246D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		5401C53320ECA10F0027246D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5401C53620ECA10F0027246D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5401C53820ECA1100027246D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5401C53B20ECA1100027246D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5401C53D20ECA1100027246D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5401C53E20ECA1100027246D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5401C54720ECA1B80027246D /* SH_NetWorkService+LineCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+LineCheck.h"; sourceTree = "<group>"; };
+		5401C54820ECA1B80027246D /* SH_NetWorkService+LineCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+LineCheck.m"; sourceTree = "<group>"; };
+		5401C54A20ECA1B80027246D /* GameWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameWebViewController.h; sourceTree = "<group>"; };
+		5401C54B20ECA1B80027246D /* GameWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameWebViewController.xib; sourceTree = "<group>"; };
+		5401C54C20ECA1B80027246D /* GameWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameWebViewController.m; sourceTree = "<group>"; };
+		5401C54E20ECA1B80027246D /* SH_NetWorkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_NetWorkService.m; sourceTree = "<group>"; };
+		5401C54F20ECA1B80027246D /* SH_NetWorkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_NetWorkService.h; sourceTree = "<group>"; };
+		5401C55420ECA2CC0027246D /* IPsCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPsCacheManager.h; sourceTree = "<group>"; };
+		5401C55520ECA2CC0027246D /* IPsCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPsCacheManager.m; sourceTree = "<group>"; };
+		5401C55720ECA3870027246D /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		5401C55820ECA48D0027246D /* NetWorkLineMangaer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkLineMangaer.h; sourceTree = "<group>"; };
+		5401C55920ECA48D0027246D /* NetWorkLineMangaer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkLineMangaer.m; sourceTree = "<group>"; };
+		5401C55F20ECF9EA0027246D /* SH_HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_HomeViewController.h; sourceTree = "<group>"; };
+		5401C56020ECF9EA0027246D /* SH_HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_HomeViewController.m; sourceTree = "<group>"; };
+		5401C56120ECF9EA0027246D /* SH_HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_HomeViewController.xib; sourceTree = "<group>"; };
+		5401C56420ECFB3E0027246D /* SH_NetWorkService+Login.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+Login.h"; sourceTree = "<group>"; };
+		5401C56520ECFB3E0027246D /* SH_NetWorkService+Login.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+Login.m"; sourceTree = "<group>"; };
+		CD08B466133A38336C9BD914 /* Pods-GameBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GameBox/Pods-GameBox.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5401C52920ECA10F0027246D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F88297C8CDA8BE450455395E /* libPods-GameBox.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5401C52320ECA10F0027246D = {
+			isa = PBXGroup;
+			children = (
+				5401C52E20ECA10F0027246D /* GameBox */,
+				5401C52D20ECA10F0027246D /* Products */,
+				F14E4A72378CCD648FF29337 /* Pods */,
+				87BD6A1D16B97D20B3D1FCB6 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5401C52D20ECA10F0027246D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5401C52C20ECA10F0027246D /* GameBox.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5401C52E20ECA10F0027246D /* GameBox */ = {
+			isa = PBXGroup;
+			children = (
+				5401C54520ECA1B80027246D /* CoreBase */,
+				5401C55B20ECF9B30027246D /* HomePage */,
+				5401C52F20ECA10F0027246D /* AppDelegate.h */,
+				5401C53020ECA10F0027246D /* AppDelegate.m */,
+				5401C53220ECA10F0027246D /* ViewController.h */,
+				5401C53320ECA10F0027246D /* ViewController.m */,
+				5401C53520ECA10F0027246D /* Main.storyboard */,
+				5401C53820ECA1100027246D /* Assets.xcassets */,
+				5401C53A20ECA1100027246D /* LaunchScreen.storyboard */,
+				5401C53D20ECA1100027246D /* Info.plist */,
+				5401C53E20ECA1100027246D /* main.m */,
+				5401C55720ECA3870027246D /* PrefixHeader.pch */,
+			);
+			path = GameBox;
+			sourceTree = "<group>";
+		};
+		5401C54520ECA1B80027246D /* CoreBase */ = {
+			isa = PBXGroup;
+			children = (
+				5401C54620ECA1B80027246D /* LineCheck */,
+				5401C54920ECA1B80027246D /* GBWeb */,
+				5401C54D20ECA1B80027246D /* NetWork */,
+			);
+			path = CoreBase;
+			sourceTree = "<group>";
+		};
+		5401C54620ECA1B80027246D /* LineCheck */ = {
+			isa = PBXGroup;
+			children = (
+				5401C55420ECA2CC0027246D /* IPsCacheManager.h */,
+				5401C55520ECA2CC0027246D /* IPsCacheManager.m */,
+				5401C54720ECA1B80027246D /* SH_NetWorkService+LineCheck.h */,
+				5401C54820ECA1B80027246D /* SH_NetWorkService+LineCheck.m */,
+				5401C55820ECA48D0027246D /* NetWorkLineMangaer.h */,
+				5401C55920ECA48D0027246D /* NetWorkLineMangaer.m */,
+			);
+			path = LineCheck;
+			sourceTree = "<group>";
+		};
+		5401C54920ECA1B80027246D /* GBWeb */ = {
+			isa = PBXGroup;
+			children = (
+				5401C54A20ECA1B80027246D /* GameWebViewController.h */,
+				5401C54C20ECA1B80027246D /* GameWebViewController.m */,
+				5401C54B20ECA1B80027246D /* GameWebViewController.xib */,
+			);
+			path = GBWeb;
+			sourceTree = "<group>";
+		};
+		5401C54D20ECA1B80027246D /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				5401C54F20ECA1B80027246D /* SH_NetWorkService.h */,
+				5401C54E20ECA1B80027246D /* SH_NetWorkService.m */,
+			);
+			path = NetWork;
+			sourceTree = "<group>";
+		};
+		5401C55B20ECF9B30027246D /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				5401C55C20ECF9B30027246D /* Controller */,
+				5401C55D20ECF9B30027246D /* Model */,
+				5401C55E20ECF9B30027246D /* View */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		5401C55C20ECF9B30027246D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5401C55F20ECF9EA0027246D /* SH_HomeViewController.h */,
+				5401C56020ECF9EA0027246D /* SH_HomeViewController.m */,
+				5401C56120ECF9EA0027246D /* SH_HomeViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5401C55D20ECF9B30027246D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5401C56420ECFB3E0027246D /* SH_NetWorkService+Login.h */,
+				5401C56520ECFB3E0027246D /* SH_NetWorkService+Login.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5401C55E20ECF9B30027246D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		87BD6A1D16B97D20B3D1FCB6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C23814E2A7636D1CE6B89BC /* libPods-GameBox.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F14E4A72378CCD648FF29337 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CD08B466133A38336C9BD914 /* Pods-GameBox.debug.xcconfig */,
+				3BBE090F9B091E073F4BB10C /* Pods-GameBox.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5401C52B20ECA10F0027246D /* GameBox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5401C54220ECA1100027246D /* Build configuration list for PBXNativeTarget "GameBox" */;
+			buildPhases = (
+				BBE1A7EF60A82CD6004C70C2 /* [CP] Check Pods Manifest.lock */,
+				5401C52820ECA10F0027246D /* Sources */,
+				5401C52920ECA10F0027246D /* Frameworks */,
+				5401C52A20ECA10F0027246D /* Resources */,
+				E597E229E073DE61BA35EBD9 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GameBox;
+			productName = GameBox;
+			productReference = 5401C52C20ECA10F0027246D /* GameBox.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5401C52420ECA10F0027246D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = shin;
+				TargetAttributes = {
+					5401C52B20ECA10F0027246D = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 5401C52720ECA10F0027246D /* Build configuration list for PBXProject "GameBox" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5401C52320ECA10F0027246D;
+			productRefGroup = 5401C52D20ECA10F0027246D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5401C52B20ECA10F0027246D /* GameBox */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5401C52A20ECA10F0027246D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5401C53C20ECA1100027246D /* LaunchScreen.storyboard in Resources */,
+				5401C56320ECF9EA0027246D /* SH_HomeViewController.xib in Resources */,
+				5401C55120ECA1B80027246D /* GameWebViewController.xib in Resources */,
+				5401C53920ECA1100027246D /* Assets.xcassets in Resources */,
+				5401C53720ECA10F0027246D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BBE1A7EF60A82CD6004C70C2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GameBox-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E597E229E073DE61BA35EBD9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GameBox/Pods-GameBox-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameBox/Pods-GameBox-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5401C52820ECA10F0027246D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5401C55220ECA1B80027246D /* GameWebViewController.m in Sources */,
+				5401C56220ECF9EA0027246D /* SH_HomeViewController.m in Sources */,
+				5401C53420ECA10F0027246D /* ViewController.m in Sources */,
+				5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */,
+				5401C55620ECA2CC0027246D /* IPsCacheManager.m in Sources */,
+				5401C53F20ECA1100027246D /* main.m in Sources */,
+				5401C55A20ECA48D0027246D /* NetWorkLineMangaer.m in Sources */,
+				5401C55320ECA1B80027246D /* SH_NetWorkService.m in Sources */,
+				5401C55020ECA1B80027246D /* SH_NetWorkService+LineCheck.m in Sources */,
+				5401C53120ECA10F0027246D /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5401C53520ECA10F0027246D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5401C53620ECA10F0027246D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5401C53A20ECA1100027246D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5401C53B20ECA1100027246D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5401C54020ECA1100027246D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5401C54120ECA1100027246D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5401C54320ECA1100027246D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD08B466133A38336C9BD914 /* Pods-GameBox.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SFMD88G3NR;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/PrefixHeader.pch";
+				INFOPLIST_FILE = GameBox/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.GameBox;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		5401C54420ECA1100027246D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3BBE090F9B091E073F4BB10C /* Pods-GameBox.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SFMD88G3NR;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/PrefixHeader.pch";
+				INFOPLIST_FILE = GameBox/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.GameBox;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5401C52720ECA10F0027246D /* Build configuration list for PBXProject "GameBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5401C54020ECA1100027246D /* Debug */,
+				5401C54120ECA1100027246D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5401C54220ECA1100027246D /* Build configuration list for PBXNativeTarget "GameBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5401C54320ECA1100027246D /* Debug */,
+				5401C54420ECA1100027246D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5401C52420ECA10F0027246D /* Project object */;
+}
