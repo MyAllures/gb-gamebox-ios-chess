@@ -9,6 +9,8 @@
 #import "SH_HomeViewController.h"
 #import "SH_NetWorkService+Login.h"
 #import "NetWorkLineMangaer.h"
+#import "GameWebViewController.h"
+#import "AppDelegate.h"
 
 @interface SH_HomeViewController ()
 
@@ -46,6 +48,11 @@
     }];
 }
 
+- (IBAction)enterGame:(id)sender {
+    GameWebViewController *gameVC = [[GameWebViewController alloc] initWithNibName:@"GameWebViewController" bundle:nil];
+    gameVC.url = @"https://imes-mcasino.roshan88.com/mobile.aspx?id=262&token=010b04f8-87c9-4692-bb82-5fcb90c75f0d&LanguageCode=1";
+    [self presentViewController:gameVC animated:YES completion:nil];
+}
 
 /**
  * 获取SID

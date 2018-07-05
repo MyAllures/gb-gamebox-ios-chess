@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SH_BaseViewController.h"
 
-@interface GameWebViewController : UIViewController
+@interface GameWebViewController : SH_BaseViewController
 
 @property (nonatomic, strong) NSString *url;
 

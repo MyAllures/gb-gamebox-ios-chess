@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SH_BaseViewController.h"
 
 typedef void(^SHCheckIPSSuccess)(NSDictionary *ips);//有一个ip check成功
 typedef void(^SHCheckIPSFailed)(void);//所有ip都check失败
 
-@interface LineCheckViewController : UIViewController
+@interface LineCheckViewController : SH_BaseViewController
 
 
 @end
