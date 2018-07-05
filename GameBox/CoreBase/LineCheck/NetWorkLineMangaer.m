@@ -31,9 +31,20 @@
         self.currentPort = @"";
         self.currentPreUrl = @"";
         self.currentHost = @"";
+        self.currentCookie = @"";
         self.currentSID = @"";
     }
     return self;
+}
+
+- (void)setCurrentCookie:(NSString *)currentCookie
+{
+    _currentCookie = currentCookie;
+    if (_currentCookie) {
+        NSArray *setCookieComp = [_currentCookie componentsSeparatedByString:@";"];
+        NSString *sid = [setCookieComp[0] stringByReplacingOccurrencesOfString:@"SID=" withString:@""];
+        self.currentSID = sid;
+    }
 }
 
 @end

@@ -43,14 +43,14 @@
                 dispatch_semaphore_signal(sema);
                 return ;
             }
-            [weakSelf get:host withPublicParameter:NO complete:^(id response) {
+            [weakSelf get:host withPublicParameter:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
                 if (response) {
                     if (oneTurn) {
                         oneTurn(host, YES);
                     }
                     doNext = NO;
                     if (complete) {
-                        complete(response);
+                        complete(httpURLResponse, response);
                     }
                 }
                 else
@@ -62,12 +62,12 @@
                     failTimes++;
                     if (failTimes == hosts.count) {
                         if (failed) {
-                            failed(@"从DNS获取Boss-Api失败");
+                            failed(httpURLResponse, @"从DNS获取Boss-Api失败");
                         }
                     }
                 }
                 dispatch_semaphore_signal(sema);
-            } failed:^(NSString *err) {
+            } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
                 if (oneTurn) {
                     oneTurn(host, NO);
                 }
@@ -75,7 +75,7 @@
                 failTimes++;
                 if (failTimes == hosts.count) {
                     if (failed) {
-                        failed(@"从DNS获取Boss-Api失败");
+                        failed(httpURLResponse, @"从DNS获取Boss-Api失败");
                     }
                 }
                 dispatch_semaphore_signal(sema);
@@ -119,14 +119,14 @@
             NSDictionary *parameter = @{@"code":CODE,@"s":S,@"type":@"ips"};
             NSDictionary *header = (host == nil || [host isEqualToString:@""]) ? nil : @{@"Host":host};
 
-            [weakSelf get:fetchIPSUrl withPublicParameter:NO parameter:parameter header:header complete:^(id response) {
+            [weakSelf get:fetchIPSUrl withPublicParameter:NO parameter:parameter header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
                 if (response) {
                     if (oneTurn) {
                         oneTurn(fetchIPSUrl, YES);
                     }
                     doNext = NO;
                     if (complete) {
-                        complete(response);
+                        complete(httpURLResponse, response);
                     }
                 }
                 else
@@ -138,12 +138,12 @@
                     failTimes++;
                     if (failTimes == bossApiGroup.count) {
                         if (failed) {
-                            failed(@"从bossApi列表获取IPS失败");
+                            failed(httpURLResponse, @"从bossApi列表获取IPS失败");
                         }
                     }
                 }
                 dispatch_semaphore_signal(sema);
-            } failed:^(NSString *err) {
+            } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
                 if (oneTurn) {
                     oneTurn(fetchIPSUrl, NO);
                 }
@@ -151,7 +151,7 @@
                 failTimes++;
                 if (failTimes == bossApiGroup.count) {
                     if (failed) {
-                        failed(@"从bossApi列表获取IPS失败");
+                        failed(httpURLResponse, @"从bossApi列表获取IPS失败");
                     }
                 }
                 dispatch_semaphore_signal(sema);
@@ -181,7 +181,7 @@
                     
                     NSArray *checkTypeComp = [checkType componentsSeparatedByString:@"+"];
                     NSString *checkUrl = [NSString stringWithFormat:@"%@://%@%@/__check",checkTypeComp[0],ip,checkTypeComp.count==2?[NSString stringWithFormat:@":%@",checkTypeComp[1]]:@""];
-                    [weakSelf get:checkUrl withPublicParameter:NO parameter:nil header:@{@"Host":host} complete:^(id response) {
+                    [weakSelf get:checkUrl withPublicParameter:NO parameter:nil header:@{@"Host":host} complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
                         if (response) {
                             if ([[response lowercaseString] isEqualToString:@"ok"]) {
                                 if (oneTurn) {
@@ -197,19 +197,19 @@
                             failTimes++;
                             if (failTimes == ipGroup.count*checkTypes.count) {
                                 if (failed) {
-                                    failed(@"全部ip check失败");
+                                    failed(httpURLResponse, @"全部ip check失败");
                                 }
                             }
                         }
                         dispatch_semaphore_signal(sema);
-                    } failed:^(NSString *err) {
+                    } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
                         if (oneTurn) {
                             oneTurn(ip, checkType, NO);
                         }
                         failTimes++;
                         if (failTimes == ipGroup.count*checkTypes.count) {
                             if (failed) {
-                                failed(@"全部ip check失败");
+                                failed(httpURLResponse, @"全部ip check失败");
                             }
                         }
                         dispatch_semaphore_signal(sema);

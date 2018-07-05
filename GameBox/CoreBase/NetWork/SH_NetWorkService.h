@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^SHNetWorkComplete)(id response);
-typedef void(^SHNetWorkFailed)(NSString *err);
+typedef void(^SHNetWorkComplete)(NSHTTPURLResponse *httpURLResponse, id response);
+typedef void(^SHNetWorkFailed)(NSHTTPURLResponse *httpURLResponse, NSString *err);
 
 @interface SH_NetWorkService : NSObject
 

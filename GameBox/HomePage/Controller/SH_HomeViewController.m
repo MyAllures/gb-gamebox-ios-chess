@@ -8,6 +8,7 @@
 
 #import "SH_HomeViewController.h"
 #import "SH_NetWorkService+Login.h"
+#import "NetWorkLineMangaer.h"
 
 @interface SH_HomeViewController ()
 
@@ -18,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self fetchSID];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,12 +28,36 @@
 }
 
 - (IBAction)login:(id)sender {
-    [SH_NetWorkService login:@"Shin" psw:@"h123123" verfyCode:@"" complete:^(id response) {
-        //
-    } failed:^(NSString *err) {
+    [SH_NetWorkService login:@"Shin" psw:@"h123123" verfyCode:@"" complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSString *setCookie = [httpURLResponse.allHeaderFields objectForKey:@"Set-Cookie"];
+        NSUInteger startLocation = [setCookie rangeOfString:@"GMT, "].location +4;
+        NSUInteger endLocation = [setCookie rangeOfString:@" rememberMe=deleteMe"].location;
+        NSUInteger lenth = endLocation - startLocation;
+        NSString *cookie = [setCookie substringWithRange:NSMakeRange(startLocation, lenth)];
+        [NetWorkLineMangaer sharedManager].currentCookie = cookie;
+        
+        [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
+            //
+        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+            //
+        }];
+    } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
         //
     }];
 }
 
+
+/**
+ * 获取SID
+ */
+- (void)fetchSID
+{
+    [SH_NetWorkService fetchHttpCookie:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSString *setCookie = [httpURLResponse.allHeaderFields objectForKey:@"Set-Cookie"];
+        [NetWorkLineMangaer sharedManager].currentCookie = setCookie;
+    } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
+        //
+    }];
+}
 
 @end

@@ -33,7 +33,7 @@
         NSLog(@">>>%@检测结果:%i",dns,success);
         weakSelf.progress += 0.1;
         weakSelf.lineCheckStatus = @"正在匹配服务器，请稍后...";
-    } complete:^(id response) {
+    } complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSLog(@"检测完毕:%@",response);
         //第二步
         NSLog(@"第二步：从bossAPI获取IPS");
@@ -49,7 +49,7 @@
             NSLog(@">>>%@检测结果:%i",bossapi,success);
             weakSelf.progress += 0.1;
             weakSelf.lineCheckStatus = @"正在匹配服务器，请稍后...";
-        } complete:^(id response) {
+        } complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSLog(@"检测完毕:%@",response);
             
             NSLog(@"第三步：check-ip");
@@ -79,13 +79,13 @@
                     weakSelf.progress = (weakSelf.progress+0.05)>1.0 ? 1.0 : weakSelf.progress+0.05;
                     weakSelf.lineCheckStatus = weakSelf.progress == 1.0 ? @"匹配服务器完成，即将进入..." : @"正在匹配服务器，请稍后...";
                 }
-            }  failed:^(NSString *err) {
+            }  failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
                 NSLog(@"%@",err);
             }];
-        } failed:^(NSString *err) {
+        } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
             NSLog(@"检测失败:%@",err);
         }];
-    } failed:^(NSString *err) {
+    } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
         NSLog(@"检测失败:%@",err);
     }];
 }

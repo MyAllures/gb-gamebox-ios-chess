@@ -10,6 +10,10 @@
 
 @interface SH_NetWorkService (Login)
 
++ (void)fetchHttpCookie:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
+
 + (void)login:(NSString *)userName psw:(NSString *)psw verfyCode:(NSString *)verfyCode complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
+
++ (void)fetchUserInfo:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
 
 @end

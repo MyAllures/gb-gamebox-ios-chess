@@ -22,6 +22,7 @@
 @property (nonatomic, strong) NSString *currentPort;
 @property (nonatomic, strong) NSString *currentPreUrl;
 @property (nonatomic, strong) NSString *currentHost;
+@property (nonatomic, strong) NSString *currentCookie;
 @property (nonatomic, strong) NSString *currentSID;
 
 @end
