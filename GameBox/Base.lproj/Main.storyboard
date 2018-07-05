@@ -6,14 +6,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Line Check View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LineCheckViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VG6-jE-ntK"/>
                         <viewControllerLayoutGuide type="bottom" id="L6r-nP-SZN"/>
@@ -35,18 +34,55 @@
                                 </constraints>
                                 <color key="trackTintColor" red="0.29019607843137252" green="0.0" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正在匹配服务器,请稍后..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k54-Re-HF4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正在匹配服务器,请稍后..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k54-Re-HF4">
                                 <rect key="frame" x="260" y="295" width="148" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="148" id="w4v-wZ-YJQ"/>
+                                    <constraint firstAttribute="height" constant="16" id="wDX-8M-4XV"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOX-s5-mV8">
+                                <rect key="frame" x="161" y="309" width="68" height="58"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="progress_bar_icon" translatesAutoresizingMaskIntoConstraints="NO" id="sK7-IS-sRc">
+                                        <rect key="frame" x="20.5" y="19" width="27" height="20.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="27" id="ZTa-gJ-hdS"/>
+                                            <constraint firstAttribute="height" constant="20.5" id="fnG-vz-lhs"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFf-f3-2ib">
+                                        <rect key="frame" x="13" y="2" width="42" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="T9i-lH-pHY"/>
+                                            <constraint firstAttribute="height" constant="21" id="dQB-X5-UP8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="IFf-f3-2ib" firstAttribute="centerX" secondItem="gOX-s5-mV8" secondAttribute="centerX" id="ScC-Lb-Eo7"/>
+                                    <constraint firstAttribute="width" constant="68" id="VzF-l8-W6X"/>
+                                    <constraint firstItem="sK7-IS-sRc" firstAttribute="centerY" secondItem="gOX-s5-mV8" secondAttribute="centerY" id="e0H-KL-T3X"/>
+                                    <constraint firstItem="sK7-IS-sRc" firstAttribute="centerX" secondItem="gOX-s5-mV8" secondAttribute="centerX" id="ge9-au-CdL"/>
+                                    <constraint firstAttribute="height" constant="58" id="lEC-DI-t8G"/>
+                                    <constraint firstItem="IFf-f3-2ib" firstAttribute="top" secondItem="gOX-s5-mV8" secondAttribute="top" constant="2" id="otb-IU-xOe"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="k54-Re-HF4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1YO-4P-yds"/>
+                            <constraint firstItem="gOX-s5-mV8" firstAttribute="leading" secondItem="Wz2-x6-9Jf" secondAttribute="leading" constant="-34" id="8ps-o3-zMF"/>
                             <constraint firstItem="Uka-EU-gLu" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="JpQ-Mz-gd2"/>
                             <constraint firstItem="Wz2-x6-9Jf" firstAttribute="top" secondItem="k54-Re-HF4" secondAttribute="bottom" constant="25.5" id="QEv-dJ-JRa"/>
+                            <constraint firstItem="Wz2-x6-9Jf" firstAttribute="centerY" secondItem="gOX-s5-mV8" secondAttribute="centerY" id="ZkJ-Kb-CB5"/>
                             <constraint firstItem="L6r-nP-SZN" firstAttribute="top" secondItem="Wz2-x6-9Jf" secondAttribute="bottom" constant="35.5" id="eJm-D1-1BN"/>
                             <constraint firstItem="Wz2-x6-9Jf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gu7-3t-0Y9"/>
                             <constraint firstItem="Uka-EU-gLu" firstAttribute="top" secondItem="VG6-jE-ntK" secondAttribute="bottom" id="l0g-o6-0Of"/>
@@ -56,13 +92,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="DEp-M8-4Wh"/>
                     <connections>
+                        <outlet property="progressMarkLeading" destination="8ps-o3-zMF" id="QTY-zv-QDn"/>
+                        <outlet property="progressMarkView" destination="gOX-s5-mV8" id="UbF-ZJ-zVF"/>
+                        <outlet property="progressNumLB" destination="IFf-f3-2ib" id="5dp-3u-0b9"/>
                         <outlet property="progressView" destination="Wz2-x6-9Jf" id="eOh-vh-v5y"/>
                         <outlet property="statusLB" destination="k54-Re-HF4" id="Taq-8M-R7N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-82" y="598"/>
+            <point key="canvasLocation" x="-82.3088455772114" y="597.60000000000002"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cwk-24-Tu8">
@@ -81,6 +120,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="progress_bar_icon" width="27" height="20"/>
         <image name="start_bg.png" width="667" height="376"/>
     </resources>
 </document>

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5401C53120ECA10F0027246D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C53020ECA10F0027246D /* AppDelegate.m */; };
-		5401C53420ECA10F0027246D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C53320ECA10F0027246D /* ViewController.m */; };
+		5401C53420ECA10F0027246D /* LineCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C53320ECA10F0027246D /* LineCheckViewController.m */; };
 		5401C53720ECA10F0027246D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5401C53520ECA10F0027246D /* Main.storyboard */; };
 		5401C53920ECA1100027246D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5401C53820ECA1100027246D /* Assets.xcassets */; };
 		5401C53C20ECA1100027246D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5401C53A20ECA1100027246D /* LaunchScreen.storyboard */; };
@@ -31,8 +31,8 @@
 		5401C52C20ECA10F0027246D /* GameBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5401C52F20ECA10F0027246D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5401C53020ECA10F0027246D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5401C53220ECA10F0027246D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		5401C53320ECA10F0027246D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5401C53220ECA10F0027246D /* LineCheckViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LineCheckViewController.h; sourceTree = "<group>"; };
+		5401C53320ECA10F0027246D /* LineCheckViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LineCheckViewController.m; sourceTree = "<group>"; };
 		5401C53620ECA10F0027246D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5401C53820ECA1100027246D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5401C53B20ECA1100027246D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -95,8 +95,8 @@
 				5401C55B20ECF9B30027246D /* HomePage */,
 				5401C52F20ECA10F0027246D /* AppDelegate.h */,
 				5401C53020ECA10F0027246D /* AppDelegate.m */,
-				5401C53220ECA10F0027246D /* ViewController.h */,
-				5401C53320ECA10F0027246D /* ViewController.m */,
+				5401C53220ECA10F0027246D /* LineCheckViewController.h */,
+				5401C53320ECA10F0027246D /* LineCheckViewController.m */,
 				5401C53520ECA10F0027246D /* Main.storyboard */,
 				5401C53820ECA1100027246D /* Assets.xcassets */,
 				5401C53A20ECA1100027246D /* LaunchScreen.storyboard */,
@@ -317,7 +317,7 @@
 			files = (
 				5401C55220ECA1B80027246D /* GameWebViewController.m in Sources */,
 				5401C56220ECF9EA0027246D /* SH_HomeViewController.m in Sources */,
-				5401C53420ECA10F0027246D /* ViewController.m in Sources */,
+				5401C53420ECA10F0027246D /* LineCheckViewController.m in Sources */,
 				5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */,
 				5401C55620ECA2CC0027246D /* IPsCacheManager.m in Sources */,
 				5401C53F20ECA1100027246D /* main.m in Sources */,

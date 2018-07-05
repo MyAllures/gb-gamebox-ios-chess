@@ -1,26 +1,29 @@
 //
-//  ViewController.m
+//  LineCheckViewController.m
 //  GameBox
 //
 //  Created by shin on 2018/7/4.
 //  Copyright © 2018年 shin. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "LineCheckViewController.h"
 #import "SH_NetWorkService+LineCheck.h"
 #import "SH_HomeViewController.h"
 #import "NetWorkLineMangaer.h"
 
-@interface ViewController ()
+@interface LineCheckViewController ()
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 @property (weak, nonatomic) IBOutlet UILabel *statusLB;
+@property (weak, nonatomic) IBOutlet UIView *progressMarkView;
+@property (weak, nonatomic) IBOutlet UILabel *progressNumLB;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *progressMarkLeading;
 
 @property (nonatomic, assign) CGFloat progress;//线路检测进度
 @property (nonatomic, strong) NSString *lineCheckStatus;//线路检测提示语
 
 @end
 
-@implementation ViewController
+@implementation LineCheckViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -69,9 +72,10 @@
                         [NetWorkLineMangaer sharedManager].currentHttpType = checkTypeComp[0];
                         [NetWorkLineMangaer sharedManager].currentPort = checkTypeComp.count == 2 ? checkTypeComp[1] : @"";
                         [NetWorkLineMangaer sharedManager].currentPreUrl = [NSString stringWithFormat:@"%@://%@%@",[NetWorkLineMangaer sharedManager].currentHttpType,[NetWorkLineMangaer sharedManager].currentIP,[[NetWorkLineMangaer sharedManager].currentPort isEqualToString:@""] ? @"" : [NSString stringWithFormat:@":%@",[NetWorkLineMangaer sharedManager].currentPort]];
-                        
-                        SH_HomeViewController *homeVC =[[SH_HomeViewController alloc] initWithNibName:@"SH_HomeViewController" bundle:nil];
-                        [weakSelf.navigationController pushViewController:homeVC animated:NO];
+                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                            SH_HomeViewController *homeVC =[[SH_HomeViewController alloc] initWithNibName:@"SH_HomeViewController" bundle:nil];
+                            [weakSelf.navigationController pushViewController:homeVC animated:NO];
+                        });
                     });
                 }
                 else
@@ -94,6 +98,8 @@
 {
     _progress = progress;
     self.progressView.progress = _progress;
+    self.progressNumLB.text = [NSString stringWithFormat:@"%.0f%%",_progress*100];
+    self.progressMarkLeading.constant = -34+_progress*277;
 }
 
 - (void)setLineCheckStatus:(NSString *)lineCheckStatus
