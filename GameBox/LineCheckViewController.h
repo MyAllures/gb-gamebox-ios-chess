@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^SHCheckIPSSuccess)(NSDictionary *ips);//有一个ip check成功
+typedef void(^SHCheckIPSFailed)(void);//所有ip都check失败
+
 @interface LineCheckViewController : UIViewController
 
 
