@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2224CB7020EF8C5900E6872B /* SH_PromoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2224CB6F20EF8C5900E6872B /* SH_PromoView.m */; };
+		2224CB7220EF8C9500E6872B /* SH_PromoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2224CB7120EF8C9500E6872B /* SH_PromoView.xib */; };
 		5401C53120ECA10F0027246D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C53020ECA10F0027246D /* AppDelegate.m */; };
 		5401C53420ECA10F0027246D /* LineCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C53320ECA10F0027246D /* LineCheckViewController.m */; };
 		5401C53720ECA10F0027246D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5401C53520ECA10F0027246D /* Main.storyboard */; };
@@ -36,6 +38,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2224CB6E20EF8C5900E6872B /* SH_PromoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoView.h; sourceTree = "<group>"; };
+		2224CB6F20EF8C5900E6872B /* SH_PromoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoView.m; sourceTree = "<group>"; };
+		2224CB7120EF8C9500E6872B /* SH_PromoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PromoView.xib; sourceTree = "<group>"; };
 		3BBE090F9B091E073F4BB10C /* Pods-GameBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameBox/Pods-GameBox.release.xcconfig"; sourceTree = "<group>"; };
 		4C23814E2A7636D1CE6B89BC /* libPods-GameBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GameBox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5401C52C20ECA10F0027246D /* GameBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +101,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2224CB6D20EF8C3100E6872B /* Promo */ = {
+			isa = PBXGroup;
+			children = (
+				2224CB6E20EF8C5900E6872B /* SH_PromoView.h */,
+				2224CB6F20EF8C5900E6872B /* SH_PromoView.m */,
+				2224CB7120EF8C9500E6872B /* SH_PromoView.xib */,
+			);
+			path = Promo;
+			sourceTree = "<group>";
+		};
 		5401C52320ECA10F0027246D = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +132,7 @@
 		5401C52E20ECA10F0027246D /* GameBox */ = {
 			isa = PBXGroup;
 			children = (
+				2224CB6D20EF8C3100E6872B /* Promo */,
 				5401C54520ECA1B80027246D /* CoreBase */,
 				5401C55B20ECF9B30027246D /* HomePage */,
 				BF2F915020EF57E300CEDE8C /* RechargeCenter */,
@@ -353,6 +369,7 @@
 				BF2F916020EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.xib in Resources */,
 				BF2F915B20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib in Resources */,
 				5401C53720ECA10F0027246D /* Main.storyboard in Resources */,
+				2224CB7220EF8C9500E6872B /* SH_PromoView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +421,7 @@
 			files = (
 				5401C55220ECA1B80027246D /* GameWebViewController.m in Sources */,
 				BF2F915A20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m in Sources */,
+				2224CB7020EF8C5900E6872B /* SH_PromoView.m in Sources */,
 				5401C56220ECF9EA0027246D /* SH_HomeViewController.m in Sources */,
 				BF2F915F20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m in Sources */,
 				5401C53420ECA10F0027246D /* LineCheckViewController.m in Sources */,

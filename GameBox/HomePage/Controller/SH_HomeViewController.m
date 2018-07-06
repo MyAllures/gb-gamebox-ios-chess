@@ -12,6 +12,8 @@
 #import "GameWebViewController.h"
 #import "AppDelegate.h"
 #import "SH_RechargeViewController.h"
+#import "SH_PromoView.h"
+#import "View+MASAdditions.h"
 
 @interface SH_HomeViewController ()
 
@@ -58,6 +60,15 @@
 - (IBAction)rechargeAction:(id)sender {
     SH_RechargeViewController *rechargeVC = [[SH_RechargeViewController alloc] initWithNibName:@"SH_RechargeViewController" bundle:nil];
     [self.navigationController pushViewController:rechargeVC animated:YES];
+//    SH_PromoView *promoView = [[SH_PromoView alloc]initWithFrame:CGRectZero];
+//    [[UIApplication sharedApplication].keyWindow addSubview:promoView];
+//    UIEdgeInsets padding = UIEdgeInsetsMake(10, 80, 20, 80);
+//    [promoView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(self.view.mas_top).with.offset(padding.top);
+//        make.bottom.equalTo(self.view.mas_bottom).with.offset(-padding.bottom);
+//        make.left.equalTo(self.view.mas_left).with.offset(padding.left);
+//        make.right.equalTo(self.view.mas_right).with.offset(-padding.right);
+//    }];
 }
 
 /**
