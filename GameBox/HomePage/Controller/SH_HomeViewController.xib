@@ -26,36 +26,85 @@
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="top_bg" translatesAutoresizingMaskIntoConstraints="NO" id="vZe-oG-L3k">
                             <rect key="frame" x="0.0" y="0.0" width="667" height="50"/>
                         </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W8q-tW-WAo">
+                            <rect key="frame" x="29" y="10.5" width="126" height="29"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_info_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Ks0-Pr-oBR">
+                                    <rect key="frame" x="0.0" y="0.0" width="126" height="29"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大赢家desio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8V-nF-s7S">
+                                    <rect key="frame" x="20" y="0.0" width="106" height="29"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" red="1" green="0.85098039215686272" blue="0.30588235294117649" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="Ks0-Pr-oBR" secondAttribute="trailing" id="AyK-CC-7AR"/>
+                                <constraint firstAttribute="bottom" secondItem="Ks0-Pr-oBR" secondAttribute="bottom" id="FXY-Hx-PyD"/>
+                                <constraint firstItem="k8V-nF-s7S" firstAttribute="leading" secondItem="W8q-tW-WAo" secondAttribute="leading" constant="20" id="Jrg-eI-6FJ"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="KQl-MG-fjx"/>
+                                <constraint firstAttribute="bottom" secondItem="k8V-nF-s7S" secondAttribute="bottom" id="KwI-ya-pNi"/>
+                                <constraint firstItem="Ks0-Pr-oBR" firstAttribute="top" secondItem="W8q-tW-WAo" secondAttribute="top" id="RVf-lT-xyE"/>
+                                <constraint firstAttribute="height" constant="29" id="UfF-b6-QI5"/>
+                                <constraint firstItem="Ks0-Pr-oBR" firstAttribute="leading" secondItem="W8q-tW-WAo" secondAttribute="leading" id="ibG-Vd-VAG"/>
+                                <constraint firstAttribute="trailing" secondItem="k8V-nF-s7S" secondAttribute="trailing" id="kfg-1E-76q"/>
+                                <constraint firstItem="k8V-nF-s7S" firstAttribute="top" secondItem="W8q-tW-WAo" secondAttribute="top" id="rS5-8J-wGb"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="W8q-tW-WAo" firstAttribute="centerY" secondItem="T5H-Wr-I5l" secondAttribute="centerY" id="59D-x4-8nY"/>
                         <constraint firstAttribute="height" constant="50" id="5Ar-GN-NUf"/>
                         <constraint firstItem="vZe-oG-L3k" firstAttribute="top" secondItem="T5H-Wr-I5l" secondAttribute="top" id="5n1-46-az3"/>
+                        <constraint firstItem="W8q-tW-WAo" firstAttribute="leading" secondItem="T5H-Wr-I5l" secondAttribute="leading" constant="29" id="Kgk-Ob-1Qv"/>
                         <constraint firstAttribute="bottom" secondItem="vZe-oG-L3k" secondAttribute="bottom" id="dae-FD-5vN"/>
                         <constraint firstAttribute="trailing" secondItem="vZe-oG-L3k" secondAttribute="trailing" id="eMc-B3-tXX"/>
                         <constraint firstItem="vZe-oG-L3k" firstAttribute="leading" secondItem="T5H-Wr-I5l" secondAttribute="leading" id="jAm-oP-M13"/>
                     </constraints>
                 </view>
+<<<<<<< HEAD
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPe-Cw-BOo">
                     <rect key="frame" x="52" y="297" width="91" height="39"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="充值"/>
                     <connections>
                         <action selector="chongzhiBtnClick:" destination="-1" eventType="touchUpInside" id="cry-oG-h0a"/>
+=======
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dzF-kH-Jey">
+                    <rect key="frame" x="17" y="326" width="130" height="47"/>
+                    <state key="normal" image="btn_recharge"/>
+                    <connections>
+                        <action selector="rechargeAction:" destination="-1" eventType="touchUpInside" id="dyZ-Bh-T21"/>
+>>>>>>> 54f51035c42f20d347170e75cae88b979da7e65c
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+<<<<<<< HEAD
                 <constraint firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="34" id="1ua-2Y-xJf"/>
                 <constraint firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="AZq-b0-2Pq"/>
                 <constraint firstAttribute="width" secondAttribute="width" id="Ah9-Y0-naO"/>
                 <constraint firstAttribute="height" secondAttribute="height" id="oD2-9r-bHI"/>
             </constraints>
             <point key="canvasLocation" x="24.5" y="51.5"/>
+=======
+                <constraint firstItem="T5H-Wr-I5l" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="8Up-xS-fED"/>
+                <constraint firstAttribute="bottom" secondItem="dzF-kH-Jey" secondAttribute="bottom" constant="2" id="PC2-6o-xUV"/>
+                <constraint firstItem="T5H-Wr-I5l" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="R2V-pS-Ozm"/>
+                <constraint firstItem="dzF-kH-Jey" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="17" id="UKo-k7-WRV"/>
+                <constraint firstItem="T5H-Wr-I5l" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nmD-DT-8uu"/>
+            </constraints>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
+>>>>>>> 54f51035c42f20d347170e75cae88b979da7e65c
         </view>
     </objects>
     <resources>
+        <image name="btn_recharge" width="130" height="47"/>
         <image name="top_bg" width="666" height="50"/>
+        <image name="user_info_bg" width="126" height="28"/>
     </resources>
 </document>

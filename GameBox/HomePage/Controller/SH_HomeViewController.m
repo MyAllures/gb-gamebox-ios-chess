@@ -12,6 +12,9 @@
 #import "GameWebViewController.h"
 #import "AppDelegate.h"
 #import "SH_RechargeCenterViewController.h"
+#import "SH_RechargeViewController.h"
+
+
 @interface SH_HomeViewController ()
 
 @end
@@ -52,6 +55,11 @@
     GameWebViewController *gameVC = [[GameWebViewController alloc] initWithNibName:@"GameWebViewController" bundle:nil];
     gameVC.url = @"https://imes-mcasino.roshan88.com/mobile.aspx?id=262&token=010b04f8-87c9-4692-bb82-5fcb90c75f0d&LanguageCode=1";
     [self presentViewController:gameVC animated:YES completion:nil];
+}
+
+- (IBAction)rechargeAction:(id)sender {
+    SH_RechargeViewController *rechargeVC = [[SH_RechargeViewController alloc] initWithNibName:@"SH_RechargeViewController" bundle:nil];
+    [self.navigationController pushViewController:rechargeVC animated:YES];
 }
 
 /**
