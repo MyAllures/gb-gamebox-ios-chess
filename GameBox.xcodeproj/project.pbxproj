@@ -23,6 +23,8 @@
 		5401C56320ECF9EA0027246D /* SH_HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5401C56120ECF9EA0027246D /* SH_HomeViewController.xib */; };
 		5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C56520ECFB3E0027246D /* SH_NetWorkService+Login.m */; };
 		54C21AB120EE23B2006FCA0F /* SH_BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C21AB020EE23B2006FCA0F /* SH_BaseViewController.m */; };
+		54C21AB520EF70C8006FCA0F /* SH_RechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C21AB320EF70C8006FCA0F /* SH_RechargeViewController.m */; };
+		54C21AB620EF70C8006FCA0F /* SH_RechargeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C21AB420EF70C8006FCA0F /* SH_RechargeViewController.xib */; };
 		F88297C8CDA8BE450455395E /* libPods-GameBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C23814E2A7636D1CE6B89BC /* libPods-GameBox.a */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +60,9 @@
 		5401C56520ECFB3E0027246D /* SH_NetWorkService+Login.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+Login.m"; sourceTree = "<group>"; };
 		54C21AAF20EE23B2006FCA0F /* SH_BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_BaseViewController.h; sourceTree = "<group>"; };
 		54C21AB020EE23B2006FCA0F /* SH_BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_BaseViewController.m; sourceTree = "<group>"; };
+		54C21AB220EF70C8006FCA0F /* SH_RechargeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_RechargeViewController.h; sourceTree = "<group>"; };
+		54C21AB320EF70C8006FCA0F /* SH_RechargeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_RechargeViewController.m; sourceTree = "<group>"; };
+		54C21AB420EF70C8006FCA0F /* SH_RechargeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_RechargeViewController.xib; sourceTree = "<group>"; };
 		CD08B466133A38336C9BD914 /* Pods-GameBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GameBox/Pods-GameBox.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,6 +174,9 @@
 				5401C55F20ECF9EA0027246D /* SH_HomeViewController.h */,
 				5401C56020ECF9EA0027246D /* SH_HomeViewController.m */,
 				5401C56120ECF9EA0027246D /* SH_HomeViewController.xib */,
+				54C21AB220EF70C8006FCA0F /* SH_RechargeViewController.h */,
+				54C21AB320EF70C8006FCA0F /* SH_RechargeViewController.m */,
+				54C21AB420EF70C8006FCA0F /* SH_RechargeViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -278,6 +286,7 @@
 				5401C56320ECF9EA0027246D /* SH_HomeViewController.xib in Resources */,
 				5401C55120ECA1B80027246D /* GameWebViewController.xib in Resources */,
 				5401C53920ECA1100027246D /* Assets.xcassets in Resources */,
+				54C21AB620EF70C8006FCA0F /* SH_RechargeViewController.xib in Resources */,
 				5401C53720ECA10F0027246D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,6 +341,7 @@
 				5401C56220ECF9EA0027246D /* SH_HomeViewController.m in Sources */,
 				5401C53420ECA10F0027246D /* LineCheckViewController.m in Sources */,
 				5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */,
+				54C21AB520EF70C8006FCA0F /* SH_RechargeViewController.m in Sources */,
 				5401C55620ECA2CC0027246D /* IPsCacheManager.m in Sources */,
 				5401C53F20ECA1100027246D /* main.m in Sources */,
 				5401C55A20ECA48D0027246D /* NetWorkLineMangaer.m in Sources */,
@@ -483,6 +493,7 @@
 				DEVELOPMENT_TEAM = SFMD88G3NR;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = GameBox/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -502,6 +513,7 @@
 				DEVELOPMENT_TEAM = SFMD88G3NR;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = GameBox/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -19,11 +19,28 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+//    UIInterfaceOrientationMask mask = [self orientation];
+//    if (mask == UIInterfaceOrientationMaskLandscape) {
+//        [self forceOrientationLandscape];
+//    }
+//    else if (mask == UIInterfaceOrientationMaskPortrait)
+//    {
+//        [self forceOrientationPortrait];
+//    }
+//    else if (mask == UIInterfaceOrientationMaskAll)
+//    {
+//        [self refreshOrientationAll];
+//    }
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
     UIInterfaceOrientationMask mask = [self orientation];
-    if (mask == (UIInterfaceOrientationMaskLandscape | UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight)) {
+    if (mask == UIInterfaceOrientationMaskLandscape) {
         [self forceOrientationLandscape];
     }
-    else if (mask == (UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskPortraitUpsideDown))
+    else if (mask == UIInterfaceOrientationMaskPortrait)
     {
         [self forceOrientationPortrait];
     }
@@ -31,11 +48,6 @@
     {
         [self refreshOrientationAll];
     }
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (void)viewDidDisappear:(BOOL)animated
