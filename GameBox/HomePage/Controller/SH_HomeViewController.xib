@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Unknown constraint types" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,10 +20,10 @@
             <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T5H-Wr-I5l">
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T5H-Wr-I5l">
                     <rect key="frame" x="0.0" y="0.0" width="667" height="50"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_bg" translatesAutoresizingMaskIntoConstraints="NO" id="vZe-oG-L3k">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="top_bg" translatesAutoresizingMaskIntoConstraints="NO" id="vZe-oG-L3k">
                             <rect key="frame" x="0.0" y="0.0" width="667" height="50"/>
                         </imageView>
                     </subviews>
@@ -35,16 +36,23 @@
                         <constraint firstItem="vZe-oG-L3k" firstAttribute="leading" secondItem="T5H-Wr-I5l" secondAttribute="leading" id="jAm-oP-M13"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPe-Cw-BOo">
+                    <rect key="frame" x="52" y="297" width="91" height="39"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="充值"/>
+                    <connections>
+                        <action selector="chongzhiBtnClick:" destination="-1" eventType="touchUpInside" id="cry-oG-h0a"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="dGk-Gk-0wc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="34" id="1ua-2Y-xJf"/>
-                <constraint firstItem="U3C-gS-zsX" firstAttribute="centerY" secondItem="dGk-Gk-0wc" secondAttribute="centerY" id="4Q7-Wm-h0q"/>
-                <constraint firstItem="dGk-Gk-0wc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="AZq-b0-2Pq"/>
-                <constraint firstItem="U3C-gS-zsX" firstAttribute="width" secondItem="dGk-Gk-0wc" secondAttribute="width" id="Ah9-Y0-naO"/>
-                <constraint firstItem="U3C-gS-zsX" firstAttribute="leading" secondItem="dGk-Gk-0wc" secondAttribute="trailing" constant="70" id="NVc-tD-gYu"/>
-                <constraint firstItem="U3C-gS-zsX" firstAttribute="height" secondItem="dGk-Gk-0wc" secondAttribute="height" id="oD2-9r-bHI"/>
+                <constraint firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="34" id="1ua-2Y-xJf"/>
+                <constraint firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="AZq-b0-2Pq"/>
+                <constraint firstAttribute="width" secondAttribute="width" id="Ah9-Y0-naO"/>
+                <constraint firstAttribute="height" secondAttribute="height" id="oD2-9r-bHI"/>
             </constraints>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
         </view>
     </objects>
     <resources>
