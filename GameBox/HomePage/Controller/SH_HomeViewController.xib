@@ -20,35 +20,34 @@
             <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGk-Gk-0wc">
-                    <rect key="frame" x="34" y="20" width="100" height="44"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T5H-Wr-I5l">
+                    <rect key="frame" x="0.0" y="0.0" width="667" height="50"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_bg" translatesAutoresizingMaskIntoConstraints="NO" id="vZe-oG-L3k">
+                            <rect key="frame" x="0.0" y="0.0" width="667" height="50"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="100" id="TS9-Q5-VAX"/>
-                        <constraint firstAttribute="height" constant="44" id="chN-LM-TSQ"/>
+                        <constraint firstAttribute="height" constant="50" id="5Ar-GN-NUf"/>
+                        <constraint firstItem="vZe-oG-L3k" firstAttribute="top" secondItem="T5H-Wr-I5l" secondAttribute="top" id="5n1-46-az3"/>
+                        <constraint firstAttribute="bottom" secondItem="vZe-oG-L3k" secondAttribute="bottom" id="dae-FD-5vN"/>
+                        <constraint firstAttribute="trailing" secondItem="vZe-oG-L3k" secondAttribute="trailing" id="eMc-B3-tXX"/>
+                        <constraint firstItem="vZe-oG-L3k" firstAttribute="leading" secondItem="T5H-Wr-I5l" secondAttribute="leading" id="jAm-oP-M13"/>
                     </constraints>
-                    <state key="normal" title="登录"/>
-                    <connections>
-                        <action selector="login:" destination="-1" eventType="touchUpInside" id="WDt-cw-JXu"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U3C-gS-zsX">
-                    <rect key="frame" x="204" y="20" width="100" height="44"/>
-                    <state key="normal" title="进入游戏"/>
-                    <connections>
-                        <action selector="enterGame:" destination="-1" eventType="touchUpInside" id="Arx-MX-J7j"/>
-                    </connections>
-                </button>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="dGk-Gk-0wc" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="34" id="1ua-2Y-xJf"/>
-                <constraint firstItem="U3C-gS-zsX" firstAttribute="centerY" secondItem="dGk-Gk-0wc" secondAttribute="centerY" id="4Q7-Wm-h0q"/>
-                <constraint firstItem="dGk-Gk-0wc" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="20" id="AZq-b0-2Pq"/>
-                <constraint firstItem="U3C-gS-zsX" firstAttribute="width" secondItem="dGk-Gk-0wc" secondAttribute="width" id="Ah9-Y0-naO"/>
-                <constraint firstItem="U3C-gS-zsX" firstAttribute="leading" secondItem="dGk-Gk-0wc" secondAttribute="trailing" constant="70" id="NVc-tD-gYu"/>
-                <constraint firstItem="U3C-gS-zsX" firstAttribute="height" secondItem="dGk-Gk-0wc" secondAttribute="height" id="oD2-9r-bHI"/>
+                <constraint firstItem="T5H-Wr-I5l" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="8Up-xS-fED"/>
+                <constraint firstItem="T5H-Wr-I5l" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="R2V-pS-Ozm"/>
+                <constraint firstItem="T5H-Wr-I5l" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="nmD-DT-8uu"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="top_bg" width="666" height="50"/>
+    </resources>
 </document>
