@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -41,14 +40,13 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="dGk-Gk-0wc" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="34" id="1ua-2Y-xJf"/>
+                <constraint firstItem="dGk-Gk-0wc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="34" id="1ua-2Y-xJf"/>
                 <constraint firstItem="U3C-gS-zsX" firstAttribute="centerY" secondItem="dGk-Gk-0wc" secondAttribute="centerY" id="4Q7-Wm-h0q"/>
-                <constraint firstItem="dGk-Gk-0wc" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="20" id="AZq-b0-2Pq"/>
+                <constraint firstItem="dGk-Gk-0wc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="AZq-b0-2Pq"/>
                 <constraint firstItem="U3C-gS-zsX" firstAttribute="width" secondItem="dGk-Gk-0wc" secondAttribute="width" id="Ah9-Y0-naO"/>
                 <constraint firstItem="U3C-gS-zsX" firstAttribute="leading" secondItem="dGk-Gk-0wc" secondAttribute="trailing" constant="70" id="NVc-tD-gYu"/>
                 <constraint firstItem="U3C-gS-zsX" firstAttribute="height" secondItem="dGk-Gk-0wc" secondAttribute="height" id="oD2-9r-bHI"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
         </view>
     </objects>
 </document>
