@@ -26,9 +26,9 @@
     self.view.layer.contents = (__bridge id _Nullable)(img.CGImage);
     self.title_label.text = self.subTitle?self.subTitle:@"充值中心";
     
-    UITapGestureRecognizer * tap = [[UITapGestureRecognizer  alloc] initWithTarget:self action:@selector(closeClick:)];
-    tap.delegate= self;
-    [self.view addGestureRecognizer:tap];
+//    UITapGestureRecognizer * tap = [[UITapGestureRecognizer  alloc] initWithTarget:self action:@selector(closeClick:)];
+//    tap.delegate= self;
+//    [self.view addGestureRecognizer:tap];
 }
 - (IBAction)closeClick:(id)sender {
     if (self.dismissBlock) {
