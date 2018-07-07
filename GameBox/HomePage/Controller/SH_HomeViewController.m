@@ -11,9 +11,11 @@
 #import "NetWorkLineMangaer.h"
 #import "GameWebViewController.h"
 #import "AppDelegate.h"
+#import "SH_RechargeCenterViewController.h"
 #import "SH_RechargeViewController.h"
 #import "SH_PromoView.h"
 #import "View+MASAdditions.h"
+
 
 @interface SH_HomeViewController ()
 
@@ -83,6 +85,9 @@
     } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
         //
     }];
+}
+- (IBAction)chongzhiBtnClick:(id)sender {
+    [self presentViewController:[[SH_RechargeCenterViewController alloc]init] animated:YES completion:nil];
 }
 
 @end

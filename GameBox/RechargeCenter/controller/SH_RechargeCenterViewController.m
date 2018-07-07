@@ -18,11 +18,18 @@
 
 @implementation SH_RechargeCenterViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
+
     [self loadData];
     [self configUI];
+}
+- (UIInterfaceOrientationMask)orientation
+{
+    return UIInterfaceOrientationMaskPortrait;
 }
 #pragma mark--
 #pragma mark--lazy UI
