@@ -64,10 +64,11 @@
 //    [[UIApplication sharedApplication].keyWindow addSubview:promoView];
 //    UIEdgeInsets padding = UIEdgeInsetsMake(10, 80, 20, 80);
 //    [promoView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.view.mas_top).with.offset(padding.top);
-//        make.bottom.equalTo(self.view.mas_bottom).with.offset(-padding.bottom);
-//        make.left.equalTo(self.view.mas_left).with.offset(padding.left);
-//        make.right.equalTo(self.view.mas_right).with.offset(-padding.right);
+//        make.edges.equalTo(self.view).with.insets(padding);
+////        make.top.equalTo(self.view.mas_top).with.offset(padding.top);
+////        make.bottom.equalTo(self.view.mas_bottom).with.offset(-padding.bottom);
+////        make.left.equalTo(self.view.mas_left).with.offset(padding.left);
+////        make.right.equalTo(self.view.mas_right).with.offset(-padding.right);
 //    }];
 }
 

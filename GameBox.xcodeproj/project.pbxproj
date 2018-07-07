@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2209026620F053D400F8828E /* SH_PromoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2209026420F053D400F8828E /* SH_PromoViewCell.m */; };
+		2209026720F053D400F8828E /* SH_PromoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2209026520F053D400F8828E /* SH_PromoViewCell.xib */; };
 		2224CB7020EF8C5900E6872B /* SH_PromoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2224CB6F20EF8C5900E6872B /* SH_PromoView.m */; };
 		2224CB7220EF8C9500E6872B /* SH_PromoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2224CB7120EF8C9500E6872B /* SH_PromoView.xib */; };
 		5401C53120ECA10F0027246D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C53020ECA10F0027246D /* AppDelegate.m */; };
@@ -38,6 +40,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2209026320F053D400F8828E /* SH_PromoViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoViewCell.h; sourceTree = "<group>"; };
+		2209026420F053D400F8828E /* SH_PromoViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoViewCell.m; sourceTree = "<group>"; };
+		2209026520F053D400F8828E /* SH_PromoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PromoViewCell.xib; sourceTree = "<group>"; };
 		2224CB6E20EF8C5900E6872B /* SH_PromoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoView.h; sourceTree = "<group>"; };
 		2224CB6F20EF8C5900E6872B /* SH_PromoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoView.m; sourceTree = "<group>"; };
 		2224CB7120EF8C9500E6872B /* SH_PromoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PromoView.xib; sourceTree = "<group>"; };
@@ -107,6 +112,9 @@
 				2224CB6E20EF8C5900E6872B /* SH_PromoView.h */,
 				2224CB6F20EF8C5900E6872B /* SH_PromoView.m */,
 				2224CB7120EF8C9500E6872B /* SH_PromoView.xib */,
+				2209026320F053D400F8828E /* SH_PromoViewCell.h */,
+				2209026420F053D400F8828E /* SH_PromoViewCell.m */,
+				2209026520F053D400F8828E /* SH_PromoViewCell.xib */,
 			);
 			path = Promo;
 			sourceTree = "<group>";
@@ -366,6 +374,7 @@
 				5401C55120ECA1B80027246D /* GameWebViewController.xib in Resources */,
 				5401C53920ECA1100027246D /* Assets.xcassets in Resources */,
 				54C21AB620EF70C8006FCA0F /* SH_RechargeViewController.xib in Resources */,
+				2209026720F053D400F8828E /* SH_PromoViewCell.xib in Resources */,
 				BF2F916020EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.xib in Resources */,
 				BF2F915B20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib in Resources */,
 				5401C53720ECA10F0027246D /* Main.storyboard in Resources */,
@@ -426,6 +435,7 @@
 				BF2F915F20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m in Sources */,
 				5401C53420ECA10F0027246D /* LineCheckViewController.m in Sources */,
 				BF2F916420EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.m in Sources */,
+				2209026620F053D400F8828E /* SH_PromoViewCell.m in Sources */,
 				5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */,
 				54C21AB520EF70C8006FCA0F /* SH_RechargeViewController.m in Sources */,
 				5401C55620ECA2CC0027246D /* IPsCacheManager.m in Sources */,
