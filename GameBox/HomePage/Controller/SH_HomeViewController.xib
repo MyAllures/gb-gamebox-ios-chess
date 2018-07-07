@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Unknown constraint types" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,10 +19,10 @@
             <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T5H-Wr-I5l">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T5H-Wr-I5l">
                     <rect key="frame" x="0.0" y="0.0" width="667" height="50"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="top_bg" translatesAutoresizingMaskIntoConstraints="NO" id="vZe-oG-L3k">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_bg" translatesAutoresizingMaskIntoConstraints="NO" id="vZe-oG-L3k">
                             <rect key="frame" x="0.0" y="0.0" width="667" height="50"/>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W8q-tW-WAo">
@@ -65,41 +64,23 @@
                         <constraint firstItem="vZe-oG-L3k" firstAttribute="leading" secondItem="T5H-Wr-I5l" secondAttribute="leading" id="jAm-oP-M13"/>
                     </constraints>
                 </view>
-<<<<<<< HEAD
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPe-Cw-BOo">
-                    <rect key="frame" x="52" y="297" width="91" height="39"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="充值"/>
-                    <connections>
-                        <action selector="chongzhiBtnClick:" destination="-1" eventType="touchUpInside" id="cry-oG-h0a"/>
-=======
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dzF-kH-Jey">
                     <rect key="frame" x="17" y="326" width="130" height="47"/>
                     <state key="normal" image="btn_recharge"/>
                     <connections>
                         <action selector="rechargeAction:" destination="-1" eventType="touchUpInside" id="dyZ-Bh-T21"/>
->>>>>>> 54f51035c42f20d347170e75cae88b979da7e65c
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-<<<<<<< HEAD
-                <constraint firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="34" id="1ua-2Y-xJf"/>
-                <constraint firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="AZq-b0-2Pq"/>
-                <constraint firstAttribute="width" secondAttribute="width" id="Ah9-Y0-naO"/>
-                <constraint firstAttribute="height" secondAttribute="height" id="oD2-9r-bHI"/>
-            </constraints>
-            <point key="canvasLocation" x="24.5" y="51.5"/>
-=======
                 <constraint firstItem="T5H-Wr-I5l" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="8Up-xS-fED"/>
                 <constraint firstAttribute="bottom" secondItem="dzF-kH-Jey" secondAttribute="bottom" constant="2" id="PC2-6o-xUV"/>
                 <constraint firstItem="T5H-Wr-I5l" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="R2V-pS-Ozm"/>
                 <constraint firstItem="dzF-kH-Jey" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="17" id="UKo-k7-WRV"/>
                 <constraint firstItem="T5H-Wr-I5l" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nmD-DT-8uu"/>
             </constraints>
-            <point key="canvasLocation" x="33.5" y="53.5"/>
->>>>>>> 54f51035c42f20d347170e75cae88b979da7e65c
+            <point key="canvasLocation" x="-19" y="-11"/>
         </view>
     </objects>
     <resources>

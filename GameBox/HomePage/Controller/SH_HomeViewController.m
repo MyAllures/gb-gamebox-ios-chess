@@ -13,8 +13,6 @@
 #import "AppDelegate.h"
 #import "SH_RechargeCenterViewController.h"
 #import "SH_RechargeViewController.h"
-
-
 @interface SH_HomeViewController ()
 
 @end
@@ -58,8 +56,9 @@
 }
 
 - (IBAction)rechargeAction:(id)sender {
+    [self login:sender];
     SH_RechargeViewController *rechargeVC = [[SH_RechargeViewController alloc] initWithNibName:@"SH_RechargeViewController" bundle:nil];
-    [self.navigationController pushViewController:rechargeVC animated:YES];
+    [self.navigationController pushViewController:[[SH_RechargeCenterViewController alloc]init] animated:YES];
 }
 
 /**
