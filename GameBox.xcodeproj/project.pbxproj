@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42A785F320EF70080021EBDC /* PlayerCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A785F220EF70080021EBDC /* PlayerCenterViewController.m */; };
+		42A785FC20EF827D0021EBDC /* UIImage+RadioImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A785FB20EF827D0021EBDC /* UIImage+RadioImage.m */; };
+		42A785FF20EF88B60021EBDC /* UIImageView+RadioImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A785FE20EF88B60021EBDC /* UIImageView+RadioImageView.m */; };
 		5401C53120ECA10F0027246D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C53020ECA10F0027246D /* AppDelegate.m */; };
 		5401C53420ECA10F0027246D /* LineCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C53320ECA10F0027246D /* LineCheckViewController.m */; };
 		5401C53720ECA10F0027246D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5401C53520ECA10F0027246D /* Main.storyboard */; };
@@ -27,6 +30,12 @@
 
 /* Begin PBXFileReference section */
 		3BBE090F9B091E073F4BB10C /* Pods-GameBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameBox/Pods-GameBox.release.xcconfig"; sourceTree = "<group>"; };
+		42A785F120EF70080021EBDC /* PlayerCenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerCenterViewController.h; sourceTree = "<group>"; };
+		42A785F220EF70080021EBDC /* PlayerCenterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerCenterViewController.m; sourceTree = "<group>"; };
+		42A785FA20EF827D0021EBDC /* UIImage+RadioImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+RadioImage.h"; sourceTree = "<group>"; };
+		42A785FB20EF827D0021EBDC /* UIImage+RadioImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RadioImage.m"; sourceTree = "<group>"; };
+		42A785FD20EF88B60021EBDC /* UIImageView+RadioImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+RadioImageView.h"; sourceTree = "<group>"; };
+		42A785FE20EF88B60021EBDC /* UIImageView+RadioImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+RadioImageView.m"; sourceTree = "<group>"; };
 		4C23814E2A7636D1CE6B89BC /* libPods-GameBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GameBox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5401C52C20ECA10F0027246D /* GameBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5401C52F20ECA10F0027246D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -152,6 +161,10 @@
 		5401C55B20ECF9B30027246D /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				42A785FA20EF827D0021EBDC /* UIImage+RadioImage.h */,
+				42A785FB20EF827D0021EBDC /* UIImage+RadioImage.m */,
+				42A785FD20EF88B60021EBDC /* UIImageView+RadioImageView.h */,
+				42A785FE20EF88B60021EBDC /* UIImageView+RadioImageView.m */,
 				5401C55C20ECF9B30027246D /* Controller */,
 				5401C55D20ECF9B30027246D /* Model */,
 				5401C55E20ECF9B30027246D /* View */,
@@ -165,6 +178,8 @@
 				5401C55F20ECF9EA0027246D /* SH_HomeViewController.h */,
 				5401C56020ECF9EA0027246D /* SH_HomeViewController.m */,
 				5401C56120ECF9EA0027246D /* SH_HomeViewController.xib */,
+				42A785F120EF70080021EBDC /* PlayerCenterViewController.h */,
+				42A785F220EF70080021EBDC /* PlayerCenterViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -316,8 +331,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5401C55220ECA1B80027246D /* GameWebViewController.m in Sources */,
+				42A785F320EF70080021EBDC /* PlayerCenterViewController.m in Sources */,
 				5401C56220ECF9EA0027246D /* SH_HomeViewController.m in Sources */,
+				42A785FF20EF88B60021EBDC /* UIImageView+RadioImageView.m in Sources */,
 				5401C53420ECA10F0027246D /* LineCheckViewController.m in Sources */,
+				42A785FC20EF827D0021EBDC /* UIImage+RadioImage.m in Sources */,
 				5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */,
 				5401C55620ECA2CC0027246D /* IPsCacheManager.m in Sources */,
 				5401C53F20ECA1100027246D /* main.m in Sources */,
