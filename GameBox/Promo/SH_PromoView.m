@@ -23,11 +23,11 @@
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 
-- (void)getPromoList:(NSInteger )pageNumber pageSize:(NSInteger )pageSize complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
+- (void)getPromoList:(NSInteger )pageNumber pageSize:(NSInteger )pageSize activityClassifyKey:(NSString *)activityClassifyKey complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
 {
-    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/getMyPromo.html"];
-    NSDictionary *parameter =  @{@"paging.pageNumber":@(pageNumber),@"paging.pageSize":@(pageSize)};
-    NSDictionary *header = @{@"X-Requested-With":@"XMLHttpRequest",@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/discountsOrigin/getActivityTypeList.html"];
+    NSDictionary *parameter =  @{@"paging.pageNumber":@(pageNumber),@"paging.pageSize":@(pageSize),@"search.activityClassifyKey":activityClassifyKey};
+    NSDictionary *header = @{@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentSID};
     [SH_NetWorkService post:url parameter:parameter header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse, response);
@@ -41,8 +41,9 @@
 
 - (void)drawRect:(CGRect)rect {
     
-    [self getPromoList:1 pageSize:50 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        
+    [self getPromoList:1 pageSize:50 activityClassifyKey:@"全部"  complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSDictionary *dict = (NSDictionary *)response;
+        NSLog(@"dict====%@",dict);
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
