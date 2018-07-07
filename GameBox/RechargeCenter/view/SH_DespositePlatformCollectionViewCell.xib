@@ -33,6 +33,7 @@
                     </label>
                 </subviews>
             </view>
+            <color key="backgroundColor" red="0.1069291686" green="1" blue="0.040969342489999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstItem="hFk-ut-JRw" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="AGs-Gs-ycR"/>
                 <constraint firstAttribute="bottom" secondItem="hFk-ut-JRw" secondAttribute="bottom" constant="10" id="dic-s2-JMS"/>
