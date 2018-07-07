@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
+            <connections>
+                <outlet property="leftContrainerView" destination="zzg-Nw-b3Y" id="LK4-Cw-nnS"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="407" height="300"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zzg-Nw-b3Y">
+                    <rect key="frame" x="0.0" y="0.0" width="135" height="300"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NBz-QR-gfn">
+                            <rect key="frame" x="8" y="8" width="119" height="47"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                            <state key="normal" title="登录" backgroundImage="login_button">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="Dmh-lW-PDn"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhd-Qe-20D">
+                            <rect key="frame" x="8" y="63" width="119" height="47"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                            <state key="normal" title="注册" backgroundImage="login_button_click">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="NBz-QR-gfn" firstAttribute="top" secondItem="zzg-Nw-b3Y" secondAttribute="top" constant="8" id="TXi-1M-99F"/>
+                        <constraint firstAttribute="width" constant="135" id="Vub-u9-unb"/>
+                        <constraint firstItem="qhd-Qe-20D" firstAttribute="leading" secondItem="NBz-QR-gfn" secondAttribute="leading" id="hAH-iL-3Gv"/>
+                        <constraint firstItem="qhd-Qe-20D" firstAttribute="top" secondItem="NBz-QR-gfn" secondAttribute="bottom" constant="8" id="hIH-hi-Zsp"/>
+                        <constraint firstItem="qhd-Qe-20D" firstAttribute="trailing" secondItem="NBz-QR-gfn" secondAttribute="trailing" id="in8-a4-NR5"/>
+                        <constraint firstItem="NBz-QR-gfn" firstAttribute="leading" secondItem="zzg-Nw-b3Y" secondAttribute="leading" constant="8" id="kMF-Ch-BLO"/>
+                        <constraint firstAttribute="trailing" secondItem="NBz-QR-gfn" secondAttribute="trailing" constant="8" id="r7n-gV-I0x"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Caj-tI-XYs">
+                    <rect key="frame" x="143" y="8" width="256" height="284"/>
+                    <color key="backgroundColor" red="0.3411764705882353" green="0.396078431372549" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.16470588235294117" green="0.20784313725490194" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="zzg-Nw-b3Y" secondAttribute="bottom" id="82q-PH-KFC"/>
+                <constraint firstAttribute="bottom" secondItem="Caj-tI-XYs" secondAttribute="bottom" constant="8" id="LO5-oy-O8d"/>
+                <constraint firstAttribute="trailing" secondItem="Caj-tI-XYs" secondAttribute="trailing" constant="8" id="WFq-xH-OaY"/>
+                <constraint firstItem="Caj-tI-XYs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="Y1t-g9-bib"/>
+                <constraint firstItem="zzg-Nw-b3Y" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="g99-e6-NF5"/>
+                <constraint firstItem="Caj-tI-XYs" firstAttribute="leading" secondItem="zzg-Nw-b3Y" secondAttribute="trailing" constant="8" id="hVU-N6-02B"/>
+                <constraint firstItem="zzg-Nw-b3Y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="yJc-Bd-bWu"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="25.5" y="-171"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="login_button" width="122" height="47"/>
+        <image name="login_button_click" width="122" height="47"/>
+    </resources>
+</document>
