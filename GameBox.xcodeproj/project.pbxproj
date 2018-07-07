@@ -338,9 +338,9 @@
 		DA18EFC720F0AA02002B7E22 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DA18EFCA20F0AA02002B7E22 /* LoginViewController.h */,
 				DA18EFC820F0AA02002B7E22 /* LoginViewController.m */,
 				DA18EFC920F0AA02002B7E22 /* LoginViewController.xib */,
-				DA18EFCA20F0AA02002B7E22 /* LoginViewController.h */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
