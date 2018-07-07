@@ -34,8 +34,8 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l18-d6-jD3">
-                            <rect key="frame" x="198" y="24" width="35" height="22"/>
-                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                            <rect key="frame" x="189" y="19" width="53" height="32.5"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                             <color key="textColor" red="0.94509803921568625" green="0.89411764705882346" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
