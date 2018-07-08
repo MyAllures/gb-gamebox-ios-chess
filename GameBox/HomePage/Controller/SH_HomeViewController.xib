@@ -26,13 +26,13 @@
                             <rect key="frame" x="0.0" y="0.0" width="667" height="50"/>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W8q-tW-WAo">
-                            <rect key="frame" x="29" y="10.5" width="126" height="29"/>
+                            <rect key="frame" x="29" y="10.5" width="97.5" height="29"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_info_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Ks0-Pr-oBR">
-                                    <rect key="frame" x="0.0" y="0.0" width="126" height="29"/>
+                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_info_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Ks0-Pr-oBR">
+                                    <rect key="frame" x="0.0" y="0.0" width="97.5" height="29"/>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大赢家desio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8V-nF-s7S">
-                                    <rect key="frame" x="20" y="0.0" width="106" height="29"/>
+                                    <rect key="frame" x="20" y="0.0" width="67.5" height="29"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" red="1" green="0.85098039215686272" blue="0.30588235294117649" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -48,7 +48,7 @@
                                 <constraint firstItem="Ks0-Pr-oBR" firstAttribute="top" secondItem="W8q-tW-WAo" secondAttribute="top" id="RVf-lT-xyE"/>
                                 <constraint firstAttribute="height" constant="29" id="UfF-b6-QI5"/>
                                 <constraint firstItem="Ks0-Pr-oBR" firstAttribute="leading" secondItem="W8q-tW-WAo" secondAttribute="leading" id="ibG-Vd-VAG"/>
-                                <constraint firstAttribute="trailing" secondItem="k8V-nF-s7S" secondAttribute="trailing" id="kfg-1E-76q"/>
+                                <constraint firstAttribute="trailing" secondItem="k8V-nF-s7S" secondAttribute="trailing" constant="10" id="kfg-1E-76q"/>
                                 <constraint firstItem="k8V-nF-s7S" firstAttribute="top" secondItem="W8q-tW-WAo" secondAttribute="top" id="rS5-8J-wGb"/>
                             </constraints>
                         </view>
@@ -86,6 +86,6 @@
     <resources>
         <image name="btn_recharge" width="130" height="47"/>
         <image name="top_bg" width="666" height="50"/>
-        <image name="user_info_bg" width="126" height="28"/>
+        <image name="user_info_bg" width="28" height="28"/>
     </resources>
 </document>
