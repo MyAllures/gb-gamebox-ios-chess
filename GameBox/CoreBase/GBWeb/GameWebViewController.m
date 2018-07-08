@@ -58,7 +58,6 @@
         [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie:cookieuser];
         [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookieAcceptPolicy:NSHTTPCookieAcceptPolicyAlways];
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.url] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
-
         [self.webview loadRequest:request];
     }
 }
@@ -68,6 +67,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)dismiss:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 #pragma mark - UIWebViewDelegate M

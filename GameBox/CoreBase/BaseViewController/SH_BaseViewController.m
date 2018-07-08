@@ -19,23 +19,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-//    UIInterfaceOrientationMask mask = [self orientation];
-//    if (mask == UIInterfaceOrientationMaskLandscape) {
-//        [self forceOrientationLandscape];
-//    }
-//    else if (mask == UIInterfaceOrientationMaskPortrait)
-//    {
-//        [self forceOrientationPortrait];
-//    }
-//    else if (mask == UIInterfaceOrientationMaskAll)
-//    {
-//        [self refreshOrientationAll];
-//    }
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
     UIInterfaceOrientationMask mask = [self orientation];
     if (mask == UIInterfaceOrientationMaskLandscape) {
         [self forceOrientationLandscape];
@@ -47,6 +30,23 @@
     else if (mask == UIInterfaceOrientationMaskAll)
     {
         [self refreshOrientationAll];
+    }
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    //如果是竖屏 则退出时强制为横屏
+    UIInterfaceOrientationMask mask = [self orientation];
+    if (mask == UIInterfaceOrientationMaskPortrait || mask == UIInterfaceOrientationMaskAll)
+    {
+        [self forceOrientationLandscape];
     }
 }
 
@@ -93,49 +93,21 @@
     }
     //加上代理类里的方法，旋转屏幕可以达到强制横屏的效果
     AppDelegate *appdelegate=(AppDelegate *)[UIApplication sharedApplication].delegate;
-    appdelegate.forceLandscape=YES;
+    appdelegate.forcePortrait = NO;
+    appdelegate.forceLandscape = YES;
     [appdelegate application:[UIApplication sharedApplication] supportedInterfaceOrientationsForWindow:self.view.window];
-    
 }
+
 /**
  *  强制竖屏
  */
 -(void)forceOrientationPortrait{
     //加上代理类里的方法，旋转屏幕可以达到强制竖屏的效果
     AppDelegate *appdelegate=(AppDelegate *)[UIApplication sharedApplication].delegate;
-    appdelegate.forcePortrait=YES;
-    [appdelegate application:[UIApplication sharedApplication] supportedInterfaceOrientationsForWindow:self.view.window];
-}
-
-
-/**
- * 调整为全方向
- */
-- (void)refreshOrientationAll
-{
-    AppDelegate *appdelegate=(AppDelegate *)[UIApplication sharedApplication].delegate;
+    appdelegate.forcePortrait = YES;
     appdelegate.forceLandscape = NO;
-    appdelegate.forcePortrait = NO;
     [appdelegate application:[UIApplication sharedApplication] supportedInterfaceOrientationsForWindow:self.view.window];
-    //退出界面前恢复竖屏
-    if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
-        SEL selector = NSSelectorFromString(@"setOrientation:");
-        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
-        [invocation setSelector:selector];
-        [invocation setTarget:[UIDevice currentDevice]];
-        int val = UIInterfaceOrientationMaskAll;
-        [invocation setArgument:&val atIndex:2];
-        [invocation invoke];
-    }
-}
-
-- (void)refreshOrientationPortrait
-{
-    AppDelegate *appdelegate=(AppDelegate *)[UIApplication sharedApplication].delegate;
-    appdelegate.forceLandscape = NO;
-    appdelegate.forcePortrait=NO;
-    [appdelegate application:[UIApplication sharedApplication] supportedInterfaceOrientationsForWindow:self.view.window];
-    //退出界面前恢复竖屏
+    
     if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
         SEL selector = NSSelectorFromString(@"setOrientation:");
         NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
@@ -146,5 +118,29 @@
         [invocation invoke];
     }
 }
+
+
+/**
+ * 调整为全方向
+ */
+- (void)refreshOrientationAll
+{
+    if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
+        SEL selector = NSSelectorFromString(@"setOrientation:");
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
+        [invocation setSelector:selector];
+        [invocation setTarget:[UIDevice currentDevice]];
+        int val = UIInterfaceOrientationMaskAll;
+        [invocation setArgument:&val atIndex:2];
+        [invocation invoke];
+    }
+
+    AppDelegate *appdelegate=(AppDelegate *)[UIApplication sharedApplication].delegate;
+    appdelegate.forceLandscape = NO;
+    appdelegate.forcePortrait = NO;
+    [appdelegate application:[UIApplication sharedApplication] supportedInterfaceOrientationsForWindow:self.view.window];
+}
+
+
 
 @end

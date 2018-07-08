@@ -6,18 +6,22 @@
 //  Copyright © 2018年 shin. All rights reserved.
 //
 
+#import <Masonry/Masonry.h>
 #import "SH_HomeViewController.h"
 #import "SH_NetWorkService+Login.h"
 #import "NetWorkLineMangaer.h"
 #import "GameWebViewController.h"
 #import "AppDelegate.h"
 #import "SH_RechargeCenterViewController.h"
-#import "SH_RechargeViewController.h"
 #import "SH_PromoView.h"
 #import "View+MASAdditions.h"
+#import "SH_CycleScrollView.h"
 
+@interface SH_HomeViewController ()<SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate>
 
-@interface SH_HomeViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *avatarImg;
+@property (weak, nonatomic) IBOutlet UILabel *userAccountLB;
+@property (strong, nonatomic) SH_CycleScrollView *cycleAdView;
 
 @end
 
@@ -27,6 +31,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self fetchSID];
+    [self initAdScroll];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,14 +59,21 @@
 }
 
 - (IBAction)enterGame:(id)sender {
-    GameWebViewController *gameVC = [[GameWebViewController alloc] initWithNibName:@"GameWebViewController" bundle:nil];
-    gameVC.url = @"https://imes-mcasino.roshan88.com/mobile.aspx?id=262&token=010b04f8-87c9-4692-bb82-5fcb90c75f0d&LanguageCode=1";
-    [self presentViewController:gameVC animated:YES completion:nil];
+    __weak typeof(self) weakSelf = self;
+
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/origin/getGameLink.html?apiId=10&apiTypeId=2&gameId=100303&gameCode=5902"];
+    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
+    [SH_NetWorkService post:url parameter:nil header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSString *gameUrl = [[response objectForKey:@"data"] objectForKey:@"gameLink"];
+        GameWebViewController *gameVC = [[GameWebViewController alloc] initWithNibName:@"GameWebViewController" bundle:nil];
+        gameVC.url = gameUrl;
+        [weakSelf presentViewController:gameVC animated:YES completion:nil];
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        //
+    }];
 }
 
 - (IBAction)rechargeAction:(id)sender {
-    SH_RechargeViewController *rechargeVC = [[SH_RechargeViewController alloc] initWithNibName:@"SH_RechargeViewController" bundle:nil];
-    [self.navigationController pushViewController:rechargeVC animated:YES];
 //    SH_PromoView *promoView = [[SH_PromoView alloc]initWithFrame:CGRectZero];
 //    [[UIApplication sharedApplication].keyWindow addSubview:promoView];
 //    UIEdgeInsets padding = UIEdgeInsetsMake(10, 80, 20, 80);
@@ -86,8 +98,67 @@
         //
     }];
 }
-- (IBAction)chongzhiBtnClick:(id)sender {
+
+- (IBAction)avatarClick:(id)sender {
+}
+
+- (IBAction)rechargeClick:(id)sender {
     [self presentViewController:[[SH_RechargeCenterViewController alloc]init] animated:YES completion:nil];
 }
+
+- (IBAction)activitiesClick:(id)sender {
+}
+
+- (IBAction)userCenterClick:(id)sender {
+}
+
+- (IBAction)incomeClick:(id)sender {
+}
+
+- (IBAction)shareClick:(id)sender {
+}
+
+- (void)initAdScroll
+{
+    //广告轮播
+    _cycleAdView = [SH_CycleScrollView new];
+    _cycleAdView.datasource = self;
+    _cycleAdView.delegate = self;
+    _cycleAdView.continuous = YES;
+    _cycleAdView.autoPlayTimeInterval = 5;
+    [self.view addSubview:_cycleAdView];
+    [_cycleAdView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(18);
+        make.top.mas_equalTo(88);
+        make.width.mas_equalTo(190);
+        make.height.mas_equalTo(224);
+    }];
+}
+
+#pragma mark - SH_CycleScrollViewDataSource
+
+- (NSArray *)numberOfCycleScrollView:(SH_CycleScrollView *)bannerView
+{
+    return @[[UIImage imageNamed:@"banner"],
+             [UIImage imageNamed:@"banner"],
+             [UIImage imageNamed:@"banner"],
+             [UIImage imageNamed:@"banner"]];
+}
+
+- (UIViewContentMode)contentModeForImageIndex:(NSUInteger)index {
+    return UIViewContentModeScaleAspectFill;
+}
+
+- (UIImage *)placeHolderImageOfZeroBannerView {
+    return [UIImage imageNamed:@"banner"];
+}
+
+#pragma mark - SH_CycleScrollViewDelegate
+
+- (void)cycleScrollView:(SH_CycleScrollView *)scrollView didScrollToIndex:(NSUInteger)index
+{}
+
+- (void)cycleScrollView:(SH_CycleScrollView *)scorllView didSelectedAtIndex:(NSUInteger)index
+{}
 
 @end
