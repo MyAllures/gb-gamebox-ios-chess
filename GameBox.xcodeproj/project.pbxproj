@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2209026620F053D400F8828E /* SH_PromoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2209026420F053D400F8828E /* SH_PromoViewCell.m */; };
+		2209026720F053D400F8828E /* SH_PromoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2209026520F053D400F8828E /* SH_PromoViewCell.xib */; };
+		2224CB7020EF8C5900E6872B /* SH_PromoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2224CB6F20EF8C5900E6872B /* SH_PromoView.m */; };
+		2224CB7220EF8C9500E6872B /* SH_PromoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2224CB7120EF8C9500E6872B /* SH_PromoView.xib */; };
 		5401C53120ECA10F0027246D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C53020ECA10F0027246D /* AppDelegate.m */; };
 		5401C53420ECA10F0027246D /* LineCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C53320ECA10F0027246D /* LineCheckViewController.m */; };
 		5401C53720ECA10F0027246D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5401C53520ECA10F0027246D /* Main.storyboard */; };
@@ -32,10 +36,21 @@
 		BF2F916020EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2F915E20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.xib */; };
 		BF2F916420EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F916220EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.m */; };
 		BF2F916520EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2F916320EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.xib */; };
+		DA18EFBD20F0A9C3002B7E22 /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA18EFB920F0A9C3002B7E22 /* AlertViewController.xib */; };
+		DA18EFBE20F0A9C3002B7E22 /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA18EFBA20F0A9C3002B7E22 /* AlertViewController.m */; };
+		DA18EFBF20F0A9C3002B7E22 /* PopTool.m in Sources */ = {isa = PBXBuildFile; fileRef = DA18EFBB20F0A9C3002B7E22 /* PopTool.m */; };
+		DA18EFCC20F0AA02002B7E22 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA18EFC820F0AA02002B7E22 /* LoginViewController.m */; };
+		DA18EFCD20F0AA02002B7E22 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA18EFC920F0AA02002B7E22 /* LoginViewController.xib */; };
 		F88297C8CDA8BE450455395E /* libPods-GameBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C23814E2A7636D1CE6B89BC /* libPods-GameBox.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2209026320F053D400F8828E /* SH_PromoViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoViewCell.h; sourceTree = "<group>"; };
+		2209026420F053D400F8828E /* SH_PromoViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoViewCell.m; sourceTree = "<group>"; };
+		2209026520F053D400F8828E /* SH_PromoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PromoViewCell.xib; sourceTree = "<group>"; };
+		2224CB6E20EF8C5900E6872B /* SH_PromoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoView.h; sourceTree = "<group>"; };
+		2224CB6F20EF8C5900E6872B /* SH_PromoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoView.m; sourceTree = "<group>"; };
+		2224CB7120EF8C9500E6872B /* SH_PromoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PromoView.xib; sourceTree = "<group>"; };
 		3BBE090F9B091E073F4BB10C /* Pods-GameBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameBox/Pods-GameBox.release.xcconfig"; sourceTree = "<group>"; };
 		4C23814E2A7636D1CE6B89BC /* libPods-GameBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GameBox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5401C52C20ECA10F0027246D /* GameBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +97,14 @@
 		BF2F916220EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_DespositeChooseMoneyCollectionViewCell.m; sourceTree = "<group>"; };
 		BF2F916320EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_DespositeChooseMoneyCollectionViewCell.xib; sourceTree = "<group>"; };
 		CD08B466133A38336C9BD914 /* Pods-GameBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GameBox/Pods-GameBox.debug.xcconfig"; sourceTree = "<group>"; };
+		DA18EFB820F0A9C3002B7E22 /* PopTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopTool.h; sourceTree = "<group>"; };
+		DA18EFB920F0A9C3002B7E22 /* AlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertViewController.xib; sourceTree = "<group>"; };
+		DA18EFBA20F0A9C3002B7E22 /* AlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewController.m; sourceTree = "<group>"; };
+		DA18EFBB20F0A9C3002B7E22 /* PopTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopTool.m; sourceTree = "<group>"; };
+		DA18EFBC20F0A9C3002B7E22 /* AlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewController.h; sourceTree = "<group>"; };
+		DA18EFC820F0AA02002B7E22 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		DA18EFC920F0AA02002B7E22 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		DA18EFCA20F0AA02002B7E22 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +119,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2224CB6D20EF8C3100E6872B /* Promo */ = {
+			isa = PBXGroup;
+			children = (
+				2224CB6E20EF8C5900E6872B /* SH_PromoView.h */,
+				2224CB6F20EF8C5900E6872B /* SH_PromoView.m */,
+				2224CB7120EF8C9500E6872B /* SH_PromoView.xib */,
+				2209026320F053D400F8828E /* SH_PromoViewCell.h */,
+				2209026420F053D400F8828E /* SH_PromoViewCell.m */,
+				2209026520F053D400F8828E /* SH_PromoViewCell.xib */,
+			);
+			path = Promo;
+			sourceTree = "<group>";
+		};
 		5401C52320ECA10F0027246D = {
 			isa = PBXGroup;
 			children = (
@@ -117,9 +153,11 @@
 		5401C52E20ECA10F0027246D /* GameBox */ = {
 			isa = PBXGroup;
 			children = (
+				2224CB6D20EF8C3100E6872B /* Promo */,
 				5401C54520ECA1B80027246D /* CoreBase */,
 				5401C55B20ECF9B30027246D /* HomePage */,
 				BF2F915020EF57E300CEDE8C /* RechargeCenter */,
+				DA18EFC620F0AA02002B7E22 /* LoginPage */,
 				5401C52F20ECA10F0027246D /* AppDelegate.h */,
 				5401C53020ECA10F0027246D /* AppDelegate.m */,
 				5401C53220ECA10F0027246D /* LineCheckViewController.h */,
@@ -137,6 +175,7 @@
 		5401C54520ECA1B80027246D /* CoreBase */ = {
 			isa = PBXGroup;
 			children = (
+				DA18EFB720F0A9C3002B7E22 /* PopTools */,
 				54C21AAE20EE239D006FCA0F /* BaseViewController */,
 				5401C54620ECA1B80027246D /* LineCheck */,
 				5401C54920ECA1B80027246D /* GBWeb */,
@@ -275,6 +314,44 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		DA18EFB720F0A9C3002B7E22 /* PopTools */ = {
+			isa = PBXGroup;
+			children = (
+				DA18EFB820F0A9C3002B7E22 /* PopTool.h */,
+				DA18EFBB20F0A9C3002B7E22 /* PopTool.m */,
+				DA18EFBC20F0A9C3002B7E22 /* AlertViewController.h */,
+				DA18EFBA20F0A9C3002B7E22 /* AlertViewController.m */,
+				DA18EFB920F0A9C3002B7E22 /* AlertViewController.xib */,
+			);
+			path = PopTools;
+			sourceTree = "<group>";
+		};
+		DA18EFC620F0AA02002B7E22 /* LoginPage */ = {
+			isa = PBXGroup;
+			children = (
+				DA18EFC720F0AA02002B7E22 /* Controller */,
+				DA18EFCB20F0AA02002B7E22 /* View */,
+			);
+			path = LoginPage;
+			sourceTree = "<group>";
+		};
+		DA18EFC720F0AA02002B7E22 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DA18EFCA20F0AA02002B7E22 /* LoginViewController.h */,
+				DA18EFC820F0AA02002B7E22 /* LoginViewController.m */,
+				DA18EFC920F0AA02002B7E22 /* LoginViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DA18EFCB20F0AA02002B7E22 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F14E4A72378CCD648FF29337 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -350,9 +427,13 @@
 				5401C55120ECA1B80027246D /* GameWebViewController.xib in Resources */,
 				5401C53920ECA1100027246D /* Assets.xcassets in Resources */,
 				54C21AB620EF70C8006FCA0F /* SH_RechargeViewController.xib in Resources */,
+				2209026720F053D400F8828E /* SH_PromoViewCell.xib in Resources */,
 				BF2F916020EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.xib in Resources */,
 				BF2F915B20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib in Resources */,
+				DA18EFCD20F0AA02002B7E22 /* LoginViewController.xib in Resources */,
 				5401C53720ECA10F0027246D /* Main.storyboard in Resources */,
+				2224CB7220EF8C9500E6872B /* SH_PromoView.xib in Resources */,
+				DA18EFBD20F0A9C3002B7E22 /* AlertViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,11 +485,16 @@
 			files = (
 				5401C55220ECA1B80027246D /* GameWebViewController.m in Sources */,
 				BF2F915A20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m in Sources */,
+				2224CB7020EF8C5900E6872B /* SH_PromoView.m in Sources */,
 				5401C56220ECF9EA0027246D /* SH_HomeViewController.m in Sources */,
 				BF2F915F20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m in Sources */,
+				DA18EFBF20F0A9C3002B7E22 /* PopTool.m in Sources */,
+				DA18EFBE20F0A9C3002B7E22 /* AlertViewController.m in Sources */,
 				5401C53420ECA10F0027246D /* LineCheckViewController.m in Sources */,
 				BF2F916420EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.m in Sources */,
+				2209026620F053D400F8828E /* SH_PromoViewCell.m in Sources */,
 				5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */,
+				DA18EFCC20F0AA02002B7E22 /* LoginViewController.m in Sources */,
 				54C21AB520EF70C8006FCA0F /* SH_RechargeViewController.m in Sources */,
 				5401C55620ECA2CC0027246D /* IPsCacheManager.m in Sources */,
 				BF2F915620EF591F00CEDE8C /* SH_RechargeCenterViewController.m in Sources */,
