@@ -33,13 +33,11 @@
 }
 -(void)showWithPresentView:(UIView *)presentView withLeading:(CGFloat)leading withTop:(CGFloat)top subTitle:(NSString *)subTitle AnimatedType:(AnimationType)animatedType AnimationDirectionType:(AnimationDirection)animationDirectionType {
     _animationDirection = animationDirectionType;
-//    CGFloat  width = CGRectGetWidth(presentView.frame);
-//    CGFloat  height = CGRectGetHeight(presentView.frame);
     self.alertController.subTitle = subTitle;
     __weak  typeof(self) weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
-        weakSelf.alertController.constraintLeading.constant = leading;
-        weakSelf.alertController.constraintTop.constant = top;
+//        weakSelf.alertController.constraintLeading.constant = leading;
+//        weakSelf.alertController.constraintTop.constant = top;
         [weakSelf.alertController.view layoutIfNeeded];
     });
     

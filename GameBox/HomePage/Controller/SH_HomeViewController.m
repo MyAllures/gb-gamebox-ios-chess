@@ -17,6 +17,7 @@
 #import "SH_CycleScrollView.h"
 #import "SH_PromoViewController.h"
 #import "LoginViewController.h"
+#import "AlertViewController.h"
 @interface SH_HomeViewController ()<SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImg;
@@ -100,7 +101,12 @@
 }
 
 - (IBAction)avatarClick:(id)sender {
-    [[LoginViewController new] show];
+    LoginViewController  * vc = [LoginViewController  new];
+    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:vc.view viewHeight:250 viewWidth:414];
+//    cvc.imageName = @"progress_bar_icon";
+    cvc.title = @"测试";
+    cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    [self presentViewController:cvc animated:YES completion:nil];
 }
 
 - (IBAction)rechargeClick:(id)sender {

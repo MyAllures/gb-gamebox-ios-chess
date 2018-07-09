@@ -14,7 +14,14 @@ typedef void(^alertViewDismissBlock)(void);
 @property(nonatomic,copy)NSString * subTitle;
 @property(nonatomic,copy)alertViewDismissBlock dismissBlock;
 @property (weak, nonatomic) IBOutlet UIView *animationView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintLeading;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintTop;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
+
+/**
+ 自定义弹窗
+ @param view 自定义的UIView
+ @param height 自定义的UIView的高度
+ @param width 自定义的UIView的宽度
+ @return return value description
+ */
+-(instancetype)initAlertView:(UIView*)view viewHeight:(CGFloat)height viewWidth:(CGFloat)width ;
 @end
