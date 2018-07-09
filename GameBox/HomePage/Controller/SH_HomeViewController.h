@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SH_BaseViewController.h"
+#import "AlertViewController.h"
 
-@interface SH_HomeViewController : SH_BaseViewController
+@interface SH_HomeViewController : AlertViewController
 
 @end

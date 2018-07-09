@@ -7,11 +7,13 @@
 //
 #import "LoginViewController.h"
 #import "PopTool.h"
-
+#import "SH_NetWorkService+Login.h"
+#import <IQKeyboardManager.h>
 #define WIDTH_PERCENT  [UIScreen mainScreen].bounds.size.width/375.0
 #define HEIGHT_PERCENT [UIScreen mainScreen].bounds.size.height/667.0
 #define SCREEN_WIDTH  [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT  [UIScreen mainScreen].bounds.size.height
+#define RH_API_NAME_REGISESTCAPTCHACODE        @"captcha/pmregister.html"
 
 @interface LoginViewController ()<UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *leftContrainerView;
@@ -26,29 +28,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self fetchHttpData];
     [self configurationUI];
+}
+-(void)fetchHttpData{
+    [SH_NetWorkService  fetchCaptchaCodeInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSLog(@"----%@",response);
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        NSLog(@"----%@",err);
+    }];
 }
 -(void)configurationUI{
     UIImage  * img = [UIImage  imageNamed:@"left_bg"];
     self.leftContrainerView.layer.contents = (__bridge id _Nullable)(img.CGImage);
-    UITapGestureRecognizer * tap = [[UITapGestureRecognizer  alloc] initWithTarget:self action:@selector(closeKeyboard)];
-    tap.delegate= self;
-    [self.view addGestureRecognizer:tap];
-}
--(void)closeKeyboard{
-    [self.view endEditing:YES];
+    
 }
 - (IBAction)btnClick:(UIButton *)sender {
     
 }
--(void)show{
-    self.view.frame = CGRectMake(0, 0, 411, 250);
-    [[PopTool sharedInstance] showWithPresentView:self.view subTitle:@"登录" AnimatedType:AnimationTypeScale AnimationDirectionType:AnimationDirectionFromLeft];
-}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation

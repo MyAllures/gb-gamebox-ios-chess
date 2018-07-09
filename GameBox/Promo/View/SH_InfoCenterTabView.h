@@ -1,12 +1,13 @@
 //
-//  SH_PromoView.h
+//  SH_InfoCenterTabBView.h
 //  GameBox
 //
-//  Created by sam on 2018/7/6.
+//  Created by shin on 2018/7/9.
 //  Copyright © 2018年 shin. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface SH_PromoView : UIView
+@interface SH_InfoCenterTabView : UIView
+
 @end

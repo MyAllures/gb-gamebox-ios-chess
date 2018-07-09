@@ -13,10 +13,17 @@
 #import "GameWebViewController.h"
 #import "AppDelegate.h"
 #import "SH_RechargeCenterViewController.h"
-#import "SH_PromoView.h"
 #import "View+MASAdditions.h"
 #import "SH_CycleScrollView.h"
+#import "SH_PromoViewController.h"
 #import "LoginViewController.h"
+
+#import "AlertViewController.h"
+
+#import "SH_PromoContentView.h"
+#import "PopTool.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+
 @interface SH_HomeViewController ()<SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImg;
@@ -60,7 +67,7 @@
 
 - (IBAction)enterGame:(id)sender {
     __weak typeof(self) weakSelf = self;
-
+    
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/origin/getGameLink.html?apiId=10&apiTypeId=2&gameId=100303&gameCode=5902"];
     NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
     [SH_NetWorkService post:url parameter:nil header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
@@ -74,16 +81,16 @@
 }
 
 - (IBAction)rechargeAction:(id)sender {
-//    SH_PromoView *promoView = [[SH_PromoView alloc]initWithFrame:CGRectZero];
-//    [[UIApplication sharedApplication].keyWindow addSubview:promoView];
-//    UIEdgeInsets padding = UIEdgeInsetsMake(10, 80, 20, 80);
-//    [promoView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.equalTo(self.view).with.insets(padding);
-////        make.top.equalTo(self.view.mas_top).with.offset(padding.top);
-////        make.bottom.equalTo(self.view.mas_bottom).with.offset(-padding.bottom);
-////        make.left.equalTo(self.view.mas_left).with.offset(padding.left);
-////        make.right.equalTo(self.view.mas_right).with.offset(-padding.right);
-//    }];
+    //    SH_PromoView *promoView = [[SH_PromoView alloc]initWithFrame:CGRectZero];
+    //    [[UIApplication sharedApplication].keyWindow addSubview:promoView];
+    //    UIEdgeInsets padding = UIEdgeInsetsMake(10, 80, 20, 80);
+    //    [promoView mas_makeConstraints:^(MASConstraintMaker *make) {
+    //        make.edges.equalTo(self.view).with.insets(padding);
+    ////        make.top.equalTo(self.view.mas_top).with.offset(padding.top);
+    ////        make.bottom.equalTo(self.view.mas_bottom).with.offset(-padding.bottom);
+    ////        make.left.equalTo(self.view.mas_left).with.offset(padding.left);
+    ////        make.right.equalTo(self.view.mas_right).with.offset(-padding.right);
+    //    }];
 }
 
 /**
@@ -100,6 +107,7 @@
 }
 
 - (IBAction)avatarClick:(id)sender {
+<<<<<<< HEAD
 //    [[LoginViewController new] show];
     [SH_NetWorkService login:@"Shin" psw:@"h123123" verfyCode:@"" complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSString *setCookie = [httpURLResponse.allHeaderFields objectForKey:@"Set-Cookie"];
@@ -117,13 +125,25 @@
     } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
         //
     }];
+=======
+    LoginViewController  * vc = [LoginViewController  new];
+    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:vc.view viewHeight:250 viewWidth:414];
+//    cvc.imageName = @"progress_bar_icon";
+    cvc.title = @"测试";
+    cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    [self presentViewController:cvc animated:YES completion:nil];
+>>>>>>> 9b5a0933038f2eddc83573f8915beda643e8a142
 }
 
 - (IBAction)rechargeClick:(id)sender {
     [self presentViewController:[[SH_RechargeCenterViewController alloc]init] animated:YES completion:nil];
 }
-
+#pragma 优惠
 - (IBAction)activitiesClick:(id)sender {
+    SH_PromoContentView *promoContentView = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoContentView" owner:nil options:nil] lastObject];
+    
+    [[PopTool sharedInstance] showWithPresentView:promoContentView withLeading:80 withTop:20 subTitle:@"优惠活动" AnimatedType:AnimationTypeScale AnimationDirectionType:AnimationDirectionFromLeft];
+
 }
 
 - (IBAction)userCenterClick:(id)sender {
@@ -179,3 +199,4 @@
 {}
 
 @end
+

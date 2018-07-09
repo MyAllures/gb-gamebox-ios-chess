@@ -9,5 +9,5 @@
 #import "SH_BaseViewController.h"
 
 @interface LoginViewController : SH_BaseViewController
--(void)show;
+
 @end

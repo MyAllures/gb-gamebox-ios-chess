@@ -7,13 +7,27 @@
 //
 
 #import "AlertViewController.h"
-
+#import <Masonry.h>
 @interface AlertViewController ()<UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *title_label;
-
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintHeight;
+@property(nonatomic,strong)UIView  * presentView;
+@property(nonatomic,assign)CGFloat viewWidth;
+@property (weak, nonatomic) IBOutlet UIImageView *headImage;
+@property(nonatomic,assign)CGFloat viewHeight;
 @end
 
 @implementation AlertViewController
+
+-(instancetype)initAlertView:(UIView *)view viewHeight:(CGFloat)height viewWidth:(CGFloat)width{
+    if (self = [super  init]) {
+        self.viewHeight = height +50;
+        self.viewWidth = width+40;
+        self.presentView = view;
+    }
+    return  self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -21,30 +35,35 @@
     [self  configurationUI];
 }
 -(void)configurationUI{
+    
     self.view.backgroundColor = [[UIColor  blackColor] colorWithAlphaComponent:0.7];
     UIImage * img = [UIImage imageNamed:self.imageName.length >0?self.imageName:@""];
     self.view.layer.contents = (__bridge id _Nullable)(img.CGImage);
-    self.title_label.text = self.subTitle?self.subTitle:@"充值中心";
+    self.title_label.text = self.subTitle?self.subTitle:self.title;
     
-//    UITapGestureRecognizer * tap = [[UITapGestureRecognizer  alloc] initWithTarget:self action:@selector(closeClick:)];
-//    tap.delegate= self;
-//    [self.view addGestureRecognizer:tap];
+    self.constraintHeight.constant = self.viewHeight;
+    self.constraintWidth.constant = self.viewWidth;
+    [self.view  layoutIfNeeded];
+    
+    [self.containerView addSubview:self.presentView];
+    [self.presentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(self.containerView);
+    }];
 }
 - (IBAction)closeClick:(id)sender {
     if (self.dismissBlock) {
         self.dismissBlock();
     }
+    [self  dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
--(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
-    CGPoint  point = [touch locationInView:self.view];
-    CGPoint chatP = [self.view convertPoint:point toView:self.animationView ];
-    if (CGRectContainsPoint(self.animationView.frame, chatP)) {
-        return  false;
-    }
-    return  YES;
-    
+-(void)setImageName:(NSString *)imageName{
+//    UIImage * img = [UIImage imageNamed:self.imageName.length >0?self.imageName:@""];
+//    self.headImage.layer.contents = (__bridge id _Nullable)(img.CGImage);
+    self.headImage.image = [UIImage imageNamed:imageName];
+    [self.view layoutIfNeeded];
 }
-
 -(void)dealloc{
     
 }
