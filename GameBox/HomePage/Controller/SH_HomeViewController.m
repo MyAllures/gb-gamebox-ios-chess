@@ -16,7 +16,7 @@
 #import "SH_PromoView.h"
 #import "View+MASAdditions.h"
 #import "SH_CycleScrollView.h"
-
+#import "LoginViewController.h"
 @interface SH_HomeViewController ()<SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImg;
@@ -100,6 +100,7 @@
 }
 
 - (IBAction)avatarClick:(id)sender {
+    [[LoginViewController new] show];
 }
 
 - (IBAction)rechargeClick:(id)sender {
