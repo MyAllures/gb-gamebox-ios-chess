@@ -8,18 +8,15 @@
 #import "LoginViewController.h"
 #import "PopTool.h"
 #import "SH_NetWorkService+Login.h"
-#import <IQKeyboardManager.h>
-#define WIDTH_PERCENT  [UIScreen mainScreen].bounds.size.width/375.0
-#define HEIGHT_PERCENT [UIScreen mainScreen].bounds.size.height/667.0
-#define SCREEN_WIDTH  [UIScreen mainScreen].bounds.size.width
-#define SCREEN_HEIGHT  [UIScreen mainScreen].bounds.size.height
+
 #define RH_API_NAME_REGISESTCAPTCHACODE        @"captcha/pmregister.html"
 
-@interface LoginViewController ()<UIGestureRecognizerDelegate>
+@interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UIView *leftContrainerView;
 @property (weak, nonatomic) IBOutlet UITextField *account_textField;
 @property (weak, nonatomic) IBOutlet UITextField *password_textField;
 @property (weak, nonatomic) IBOutlet UITextField *check_textField;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -41,13 +38,41 @@
 -(void)configurationUI{
     UIImage  * img = [UIImage  imageNamed:@"left_bg"];
     self.leftContrainerView.layer.contents = (__bridge id _Nullable)(img.CGImage);
+    self.tableView.hidden = YES;
     
 }
+
 - (IBAction)btnClick:(UIButton *)sender {
     
-}
--(void)show{
-     [[PopTool  sharedInstance] showWithPresentView:self.view withWidth:414 withHeight:240 subTitle:@"sadjkn" AnimatedType:AnimationTypeScale AnimationDirectionType:AnimationDirectionFromCenter];
+   NSInteger tag = sender.tag -100;
+
+    switch (tag) {
+        case 0:{
+            self.tableView.hidden = YES;
+             [sender setBackgroundImage:[UIImage imageNamed:@"login_button_click"] forState:UIControlStateNormal];
+            UIButton  * btn  = [self.view  viewWithTag:101];
+            [btn setBackgroundImage:[UIImage imageNamed:@"login_button"] forState:UIControlStateNormal];
+            break;
+        }
+        case 1:{
+            self.tableView.hidden = false;
+            [sender setBackgroundImage:[UIImage imageNamed:@"login_button_click"] forState:UIControlStateNormal];
+            UIButton  * btn  = [self.view  viewWithTag:100];
+            [btn setBackgroundImage:[UIImage imageNamed:@"login_button"] forState:UIControlStateNormal];
+            break;
+        }
+        case 2:{
+            
+            break;
+        }
+        case 3:{
+            
+            break;
+        }
+        default:
+            break;
+    }
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

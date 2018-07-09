@@ -16,15 +16,23 @@
 @property(nonatomic,assign)CGFloat viewWidth;
 @property (weak, nonatomic) IBOutlet UIImageView *headImage;
 @property(nonatomic,assign)CGFloat viewHeight;
+@property(nonatomic,strong)UIViewController * presentVC;
 @end
 
 @implementation AlertViewController
 
--(instancetype)initAlertView:(UIView *)view viewHeight:(CGFloat)height viewWidth:(CGFloat)width{
+-(instancetype)initAlertView:(id)view viewHeight:(CGFloat)height viewWidth:(CGFloat)width{
     if (self = [super  init]) {
         self.viewHeight = height +50;
         self.viewWidth = width+40;
-        self.presentView = view;
+        if ([view isEqual:[UIView  class]]) {
+            self.presentView = view;
+        }else{
+            UIViewController *vc  = (UIViewController*)view;
+            self.presentView = vc.view;
+            self.presentVC = vc;
+        }
+        
     }
     return  self;
 }
@@ -44,11 +52,13 @@
     self.constraintHeight.constant = self.viewHeight;
     self.constraintWidth.constant = self.viewWidth;
     [self.view  layoutIfNeeded];
-    
+   
+//    [self addChildViewController:self.presentVC];
     [self.containerView addSubview:self.presentView];
     [self.presentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(self.containerView);
     }];
+
 }
 - (IBAction)closeClick:(id)sender {
     if (self.dismissBlock) {
@@ -65,7 +75,8 @@
     [self.view layoutIfNeeded];
 }
 -(void)dealloc{
-    
+    NSLog(@"clean .......");
+    self.presentVC = nil;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

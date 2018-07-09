@@ -108,11 +108,11 @@
 
 - (IBAction)avatarClick:(id)sender {
     LoginViewController  * vc = [LoginViewController  new];
-    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:vc.view viewHeight:250 viewWidth:414];
+    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:vc viewHeight:250 viewWidth:414];
 //    cvc.imageName = @"progress_bar_icon";
     cvc.title = @"测试";
     cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;// UIModalTransitionStyleCoverVertical;//UIModalTransitionStyleFlipHorizontal;//;
+    cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
     [self presentViewController:cvc animated:YES completion:nil];
 }
 
