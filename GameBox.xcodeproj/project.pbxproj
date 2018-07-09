@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		2209026620F053D400F8828E /* SH_PromoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2209026420F053D400F8828E /* SH_PromoViewCell.m */; };
 		2209026720F053D400F8828E /* SH_PromoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2209026520F053D400F8828E /* SH_PromoViewCell.xib */; };
-		2224CB7020EF8C5900E6872B /* SH_PromoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2224CB6F20EF8C5900E6872B /* SH_PromoView.m */; };
-		2224CB7220EF8C9500E6872B /* SH_PromoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2224CB7120EF8C9500E6872B /* SH_PromoView.xib */; };
+		228BA7EF20F2FCE40001EC51 /* SH_PromoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 228BA7ED20F2FCE40001EC51 /* SH_PromoViewController.m */; };
+		228BA7F020F2FCE40001EC51 /* SH_PromoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228BA7EE20F2FCE40001EC51 /* SH_PromoViewController.xib */; };
 		5401C53120ECA10F0027246D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C53020ECA10F0027246D /* AppDelegate.m */; };
 		5401C53420ECA10F0027246D /* LineCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C53320ECA10F0027246D /* LineCheckViewController.m */; };
 		5401C53720ECA10F0027246D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5401C53520ECA10F0027246D /* Main.storyboard */; };
@@ -47,9 +47,9 @@
 		2209026320F053D400F8828E /* SH_PromoViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoViewCell.h; sourceTree = "<group>"; };
 		2209026420F053D400F8828E /* SH_PromoViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoViewCell.m; sourceTree = "<group>"; };
 		2209026520F053D400F8828E /* SH_PromoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PromoViewCell.xib; sourceTree = "<group>"; };
-		2224CB6E20EF8C5900E6872B /* SH_PromoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoView.h; sourceTree = "<group>"; };
-		2224CB6F20EF8C5900E6872B /* SH_PromoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoView.m; sourceTree = "<group>"; };
-		2224CB7120EF8C9500E6872B /* SH_PromoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PromoView.xib; sourceTree = "<group>"; };
+		228BA7EC20F2FCE40001EC51 /* SH_PromoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoViewController.h; sourceTree = "<group>"; };
+		228BA7ED20F2FCE40001EC51 /* SH_PromoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoViewController.m; sourceTree = "<group>"; };
+		228BA7EE20F2FCE40001EC51 /* SH_PromoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PromoViewController.xib; sourceTree = "<group>"; };
 		3BBE090F9B091E073F4BB10C /* Pods-GameBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameBox/Pods-GameBox.release.xcconfig"; sourceTree = "<group>"; };
 		4C23814E2A7636D1CE6B89BC /* libPods-GameBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GameBox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5401C52C20ECA10F0027246D /* GameBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,9 +120,9 @@
 		2224CB6D20EF8C3100E6872B /* Promo */ = {
 			isa = PBXGroup;
 			children = (
-				2224CB6E20EF8C5900E6872B /* SH_PromoView.h */,
-				2224CB6F20EF8C5900E6872B /* SH_PromoView.m */,
-				2224CB7120EF8C9500E6872B /* SH_PromoView.xib */,
+				228BA7EC20F2FCE40001EC51 /* SH_PromoViewController.h */,
+				228BA7ED20F2FCE40001EC51 /* SH_PromoViewController.m */,
+				228BA7EE20F2FCE40001EC51 /* SH_PromoViewController.xib */,
 				2209026320F053D400F8828E /* SH_PromoViewCell.h */,
 				2209026420F053D400F8828E /* SH_PromoViewCell.m */,
 				2209026520F053D400F8828E /* SH_PromoViewCell.xib */,
@@ -428,8 +428,8 @@
 				BF2F915B20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib in Resources */,
 				DA18EFCD20F0AA02002B7E22 /* LoginViewController.xib in Resources */,
 				5401C53720ECA10F0027246D /* Main.storyboard in Resources */,
-				2224CB7220EF8C9500E6872B /* SH_PromoView.xib in Resources */,
 				DA18EFBD20F0A9C3002B7E22 /* AlertViewController.xib in Resources */,
+				228BA7F020F2FCE40001EC51 /* SH_PromoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,10 +461,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GameBox/Pods-GameBox-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,7 +483,6 @@
 			files = (
 				5401C55220ECA1B80027246D /* GameWebViewController.m in Sources */,
 				BF2F915A20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m in Sources */,
-				2224CB7020EF8C5900E6872B /* SH_PromoView.m in Sources */,
 				5401C56220ECF9EA0027246D /* SH_HomeViewController.m in Sources */,
 				54C21AB920F1B981006FCA0F /* SH_CycleScrollView.m in Sources */,
 				BF2F915F20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m in Sources */,
@@ -496,6 +497,7 @@
 				BF2F915620EF591F00CEDE8C /* SH_RechargeCenterViewController.m in Sources */,
 				5401C53F20ECA1100027246D /* main.m in Sources */,
 				5401C55A20ECA48D0027246D /* NetWorkLineMangaer.m in Sources */,
+				228BA7EF20F2FCE40001EC51 /* SH_PromoViewController.m in Sources */,
 				54C21AB120EE23B2006FCA0F /* SH_BaseViewController.m in Sources */,
 				5401C55320ECA1B80027246D /* SH_NetWorkService.m in Sources */,
 				5401C55020ECA1B80027246D /* SH_NetWorkService+LineCheck.m in Sources */,

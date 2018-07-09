@@ -1,27 +1,26 @@
 //
-//  SH_PromoView.m
+//  SH_PromoViewController.m
 //  GameBox
 //
-//  Created by sam on 2018/7/6.
+//  Created by sam on 2018/7/9.
 //  Copyright © 2018年 shin. All rights reserved.
 //
 
-#import "SH_PromoView.h"
+#import "SH_PromoViewController.h"
 #import "View+MASAdditions.h"
 #import "SH_PromoViewCell.h"
 
 #import "SH_NetWorkService.h"
 #import "NetWorkLineMangaer.h"
+#import "PopTool.h"
 
-@interface SH_PromoView()<UITableViewDelegate, UITableViewDataSource>
+@interface SH_PromoViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic,strong) UIView *leftView;
 @property (nonatomic,strong) UIView *rightView;
 @property (nonatomic, strong) UITableView *tableView;
 @end
 
-@implementation SH_PromoView
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
+@implementation SH_PromoViewController
 
 - (void)getPromoList:(NSInteger )pageNumber pageSize:(NSInteger )pageSize activityClassifyKey:(NSString *)activityClassifyKey complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
 {
@@ -39,8 +38,17 @@
     }];
 }
 
-- (void)drawRect:(CGRect)rect {
-    
+-(void)show{
+    [[PopTool sharedInstance] showWithPresentView:self.view withLeading:80 withTop:20 subTitle:@"优惠活动" AnimatedType:AnimationTypeScale AnimationDirectionType:AnimationDirectionFromLeft];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    [self createUI];
+}
+
+-(void)createUI{
     [self getPromoList:1 pageSize:50 activityClassifyKey:@"全部"  complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dict = (NSDictionary *)response;
         NSLog(@"dict====%@",dict);
@@ -48,19 +56,25 @@
         
     }];
     
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width-200, self.frame.size.height) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width-200, self.view.frame.size.height) style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor greenColor];
     [self.tableView registerNib:[UINib nibWithNibName:@"SH_PromoViewCell" bundle:nil] forCellReuseIdentifier:@"SH_PromoViewCell"];
     
-    self.leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 200, self.frame.size.height)];
+    self.leftView = [[UIView alloc]initWithFrame:CGRectZero];
     self.leftView.backgroundColor = [UIColor redColor];
-    [self addSubview:self.leftView];
+    [self.view addSubview:self.leftView];
     
-    self.rightView = [[UIView alloc]initWithFrame:CGRectMake(200, 0, self.frame.size.width-200, self.frame.size.height)];
+    [self.leftView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view).with.offset(0);
+        make.top.bottom.mas_equalTo(0);
+        make.width.mas_equalTo(160);
+    }];
+    
+    self.rightView = [[UIView alloc]initWithFrame:CGRectMake(200, 0, self.view.frame.size.width-200, self.view.frame.size.height)];
     self.rightView.backgroundColor = [UIColor blueColor];
-    [self addSubview:self.rightView];
+    [self.view addSubview:self.rightView];
     [self.rightView addSubview:self.tableView];
     
     UIButton *btn1 = [[UIButton alloc]initWithFrame:CGRectZero];
@@ -83,7 +97,6 @@
         make.height.equalTo(@58);
     }];
 }
-
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 100;
@@ -111,6 +124,19 @@
     
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

@@ -15,6 +15,7 @@
 #import "SH_RechargeCenterViewController.h"
 #import "View+MASAdditions.h"
 #import "SH_CycleScrollView.h"
+#import "SH_PromoViewController.h"
 #import "LoginViewController.h"
 
 @interface SH_HomeViewController ()<SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate>
@@ -108,7 +109,8 @@
 }
 #pragma 优惠
 - (IBAction)activitiesClick:(id)sender {
-    
+    SH_PromoViewController *promoView = [[SH_PromoViewController alloc]init];
+    [promoView show];
 }
 
 - (IBAction)userCenterClick:(id)sender {
