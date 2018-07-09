@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SH_PromoViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
 
 @end

@@ -13,6 +13,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+//    self.bgImageView.image = [UIImage imageNamed:@"promo_bg"];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
