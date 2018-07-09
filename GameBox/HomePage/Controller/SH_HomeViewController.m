@@ -17,6 +17,7 @@
 #import "SH_CycleScrollView.h"
 #import "SH_PromoViewController.h"
 #import "LoginViewController.h"
+
 @interface SH_HomeViewController ()<SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImg;
@@ -60,7 +61,7 @@
 
 - (IBAction)enterGame:(id)sender {
     __weak typeof(self) weakSelf = self;
-
+    
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/origin/getGameLink.html?apiId=10&apiTypeId=2&gameId=100303&gameCode=5902"];
     NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
     [SH_NetWorkService post:url parameter:nil header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
@@ -74,16 +75,16 @@
 }
 
 - (IBAction)rechargeAction:(id)sender {
-//    SH_PromoView *promoView = [[SH_PromoView alloc]initWithFrame:CGRectZero];
-//    [[UIApplication sharedApplication].keyWindow addSubview:promoView];
-//    UIEdgeInsets padding = UIEdgeInsetsMake(10, 80, 20, 80);
-//    [promoView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.equalTo(self.view).with.insets(padding);
-////        make.top.equalTo(self.view.mas_top).with.offset(padding.top);
-////        make.bottom.equalTo(self.view.mas_bottom).with.offset(-padding.bottom);
-////        make.left.equalTo(self.view.mas_left).with.offset(padding.left);
-////        make.right.equalTo(self.view.mas_right).with.offset(-padding.right);
-//    }];
+    //    SH_PromoView *promoView = [[SH_PromoView alloc]initWithFrame:CGRectZero];
+    //    [[UIApplication sharedApplication].keyWindow addSubview:promoView];
+    //    UIEdgeInsets padding = UIEdgeInsetsMake(10, 80, 20, 80);
+    //    [promoView mas_makeConstraints:^(MASConstraintMaker *make) {
+    //        make.edges.equalTo(self.view).with.insets(padding);
+    ////        make.top.equalTo(self.view.mas_top).with.offset(padding.top);
+    ////        make.bottom.equalTo(self.view.mas_bottom).with.offset(-padding.bottom);
+    ////        make.left.equalTo(self.view.mas_left).with.offset(padding.left);
+    ////        make.right.equalTo(self.view.mas_right).with.offset(-padding.right);
+    //    }];
 }
 
 /**
@@ -109,7 +110,8 @@
 #pragma 优惠
 - (IBAction)activitiesClick:(id)sender {
     SH_PromoViewController *promoView = [[SH_PromoViewController alloc]init];
-    [promoView show];}
+    [promoView show];
+}
 
 - (IBAction)userCenterClick:(id)sender {
 }
@@ -164,3 +166,4 @@
 {}
 
 @end
+
