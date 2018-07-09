@@ -30,10 +30,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     __weak typeof(self) weakSelf = self;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        SH_HomeViewController *homeVC =[[SH_HomeViewController alloc] initWithNibName:@"SH_HomeViewController" bundle:nil];
-        [weakSelf.navigationController pushViewController:homeVC animated:NO];
-    });
 
     //先检查缓存的ips是否还有效
     BOOL isIPsValid = [[IPsCacheManager sharedManager] isIPsValid];

@@ -19,6 +19,7 @@
 #import "LoginViewController.h"
 #import "SH_PromoContentView.h"
 #import "PopTool.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface SH_HomeViewController ()<SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate>
 
