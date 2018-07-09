@@ -39,8 +39,7 @@
 }
 
 -(void)show{
-    self.view.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width-160, [UIScreen mainScreen].bounds.size.height-40);
-    [[PopTool sharedInstance] showWithPresentView:self.view subTitle:@"优惠活动" AnimatedType:AnimationTypeScale AnimationDirectionType:AnimationDirectionFromLeft];
+    [[PopTool sharedInstance] showWithPresentView:self.view withLeading:80 withTop:20 subTitle:@"优惠活动" AnimatedType:AnimationTypeScale AnimationDirectionType:AnimationDirectionFromLeft];
 }
 
 - (void)viewDidLoad {
