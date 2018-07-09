@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface RH_RechargeCenterFooterView : UICollectionReusableView
-
+-(void)updateUIWithDictionary:(NSDictionary *)dictionary Number:(NSString *)number;
 @end

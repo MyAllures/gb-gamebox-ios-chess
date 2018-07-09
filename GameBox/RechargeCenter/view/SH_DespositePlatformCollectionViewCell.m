@@ -7,6 +7,7 @@
 //
 
 #import "SH_DespositePlatformCollectionViewCell.h"
+#import "SH_RechargeCenterPlatformModel.h"
 @interface SH_DespositePlatformCollectionViewCell()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImage;
 @property (weak, nonatomic) IBOutlet UILabel *titleLab;
@@ -18,5 +19,10 @@
     [super awakeFromNib];
     // Initialization code
 }
-
+-(void)updateUIWithContex:(id)contex Selected:(NSString *)selected{
+    SH_RechargeCenterPlatformModel *platformModel = (SH_RechargeCenterPlatformModel *)contex;
+    [self.iconImage setImageWithType:1 ImageName:platformModel.iconUrl];
+    self.titleLab.text = platformModel.name;
+     [self setCellBoardWithSelected:selected];
+}
 @end

@@ -9,5 +9,4 @@
 #import "SH_RechargeCenterPlatformModel.h"
 
 @implementation SH_RechargeCenterPlatformModel
-
 @end

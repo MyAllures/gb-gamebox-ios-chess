@@ -41,6 +41,14 @@
 		BFFC845C20F2F260008AD801 /* RH_RechargeCenterFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFFC845820F2F260008AD801 /* RH_RechargeCenterFooterView.xib */; };
 		BFFC846220F2F268008AD801 /* SH_RechargeCenterPlatformModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFC845E20F2F268008AD801 /* SH_RechargeCenterPlatformModel.m */; };
 		BFFC846320F2F268008AD801 /* SH_NetWorkService+RechargeCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFC846120F2F268008AD801 /* SH_NetWorkService+RechargeCenter.m */; };
+		BFFC846620F3043A008AD801 /* SH_RechargeCenterPaywayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFC846520F3043A008AD801 /* SH_RechargeCenterPaywayModel.m */; };
+		BFFC846920F34397008AD801 /* SH_RechargeCenterBasicCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFC846820F34397008AD801 /* SH_RechargeCenterBasicCollectionViewCell.m */; };
+		BFFC847120F3452A008AD801 /* UIButton+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFC846C20F3452A008AD801 /* UIButton+Category.m */; };
+		BFFC847220F3452A008AD801 /* NSLayoutConstraint+RH_IBDesignable.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFC846E20F3452A008AD801 /* NSLayoutConstraint+RH_IBDesignable.m */; };
+		BFFC847320F3452A008AD801 /* UIImageView+handle.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFC846F20F3452A008AD801 /* UIImageView+handle.m */; };
+		BFFEDCB820F34CDC002E69FD /* SH_RechargeCenterChannelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFEDCB720F34CDC002E69FD /* SH_RechargeCenterChannelModel.m */; };
+		BFFEDCBB20F35627002E69FD /* SH_RechargeCenterAccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFEDCBA20F35627002E69FD /* SH_RechargeCenterAccountModel.m */; };
+		BFFEDCBE20F3792E002E69FD /* SH_RechargeCenterDataHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFEDCBD20F3792E002E69FD /* SH_RechargeCenterDataHandle.m */; };
 		DA18EFBD20F0A9C3002B7E22 /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA18EFB920F0A9C3002B7E22 /* AlertViewController.xib */; };
 		DA18EFBE20F0A9C3002B7E22 /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA18EFBA20F0A9C3002B7E22 /* AlertViewController.m */; };
 		DA18EFBF20F0A9C3002B7E22 /* PopTool.m in Sources */ = {isa = PBXBuildFile; fileRef = DA18EFBB20F0A9C3002B7E22 /* PopTool.m */; };
@@ -110,6 +118,22 @@
 		BFFC845F20F2F268008AD801 /* SH_NetWorkService+RechargeCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+RechargeCenter.h"; sourceTree = "<group>"; };
 		BFFC846020F2F268008AD801 /* SH_RechargeCenterPlatformModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_RechargeCenterPlatformModel.h; sourceTree = "<group>"; };
 		BFFC846120F2F268008AD801 /* SH_NetWorkService+RechargeCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+RechargeCenter.m"; sourceTree = "<group>"; };
+		BFFC846420F3043A008AD801 /* SH_RechargeCenterPaywayModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_RechargeCenterPaywayModel.h; sourceTree = "<group>"; };
+		BFFC846520F3043A008AD801 /* SH_RechargeCenterPaywayModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_RechargeCenterPaywayModel.m; sourceTree = "<group>"; };
+		BFFC846720F34397008AD801 /* SH_RechargeCenterBasicCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_RechargeCenterBasicCollectionViewCell.h; sourceTree = "<group>"; };
+		BFFC846820F34397008AD801 /* SH_RechargeCenterBasicCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_RechargeCenterBasicCollectionViewCell.m; sourceTree = "<group>"; };
+		BFFC846B20F3452A008AD801 /* UIButton+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Category.h"; sourceTree = "<group>"; };
+		BFFC846C20F3452A008AD801 /* UIButton+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Category.m"; sourceTree = "<group>"; };
+		BFFC846D20F3452A008AD801 /* UIImageView+handle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+handle.h"; sourceTree = "<group>"; };
+		BFFC846E20F3452A008AD801 /* NSLayoutConstraint+RH_IBDesignable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+RH_IBDesignable.m"; sourceTree = "<group>"; };
+		BFFC846F20F3452A008AD801 /* UIImageView+handle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+handle.m"; sourceTree = "<group>"; };
+		BFFC847020F3452A008AD801 /* NSLayoutConstraint+RH_IBDesignable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+RH_IBDesignable.h"; sourceTree = "<group>"; };
+		BFFEDCB620F34CDC002E69FD /* SH_RechargeCenterChannelModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_RechargeCenterChannelModel.h; sourceTree = "<group>"; };
+		BFFEDCB720F34CDC002E69FD /* SH_RechargeCenterChannelModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_RechargeCenterChannelModel.m; sourceTree = "<group>"; };
+		BFFEDCB920F35627002E69FD /* SH_RechargeCenterAccountModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_RechargeCenterAccountModel.h; sourceTree = "<group>"; };
+		BFFEDCBA20F35627002E69FD /* SH_RechargeCenterAccountModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_RechargeCenterAccountModel.m; sourceTree = "<group>"; };
+		BFFEDCBC20F3792E002E69FD /* SH_RechargeCenterDataHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_RechargeCenterDataHandle.h; sourceTree = "<group>"; };
+		BFFEDCBD20F3792E002E69FD /* SH_RechargeCenterDataHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_RechargeCenterDataHandle.m; sourceTree = "<group>"; };
 		CD08B466133A38336C9BD914 /* Pods-GameBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GameBox/Pods-GameBox.debug.xcconfig"; sourceTree = "<group>"; };
 		DA18EFB820F0A9C3002B7E22 /* PopTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopTool.h; sourceTree = "<group>"; };
 		DA18EFB920F0A9C3002B7E22 /* AlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertViewController.xib; sourceTree = "<group>"; };
@@ -189,6 +213,7 @@
 		5401C54520ECA1B80027246D /* CoreBase */ = {
 			isa = PBXGroup;
 			children = (
+				BFFC846A20F344C8008AD801 /* Category */,
 				DA18EFB720F0A9C3002B7E22 /* PopTools */,
 				54C21AAE20EE239D006FCA0F /* BaseViewController */,
 				5401C54620ECA1B80027246D /* LineCheck */,
@@ -322,6 +347,8 @@
 				BF2F916120EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.h */,
 				BF2F916220EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.m */,
 				BF2F916320EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.xib */,
+				BFFC846720F34397008AD801 /* SH_RechargeCenterBasicCollectionViewCell.h */,
+				BFFC846820F34397008AD801 /* SH_RechargeCenterBasicCollectionViewCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -333,8 +360,29 @@
 				BFFC845E20F2F268008AD801 /* SH_RechargeCenterPlatformModel.m */,
 				BFFC845F20F2F268008AD801 /* SH_NetWorkService+RechargeCenter.h */,
 				BFFC846120F2F268008AD801 /* SH_NetWorkService+RechargeCenter.m */,
+				BFFC846420F3043A008AD801 /* SH_RechargeCenterPaywayModel.h */,
+				BFFC846520F3043A008AD801 /* SH_RechargeCenterPaywayModel.m */,
+				BFFEDCB620F34CDC002E69FD /* SH_RechargeCenterChannelModel.h */,
+				BFFEDCB720F34CDC002E69FD /* SH_RechargeCenterChannelModel.m */,
+				BFFEDCB920F35627002E69FD /* SH_RechargeCenterAccountModel.h */,
+				BFFEDCBA20F35627002E69FD /* SH_RechargeCenterAccountModel.m */,
+				BFFEDCBC20F3792E002E69FD /* SH_RechargeCenterDataHandle.h */,
+				BFFEDCBD20F3792E002E69FD /* SH_RechargeCenterDataHandle.m */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		BFFC846A20F344C8008AD801 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				BFFC847020F3452A008AD801 /* NSLayoutConstraint+RH_IBDesignable.h */,
+				BFFC846E20F3452A008AD801 /* NSLayoutConstraint+RH_IBDesignable.m */,
+				BFFC846B20F3452A008AD801 /* UIButton+Category.h */,
+				BFFC846C20F3452A008AD801 /* UIButton+Category.m */,
+				BFFC846D20F3452A008AD801 /* UIImageView+handle.h */,
+				BFFC846F20F3452A008AD801 /* UIImageView+handle.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		DA18EFB720F0A9C3002B7E22 /* PopTools */ = {
@@ -511,27 +559,35 @@
 			files = (
 				5401C55220ECA1B80027246D /* GameWebViewController.m in Sources */,
 				BF2F915A20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m in Sources */,
+				BFFEDCB820F34CDC002E69FD /* SH_RechargeCenterChannelModel.m in Sources */,
 				2224CB7020EF8C5900E6872B /* SH_PromoView.m in Sources */,
+				BFFC846620F3043A008AD801 /* SH_RechargeCenterPaywayModel.m in Sources */,
 				5401C56220ECF9EA0027246D /* SH_HomeViewController.m in Sources */,
 				54C21AB920F1B981006FCA0F /* SH_CycleScrollView.m in Sources */,
 				BFFC846320F2F268008AD801 /* SH_NetWorkService+RechargeCenter.m in Sources */,
 				BF2F915F20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m in Sources */,
 				DA18EFBF20F0A9C3002B7E22 /* PopTool.m in Sources */,
 				DA18EFBE20F0A9C3002B7E22 /* AlertViewController.m in Sources */,
+				BFFC847320F3452A008AD801 /* UIImageView+handle.m in Sources */,
 				5401C53420ECA10F0027246D /* LineCheckViewController.m in Sources */,
 				BF2F916420EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.m in Sources */,
 				BFFC846220F2F268008AD801 /* SH_RechargeCenterPlatformModel.m in Sources */,
 				BFFC845B20F2F260008AD801 /* RH_RechargeCenterFooterView.m in Sources */,
 				2209026620F053D400F8828E /* SH_PromoViewCell.m in Sources */,
+				BFFC847220F3452A008AD801 /* NSLayoutConstraint+RH_IBDesignable.m in Sources */,
 				BFFC845220F2F253008AD801 /* SH_RechargeCenterViewController.m in Sources */,
 				5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */,
+				BFFEDCBB20F35627002E69FD /* SH_RechargeCenterAccountModel.m in Sources */,
 				DA18EFCC20F0AA02002B7E22 /* LoginViewController.m in Sources */,
 				5401C55620ECA2CC0027246D /* IPsCacheManager.m in Sources */,
 				5401C53F20ECA1100027246D /* main.m in Sources */,
 				5401C55A20ECA48D0027246D /* NetWorkLineMangaer.m in Sources */,
+				BFFC846920F34397008AD801 /* SH_RechargeCenterBasicCollectionViewCell.m in Sources */,
 				54C21AB120EE23B2006FCA0F /* SH_BaseViewController.m in Sources */,
+				BFFEDCBE20F3792E002E69FD /* SH_RechargeCenterDataHandle.m in Sources */,
 				BFFC845A20F2F260008AD801 /* DepositeHeadCollectionReusableView.m in Sources */,
 				5401C55320ECA1B80027246D /* SH_NetWorkService.m in Sources */,
+				BFFC847120F3452A008AD801 /* UIButton+Category.m in Sources */,
 				5401C55020ECA1B80027246D /* SH_NetWorkService+LineCheck.m in Sources */,
 				5401C53120ECA10F0027246D /* AppDelegate.m in Sources */,
 			);
