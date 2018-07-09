@@ -14,7 +14,7 @@ typedef void(^alertViewDismissBlock)(void);
 @property(nonatomic,copy)NSString * subTitle;
 @property(nonatomic,copy)alertViewDismissBlock dismissBlock;
 @property (weak, nonatomic) IBOutlet UIView *animationView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintWidth;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintLeading;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintTop;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @end

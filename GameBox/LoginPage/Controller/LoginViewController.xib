@@ -53,7 +53,6 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="NBz-QR-gfn" firstAttribute="top" secondItem="zzg-Nw-b3Y" secondAttribute="top" constant="8" id="TXi-1M-99F"/>
                         <constraint firstAttribute="width" constant="135" id="Vub-u9-unb"/>

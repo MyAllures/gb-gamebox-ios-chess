@@ -31,9 +31,15 @@ typedef NS_ENUM(NSInteger, AnimationDirection) {// 动画方向
  *  @param presentView show View
  *  @param animatedType    动画类型
  */
-- (void)showWithPresentView:(UIView *)presentView subTitle:(NSString*)subTitle AnimatedType:(AnimationType)animatedType AnimationDirectionType:(AnimationDirection)animationDirectionType;
+- (void)showWithPresentView:(UIView *)presentView
+        withLeading:(CGFloat)leading
+        withTop:(CGFloat)top
+        subTitle:(NSString*)subTitle
+        AnimatedType:(AnimationType)animatedType
+        AnimationDirectionType:(AnimationDirection)animationDirectionType;
 /**
  *  关闭弹出视图
  */
 - (void)closePopView;
+
 @end
