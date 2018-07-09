@@ -27,10 +27,10 @@
                                 <constraint firstAttribute="height" constant="47" id="0r9-vn-V4x"/>
                                 <constraint firstAttribute="width" constant="122" id="Qg7-KC-uJc"/>
                             </constraints>
-                            <state key="normal" title="优惠活动" image="button-long">
+                            <state key="normal" title="优惠活动" backgroundImage="button-long">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
-                            <state key="selected" image="button-long-click"/>
+                            <state key="selected" backgroundImage="button-long-click"/>
                             <connections>
                                 <action selector="btClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="Asn-Ji-BwE"/>
                             </connections>
@@ -41,10 +41,11 @@
                                 <constraint firstAttribute="height" constant="47" id="9VJ-xQ-amB"/>
                                 <constraint firstAttribute="width" constant="122" id="hTc-96-4sK"/>
                             </constraints>
-                            <state key="normal" title="优惠活动" image="button-long">
+                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                            <state key="normal" title="消息中心" backgroundImage="button-long">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
-                            <state key="selected" image="button-long-click"/>
+                            <state key="selected" backgroundImage="button-long-click"/>
                             <connections>
                                 <action selector="btClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="r8u-Tt-aro"/>
                             </connections>
@@ -84,7 +85,7 @@
                 <outlet property="promoBT" destination="o10-uu-SpZ" id="rRP-D2-Py3"/>
                 <outlet property="rightContentView" destination="BKc-gC-f6Q" id="9Om-vm-LmI"/>
             </connections>
-            <point key="canvasLocation" x="114" y="-119"/>
+            <point key="canvasLocation" x="-42" y="-59"/>
         </view>
     </objects>
     <resources>

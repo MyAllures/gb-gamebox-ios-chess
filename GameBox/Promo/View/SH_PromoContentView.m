@@ -23,13 +23,19 @@
 
 @implementation SH_PromoContentView
 
+-(void)awakeFromNib{
+    [super awakeFromNib];
+    self.rightContentView.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
+    [self.promoListView reloadData];
+    self.promoBT.selected = YES;
+}
+
 - (IBAction)btClick:(id)sender {
     UIButton *bt = (UIButton *)sender;
     if (bt == self.promoBT) {
         self.promoBT.selected = YES;
         self.infoCenterBT.selected = NO;
         self.promoListView.hidden = NO;
-        [self.promoListView reloadData];
         self.infoCenterTabView.hidden = YES;
     }
     else if (bt == self.infoCenterBT)
@@ -45,6 +51,7 @@
 {
     if (_promoListView == nil) {
         _promoListView = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoListView" owner:nil options:nil] lastObject];
+        _promoListView.backgroundColor = [UIColor clearColor];
         [self.rightContentView addSubview:_promoListView];
         [_promoListView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.top.bottom.mas_equalTo(0);

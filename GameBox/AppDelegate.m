@@ -24,6 +24,8 @@
 -(void)keyboardManagerConfig{
     IQKeyboardManager *keyboardManager = [IQKeyboardManager sharedManager]; // 获取类库的单例变量
     
+    [IQKeyboardManager sharedManager].enableDebugging = YES;
+    
     keyboardManager.enable = YES; // 控制整个功能是否启用
     
     keyboardManager.shouldResignOnTouchOutside = YES; // 控制点击背景是否收起键盘

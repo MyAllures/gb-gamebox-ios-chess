@@ -8,6 +8,7 @@
 #import "LoginViewController.h"
 #import "PopTool.h"
 #import "SH_NetWorkService+Login.h"
+#import <IQKeyboardManager.h>
 #define WIDTH_PERCENT  [UIScreen mainScreen].bounds.size.width/375.0
 #define HEIGHT_PERCENT [UIScreen mainScreen].bounds.size.height/667.0
 #define SCREEN_WIDTH  [UIScreen mainScreen].bounds.size.width
@@ -40,18 +41,17 @@
 -(void)configurationUI{
     UIImage  * img = [UIImage  imageNamed:@"left_bg"];
     self.leftContrainerView.layer.contents = (__bridge id _Nullable)(img.CGImage);
+    
 }
 - (IBAction)btnClick:(UIButton *)sender {
     
 }
--(void)show{
-    
-    [[PopTool sharedInstance] showWithPresentView:self.view withLeading:64 withTop:20  subTitle:@"登录" AnimatedType:AnimationTypeScale AnimationDirectionType:AnimationDirectionFromLeft];
-}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation
