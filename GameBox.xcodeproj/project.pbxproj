@@ -11,6 +11,8 @@
 		2209026720F053D400F8828E /* SH_PromoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2209026520F053D400F8828E /* SH_PromoViewCell.xib */; };
 		228BA7EF20F2FCE40001EC51 /* SH_PromoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 228BA7ED20F2FCE40001EC51 /* SH_PromoViewController.m */; };
 		228BA7F020F2FCE40001EC51 /* SH_PromoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228BA7EE20F2FCE40001EC51 /* SH_PromoViewController.xib */; };
+		229A219E20F3826E00F5A969 /* SH_GameAnnouncementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A219D20F3826E00F5A969 /* SH_GameAnnouncementView.m */; };
+		229A21A020F3827700F5A969 /* SH_GameAnnouncementView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229A219F20F3827700F5A969 /* SH_GameAnnouncementView.xib */; };
 		5401C53120ECA10F0027246D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C53020ECA10F0027246D /* AppDelegate.m */; };
 		5401C53420ECA10F0027246D /* LineCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C53320ECA10F0027246D /* LineCheckViewController.m */; };
 		5401C53720ECA10F0027246D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5401C53520ECA10F0027246D /* Main.storyboard */; };
@@ -56,6 +58,9 @@
 		228BA7EC20F2FCE40001EC51 /* SH_PromoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoViewController.h; sourceTree = "<group>"; };
 		228BA7ED20F2FCE40001EC51 /* SH_PromoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoViewController.m; sourceTree = "<group>"; };
 		228BA7EE20F2FCE40001EC51 /* SH_PromoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PromoViewController.xib; sourceTree = "<group>"; };
+		229A219C20F3826E00F5A969 /* SH_GameAnnouncementView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_GameAnnouncementView.h; sourceTree = "<group>"; };
+		229A219D20F3826E00F5A969 /* SH_GameAnnouncementView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_GameAnnouncementView.m; sourceTree = "<group>"; };
+		229A219F20F3827700F5A969 /* SH_GameAnnouncementView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_GameAnnouncementView.xib; sourceTree = "<group>"; };
 		3BBE090F9B091E073F4BB10C /* Pods-GameBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameBox/Pods-GameBox.release.xcconfig"; sourceTree = "<group>"; };
 		4C23814E2A7636D1CE6B89BC /* libPods-GameBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GameBox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5401C52C20ECA10F0027246D /* GameBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -297,6 +302,9 @@
 				54C8758120F3562700AA0594 /* SH_InfoCenterTabView.h */,
 				54C8758220F3562700AA0594 /* SH_InfoCenterTabView.m */,
 				54C8758420F3562F00AA0594 /* SH_InfoCenterTabView.xib */,
+				229A219C20F3826E00F5A969 /* SH_GameAnnouncementView.h */,
+				229A219D20F3826E00F5A969 /* SH_GameAnnouncementView.m */,
+				229A219F20F3827700F5A969 /* SH_GameAnnouncementView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -464,6 +472,7 @@
 				5401C56320ECF9EA0027246D /* SH_HomeViewController.xib in Resources */,
 				54C8758020F3560100AA0594 /* SH_PromoListView.xib in Resources */,
 				5401C55120ECA1B80027246D /* GameWebViewController.xib in Resources */,
+				229A21A020F3827700F5A969 /* SH_GameAnnouncementView.xib in Resources */,
 				5401C53920ECA1100027246D /* Assets.xcassets in Resources */,
 				2209026720F053D400F8828E /* SH_PromoViewCell.xib in Resources */,
 				BF2F916020EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.xib in Resources */,
@@ -525,6 +534,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5401C55220ECA1B80027246D /* GameWebViewController.m in Sources */,
+				229A219E20F3826E00F5A969 /* SH_GameAnnouncementView.m in Sources */,
 				BF2F915A20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m in Sources */,
 				5401C56220ECF9EA0027246D /* SH_HomeViewController.m in Sources */,
 				54C21AB920F1B981006FCA0F /* SH_CycleScrollView.m in Sources */,
