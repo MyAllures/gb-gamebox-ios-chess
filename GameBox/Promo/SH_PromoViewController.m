@@ -14,6 +14,9 @@
 #import "NetWorkLineMangaer.h"
 #import "PopTool.h"
 
+#define screenH [UIScreen mainScreen].bounds.size.height
+#define screenW [UIScreen mainScreen].bounds.size.width
+
 @interface SH_PromoViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic,strong) UIView *leftView;
 @property (nonatomic,strong) UIView *rightView;
@@ -21,6 +24,7 @@
 @end
 
 @implementation SH_PromoViewController
+
 
 - (void)getPromoList:(NSInteger )pageNumber pageSize:(NSInteger )pageSize activityClassifyKey:(NSString *)activityClassifyKey complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
 {
@@ -49,6 +53,9 @@
 }
 
 -(void)createUI{
+    
+    self.view.backgroundColor = [UIColor clearColor];
+    
     [self getPromoList:1 pageSize:50 activityClassifyKey:@"全部"  complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dict = (NSDictionary *)response;
         NSLog(@"dict====%@",dict);
@@ -56,45 +63,61 @@
         
     }];
     
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width-200, self.view.frame.size.height) style:UITableViewStylePlain];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.tableView.backgroundColor = [UIColor greenColor];
-    [self.tableView registerNib:[UINib nibWithNibName:@"SH_PromoViewCell" bundle:nil] forCellReuseIdentifier:@"SH_PromoViewCell"];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
+    self.tableView.backgroundColor = [UIColor clearColor];
     
     self.leftView = [[UIView alloc]initWithFrame:CGRectZero];
-    self.leftView.backgroundColor = [UIColor redColor];
+    self.leftView.backgroundColor = [UIColor colorWithRed:0.27 green:0.32 blue:0.63 alpha:1];
     [self.view addSubview:self.leftView];
-    
     [self.leftView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view).with.offset(0);
+        make.left.mas_equalTo(0);
         make.top.bottom.mas_equalTo(0);
         make.width.mas_equalTo(160);
     }];
     
-    self.rightView = [[UIView alloc]initWithFrame:CGRectMake(200, 0, self.view.frame.size.width-200, self.view.frame.size.height)];
-    self.rightView.backgroundColor = [UIColor blueColor];
+    self.rightView = [[UIView alloc]initWithFrame:CGRectZero];
+    self.rightView.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
     [self.view addSubview:self.rightView];
+    [self.rightView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.mas_equalTo(0);
+        make.left.mas_equalTo(160);
+        make.width.mas_equalTo(screenW-160);
+    }];
     [self.rightView addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.mas_equalTo(0);
+        make.left.mas_equalTo(5);
+        make.width.mas_equalTo(screenW-5);
+    }];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+//    // 设置tableView所有的cell的真实高度是自动计算的(根据设置的约束)
+//    self.tableView.rowHeight = UITableViewAutomaticDimension;
+//    // 设置tableView的估算高度
+//    self.tableView.estimatedRowHeight = 100;
+    static NSString *identifier = @"cell";
+
+    [self.tableView registerNib:[UINib nibWithNibName:@"SH_PromoViewCell" bundle:nil] forCellReuseIdentifier:identifier];
     
     UIButton *btn1 = [[UIButton alloc]initWithFrame:CGRectZero];
+    [btn1 setBackgroundImage:[UIImage imageNamed:@"login_button"] forState:UIControlStateNormal];
+    [btn1 setBackgroundImage:[UIImage imageNamed:@"login_button_click"] forState:UIControlStateNormal];
     [self.leftView addSubview:btn1];
     [btn1 setTitle:@"优惠活动" forState:UIControlStateNormal];
     [btn1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.leftView);
-        make.top.equalTo(self.leftView).with.offset(40);
-        make.width.equalTo(@185);
-        make.height.equalTo(@58);
+        make.top.equalTo(self.leftView).with.offset(20);
+        make.left.mas_equalTo(5);
     }];
     
     UIButton *btn2 = [[UIButton alloc]initWithFrame:CGRectZero];
     [self.leftView addSubview:btn2];
+    [btn2 setBackgroundImage:[UIImage imageNamed:@"login_button"] forState:UIControlStateNormal];
     [btn2 setTitle:@"消息中心" forState:UIControlStateNormal];
     [btn2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.leftView);
-        make.top.equalTo(self.leftView).with.offset(108);
-        make.width.equalTo(@185);
-        make.height.equalTo(@58);
+        make.top.equalTo(self.leftView).with.offset(88);
+        make.left.mas_equalTo(5);
     }];
 }
 
@@ -112,10 +135,17 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    SH_PromoViewCell *promoViewCell = [tableView dequeueReusableCellWithIdentifier:@"SH_PromoViewCell" forIndexPath:indexPath];
+    
+    NSString *identifier = @"cell";
+    
+    // 1.缓存中取
+    SH_PromoViewCell *promoViewCell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    
+    // 2.创建
     if (promoViewCell == nil) {
-        promoViewCell = [[SH_PromoViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SH_PromoViewCell"];
+        promoViewCell = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoViewCell" owner:nil options:nil] lastObject];
     }
+    
     return promoViewCell;
 }
 
