@@ -39,7 +39,8 @@
     UIImage  * img = [UIImage  imageNamed:@"left_bg"];
     self.leftContrainerView.layer.contents = (__bridge id _Nullable)(img.CGImage);
     self.tableView.hidden = YES;
-    
+    self.account_textField.text = @"shin";
+    self.password_textField.text = @"h123123";
 }
 
 - (IBAction)btnClick:(UIButton *)sender {
@@ -62,7 +63,25 @@
             break;
         }
         case 2:{
-            
+            [SH_NetWorkService login:self.account_textField.text psw:self.password_textField.text verfyCode:@"" complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+                NSString *setCookie = [httpURLResponse.allHeaderFields objectForKey:@"Set-Cookie"];
+                NSUInteger startLocation = [setCookie rangeOfString:@"GMT, "].location +4;
+                NSUInteger endLocation = [setCookie rangeOfString:@" rememberMe=deleteMe"].location;
+                NSUInteger lenth = endLocation - startLocation;
+                NSString *cookie = [setCookie substringWithRange:NSMakeRange(startLocation, lenth)];
+                [NetWorkLineMangaer sharedManager].currentCookie = cookie;
+                
+                [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
+                    if (self.dismissBlock) {
+                        self.dismissBlock();
+                    }
+                    
+                } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+                    //
+                }];
+            } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
+                //
+            }];
             break;
         }
         case 3:{
@@ -78,7 +97,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 /*
 #pragma mark - Navigation

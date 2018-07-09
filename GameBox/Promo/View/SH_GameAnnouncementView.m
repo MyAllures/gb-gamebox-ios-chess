@@ -1,29 +1,32 @@
 //
-//  SH_PromoListView.m
+//  SH_GameAnnouncementView.m
 //  GameBox
 //
-//  Created by shin on 2018/7/9.
+//  Created by sam on 2018/7/9.
 //  Copyright © 2018年 shin. All rights reserved.
 //
 
-#import "SH_PromoListView.h"
+#import "SH_GameAnnouncementView.h"
+#import <Masonry/Masonry.h>
 #import "SH_PromoViewCell.h"
 
-@interface SH_PromoListView () <UITableViewDelegate, UITableViewDataSource>
+@interface SH_GameAnnouncementView ()<UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UIView *view1;
+@property (weak, nonatomic) IBOutlet UIView *view2;
+@property (weak, nonatomic) IBOutlet UIView *view3;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
-@implementation SH_PromoListView
+@implementation SH_GameAnnouncementView
 
-- (void)reloadData
-{
+-(void)awakeFromNib {
+    [super awakeFromNib];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
     [self.tableView registerNib:[UINib nibWithNibName:@"SH_PromoViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
-
+    
     [self.tableView reloadData];
 }
 

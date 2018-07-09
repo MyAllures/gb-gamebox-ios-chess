@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface SH_DepositeWayCollectionViewCell : UICollectionViewCell
+#import "SH_RechargeCenterBasicCollectionViewCell.h"
+@interface SH_DepositeWayCollectionViewCell : SH_RechargeCenterBasicCollectionViewCell
 
 @end

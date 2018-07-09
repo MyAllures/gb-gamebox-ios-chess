@@ -25,7 +25,7 @@
     if (self = [super  init]) {
         self.viewHeight = height +50;
         self.viewWidth = width+40;
-        if ([view isEqual:[UIView  class]]) {
+        if ([view isKindOfClass:[UIView  class]]) {
             self.presentView = view;
         }else{
             UIViewController *vc  = (UIViewController*)view;
@@ -41,6 +41,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self  configurationUI];
+    [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(closeClick:) name:@"closeAlert" object:nil];;
 }
 -(void)configurationUI{
     
@@ -61,12 +62,11 @@
 
 }
 - (IBAction)closeClick:(id)sender {
-    if (self.dismissBlock) {
-        self.dismissBlock();
-    }
-    [self  dismissViewControllerAnimated:YES completion:^{
-        
-    }];
+
+    [self  dismissViewControllerAnimated:YES completion:nil];
+}
+-(void)close{
+    [self closeClick:nil];
 }
 -(void)setImageName:(NSString *)imageName{
 //    UIImage * img = [UIImage imageNamed:self.imageName.length >0?self.imageName:@""];
@@ -77,6 +77,7 @@
 -(void)dealloc{
     NSLog(@"clean .......");
     self.presentVC = nil;
+    [[NSNotificationCenter  defaultCenter] removeObserver:self name:@"closeAlert" object:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -85,7 +85,7 @@
                 <outlet property="promoBT" destination="o10-uu-SpZ" id="rRP-D2-Py3"/>
                 <outlet property="rightContentView" destination="BKc-gC-f6Q" id="9Om-vm-LmI"/>
             </connections>
-            <point key="canvasLocation" x="-42" y="-59"/>
+            <point key="canvasLocation" x="-223" y="-70"/>
         </view>
     </objects>
     <resources>

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface SH_DespositeChooseMoneyCollectionViewCell : UICollectionViewCell
+#import "SH_RechargeCenterBasicCollectionViewCell.h"
+@interface SH_DespositeChooseMoneyCollectionViewCell : SH_RechargeCenterBasicCollectionViewCell
 
 @end

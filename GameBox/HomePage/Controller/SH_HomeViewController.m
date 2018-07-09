@@ -109,7 +109,9 @@
 - (IBAction)avatarClick:(id)sender {
     LoginViewController  * vc = [LoginViewController  new];
     AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:vc viewHeight:250 viewWidth:414];
-//    cvc.imageName = @"progress_bar_icon";
+    vc.dismissBlock = ^{
+        [cvc  close];
+    };
     cvc.title = @"测试";
     cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
@@ -122,9 +124,12 @@
 #pragma 优惠
 - (IBAction)activitiesClick:(id)sender {
     SH_PromoContentView *promoContentView = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoContentView" owner:nil options:nil] lastObject];
-    
-    [[PopTool  sharedInstance] showWithPresentView:promoContentView withWidth:300 withHeight:200 subTitle:@"" AnimatedType:AnimationTypeScale AnimationDirectionType:AnimationDirectionFromCenter];
-
+    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:promoContentView viewHeight:[UIScreen mainScreen].bounds.size.height-60 viewWidth:[UIScreen mainScreen].bounds.size.width-160];
+    //    cvc.imageName = @"progress_bar_icon";
+    cvc.title = @"优惠活动";
+    cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:cvc animated:YES completion:nil];
 }
 
 - (IBAction)userCenterClick:(id)sender {

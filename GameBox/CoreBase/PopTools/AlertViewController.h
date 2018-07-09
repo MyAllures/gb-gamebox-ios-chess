@@ -7,10 +7,6 @@
 //
 
 #import "SH_BaseViewController.h"
-@protocol AlertViewControllerDelegate<NSObject>
-@optional
--(void)buttonClickWithIndex:(NSInteger)index;
-@end
 @class AlertViewController;
 typedef void(^alertViewDismissBlock)(void);
 @interface AlertViewController : SH_BaseViewController
@@ -19,7 +15,6 @@ typedef void(^alertViewDismissBlock)(void);
 @property(nonatomic,copy)alertViewDismissBlock dismissBlock;
 @property (weak, nonatomic) IBOutlet UIView *animationView;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
-@property(nonatomic,assign)id<AlertViewControllerDelegate>delegate;
 /**
  自定义弹窗
  @param view 自定义的UIView 或者vc
@@ -27,5 +22,6 @@ typedef void(^alertViewDismissBlock)(void);
  @param width 自定义的UIView的宽度
  @return return value description
  */
--(instancetype)initAlertView:(id)view viewHeight:(CGFloat)height viewWidth:(CGFloat)width ;
+-(instancetype)initAlertView:(id)view viewHeight:(CGFloat)height viewWidth:(CGFloat)width;
+-(void)close;
 @end
