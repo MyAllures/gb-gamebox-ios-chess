@@ -46,7 +46,9 @@
 - (IBAction)btnClick:(UIButton *)sender {
     
 }
-
+-(void)show{
+     [[PopTool  sharedInstance] showWithPresentView:self.view withWidth:414 withHeight:240 subTitle:@"sadjkn" AnimatedType:AnimationTypeScale AnimationDirectionType:AnimationDirectionFromCenter];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

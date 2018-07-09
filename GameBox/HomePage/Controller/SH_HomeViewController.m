@@ -111,6 +111,7 @@
 //    cvc.imageName = @"progress_bar_icon";
     cvc.title = @"测试";
     cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;// UIModalTransitionStyleCoverVertical;//UIModalTransitionStyleFlipHorizontal;//;
     [self presentViewController:cvc animated:YES completion:nil];
 }
 
@@ -121,7 +122,7 @@
 - (IBAction)activitiesClick:(id)sender {
     SH_PromoContentView *promoContentView = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoContentView" owner:nil options:nil] lastObject];
     
-    [[PopTool sharedInstance] showWithPresentView:promoContentView withLeading:80 withTop:20 subTitle:@"优惠活动" AnimatedType:AnimationTypeScale AnimationDirectionType:AnimationDirectionFromLeft];
+    [[PopTool  sharedInstance] showWithPresentView:promoContentView withWidth:300 withHeight:200 subTitle:@"" AnimatedType:AnimationTypeScale AnimationDirectionType:AnimationDirectionFromCenter];
 
 }
 
