@@ -107,7 +107,6 @@
 }
 
 - (IBAction)avatarClick:(id)sender {
-<<<<<<< HEAD
 //    [[LoginViewController new] show];
     [SH_NetWorkService login:@"Shin" psw:@"h123123" verfyCode:@"" complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSString *setCookie = [httpURLResponse.allHeaderFields objectForKey:@"Set-Cookie"];
@@ -125,14 +124,6 @@
     } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
         //
     }];
-=======
-    LoginViewController  * vc = [LoginViewController  new];
-    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:vc.view viewHeight:250 viewWidth:414];
-//    cvc.imageName = @"progress_bar_icon";
-    cvc.title = @"测试";
-    cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    [self presentViewController:cvc animated:YES completion:nil];
->>>>>>> 9b5a0933038f2eddc83573f8915beda643e8a142
 }
 
 - (IBAction)rechargeClick:(id)sender {
