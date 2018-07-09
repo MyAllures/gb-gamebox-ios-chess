@@ -8,6 +8,7 @@ pod 'MJRefresh'
 pod 'Masonry'
 pod 'MBProgressHUD', '~> 1.1.0'
 pod 'WebViewJavascriptBridge', '~> 6.0'
+pod 'IQKeyboardManager', '~> 6.0.4'
 pod 'JSONModel'
 end
 
