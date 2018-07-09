@@ -17,6 +17,8 @@
 #import "SH_CycleScrollView.h"
 #import "SH_PromoViewController.h"
 #import "LoginViewController.h"
+#import "SH_PromoContentView.h"
+#import "PopTool.h"
 
 @interface SH_HomeViewController ()<SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate>
 
@@ -109,8 +111,10 @@
 }
 #pragma 优惠
 - (IBAction)activitiesClick:(id)sender {
-    SH_PromoViewController *promoView = [[SH_PromoViewController alloc]init];
-    [promoView show];
+    SH_PromoContentView *promoContentView = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoContentView" owner:nil options:nil] lastObject];
+    
+    [[PopTool sharedInstance] showWithPresentView:promoContentView withLeading:80 withTop:20 subTitle:@"优惠活动" AnimatedType:AnimationTypeScale AnimationDirectionType:AnimationDirectionFromLeft];
+
 }
 
 - (IBAction)userCenterClick:(id)sender {

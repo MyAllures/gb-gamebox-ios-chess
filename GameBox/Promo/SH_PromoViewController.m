@@ -85,9 +85,9 @@
     }];
     [self.rightView addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.mas_equalTo(0);
-        make.left.mas_equalTo(5);
-        make.width.mas_equalTo(screenW-5);
+        make.top.bottom.equalTo(self.rightView).mas_equalTo(0);
+        make.left.equalTo(self.rightView).mas_equalTo(5);
+        make.width.mas_equalTo(400);
     }];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -95,9 +95,8 @@
 //    self.tableView.rowHeight = UITableViewAutomaticDimension;
 //    // 设置tableView的估算高度
 //    self.tableView.estimatedRowHeight = 100;
-    static NSString *identifier = @"cell";
 
-    [self.tableView registerNib:[UINib nibWithNibName:@"SH_PromoViewCell" bundle:nil] forCellReuseIdentifier:identifier];
+    [self.tableView registerNib:[UINib nibWithNibName:@"SH_PromoViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
     UIButton *btn1 = [[UIButton alloc]initWithFrame:CGRectZero];
     [btn1 setBackgroundImage:[UIImage imageNamed:@"login_button"] forState:UIControlStateNormal];
@@ -136,14 +135,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSString *identifier = @"cell";
-    
+    static NSString *identifier = @"cell";
+
     // 1.缓存中取
     SH_PromoViewCell *promoViewCell = [tableView dequeueReusableCellWithIdentifier:identifier];
     
     // 2.创建
     if (promoViewCell == nil) {
-        promoViewCell = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoViewCell" owner:nil options:nil] lastObject];
+        promoViewCell = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoViewCell" owner:self options:nil] objectAtIndex:0];
     }
     
     return promoViewCell;

@@ -28,6 +28,12 @@
 		5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C56520ECFB3E0027246D /* SH_NetWorkService+Login.m */; };
 		54C21AB120EE23B2006FCA0F /* SH_BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C21AB020EE23B2006FCA0F /* SH_BaseViewController.m */; };
 		54C21AB920F1B981006FCA0F /* SH_CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C21AB820F1B981006FCA0F /* SH_CycleScrollView.m */; };
+		54C8757920F3508600AA0594 /* SH_PromoContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8757820F3508600AA0594 /* SH_PromoContentView.m */; };
+		54C8757B20F3509100AA0594 /* SH_PromoContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C8757A20F3509100AA0594 /* SH_PromoContentView.xib */; };
+		54C8757E20F355F800AA0594 /* SH_PromoListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8757D20F355F800AA0594 /* SH_PromoListView.m */; };
+		54C8758020F3560100AA0594 /* SH_PromoListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C8757F20F3560100AA0594 /* SH_PromoListView.xib */; };
+		54C8758320F3562700AA0594 /* SH_InfoCenterTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8758220F3562700AA0594 /* SH_InfoCenterTabView.m */; };
+		54C8758520F3562F00AA0594 /* SH_InfoCenterTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C8758420F3562F00AA0594 /* SH_InfoCenterTabView.xib */; };
 		BF2F915620EF591F00CEDE8C /* SH_RechargeCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F915520EF591F00CEDE8C /* SH_RechargeCenterViewController.m */; };
 		BF2F915A20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F915820EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m */; };
 		BF2F915B20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2F915920EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib */; };
@@ -83,6 +89,15 @@
 		54C21AB020EE23B2006FCA0F /* SH_BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_BaseViewController.m; sourceTree = "<group>"; };
 		54C21AB720F1B981006FCA0F /* SH_CycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_CycleScrollView.h; sourceTree = "<group>"; };
 		54C21AB820F1B981006FCA0F /* SH_CycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_CycleScrollView.m; sourceTree = "<group>"; };
+		54C8757720F3508600AA0594 /* SH_PromoContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoContentView.h; sourceTree = "<group>"; };
+		54C8757820F3508600AA0594 /* SH_PromoContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoContentView.m; sourceTree = "<group>"; };
+		54C8757A20F3509100AA0594 /* SH_PromoContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PromoContentView.xib; sourceTree = "<group>"; };
+		54C8757C20F355F800AA0594 /* SH_PromoListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoListView.h; sourceTree = "<group>"; };
+		54C8757D20F355F800AA0594 /* SH_PromoListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoListView.m; sourceTree = "<group>"; };
+		54C8757F20F3560100AA0594 /* SH_PromoListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PromoListView.xib; sourceTree = "<group>"; };
+		54C8758120F3562700AA0594 /* SH_InfoCenterTabView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_InfoCenterTabView.h; sourceTree = "<group>"; };
+		54C8758220F3562700AA0594 /* SH_InfoCenterTabView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_InfoCenterTabView.m; sourceTree = "<group>"; };
+		54C8758420F3562F00AA0594 /* SH_InfoCenterTabView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_InfoCenterTabView.xib; sourceTree = "<group>"; };
 		BF2F915420EF591F00CEDE8C /* SH_RechargeCenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_RechargeCenterViewController.h; sourceTree = "<group>"; };
 		BF2F915520EF591F00CEDE8C /* SH_RechargeCenterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_RechargeCenterViewController.m; sourceTree = "<group>"; };
 		BF2F915720EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_DepositeWayCollectionViewCell.h; sourceTree = "<group>"; };
@@ -120,6 +135,8 @@
 		2224CB6D20EF8C3100E6872B /* Promo */ = {
 			isa = PBXGroup;
 			children = (
+				54C8757520F3502000AA0594 /* Model */,
+				54C8757620F3502000AA0594 /* View */,
 				228BA7EC20F2FCE40001EC51 /* SH_PromoViewController.h */,
 				228BA7ED20F2FCE40001EC51 /* SH_PromoViewController.m */,
 				228BA7EE20F2FCE40001EC51 /* SH_PromoViewController.xib */,
@@ -259,6 +276,29 @@
 				54C21AB020EE23B2006FCA0F /* SH_BaseViewController.m */,
 			);
 			path = BaseViewController;
+			sourceTree = "<group>";
+		};
+		54C8757520F3502000AA0594 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		54C8757620F3502000AA0594 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				54C8757720F3508600AA0594 /* SH_PromoContentView.h */,
+				54C8757820F3508600AA0594 /* SH_PromoContentView.m */,
+				54C8757A20F3509100AA0594 /* SH_PromoContentView.xib */,
+				54C8757C20F355F800AA0594 /* SH_PromoListView.h */,
+				54C8757D20F355F800AA0594 /* SH_PromoListView.m */,
+				54C8757F20F3560100AA0594 /* SH_PromoListView.xib */,
+				54C8758120F3562700AA0594 /* SH_InfoCenterTabView.h */,
+				54C8758220F3562700AA0594 /* SH_InfoCenterTabView.m */,
+				54C8758420F3562F00AA0594 /* SH_InfoCenterTabView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		87BD6A1D16B97D20B3D1FCB6 /* Frameworks */ = {
@@ -418,13 +458,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54C8758520F3562F00AA0594 /* SH_InfoCenterTabView.xib in Resources */,
 				BF2F916520EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.xib in Resources */,
 				5401C53C20ECA1100027246D /* LaunchScreen.storyboard in Resources */,
 				5401C56320ECF9EA0027246D /* SH_HomeViewController.xib in Resources */,
+				54C8758020F3560100AA0594 /* SH_PromoListView.xib in Resources */,
 				5401C55120ECA1B80027246D /* GameWebViewController.xib in Resources */,
 				5401C53920ECA1100027246D /* Assets.xcassets in Resources */,
 				2209026720F053D400F8828E /* SH_PromoViewCell.xib in Resources */,
 				BF2F916020EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.xib in Resources */,
+				54C8757B20F3509100AA0594 /* SH_PromoContentView.xib in Resources */,
 				BF2F915B20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib in Resources */,
 				DA18EFCD20F0AA02002B7E22 /* LoginViewController.xib in Resources */,
 				5401C53720ECA10F0027246D /* Main.storyboard in Resources */,
@@ -491,7 +534,9 @@
 				5401C53420ECA10F0027246D /* LineCheckViewController.m in Sources */,
 				BF2F916420EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.m in Sources */,
 				2209026620F053D400F8828E /* SH_PromoViewCell.m in Sources */,
+				54C8757E20F355F800AA0594 /* SH_PromoListView.m in Sources */,
 				5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */,
+				54C8757920F3508600AA0594 /* SH_PromoContentView.m in Sources */,
 				DA18EFCC20F0AA02002B7E22 /* LoginViewController.m in Sources */,
 				5401C55620ECA2CC0027246D /* IPsCacheManager.m in Sources */,
 				BF2F915620EF591F00CEDE8C /* SH_RechargeCenterViewController.m in Sources */,
@@ -500,6 +545,7 @@
 				228BA7EF20F2FCE40001EC51 /* SH_PromoViewController.m in Sources */,
 				54C21AB120EE23B2006FCA0F /* SH_BaseViewController.m in Sources */,
 				5401C55320ECA1B80027246D /* SH_NetWorkService.m in Sources */,
+				54C8758320F3562700AA0594 /* SH_InfoCenterTabView.m in Sources */,
 				5401C55020ECA1B80027246D /* SH_NetWorkService+LineCheck.m in Sources */,
 				5401C53120ECA10F0027246D /* AppDelegate.m in Sources */,
 			);
