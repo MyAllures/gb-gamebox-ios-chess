@@ -21,6 +21,11 @@
     
 }
 
+- (UIInterfaceOrientationMask)orientation
+{
+    return UIInterfaceOrientationMaskAll;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -31,35 +36,31 @@
     
     NSString *preUrl = [NSString stringWithFormat:@"%@://%@%@",[NetWorkLineMangaer sharedManager].currentHttpType,[NetWorkLineMangaer sharedManager].currentHost,[[NetWorkLineMangaer sharedManager].currentPort isEqualToString:@""] ? @"" : [NSString stringWithFormat:@":%@",[NetWorkLineMangaer sharedManager].currentPort]];
     
-//    if ([self.url.absoluteString hasPrefix:preUrl] && ([RH_UserInfoManager shareUserManager].sidString != nil && ![[RH_UserInfoManager shareUserManager].sidString isEqualToString:@""])) {
-//        NSMutableDictionary *cookieProperties = [NSMutableDictionary dictionary];
-//        [cookieProperties setObject:self.appDelegate.headerDomain forKey:NSHTTPCookieDomain];
-//        [cookieProperties setObject:@"/" forKey:NSHTTPCookiePath];
-//        [cookieProperties setObject:@"SID" forKey:NSHTTPCookieName];
-//        NSArray *sidStringCompArr = [[RH_UserInfoManager shareUserManager].sidString componentsSeparatedByString:@";"];
-//        NSArray *sidInfoArr = [[sidStringCompArr firstObject] componentsSeparatedByString:@"="];
-//        [cookieProperties setObject:sidInfoArr[1] forKey:NSHTTPCookieValue];
-//        NSHTTPCookie *cookieuser = [NSHTTPCookie cookieWithProperties:cookieProperties];
-//        [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie:cookieuser];
-//        [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookieAcceptPolicy:NSHTTPCookieAcceptPolicyAlways];
-//        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:self.webURL cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
-//        [request setValue:self.appDelegate.headerDomain forHTTPHeaderField:@"Host"];
-//
-//        [self.webView loadRequest:request];
-//    }
-//    else
-//    {
-//        NSMutableDictionary *cookieProperties = [NSMutableDictionary dictionary];
-//        [cookieProperties setObject:self.appDelegate.headerDomain forKey:NSHTTPCookieDomain];
-//        NSHTTPCookie *cookieuser = [NSHTTPCookie cookieWithProperties:cookieProperties];
-//        [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie:cookieuser];
-//        [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookieAcceptPolicy:NSHTTPCookieAcceptPolicyAlways];
-//        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:self.webURL cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
-//
-//        [self.webView loadRequest:request];
-//    }
+    if ([self.url hasPrefix:preUrl] && ([NetWorkLineMangaer sharedManager].currentSID != nil && ![[NetWorkLineMangaer sharedManager].currentSID isEqualToString:@""])) {
+        NSMutableDictionary *cookieProperties = [NSMutableDictionary dictionary];
+        [cookieProperties setObject:[NetWorkLineMangaer sharedManager].currentHost forKey:NSHTTPCookieDomain];
+        [cookieProperties setObject:@"/" forKey:NSHTTPCookiePath];
+        [cookieProperties setObject:@"SID" forKey:NSHTTPCookieName];
+        [cookieProperties setObject:[NetWorkLineMangaer sharedManager].currentSID forKey:NSHTTPCookieValue];
+        NSHTTPCookie *cookieuser = [NSHTTPCookie cookieWithProperties:cookieProperties];
+        [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie:cookieuser];
+        [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookieAcceptPolicy:NSHTTPCookieAcceptPolicyAlways];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.url] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
+        [request setValue:[NetWorkLineMangaer sharedManager].currentHost forHTTPHeaderField:@"Host"];
 
-    [self.webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.url]]];
+        [self.webview loadRequest:request];
+    }
+    else
+    {
+        NSMutableDictionary *cookieProperties = [NSMutableDictionary dictionary];
+        [cookieProperties setObject:[NetWorkLineMangaer sharedManager].currentHost forKey:NSHTTPCookieDomain];
+        NSHTTPCookie *cookieuser = [NSHTTPCookie cookieWithProperties:cookieProperties];
+        [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie:cookieuser];
+        [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookieAcceptPolicy:NSHTTPCookieAcceptPolicyAlways];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.url] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
+
+        [self.webview loadRequest:request];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

@@ -31,6 +31,11 @@
 @property (nonatomic, strong) UILabel *amountLBL;
 //返回按钮
 @property (nonatomic, strong) UIButton *backBtn;
+//福利视图窗口
+@property (nonatomic, strong) UIView *welfareV;
+//关闭窗口按钮
+@property (nonatomic, strong) UIButton *closeBtn;
+
 
 @end
 
@@ -181,7 +186,7 @@
     self.backBtn = [[UIButton alloc] init];
     [self.recordV addSubview:self.backBtn];
     [self.backBtn setTitle:@"返回" forState:UIControlStateNormal];
-    [self.backBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    [self.backBtn addTarget:self action:@selector(popView) forControlEvents:UIControlEventTouchUpInside];
     self.backBtn.titleLabel.font = [UIFont systemFontOfSize:15.0];
     
     [self.backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -190,10 +195,43 @@
     }];
 }
 
-//返回
-- (void)back
+//弹出视图
+- (void)popView
 {
+    if ([self.backBtn.titleLabel.text isEqualToString:@"福利记录"]) {
+        [UIView animateWithDuration:2.0 animations:^{
+
+            self.welfareV = [[UIView alloc] init];
+            [self.backgroundV addSubview:self.welfareV];
+            [self.welfareV mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.backgroundV.mas_top).with.mas_equalTo(@(10));
+                make.bottom.equalTo(self.backgroundV.mas_bottom).with.mas_equalTo(@(-10));
+                make.left.equalTo(self.backgroundV.mas_left).with.mas_equalTo(@(30));
+                make.right.equalTo(self.backgroundV.mas_right).with.mas_equalTo(@(-30));
+            }];
+        }];
     
+        self.closeBtn = [[UIButton alloc] init];
+        [self.backgroundV addSubview:self.closeBtn];
+        [self.closeBtn addTarget:self action:@selector(closeView) forControlEvents:UIControlEventTouchUpInside];
+        [self.closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(30, 30));
+            make.top.equalTo(self.backgroundV.mas_top).with.mas_equalTo(@(8));
+            make.right.equalTo(self.backgroundV.mas_right).with.mas_equalTo(@(50));
+            make.left.equalTo(self.backgroundV.mas_left).with.mas_equalTo(@(200));
+            make.bottom.equalTo(self.backgroundV.mas_bottom).with.mas_equalTo(@(-280));
+        }];
+    }
+}
+
+- (void)closeView
+{
+    NSLog(@"关闭视图");
+    
+    [UIView animateWithDuration:1.0 animations:^{
+        [self.welfareV removeFromSuperview];
+        [self.closeBtn removeFromSuperview];
+    }];
 }
 
 

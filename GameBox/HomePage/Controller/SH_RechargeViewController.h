@@ -1,14 +1,14 @@
 //
-//  SH_HomeViewController.h
+//  SH_RechargeViewController.h
 //  GameBox
 //
-//  Created by shin on 2018/7/4.
+//  Created by shin on 2018/7/6.
 //  Copyright © 2018年 shin. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "SH_BaseViewController.h"
 
-@interface SH_HomeViewController : SH_BaseViewController
+@interface SH_RechargeViewController : SH_BaseViewController
 
 @end

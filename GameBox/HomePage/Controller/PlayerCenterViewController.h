@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SH_BaseViewController.h"
 
-@interface PlayerCenterViewController : UIViewController
+@interface PlayerCenterViewController : SH_BaseViewController
 
 @end

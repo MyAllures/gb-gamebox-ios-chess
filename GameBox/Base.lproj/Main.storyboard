@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="start_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="Uka-EU-gLu">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="start_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="Uka-EU-gLu">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                             </imageView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Wz2-x6-9Jf">
@@ -45,7 +45,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOX-s5-mV8">
-                                <rect key="frame" x="161" y="309" width="68" height="58"/>
+                                <rect key="frame" x="161" y="309.5" width="68" height="58"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="progress_bar_icon" translatesAutoresizingMaskIntoConstraints="NO" id="sK7-IS-sRc">
                                         <rect key="frame" x="20.5" y="19" width="27" height="20.5"/>
