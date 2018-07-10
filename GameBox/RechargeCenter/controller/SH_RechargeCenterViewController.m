@@ -18,7 +18,8 @@
 #import "SH_RechargeCenterChannelModel.h"
 #import "SH_RechargeCenterBasicCollectionViewCell.h"
 #import "SH_RechargeCenterDataHandle.h" //处理cell选中状态
-@interface SH_RechargeCenterViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
+#import "SH_BitCoinViewController.h"
+@interface SH_RechargeCenterViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,RH_RechargeCenterFooterViewDelegate>
 @property(nonatomic,strong)UICollectionView *mainCollectionView;
 @property(nonatomic,strong)NSMutableArray *dataArray;
 @property(nonatomic,strong)UILabel *tipLab;
@@ -34,12 +35,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor whiteColor];
+    [self configNavigationWithTitle:@"充值中心"];
     [self loadData];
     [self configUI];
-}
--(UIInterfaceOrientationMask)orientation{
-    return UIInterfaceOrientationMaskPortrait;
 }
 #pragma mark--
 #pragma mark--lazy UI
@@ -124,12 +122,17 @@
 }
 -(void)configUI{
    
+     NSLog(@"StatusBarHeight ======= %f",[[UIApplication  sharedApplication] statusBarFrame].size.height);
+    NSLog(@"StatusBarHeight === %f",StatusBarHeight);
+     NSLog(@"NavigationBarHeight === %f",NavigationBarHeight);
     [self.mainCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
+        make.left.right.bottom.equalTo(self.view);
+        make.top.equalTo(self.view).offset(StatusBarHeight+NavigationBarHeight);
     }];
     [self.tipLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.right.equalTo(self.view);
+        make.left.right.equalTo(self.view);
         make.height.equalTo(@20);
+        make.top.equalTo(self.view).offset(StatusBarHeight+NavigationBarHeight);
     }];
     [self.mainCollectionView registerNib:[UINib nibWithNibName:@"SH_DepositeWayCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"SH_DepositeWayCollectionViewCell"];
     [self.mainCollectionView registerNib:[UINib nibWithNibName:@"SH_DespositePlatformCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"SH_DespositePlatformCollectionViewCell"];
@@ -197,6 +200,7 @@
         return headerView;
     }else{
         RH_RechargeCenterFooterView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"RH_RechargeCenterFooterView" forIndexPath:indexPath];
+        footerView.delegate = self;
         [footerView updateUIWithDictionary:self.platformDic Number:self.number];
         return footerView;
     }
@@ -215,11 +219,16 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
     
     if (section == 2) {
-        return CGSizeMake(self.view.frame.size.width, 300);
+        return CGSizeMake(self.view.frame.size.width, 500);
     }else{
         return CGSizeMake(0, 0);
     }
     
+}
+#pragma mark--
+#pragma mark--footerView delegate
+- (void)RH_RechargeCenterFooterViewSubmitBtnClick{
+    [self presentViewController:[[SH_BitCoinViewController alloc]init] animated:YES completion:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

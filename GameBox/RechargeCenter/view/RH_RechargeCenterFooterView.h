@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@protocol RH_RechargeCenterFooterViewDelegate<NSObject>
+-(void)RH_RechargeCenterFooterViewSubmitBtnClick;
+@end
 @interface RH_RechargeCenterFooterView : UICollectionReusableView
+@property(nonatomic,weak)id<RH_RechargeCenterFooterViewDelegate>delegate;
 -(void)updateUIWithDictionary:(NSDictionary *)dictionary Number:(NSString *)number;
 @end

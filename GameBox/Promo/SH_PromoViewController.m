@@ -43,7 +43,7 @@
 }
 
 -(void)show{
-    [[PopTool sharedInstance] showWithPresentView:self.view withLeading:80 withTop:20 subTitle:@"优惠活动" AnimatedType:AnimationTypeScale AnimationDirectionType:AnimationDirectionFromLeft];
+//    [[PopTool sharedInstance] showWithPresentView:self.view withLeading:80 withTop:20 subTitle:@"优惠活动" AnimatedType:AnimationTypeScale AnimationDirectionType:AnimationDirectionFromLeft];
 }
 
 - (void)viewDidLoad {

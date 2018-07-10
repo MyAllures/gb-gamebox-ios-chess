@@ -70,4 +70,7 @@
     self.messageLab.text = self.content;
     self.textField.text = number;
 }
+- (IBAction)submitBtnClick:(id)sender {
+    [self.delegate RH_RechargeCenterFooterViewSubmitBtnClick];
+}
 @end

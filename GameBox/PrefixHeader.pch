@@ -29,4 +29,5 @@
 #import <JSONModel.h>
 #import "UIImageView+handle.h"
 #import "UIImageView+WebCache.h"
+#import "UIMacro.h"
 #endif /* PrefixHeader_pch */
