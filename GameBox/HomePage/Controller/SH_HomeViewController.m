@@ -15,7 +15,6 @@
 #import "SH_RechargeCenterViewController.h"
 #import "View+MASAdditions.h"
 #import "SH_CycleScrollView.h"
-#import "SH_PromoViewController.h"
 #import "LoginViewController.h"
 
 #import "AlertViewController.h"
