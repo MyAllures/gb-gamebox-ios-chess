@@ -62,6 +62,8 @@
 		DA18EFBF20F0A9C3002B7E22 /* PopTool.m in Sources */ = {isa = PBXBuildFile; fileRef = DA18EFBB20F0A9C3002B7E22 /* PopTool.m */; };
 		DA18EFCC20F0AA02002B7E22 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA18EFC820F0AA02002B7E22 /* LoginViewController.m */; };
 		DA18EFCD20F0AA02002B7E22 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA18EFC920F0AA02002B7E22 /* LoginViewController.xib */; };
+		DA22F34120F43ABC0058A54F /* SH_LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA22F34020F43ABC0058A54F /* SH_LoginView.m */; };
+		DA22F34320F43AD00058A54F /* SH_LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA22F34220F43AD00058A54F /* SH_LoginView.xib */; };
 		F88297C8CDA8BE450455395E /* libPods-GameBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C23814E2A7636D1CE6B89BC /* libPods-GameBox.a */; };
 /* End PBXBuildFile section */
 
@@ -163,6 +165,9 @@
 		DA18EFC820F0AA02002B7E22 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		DA18EFC920F0AA02002B7E22 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		DA18EFCA20F0AA02002B7E22 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		DA22F33F20F43ABC0058A54F /* SH_LoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_LoginView.h; sourceTree = "<group>"; };
+		DA22F34020F43ABC0058A54F /* SH_LoginView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_LoginView.m; sourceTree = "<group>"; };
+		DA22F34220F43AD00058A54F /* SH_LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_LoginView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -456,6 +461,7 @@
 		DA18EFC620F0AA02002B7E22 /* LoginPage */ = {
 			isa = PBXGroup;
 			children = (
+				DA22F33E20F43AA10058A54F /* View */,
 				DA18EFC720F0AA02002B7E22 /* Controller */,
 			);
 			path = LoginPage;
@@ -469,6 +475,16 @@
 				DA18EFC920F0AA02002B7E22 /* LoginViewController.xib */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		DA22F33E20F43AA10058A54F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DA22F33F20F43ABC0058A54F /* SH_LoginView.h */,
+				DA22F34020F43ABC0058A54F /* SH_LoginView.m */,
+				DA22F34220F43AD00058A54F /* SH_LoginView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		F14E4A72378CCD648FF29337 /* Pods */ = {
@@ -558,6 +574,11 @@
 				BFFC845920F2F260008AD801 /* DepositeHeadCollectionReusableView.xib in Resources */,
 				5401C53720ECA10F0027246D /* Main.storyboard in Resources */,
 				DA18EFBD20F0A9C3002B7E22 /* AlertViewController.xib in Resources */,
+
+				228BA7F020F2FCE40001EC51 /* SH_PromoViewController.xib in Resources */,
+				DA22F34320F43AD00058A54F /* SH_LoginView.xib in Resources */,
+
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,6 +639,7 @@
 				54C21AB920F1B981006FCA0F /* SH_CycleScrollView.m in Sources */,
 				BFFC846320F2F268008AD801 /* SH_NetWorkService+RechargeCenter.m in Sources */,
 				BF2F915F20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m in Sources */,
+				DA22F34120F43ABC0058A54F /* SH_LoginView.m in Sources */,
 				DA18EFBF20F0A9C3002B7E22 /* PopTool.m in Sources */,
 				DA18EFBE20F0A9C3002B7E22 /* AlertViewController.m in Sources */,
 				BFFC847320F3452A008AD801 /* UIImageView+handle.m in Sources */,
