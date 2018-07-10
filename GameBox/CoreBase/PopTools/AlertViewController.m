@@ -16,15 +16,23 @@
 @property(nonatomic,assign)CGFloat viewWidth;
 @property (weak, nonatomic) IBOutlet UIImageView *headImage;
 @property(nonatomic,assign)CGFloat viewHeight;
+@property(nonatomic,strong)UIViewController * presentVC;
 @end
 
 @implementation AlertViewController
 
--(instancetype)initAlertView:(UIView *)view viewHeight:(CGFloat)height viewWidth:(CGFloat)width{
+-(instancetype)initAlertView:(id)view viewHeight:(CGFloat)height viewWidth:(CGFloat)width{
     if (self = [super  init]) {
         self.viewHeight = height +50;
         self.viewWidth = width+40;
-        self.presentView = view;
+        if ([view isKindOfClass:[UIView  class]]) {
+            self.presentView = view;
+        }else{
+            UIViewController *vc  = (UIViewController*)view;
+            self.presentView = vc.view;
+            self.presentVC = vc;
+        }
+        
     }
     return  self;
 }
@@ -33,6 +41,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self  configurationUI];
+    [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(closeClick:) name:@"closeAlert" object:nil];;
 }
 -(void)configurationUI{
     
@@ -44,19 +53,20 @@
     self.constraintHeight.constant = self.viewHeight;
     self.constraintWidth.constant = self.viewWidth;
     [self.view  layoutIfNeeded];
-    
+   
+//    [self addChildViewController:self.presentVC];
     [self.containerView addSubview:self.presentView];
     [self.presentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(self.containerView);
     }];
+
 }
 - (IBAction)closeClick:(id)sender {
-    if (self.dismissBlock) {
-        self.dismissBlock();
-    }
-    [self  dismissViewControllerAnimated:YES completion:^{
-        
-    }];
+
+    [self  dismissViewControllerAnimated:YES completion:nil];
+}
+-(void)close{
+    [self closeClick:nil];
 }
 -(void)setImageName:(NSString *)imageName{
 //    UIImage * img = [UIImage imageNamed:self.imageName.length >0?self.imageName:@""];
@@ -65,7 +75,9 @@
     [self.view layoutIfNeeded];
 }
 -(void)dealloc{
-    
+    NSLog(@"clean .......");
+    self.presentVC = nil;
+    [[NSNotificationCenter  defaultCenter] removeObserver:self name:@"closeAlert" object:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

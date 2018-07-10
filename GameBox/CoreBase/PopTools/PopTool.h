@@ -27,16 +27,16 @@ typedef NS_ENUM(NSInteger, AnimationDirection) {// 动画方向
 +(PopTool*)sharedInstance;
 /**
  *  弹出要展示的View
- *  @param leading top 距离左边和上边的距离
+ *  @param width height 距离左边和上边的距离
  *  @param presentView show View
  *  @param animatedType    动画类型
  */
 - (void)showWithPresentView:(UIView *)presentView
-        withLeading:(CGFloat)leading
-        withTop:(CGFloat)top
+        withWidth:(CGFloat)width
+        withHeight:(CGFloat)height
         subTitle:(NSString*)subTitle
         AnimatedType:(AnimationType)animatedType
-        AnimationDirectionType:(AnimationDirection)animationDirectionType;
+     AnimationDirectionType:(AnimationDirection)animationDirectionType;
 /**
  *  关闭弹出视图
  */

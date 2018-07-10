@@ -15,7 +15,6 @@
 #import "SH_RechargeCenterViewController.h"
 #import "View+MASAdditions.h"
 #import "SH_CycleScrollView.h"
-#import "SH_PromoViewController.h"
 #import "LoginViewController.h"
 
 #import "AlertViewController.h"
@@ -107,23 +106,15 @@
 }
 
 - (IBAction)avatarClick:(id)sender {
-//    [[LoginViewController new] show];
-    [SH_NetWorkService login:@"Shin" psw:@"h123123" verfyCode:@"" complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        NSString *setCookie = [httpURLResponse.allHeaderFields objectForKey:@"Set-Cookie"];
-        NSUInteger startLocation = [setCookie rangeOfString:@"GMT, "].location +4;
-        NSUInteger endLocation = [setCookie rangeOfString:@" rememberMe=deleteMe"].location;
-        NSUInteger lenth = endLocation - startLocation;
-        NSString *cookie = [setCookie substringWithRange:NSMakeRange(startLocation, lenth)];
-        [NetWorkLineMangaer sharedManager].currentCookie = cookie;
-        
-        [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
-            //
-        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-            //
-        }];
-    } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
-        //
-    }];
+    LoginViewController  * vc = [LoginViewController  new];
+    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:vc viewHeight:250 viewWidth:414];
+    vc.dismissBlock = ^{
+        [cvc  close];
+    };
+    cvc.title = @"测试";
+    cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:cvc animated:YES completion:nil];
 }
 
 - (IBAction)rechargeClick:(id)sender {
@@ -136,8 +127,8 @@
     //    cvc.imageName = @"progress_bar_icon";
     cvc.title = @"优惠活动";
     cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
     [self presentViewController:cvc animated:YES completion:nil];
-
 }
 
 - (IBAction)userCenterClick:(id)sender {

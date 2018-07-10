@@ -441,7 +441,6 @@
 			isa = PBXGroup;
 			children = (
 				DA18EFC720F0AA02002B7E22 /* Controller */,
-				DA18EFCB20F0AA02002B7E22 /* View */,
 			);
 			path = LoginPage;
 			sourceTree = "<group>";
@@ -454,13 +453,6 @@
 				DA18EFC920F0AA02002B7E22 /* LoginViewController.xib */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		DA18EFCB20F0AA02002B7E22 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		F14E4A72378CCD648FF29337 /* Pods */ = {
