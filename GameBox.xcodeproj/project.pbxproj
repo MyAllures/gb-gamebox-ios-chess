@@ -46,6 +46,9 @@
 		54C8758020F3560100AA0594 /* SH_PromoListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C8757F20F3560100AA0594 /* SH_PromoListView.xib */; };
 		54C8758320F3562700AA0594 /* SH_InfoCenterTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8758220F3562700AA0594 /* SH_InfoCenterTabView.m */; };
 		54C8758520F3562F00AA0594 /* SH_InfoCenterTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C8758420F3562F00AA0594 /* SH_InfoCenterTabView.xib */; };
+		54C8758820F48CD500AA0594 /* SH_GamesListScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8758720F48CD500AA0594 /* SH_GamesListScrollView.m */; };
+		54C8758B20F498C700AA0594 /* SH_GameItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8758A20F498C700AA0594 /* SH_GameItemView.m */; };
+		54C8758D20F498E200AA0594 /* SH_GameItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C8758C20F498E200AA0594 /* SH_GameItemView.xib */; };
 		BF2F915A20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F915820EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m */; };
 		BF2F915B20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2F915920EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib */; };
 		BF2F915F20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F915D20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m */; };
@@ -88,6 +91,10 @@
 		DA22F3E020F4562B0058A54F /* UIImage+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = DA22F3DC20F4562A0058A54F /* UIImage+Size.m */; };
 		DA22F3E120F4562B0058A54F /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = DA22F3DF20F4562B0058A54F /* UIImage+Alpha.m */; };
 		DA22F3E520F4597E0058A54F /* RH_WebsocketManagar.m in Sources */ = {isa = PBXBuildFile; fileRef = DA22F3E320F4597D0058A54F /* RH_WebsocketManagar.m */; };
+		DA22F40720F494C60058A54F /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = DA22F3FF20F494C50058A54F /* UIColor+HexString.m */; };
+		DA22F40820F494C60058A54F /* ScreenAdaptation.m in Sources */ = {isa = PBXBuildFile; fileRef = DA22F40220F494C60058A54F /* ScreenAdaptation.m */; };
+		DA22F40920F494C60058A54F /* UIViewController+Instance.m in Sources */ = {isa = PBXBuildFile; fileRef = DA22F40420F494C60058A54F /* UIViewController+Instance.m */; };
+		DA22F40A20F494C60058A54F /* NSDictionary+CLCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = DA22F40620F494C60058A54F /* NSDictionary+CLCategory.m */; };
 		F88297C8CDA8BE450455395E /* libPods-GameBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C23814E2A7636D1CE6B89BC /* libPods-GameBox.a */; };
 /* End PBXBuildFile section */
 
@@ -159,6 +166,11 @@
 		54C8758120F3562700AA0594 /* SH_InfoCenterTabView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_InfoCenterTabView.h; sourceTree = "<group>"; };
 		54C8758220F3562700AA0594 /* SH_InfoCenterTabView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_InfoCenterTabView.m; sourceTree = "<group>"; };
 		54C8758420F3562F00AA0594 /* SH_InfoCenterTabView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_InfoCenterTabView.xib; sourceTree = "<group>"; };
+		54C8758620F48CD500AA0594 /* SH_GamesListScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_GamesListScrollView.h; sourceTree = "<group>"; };
+		54C8758720F48CD500AA0594 /* SH_GamesListScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_GamesListScrollView.m; sourceTree = "<group>"; };
+		54C8758920F498C700AA0594 /* SH_GameItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_GameItemView.h; sourceTree = "<group>"; };
+		54C8758A20F498C700AA0594 /* SH_GameItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_GameItemView.m; sourceTree = "<group>"; };
+		54C8758C20F498E200AA0594 /* SH_GameItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_GameItemView.xib; sourceTree = "<group>"; };
 		BF2F915720EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_DepositeWayCollectionViewCell.h; sourceTree = "<group>"; };
 		BF2F915820EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_DepositeWayCollectionViewCell.m; sourceTree = "<group>"; };
 		BF2F915920EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_DepositeWayCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -238,6 +250,14 @@
 		DA22F3DF20F4562B0058A54F /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
 		DA22F3E320F4597D0058A54F /* RH_WebsocketManagar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RH_WebsocketManagar.m; sourceTree = "<group>"; };
 		DA22F3E420F4597D0058A54F /* RH_WebsocketManagar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RH_WebsocketManagar.h; sourceTree = "<group>"; };
+		DA22F3FF20F494C50058A54F /* UIColor+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexString.m"; sourceTree = "<group>"; };
+		DA22F40020F494C50058A54F /* ScreenAdaptation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenAdaptation.h; sourceTree = "<group>"; };
+		DA22F40120F494C50058A54F /* NSDictionary+CLCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+CLCategory.h"; sourceTree = "<group>"; };
+		DA22F40220F494C60058A54F /* ScreenAdaptation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenAdaptation.m; sourceTree = "<group>"; };
+		DA22F40320F494C60058A54F /* UIColor+HexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexString.h"; sourceTree = "<group>"; };
+		DA22F40420F494C60058A54F /* UIViewController+Instance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Instance.m"; sourceTree = "<group>"; };
+		DA22F40520F494C60058A54F /* UIViewController+Instance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Instance.h"; sourceTree = "<group>"; };
+		DA22F40620F494C60058A54F /* NSDictionary+CLCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+CLCategory.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -469,6 +489,11 @@
 			children = (
 				54C21AB720F1B981006FCA0F /* SH_CycleScrollView.h */,
 				54C21AB820F1B981006FCA0F /* SH_CycleScrollView.m */,
+				54C8758620F48CD500AA0594 /* SH_GamesListScrollView.h */,
+				54C8758720F48CD500AA0594 /* SH_GamesListScrollView.m */,
+				54C8758920F498C700AA0594 /* SH_GameItemView.h */,
+				54C8758A20F498C700AA0594 /* SH_GameItemView.m */,
+				54C8758C20F498E200AA0594 /* SH_GameItemView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -582,6 +607,14 @@
 		BFFC846A20F344C8008AD801 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				DA22F40120F494C50058A54F /* NSDictionary+CLCategory.h */,
+				DA22F40620F494C60058A54F /* NSDictionary+CLCategory.m */,
+				DA22F40020F494C50058A54F /* ScreenAdaptation.h */,
+				DA22F40220F494C60058A54F /* ScreenAdaptation.m */,
+				DA22F40320F494C60058A54F /* UIColor+HexString.h */,
+				DA22F3FF20F494C50058A54F /* UIColor+HexString.m */,
+				DA22F40520F494C60058A54F /* UIViewController+Instance.h */,
+				DA22F40420F494C60058A54F /* UIViewController+Instance.m */,
 				DA22F3DD20F4562B0058A54F /* UIImage+Alpha.h */,
 				DA22F3DF20F4562B0058A54F /* UIImage+Alpha.m */,
 				DA22F3DE20F4562B0058A54F /* UIImage+Size.h */,
@@ -779,6 +812,7 @@
 				54C8758520F3562F00AA0594 /* SH_InfoCenterTabView.xib in Resources */,
 				BF2F916520EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.xib in Resources */,
 				22552CEB20F4B7720090EFBC /* SH_SiteMsgViewCell.xib in Resources */,
+				54C8758D20F498E200AA0594 /* SH_GameItemView.xib in Resources */,
 				BFFC845C20F2F260008AD801 /* RH_RechargeCenterFooterView.xib in Resources */,
 				5401C53C20ECA1100027246D /* LaunchScreen.storyboard in Resources */,
 				22552CCA20F448810090EFBC /* SH_SystemNotification.xib in Resources */,
@@ -865,6 +899,7 @@
 				BFFC846320F2F268008AD801 /* SH_NetWorkService+RechargeCenter.m in Sources */,
 				BF2F915F20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m in Sources */,
 				DA22F3B420F448ED0058A54F /* RH_UserInfoManager.m in Sources */,
+				DA22F40720F494C60058A54F /* UIColor+HexString.m in Sources */,
 				DA22F34120F43ABC0058A54F /* SH_LoginView.m in Sources */,
 				DA18EFBF20F0A9C3002B7E22 /* PopTool.m in Sources */,
 				DA18EFBE20F0A9C3002B7E22 /* AlertViewController.m in Sources */,
@@ -885,10 +920,12 @@
 				BFFC845220F2F253008AD801 /* SH_RechargeCenterViewController.m in Sources */,
 				5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */,
 				BFFEDCBB20F35627002E69FD /* SH_RechargeCenterAccountModel.m in Sources */,
+				DA22F40820F494C60058A54F /* ScreenAdaptation.m in Sources */,
 				DA22F3D820F455C50058A54F /* UIImage+Representation.m in Sources */,
 				22552CEE20F4CCE50090EFBC /* SH_NetWorkService+Promo.m in Sources */,
 				54C8757E20F355F800AA0594 /* SH_PromoListView.m in Sources */,
 				5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */,
+				54C8758820F48CD500AA0594 /* SH_GamesListScrollView.m in Sources */,
 				54C8757920F3508600AA0594 /* SH_PromoContentView.m in Sources */,
 				DA18EFCC20F0AA02002B7E22 /* LoginViewController.m in Sources */,
 				5401C55620ECA2CC0027246D /* IPsCacheManager.m in Sources */,
@@ -897,9 +934,12 @@
 				5401C55A20ECA48D0027246D /* NetWorkLineMangaer.m in Sources */,
 				BFFC846920F34397008AD801 /* SH_RechargeCenterBasicCollectionViewCell.m in Sources */,
 				54C21AB120EE23B2006FCA0F /* SH_BaseViewController.m in Sources */,
+				DA22F40A20F494C60058A54F /* NSDictionary+CLCategory.m in Sources */,
 				22552CC820F448740090EFBC /* SH_SystemNotification.m in Sources */,
+				DA22F40920F494C60058A54F /* UIViewController+Instance.m in Sources */,
 				BFFEDCBE20F3792E002E69FD /* SH_RechargeCenterDataHandle.m in Sources */,
 				BFFC845A20F2F260008AD801 /* DepositeHeadCollectionReusableView.m in Sources */,
+				54C8758B20F498C700AA0594 /* SH_GameItemView.m in Sources */,
 				5401C55320ECA1B80027246D /* SH_NetWorkService.m in Sources */,
 				DA22F3E120F4562B0058A54F /* UIImage+Alpha.m in Sources */,
 				DA22F3C320F44DA80058A54F /* CLDocumentCachePool.m in Sources */,

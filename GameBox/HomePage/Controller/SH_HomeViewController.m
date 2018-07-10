@@ -7,6 +7,7 @@
 //
 
 #import <Masonry/Masonry.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "SH_HomeViewController.h"
 #import "SH_NetWorkService+Login.h"
 #import "NetWorkLineMangaer.h"
@@ -16,18 +17,18 @@
 #import "View+MASAdditions.h"
 #import "SH_CycleScrollView.h"
 #import "LoginViewController.h"
-
 #import "AlertViewController.h"
 #import "SH_LoginView.h"
 #import "SH_PromoContentView.h"
 #import "PopTool.h"
-#import <SDWebImage/UIImageView+WebCache.h>
+#import "SH_GamesListScrollView.h"
 
-@interface SH_HomeViewController ()<SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate>
+@interface SH_HomeViewController ()<SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImg;
 @property (weak, nonatomic) IBOutlet UILabel *userAccountLB;
 @property (strong, nonatomic) SH_CycleScrollView *cycleAdView;
+@property (strong, nonatomic) SH_GamesListScrollView *gamesListScrollView;
 
 @end
 
@@ -38,6 +39,7 @@
     // Do any additional setup after loading the view from its nib.
     [self fetchSID];
     [self initAdScroll];
+    [self.gamesListScrollView reloaData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -107,7 +109,7 @@
 
 - (IBAction)avatarClick:(id)sender {
     SH_LoginView *login = [SH_LoginView  InstanceLoginView];
-    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:250 viewWidth:414];
+    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:260 viewWidth:414];
     login.dismissBlock = ^{
         [cvc  close];
     };
@@ -157,6 +159,23 @@
     }];
 }
 
+- (SH_GamesListScrollView *)gamesListScrollView
+{
+    if (_gamesListScrollView == nil) {
+        _gamesListScrollView = [[SH_GamesListScrollView alloc] init];
+        _gamesListScrollView.dataSource = self;
+        _gamesListScrollView.delegate = self;
+        [self.view addSubview:_gamesListScrollView];
+        [_gamesListScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.cycleAdView.mas_right).mas_equalTo(0);
+            make.top.equalTo(self.cycleAdView.mas_top);
+            make.bottom.equalTo(self.cycleAdView.mas_bottom);
+            make.right.equalTo(self.view.mas_right);
+        }];
+    }
+    return _gamesListScrollView;
+}
+
 #pragma mark - SH_CycleScrollViewDataSource
 
 - (NSArray *)numberOfCycleScrollView:(SH_CycleScrollView *)bannerView
@@ -181,6 +200,23 @@
 {}
 
 - (void)cycleScrollView:(SH_CycleScrollView *)scorllView didSelectedAtIndex:(NSUInteger)index
+{}
+
+#pragma mark - GamesListScrollViewDataSource M
+
+- (NSInteger)numberOfItemsOfGamesListScrollView:(SH_GamesListScrollView *)scrollView
+{
+    return 23;
+}
+
+- (UIView *)gamesListScrollView:(SH_GamesListScrollView *)scrollView viewForItem:(NSInteger)index
+{
+    return [[[NSBundle mainBundle] loadNibNamed:@"SH_GameItemView" owner:nil options:nil] lastObject];
+}
+
+#pragma mark - GamesListScrollViewDelegate M
+
+- (void)gamesListScrollView:(SH_GamesListScrollView *)scrollView didSelectItem:(NSInteger)index
 {}
 
 @end
