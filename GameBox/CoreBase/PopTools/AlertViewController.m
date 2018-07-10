@@ -12,26 +12,20 @@
 @property (weak, nonatomic) IBOutlet UILabel *title_label;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintWidth;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintHeight;
-@property(nonatomic,strong)UIView  * presentView;
-@property(nonatomic,assign)CGFloat viewWidth;
 @property (weak, nonatomic) IBOutlet UIImageView *headImage;
+@property(nonatomic,strong)UIView  * presentView;
+
 @property(nonatomic,assign)CGFloat viewHeight;
-@property(nonatomic,strong)UIViewController * presentVC;
+@property(nonatomic,assign)CGFloat viewWidth;
 @end
 
 @implementation AlertViewController
 
--(instancetype)initAlertView:(id)view viewHeight:(CGFloat)height viewWidth:(CGFloat)width{
+-(instancetype)initAlertView:(UIView*)view viewHeight:(CGFloat)height viewWidth:(CGFloat)width{
     if (self = [super  init]) {
         self.viewHeight = height +50;
         self.viewWidth = width+40;
-        if ([view isKindOfClass:[UIView  class]]) {
-            self.presentView = view;
-        }else{
-            UIViewController *vc  = (UIViewController*)view;
-            self.presentView = vc.view;
-            self.presentVC = vc;
-        }
+        self.presentView = view;
         
     }
     return  self;
@@ -41,7 +35,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self  configurationUI];
-    [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(closeClick:) name:@"closeAlert" object:nil];;
 }
 -(void)configurationUI{
     
@@ -54,7 +47,7 @@
     self.constraintWidth.constant = self.viewWidth;
     [self.view  layoutIfNeeded];
    
-//    [self addChildViewController:self.presentVC];
+
     [self.containerView addSubview:self.presentView];
     [self.presentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(self.containerView);
@@ -76,8 +69,6 @@
 }
 -(void)dealloc{
     NSLog(@"clean .......");
-    self.presentVC = nil;
-    [[NSNotificationCenter  defaultCenter] removeObserver:self name:@"closeAlert" object:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
