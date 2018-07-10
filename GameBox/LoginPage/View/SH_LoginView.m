@@ -57,7 +57,7 @@
 }
 -(void)startGetVerifyCode
 {
-    [SH_NetWorkService  fetchVerifyCodexxx:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [SH_NetWorkService fetchVerifyCodexxx:^(NSHTTPURLResponse *httpURLResponse, id response) {
 
         NSLog(@"%@-------",response);
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
