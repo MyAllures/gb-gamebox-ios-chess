@@ -16,9 +16,9 @@
 #import "SH_RechargeCenterViewController.h"
 #import "View+MASAdditions.h"
 #import "SH_CycleScrollView.h"
-#import "SH_PromoViewController.h"
 #import "LoginViewController.h"
 #import "AlertViewController.h"
+#import "SH_LoginView.h"
 #import "SH_PromoContentView.h"
 #import "PopTool.h"
 #import "SH_GamesListScrollView.h"
@@ -108,9 +108,9 @@
 }
 
 - (IBAction)avatarClick:(id)sender {
-    LoginViewController  * vc = [LoginViewController  new];
-    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:vc viewHeight:250 viewWidth:414];
-    vc.dismissBlock = ^{
+    SH_LoginView *login = [SH_LoginView  InstanceLoginView];
+    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:260 viewWidth:414];
+    login.dismissBlock = ^{
         [cvc  close];
     };
     cvc.title = @"测试";
