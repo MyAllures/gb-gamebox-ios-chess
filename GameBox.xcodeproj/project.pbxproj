@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		2209026620F053D400F8828E /* SH_PromoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2209026420F053D400F8828E /* SH_PromoViewCell.m */; };
 		2209026720F053D400F8828E /* SH_PromoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2209026520F053D400F8828E /* SH_PromoViewCell.xib */; };
-		228BA7EF20F2FCE40001EC51 /* SH_PromoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 228BA7ED20F2FCE40001EC51 /* SH_PromoViewController.m */; };
-		228BA7F020F2FCE40001EC51 /* SH_PromoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228BA7EE20F2FCE40001EC51 /* SH_PromoViewController.xib */; };
 		229A219E20F3826E00F5A969 /* SH_GameAnnouncementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A219D20F3826E00F5A969 /* SH_GameAnnouncementView.m */; };
 		229A21A020F3827700F5A969 /* SH_GameAnnouncementView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229A219F20F3827700F5A969 /* SH_GameAnnouncementView.xib */; };
 		5401C53120ECA10F0027246D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C53020ECA10F0027246D /* AppDelegate.m */; };
@@ -36,7 +34,6 @@
 		54C8758020F3560100AA0594 /* SH_PromoListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C8757F20F3560100AA0594 /* SH_PromoListView.xib */; };
 		54C8758320F3562700AA0594 /* SH_InfoCenterTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8758220F3562700AA0594 /* SH_InfoCenterTabView.m */; };
 		54C8758520F3562F00AA0594 /* SH_InfoCenterTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C8758420F3562F00AA0594 /* SH_InfoCenterTabView.xib */; };
-		BF2F915620EF591F00CEDE8C /* SH_RechargeCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F915520EF591F00CEDE8C /* SH_RechargeCenterViewController.m */; };
 		BF2F915A20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F915820EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m */; };
 		BF2F915B20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2F915920EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib */; };
 		BF2F915F20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F915D20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m */; };
@@ -70,9 +67,6 @@
 		2209026320F053D400F8828E /* SH_PromoViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoViewCell.h; sourceTree = "<group>"; };
 		2209026420F053D400F8828E /* SH_PromoViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoViewCell.m; sourceTree = "<group>"; };
 		2209026520F053D400F8828E /* SH_PromoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PromoViewCell.xib; sourceTree = "<group>"; };
-		228BA7EC20F2FCE40001EC51 /* SH_PromoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoViewController.h; sourceTree = "<group>"; };
-		228BA7ED20F2FCE40001EC51 /* SH_PromoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoViewController.m; sourceTree = "<group>"; };
-		228BA7EE20F2FCE40001EC51 /* SH_PromoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PromoViewController.xib; sourceTree = "<group>"; };
 		229A219C20F3826E00F5A969 /* SH_GameAnnouncementView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_GameAnnouncementView.h; sourceTree = "<group>"; };
 		229A219D20F3826E00F5A969 /* SH_GameAnnouncementView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_GameAnnouncementView.m; sourceTree = "<group>"; };
 		229A219F20F3827700F5A969 /* SH_GameAnnouncementView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_GameAnnouncementView.xib; sourceTree = "<group>"; };
@@ -118,8 +112,6 @@
 		54C8758120F3562700AA0594 /* SH_InfoCenterTabView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_InfoCenterTabView.h; sourceTree = "<group>"; };
 		54C8758220F3562700AA0594 /* SH_InfoCenterTabView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_InfoCenterTabView.m; sourceTree = "<group>"; };
 		54C8758420F3562F00AA0594 /* SH_InfoCenterTabView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_InfoCenterTabView.xib; sourceTree = "<group>"; };
-		BF2F915420EF591F00CEDE8C /* SH_RechargeCenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_RechargeCenterViewController.h; sourceTree = "<group>"; };
-		BF2F915520EF591F00CEDE8C /* SH_RechargeCenterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_RechargeCenterViewController.m; sourceTree = "<group>"; };
 		BF2F915720EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_DepositeWayCollectionViewCell.h; sourceTree = "<group>"; };
 		BF2F915820EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_DepositeWayCollectionViewCell.m; sourceTree = "<group>"; };
 		BF2F915920EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_DepositeWayCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -185,9 +177,6 @@
 			children = (
 				54C8757520F3502000AA0594 /* Model */,
 				54C8757620F3502000AA0594 /* View */,
-				228BA7EC20F2FCE40001EC51 /* SH_PromoViewController.h */,
-				228BA7ED20F2FCE40001EC51 /* SH_PromoViewController.m */,
-				228BA7EE20F2FCE40001EC51 /* SH_PromoViewController.xib */,
 				2209026320F053D400F8828E /* SH_PromoViewCell.h */,
 				2209026420F053D400F8828E /* SH_PromoViewCell.m */,
 				2209026520F053D400F8828E /* SH_PromoViewCell.xib */,
@@ -560,7 +549,6 @@
 				BFFC845920F2F260008AD801 /* DepositeHeadCollectionReusableView.xib in Resources */,
 				5401C53720ECA10F0027246D /* Main.storyboard in Resources */,
 				DA18EFBD20F0A9C3002B7E22 /* AlertViewController.xib in Resources */,
-				228BA7F020F2FCE40001EC51 /* SH_PromoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,7 +604,6 @@
 				229A219E20F3826E00F5A969 /* SH_GameAnnouncementView.m in Sources */,
 				BF2F915A20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m in Sources */,
 				BFFEDCB820F34CDC002E69FD /* SH_RechargeCenterChannelModel.m in Sources */,
-				2224CB7020EF8C5900E6872B /* SH_PromoView.m in Sources */,
 				BFFC846620F3043A008AD801 /* SH_RechargeCenterPaywayModel.m in Sources */,
 				5401C56220ECF9EA0027246D /* SH_HomeViewController.m in Sources */,
 				54C21AB920F1B981006FCA0F /* SH_CycleScrollView.m in Sources */,
@@ -642,7 +629,6 @@
 				5401C53F20ECA1100027246D /* main.m in Sources */,
 				5401C55A20ECA48D0027246D /* NetWorkLineMangaer.m in Sources */,
 				BFFC846920F34397008AD801 /* SH_RechargeCenterBasicCollectionViewCell.m in Sources */,
-				228BA7EF20F2FCE40001EC51 /* SH_PromoViewController.m in Sources */,
 				54C21AB120EE23B2006FCA0F /* SH_BaseViewController.m in Sources */,
 				BFFEDCBE20F3792E002E69FD /* SH_RechargeCenterDataHandle.m in Sources */,
 				BFFC845A20F2F260008AD801 /* DepositeHeadCollectionReusableView.m in Sources */,
