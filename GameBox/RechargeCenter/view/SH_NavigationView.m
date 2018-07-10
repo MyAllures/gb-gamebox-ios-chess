@@ -9,11 +9,13 @@
 #import "SH_NavigationView.h"
 @interface SH_NavigationView()
 @property (weak, nonatomic) IBOutlet UILabel *titleLab;
+@property (weak, nonatomic) IBOutlet UIButton *backBtn;
 
 @end
 @implementation SH_NavigationView
 - (void)awakeFromNib{
     [super awakeFromNib];
+    [self.backBtn ButtonPositionStyle:ButtonPositionStyleDefault spacing:35];
 }
 - (IBAction)backBtnClick:(id)sender {
     [self.delegate SH_NavigationViewBackBtnClick];

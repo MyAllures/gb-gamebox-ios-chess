@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@protocol SH_BitCoinTextViewDelegate<NSObject>
+-(void)SH_BitCoinTextViewChooseDateBtnClick;
+@end
 @interface SH_BitCoinTextView : UIView
-
+@property(nonatomic,weak)id<SH_BitCoinTextViewDelegate>delegate;
+-(void)updateDateLabWithDataString:(NSString *)dateStr;
 @end

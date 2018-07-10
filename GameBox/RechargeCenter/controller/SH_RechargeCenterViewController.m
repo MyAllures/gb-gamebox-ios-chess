@@ -121,19 +121,17 @@
     }];
 }
 -(void)configUI{
-   
-     NSLog(@"StatusBarHeight ======= %f",[[UIApplication  sharedApplication] statusBarFrame].size.height);
-    NSLog(@"StatusBarHeight === %f",StatusBarHeight);
-     NSLog(@"NavigationBarHeight === %f",NavigationBarHeight);
-    [self.mainCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.equalTo(self.view);
-        make.top.equalTo(self.view).offset(StatusBarHeight+NavigationBarHeight);
-    }];
+     __weak typeof(self) weakSelf = self;
     [self.tipLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
         make.height.equalTo(@20);
-        make.top.equalTo(self.view).offset(StatusBarHeight+NavigationBarHeight);
+        make.top.equalTo(self.view).offset(NavigationBarHeight);
     }];
+    [self.mainCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.view);
+        make.top.equalTo(weakSelf.tipLab.mas_bottom);
+    }];
+   
     [self.mainCollectionView registerNib:[UINib nibWithNibName:@"SH_DepositeWayCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"SH_DepositeWayCollectionViewCell"];
     [self.mainCollectionView registerNib:[UINib nibWithNibName:@"SH_DespositePlatformCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"SH_DespositePlatformCollectionViewCell"];
     [self.mainCollectionView registerNib:[UINib nibWithNibName:@"SH_DespositeChooseMoneyCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"SH_DespositeChooseMoneyCollectionViewCell"];

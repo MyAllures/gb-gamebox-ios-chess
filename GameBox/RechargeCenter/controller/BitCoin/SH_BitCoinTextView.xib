@@ -113,6 +113,9 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="5Ok-dH-WRn"/>
                     </constraints>
+                    <connections>
+                        <action selector="chooseDateBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="Vae-VP-udK"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Z3-m9-E0y">
                     <rect key="frame" x="10" y="225" width="355" height="40"/>
@@ -127,6 +130,9 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="submitBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="6hw-bV-I6G"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -171,6 +177,12 @@
                 <constraint firstAttribute="trailing" secondItem="7Z3-m9-E0y" secondAttribute="trailing" constant="10" id="zIa-Wd-UB5"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="bitCoinAdressTexField" destination="LPF-2O-Hbj" id="e60-zN-WhJ"/>
+                <outlet property="dateLab" destination="4K6-In-oXZ" id="qJk-hz-uIA"/>
+                <outlet property="numTextfield" destination="Iya-yG-Dg4" id="cX6-IE-D6g"/>
+                <outlet property="txidTextfield" destination="QJD-hE-bTE" id="4RT-qP-0PH"/>
+            </connections>
         </view>
     </objects>
 </document>

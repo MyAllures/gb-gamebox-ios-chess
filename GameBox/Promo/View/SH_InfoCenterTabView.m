@@ -9,6 +9,7 @@
 #import "SH_InfoCenterTabView.h"
 #import <Masonry/Masonry.h>
 #import "SH_GameAnnouncementView.h"
+#import "SH_SystemNotification.h"
 
 #define screenH [UIScreen mainScreen].bounds.size.height
 #define screenW [UIScreen mainScreen].bounds.size.width
@@ -21,13 +22,41 @@
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 
 @property (strong, nonatomic) SH_GameAnnouncementView *gameAnnouncementView;
+@property (strong, nonatomic) SH_SystemNotification *systemNotification;
 @end
 
 @implementation SH_InfoCenterTabView
 
+- (IBAction)tabBtn:(id)sender {
+    UIButton *btn = (UIButton *)sender;
+    if (btn.tag == 0) {
+        self.btn1.selected = YES;
+        self.btn2.selected = NO;
+        self.btn3.selected = NO;
+        self.gameAnnouncementView.hidden = NO;
+        self.systemNotification.hidden = YES;
+    } else if (btn.tag == 1) {
+        self.btn1.selected = NO;
+        self.btn2.selected = YES;
+        self.btn3.selected = NO;
+        self.gameAnnouncementView.hidden = YES;
+        self.systemNotification.hidden = NO;
+    } else if (btn.tag == 2) {
+        self.btn1.selected = NO;
+        self.btn2.selected = NO;
+        self.btn3.selected = YES;
+        self.gameAnnouncementView.hidden = YES;
+        self.systemNotification.hidden = YES;
+    }
+}
+
+
 -(void)awakeFromNib {
     [super awakeFromNib];
+    self.gameAnnouncementView.hidden = NO;
+    self.systemNotification.hidden = YES;
     self.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
+    self.btn1.selected = YES;
     [self.btn1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo((self.frame.size.width-81*3)/4);
         make.top.mas_equalTo(10);
@@ -48,7 +77,6 @@
         make.width.mas_equalTo(81);
         make.height.mas_equalTo(32);
     }];
-    [self gameAnnouncementView];
 }
 
 -(SH_GameAnnouncementView *)gameAnnouncementView {
@@ -61,6 +89,18 @@
         }];
     }
     return _gameAnnouncementView;
+}
+
+-(SH_SystemNotification *)systemNotification {
+    
+    if (_systemNotification == nil) {
+        _systemNotification = [[[NSBundle mainBundle] loadNibNamed:@"SH_SystemNotification" owner:nil options:nil] lastObject];
+        [self.bottomView addSubview:_systemNotification];
+        [_systemNotification mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.left.right.bottom.mas_equalTo(0);
+        }];
+    }
+    return _systemNotification;
 }
 
 @end

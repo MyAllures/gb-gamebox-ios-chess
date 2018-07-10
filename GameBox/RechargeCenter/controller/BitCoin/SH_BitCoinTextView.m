@@ -7,15 +7,25 @@
 //
 
 #import "SH_BitCoinTextView.h"
+@interface SH_BitCoinTextView()
+@property (weak, nonatomic) IBOutlet UITextField *bitCoinAdressTexField;
+@property (weak, nonatomic) IBOutlet UITextField *txidTextfield;
+@property (weak, nonatomic) IBOutlet UITextField *numTextfield;
+@property (weak, nonatomic) IBOutlet UILabel *dateLab;
 
+@end
 @implementation SH_BitCoinTextView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)awakeFromNib{
+    [super awakeFromNib];
 }
-*/
-
+- (IBAction)chooseDateBtnClick:(id)sender {
+    [self.delegate SH_BitCoinTextViewChooseDateBtnClick];
+}
+- (IBAction)submitBtnClick:(id)sender {
+    
+}
+-(void)updateDateLabWithDataString:(NSString *)dateStr{
+    self.dateLab.text = dateStr;
+}
 @end

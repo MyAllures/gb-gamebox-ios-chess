@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-
 @interface SH_BitCoinView : UIView
-
+@property(nonatomic,strong)UIViewController *targetVC;
 @end

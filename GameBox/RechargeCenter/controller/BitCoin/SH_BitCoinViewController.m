@@ -8,6 +8,7 @@
 
 #import "SH_BitCoinViewController.h"
 #import "SH_BitCoinView.h"
+
 @interface SH_BitCoinViewController ()
 
 @end
@@ -25,10 +26,11 @@
     [self.view addSubview:bgScrollView];
     [bgScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.bottom.right.equalTo(self.view);
-        make.top.equalTo(self.view).offset(StatusBarHeight+NavigationBarHeight);
+        make.top.equalTo(self.view).offset(NavigationBarHeight);
     }];
     SH_BitCoinView *bitCoinView = [[SH_BitCoinView alloc]init];
     [bgScrollView addSubview:bitCoinView];
+    bitCoinView.targetVC = self;
     [bitCoinView mas_makeConstraints:^(MASConstraintMaker *make) {
        make.top.left.bottom.right.equalTo(bgScrollView);
         make.width.mas_equalTo(SCREEN_WIDTH);

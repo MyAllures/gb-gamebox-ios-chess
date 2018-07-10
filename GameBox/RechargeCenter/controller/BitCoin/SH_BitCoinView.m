@@ -9,7 +9,8 @@
 #import "SH_BitCoinView.h"
 #import "SH_BitCoinSubView.h"
 #import "SH_BitCoinTextView.h"
-@interface SH_BitCoinView()
+#import "PGDatePickManager.h"
+@interface SH_BitCoinView()<SH_BitCoinTextViewDelegate,PGDatePickerDelegate>
 @property(nonatomic,strong)UIImageView *QRImageView;
 @property(nonatomic,strong)SH_BitCoinTextView *bitCoinView;
 @property(nonatomic,strong)UILabel *massegeLab;
@@ -34,6 +35,7 @@
 - (SH_BitCoinTextView *)bitCoinView{
     if (!_bitCoinView) {
         _bitCoinView = [[NSBundle mainBundle]loadNibNamed:@"SH_BitCoinTextView" owner:self options:nil].firstObject;
+        _bitCoinView.delegate = self;
         [self addSubview:_bitCoinView];
     }
     return _bitCoinView;
@@ -106,6 +108,32 @@
         make.right.bottom.equalTo(self).offset(-15);
 
     }];
-    self.massegeLab.text = @"近日，湖南农业大学学生发帖称，学校在浏阳实习基地种的玉米、棉花等科研成果被当地村民偷盗。昨天，湖南农业大学浏阳实习基地一位老师告诉北京青年报记者，此次被偷盗最严重的是学校获得审批的一个玉米新品种，一旦被扩散出去，损失或达上千万。昨天湖南省沿溪镇发布通报称，涉事4人已被依法询问，正在组织村民归还所拿农产品。半亩玉米被偷得几乎一个不剩湖南农业大学浏阳实习基地的陈老师告诉北青报记者，浏阳基地是湖南农业大学在浏阳设的一块试验基地，占地面积约800亩，主要种植玉米、水稻、棉花、花生等农作物，用于学校师生科研。";
+    self.massegeLab.text = @"温馨提示：\n• 为了方便系统快速完成转账，请输入正确的txId、交易时间，以加快系统入款速度。\n• 建议您使用Internet Explorer 9以上、360浏览器、Firefox或Google Chrome等浏览器浏览。\n• 如出现充值失败或充值后未到账等情况，请联系在线客服获取帮助。 点击联系在线客服";
 }
+- (void)setTargetVC:(UIViewController *)targetVC{
+    _targetVC = targetVC;
+}
+#pragma mark--
+#pragma mark-- SH_BitCoinTextView代理
+-(void)SH_BitCoinTextViewChooseDateBtnClick{
+    PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
+    datePickManager.isShadeBackgroud = true;
+    PGDatePicker *datePicker = datePickManager.datePicker;
+    datePicker.delegate = self;
+    datePicker.datePickerType = PGPickerViewType2;
+    datePicker.datePickerMode = PGDatePickerModeDateHourMinute;
+    [self.targetVC presentViewController:datePickManager animated:false completion:nil];
+}
+#pragma mark - PGDatePickerDelegate
+- (void)datePicker:(PGDatePicker *)datePicker didSelectDate:(NSDateComponents *)dateComponents {
+    NSLog(@"dateComponents = %@", dateComponents);
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDate *date = [gregorian dateFromComponents:dateComponents];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *dateString = [dateFormat stringFromDate:date];
+    [self.bitCoinView updateDateLabWithDataString:dateString];
+//    self.bitcionCell.bitcoinChangeTimeStr = dateString;
+}
+
 @end

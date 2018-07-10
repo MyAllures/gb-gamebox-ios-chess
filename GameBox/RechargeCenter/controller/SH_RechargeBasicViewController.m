@@ -30,7 +30,7 @@
     [navi updateUIWithTitle:title];
     [navi mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(self.view);
-        make.height.equalTo(@(StatusBarHeight+NavigationBarHeight));
+        make.height.equalTo(@(NavigationBarHeight));
     }];
 }
 #pragma mark--

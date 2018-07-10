@@ -9,9 +9,9 @@
 #ifndef UI_h
 #define UI_h
 
-#define StatusBarHeight   [[UIApplication  sharedApplication] statusBarFrame].size.height
-#define StatusBarHoldHeight     (GreaterThanIOS7System ? StatusBarHeight : 0.f)
-#define NavigationBarHeight     44.f
+#define iPhoneX  ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define NavigationBarHeight     iPhoneX?84.f:64.f
 #define TabBarHeight            49.f
 
 #define WIDTH_PERCENT  [UIScreen mainScreen].bounds.size.width/375.0

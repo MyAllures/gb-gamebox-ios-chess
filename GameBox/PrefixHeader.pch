@@ -30,4 +30,5 @@
 #import "UIImageView+handle.h"
 #import "UIImageView+WebCache.h"
 #import "UIMacro.h"
+#import "UIButton+Category.h"
 #endif /* PrefixHeader_pch */
