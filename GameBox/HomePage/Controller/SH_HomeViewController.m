@@ -19,7 +19,7 @@
 #import "LoginViewController.h"
 
 #import "AlertViewController.h"
-
+#import "SH_LoginView.h"
 #import "SH_PromoContentView.h"
 #import "PopTool.h"
 #import <SDWebImage/UIImageView+WebCache.h>
@@ -107,9 +107,9 @@
 }
 
 - (IBAction)avatarClick:(id)sender {
-    LoginViewController  * vc = [LoginViewController  new];
-    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:vc viewHeight:250 viewWidth:414];
-    vc.dismissBlock = ^{
+    SH_LoginView *login = [SH_LoginView  InstanceLoginView];
+    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:250 viewWidth:414];
+    login.dismissBlock = ^{
         [cvc  close];
     };
     cvc.title = @"测试";
