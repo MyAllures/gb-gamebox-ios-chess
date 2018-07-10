@@ -24,7 +24,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="start_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="Uka-EU-gLu">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                             </imageView>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Wz2-x6-9Jf">
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wz2-x6-9Jf">
                                 <rect key="frame" x="195" y="336.5" width="277" height="3"/>
                                 <color key="backgroundColor" red="0.29019607843137252" green="0.0" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.14117647058823529" green="0.0" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
