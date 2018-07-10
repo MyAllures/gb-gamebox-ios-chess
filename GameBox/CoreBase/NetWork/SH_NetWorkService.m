@@ -28,7 +28,7 @@ static AFHTTPSessionManager *sharedManager = nil;
             manager.responseSerializer = [AFHTTPResponseSerializer serializer];
             manager.requestSerializer.stringEncoding = NSUTF8StringEncoding;
             manager.responseSerializer.acceptableContentTypes =
-            [NSSet setWithArray:@[@"application/json",@"text/html",@"text/json",@"text/plain",@"text/javascript",@"text/xml",@"image/*"]];
+            [NSSet setWithArray:@[@"application/json",@"text/html",@"text/json",@"text/plain",@"text/javascript",@"text/xml",@"image/*",@"image/jpeg",@"charset=UTF-8"]];
             manager.requestSerializer.timeoutInterval = SH_DEFAULT_NETWORK_TIMEOUT;
             manager.operationQueue.maxConcurrentOperationCount = SH_MAX_NETWORK_CONCURRENT;
         }

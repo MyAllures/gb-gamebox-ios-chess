@@ -40,16 +40,6 @@
     }];
 }
 
--(void)awakeFromNib {
-    [super awakeFromNib];
-    [self getPromoList:1 pageSize:50 activityClassifyKey:@"全部"  complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        NSDictionary *dict = (NSDictionary *)response;
-        NSLog(@"dict====%@",dict);
-    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
-    }];
-}
-
 - (void)reloadData
 {
     self.tableView.delegate = self;
