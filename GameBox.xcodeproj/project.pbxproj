@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2209026620F053D400F8828E /* SH_PromoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2209026420F053D400F8828E /* SH_PromoViewCell.m */; };
 		2209026720F053D400F8828E /* SH_PromoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2209026520F053D400F8828E /* SH_PromoViewCell.xib */; };
+		2248B0D220F58F5A0077EF58 /* SH_PromoListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8757D20F355F800AA0594 /* SH_PromoListView.m */; };
 		22552CC820F448740090EFBC /* SH_SystemNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 22552CC720F448740090EFBC /* SH_SystemNotification.m */; };
 		22552CCA20F448810090EFBC /* SH_SystemNotification.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22552CC920F448810090EFBC /* SH_SystemNotification.xib */; };
 		22552CDA20F48DAA0090EFBC /* SH_SystemMsgView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22552CD920F48DAA0090EFBC /* SH_SystemMsgView.m */; };
@@ -1125,6 +1126,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2248B0D220F58F5A0077EF58 /* SH_PromoListView.m in Sources */,
 				DA22F3C420F44DA80058A54F /* CLPathManager.m in Sources */,
 				BF44ECB020F495C400BC6EF3 /* PGDatePicker+DateHour.m in Sources */,
 				BF44ECAD20F495C400BC6EF3 /* NSBundle+PGDatePicker.m in Sources */,
