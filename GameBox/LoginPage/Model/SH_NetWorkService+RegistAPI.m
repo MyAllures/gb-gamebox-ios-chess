@@ -47,7 +47,17 @@
     
 }
 +(void)fetchIsOpenCodeVerifty:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed{
-    
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/loginIsOpenVerify.html"];
+    NSDictionary  * header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost};
+    [self post:url parameter:nil header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (complete) {
+            complete(httpURLResponse, response);
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        if (failed) {
+            failed(httpURLResponse, err);
+        }
+    }];
 }
 #pragma mark - 用户登录是否开启验证码
 @end
