@@ -56,36 +56,5 @@
         }
     }];
 }
-+(void)fetchCaptchaCodeInfo:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed{
-    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/captcha/pmregister.html"];
-    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
-    [self post:url parameter:nil header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        if (complete) {
-            complete(httpURLResponse, response);
-        }
-    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        if (failed) {
-            failed(httpURLResponse, err);
-        }
-    }];
-}
-+(void)fetchVerifyCodexxx:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed{
-    
-    NSTimeInterval timeInterval = [[NSDate date] timeIntervalSince1970] ;
-    NSString *timeStr = [NSString stringWithFormat:@"%.0f",timeInterval*1000] ;
-    NSDictionary * dict = [NSDictionary  dictionaryWithObjectsAndKeys:timeStr,@"_t", nil];
-    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/captcha/code.html"];
-    NSDictionary *header = @{@"X-Requested-With":@"XMLHttpRequest",@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentSID,@"User-Agent":@"app_ios, iPhone"};
-    [self post:url parameter:dict header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        if (complete) {
-            complete(httpURLResponse, response);
-        }
-    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        if (failed) {
-            failed(httpURLResponse, err);
-        }
-    }];
-    
- 
-}
+
 @end

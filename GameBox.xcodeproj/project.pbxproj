@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		2209026620F053D400F8828E /* SH_PromoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2209026420F053D400F8828E /* SH_PromoViewCell.m */; };
 		2209026720F053D400F8828E /* SH_PromoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2209026520F053D400F8828E /* SH_PromoViewCell.xib */; };
+		2224CB7020EF8C5900E6872B /* SH_PromoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2224CB6F20EF8C5900E6872B /* SH_PromoView.m */; };
+		2224CB7220EF8C9500E6872B /* SH_PromoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2224CB7120EF8C9500E6872B /* SH_PromoView.xib */; };
+		42BF3E6E20F33A5D00F36B82 /* SH_PlayerCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BF3E6D20F33A5D00F36B82 /* SH_PlayerCenterView.m */; };
+		42BF3E7420F4974C00F36B82 /* SH_WelfareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BF3E7320F4974C00F36B82 /* SH_WelfareView.m */; };
 		2248B0D220F58F5A0077EF58 /* SH_PromoListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8757D20F355F800AA0594 /* SH_PromoListView.m */; };
 		22552CC820F448740090EFBC /* SH_SystemNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 22552CC720F448740090EFBC /* SH_SystemNotification.m */; };
 		22552CCA20F448810090EFBC /* SH_SystemNotification.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22552CC920F448810090EFBC /* SH_SystemNotification.xib */; };
@@ -115,6 +119,12 @@
 		DA18EFBF20F0A9C3002B7E22 /* PopTool.m in Sources */ = {isa = PBXBuildFile; fileRef = DA18EFBB20F0A9C3002B7E22 /* PopTool.m */; };
 		DA18EFCC20F0AA02002B7E22 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA18EFC820F0AA02002B7E22 /* LoginViewController.m */; };
 		DA18EFCD20F0AA02002B7E22 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA18EFC920F0AA02002B7E22 /* LoginViewController.xib */; };
+		DA21F37C20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F37B20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m */; };
+		DA21F37F20F58F9000D20672 /* SH_RegistView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F37E20F58F9000D20672 /* SH_RegistView.m */; };
+		DA21F38520F5901900D20672 /* RH_Registration.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA21F38020F5901900D20672 /* RH_Registration.plist */; };
+		DA21F38620F5901900D20672 /* RH_RegistrationViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F38220F5901900D20672 /* RH_RegistrationViewItem.m */; };
+		DA21F38720F5901900D20672 /* RH_RegistrationSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F38320F5901900D20672 /* RH_RegistrationSelectView.m */; };
+		DA21F38D20F590A800D20672 /* RH_RegisetInitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F38B20F590A800D20672 /* RH_RegisetInitModel.m */; };
 		DA22F34120F43ABC0058A54F /* SH_LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA22F34020F43ABC0058A54F /* SH_LoginView.m */; };
 		DA22F34320F43AD00058A54F /* SH_LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA22F34220F43AD00058A54F /* SH_LoginView.xib */; };
 		DA22F3B420F448ED0058A54F /* RH_UserInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA22F3B220F448ED0058A54F /* RH_UserInfoManager.m */; };
@@ -165,6 +175,10 @@
 		229A219D20F3826E00F5A969 /* SH_GameAnnouncementView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_GameAnnouncementView.m; sourceTree = "<group>"; };
 		229A219F20F3827700F5A969 /* SH_GameAnnouncementView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_GameAnnouncementView.xib; sourceTree = "<group>"; };
 		3BBE090F9B091E073F4BB10C /* Pods-GameBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameBox/Pods-GameBox.release.xcconfig"; sourceTree = "<group>"; };
+		42BF3E6C20F33A5D00F36B82 /* SH_PlayerCenterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PlayerCenterView.h; sourceTree = "<group>"; };
+		42BF3E6D20F33A5D00F36B82 /* SH_PlayerCenterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PlayerCenterView.m; sourceTree = "<group>"; };
+		42BF3E7220F4974C00F36B82 /* SH_WelfareView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_WelfareView.h; sourceTree = "<group>"; };
+		42BF3E7320F4974C00F36B82 /* SH_WelfareView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_WelfareView.m; sourceTree = "<group>"; };
 		4C23814E2A7636D1CE6B89BC /* libPods-GameBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GameBox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5401C52C20ECA10F0027246D /* GameBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5401C52F20ECA10F0027246D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -334,6 +348,17 @@
 		DA18EFC820F0AA02002B7E22 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		DA18EFC920F0AA02002B7E22 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		DA18EFCA20F0AA02002B7E22 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		DA21F37A20F4E97800D20672 /* SH_NetWorkService+RegistAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+RegistAPI.h"; sourceTree = "<group>"; };
+		DA21F37B20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+RegistAPI.m"; sourceTree = "<group>"; };
+		DA21F37D20F58F9000D20672 /* SH_RegistView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_RegistView.h; sourceTree = "<group>"; };
+		DA21F37E20F58F9000D20672 /* SH_RegistView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_RegistView.m; sourceTree = "<group>"; };
+		DA21F38020F5901900D20672 /* RH_Registration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RH_Registration.plist; sourceTree = "<group>"; };
+		DA21F38120F5901900D20672 /* RH_RegistrationViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RH_RegistrationViewItem.h; sourceTree = "<group>"; };
+		DA21F38220F5901900D20672 /* RH_RegistrationViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RH_RegistrationViewItem.m; sourceTree = "<group>"; };
+		DA21F38320F5901900D20672 /* RH_RegistrationSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RH_RegistrationSelectView.m; sourceTree = "<group>"; };
+		DA21F38420F5901900D20672 /* RH_RegistrationSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RH_RegistrationSelectView.h; sourceTree = "<group>"; };
+		DA21F38B20F590A800D20672 /* RH_RegisetInitModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RH_RegisetInitModel.m; sourceTree = "<group>"; };
+		DA21F38C20F590A800D20672 /* RH_RegisetInitModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RH_RegisetInitModel.h; sourceTree = "<group>"; };
 		DA22F33F20F43ABC0058A54F /* SH_LoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_LoginView.h; sourceTree = "<group>"; };
 		DA22F34020F43ABC0058A54F /* SH_LoginView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_LoginView.m; sourceTree = "<group>"; };
 		DA22F34220F43AD00058A54F /* SH_LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_LoginView.xib; sourceTree = "<group>"; };
@@ -608,6 +633,10 @@
 			children = (
 				54C21AB720F1B981006FCA0F /* SH_CycleScrollView.h */,
 				54C21AB820F1B981006FCA0F /* SH_CycleScrollView.m */,
+				42BF3E6C20F33A5D00F36B82 /* SH_PlayerCenterView.h */,
+				42BF3E6D20F33A5D00F36B82 /* SH_PlayerCenterView.m */,
+				42BF3E7220F4974C00F36B82 /* SH_WelfareView.h */,
+				42BF3E7320F4974C00F36B82 /* SH_WelfareView.m */,
 				54C8758620F48CD500AA0594 /* SH_GamesListScrollView.h */,
 				54C8758720F48CD500AA0594 /* SH_GamesListScrollView.m */,
 				54C8758920F498C700AA0594 /* SH_GameItemView.h */,
@@ -905,9 +934,16 @@
 		DA22F33E20F43AA10058A54F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DA21F38020F5901900D20672 /* RH_Registration.plist */,
+				DA21F38420F5901900D20672 /* RH_RegistrationSelectView.h */,
+				DA21F38320F5901900D20672 /* RH_RegistrationSelectView.m */,
+				DA21F38120F5901900D20672 /* RH_RegistrationViewItem.h */,
+				DA21F38220F5901900D20672 /* RH_RegistrationViewItem.m */,
 				DA22F33F20F43ABC0058A54F /* SH_LoginView.h */,
 				DA22F34020F43ABC0058A54F /* SH_LoginView.m */,
 				DA22F34220F43AD00058A54F /* SH_LoginView.xib */,
+				DA21F37D20F58F9000D20672 /* SH_RegistView.h */,
+				DA21F37E20F58F9000D20672 /* SH_RegistView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -924,10 +960,14 @@
 		DA22F3B520F449E30058A54F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DA21F38C20F590A800D20672 /* RH_RegisetInitModel.h */,
+				DA21F38B20F590A800D20672 /* RH_RegisetInitModel.m */,
 				DA22F3B620F44A130058A54F /* RH_UserSafetyCodeModel.h */,
 				DA22F3B720F44A130058A54F /* RH_UserSafetyCodeModel.m */,
 				DA22F3B920F44B1A0058A54F /* RH_MineInfoModel.h */,
 				DA22F3BA20F44B1A0058A54F /* RH_MineInfoModel.m */,
+				DA21F37A20F4E97800D20672 /* SH_NetWorkService+RegistAPI.h */,
+				DA21F37B20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1072,6 +1112,7 @@
 				DA18EFBD20F0A9C3002B7E22 /* AlertViewController.xib in Resources */,
 				BF44EC5C20F4589D00BC6EF3 /* SH_BitCoinSubView.xib in Resources */,
 				DA22F34320F43AD00058A54F /* SH_LoginView.xib in Resources */,
+				DA21F38520F5901900D20672 /* RH_Registration.plist in Resources */,
 				BF44ECCB20F4D6CC00BC6EF3 /* SH_RechargeDetailMainSubmitView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1128,6 +1169,7 @@
 			files = (
 				2248B0D220F58F5A0077EF58 /* SH_PromoListView.m in Sources */,
 				DA22F3C420F44DA80058A54F /* CLPathManager.m in Sources */,
+				DA21F38D20F590A800D20672 /* RH_RegisetInitModel.m in Sources */,
 				BF44ECB020F495C400BC6EF3 /* PGDatePicker+DateHour.m in Sources */,
 				BF44ECAD20F495C400BC6EF3 /* NSBundle+PGDatePicker.m in Sources */,
 				BF44ECB620F495C400BC6EF3 /* PGDatePicker+Year.m in Sources */,
@@ -1153,6 +1195,7 @@
 				DA22F34120F43ABC0058A54F /* SH_LoginView.m in Sources */,
 				BF44ECAE20F495C400BC6EF3 /* PGDatePicker+DateHourMinute.m in Sources */,
 				DA18EFBF20F0A9C3002B7E22 /* PopTool.m in Sources */,
+				42BF3E7420F4974C00F36B82 /* SH_WelfareView.m in Sources */,
 				BF44ECA020F495C400BC6EF3 /* PGDatePicker+MinuteAndSecond.m in Sources */,
 				BF44ECC120F4B4BF00BC6EF3 /* SH_RechargeDetailHeadView.m in Sources */,
 				DA18EFBE20F0A9C3002B7E22 /* AlertViewController.m in Sources */,
@@ -1179,6 +1222,7 @@
 				DA22F3DB20F455FA0058A54F /* UIImage+Orientation.m in Sources */,
 				BF44ECA920F495C400BC6EF3 /* NSCalendar+PGCurrent.m in Sources */,
 				DA22F3B820F44A130058A54F /* RH_UserSafetyCodeModel.m in Sources */,
+				DA21F38620F5901900D20672 /* RH_RegistrationViewItem.m in Sources */,
 				BF44ECAF20F495C400BC6EF3 /* NSDate+PGCategory.m in Sources */,
 				BFFC845220F2F253008AD801 /* SH_RechargeCenterViewController.m in Sources */,
 				5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */,
@@ -1204,14 +1248,17 @@
 				BF44ECA720F495C400BC6EF3 /* PGPickerTableView.m in Sources */,
 				54C21AB120EE23B2006FCA0F /* SH_BaseViewController.m in Sources */,
 				DA22F40A20F494C60058A54F /* NSDictionary+CLCategory.m in Sources */,
+				DA21F37C20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m in Sources */,
 				22552CC820F448740090EFBC /* SH_SystemNotification.m in Sources */,
 				DA22F40920F494C60058A54F /* UIViewController+Instance.m in Sources */,
+				DA21F37F20F58F9000D20672 /* SH_RegistView.m in Sources */,
 				BFFEDCBE20F3792E002E69FD /* SH_RechargeCenterDataHandle.m in Sources */,
 				BFFC845A20F2F260008AD801 /* DepositeHeadCollectionReusableView.m in Sources */,
 				54C8758B20F498C700AA0594 /* SH_GameItemView.m in Sources */,
 				5401C55320ECA1B80027246D /* SH_NetWorkService.m in Sources */,
 				DA22F3E120F4562B0058A54F /* UIImage+Alpha.m in Sources */,
 				DA22F3C320F44DA80058A54F /* CLDocumentCachePool.m in Sources */,
+				DA21F38720F5901900D20672 /* RH_RegistrationSelectView.m in Sources */,
 				BF44ECBB20F4B36000BC6EF3 /* SH_RechargeDetailViewController.m in Sources */,
 				BFFC847120F3452A008AD801 /* UIButton+Category.m in Sources */,
 				BF44ECB220F495C400BC6EF3 /* PGDatePicker+TimeAndSecond.m in Sources */,
@@ -1222,6 +1269,7 @@
 				BF44EC5F20F45DA700BC6EF3 /* SH_BitCoinTextView.m in Sources */,
 				BF44ECA320F495C400BC6EF3 /* PGDatePickerView.m in Sources */,
 				5401C55020ECA1B80027246D /* SH_NetWorkService+LineCheck.m in Sources */,
+				42BF3E6E20F33A5D00F36B82 /* SH_PlayerCenterView.m in Sources */,
 				BF44EC6420F4875300BC6EF3 /* SH_NavigationView.m in Sources */,
 				5401C53120ECA10F0027246D /* AppDelegate.m in Sources */,
 				DA22F3D520F454840058A54F /* NSString+CLCategory.m in Sources */,
