@@ -29,11 +29,7 @@
     [self configurationUI];
 }
 -(void)fetchHttpData{
-    [SH_NetWorkService  fetchCaptchaCodeInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        NSLog(@"----%@",response);
-    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        NSLog(@"----%@",err);
-    }];
+   
 }
 -(void)configurationUI{
     UIImage  * img = [UIImage  imageNamed:@"left_bg"];

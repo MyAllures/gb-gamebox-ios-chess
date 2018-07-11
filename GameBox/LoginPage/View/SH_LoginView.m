@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 #import "RH_UserInfoManager.h"
 #import "RH_WebsocketManagar.h"
+#import "SH_NetWorkService+RegistAPI.h"
 @interface SH_LoginView()
 @property (weak, nonatomic) IBOutlet UIView *leftView;
 @property (weak, nonatomic) IBOutlet UITextField *account_textField;
@@ -32,8 +33,8 @@
 }
 -(void)awakeFromNib{
     [super  awakeFromNib];
-//    [self  fetchHttpData];
-//    [self  configurationUI];
+    [self  fetchHttpData];
+    [self  configurationUI];
     [self startGetVerifyCode];
 }
 -(void)fetchHttpData{
@@ -57,12 +58,22 @@
 }
 -(void)startGetVerifyCode
 {
-    [SH_NetWorkService  fetchVerifyCodexxx:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [SH_NetWorkService  fetchVerifyCode:^(NSHTTPURLResponse *httpURLResponse, id response) {
 
         NSLog(@"%@-------",response);
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         showErrorMessage([UIApplication sharedApplication].keyWindow, nil, err);
     }];
+   /* NSTimeInterval timeInterval = [[NSDate date] timeIntervalSince1970] ;
+    NSString *timeStr = [NSString stringWithFormat:@"%.0f",timeInterval*1000] ;
+    NSDictionary * dict = [NSDictionary  dictionaryWithObjectsAndKeys:timeStr,@"t", nil];
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/captcha/code.html"];
+    NSDictionary *header = @{@"X-Requested-With":@"XMLHttpRequest",@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentSID};
+    [SH_NetWorkService get:@"http://test01.ampinplayopt0matrix.com/captcha/code.html/captcha/code.html" parameter:dict header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSLog(@"%@",response);
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        NSLog(@"%@",err);
+    }];*/
 
 //@"http://test01.ampinplayopt0matrix.com/captcha/code.html"
 }
