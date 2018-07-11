@@ -92,6 +92,12 @@
                                 <constraint firstAttribute="width" constant="48" id="aA5-z0-a4P"/>
                                 <constraint firstAttribute="height" id="mdu-4B-Fqk"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
                         </imageView>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入验证码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JOr-0j-YBn">
                             <rect key="frame" x="80" y="114" width="107" height="0.0"/>
@@ -105,12 +111,13 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </textField>
-                        <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gfy-cV-HV0">
-                            <rect key="frame" x="80" y="122" width="62" height="13"/>
+                        <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gfy-cV-HV0">
+                            <rect key="frame" x="80" y="122" width="83" height="13"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="13" id="am5-Rx-ScW"/>
                             </constraints>
-                            <state key="normal" title="记住密码">
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="  记住密码" image="tick">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
@@ -118,7 +125,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sdl-2t-jXD">
-                            <rect key="frame" x="158" y="122" width="62" height="13"/>
+                            <rect key="frame" x="179" y="122" width="62" height="13"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="13" id="oS4-4q-ruW"/>
                             </constraints>
@@ -231,5 +238,6 @@
         <image name="login_button" width="122" height="47"/>
         <image name="login_button_click" width="122" height="47"/>
         <image name="login_button_long" width="145" height="47"/>
+        <image name="tick" width="13" height="13"/>
     </resources>
 </document>

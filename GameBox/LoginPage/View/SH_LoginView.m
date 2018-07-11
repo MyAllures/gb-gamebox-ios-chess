@@ -14,6 +14,9 @@
 #import "RH_WebsocketManagar.h"
 #import "SH_NetWorkService+RegistAPI.h"
 @interface SH_LoginView()
+{
+    BOOL _isSelected;
+}
 @property (weak, nonatomic) IBOutlet UIView *leftView;
 @property (weak, nonatomic) IBOutlet UITextField *account_textField;
 @property (weak, nonatomic) IBOutlet UITextField *password_textField;
@@ -37,23 +40,40 @@
     [self  configurationUI];
 }
 -(void)fetchHttpData{
-    [SH_NetWorkService  fetchCaptchaCodeInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        NSLog(@"----%@",response);
+    __weak  typeof(self) weakSelf = self;
+    [SH_NetWorkService  fetchIsOpenCodeVerifty:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSDictionary *result = ConvertToClassPointer(NSDictionary, response) ;
+        weakSelf.isOpenCaptcha = [result boolValueForKey:@"isOpenCaptcha"];
+        if (weakSelf.isOpenCaptcha) {
+            [weakSelf  startGetVerifyCode];
+            weakSelf.captcha_label.hidden = false;
+            weakSelf.constraintCaptchaHeight.constant = 33;
+            [weakSelf  layoutIfNeeded];
+        }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        NSLog(@"----%@",err);
+        
     }];
 }
 -(void)configurationUI{
     UIImage  * img = [UIImage  imageNamed:@"left_bg"];
     self.leftView.layer.contents = (__bridge id _Nullable)(img.CGImage);
     self.tableView.hidden = YES;
-    self.account_textField.text = @"gary009";
-    self.password_textField.text = @"123123";
-    
+   
     self.check_image.userInteractionEnabled = YES;
-    
     UITapGestureRecognizer  * tap = [[UITapGestureRecognizer  alloc] initWithTarget:self action:@selector(startGetVerifyCode)];
     [self.check_image addGestureRecognizer:tap];
+    
+    
+    UIButton * sender = [self viewWithTag:103];
+    NSUserDefaults  * dafault = [NSUserDefaults  standardUserDefaults];
+    self.account_textField.text = [dafault objectForKey:@"account"];
+    if ([dafault  boolForKey:@"isRememberPwd"]) {
+        self.password_textField.text = [dafault objectForKey:@"password"];
+        [sender setImage:[UIImage imageNamed:@"tick"] forState:UIControlStateNormal];
+    }else{
+        [sender setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    }
+    
 }
 -(void)startGetVerifyCode
 {
@@ -99,6 +119,16 @@
             break;
         }
         case 3:{
+            _isSelected = !_isSelected;
+            NSUserDefaults  * dafault = [NSUserDefaults  standardUserDefaults];
+            [dafault setBool:_isSelected forKey:@"isRememberPwd"];
+            [dafault  synchronize];
+          
+            if ([dafault boolForKey:@"isRememberPwd"]) {
+                 [sender setImage:[UIImage imageNamed:@"tick"] forState:UIControlStateNormal];
+            }else{
+                 [sender setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+            }
             
             break;
         }
@@ -138,20 +168,20 @@
      __weak  typeof(self) weakSelf = self;
     [SH_NetWorkService login:self.account_textField.text psw:self.password_textField.text verfyCode:self.check_textField.text complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *result = ConvertToClassPointer(NSDictionary, response) ;
-        weakSelf.isOpenCaptcha = [result boolValueForKey:@"isOpenCaptcha"];
-        if (!weakSelf.isOpenCaptcha) {
-            weakSelf.captcha_label.hidden = YES;
-            weakSelf.constraintCaptchaHeight.constant = 0;
-            [weakSelf  layoutIfNeeded];
-        }else{
-            [weakSelf  startGetVerifyCode];
-            weakSelf.captcha_label.hidden = false;
-            weakSelf.constraintCaptchaHeight.constant = 33;
-            [weakSelf  layoutIfNeeded];
-        }
         if ([result boolValueForKey:@"success"]){
             [weakSelf  loginSucessHandleRsponse:result httpURLResponse:httpURLResponse];
         }else{
+            weakSelf.isOpenCaptcha = [result boolValueForKey:@"isOpenCaptcha"];
+            if (!weakSelf.isOpenCaptcha) {
+                weakSelf.captcha_label.hidden = YES;
+                weakSelf.constraintCaptchaHeight.constant = 0;
+                [weakSelf  layoutIfNeeded];
+            }else{
+                [weakSelf  startGetVerifyCode];
+                weakSelf.captcha_label.hidden = false;
+                weakSelf.constraintCaptchaHeight.constant = 33;
+                [weakSelf  layoutIfNeeded];
+            }
             [weakSelf  loginFailHandleRsponse:result];
         }
         
