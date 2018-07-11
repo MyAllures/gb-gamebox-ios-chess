@@ -108,8 +108,9 @@
 - (IBAction)avatarClick:(id)sender {
 
 
+
 //    [[LoginViewController new] show];
-    [SH_NetWorkService login:@"Shin" psw:@"h123123" verfyCode:@"" complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [SH_NetWorkService login:@"gary009" psw:@"123123" verfyCode:@"" complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSString *setCookie = [httpURLResponse.allHeaderFields objectForKey:@"Set-Cookie"];
         NSUInteger startLocation = [setCookie rangeOfString:@"GMT, "].location +4;
         NSUInteger endLocation = [setCookie rangeOfString:@" rememberMe=deleteMe"].location;
@@ -144,6 +145,16 @@
 //    cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
 //    [self presentViewController:cvc animated:YES completion:nil];
 
+
+    SH_LoginView *login = [SH_LoginView  InstanceLoginView];
+    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:260 viewWidth:414];
+    login.dismissBlock = ^{
+        [cvc  close];
+    };
+    cvc.title = @"测试";
+    cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:cvc animated:YES completion:nil];
 }
 
 - (IBAction)rechargeClick:(id)sender {
