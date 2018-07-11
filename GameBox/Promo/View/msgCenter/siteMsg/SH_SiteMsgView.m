@@ -23,7 +23,8 @@
 -(void)awakeFromNib {
     [super awakeFromNib];
     self.systemMsgView.hidden = NO;
-    self.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
+//    self.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
+    self.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1];
 }
 
 - (IBAction)touchMe:(id)sender {

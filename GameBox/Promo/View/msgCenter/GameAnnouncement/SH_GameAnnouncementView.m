@@ -8,7 +8,7 @@
 
 #import "SH_GameAnnouncementView.h"
 #import <Masonry/Masonry.h>
-#import "SH_PromoViewCell.h"
+#import "SH_GameBulletinTCell.h"
 
 @interface SH_GameAnnouncementView ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *view1;
@@ -24,14 +24,24 @@
 -(void)awakeFromNib {
     [super awakeFromNib];
     
-    self.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
-    self.tableView.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
+    self.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1];
+//    self.tableView.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [self.tableView registerNib:[UINib nibWithNibName:@"SH_PromoViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"SH_GameBulletinTCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
     [self.tableView reloadData];
+    
+//    [self.view1 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        
+//    }];
+//    [self.view2 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        
+//    }];
+//    [self.view3 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        
+//    }];
 }
 
 #pragma mark - UITableViewDataSource M
@@ -43,9 +53,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *identifier = @"cell";
     
-    SH_PromoViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    SH_GameBulletinTCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoViewCell" owner:nil options:nil] lastObject];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"SH_GameBulletinTCell" owner:nil options:nil] lastObject];
     }
     return cell;
 }

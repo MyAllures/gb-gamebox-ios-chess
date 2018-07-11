@@ -15,43 +15,6 @@
             <rect key="frame" x="0.0" y="0.0" width="594" height="331"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQB-vm-Hbv">
-                    <rect key="frame" x="10" y="10" width="122" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="122" id="i3D-BB-7dq"/>
-                        <constraint firstAttribute="height" constant="30" id="wY9-op-cVr"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <state key="normal" title="2018-03-23" image="btn_refresh" backgroundImage="login_button"/>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phq-xQ-nRY">
-                    <rect key="frame" x="134" y="10" width="16" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="Kie-88-Gpu"/>
-                        <constraint firstAttribute="width" constant="16" id="hhU-2v-SWe"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8A3-Zl-P42">
-                    <rect key="frame" x="151" y="10" width="122" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="7hb-wb-UtJ"/>
-                        <constraint firstAttribute="width" constant="122" id="g11-a3-YKm"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <state key="normal" title="2018-03-23" image="btn_refresh" backgroundImage="login_button"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wlW-XL-Hxp">
-                    <rect key="frame" x="281" y="10" width="90" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="90" id="MqB-70-ip1"/>
-                        <constraint firstAttribute="height" constant="30" id="OcL-4Q-eCe"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <state key="normal" title="所有" backgroundImage="login_button"/>
-                </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sd3-yn-A5b">
                     <rect key="frame" x="0.0" y="60" width="594" height="271"/>
                     <subviews>
@@ -72,18 +35,91 @@
                         <constraint firstAttribute="bottom" secondItem="n8Z-c5-UNM" secondAttribute="bottom" id="aY4-rW-xac"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4c6-zS-CUz">
+                    <rect key="frame" x="10" y="13" width="101" height="35"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2J-52-bqe">
+                            <rect key="frame" x="0.0" y="0.0" width="101" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <state key="normal" title="2017-02-03" image="betRec_calendar_icon">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="JD8-uB-PfS"/>
+                        <constraint firstAttribute="width" constant="101" id="ibp-4A-Ckt"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QK3-le-uwT">
+                    <rect key="frame" x="114" y="13" width="21" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="aTi-Ri-huU"/>
+                        <constraint firstAttribute="width" constant="21" id="p64-sH-O3H"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ASB-TD-RuX">
+                    <rect key="frame" x="138" y="13" width="101" height="35"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZeW-Et-V6H">
+                            <rect key="frame" x="0.0" y="0.0" width="101" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <state key="normal" title="2017-02-03" image="betRec_calendar_icon">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="101" id="DNZ-kV-aUE"/>
+                        <constraint firstAttribute="height" constant="35" id="hxu-pq-M6t"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zzz-hU-odJ">
+                    <rect key="frame" x="243" y="13" width="130" height="35"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXl-vk-E9V">
+                            <rect key="frame" x="0.0" y="0.0" width="130" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="游戏类型">
+                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down" translatesAutoresizingMaskIntoConstraints="NO" id="0YB-6c-kW8">
+                            <rect key="frame" x="100" y="5" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="25" id="6SB-Cs-lRL"/>
+                                <constraint firstAttribute="height" constant="25" id="tke-BH-7Ae"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="130" id="2po-Ev-uW6"/>
+                        <constraint firstItem="0YB-6c-kW8" firstAttribute="top" secondItem="Zzz-hU-odJ" secondAttribute="top" constant="5" id="3Mc-Ss-kDJ"/>
+                        <constraint firstAttribute="trailing" secondItem="0YB-6c-kW8" secondAttribute="trailing" constant="5" id="D6n-5u-wWb"/>
+                        <constraint firstAttribute="bottom" secondItem="0YB-6c-kW8" secondAttribute="bottom" constant="5" id="SaP-wJ-7Rz"/>
+                        <constraint firstAttribute="height" constant="35" id="tXG-JL-ySE"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="8A3-Zl-P42" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="17c-gW-An1"/>
-                <constraint firstItem="phq-xQ-nRY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="3Bt-2V-NyU"/>
-                <constraint firstItem="bQB-vm-Hbv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="5mr-hA-Yls"/>
-                <constraint firstItem="wlW-XL-Hxp" firstAttribute="leading" secondItem="8A3-Zl-P42" secondAttribute="trailing" constant="8" id="8g9-IJ-KM5"/>
-                <constraint firstItem="phq-xQ-nRY" firstAttribute="leading" secondItem="bQB-vm-Hbv" secondAttribute="trailing" constant="2" id="AGc-nG-ZVV"/>
-                <constraint firstItem="wlW-XL-Hxp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="Nuh-8d-AGN"/>
+                <constraint firstItem="Zzz-hU-odJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="13" id="1UY-eg-QIk"/>
+                <constraint firstItem="QK3-le-uwT" firstAttribute="leading" secondItem="4c6-zS-CUz" secondAttribute="trailing" constant="3" id="6K6-Em-1eQ"/>
+                <constraint firstItem="4c6-zS-CUz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="13" id="CM2-R0-xWq"/>
                 <constraint firstAttribute="trailing" secondItem="Sd3-yn-A5b" secondAttribute="trailing" id="Oz0-tF-2s2"/>
-                <constraint firstItem="bQB-vm-Hbv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="VOW-mP-atk"/>
-                <constraint firstItem="8A3-Zl-P42" firstAttribute="leading" secondItem="phq-xQ-nRY" secondAttribute="trailing" constant="1" id="ZIm-bp-4qt"/>
+                <constraint firstItem="4c6-zS-CUz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="PcQ-6c-Uqp"/>
+                <constraint firstItem="Zzz-hU-odJ" firstAttribute="leading" secondItem="ASB-TD-RuX" secondAttribute="trailing" constant="4" id="ZxH-Ja-trf"/>
+                <constraint firstItem="ASB-TD-RuX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="13" id="aaC-wp-NIh"/>
+                <constraint firstItem="QK3-le-uwT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="13" id="c7Q-UU-X7m"/>
+                <constraint firstItem="ASB-TD-RuX" firstAttribute="leading" secondItem="QK3-le-uwT" secondAttribute="trailing" constant="3" id="h9P-Vr-MyX"/>
                 <constraint firstItem="Sd3-yn-A5b" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="60" id="pzM-3b-cJ4"/>
                 <constraint firstItem="Sd3-yn-A5b" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="sfe-U3-BhE"/>
                 <constraint firstAttribute="bottom" secondItem="Sd3-yn-A5b" secondAttribute="bottom" id="wqW-Hg-ymY"/>
@@ -91,12 +127,15 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="tableView" destination="n8Z-c5-UNM" id="Tyv-wg-KSA"/>
+                <outlet property="view1" destination="4c6-zS-CUz" id="GWy-6P-kkg"/>
+                <outlet property="view2" destination="ASB-TD-RuX" id="JdI-7C-4Wt"/>
+                <outlet property="view3" destination="Zzz-hU-odJ" id="A2Y-8o-0Fi"/>
             </connections>
-            <point key="canvasLocation" x="-220" y="-24"/>
+            <point key="canvasLocation" x="-145" y="-52"/>
         </view>
     </objects>
     <resources>
-        <image name="btn_refresh" width="34" height="36"/>
-        <image name="login_button" width="122" height="47"/>
+        <image name="betRec_calendar_icon" width="24" height="24"/>
+        <image name="down" width="24" height="24"/>
     </resources>
 </document>
