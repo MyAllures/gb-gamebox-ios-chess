@@ -42,7 +42,6 @@
 		54C21AB920F1B981006FCA0F /* SH_CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C21AB820F1B981006FCA0F /* SH_CycleScrollView.m */; };
 		54C8757920F3508600AA0594 /* SH_PromoContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8757820F3508600AA0594 /* SH_PromoContentView.m */; };
 		54C8757B20F3509100AA0594 /* SH_PromoContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C8757A20F3509100AA0594 /* SH_PromoContentView.xib */; };
-		54C8757E20F355F800AA0594 /* SH_PromoListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8757D20F355F800AA0594 /* SH_PromoListView.m */; };
 		54C8758020F3560100AA0594 /* SH_PromoListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C8757F20F3560100AA0594 /* SH_PromoListView.xib */; };
 		54C8758320F3562700AA0594 /* SH_InfoCenterTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8758220F3562700AA0594 /* SH_InfoCenterTabView.m */; };
 		54C8758520F3562F00AA0594 /* SH_InfoCenterTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C8758420F3562F00AA0594 /* SH_InfoCenterTabView.xib */; };
@@ -1185,12 +1184,10 @@
 				DA22F40820F494C60058A54F /* ScreenAdaptation.m in Sources */,
 				DA22F3D820F455C50058A54F /* UIImage+Representation.m in Sources */,
 				BF44EC9F20F495C400BC6EF3 /* PGDatePicker+Date.m in Sources */,
-				54C8757E20F355F800AA0594 /* SH_PromoListView.m in Sources */,
 				5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */,
 				BF44EC5020F44BB900BC6EF3 /* SH_BitCoinView.m in Sources */,
 				BF44ECC620F4D4FB00BC6EF3 /* SH_RechargeDetailMainView.m in Sources */,
 				22552CEE20F4CCE50090EFBC /* SH_NetWorkService+Promo.m in Sources */,
-				54C8757E20F355F800AA0594 /* SH_PromoListView.m in Sources */,
 				5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */,
 				54C8758820F48CD500AA0594 /* SH_GamesListScrollView.m in Sources */,
 				54C8757920F3508600AA0594 /* SH_PromoContentView.m in Sources */,
