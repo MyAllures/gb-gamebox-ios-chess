@@ -19,8 +19,10 @@
     // Initialization code
 }
 -(void)updateUIWithContex:(id)contex Selected:(NSString *)selected{
-    NSString *num = [NSString stringWithFormat:@"%@",contex];
-    [self.iconImage setImageWithType:0 ImageName:[NSString stringWithFormat:@"chip-%@",num]];
+    NSDictionary *dic = (NSDictionary *)contex;
+    NSString *num = [NSString stringWithFormat:@"%@",dic[@"num"]];
+    NSString *imageName = dic[@"imageName"];
+    [self.iconImage setImageWithType:0 ImageName:imageName];
      [self setCellBoardWithSelected:selected];
     self.numLab.text = num;
     

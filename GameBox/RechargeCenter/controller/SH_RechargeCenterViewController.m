@@ -18,7 +18,9 @@
 #import "SH_RechargeCenterChannelModel.h"
 #import "SH_RechargeCenterBasicCollectionViewCell.h"
 #import "SH_RechargeCenterDataHandle.h" //处理cell选中状态
-@interface SH_RechargeCenterViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
+#import "SH_BitCoinViewController.h"
+#import "SH_RechargeDetailViewController.h"
+@interface SH_RechargeCenterViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,RH_RechargeCenterFooterViewDelegate>
 @property(nonatomic,strong)UICollectionView *mainCollectionView;
 @property(nonatomic,strong)NSMutableArray *dataArray;
 @property(nonatomic,strong)UILabel *tipLab;
@@ -34,12 +36,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor whiteColor];
+    [self configNavigationWithTitle:@"充值中心"];
     [self loadData];
     [self configUI];
-}
--(UIInterfaceOrientationMask)orientation{
-    return UIInterfaceOrientationMaskPortrait;
 }
 #pragma mark--
 #pragma mark--lazy UI
@@ -105,13 +104,22 @@
                     [sectionTwoArray addObject:@"unSelected"];
                 }
                 NSMutableArray *sectionThreeArray = [NSMutableArray array];
+                NSMutableArray *chooseMoneyArray =  [NSMutableArray array];
                 for (int i = 0; i < moneys.count; i++) {
                     [sectionThreeArray addObject:@"unSelected"];
+                    //图片名称数组
+                    NSArray *picNameArray = @[@"chip_blue",@"chip_red",@"chip_yellow",@"chip_green",@"chip_black"];
+                    if (moneys.count == picNameArray.count) {
+                            NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
+                            [dic setObject:moneys[i] forKey:@"num"];
+                            [dic setObject:picNameArray[i] forKey:@"imageName"];
+                            [chooseMoneyArray addObject:dic];
+                    }
                 }
                 [weakSelf.selectedStatusArray addObject:sectionTwoArray];
                 [weakSelf.selectedStatusArray addObject:sectionThreeArray];
                 [weakSelf.dataArray addObject:payways?payways:[NSArray array]];
-                [weakSelf.dataArray addObject:moneys?moneys:[NSArray array]];
+                [weakSelf.dataArray addObject:chooseMoneyArray?chooseMoneyArray:[NSArray array]];
                 [self.mainCollectionView reloadData];
             } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
                 
@@ -123,14 +131,17 @@
     }];
 }
 -(void)configUI{
-   
-    [self.mainCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
-    }];
+     __weak typeof(self) weakSelf = self;
     [self.tipLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.right.equalTo(self.view);
+        make.left.right.equalTo(self.view);
         make.height.equalTo(@20);
+        make.top.equalTo(self.view).offset(NavigationBarHeight);
     }];
+    [self.mainCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.view);
+        make.top.equalTo(weakSelf.tipLab.mas_bottom);
+    }];
+   
     [self.mainCollectionView registerNib:[UINib nibWithNibName:@"SH_DepositeWayCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"SH_DepositeWayCollectionViewCell"];
     [self.mainCollectionView registerNib:[UINib nibWithNibName:@"SH_DespositePlatformCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"SH_DespositePlatformCollectionViewCell"];
     [self.mainCollectionView registerNib:[UINib nibWithNibName:@"SH_DespositeChooseMoneyCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"SH_DespositeChooseMoneyCollectionViewCell"];
@@ -170,7 +181,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     //处理cell选中状态
     if (indexPath.section == 2) {
-            self.number = [NSString stringWithFormat:@"%@",self.dataArray[indexPath.section][indexPath.row]];
+            self.number = [NSString stringWithFormat:@"%@",self.dataArray[indexPath.section][indexPath.row][@"num"]];
             [collectionView reloadData];
 
     }else{
@@ -181,11 +192,12 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        return CGSizeMake((self.view.frame.size.width - 6 * 10)/5.0, 70);
+        NSLog(@"SCREEN_WIDTH == %f",SCREEN_WIDTH);
+        return CGSizeMake((MainScreenW - 6 * 10.0)/5.0, 70);
     }else if (indexPath.section == 1){
-        return CGSizeMake((self.view.frame.size.width - 3 * 15)/2.0, 40);
+        return CGSizeMake((MainScreenW - 3 * 15.0)/2.0, 40);
     }else{
-        return CGSizeMake((self.view.frame.size.width - 6 * 10)/5.0, (self.view.frame.size.width - 6 * 10)/5.0);
+        return CGSizeMake((MainScreenW - 6 * 10.0)/5.0, (MainScreenW - 6 * 10)/5.0);
     }
 }
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
@@ -197,6 +209,7 @@
         return headerView;
     }else{
         RH_RechargeCenterFooterView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"RH_RechargeCenterFooterView" forIndexPath:indexPath];
+        footerView.delegate = self;
         [footerView updateUIWithDictionary:self.platformDic Number:self.number];
         return footerView;
     }
@@ -208,18 +221,23 @@
      if (section == 0) {
          return CGSizeMake(0, 0);
      }else{
-         return CGSizeMake(self.view.frame.size.width, 30);
+         return CGSizeMake(SCREEN_WIDTH, 30);
      }
      
      }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
     
     if (section == 2) {
-        return CGSizeMake(self.view.frame.size.width, 300);
+        return CGSizeMake(SCREEN_WIDTH, 500);
     }else{
         return CGSizeMake(0, 0);
     }
     
+}
+#pragma mark--
+#pragma mark--footerView delegate
+- (void)RH_RechargeCenterFooterViewSubmitBtnClick{
+    [self presentViewController:[[SH_RechargeDetailViewController alloc]init] animated:YES completion:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

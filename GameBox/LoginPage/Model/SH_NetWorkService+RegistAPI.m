@@ -29,7 +29,7 @@
     NSString *timeStr = [NSString stringWithFormat:@"%.0f",timeInterval*1000] ;
     NSDictionary * dict = [NSDictionary  dictionaryWithObjectsAndKeys:timeStr,@"_t", nil];
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/captcha/code.html"];
-    NSDictionary *header = @{@"X-Requested-With":@"XMLHttpRequest",@"Host":[NetWorkLineMangaer sharedManager].currentHost};
+    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost};
     [self post:url parameter:dict header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse, response);
@@ -46,6 +46,8 @@
 +(void)fetchV3RegisetCaptchaCode:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed{
     
 }
-
++(void)fetchIsOpenCodeVerifty:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed{
+    
+}
 #pragma mark - 用户登录是否开启验证码
 @end

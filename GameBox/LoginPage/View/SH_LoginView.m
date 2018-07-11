@@ -35,7 +35,6 @@
     [super  awakeFromNib];
     [self  fetchHttpData];
     [self  configurationUI];
-    [self startGetVerifyCode];
 }
 -(void)fetchHttpData{
     [SH_NetWorkService  fetchCaptchaCodeInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
@@ -48,8 +47,8 @@
     UIImage  * img = [UIImage  imageNamed:@"left_bg"];
     self.leftView.layer.contents = (__bridge id _Nullable)(img.CGImage);
     self.tableView.hidden = YES;
-    self.account_textField.text = @"sm0089";
-    self.password_textField.text = @"h123123";
+    self.account_textField.text = @"gary009";
+    self.password_textField.text = @"123123";
     
     self.check_image.userInteractionEnabled = YES;
     
@@ -58,24 +57,16 @@
 }
 -(void)startGetVerifyCode
 {
+    __weak  typeof(self) weakSelf = self;
     [SH_NetWorkService  fetchVerifyCode:^(NSHTTPURLResponse *httpURLResponse, id response) {
-
-        NSLog(@"%@-------",response);
+        if ([response isKindOfClass:[NSData  class]]) {
+            NSData * data =(NSData * ) response;
+            weakSelf.check_image.image = [UIImage  imageWithData:data];
+        }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         showErrorMessage([UIApplication sharedApplication].keyWindow, nil, err);
     }];
-   /* NSTimeInterval timeInterval = [[NSDate date] timeIntervalSince1970] ;
-    NSString *timeStr = [NSString stringWithFormat:@"%.0f",timeInterval*1000] ;
-    NSDictionary * dict = [NSDictionary  dictionaryWithObjectsAndKeys:timeStr,@"t", nil];
-    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/captcha/code.html"];
-    NSDictionary *header = @{@"X-Requested-With":@"XMLHttpRequest",@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentSID};
-    [SH_NetWorkService get:@"http://test01.ampinplayopt0matrix.com/captcha/code.html/captcha/code.html" parameter:dict header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        NSLog(@"%@",response);
-    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        NSLog(@"%@",err);
-    }];*/
 
-//@"http://test01.ampinplayopt0matrix.com/captcha/code.html"
 }
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -145,7 +136,7 @@
  */
 -(void)login{
      __weak  typeof(self) weakSelf = self;
-    [SH_NetWorkService login:self.account_textField.text psw:self.password_textField.text verfyCode:@"" complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [SH_NetWorkService login:self.account_textField.text psw:self.password_textField.text verfyCode:self.check_textField.text complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *result = ConvertToClassPointer(NSDictionary, response) ;
         weakSelf.isOpenCaptcha = [result boolValueForKey:@"isOpenCaptcha"];
         if (!weakSelf.isOpenCaptcha) {

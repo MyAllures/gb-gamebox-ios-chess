@@ -28,7 +28,7 @@ static AFHTTPSessionManager *sharedManager = nil;
             manager.responseSerializer = [AFHTTPResponseSerializer serializer];
             manager.requestSerializer.stringEncoding = NSUTF8StringEncoding;
             manager.responseSerializer.acceptableContentTypes =
-            [NSSet setWithArray:@[@"application/json",@"text/html",@"text/json",@"text/plain",@"text/javascript",@"text/xml",@"image/*"]];
+            [NSSet setWithArray:@[@"application/json",@"text/html",@"text/json",@"text/plain",@"text/javascript",@"text/xml",@"image/*",@"image/jpeg"]];
             manager.requestSerializer.timeoutInterval = SH_DEFAULT_NETWORK_TIMEOUT;
             manager.operationQueue.maxConcurrentOperationCount = SH_MAX_NETWORK_CONCURRENT;
         }
@@ -227,13 +227,21 @@ static AFHTTPSessionManager *sharedManager = nil;
         //不能转换成对象
         //转换为字符串
         NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        return responseString;
+        if (responseString) {
+            return responseString;
+        }
+        else
+        {
+            //字符串转换失败则直接返回data
+            return data;
+        }
     }
     else
     {
         //只记得转换为对象输出
         return responseObject;
     }
+    
 }
 
 @end

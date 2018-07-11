@@ -35,9 +35,20 @@
             for (int i = 0; i < payways.count; i++) {
                 [sectionTwoArray addObject:@"unSelected"];
             }
+            NSMutableArray *chooseMoneyArray =  [NSMutableArray array];
+            for (int i = 0; i < moneys.count; i++) {
+                //图片名称数组
+                NSArray *picNameArray = @[@"chip_blue",@"chip_red",@"chip_yellow",@"chip_green",@"chip_black"];
+                if (moneys.count == picNameArray.count) {
+                    NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
+                    [dic setObject:moneys[i] forKey:@"num"];
+                    [dic setObject:picNameArray[i] forKey:@"imageName"];
+                    [chooseMoneyArray addObject:dic];
+                }
+            }
             [selectedArray replaceObjectAtIndex:1 withObject:sectionTwoArray];
             [dataArray replaceObjectAtIndex:1 withObject:payways?payways:[NSArray array]];
-            [dataArray replaceObjectAtIndex:2 withObject:moneys?moneys:[NSArray array]];
+            [dataArray replaceObjectAtIndex:2 withObject:chooseMoneyArray?chooseMoneyArray:[NSArray array]];
             [collectionView reloadData];
            
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
