@@ -15,28 +15,30 @@
 #import "NetWorkLineMangaer.h"
 #import "PopTool.h"
 
+#import "SH_PromoListModel.h"
+#import "SH_NetWorkService+Promo.h"
+#import <SDWebImage/SDWebImageFrame.h>
+
 @interface SH_PromoListView () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray *promoListArr;
 
 @end
 
 @implementation SH_PromoListView
 
-
-- (void)getPromoList:(NSInteger )pageNumber pageSize:(NSInteger )pageSize activityClassifyKey:(NSString *)activityClassifyKey complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
-{
-    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/discountsOrigin/getActivityTypeList.html"];
-    NSDictionary *parameter =  @{@"paging.pageNumber":@(pageNumber),@"paging.pageSize":@(pageSize),@"search.activityClassifyKey":activityClassifyKey};
-    NSDictionary *header = @{@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentSID};
-    [SH_NetWorkService post:url parameter:parameter header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        if (complete) {
-            complete(httpURLResponse, response);
+-(void)awakeFromNib {
+    [super awakeFromNib];
+    [SH_NetWorkService_Promo getPromoList:1 pageSize:50 activityClassifyKey:@"全部" complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        self.promoListArr = [NSMutableArray array];
+        SH_PromoListModel *model;
+        NSDictionary *dic = (NSDictionary *)response;
+        for (NSDictionary *dict in dic[@"data"][@"list"]) {
+            [self.promoListArr addObject:[model initWithDict:dict]];
         }
-    } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
-        if (failed) {
-            failed(httpURLResponse, err);
-        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        
     }];
 }
 
@@ -46,14 +48,14 @@
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
     [self.tableView registerNib:[UINib nibWithNibName:@"SH_PromoViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
-
+    
     [self.tableView reloadData];
 }
 
 #pragma mark - UITableViewDataSource M
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3;
+    return self.promoListArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -63,6 +65,8 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoViewCell" owner:nil options:nil] lastObject];
     }
+    SH_PromoListModel *model = self.promoListArr[indexPath.row];
+    [cell.bgImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",[NetWorkLineMangaer sharedManager].currentPreUrl,model.mPhoto]]];
     return cell;
 }
 

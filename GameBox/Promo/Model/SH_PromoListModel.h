@@ -9,5 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface SH_PromoListModel : NSObject
--(instancetype)initWithArr: (NSArray *)arr;
+
+@property (nonatomic, assign) NSInteger mId;
+
+@property (nonatomic, strong) NSString *mName;
+@property (nonatomic, strong) NSString *mPhoto;
+@property (nonatomic, strong) NSString *mUrl;
+
+-(id)initWithDict: (NSDictionary *)dict;
 @end
