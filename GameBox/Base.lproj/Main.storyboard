@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="start_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="Uka-EU-gLu">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="start_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Uka-EU-gLu">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                             </imageView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wz2-x6-9Jf">
@@ -121,6 +121,6 @@
     </scenes>
     <resources>
         <image name="progress_bar_icon" width="27" height="20"/>
-        <image name="start_bg.png" width="667" height="376"/>
+        <image name="start_bg" width="667" height="375"/>
     </resources>
 </document>
