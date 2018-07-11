@@ -30,12 +30,14 @@
 
 -(void)awakeFromNib {
     [super awakeFromNib];
-    [SH_NetWorkService_Promo getPromoList:1 pageSize:50 activityClassifyKey:@"全部" complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    
+    [SH_NetWorkService_Promo getPromoList:1 pageSize:50 activityClassifyKey:@"" complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         self.promoListArr = [NSMutableArray array];
-        SH_PromoListModel *model;
         NSDictionary *dic = (NSDictionary *)response;
         for (NSDictionary *dict in dic[@"data"][@"list"]) {
-            [self.promoListArr addObject:[model initWithDict:dict]];
+            SH_PromoListModel *model = [[SH_PromoListModel alloc]initWithDictionary:dict error:nil];
+            [self.promoListArr addObject:model];
+            [self.tableView reloadData];
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
@@ -44,6 +46,7 @@
 
 - (void)reloadData
 {
+   
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
@@ -66,7 +69,9 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoViewCell" owner:nil options:nil] lastObject];
     }
     SH_PromoListModel *model = self.promoListArr[indexPath.row];
-    [cell.bgImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",[NetWorkLineMangaer sharedManager].currentPreUrl,model.mPhoto]]];
+    
+    [cell.bgImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",[NetWorkLineMangaer sharedManager].currentHost,model.photo]]];
+    NSLog(@"model.photo==%@",[NSString stringWithFormat:@"https://%@%@",[NetWorkLineMangaer sharedManager].currentHost,model.photo]);
     return cell;
 }
 
