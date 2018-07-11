@@ -6,8 +6,8 @@
 //  Copyright © 2018年 shin. All rights reserved.
 //
 
-#import "SH_BaseViewController.h"
-
-@interface SH_RechargeCenterViewController : SH_BaseViewController
+#import <UIKit/UIKit.h>
+#import "SH_RechargeBasicViewController.h"
+@interface SH_RechargeCenterViewController : SH_RechargeBasicViewController
 
 @end

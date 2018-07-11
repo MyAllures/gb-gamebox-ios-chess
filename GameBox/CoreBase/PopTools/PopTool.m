@@ -31,28 +31,29 @@
     }
     return  self;
 }
--(void)showWithPresentView:(UIView *)presentView subTitle:(NSString*)subTitle AnimatedType:(AnimationType)animatedType AnimationDirectionType:(AnimationDirection)animationDirectionType{
+-(void)showWithPresentView:(UIView *)presentView withWidth:(CGFloat)width withHeight:(CGFloat)height subTitle:(NSString *)subTitle AnimatedType:(AnimationType)animatedType AnimationDirectionType:(AnimationDirection)animationDirectionType {
     _animationDirection = animationDirectionType;
-    CGFloat  width = CGRectGetWidth(presentView.frame);
-    CGFloat  height = CGRectGetHeight(presentView.frame);
+    self.alertController = [[AlertViewController  alloc] initAlertView:presentView viewHeight:height viewWidth:width];
     self.alertController.subTitle = subTitle;
+    /*
     __weak  typeof(self) weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
-        weakSelf.alertController.constraintWidth.constant = width+40;
-        weakSelf.alertController.constraintHeight.constant = height+50;
+//        weakSelf.alertController.constraintLeading.constant = leading;
+//        weakSelf.alertController.constraintTop.constant = top;
         [weakSelf.alertController.view layoutIfNeeded];
     });
     
-    UIWindow * window = [UIApplication  sharedApplication].keyWindow;
-    [window addSubview:self.alertController.view];
+    UIWindow * window = [UIApplication  sharedApplication].keyWindow;*/
+    UIViewController * vc = [self  getCurrentVC];
+    [vc.view addSubview:self.alertController.view];
     [self.alertController.view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(window);
+        make.edges.mas_equalTo(vc.view);
     }];
-    
+    /*
     [self.alertController.containerView addSubview:presentView];
     [presentView mas_makeConstraints:^(MASConstraintMaker *make) {
          make.edges.mas_equalTo(self.alertController.containerView);
-    }];
+    }];*/
     switch (animatedType) {
         case AnimationTypeNone:{
             
@@ -208,8 +209,84 @@
     
 }
 
-#pragma  mark --- getter methed
+//获取当前屏幕显示的viewcontroller
+//获取当前屏幕显示的viewcontroller
 
+- (UIViewController *)getCurrentVC
+
+{
+    
+    UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    
+    
+    
+    UIViewController *currentVC = [self getCurrentVCFrom:rootViewController];
+    
+    
+    
+    return currentVC;
+    
+}
+
+
+
+- (UIViewController *)getCurrentVCFrom:(UIViewController *)rootVC
+
+{
+    
+    UIViewController *currentVC;
+    
+    
+    
+    if ([rootVC presentedViewController]) {
+        
+        // 视图是被presented出来的
+        
+        
+        
+        rootVC = [rootVC presentedViewController];
+        
+    }
+    
+    
+    
+    if ([rootVC isKindOfClass:[UITabBarController class]]) {
+        
+        // 根视图为UITabBarController
+        
+        
+        
+        currentVC = [self getCurrentVCFrom:[(UITabBarController *)rootVC selectedViewController]];
+        
+        
+        
+    } else if ([rootVC isKindOfClass:[UINavigationController class]]){
+        
+        // 根视图为UINavigationController
+        
+        
+        
+        currentVC = [self getCurrentVCFrom:[(UINavigationController *)rootVC visibleViewController]];
+        
+        
+        
+    } else {
+        
+        // 根视图为非导航类
+        
+        
+        
+        currentVC = rootVC;
+        
+    }
+    
+    
+    
+    return currentVC;
+    
+}
+#pragma  mark --- getter methed
+/*
 -(AlertViewController *)alertController{
     if (!_alertController) {
         __weak typeof(self) weakSelf = self;
@@ -220,4 +297,5 @@
     }
     return _alertController;
 }
+ */
 @end

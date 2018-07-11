@@ -26,17 +26,16 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zzg-Nw-b3Y">
                     <rect key="frame" x="0.0" y="0.0" width="135" height="300"/>
                     <subviews>
-                        <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NBz-QR-gfn">
+                        <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NBz-QR-gfn">
                             <rect key="frame" x="8" y="8" width="119" height="38"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="38" id="Put-fJ-ziv"/>
                             </constraints>
-                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                            <state key="normal" title="登录" backgroundImage="login_button">
+                            <state key="normal" title="登录" backgroundImage="login_button_click">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="Dmh-lW-PDn"/>
+                                <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="N1J-qm-xd5"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhd-Qe-20D">
@@ -45,15 +44,14 @@
                                 <constraint firstAttribute="height" constant="38" id="Dbh-OX-zoy"/>
                             </constraints>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                            <state key="normal" title="注册" backgroundImage="login_button_click">
+                            <state key="normal" title="注册" backgroundImage="login_button">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="Npf-sb-cHQ"/>
+                                <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="AuA-nJ-HWD"/>
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="NBz-QR-gfn" firstAttribute="top" secondItem="zzg-Nw-b3Y" secondAttribute="top" constant="8" id="TXi-1M-99F"/>
                         <constraint firstAttribute="width" constant="135" id="Vub-u9-unb"/>
@@ -68,13 +66,13 @@
                     <rect key="frame" x="143" y="8" width="256" height="284"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入账号" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zgq-v9-1sR">
-                            <rect key="frame" x="80" y="28" width="160" height="33"/>
+                            <rect key="frame" x="80" y="16" width="160" height="33"/>
                             <color key="backgroundColor" red="0.13725490196078433" green="0.16862745098039217" blue="0.41568627450980389" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="33" id="vO8-My-zMW"/>
                             </constraints>
-                            <nil key="textColor"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                             <userDefinedRuntimeAttributes>
@@ -84,15 +82,15 @@
                             </userDefinedRuntimeAttributes>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyG-Im-cGw">
-                            <rect key="frame" x="37" y="35" width="35" height="20.5"/>
+                            <rect key="frame" x="37" y="23" width="35" height="20.5"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入密码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9jS-CP-2Pf">
-                            <rect key="frame" x="80" y="69" width="160" height="33"/>
+                            <rect key="frame" x="80" y="57" width="160" height="33"/>
                             <color key="backgroundColor" red="0.13725490196078433" green="0.16862745098039217" blue="0.41568627450980389" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                             <userDefinedRuntimeAttributes>
@@ -102,22 +100,22 @@
                             </userDefinedRuntimeAttributes>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gV-vZ-vSt">
-                            <rect key="frame" x="37" y="75.5" width="35" height="20.5"/>
+                            <rect key="frame" x="37" y="63.5" width="35" height="20.5"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Eth-pM-AB7">
-                            <rect key="frame" x="192" y="110" width="48" height="33"/>
+                            <rect key="frame" x="192" y="98" width="48" height="33"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="33" id="2P1-fT-8qX"/>
                                 <constraint firstAttribute="width" constant="48" id="xHd-Fv-SYQ"/>
                             </constraints>
                         </imageView>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入验证码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cSy-qC-owj">
-                            <rect key="frame" x="80" y="110" width="104" height="33"/>
+                            <rect key="frame" x="80" y="98" width="104" height="33"/>
                             <color key="backgroundColor" red="0.13725490200000001" green="0.16862745100000001" blue="0.41568627450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                             <userDefinedRuntimeAttributes>
@@ -127,13 +125,13 @@
                             </userDefinedRuntimeAttributes>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="验证码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5n-vm-Vqs">
-                            <rect key="frame" x="20" y="117" width="52" height="20.5"/>
+                            <rect key="frame" x="20" y="105" width="52" height="20.5"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5mz-oQ-74A">
-                            <rect key="frame" x="80" y="151" width="62" height="13"/>
+                            <rect key="frame" x="80" y="139" width="62" height="13"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="13" id="Okr-M5-iDr"/>
                             </constraints>
@@ -141,11 +139,11 @@
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="PpP-g9-PWl"/>
+                                <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="10W-HE-1gH"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qdg-LP-tvj">
-                            <rect key="frame" x="158" y="151" width="62" height="13"/>
+                            <rect key="frame" x="158" y="139" width="62" height="13"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="13" id="Hde-fl-ceQ"/>
                             </constraints>
@@ -153,11 +151,11 @@
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="haU-vg-GZx"/>
+                                <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="Hda-3a-wIJ"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POL-6l-DcC">
-                            <rect key="frame" x="55.5" y="180" width="145" height="38"/>
+                            <rect key="frame" x="55.5" y="168" width="145" height="38"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="38" id="gzl-gC-VX2"/>
                             </constraints>
@@ -167,7 +165,7 @@
                                 <color key="titleShadowColor" red="0.72156862745098038" green="0.72156862745098038" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="1iA-YT-m4c"/>
+                                <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="P05-4q-oj8"/>
                             </connections>
                         </button>
                     </subviews>
@@ -190,7 +188,7 @@
                         <constraint firstItem="9jS-CP-2Pf" firstAttribute="top" secondItem="zgq-v9-1sR" secondAttribute="bottom" constant="8" id="X9F-DK-cbp"/>
                         <constraint firstItem="qdg-LP-tvj" firstAttribute="bottom" secondItem="5mz-oQ-74A" secondAttribute="bottom" id="YUl-Rk-xh1"/>
                         <constraint firstAttribute="trailing" secondItem="zgq-v9-1sR" secondAttribute="trailing" constant="16" id="bNz-KO-3hw"/>
-                        <constraint firstItem="zgq-v9-1sR" firstAttribute="top" secondItem="Caj-tI-XYs" secondAttribute="top" constant="28" id="bfx-vA-VMP"/>
+                        <constraint firstItem="zgq-v9-1sR" firstAttribute="top" secondItem="Caj-tI-XYs" secondAttribute="top" constant="16" id="bfx-vA-VMP"/>
                         <constraint firstItem="cSy-qC-owj" firstAttribute="leading" secondItem="9jS-CP-2Pf" secondAttribute="leading" id="c2i-ot-ZcK"/>
                         <constraint firstItem="qdg-LP-tvj" firstAttribute="top" secondItem="5mz-oQ-74A" secondAttribute="top" id="dnh-hl-9zm"/>
                         <constraint firstItem="5mz-oQ-74A" firstAttribute="top" secondItem="cSy-qC-owj" secondAttribute="bottom" constant="8" id="fEa-QE-ly2"/>

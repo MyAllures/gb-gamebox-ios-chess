@@ -10,9 +10,9 @@
 #import <UIKit/UIKit.h>
 typedef NS_ENUM(NSUInteger,AnimationType) {
     AnimationTypeNone= 0,
-    AnimationTypeScale,
-    AnimationTypePosition,
-    AnimationTypeFade
+    AnimationTypeScale,// 缩放
+    AnimationTypePosition,// 位移
+    AnimationTypeFade//淡入淡出
 };
 typedef NS_ENUM(NSInteger, AnimationDirection) {// 动画方向
     AnimationDirectionFromRight,// 从右侧进入
@@ -27,13 +27,19 @@ typedef NS_ENUM(NSInteger, AnimationDirection) {// 动画方向
 +(PopTool*)sharedInstance;
 /**
  *  弹出要展示的View
- *
+ *  @param width height 距离左边和上边的距离
  *  @param presentView show View
  *  @param animatedType    动画类型
  */
-- (void)showWithPresentView:(UIView *)presentView subTitle:(NSString*)subTitle AnimatedType:(AnimationType)animatedType AnimationDirectionType:(AnimationDirection)animationDirectionType;
+- (void)showWithPresentView:(UIView *)presentView
+        withWidth:(CGFloat)width
+        withHeight:(CGFloat)height
+        subTitle:(NSString*)subTitle
+        AnimatedType:(AnimationType)animatedType
+     AnimationDirectionType:(AnimationDirection)animationDirectionType;
 /**
  *  关闭弹出视图
  */
 - (void)closePopView;
+
 @end

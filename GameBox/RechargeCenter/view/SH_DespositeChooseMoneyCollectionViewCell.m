@@ -9,6 +9,7 @@
 #import "SH_DespositeChooseMoneyCollectionViewCell.h"
 @interface SH_DespositeChooseMoneyCollectionViewCell()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImage;
+@property (weak, nonatomic) IBOutlet UILabel *numLab;
 
 @end
 @implementation SH_DespositeChooseMoneyCollectionViewCell
@@ -17,5 +18,13 @@
     [super awakeFromNib];
     // Initialization code
 }
-
+-(void)updateUIWithContex:(id)contex Selected:(NSString *)selected{
+    NSDictionary *dic = (NSDictionary *)contex;
+    NSString *num = [NSString stringWithFormat:@"%@",dic[@"num"]];
+    NSString *imageName = dic[@"imageName"];
+    [self.iconImage setImageWithType:0 ImageName:imageName];
+     [self setCellBoardWithSelected:selected];
+    self.numLab.text = num;
+    
+}
 @end

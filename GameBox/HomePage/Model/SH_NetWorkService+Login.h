@@ -16,4 +16,13 @@
 
 + (void)fetchUserInfo:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
 
++(void)fetchCaptchaCodeInfo:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
+
+/**
+ 获取登录验证码
+
+ @param complete 成功的回调
+ @param failed 失败的回调
+ */
++(void)fetchVerifyCodexxx:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
 @end
