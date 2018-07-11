@@ -11,7 +11,8 @@
 		2209026720F053D400F8828E /* SH_PromoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2209026520F053D400F8828E /* SH_PromoViewCell.xib */; };
 		2224CB7020EF8C5900E6872B /* SH_PromoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2224CB6F20EF8C5900E6872B /* SH_PromoView.m */; };
 		2224CB7220EF8C9500E6872B /* SH_PromoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2224CB7120EF8C9500E6872B /* SH_PromoView.xib */; };
-		42BF3E4920F09F9400F36B82 /* PlayerCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BF3E4820F09F9400F36B82 /* PlayerCenterViewController.m */; };
+		42BF3E6E20F33A5D00F36B82 /* SH_PlayerCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BF3E6D20F33A5D00F36B82 /* SH_PlayerCenterView.m */; };
+		42BF3E7420F4974C00F36B82 /* SH_WelfareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BF3E7320F4974C00F36B82 /* SH_WelfareView.m */; };
 		5401C53120ECA10F0027246D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C53020ECA10F0027246D /* AppDelegate.m */; };
 		5401C53420ECA10F0027246D /* LineCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C53320ECA10F0027246D /* LineCheckViewController.m */; };
 		5401C53720ECA10F0027246D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5401C53520ECA10F0027246D /* Main.storyboard */; };
@@ -28,8 +29,7 @@
 		5401C56320ECF9EA0027246D /* SH_HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5401C56120ECF9EA0027246D /* SH_HomeViewController.xib */; };
 		5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C56520ECFB3E0027246D /* SH_NetWorkService+Login.m */; };
 		54C21AB120EE23B2006FCA0F /* SH_BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C21AB020EE23B2006FCA0F /* SH_BaseViewController.m */; };
-		54C21AB520EF70C8006FCA0F /* SH_RechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C21AB320EF70C8006FCA0F /* SH_RechargeViewController.m */; };
-		54C21AB620EF70C8006FCA0F /* SH_RechargeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C21AB420EF70C8006FCA0F /* SH_RechargeViewController.xib */; };
+		54C21AB920F1B981006FCA0F /* SH_CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C21AB820F1B981006FCA0F /* SH_CycleScrollView.m */; };
 		BF2F915620EF591F00CEDE8C /* SH_RechargeCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F915520EF591F00CEDE8C /* SH_RechargeCenterViewController.m */; };
 		BF2F915A20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F915820EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m */; };
 		BF2F915B20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2F915920EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib */; };
@@ -37,6 +37,11 @@
 		BF2F916020EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2F915E20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.xib */; };
 		BF2F916420EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F916220EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.m */; };
 		BF2F916520EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2F916320EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.xib */; };
+		DA18EFBD20F0A9C3002B7E22 /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA18EFB920F0A9C3002B7E22 /* AlertViewController.xib */; };
+		DA18EFBE20F0A9C3002B7E22 /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA18EFBA20F0A9C3002B7E22 /* AlertViewController.m */; };
+		DA18EFBF20F0A9C3002B7E22 /* PopTool.m in Sources */ = {isa = PBXBuildFile; fileRef = DA18EFBB20F0A9C3002B7E22 /* PopTool.m */; };
+		DA18EFCC20F0AA02002B7E22 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA18EFC820F0AA02002B7E22 /* LoginViewController.m */; };
+		DA18EFCD20F0AA02002B7E22 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA18EFC920F0AA02002B7E22 /* LoginViewController.xib */; };
 		F88297C8CDA8BE450455395E /* libPods-GameBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C23814E2A7636D1CE6B89BC /* libPods-GameBox.a */; };
 /* End PBXBuildFile section */
 
@@ -48,12 +53,10 @@
 		2224CB6F20EF8C5900E6872B /* SH_PromoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoView.m; sourceTree = "<group>"; };
 		2224CB7120EF8C9500E6872B /* SH_PromoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PromoView.xib; sourceTree = "<group>"; };
 		3BBE090F9B091E073F4BB10C /* Pods-GameBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameBox/Pods-GameBox.release.xcconfig"; sourceTree = "<group>"; };
-		42A785FA20EF827D0021EBDC /* UIImage+RadioImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+RadioImage.h"; sourceTree = "<group>"; };
-		42A785FB20EF827D0021EBDC /* UIImage+RadioImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RadioImage.m"; sourceTree = "<group>"; };
-		42A785FD20EF88B60021EBDC /* UIImageView+RadioImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+RadioImageView.h"; sourceTree = "<group>"; };
-		42A785FE20EF88B60021EBDC /* UIImageView+RadioImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+RadioImageView.m"; sourceTree = "<group>"; };
-		42BF3E4720F09F9400F36B82 /* PlayerCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerCenterViewController.h; sourceTree = "<group>"; };
-		42BF3E4820F09F9400F36B82 /* PlayerCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerCenterViewController.m; sourceTree = "<group>"; };
+		42BF3E6C20F33A5D00F36B82 /* SH_PlayerCenterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PlayerCenterView.h; sourceTree = "<group>"; };
+		42BF3E6D20F33A5D00F36B82 /* SH_PlayerCenterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PlayerCenterView.m; sourceTree = "<group>"; };
+		42BF3E7220F4974C00F36B82 /* SH_WelfareView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_WelfareView.h; sourceTree = "<group>"; };
+		42BF3E7320F4974C00F36B82 /* SH_WelfareView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_WelfareView.m; sourceTree = "<group>"; };
 		4C23814E2A7636D1CE6B89BC /* libPods-GameBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GameBox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5401C52C20ECA10F0027246D /* GameBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5401C52F20ECA10F0027246D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -84,9 +87,8 @@
 		5401C56520ECFB3E0027246D /* SH_NetWorkService+Login.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+Login.m"; sourceTree = "<group>"; };
 		54C21AAF20EE23B2006FCA0F /* SH_BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_BaseViewController.h; sourceTree = "<group>"; };
 		54C21AB020EE23B2006FCA0F /* SH_BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_BaseViewController.m; sourceTree = "<group>"; };
-		54C21AB220EF70C8006FCA0F /* SH_RechargeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_RechargeViewController.h; sourceTree = "<group>"; };
-		54C21AB320EF70C8006FCA0F /* SH_RechargeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_RechargeViewController.m; sourceTree = "<group>"; };
-		54C21AB420EF70C8006FCA0F /* SH_RechargeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_RechargeViewController.xib; sourceTree = "<group>"; };
+		54C21AB720F1B981006FCA0F /* SH_CycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_CycleScrollView.h; sourceTree = "<group>"; };
+		54C21AB820F1B981006FCA0F /* SH_CycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_CycleScrollView.m; sourceTree = "<group>"; };
 		BF2F915420EF591F00CEDE8C /* SH_RechargeCenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_RechargeCenterViewController.h; sourceTree = "<group>"; };
 		BF2F915520EF591F00CEDE8C /* SH_RechargeCenterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_RechargeCenterViewController.m; sourceTree = "<group>"; };
 		BF2F915720EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_DepositeWayCollectionViewCell.h; sourceTree = "<group>"; };
@@ -99,6 +101,14 @@
 		BF2F916220EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_DespositeChooseMoneyCollectionViewCell.m; sourceTree = "<group>"; };
 		BF2F916320EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_DespositeChooseMoneyCollectionViewCell.xib; sourceTree = "<group>"; };
 		CD08B466133A38336C9BD914 /* Pods-GameBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GameBox/Pods-GameBox.debug.xcconfig"; sourceTree = "<group>"; };
+		DA18EFB820F0A9C3002B7E22 /* PopTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopTool.h; sourceTree = "<group>"; };
+		DA18EFB920F0A9C3002B7E22 /* AlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertViewController.xib; sourceTree = "<group>"; };
+		DA18EFBA20F0A9C3002B7E22 /* AlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewController.m; sourceTree = "<group>"; };
+		DA18EFBB20F0A9C3002B7E22 /* PopTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopTool.m; sourceTree = "<group>"; };
+		DA18EFBC20F0A9C3002B7E22 /* AlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewController.h; sourceTree = "<group>"; };
+		DA18EFC820F0AA02002B7E22 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		DA18EFC920F0AA02002B7E22 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		DA18EFCA20F0AA02002B7E22 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +161,7 @@
 				5401C54520ECA1B80027246D /* CoreBase */,
 				5401C55B20ECF9B30027246D /* HomePage */,
 				BF2F915020EF57E300CEDE8C /* RechargeCenter */,
+				DA18EFC620F0AA02002B7E22 /* LoginPage */,
 				5401C52F20ECA10F0027246D /* AppDelegate.h */,
 				5401C53020ECA10F0027246D /* AppDelegate.m */,
 				5401C53220ECA10F0027246D /* LineCheckViewController.h */,
@@ -168,6 +179,7 @@
 		5401C54520ECA1B80027246D /* CoreBase */ = {
 			isa = PBXGroup;
 			children = (
+				DA18EFB720F0A9C3002B7E22 /* PopTools */,
 				54C21AAE20EE239D006FCA0F /* BaseViewController */,
 				5401C54620ECA1B80027246D /* LineCheck */,
 				5401C54920ECA1B80027246D /* GBWeb */,
@@ -211,10 +223,6 @@
 		5401C55B20ECF9B30027246D /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
-				42A785FA20EF827D0021EBDC /* UIImage+RadioImage.h */,
-				42A785FB20EF827D0021EBDC /* UIImage+RadioImage.m */,
-				42A785FD20EF88B60021EBDC /* UIImageView+RadioImageView.h */,
-				42A785FE20EF88B60021EBDC /* UIImageView+RadioImageView.m */,
 				5401C55C20ECF9B30027246D /* Controller */,
 				5401C55D20ECF9B30027246D /* Model */,
 				5401C55E20ECF9B30027246D /* View */,
@@ -225,14 +233,9 @@
 		5401C55C20ECF9B30027246D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				42BF3E4720F09F9400F36B82 /* PlayerCenterViewController.h */,
-				42BF3E4820F09F9400F36B82 /* PlayerCenterViewController.m */,
 				5401C55F20ECF9EA0027246D /* SH_HomeViewController.h */,
 				5401C56020ECF9EA0027246D /* SH_HomeViewController.m */,
 				5401C56120ECF9EA0027246D /* SH_HomeViewController.xib */,
-				54C21AB220EF70C8006FCA0F /* SH_RechargeViewController.h */,
-				54C21AB320EF70C8006FCA0F /* SH_RechargeViewController.m */,
-				54C21AB420EF70C8006FCA0F /* SH_RechargeViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -249,6 +252,12 @@
 		5401C55E20ECF9B30027246D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				54C21AB720F1B981006FCA0F /* SH_CycleScrollView.h */,
+				54C21AB820F1B981006FCA0F /* SH_CycleScrollView.m */,
+				42BF3E6C20F33A5D00F36B82 /* SH_PlayerCenterView.h */,
+				42BF3E6D20F33A5D00F36B82 /* SH_PlayerCenterView.m */,
+				42BF3E7220F4974C00F36B82 /* SH_WelfareView.h */,
+				42BF3E7320F4974C00F36B82 /* SH_WelfareView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -310,6 +319,44 @@
 				BF2F916320EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.xib */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		DA18EFB720F0A9C3002B7E22 /* PopTools */ = {
+			isa = PBXGroup;
+			children = (
+				DA18EFB820F0A9C3002B7E22 /* PopTool.h */,
+				DA18EFBB20F0A9C3002B7E22 /* PopTool.m */,
+				DA18EFBC20F0A9C3002B7E22 /* AlertViewController.h */,
+				DA18EFBA20F0A9C3002B7E22 /* AlertViewController.m */,
+				DA18EFB920F0A9C3002B7E22 /* AlertViewController.xib */,
+			);
+			path = PopTools;
+			sourceTree = "<group>";
+		};
+		DA18EFC620F0AA02002B7E22 /* LoginPage */ = {
+			isa = PBXGroup;
+			children = (
+				DA18EFC720F0AA02002B7E22 /* Controller */,
+				DA18EFCB20F0AA02002B7E22 /* View */,
+			);
+			path = LoginPage;
+			sourceTree = "<group>";
+		};
+		DA18EFC720F0AA02002B7E22 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DA18EFCA20F0AA02002B7E22 /* LoginViewController.h */,
+				DA18EFC820F0AA02002B7E22 /* LoginViewController.m */,
+				DA18EFC920F0AA02002B7E22 /* LoginViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DA18EFCB20F0AA02002B7E22 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		F14E4A72378CCD648FF29337 /* Pods */ = {
@@ -386,12 +433,13 @@
 				5401C56320ECF9EA0027246D /* SH_HomeViewController.xib in Resources */,
 				5401C55120ECA1B80027246D /* GameWebViewController.xib in Resources */,
 				5401C53920ECA1100027246D /* Assets.xcassets in Resources */,
-				54C21AB620EF70C8006FCA0F /* SH_RechargeViewController.xib in Resources */,
 				2209026720F053D400F8828E /* SH_PromoViewCell.xib in Resources */,
 				BF2F916020EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.xib in Resources */,
 				BF2F915B20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib in Resources */,
+				DA18EFCD20F0AA02002B7E22 /* LoginViewController.xib in Resources */,
 				5401C53720ECA10F0027246D /* Main.storyboard in Resources */,
 				2224CB7220EF8C9500E6872B /* SH_PromoView.xib in Resources */,
+				DA18EFBD20F0A9C3002B7E22 /* AlertViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,10 +471,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GameBox/Pods-GameBox-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,20 +495,24 @@
 				BF2F915A20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m in Sources */,
 				2224CB7020EF8C5900E6872B /* SH_PromoView.m in Sources */,
 				5401C56220ECF9EA0027246D /* SH_HomeViewController.m in Sources */,
+				54C21AB920F1B981006FCA0F /* SH_CycleScrollView.m in Sources */,
 				BF2F915F20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m in Sources */,
+				DA18EFBF20F0A9C3002B7E22 /* PopTool.m in Sources */,
+				42BF3E7420F4974C00F36B82 /* SH_WelfareView.m in Sources */,
+				DA18EFBE20F0A9C3002B7E22 /* AlertViewController.m in Sources */,
 				5401C53420ECA10F0027246D /* LineCheckViewController.m in Sources */,
 				BF2F916420EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.m in Sources */,
 				2209026620F053D400F8828E /* SH_PromoViewCell.m in Sources */,
 				5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */,
-				54C21AB520EF70C8006FCA0F /* SH_RechargeViewController.m in Sources */,
+				DA18EFCC20F0AA02002B7E22 /* LoginViewController.m in Sources */,
 				5401C55620ECA2CC0027246D /* IPsCacheManager.m in Sources */,
 				BF2F915620EF591F00CEDE8C /* SH_RechargeCenterViewController.m in Sources */,
 				5401C53F20ECA1100027246D /* main.m in Sources */,
-				42BF3E4920F09F9400F36B82 /* PlayerCenterViewController.m in Sources */,
 				5401C55A20ECA48D0027246D /* NetWorkLineMangaer.m in Sources */,
 				54C21AB120EE23B2006FCA0F /* SH_BaseViewController.m in Sources */,
 				5401C55320ECA1B80027246D /* SH_NetWorkService.m in Sources */,
 				5401C55020ECA1B80027246D /* SH_NetWorkService+LineCheck.m in Sources */,
+				42BF3E6E20F33A5D00F36B82 /* SH_PlayerCenterView.m in Sources */,
 				5401C53120ECA10F0027246D /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

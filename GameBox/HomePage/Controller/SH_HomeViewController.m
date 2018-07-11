@@ -6,19 +6,30 @@
 //  Copyright © 2018年 shin. All rights reserved.
 //
 
+#import <Masonry/Masonry.h>
 #import "SH_HomeViewController.h"
 #import "SH_NetWorkService+Login.h"
 #import "NetWorkLineMangaer.h"
 #import "GameWebViewController.h"
 #import "AppDelegate.h"
 #import "SH_RechargeCenterViewController.h"
-#import "SH_RechargeViewController.h"
 #import "SH_PromoView.h"
 #import "View+MASAdditions.h"
+#import "SH_CycleScrollView.h"
+#import "LoginViewController.h"
+#import "SH_PlayerCenterView.h"
+#import "Masonry.h"
+#import "SH_WelfareView.h"
 
+@interface SH_HomeViewController ()<SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, PlayerCenterViewDelegate, WelfareViewDelegate>
 
-@interface SH_HomeViewController ()
-
+@property (weak, nonatomic) IBOutlet UIImageView *avatarImg;
+@property (weak, nonatomic) IBOutlet UILabel *userAccountLB;
+@property (strong, nonatomic) SH_CycleScrollView *cycleAdView;
+@property (nonatomic, strong) UIView *backV;
+@property (nonatomic, strong) SH_PlayerCenterView *pcv;
+@property (nonatomic, strong) SH_WelfareView *welfareV;
+@property (nonatomic, strong) UIView *welBackV;
 @end
 
 @implementation SH_HomeViewController
@@ -27,11 +38,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self fetchSID];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self initAdScroll];
 }
 
 - (IBAction)login:(id)sender {
@@ -54,14 +61,21 @@
 }
 
 - (IBAction)enterGame:(id)sender {
-    GameWebViewController *gameVC = [[GameWebViewController alloc] initWithNibName:@"GameWebViewController" bundle:nil];
-    gameVC.url = @"https://imes-mcasino.roshan88.com/mobile.aspx?id=262&token=010b04f8-87c9-4692-bb82-5fcb90c75f0d&LanguageCode=1";
-    [self presentViewController:gameVC animated:YES completion:nil];
+    __weak typeof(self) weakSelf = self;
+
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/origin/getGameLink.html?apiId=10&apiTypeId=2&gameId=100303&gameCode=5902"];
+    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
+    [SH_NetWorkService post:url parameter:nil header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSString *gameUrl = [[response objectForKey:@"data"] objectForKey:@"gameLink"];
+        GameWebViewController *gameVC = [[GameWebViewController alloc] initWithNibName:@"GameWebViewController" bundle:nil];
+        gameVC.url = gameUrl;
+        [weakSelf presentViewController:gameVC animated:YES completion:nil];
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        //
+    }];
 }
 
 - (IBAction)rechargeAction:(id)sender {
-    SH_RechargeViewController *rechargeVC = [[SH_RechargeViewController alloc] initWithNibName:@"SH_RechargeViewController" bundle:nil];
-    [self.navigationController pushViewController:rechargeVC animated:YES];
 //    SH_PromoView *promoView = [[SH_PromoView alloc]initWithFrame:CGRectZero];
 //    [[UIApplication sharedApplication].keyWindow addSubview:promoView];
 //    UIEdgeInsets padding = UIEdgeInsetsMake(10, 80, 20, 80);
@@ -86,8 +100,146 @@
         //
     }];
 }
-- (IBAction)chongzhiBtnClick:(id)sender {
+
+- (IBAction)avatarClick:(id)sender {
+    [[LoginViewController new] show];
+}
+
+- (IBAction)rechargeClick:(id)sender {
     [self presentViewController:[[SH_RechargeCenterViewController alloc]init] animated:YES completion:nil];
+}
+
+- (IBAction)activitiesClick:(id)sender {
+}
+
+//玩家中心
+- (IBAction)userCenterClick:(id)sender
+{
+    self.backV = [[UIView alloc] init];
+    self.backV.backgroundColor = [UIColor colorWithWhite:0.2f alpha:0.5];
+    [self.view addSubview:self.backV];
+
+    self.pcv = [[SH_PlayerCenterView alloc] init];
+    self.pcv.backgroundColor = [UIColor greenColor];
+    self.pcv.delegate = self;
+    [self.backV addSubview:self.pcv];
+    
+ 
+    [UIView animateWithDuration:3.0 animations:^{
+        [self.backV mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.bottom.left.right.equalTo(self.view);
+        }];
+
+        [self.pcv mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(self.backV).mas_equalTo(0);
+            make.width.mas_equalTo(202);
+            make.bottom.equalTo(self.backV).mas_equalTo(0);
+            make.top.equalTo(self.backV.mas_top);
+        }];
+    
+        
+        
+    }];
+}
+
+#pragma mark - SH_PlayerCenterViewDelegate
+- (void)removeView
+{
+    [UIView animateWithDuration:2.0 animations:^{
+        [self.pcv removeFromSuperview];
+        [self.backV removeFromSuperview];
+    }];
+}
+
+- (void)popView:(UIButton *)btn
+{
+    [self removeView];
+    
+    self.welBackV = [[UIView alloc] init];
+    self.welBackV.backgroundColor = [UIColor colorWithWhite:0.2f alpha:0.5];
+    [self.view addSubview:self.welBackV];
+    
+    
+    
+    self.welfareV = [[SH_WelfareView alloc] init];
+    self.welfareV.backgroundColor = [UIColor whiteColor];
+    self.welfareV.delegate = self;
+    self.welfareV.layer.cornerRadius = 4.5;
+    [self.welBackV addSubview:self.welfareV];
+    
+    
+    if ([btn.currentTitle isEqualToString:@"福利记录"]) {
+        [UIView animateWithDuration:2.0 animations:^{
+          
+            [self.welBackV mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.right.top.bottom.equalTo(self.view);
+            }];
+            
+            
+            [self.welfareV mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.size.mas_equalTo(CGSizeMake(470, 380));
+                make.top.equalTo(self.view.mas_top).with.offset(25);
+                make.left.equalTo(self.view.mas_left).with.offset(105);
+                make.bottom.equalTo(self.view.mas_bottom).with.offset(-22);
+            }];
+        }];
+    }
+}
+
+- (IBAction)incomeClick:(id)sender {
+}
+
+- (IBAction)shareClick:(id)sender {
+}
+
+- (void)initAdScroll
+{
+    //广告轮播
+    _cycleAdView = [SH_CycleScrollView new];
+    _cycleAdView.datasource = self;
+    _cycleAdView.delegate = self;
+    _cycleAdView.continuous = YES;
+    _cycleAdView.autoPlayTimeInterval = 5;
+    [self.view addSubview:_cycleAdView];
+    [_cycleAdView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(18);
+        make.top.mas_equalTo(88);
+        make.width.mas_equalTo(190);
+        make.height.mas_equalTo(224);
+    }];
+}
+
+#pragma mark - SH_CycleScrollViewDataSource
+
+- (NSArray *)numberOfCycleScrollView:(SH_CycleScrollView *)bannerView
+{
+    return @[[UIImage imageNamed:@"banner"],
+             [UIImage imageNamed:@"banner"],
+             [UIImage imageNamed:@"banner"],
+             [UIImage imageNamed:@"banner"]];
+}
+
+- (UIViewContentMode)contentModeForImageIndex:(NSUInteger)index {
+    return UIViewContentModeScaleAspectFill;
+}
+
+- (UIImage *)placeHolderImageOfZeroBannerView {
+    return [UIImage imageNamed:@"banner"];
+}
+
+#pragma mark - SH_CycleScrollViewDelegate
+
+- (void)cycleScrollView:(SH_CycleScrollView *)scrollView didScrollToIndex:(NSUInteger)index
+{}
+
+- (void)cycleScrollView:(SH_CycleScrollView *)scorllView didSelectedAtIndex:(NSUInteger)index
+{}
+
+#pragma mark - SH_WelfareViewDelegate
+- (void)welfareViewDisappear
+{
+    [self.welfareV removeFromSuperview];
+    [self.welBackV removeFromSuperview];
 }
 
 @end
