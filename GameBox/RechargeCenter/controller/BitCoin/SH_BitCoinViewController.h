@@ -7,7 +7,7 @@
 //
 
 #import "SH_RechargeBasicViewController.h"
-
+#import "SH_RechargeCenterChannelModel.h"
 @interface SH_BitCoinViewController : SH_RechargeBasicViewController
-
+@property(nonatomic,strong)SH_RechargeCenterChannelModel *channelModel;
 @end

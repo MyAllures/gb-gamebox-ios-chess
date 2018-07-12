@@ -9,5 +9,6 @@
 #import "SH_BaseViewController.h"
 
 @interface SH_RechargeBasicViewController : SH_BaseViewController
+@property(nonatomic,strong)UIScrollView *bgScrollView;
 -(void)configNavigationWithTitle:(NSString *)title;
 @end

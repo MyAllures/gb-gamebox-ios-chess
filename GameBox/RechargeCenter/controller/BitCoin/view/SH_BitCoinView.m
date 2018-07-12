@@ -14,6 +14,7 @@
 @property(nonatomic,strong)UIImageView *QRImageView;
 @property(nonatomic,strong)SH_BitCoinTextView *bitCoinView;
 @property(nonatomic,strong)UILabel *massegeLab;
+@property(nonatomic,strong)SH_BitCoinSubView *bitConnHeadView;
 @end
 @implementation SH_BitCoinView
 -(instancetype)initWithFrame:(CGRect)frame{
@@ -22,6 +23,13 @@
         [self configUI];
     }
     return self;
+}
+- (SH_BitCoinSubView *)bitConnHeadView{
+    if (!_bitConnHeadView) {
+        _bitConnHeadView = [[NSBundle mainBundle]loadNibNamed:@"SH_BitCoinSubView" owner:self options:nil].firstObject;
+        [self addSubview:_bitConnHeadView];
+    }
+    return _bitConnHeadView;
 }
 #pragma mark--
 #pragma mark--lazy
@@ -69,9 +77,8 @@
         make.left.equalTo(colorView.mas_right).offset(10);
     }];
     
-    SH_BitCoinSubView *bgView = [[NSBundle mainBundle]loadNibNamed:@"SH_BitCoinSubView" owner:self options:nil].firstObject;
-    [self addSubview:bgView];
-    [bgView mas_makeConstraints:^(MASConstraintMaker *make) {
+    
+    [self.bitConnHeadView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self);
         make.top.equalTo(titleLab.mas_bottom).offset(15);
         make.width.equalTo(@250);
@@ -81,7 +88,7 @@
     [self.QRImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.height.equalTo(@120);
         make.centerX.equalTo(self);
-        make.top.equalTo(bgView.mas_bottom).offset(10);
+        make.top.equalTo(weakSelf.bitConnHeadView.mas_bottom).offset(10);
     }];
     
     UIButton *saveBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -124,6 +131,9 @@
     datePicker.datePickerMode = PGDatePickerModeDateHourMinute;
     [self.targetVC presentViewController:datePickManager animated:false completion:nil];
 }
+- (void)SH_BitCoinTextViewSubmitBtnClickWithAdress:(NSString *)address Txid:(NSString *)txid BitCoinNum:(NSString *)num date:(NSString *)date{
+    [self.delegate SH_BitCoinViewAdress:address Txid:txid BitCoinNum:num date:date];
+}
 #pragma mark - PGDatePickerDelegate
 - (void)datePicker:(PGDatePicker *)datePicker didSelectDate:(NSDateComponents *)dateComponents {
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
@@ -133,5 +143,8 @@
     NSString *dateString = [dateFormat stringFromDate:date];
     [self.bitCoinView updateDateLabWithDataString:dateString];
 }
-
+- (void)updateUIWithChannelModel:(SH_RechargeCenterChannelModel *)model{
+    [self.QRImageView setImageWithType:1 ImageName:model.qrCodeUrl];
+    [self.bitConnHeadView updateUIWithChannelModel:model];
+}
 @end

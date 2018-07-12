@@ -15,7 +15,7 @@
                                 DataArray:(NSMutableArray *)dataArray
                            CollectionView:(UICollectionView *)collectionView
                                  Platform:(NSMutableDictionary *)platform
-                                   Number:(NSString *)number{
+                                    Block:(HandleBlock)block{
     if (indexPath.section == 0) {
         //选中第一行
         NSMutableArray *array1 = selectedArray[0];
@@ -28,8 +28,10 @@
             NSArray *payways = paywayModel.arrayList;
             NSArray *moneys = paywayModel.quickMoneys;
             NSMutableArray *sectionTwoArray = [NSMutableArray array];
+            SH_RechargeCenterChannelModel *channelModel;
             if (payways.count > 0) {
-                SH_RechargeCenterChannelModel *channelModel = payways[0];
+                 channelModel = payways[0];
+                block(channelModel);
                 [platform setObject:channelModel.type forKey:@"type"] ;
             }
             for (int i = 0; i < payways.count; i++) {
@@ -47,8 +49,23 @@
                 }
             }
             [selectedArray replaceObjectAtIndex:1 withObject:sectionTwoArray];
-            [dataArray replaceObjectAtIndex:1 withObject:payways?payways:[NSArray array]];
-            [dataArray replaceObjectAtIndex:2 withObject:chooseMoneyArray?chooseMoneyArray:[NSArray array]];
+            //这里在线支付有点特别 所以要做特别处理
+            if ([channelModel.type isEqualToString:@"2"]&&[channelModel.accountType isEqualToString:@"2"]) {
+                if (dataArray.count == 3) {
+                    [dataArray removeObjectAtIndex:2];
+                    [dataArray replaceObjectAtIndex:1 withObject:chooseMoneyArray?chooseMoneyArray:[NSArray array]];
+                }else if(dataArray.count == 2){
+                    [dataArray replaceObjectAtIndex:1 withObject:chooseMoneyArray?chooseMoneyArray:[NSArray array]];
+                }
+            }else{
+                if (dataArray.count == 3) {
+                    [dataArray replaceObjectAtIndex:1 withObject:payways?payways:[NSArray array]];
+                    [dataArray replaceObjectAtIndex:2 withObject:chooseMoneyArray?chooseMoneyArray:[NSArray array]];
+                }else if(dataArray.count == 2){
+                    [dataArray replaceObjectAtIndex:1 withObject:chooseMoneyArray?chooseMoneyArray:[NSArray array]];
+                }
+            }
+           
             [collectionView reloadData];
            
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
@@ -59,8 +76,9 @@
         //选中第二 行
         
         //处理平台的type
-        SH_RechargeCenterChannelModel *channelModel = dataArray[indexPath.section][indexPath.row];
+       SH_RechargeCenterChannelModel *channelModel = dataArray[indexPath.section][indexPath.row];
         [platform setObject:channelModel.type forKey:@"type"] ;
+        block(channelModel);
         NSMutableArray *array2 = selectedArray[1];
         if ([array2 containsObject:@"selected"]) {
             //表示只在第二行点击没有点击多第一行

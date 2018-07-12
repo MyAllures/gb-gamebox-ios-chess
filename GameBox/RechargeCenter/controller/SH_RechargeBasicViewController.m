@@ -38,6 +38,18 @@
 -(void)SH_NavigationViewBackBtnClick{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+- (UIScrollView *)bgScrollView{
+    if (!_bgScrollView) {
+        _bgScrollView = [[UIScrollView alloc]init];
+        _bgScrollView.contentSize = CGSizeZero;
+        [self.view addSubview:_bgScrollView];
+        [_bgScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.bottom.right.equalTo(self.view);
+            make.top.equalTo(self.view).offset(NavigationBarHeight);
+        }];
+    }
+    return _bgScrollView;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
