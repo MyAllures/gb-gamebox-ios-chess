@@ -260,6 +260,13 @@
                                 <constraint firstAttribute="height" constant="38" id="WoV-8z-OTg"/>
                             </constraints>
                         </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="light" translatesAutoresizingMaskIntoConstraints="NO" id="kpt-Vi-QtD">
+                            <rect key="frame" x="24" y="-8.5" width="139" height="62"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="139" id="YJ5-X4-Mgp"/>
+                                <constraint firstAttribute="height" constant="62" id="bxw-4l-ggv"/>
+                            </constraints>
+                        </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dzF-kH-Jey">
                             <rect key="frame" x="16.5" y="4.5" width="130" height="47"/>
                             <state key="normal" image="btn_recharge"/>
@@ -321,9 +328,11 @@
                         <constraint firstAttribute="bottom" secondItem="0Zi-QQ-yBM" secondAttribute="bottom" id="LcZ-2F-iVg"/>
                         <constraint firstItem="EaS-ba-BNH" firstAttribute="leading" secondItem="MK8-wC-CXH" secondAttribute="leading" id="VZC-Dm-8QG"/>
                         <constraint firstAttribute="bottom" secondItem="EaS-ba-BNH" secondAttribute="bottom" id="Vlh-Bi-q9l"/>
+                        <constraint firstItem="kpt-Vi-QtD" firstAttribute="leading" secondItem="MK8-wC-CXH" secondAttribute="leading" constant="24" id="WJk-MM-dwh"/>
                         <constraint firstAttribute="trailing" secondItem="EaS-ba-BNH" secondAttribute="trailing" id="Xgc-bM-x2n"/>
                         <constraint firstAttribute="height" constant="53.5" id="fLn-Qn-Uow"/>
                         <constraint firstAttribute="bottom" secondItem="dzF-kH-Jey" secondAttribute="bottom" constant="2" id="hTH-nG-cJN"/>
+                        <constraint firstAttribute="bottom" secondItem="kpt-Vi-QtD" secondAttribute="bottom" id="o1A-kQ-tsJ"/>
                         <constraint firstAttribute="trailing" secondItem="0Zi-QQ-yBM" secondAttribute="trailing" id="q3n-CY-rw2"/>
                     </constraints>
                 </view>
@@ -376,6 +385,7 @@
         <image name="icon_player" width="63" height="42"/>
         <image name="icon_promo" width="62" height="41"/>
         <image name="index_bg" width="667" height="375"/>
+        <image name="light" width="138" height="62"/>
         <image name="notice_bg" width="326" height="33"/>
         <image name="rounded" width="22" height="23"/>
         <image name="top_bg" width="666" height="50"/>

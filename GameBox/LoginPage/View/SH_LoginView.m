@@ -12,59 +12,99 @@
 #import "AppDelegate.h"
 #import "RH_UserInfoManager.h"
 #import "RH_WebsocketManagar.h"
-@interface SH_LoginView()
+#import "SH_NetWorkService+RegistAPI.h"
+
+
+#import "RH_RegisetInitModel.h"
+#import "RH_RegistrationViewItem.h"
+#import "SH_RegistView.h"
+@interface SH_LoginView(){
+     RH_RegisetInitModel *registrationInitModel;
+}
 @property (weak, nonatomic) IBOutlet UIView *leftView;
 @property (weak, nonatomic) IBOutlet UITextField *account_textField;
 @property (weak, nonatomic) IBOutlet UITextField *password_textField;
 @property (weak, nonatomic) IBOutlet UITextField *check_textField;
 @property (weak, nonatomic) IBOutlet UIImageView *check_image;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintCaptchaHeight;
+@property (weak, nonatomic) IBOutlet UIView *rightContrainerView;
 @property (weak, nonatomic) IBOutlet UILabel *captcha_label;
 
 @property (nonatomic,assign) BOOL isOpenCaptcha ;
 @property (nonatomic,assign) BOOL isLogin;
 
+@property (weak, nonatomic) IBOutlet UIView *stackView;
+
+@property (nonatomic,strong)SH_RegistView  * registView;
 @end
 @implementation SH_LoginView
+
+#pragma mark -- Create  SH_LoginView
 +(instancetype)InstanceLoginView{
     return  [[[NSBundle  mainBundle] loadNibNamed:NSStringFromClass([self  class]) owner:nil options:nil] lastObject];
 }
 -(void)awakeFromNib{
     [super  awakeFromNib];
-//    [self  fetchHttpData];
-//    [self  configurationUI];
-    [self startGetVerifyCode];
+    [self  fetchHttpData];
+    [self  configurationUI];
+    self.stackView.hidden = YES;
 }
+#pragma mark -- 登录是否需要验证码 返回bool
 -(void)fetchHttpData{
-    [SH_NetWorkService  fetchCaptchaCodeInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        NSLog(@"----%@",response);
+    __weak  typeof(self) weakSelf = self;
+    [SH_NetWorkService  fetchIsOpenCodeVerifty:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSDictionary *result = ConvertToClassPointer(NSDictionary, response) ;
+        weakSelf.isOpenCaptcha = [result boolValueForKey:@"isOpenCaptcha"];
+        if (weakSelf.isOpenCaptcha) {
+            [weakSelf  startGetVerifyCode];
+            weakSelf.captcha_label.hidden = false;
+            weakSelf.constraintCaptchaHeight.constant = 33;
+            [weakSelf  layoutIfNeeded];
+        }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        NSLog(@"----%@",err);
+        
     }];
 }
+#pragma mark -- 配置UI
 -(void)configurationUI{
     UIImage  * img = [UIImage  imageNamed:@"left_bg"];
     self.leftView.layer.contents = (__bridge id _Nullable)(img.CGImage);
-    self.tableView.hidden = YES;
-    self.account_textField.text = @"sm0089";
-    self.password_textField.text = @"h123123";
-    
+   
     self.check_image.userInteractionEnabled = YES;
-    
     UITapGestureRecognizer  * tap = [[UITapGestureRecognizer  alloc] initWithTarget:self action:@selector(startGetVerifyCode)];
     [self.check_image addGestureRecognizer:tap];
+    
+    
+    UIButton * sender = [self viewWithTag:103];
+    NSUserDefaults  * dafault = [NSUserDefaults  standardUserDefaults];
+    self.account_textField.text = [dafault objectForKey:@"account"];
+    if ([dafault  boolForKey:@"isRememberPwd"]) {
+        self.password_textField.text = [dafault objectForKey:@"password"];
+        [sender setImage:[UIImage imageNamed:@"tick"] forState:UIControlStateNormal];
+    }else{
+        [sender setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    }
+    
+    [self  configRegistViewUI];
 }
+#pragma mark --  注册页面初始化
+-(void)configRegistViewUI{
+    
+  
+}
+#pragma mark --  登录输错密码之后的验证码
 -(void)startGetVerifyCode
 {
-    [SH_NetWorkService fetchVerifyCodexxx:^(NSHTTPURLResponse *httpURLResponse, id response) {
-
-        NSLog(@"%@-------",response);
+    __weak  typeof(self) weakSelf = self;
+    [SH_NetWorkService  fetchVerifyCode:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if ([response isKindOfClass:[NSData  class]]) {
+            NSData * data =(NSData * ) response;
+            weakSelf.check_image.image = [UIImage  imageWithData:data];
+        }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         showErrorMessage([UIApplication sharedApplication].keyWindow, nil, err);
     }];
 
-//@"http://test01.ampinplayopt0matrix.com/captcha/code.html"
 }
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -73,19 +113,24 @@
     // Drawing code
 }
 */
+#pragma mark --  button click method
 - (IBAction)btnlick:(UIButton *)sender {
     NSInteger tag = sender.tag -100;
    
     switch (tag) {
         case 0:{
-            self.tableView.hidden = YES;
+            self.stackView.hidden = YES;
             [sender setBackgroundImage:[UIImage imageNamed:@"login_button_click"] forState:UIControlStateNormal];
             UIButton  * btn  = [self  viewWithTag:101];
             [btn setBackgroundImage:[UIImage imageNamed:@"login_button"] forState:UIControlStateNormal];
             break;
         }
         case 1:{
-            self.tableView.hidden = false;
+            self.stackView.hidden = false;
+            [self.stackView addSubview:self.registView];
+            [self.registView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.edges.mas_equalTo(0);
+            }];
             [sender setBackgroundImage:[UIImage imageNamed:@"login_button_click"] forState:UIControlStateNormal];
             UIButton  * btn  = [self  viewWithTag:100];
             [btn setBackgroundImage:[UIImage imageNamed:@"login_button"] forState:UIControlStateNormal];
@@ -97,6 +142,16 @@
             break;
         }
         case 3:{
+            NSUserDefaults  * dafault = [NSUserDefaults  standardUserDefaults];
+            BOOL isSelect  = [dafault  boolForKey:@"isRememberPwd"];
+            [dafault setBool:!isSelect forKey:@"isRememberPwd"];
+            [dafault  synchronize];
+          
+            if ([dafault boolForKey:@"isRememberPwd"]) {
+                 [sender setImage:[UIImage imageNamed:@"tick"] forState:UIControlStateNormal];
+            }else{
+                 [sender setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+            }
             
             break;
         }
@@ -105,6 +160,8 @@
     }
     
 }
+
+#pragma mark --  简单的非空判断
 -(void)whetherConformCondition{
     
     if (self.account_textField.text.length<1){
@@ -129,27 +186,25 @@
     [self  login];
 }
 
-/**
- 登录
- */
+#pragma mark --  登录
 -(void)login{
      __weak  typeof(self) weakSelf = self;
-    [SH_NetWorkService login:self.account_textField.text psw:self.password_textField.text verfyCode:@"" complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [SH_NetWorkService login:self.account_textField.text psw:self.password_textField.text verfyCode:self.check_textField.text complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *result = ConvertToClassPointer(NSDictionary, response) ;
-        weakSelf.isOpenCaptcha = [result boolValueForKey:@"isOpenCaptcha"];
-        if (!weakSelf.isOpenCaptcha) {
-            weakSelf.captcha_label.hidden = YES;
-            weakSelf.constraintCaptchaHeight.constant = 0;
-            [weakSelf  layoutIfNeeded];
-        }else{
-            [weakSelf  startGetVerifyCode];
-            weakSelf.captcha_label.hidden = false;
-            weakSelf.constraintCaptchaHeight.constant = 33;
-            [weakSelf  layoutIfNeeded];
-        }
         if ([result boolValueForKey:@"success"]){
             [weakSelf  loginSucessHandleRsponse:result httpURLResponse:httpURLResponse];
         }else{
+            weakSelf.isOpenCaptcha = [result boolValueForKey:@"isOpenCaptcha"];
+            if (!weakSelf.isOpenCaptcha) {
+                weakSelf.captcha_label.hidden = YES;
+                weakSelf.constraintCaptchaHeight.constant = 0;
+                [weakSelf  layoutIfNeeded];
+            }else{
+                [weakSelf  startGetVerifyCode];
+                weakSelf.captcha_label.hidden = false;
+                weakSelf.constraintCaptchaHeight.constant = 33;
+                [weakSelf  layoutIfNeeded];
+            }
             [weakSelf  loginFailHandleRsponse:result];
         }
         
@@ -158,17 +213,12 @@
     }];
 }
 
-/**
- 登录成功
 
- @param dic <#dic description#>
- @param httpURLResponse <#httpURLResponse description#>
- */
+#pragma mark --  登录成功
 -(void)loginSucessHandleRsponse:(NSDictionary*)dic httpURLResponse:(NSHTTPURLResponse *)httpURLResponse{
     AppDelegate * appDelegate =(AppDelegate*)[UIApplication  sharedApplication].delegate;
     UIWindow  * window = [UIApplication  sharedApplication].keyWindow;
     
-    [appDelegate updateLoginStatus:YES] ;
     
     [[RH_UserInfoManager shareUserManager] updateLoginInfoWithUserName:self.account_textField.text
                                                              LoginTime:dateStringWithFormatter([NSDate date], @"yyyy-MM-dd HH:mm:ss")] ;
@@ -183,7 +233,7 @@
         showMessage(window, @"登录成功", nil);
         
         //登录成功后测试websocket
-        [[RH_WebsocketManagar instance] SRWebSocketOpenWithURLString:appDelegate.domain];
+        [[RH_WebsocketManagar instance] SRWebSocketOpenWithURLString:[NetWorkLineMangaer sharedManager].currentHost];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SRWebSocketDidOpen) name:kWebSocketDidOpenNote object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SRWebSocketDidReceiveMsg:) name:kWebSocketdidReceiveMessageNote object:nil];
@@ -194,6 +244,7 @@
         [defaults setObject:self.account_textField.text forKey:@"account"];
         [defaults setObject:self.password_textField.text forKey:@"password"];
 //        [defaults setObject:@(self.loginViewCell.isRemberPassword) forKey:@"loginIsRemberPassword"] ;
+        
         [defaults synchronize];
         if (self.dismissBlock) {
              self.dismissBlock();
@@ -205,11 +256,7 @@
     
 }
 
-/**
- 登录失败
-
- @param result <#result description#>
- */
+#pragma mark --  登录失败
 -(void)loginFailHandleRsponse:(NSDictionary*)result{
     AppDelegate * appDelegate =(AppDelegate*)[UIApplication  sharedApplication].delegate;
     UIWindow  * window = [UIApplication  sharedApplication].keyWindow;
@@ -229,6 +276,14 @@
             showMessage(window, [[result objectForKey:@"propMessages"] objectForKey:@"captcha"], nil);
         }
     }
-    [appDelegate updateLoginStatus:NO] ;
+}
+
+#pragma mark -- getter  method
+
+-(SH_RegistView *)registView{
+    if (!_registView) {
+        _registView = [[SH_RegistView  alloc]init];
+    }
+    return  _registView;
 }
 @end
