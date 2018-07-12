@@ -569,7 +569,6 @@
 }
 
 - (void)setVerifyCodeLayout {
-//    textField.whc_RightSpace(150);
     [textField mas_updateConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(-110);
     }];
@@ -583,22 +582,27 @@
     }];
 
     imageView_VerifyCode.backgroundColor = [UIColor orangeColor];
-    [SH_NetWorkService fetchV3RegisetCaptchaCode:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        
-    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
-    }];
+    [self startV3RegisetCaptchaCode];
     imageView_VerifyCode.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(changeImageView_VerfyCode)];
     [imageView_VerifyCode addGestureRecognizer:tap];
 }
 -(void)changeImageView_VerfyCode
 {
-//    [self.serviceRequest startV3RegisetCaptchaCode];
+    [self startV3RegisetCaptchaCode];
 }
 -(void)changeImageView_VerfyCode1
 {
-//    [self.serviceRequest startV3RegisetCaptchaCode];
+    [self startV3RegisetCaptchaCode];
+}
+-(void)startV3RegisetCaptchaCode{
+    [SH_NetWorkService fetchV3RegisetCaptchaCode:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSData * data = ConvertToClassPointer(NSData, response);
+        self->imageView_VerifyCode.image = [UIImage  imageWithData:data];
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        showMessage([UIApplication sharedApplication].keyWindow, err, nil);
+        [self startV3RegisetCaptchaCode];
+    }];
 }
 - (void)webViewTapHandle:(UITapGestureRecognizer *)tap {
     UIWebView *webView = (UIWebView *)tap.view;
@@ -609,7 +613,6 @@
 }
 
 - (void)setPhoneVerifyCodeLayout {
-//    textField.whc_RightSpace(150);
     [textField mas_updateConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(-110);//-150
     }];
@@ -622,7 +625,7 @@
         make.right.mas_equalTo(0);
         make.height.mas_equalTo(35);
     }];
-//    button.whc_CenterYToView(0, textField).whc_LeftSpaceToView(10, textField).whc_RightSpace(25).whc_Height(35);
+
     button.layer.borderColor = colorWithRGB(20, 90, 180).CGColor;
     [button setTitleColor:colorWithRGB(20, 90, 180) forState:UIControlStateNormal];
     button.layer.borderWidth = 1;

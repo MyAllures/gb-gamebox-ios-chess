@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "SH_RechargeCenterChannelModel.h"
 @interface SH_BitCoinSubView : UIView
-
+-(void)updateUIWithChannelModel:(SH_RechargeCenterChannelModel *)model;
 @end

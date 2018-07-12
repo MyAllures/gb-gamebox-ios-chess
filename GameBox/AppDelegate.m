@@ -51,69 +51,14 @@
             _isLogin = loginStatus;
             
             if (!_isLogin){
-//                [[RH_UserInfoManager shareUserManager] setUserSafetyInfo:nil];
-//                [[RH_UserInfoManager shareUserManager] setMineSettingInfo:nil];
-//                [[RH_UserInfoManager shareUserManager] setUserWithDrawInfo:nil];
+              
             }
-//            [[NSNotificationCenter defaultCenter] postNotificationName:NT_LoginStatusChangedNotification object:nil];
         }
     }else{
         NSLog(@"updateLoginStatus :%d",loginStatus);
         _isLogin = loginStatus;
-        
-//        [[NSNotificationCenter defaultCenter] postNotificationName:NT_LoginStatusChangedNotification object:nil];
     }
 }
-
--(void)updateApiDomain:(NSString*)apiDomain
-{
-    if (_apiDomain.length==0){
-        _apiDomain = apiDomain;
-    }
-}
--(void)updateHeaderDomain:(NSString *)headerDomain
-{
-    if (_headerDomain.length==0) {
-        _headerDomain = headerDomain;
-    }
-}
--(void)updateDomain:(NSString*)domain;
-{
-    NSString *tmpStr = domain.trim;
-    tmpStr = [tmpStr stringByReplacingOccurrencesOfString:@"\n" withString:@""] ;
-    tmpStr = [tmpStr stringByReplacingOccurrencesOfString:@"\r" withString:@""] ;
-    
-    NSLog(@".....domain:%@",tmpStr);
-    _domain = tmpStr;
-}
-
--(void)updateServicePath:(NSString*)servicePath
-{
-    if (servicePath !=_servicePath){
-        NSString *tmpStr = servicePath.trim;
-        tmpStr = [tmpStr stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-        tmpStr = [tmpStr stringByReplacingOccurrencesOfString:@"\r" withString:@""];
-        
-        _servicePath = tmpStr;
-    }
-}
-
--(void)setCustomUrl:(NSString *)customUrl
-{
-    if (customUrl !=_customUrl){
-        NSString *tmpStr = customUrl.trim;
-        tmpStr = [tmpStr stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-        tmpStr = [tmpStr stringByReplacingOccurrencesOfString:@"\r" withString:@""];
-        
-        _customUrl = tmpStr;
-    }
-}
-
--(void)setWhetherNewSystemNotice:(NSString *)whetherNewSystemNotice
-{
-    _whetherNewSystemNotice = whetherNewSystemNotice;
-}
-
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

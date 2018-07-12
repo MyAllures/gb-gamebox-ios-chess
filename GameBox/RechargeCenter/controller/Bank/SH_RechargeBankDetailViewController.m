@@ -1,28 +1,27 @@
 //
-//  SH_RechargeDetailViewController.m
+//  SH_RechargeBankDetailViewController.m
 //  GameBox
 //
-//  Created by jun on 2018/7/10.
+//  Created by jun on 2018/7/11.
 //  Copyright © 2018年 shin. All rights reserved.
 //
 
-#import "SH_RechargeDetailViewController.h"
-#import "SH_RechargeDetailMainView.h"
-@interface SH_RechargeDetailViewController ()
+#import "SH_RechargeBankDetailViewController.h"
+#import "SH_RechargeBankDetailView.h"
+@interface SH_RechargeBankDetailViewController ()
 
 @end
 
-@implementation SH_RechargeDetailViewController
+@implementation SH_RechargeBankDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self configNavigationWithTitle:@"QQ钱包付款"];
+    [self configNavigationWithTitle:@"柜台机付款"];
     [self configUI];
 }
 -(void)configUI{
-
-    SH_RechargeDetailMainView *detailMainView = [[SH_RechargeDetailMainView alloc]init];
+    SH_RechargeBankDetailView *detailMainView = [[SH_RechargeBankDetailView alloc]init];
     [self.bgScrollView addSubview:detailMainView];
     [detailMainView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.bottom.right.equalTo(self.bgScrollView);

@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SH_RechargeCenterChannelModel.h"
 
+typedef void(^HandleBlock)(SH_RechargeCenterChannelModel *model);
 @interface SH_RechargeCenterDataHandle : NSObject
 
 /**
@@ -23,5 +25,5 @@
                                 DataArray:(NSMutableArray *)dataArray
                            CollectionView:(UICollectionView *)collectionView
                                  Platform:(NSMutableDictionary *)platform
-                                   Number:(NSString *)number;
+                                    Block:(HandleBlock)block;
 @end

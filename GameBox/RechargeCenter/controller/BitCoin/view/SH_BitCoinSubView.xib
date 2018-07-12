@@ -16,9 +16,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m91-aT-ubJ">
-                    <rect key="frame" x="18" y="8" width="80" height="14"/>
+                    <rect key="frame" x="40" y="8" width="14" height="14"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="80" id="UFM-Fu-2Qf"/>
+                        <constraint firstAttribute="width" constant="14" id="UFM-Fu-2Qf"/>
                         <constraint firstAttribute="height" constant="14" id="aGh-zy-a3I"/>
                     </constraints>
                 </imageView>
@@ -67,12 +67,13 @@
                 <constraint firstItem="7fh-R9-TD1" firstAttribute="top" secondItem="m91-aT-ubJ" secondAttribute="bottom" constant="8" id="72M-SA-lLF"/>
                 <constraint firstItem="m91-aT-ubJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="Zyq-dz-4Al"/>
                 <constraint firstItem="7fh-R9-TD1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="18" id="dwM-Wn-ZWs"/>
-                <constraint firstItem="m91-aT-ubJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="18" id="hpX-3r-3Kt"/>
+                <constraint firstItem="m91-aT-ubJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="hpX-3r-3Kt"/>
                 <constraint firstItem="7fh-R9-TD1" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" constant="-8" id="ip7-pI-2ol"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="nameLab" destination="apm-LJ-5ra" id="Uau-KR-dw8"/>
+                <outlet property="iconImageView" destination="m91-aT-ubJ" id="OxV-Kc-ZAc"/>
+                <outlet property="personLab" destination="apm-LJ-5ra" id="tdW-Tt-V69"/>
             </connections>
             <point key="canvasLocation" x="19.5" y="146"/>
         </view>
