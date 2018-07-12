@@ -11,8 +11,11 @@
 #import "SH_GameBulletinTCell.h"
 #import "SH_NetWorkService+Promo.h"
 #import "SH_GameBulletinModel.h"
+#import "AppDelegate.h"
+#import "PGDatePicker.h"
+#import "PGDatePickManager.h"
 
-@interface SH_GameAnnouncementView ()<UITableViewDataSource, UITableViewDelegate>
+@interface SH_GameAnnouncementView ()<UITableViewDataSource, UITableViewDelegate, PGDatePickerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *view1;
 @property (weak, nonatomic) IBOutlet UIView *view2;
 @property (weak, nonatomic) IBOutlet UIView *view3;
@@ -25,26 +28,42 @@
 
 @implementation SH_GameAnnouncementView
 
+- (IBAction)startTimeAction:(id)sender {
+    PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
+    datePickManager.style = PGDatePickManagerStyle1;
+    datePickManager.isShadeBackgroud = true;
+    
+    PGDatePicker *datePicker = datePickManager.datePicker;
+    datePicker.isHiddenMiddleText = false;
+    datePicker.delegate = self;
+    datePicker.datePickerType = PGPickerViewType3;
+    datePicker.datePickerMode = PGDatePickerModeDate;
+//    [self presentViewController:datePickManager animated:false completion:nil];
+    [[UIApplication sharedApplication].keyWindow addSubview:datePickManager.view];
+}
+
+
 -(void)awakeFromNib {
     [super awakeFromNib];
     
     self.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1];
 //    self.tableView.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
     self.gameAnnouncementArr = [NSMutableArray array];
-    
-    [SH_NetWorkService_Promo startLoadGameNoticeStartTime:@"" endTime:@"" pageNumber:1 pageSize:2 apiId:-1 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        NSDictionary *dic = (NSDictionary *)response;
-        NSLog(@"dic===%@",dic);
-        for (NSDictionary *dict in dic[@"data"][@"list"]) {
-            NSError *err;
-            SH_GameBulletinModel *model = [[SH_GameBulletinModel alloc] initWithDictionary:dict error:&err];
-            [self.gameAnnouncementArr addObject:model];
-        }
-        [self.tableView reloadData];
-    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
-    }];
-    
+    AppDelegate *appdelegate=(AppDelegate *)[UIApplication sharedApplication].delegate;
+    if (appdelegate.isLogin) {
+        [SH_NetWorkService_Promo startLoadGameNoticeStartTime:@"" endTime:@"" pageNumber:1 pageSize:2 apiId:-1 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+            NSDictionary *dic = (NSDictionary *)response;
+            NSLog(@"dic===%@",dic);
+            for (NSDictionary *dict in dic[@"data"][@"list"]) {
+                NSError *err;
+                SH_GameBulletinModel *model = [[SH_GameBulletinModel alloc] initWithDictionary:dict error:&err];
+                [self.gameAnnouncementArr addObject:model];
+            }
+            [self.tableView reloadData];
+        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+            
+        }];
+    }
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"SH_GameBulletinTCell" bundle:nil] forCellReuseIdentifier:@"cell"];
@@ -101,6 +120,11 @@
 #pragma mark - UITableViewDelegate M
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+}
+
+#pragma mark - PGDatePickerDelegate M
+- (void)datePicker:(PGDatePicker *)datePicker didSelectDate:(NSDateComponents *)dateComponents {
+    NSLog(@"dateComponents = %@", dateComponents);
 }
 
 @end

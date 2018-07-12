@@ -45,6 +45,9 @@
                             <state key="normal" title="2017-02-03" image="betRec_calendar_icon">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="startTimeAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="DK3-fU-iNk"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
