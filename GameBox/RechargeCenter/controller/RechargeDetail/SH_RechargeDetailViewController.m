@@ -21,17 +21,11 @@
     [self configUI];
 }
 -(void)configUI{
-    UIScrollView *bgScrollView = [[UIScrollView alloc]init];
-    bgScrollView.contentSize = CGSizeZero;
-    [self.view addSubview:bgScrollView];
-    [bgScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.bottom.right.equalTo(self.view);
-        make.top.equalTo(self.view).offset(NavigationBarHeight);
-    }];
+
     SH_RechargeDetailMainView *detailMainView = [[SH_RechargeDetailMainView alloc]init];
-    [bgScrollView addSubview:detailMainView];
+    [self.bgScrollView addSubview:detailMainView];
     [detailMainView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.bottom.right.equalTo(bgScrollView);
+        make.top.left.bottom.right.equalTo(self.bgScrollView);
         make.width.mas_equalTo(SCREEN_WIDTH);
     }];
 }

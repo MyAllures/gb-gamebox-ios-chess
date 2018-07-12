@@ -162,26 +162,22 @@
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8qw-H9-UcN">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="021-gy-PI0">
                             <rect key="frame" x="0.0" y="0.0" width="256" height="284"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <outlet property="dataSource" destination="-1" id="ErT-Re-MfR"/>
-                            </connections>
-                        </tableView>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" red="0.3411764705882353" green="0.396078431372549" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="Gfy-cV-HV0" firstAttribute="leading" secondItem="JOr-0j-YBn" secondAttribute="leading" id="2YM-Ak-YLn"/>
+                        <constraint firstItem="021-gy-PI0" firstAttribute="top" secondItem="dJ0-VR-dqr" secondAttribute="top" id="5CO-vU-vo0"/>
                         <constraint firstItem="NH3-tB-QIO" firstAttribute="centerY" secondItem="N0y-Qo-ZTY" secondAttribute="centerY" id="6eO-Mn-53v"/>
-                        <constraint firstItem="8qw-H9-UcN" firstAttribute="top" secondItem="dJ0-VR-dqr" secondAttribute="top" id="7Ng-h4-KyI"/>
                         <constraint firstItem="N0y-Qo-ZTY" firstAttribute="top" secondItem="Ue5-ax-zvL" secondAttribute="bottom" constant="8" id="8Mg-Ra-sgi"/>
                         <constraint firstItem="N0y-Qo-ZTY" firstAttribute="leading" secondItem="Ue5-ax-zvL" secondAttribute="leading" id="9iB-mF-iFF"/>
                         <constraint firstItem="Ue5-ax-zvL" firstAttribute="leading" secondItem="dJ0-VR-dqr" secondAttribute="leading" constant="80" id="At4-l1-Jo3"/>
                         <constraint firstItem="JOr-0j-YBn" firstAttribute="top" secondItem="V90-gp-QJ4" secondAttribute="top" id="EGr-Xd-S5B"/>
                         <constraint firstAttribute="trailing" secondItem="Ue5-ax-zvL" secondAttribute="trailing" constant="16" id="J2U-xr-dTQ"/>
                         <constraint firstItem="Sdl-2t-jXD" firstAttribute="top" secondItem="Gfy-cV-HV0" secondAttribute="top" id="JJx-0J-1E1"/>
-                        <constraint firstItem="8qw-H9-UcN" firstAttribute="leading" secondItem="dJ0-VR-dqr" secondAttribute="leading" id="Ly5-kN-mjB"/>
                         <constraint firstItem="N0y-Qo-ZTY" firstAttribute="height" secondItem="Ue5-ax-zvL" secondAttribute="height" id="PgU-ma-u9Q"/>
                         <constraint firstItem="N0y-Qo-ZTY" firstAttribute="trailing" secondItem="Ue5-ax-zvL" secondAttribute="trailing" id="QNk-sG-bdQ"/>
                         <constraint firstItem="Ue5-ax-zvL" firstAttribute="top" secondItem="dJ0-VR-dqr" secondAttribute="top" constant="32" id="QyD-Nu-w33"/>
@@ -190,12 +186,13 @@
                         <constraint firstItem="V90-gp-QJ4" firstAttribute="top" secondItem="N0y-Qo-ZTY" secondAttribute="bottom" constant="8" id="YBC-TQ-6hq"/>
                         <constraint firstItem="Sdl-2t-jXD" firstAttribute="height" secondItem="Gfy-cV-HV0" secondAttribute="height" id="YWk-11-xVb"/>
                         <constraint firstItem="Sdl-2t-jXD" firstAttribute="leading" secondItem="Gfy-cV-HV0" secondAttribute="trailing" constant="16" id="YvL-J0-j3x"/>
-                        <constraint firstAttribute="bottom" secondItem="8qw-H9-UcN" secondAttribute="bottom" id="aZa-Q7-L2M"/>
                         <constraint firstItem="V90-gp-QJ4" firstAttribute="trailing" secondItem="N0y-Qo-ZTY" secondAttribute="trailing" id="cHk-Pz-kvH"/>
                         <constraint firstItem="Ue5-ax-zvL" firstAttribute="leading" secondItem="aoe-eq-j4I" secondAttribute="trailing" constant="8" id="d2m-O7-ZLX"/>
+                        <constraint firstItem="021-gy-PI0" firstAttribute="leading" secondItem="dJ0-VR-dqr" secondAttribute="leading" id="fD8-rE-WKS"/>
+                        <constraint firstAttribute="trailing" secondItem="021-gy-PI0" secondAttribute="trailing" id="feP-Vp-ygB"/>
                         <constraint firstItem="tss-Nc-pu5" firstAttribute="top" secondItem="Gfy-cV-HV0" secondAttribute="bottom" constant="16" id="hBG-E9-eiQ"/>
-                        <constraint firstAttribute="trailing" secondItem="8qw-H9-UcN" secondAttribute="trailing" id="nGo-Yl-sWM"/>
                         <constraint firstItem="JOr-0j-YBn" firstAttribute="leading" secondItem="N0y-Qo-ZTY" secondAttribute="leading" id="o3q-wj-5cV"/>
+                        <constraint firstAttribute="bottom" secondItem="021-gy-PI0" secondAttribute="bottom" id="qit-db-VWu"/>
                         <constraint firstItem="aoe-eq-j4I" firstAttribute="centerY" secondItem="Ue5-ax-zvL" secondAttribute="centerY" id="t53-vi-c5r"/>
                         <constraint firstItem="NH3-tB-QIO" firstAttribute="trailing" secondItem="aoe-eq-j4I" secondAttribute="trailing" id="vCq-Sb-eXx"/>
                         <constraint firstItem="tss-Nc-pu5" firstAttribute="centerX" secondItem="dJ0-VR-dqr" secondAttribute="centerX" id="yZp-cm-CbV"/>
@@ -229,7 +226,8 @@
                 <outlet property="constraintCaptchaHeight" destination="mdu-4B-Fqk" id="1h9-aQ-2Ph"/>
                 <outlet property="leftView" destination="0ZP-Dx-Gh2" id="s50-TT-jww"/>
                 <outlet property="password_textField" destination="N0y-Qo-ZTY" id="Uo2-eE-zf0"/>
-                <outlet property="tableView" destination="8qw-H9-UcN" id="qQG-RD-7iG"/>
+                <outlet property="rightContrainerView" destination="dJ0-VR-dqr" id="aDQ-01-Ea5"/>
+                <outlet property="stackView" destination="021-gy-PI0" id="i5y-fZ-W7E"/>
             </connections>
             <point key="canvasLocation" x="30.5" y="-137"/>
         </view>

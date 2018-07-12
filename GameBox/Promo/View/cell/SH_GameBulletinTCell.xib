@@ -58,6 +58,11 @@
                     <constraint firstAttribute="trailing" secondItem="yHe-H0-RcQ" secondAttribute="trailing" constant="9" id="r79-0z-kj9"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="contentLabel" destination="IuY-b3-dCc" id="3rO-Eg-EfN"/>
+                <outlet property="gameNameLabel" destination="vPp-r1-qZn" id="QQX-Qh-6ju"/>
+                <outlet property="publishTimeLabel" destination="yHe-H0-RcQ" id="DOb-B7-n6g"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

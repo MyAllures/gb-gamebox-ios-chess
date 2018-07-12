@@ -9,11 +9,12 @@
 #import "RH_RegistrationSelectView.h"
 #import "RH_RegistrationViewItem.h"
 #import "coreLib.h"
-//#import "RH_ServiceRequest.h"
+
+#import "SH_NetWorkService+RegistAPI.h"
 #import "RH_UserInfoManager.h"
 @interface RH_RegistrationViewItem() <RH_RegistrationSelectViewDelegate, UIGestureRecognizerDelegate, UITextFieldDelegate>
 @property (nonatomic, strong) NSTimer *timer;
-//@property (nonatomic,strong,readonly)RH_ServiceRequest *serviceRequest;
+
 @end
 @implementation RH_RegistrationViewItem
 {
@@ -26,7 +27,7 @@
     NSInteger minDateYear;
     NSInteger maxDateYear;
     RH_RegistrationSelectView *selectView;
-//    RH_ServiceRequest *serverRequest ;
+
     
     NSArray<SexModel *> *sexModel;
     NSArray<MainCurrencyModel *> *mainCurrencyModel;
@@ -37,13 +38,6 @@
     NSInteger countDownNumber;
     
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 - (instancetype)init {
     self = [super init];
@@ -52,10 +46,10 @@
         [self addSubview:label_Title];
         [label_Title mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(2);
-            make.left.mas_equalTo(20);
+            make.left.mas_equalTo(0);
             make.height.mas_equalTo(18);
         }];
-//        label_Title.whc_TopSpace(2).whc_LeftSpace(20).whc_Height(18).whc_WidthAuto();
+
         label_Title.font = [UIFont systemFontOfSize:13];
         label_Title.textColor = colorWithRGB(131, 131, 131);
         label_Title.textAlignment = NSTextAlignmentCenter;
@@ -63,11 +57,12 @@
         textField = [UITextField new];
         [self addSubview:textField];
         [textField mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(self->label_Title).mas_offset(1);
-            make.left.right.mas_equalTo(20);
+            make.top.mas_equalTo(self->label_Title.mas_bottom).mas_offset(1);
+            make.trailing.mas_equalTo(0);
+            make.leading.mas_equalTo(self->label_Title.mas_leading).mas_offset(0);
             make.height.mas_equalTo(38);
         }];
-//        textField.whc_TopSpaceToView(1, label_Title).whc_LeftSpace(20).whc_RightSpace(20).whc_Height(38);
+
         textField.layer.borderColor = colorWithRGB(234, 234, 234).CGColor;
         textField.borderStyle = UITextBorderStyleRoundedRect;
         textField.layer.borderWidth = 1;
@@ -75,13 +70,8 @@
         textField.clipsToBounds = YES;
         textField.font = [UIFont systemFontOfSize:15];
         textField.textColor = colorWithRGB(99, 99, 99);
-        textField.delegate = self;
+//        textField.delegate = self;
         
-        fieldModel = [[FieldModel alloc] init];
-        
-//        serverRequest = [[RH_ServiceRequest alloc] init] ;
-//        serverRequest.delegate = self ;
-//
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeImageView_VerfyCode1) name:@"changeImageView_VerfyCode" object:nil];
         
     }
@@ -94,18 +84,6 @@
     }
     return YES;
 }
-/*
--(RH_ServiceRequest *)serviceRequest
-{
-    if (!_serviceRequest){
-        _serviceRequest = [[RH_ServiceRequest alloc] init] ;
-        _serviceRequest.delegate = self ;
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeImageView_VerfyCode1) name:@"changeImageView_VerfyCode" object:nil];
-    }
-    
-    return _serviceRequest ;
-}
- */
 - (NSString *)contentType {
     return fieldModel.name;
 }
@@ -132,7 +110,6 @@
 
 - (void)setRequiredJson:(NSArray<NSString *> *)requiredJson {
     for (NSString *obj in requiredJson) {
-        
         if ([obj isEqualToString:fieldModel.name]) {
             if ([obj isEqualToString:@"username"]) {
                 label_Title.text = @"请输入用户名⭐️";
@@ -346,14 +323,10 @@
     [formatter setTimeStyle:NSDateFormatterShortStyle];
     [formatter setDateFormat:@"yyyy-MM-dd"];//@"yyyy-MM-dd-HHMMss"
     NSDate* date = [NSDate dateWithTimeIntervalSince1970:start/1000];
-//    NSString* dateString = [formatter stringFromDate:date];
-//    NSLog(@"%@", dateString);
-//    minDateYear = date.year;
+    minDateYear = date.year;
     
     date = [NSDate dateWithTimeIntervalSince1970:end/1000];
-//    NSString* dateString2 = [formatter stringFromDate:date];
-//    NSLog(@"%@", dateString2);
-//    maxDateYear = date.year;
+    maxDateYear = date.year;
     textField.enabled = NO;
 }
 
@@ -362,10 +335,11 @@
     [self addSubview:button];
     [button mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self->textField);
-        make.right.width.mas_equalTo(25);
+        make.right.mas_equalTo(-8);
+        make.width.mas_equalTo(25);
         make.height.mas_equalTo(20);
     }];
-//    button.whc_CenterYToView(0, textField).whc_RightSpace(25).whc_Width(25).whc_Height(20);
+
     [button setImage:ImageWithName(@"down") forState:UIControlStateNormal];
     [button addTarget:self action:@selector(sexSelectDidTap) forControlEvents:UIControlEventTouchUpInside];
 }
@@ -377,14 +351,14 @@
         [selectView setSelectViewType:@""];
         [selectView setColumNumbers:1];
         [selectView setDataList:sexModel];
-        selectView.frame = CGRectMake(0, screenSize().height, screenSize().width, 200);
+        selectView.frame = CGRectMake(0, self.frameHeigh, self.frameWidth, 200);
         [self.window addSubview:selectView];
         [UIView animateWithDuration:0.3 animations:^{
-            self->selectView.frame = CGRectMake(0, screenSize().height - 200, screenSize().width, 200);
+            self->selectView.frame = CGRectMake(0, self.frameHeigh - 200, self.frameWidth, 200);
         }];
     }else {
         [UIView animateWithDuration:0.3 animations:^{
-            self->selectView.frame = CGRectMake(0, screenSize().height, screenSize().width, 200);
+            self->selectView.frame = CGRectMake(0, self.frameHeigh, self.frameWidth, 200);
         }completion:^(BOOL finished) {
             [self->selectView removeFromSuperview];
         }];
@@ -396,10 +370,11 @@
     [self addSubview:button];
     [button  mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self->textField);
-        make.right.width.mas_equalTo(25);
+        make.right.mas_equalTo(-8);
+        make.width.mas_equalTo(25);
         make.height.mas_equalTo(20);
     }];
-//    button.whc_CenterYToView(0, textField).whc_RightSpace(25).whc_Width(25).whc_Height(20);
+
     [button setImage:ImageWithName(@"down") forState:UIControlStateNormal];
     [button addTarget:self action:@selector(mainCurrencyDidTaped) forControlEvents:UIControlEventTouchUpInside];
 }
@@ -410,14 +385,14 @@
         [selectView setSelectViewType:@""];
         [selectView setColumNumbers:1];
         [selectView setDataList:mainCurrencyModel];
-        selectView.frame = CGRectMake(0, screenSize().height, screenSize().width, 200);
+        selectView.frame = CGRectMake(0, self.frameHeigh, self.frameWidth, 200);
         [self.window addSubview:selectView];
         [UIView animateWithDuration:0.3 animations:^{
-            self->selectView.frame = CGRectMake(0, screenSize().height - 200, screenSize().width, 200);
+            self->selectView.frame = CGRectMake(0, self.frameHeigh - 200, self.frameWidth, 200);
         }];
     }else {
         [UIView animateWithDuration:0.3 animations:^{
-            self->selectView.frame = CGRectMake(0, screenSize().height, screenSize().width, 200);
+            self->selectView.frame = CGRectMake(0, self.frameHeigh, self.frameWidth, 200);
         }completion:^(BOOL finished) {
             [self->selectView removeFromSuperview];
         }];
@@ -429,7 +404,8 @@
     [self addSubview:button];
     [button mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self->textField);
-        make.right.width.mas_equalTo(25);
+        make.right.mas_equalTo(-8);
+        make.width.mas_equalTo(25);
         make.height.mas_equalTo(20);
     }];
     [button setImage:ImageWithName(@"down") forState:UIControlStateNormal];
@@ -442,14 +418,14 @@
         [selectView setSelectViewType:@""];
         [selectView setColumNumbers:1];
         [selectView setDataList:defaultLocaleModel];
-        selectView.frame = CGRectMake(0, screenSize().height, screenSize().width, 200);
+        selectView.frame = CGRectMake(0, self.frameHeigh, self.frameWidth, 200);
         [self.window addSubview:selectView];
         [UIView animateWithDuration:0.3 animations:^{
-            selectView.frame = CGRectMake(0, screenSize().height - 200, screenSize().width, 200);
+            self->selectView.frame = CGRectMake(0, self.frameHeigh - 200, self.frameWidth, 200);
         }];
     }else {
         [UIView animateWithDuration:0.3 animations:^{
-            self->selectView.frame = CGRectMake(0, screenSize().height, screenSize().width, 200);
+            self->selectView.frame = CGRectMake(0, self.frameHeigh, self.frameWidth, 200);
         }completion:^(BOOL finished) {
             [self->selectView removeFromSuperview];
         }];
@@ -461,7 +437,8 @@
     [self addSubview:button];
     [button  mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self->textField);
-        make.right.width.mas_equalTo(25);
+        make.right.mas_equalTo(-8);
+        make.width.mas_equalTo(25);
         make.height.mas_equalTo(20);
     }];
 //    button.whc_CenterYToView(0, textField).whc_RightSpace(25).whc_Width(25).whc_Height(20);
@@ -475,14 +452,14 @@
         [selectView setSelectViewType:@""];
         [selectView setColumNumbers:1];
         [selectView setDataList:securityIssuesModel];
-        selectView.frame = CGRectMake(0, screenSize().height, screenSize().width, 200);
+        selectView.frame = CGRectMake(0, self.frameHeigh, self.frameWidth, 200);
         [self.window addSubview:selectView];
         [UIView animateWithDuration:0.3 animations:^{
-            self-> selectView.frame = CGRectMake(0, screenSize().height - 200, screenSize().width, 200);
+            self-> selectView.frame = CGRectMake(0, self.frameHeigh - 200, self.frameWidth, 200);
         }];
     }else {
         [UIView animateWithDuration:0.3 animations:^{
-            self-> selectView.frame = CGRectMake(0, screenSize().height, screenSize().width, 200);
+            self-> selectView.frame = CGRectMake(0, self.frameHeigh, self.frameWidth, 200);
         }completion:^(BOOL finished) {
             [self->selectView removeFromSuperview];
         }];
@@ -493,7 +470,8 @@
     [self addSubview:button];
     [button mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self->textField);
-        make.right.width.mas_equalTo(25);
+        make.right.mas_equalTo(-8);
+        make.width.mas_equalTo(25);
         make.height.mas_equalTo(20);
     }];
 //    button.whc_CenterYToView(0, textField).whc_RightSpace(25).whc_Width(25).whc_Height(20);
@@ -507,14 +485,14 @@
         selectView.delegate = self;
         [selectView setSelectViewType:@"birthday"];
         [selectView setColumNumbers:3];
-        selectView.frame = CGRectMake(0, screenSize().height, screenSize().width, 200);
+        selectView.frame = CGRectMake(0, self.frameHeigh, self.frameWidth, 200);
         [self.window addSubview:selectView];
         [UIView animateWithDuration:0.3 animations:^{
-            self-> selectView.frame = CGRectMake(0, screenSize().height - 200, screenSize().width, 200);
+            self-> selectView.frame = CGRectMake(0, self.frameHeigh - 200, self.frameWidth, 200);
         }];
     }else {
         [UIView animateWithDuration:0.3 animations:^{
-            self-> selectView.frame = CGRectMake(0, screenSize().height, screenSize().width, 200);
+            self-> selectView.frame = CGRectMake(0, self.frameHeigh, self.frameWidth, 200);
         }completion:^(BOOL finished) {
             [self->selectView removeFromSuperview];
         }];
@@ -524,7 +502,7 @@
 
 - (void)RH_RegistrationSelectViewDidCancelButtonTaped {
     [UIView animateWithDuration:0.3 animations:^{
-        self-> selectView.frame = CGRectMake(0, screenSize().height, screenSize().width, 200);
+        self-> selectView.frame = CGRectMake(0, self.frameHeigh, self.frameWidth, 200);
     }completion:^(BOOL finished) {
         [self->selectView removeFromSuperview];
     }];
@@ -532,7 +510,7 @@
 - (void)RH_RegistrationSelectViewDidConfirmButtonTapedwith:(NSString *)selected {
     textField.text = selected;
     [UIView animateWithDuration:0.3 animations:^{
-        self->selectView.frame = CGRectMake(0, screenSize().height, screenSize().width, 200);
+        self->selectView.frame = CGRectMake(0, self.frameHeigh, self.frameWidth, 200);
     }completion:^(BOOL finished) {
         [self->selectView removeFromSuperview];
     }];
@@ -557,7 +535,7 @@
     }
     
     [UIView animateWithDuration:0.3 animations:^{
-        self->selectView.frame = CGRectMake(0, screenSize().height, screenSize().width, 200);
+        self->selectView.frame = CGRectMake(0, self.frameHeigh, self.frameWidth, 200);
     }completion:^(BOOL finished) {
         [self->selectView removeFromSuperview];
     }];
@@ -568,10 +546,11 @@
     [self addSubview:button_Check];
     [button_Check mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self->textField);
-        make.right.width.mas_equalTo(20);
+        make.right.mas_equalTo(-8);
         make.height.mas_equalTo(25);
+        make.width.mas_equalTo(20);
     }];
-//    button_Check.whc_CenterYToView(0, textField).whc_RightSpace(25).whc_Width(25).whc_Height(25);
+
     textField.secureTextEntry = YES;
     [button_Check setImage:ImageWithName(@"eyeclose") forState:UIControlStateNormal];
     [button_Check addTarget:self action:@selector(button_CheckHandle:) forControlEvents:UIControlEventTouchUpInside];
@@ -590,32 +569,40 @@
 }
 
 - (void)setVerifyCodeLayout {
-//    textField.whc_RightSpace(150);
     [textField mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(150);
+        make.right.mas_equalTo(-110);
     }];
     imageView_VerifyCode = [UIImageView new];
     [self addSubview:imageView_VerifyCode];
     [imageView_VerifyCode mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self->textField);
-        make.left.mas_equalTo(self->textField).mas_offset(10);
-        make.right.mas_equalTo(25);
+        make.left.mas_equalTo(self->textField.mas_right).mas_offset(10);
+        make.right.mas_equalTo(0);
         make.height.mas_equalTo(35);
     }];
-//    imageView_VerifyCode.whc_CenterYToView(0, textField).whc_LeftSpaceToView(10, textField).whc_RightSpace(25).whc_Height(35);
-    imageView_VerifyCode.backgroundColor = [UIColor redColor];
-//    [self.serviceRequest startV3RegisetCaptchaCode];
+
+    imageView_VerifyCode.backgroundColor = [UIColor orangeColor];
+    [self startV3RegisetCaptchaCode];
     imageView_VerifyCode.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(changeImageView_VerfyCode)];
     [imageView_VerifyCode addGestureRecognizer:tap];
 }
 -(void)changeImageView_VerfyCode
 {
-//    [self.serviceRequest startV3RegisetCaptchaCode];
+    [self startV3RegisetCaptchaCode];
 }
 -(void)changeImageView_VerfyCode1
 {
-//    [self.serviceRequest startV3RegisetCaptchaCode];
+    [self startV3RegisetCaptchaCode];
+}
+-(void)startV3RegisetCaptchaCode{
+    [SH_NetWorkService fetchV3RegisetCaptchaCode:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSData * data = ConvertToClassPointer(NSData, response);
+        self->imageView_VerifyCode.image = [UIImage  imageWithData:data];
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        showMessage([UIApplication sharedApplication].keyWindow, err, nil);
+        [self startV3RegisetCaptchaCode];
+    }];
 }
 - (void)webViewTapHandle:(UITapGestureRecognizer *)tap {
     UIWebView *webView = (UIWebView *)tap.view;
@@ -626,20 +613,19 @@
 }
 
 - (void)setPhoneVerifyCodeLayout {
-//    textField.whc_RightSpace(150);
     [textField mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(150);
+        make.right.mas_equalTo(-110);//-150
     }];
     UIButton *button = [UIButton new];
     button.tag = 1002;
     [self addSubview:button];
     [button mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self->textField);
-        make.left.mas_equalTo(self->textField).mas_offset(10);
-        make.right.mas_equalTo(25);
+        make.left.mas_equalTo(self->textField.mas_right).mas_offset(8);
+        make.right.mas_equalTo(0);
         make.height.mas_equalTo(35);
     }];
-//    button.whc_CenterYToView(0, textField).whc_LeftSpaceToView(10, textField).whc_RightSpace(25).whc_Height(35);
+
     button.layer.borderColor = colorWithRGB(20, 90, 180).CGColor;
     [button setTitleColor:colorWithRGB(20, 90, 180) forState:UIControlStateNormal];
     button.layer.borderWidth = 1;

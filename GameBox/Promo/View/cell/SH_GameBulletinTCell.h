@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SH_GameBulletinTCell : UITableViewCell
-
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+@property (weak, nonatomic) IBOutlet UILabel *publishTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *gameNameLabel;
 @end
