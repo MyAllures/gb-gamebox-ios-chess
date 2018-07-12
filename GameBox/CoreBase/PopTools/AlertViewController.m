@@ -8,7 +8,9 @@
 
 #import "AlertViewController.h"
 #import <Masonry.h>
-@interface AlertViewController ()<UIGestureRecognizerDelegate>
+#import "PGDatePicker.h"
+#import "PGDatePickManager.h"
+@interface AlertViewController ()<UIGestureRecognizerDelegate, PGDatePickerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *title_label;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintWidth;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintHeight;
@@ -17,6 +19,8 @@
 
 @property(nonatomic,assign)CGFloat viewHeight;
 @property(nonatomic,assign)CGFloat viewWidth;
+
+@property(nonatomic, strong) NSString *startAndEndDateStr;
 @end
 
 @implementation AlertViewController
@@ -52,8 +56,38 @@
     [self.presentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(self.containerView);
     }];
-
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(seleteDate) name:@"seleteDate" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(seleteEndTime:) name:@"seleteEndTime" object:nil];
 }
+-(void)seleteDate{
+    PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
+    datePickManager.style = PGDatePickManagerStyle1;
+    datePickManager.isShadeBackgroud = true;
+    
+    PGDatePicker *datePicker = datePickManager.datePicker;
+    datePicker.isHiddenMiddleText = false;
+    datePicker.delegate = self;
+    datePicker.datePickerType = PGPickerViewType3;
+    datePicker.datePickerMode = PGDatePickerModeDate;
+    
+    [self presentViewController:datePickManager animated:false completion:nil];
+}
+-(void)seleteEndTime:(NSNotification *)nt {
+    self.startAndEndDateStr = nt.userInfo[@"isEnd"];
+    PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
+    datePickManager.style = PGDatePickManagerStyle1;
+    datePickManager.isShadeBackgroud = true;
+    
+    PGDatePicker *datePicker = datePickManager.datePicker;
+    datePicker.isHiddenMiddleText = false;
+    datePicker.delegate = self;
+    datePicker.datePickerType = PGPickerViewType3;
+    datePicker.datePickerMode = PGDatePickerModeDate;
+    
+    [self presentViewController:datePickManager animated:false completion:nil];
+}
+
 - (IBAction)closeClick:(id)sender {
 
     [self  dismissViewControllerAnimated:YES completion:nil];
@@ -67,8 +101,32 @@
     self.headImage.image = [UIImage imageNamed:imageName];
     [self.view layoutIfNeeded];
 }
+
+#pragma mark - PGDatePickerDelegate M
+- (void)datePicker:(PGDatePicker *)datePicker didSelectDate:(NSDateComponents *)dateComponents {
+    NSLog(@"dateComponents = %@", dateComponents);
+    
+    if ([self.startAndEndDateStr isEqualToString:@"end"]) {
+        NSString *dateStr = [NSString stringWithFormat:@"%@-%@-%@",@(dateComponents.year),@(dateComponents.month),@(dateComponents.day)];
+        NSDictionary *dict =[[NSDictionary alloc]initWithObjectsAndKeys:dateStr,@"date",nil];
+        //创建通知
+        NSNotification *notification =[NSNotification notificationWithName:@"seletedEndDate" object:nil userInfo:dict];
+        //通过通知中心发送通知
+        [[NSNotificationCenter defaultCenter] postNotification:notification];
+        self.startAndEndDateStr = @"";
+    } else {
+        NSString *dateStr = [NSString stringWithFormat:@"%@-%@-%@",@(dateComponents.year),@(dateComponents.month),@(dateComponents.day)];
+        NSDictionary *dict =[[NSDictionary alloc]initWithObjectsAndKeys:dateStr,@"date",nil];
+        //创建通知
+        NSNotification *notification =[NSNotification notificationWithName:@"seletedDate" object:nil userInfo:dict];
+        //通过通知中心发送通知
+        [[NSNotificationCenter defaultCenter] postNotification:notification];
+    }
+}
+
 -(void)dealloc{
     NSLog(@"clean .......");
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"seleteDate" object:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

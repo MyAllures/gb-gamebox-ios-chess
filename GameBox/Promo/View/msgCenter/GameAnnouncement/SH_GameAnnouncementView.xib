@@ -45,6 +45,9 @@
                             <state key="normal" title="2017-02-03" image="betRec_calendar_icon">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="startTimeAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="DK3-fU-iNk"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -73,6 +76,9 @@
                             <state key="normal" title="2017-02-03" image="betRec_calendar_icon">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="endTimeAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="3AX-7p-Wcs"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -126,6 +132,8 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="endTimeBtn" destination="ZeW-Et-V6H" id="afS-0C-wX3"/>
+                <outlet property="startTimeBtn" destination="P2J-52-bqe" id="T3k-kX-34a"/>
                 <outlet property="tableView" destination="n8Z-c5-UNM" id="Tyv-wg-KSA"/>
                 <outlet property="view1" destination="4c6-zS-CUz" id="GWy-6P-kkg"/>
                 <outlet property="view2" destination="ASB-TD-RuX" id="JdI-7C-4Wt"/>

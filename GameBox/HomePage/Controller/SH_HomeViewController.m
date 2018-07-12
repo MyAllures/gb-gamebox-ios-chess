@@ -24,6 +24,9 @@
 #import "SH_PromoContentView.h"
 #import "PopTool.h"
 #import "SH_GamesListScrollView.h"
+#import "SH_NetWorkService+Home.h"
+#import "SH_HomeBannerModel.h"
+#import "SH_RingManager.h"
 
 @interface SH_HomeViewController ()<SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate>
 
@@ -35,6 +38,7 @@
 @property (nonatomic, strong) SH_WelfareView *welfareV;
 @property (nonatomic, strong) UIView *welBackV;
 @property (strong, nonatomic) SH_GamesListScrollView *gamesListScrollView;
+@property (nonatomic, strong) NSMutableArray *bannerArr;
 
 @end
 
@@ -43,9 +47,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self fetchSID];
+
+    [self fetchCookie];
     [self initAdScroll];
     [self.gamesListScrollView reloaData];
+}
+
+- (NSMutableArray *)bannerArr
+{
+    if (_bannerArr == nil) {
+        _bannerArr = [NSMutableArray array];
+    }
+    return _bannerArr;
 }
 
 - (IBAction)login:(id)sender {
@@ -96,9 +109,9 @@
 }
 
 /**
- * 获取SID
+ * 获取Cookie
  */
-- (void)fetchSID
+- (void)fetchCookie
 {
     [SH_NetWorkService fetchHttpCookie:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSString *setCookie = [httpURLResponse.allHeaderFields objectForKey:@"Set-Cookie"];
@@ -109,7 +122,6 @@
 }
 
 - (IBAction)avatarClick:(id)sender {
-
     SH_LoginView *login = [SH_LoginView  InstanceLoginView];
     AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:260 viewWidth:414];
     login.dismissBlock = ^{
@@ -124,7 +136,7 @@
 - (IBAction)rechargeClick:(id)sender {    
     [self presentViewController:[[SH_RechargeCenterViewController alloc]init] animated:YES completion:nil];
 }
-#pragma 优惠
+#pragma mark 优惠
 - (IBAction)activitiesClick:(id)sender {
     SH_PromoContentView *promoContentView = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoContentView" owner:nil options:nil] lastObject];
     AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:promoContentView viewHeight:[UIScreen mainScreen].bounds.size.height-60 viewWidth:[UIScreen mainScreen].bounds.size.width-160];
@@ -249,18 +261,40 @@
     return _gamesListScrollView;
 }
 
+- (void)fetchHomeInfo
+{
+    __weak typeof(self) weakSelf = self;
+
+    [SH_NetWorkService fetchHomeInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSDictionary *data = [response objectForKey:@"data"];
+        
+        //获取banner数据并更新UI
+        NSArray *banner = [data objectForKey:@"banner"];
+        for (NSDictionary *bannerDic in banner) {
+            SH_HomeBannerModel *homeBannerModel = [[SH_HomeBannerModel alloc] initWithDictionary:bannerDic error:nil];
+            [weakSelf.bannerArr addObject:homeBannerModel.cover];
+        }
+        [weakSelf.cycleAdView reloadDataWithCompleteBlock:nil];
+        
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        //
+    }];
+}
+
 #pragma mark - SH_CycleScrollViewDataSource
 
 - (NSArray *)numberOfCycleScrollView:(SH_CycleScrollView *)bannerView
 {
-    return @[[UIImage imageNamed:@"banner"],
-             [UIImage imageNamed:@"banner"],
-             [UIImage imageNamed:@"banner"],
-             [UIImage imageNamed:@"banner"]];
+    return self.bannerArr;
 }
 
 - (UIViewContentMode)contentModeForImageIndex:(NSUInteger)index {
-    return UIViewContentModeScaleAspectFill;
+    return UIViewContentModeScaleToFill;
+}
+
+- (UIImage *)placeHolderImageOfBannerView:(SH_CycleScrollView *)bannerView atIndex:(NSUInteger)index
+{
+    return [UIImage imageNamed:@"banner"];
 }
 
 - (UIImage *)placeHolderImageOfZeroBannerView {

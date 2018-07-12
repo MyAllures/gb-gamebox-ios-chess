@@ -183,7 +183,9 @@
                     NSString *checkUrl = [NSString stringWithFormat:@"%@://%@%@/__check",checkTypeComp[0],ip,checkTypeComp.count==2?[NSString stringWithFormat:@":%@",checkTypeComp[1]]:@""];
                     [weakSelf get:checkUrl withPublicParameter:NO parameter:nil header:@{@"Host":host} complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
                         if (response) {
-                            if ([[response lowercaseString] isEqualToString:@"ok\n"]) {
+                            response = [response stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+;
+                            if ([[response lowercaseString] isEqualToString:@"ok"]) {
                                 if (oneTurn) {
                                     oneTurn(ip, checkType, YES);
                                 }
