@@ -12,5 +12,8 @@
 @end
 @interface RH_RechargeCenterFooterView : UICollectionReusableView
 @property(nonatomic,weak)id<RH_RechargeCenterFooterViewDelegate>delegate;
--(void)updateUIWithDictionary:(NSDictionary *)dictionary Number:(NSString *)number;
+-(void)updateUIWithCode:(NSString *)code
+                   Type:(NSString *)type
+                 Number:(NSString *)number
+      ChannelModelArray:(NSArray *)array;
 @end

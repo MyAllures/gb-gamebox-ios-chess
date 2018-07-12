@@ -28,10 +28,10 @@
 @property(nonatomic,strong)UILabel *tipLab;
 @property(nonatomic,strong)NSArray *sectionTitles;//头部标题的数据
 @property(nonatomic,strong)NSMutableArray *selectedStatusArray;
-@property(nonatomic,strong)NSMutableDictionary *platformDic;//记录当前选中哪个平台
 @property(nonatomic,copy)NSString *number;//选中金额
 @property(nonatomic,strong)SH_RechargeCenterPlatformModel *platformModel;//记录当前选中哪一个平台，方便传值
 @property(nonatomic,strong)SH_RechargeCenterChannelModel *channelModel;//选中付款方式后要把这个数据传到跳转的页面
+@property(nonatomic,strong)NSMutableArray *channelModelArray;//因为在线支付只有两组，所以要把返回的保存下来
 @end
 
 @implementation SH_RechargeCenterViewController
@@ -41,6 +41,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self configNavigationWithTitle:@"充值中心"];
+    self.channelModelArray = [NSMutableArray array];
     [self loadData];
     [self configUI];
 }
@@ -72,7 +73,6 @@
     return _tipLab;
 }
 -(void)loadData{
-    self.platformDic = [[NSMutableDictionary alloc]init];
     self.dataArray = [NSMutableArray array];
     self.selectedStatusArray = [NSMutableArray array];
     self.sectionTitles = @[@"",@"付款方式",@"请选择或输入金额"];
@@ -94,15 +94,12 @@
             [weakSelf.selectedStatusArray addObject:sectionOneArray];
             SH_RechargeCenterPlatformModel *platformModel = platforms[0];
             //请求默认的第一个
-            [weakSelf.platformDic setObject:platformModel.code forKey:@"code"] ;
-           
             [SH_NetWorkService RechargeCenterPayway:platformModel.code Complete:^(SH_RechargeCenterPaywayModel *model) {
                 SH_RechargeCenterPaywayModel *paywayModel = model;
                 NSArray *payways = paywayModel.arrayList;
                 NSArray *moneys = paywayModel.quickMoneys;
                 if (payways.count > 0) {
                     weakSelf.channelModel = payways[0];
-                     [weakSelf.platformDic setObject:self.channelModel.type forKey:@"type"] ;
                 }
                 NSMutableArray *sectionTwoArray = [NSMutableArray array];
                 for (int i = 0; i < payways.count; i++) {
@@ -205,15 +202,22 @@
             }
         }
           __weak typeof(self) weakSelf = self;
-        [SH_RechargeCenterDataHandle dealSelectedStatusWithSlectedArray:self.selectedStatusArray indexPath:indexPath DataArray:self.dataArray CollectionView:collectionView Platform:self.platformDic Block:^(SH_RechargeCenterChannelModel *model) {
+        [SH_RechargeCenterDataHandle dealSelectedStatusWithSlectedArray:self.selectedStatusArray indexPath:indexPath DataArray:self.dataArray ChannelArray:self.channelModelArray Block:^(SH_RechargeCenterChannelModel *model,NSArray *titles) {
             weakSelf.channelModel = model;
+            weakSelf.sectionTitles = titles;
             if (indexPath.section == 0) {
                 if ([self.platformModel.code isEqualToString:@"bitcoin"]){
                     SH_BitCoinViewController *bvc = [[SH_BitCoinViewController alloc]init];
                     bvc.channelModel = weakSelf.channelModel;
                     [weakSelf presentViewController:bvc animated:YES completion:nil];
                 }
+            }else{
+                if (titles.count == 2) {
+                    //表示选中的是在线支付
+                    weakSelf.number = [NSString stringWithFormat:@"%@",weakSelf.dataArray[indexPath.section][indexPath.row][@"num"]];
+                }
             }
+            [weakSelf.mainCollectionView reloadData];
         }];
     }
    
@@ -221,7 +225,12 @@
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
     if (section == 1) {
-        return UIEdgeInsetsMake(0, 15, 10, 15);
+        //因为在线支付只会返回2组 所以要特殊处理
+        if ([self.channelModel.type isEqualToString:@"2"]&&[self.channelModel.accountType isEqualToString:@"2"]) {
+           return UIEdgeInsetsMake(0, 10, 20, 10);
+        }else{
+            return UIEdgeInsetsMake(0, 15, 10, 15);
+        }
     }else{
         return UIEdgeInsetsMake(0, 10, 20, 10);
     }
@@ -232,7 +241,11 @@
     if (indexPath.section == 0) {
         return CGSizeMake((screenSize().width - 6 * 10.0)/5.0, 70);
     }else if (indexPath.section == 1){
-        return CGSizeMake((screenSize().width - 3 * 15.0)/2.0, 40);
+        if ([self.channelModel.type isEqualToString:@"2"]&&[self.channelModel.accountType isEqualToString:@"2"]) {
+           return CGSizeMake((screenSize().width - 6 * 11.0)/5.0, (screenSize().width - 6 * 10)/5.0);
+        }else{
+          return CGSizeMake((screenSize().width - 3 * 15.0)/2.0, 40);
+        }
     }else{
         return CGSizeMake((screenSize().width - 6 * 11.0)/5.0, (screenSize().width - 6 * 10)/5.0);
     }
@@ -247,7 +260,7 @@
     }else{
         RH_RechargeCenterFooterView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"RH_RechargeCenterFooterView" forIndexPath:indexPath];
         footerView.delegate = self;
-        [footerView updateUIWithDictionary:self.platformDic Number:self.number];
+        [footerView updateUIWithCode:self.platformModel.code Type:self.channelModel.type Number:self.number ChannelModelArray:self.channelModelArray];
         return footerView;
     }
     
@@ -264,11 +277,21 @@
      }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
     
-    if (section == 2) {
-        return CGSizeMake(SCREEN_WIDTH, 500);
-    }else{
-        return CGSizeMake(0, 0);
-    }
+        if ([self.channelModel.type isEqualToString:@"2"]&&[self.channelModel.accountType isEqualToString:@"2"]) {
+            if (section == 1) {
+                return CGSizeMake(SCREEN_WIDTH, 500);
+            }else{
+                 return CGSizeMake(0, 0);
+            }
+        }else{
+            if (section == 2) {
+                return CGSizeMake(SCREEN_WIDTH, 500);
+            }else{
+                 return CGSizeMake(0, 0);
+            }
+          
+        }
+    
     
 }
 #pragma mark--

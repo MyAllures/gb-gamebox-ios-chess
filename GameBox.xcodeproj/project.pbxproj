@@ -118,6 +118,7 @@
 		BF44ECFA20F7475A00BC6EF3 /* SH_BitCoinSuccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF44ECF920F7475A00BC6EF3 /* SH_BitCoinSuccessView.m */; };
 		BF44ECFD20F7477900BC6EF3 /* SH_BitCoinSuccessPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF44ECFC20F7477900BC6EF3 /* SH_BitCoinSuccessPopView.m */; };
 		BF44ECFF20F7478600BC6EF3 /* SH_BitCoinSuccessPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF44ECFE20F7478600BC6EF3 /* SH_BitCoinSuccessPopView.xib */; };
+		BF44ED0320F7828400BC6EF3 /* THScrollChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF44ED0120F7828400BC6EF3 /* THScrollChooseView.m */; };
 		BFFC845220F2F253008AD801 /* SH_RechargeCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFC845120F2F252008AD801 /* SH_RechargeCenterViewController.m */; };
 		BFFC845920F2F260008AD801 /* DepositeHeadCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFFC845420F2F260008AD801 /* DepositeHeadCollectionReusableView.xib */; };
 		BFFC845A20F2F260008AD801 /* DepositeHeadCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFC845620F2F260008AD801 /* DepositeHeadCollectionReusableView.m */; };
@@ -369,6 +370,8 @@
 		BF44ECFB20F7477900BC6EF3 /* SH_BitCoinSuccessPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_BitCoinSuccessPopView.h; sourceTree = "<group>"; };
 		BF44ECFC20F7477900BC6EF3 /* SH_BitCoinSuccessPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_BitCoinSuccessPopView.m; sourceTree = "<group>"; };
 		BF44ECFE20F7478600BC6EF3 /* SH_BitCoinSuccessPopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_BitCoinSuccessPopView.xib; sourceTree = "<group>"; };
+		BF44ED0120F7828400BC6EF3 /* THScrollChooseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THScrollChooseView.m; sourceTree = "<group>"; };
+		BF44ED0220F7828400BC6EF3 /* THScrollChooseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THScrollChooseView.h; sourceTree = "<group>"; };
 		BFFC845020F2F252008AD801 /* SH_RechargeCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_RechargeCenterViewController.h; sourceTree = "<group>"; };
 		BFFC845120F2F252008AD801 /* SH_RechargeCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_RechargeCenterViewController.m; sourceTree = "<group>"; };
 		BFFC845320F2F260008AD801 /* DepositeHeadCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepositeHeadCollectionReusableView.h; sourceTree = "<group>"; };
@@ -616,6 +619,7 @@
 		5401C54520ECA1B80027246D /* CoreBase */ = {
 			isa = PBXGroup;
 			children = (
+				BF44ED0020F7828400BC6EF3 /* 滚轮选择器 */,
 				BF44EC6A20F495C300BC6EF3 /* PGDatePicker */,
 				BF44EC5320F454E100BC6EF3 /* Macro */,
 				DA22F3CD20F450470058A54F /* Macros */,
@@ -975,6 +979,15 @@
 				BF44ECE920F6FF4D00BC6EF3 /* SH_BitCoinSaleDetailModel.m */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		BF44ED0020F7828400BC6EF3 /* 滚轮选择器 */ = {
+			isa = PBXGroup;
+			children = (
+				BF44ED0120F7828400BC6EF3 /* THScrollChooseView.m */,
+				BF44ED0220F7828400BC6EF3 /* THScrollChooseView.h */,
+			);
+			path = "滚轮选择器";
 			sourceTree = "<group>";
 		};
 		BFFC845D20F2F268008AD801 /* model */ = {
@@ -1353,6 +1366,7 @@
 				DA22F3E020F4562B0058A54F /* UIImage+Size.m in Sources */,
 				2231283720F707F500D1BF5E /* SH_SystemNotificationModel.m in Sources */,
 				BF2F916420EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.m in Sources */,
+				BF44ED0320F7828400BC6EF3 /* THScrollChooseView.m in Sources */,
 				DA22F3BB20F44B1A0058A54F /* RH_MineInfoModel.m in Sources */,
 				BFFC846220F2F268008AD801 /* SH_RechargeCenterPlatformModel.m in Sources */,
 				BF44ECA520F495C400BC6EF3 /* PGPickerColumnView.m in Sources */,
