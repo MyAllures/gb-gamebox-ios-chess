@@ -19,10 +19,9 @@
 }
 */
 
-- (void)addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    [super addTarget:target action:action forControlEvents:controlEvents];
-    
+    [super touchesBegan:touches withEvent:event];
     switch (self.ringType) {
         case SH_Ring_Type_Alert:
             [[SH_RingManager sharedManager] playAlertRing];
