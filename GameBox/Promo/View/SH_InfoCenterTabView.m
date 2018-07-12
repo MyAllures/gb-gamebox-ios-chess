@@ -61,6 +61,7 @@
     self.gameAnnouncementView.hidden = NO;
     self.systemNotification.hidden = YES;
     self.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
+    self.bottomView.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
     self.btn1.selected = YES;
     [self.btn1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo((screenW-81*3-160-135)/4);
@@ -90,7 +91,10 @@
         _gameAnnouncementView = [[[NSBundle mainBundle] loadNibNamed:@"SH_GameAnnouncementView" owner:nil options:nil] lastObject];
         [self.bottomView addSubview:_gameAnnouncementView];
         [_gameAnnouncementView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.left.right.bottom.mas_equalTo(0);
+            make.top.mas_equalTo(0);
+            make.left.mas_equalTo(20);
+            make.right.mas_equalTo(-20);
+            make.bottom.mas_equalTo(-10);
         }];
     }
     return _gameAnnouncementView;
@@ -102,7 +106,10 @@
         _systemNotification = [[[NSBundle mainBundle] loadNibNamed:@"SH_SystemNotification" owner:nil options:nil] lastObject];
         [self.bottomView addSubview:_systemNotification];
         [_systemNotification mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.left.right.bottom.mas_equalTo(0);
+            make.top.mas_equalTo(0);
+            make.left.mas_equalTo(20);
+            make.right.mas_equalTo(-20);
+            make.bottom.mas_equalTo(-10);
         }];
     }
     return _systemNotification;
@@ -113,7 +120,10 @@
         _siteMsgView = [[[NSBundle mainBundle] loadNibNamed:@"SH_SiteMsgView" owner:nil options:nil] lastObject];
         [self.bottomView addSubview:_siteMsgView];
         [_siteMsgView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.top.bottom.mas_equalTo(0);
+            make.top.mas_equalTo(0);
+            make.left.mas_equalTo(20);
+            make.right.mas_equalTo(-20);
+            make.bottom.mas_equalTo(-10);
         }];
     }
     return _siteMsgView;

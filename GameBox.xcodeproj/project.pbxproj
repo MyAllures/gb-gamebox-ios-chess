@@ -10,6 +10,8 @@
 		2209026620F053D400F8828E /* SH_PromoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2209026420F053D400F8828E /* SH_PromoViewCell.m */; };
 		2209026720F053D400F8828E /* SH_PromoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2209026520F053D400F8828E /* SH_PromoViewCell.xib */; };
 		2248B0D220F58F5A0077EF58 /* SH_PromoListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8757D20F355F800AA0594 /* SH_PromoListView.m */; };
+		2248B11920F5EF7E0077EF58 /* SH_GameBulletinTCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2248B11720F5EF7E0077EF58 /* SH_GameBulletinTCell.m */; };
+		2248B11A20F5EF7E0077EF58 /* SH_GameBulletinTCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2248B11820F5EF7E0077EF58 /* SH_GameBulletinTCell.xib */; };
 		22552CC820F448740090EFBC /* SH_SystemNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 22552CC720F448740090EFBC /* SH_SystemNotification.m */; };
 		22552CCA20F448810090EFBC /* SH_SystemNotification.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22552CC920F448810090EFBC /* SH_SystemNotification.xib */; };
 		22552CDA20F48DAA0090EFBC /* SH_SystemMsgView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22552CD920F48DAA0090EFBC /* SH_SystemMsgView.m */; };
@@ -152,6 +154,9 @@
 		2209026320F053D400F8828E /* SH_PromoViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoViewCell.h; sourceTree = "<group>"; };
 		2209026420F053D400F8828E /* SH_PromoViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoViewCell.m; sourceTree = "<group>"; };
 		2209026520F053D400F8828E /* SH_PromoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PromoViewCell.xib; sourceTree = "<group>"; };
+		2248B11620F5EF7E0077EF58 /* SH_GameBulletinTCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_GameBulletinTCell.h; sourceTree = "<group>"; };
+		2248B11720F5EF7E0077EF58 /* SH_GameBulletinTCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_GameBulletinTCell.m; sourceTree = "<group>"; };
+		2248B11820F5EF7E0077EF58 /* SH_GameBulletinTCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_GameBulletinTCell.xib; sourceTree = "<group>"; };
 		22552CC620F448740090EFBC /* SH_SystemNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SystemNotification.h; sourceTree = "<group>"; };
 		22552CC720F448740090EFBC /* SH_SystemNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SystemNotification.m; sourceTree = "<group>"; };
 		22552CC920F448810090EFBC /* SH_SystemNotification.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_SystemNotification.xib; sourceTree = "<group>"; };
@@ -436,6 +441,9 @@
 				22552CE720F4B7720090EFBC /* SH_SiteMsgViewCell.h */,
 				22552CE820F4B7720090EFBC /* SH_SiteMsgViewCell.m */,
 				22552CE920F4B7720090EFBC /* SH_SiteMsgViewCell.xib */,
+				2248B11620F5EF7E0077EF58 /* SH_GameBulletinTCell.h */,
+				2248B11720F5EF7E0077EF58 /* SH_GameBulletinTCell.m */,
+				2248B11820F5EF7E0077EF58 /* SH_GameBulletinTCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -1107,6 +1115,7 @@
 				22552CE620F49DB90090EFBC /* SH_SendMsgView.xib in Resources */,
 				229A21A020F3827700F5A969 /* SH_GameAnnouncementView.xib in Resources */,
 				5401C53920ECA1100027246D /* Assets.xcassets in Resources */,
+				2248B11A20F5EF7E0077EF58 /* SH_GameBulletinTCell.xib in Resources */,
 				2209026720F053D400F8828E /* SH_PromoViewCell.xib in Resources */,
 				BF2F916020EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.xib in Resources */,
 				54C8757B20F3509100AA0594 /* SH_PromoContentView.xib in Resources */,
@@ -1261,6 +1270,7 @@
 				DA21F37C20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m in Sources */,
 				22552CC820F448740090EFBC /* SH_SystemNotification.m in Sources */,
 				DA22F40920F494C60058A54F /* UIViewController+Instance.m in Sources */,
+				2248B11920F5EF7E0077EF58 /* SH_GameBulletinTCell.m in Sources */,
 				DA21F37F20F58F9000D20672 /* SH_RegistView.m in Sources */,
 				BFFEDCBE20F3792E002E69FD /* SH_RechargeCenterDataHandle.m in Sources */,
 				BFFC845A20F2F260008AD801 /* DepositeHeadCollectionReusableView.m in Sources */,
