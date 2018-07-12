@@ -13,24 +13,33 @@
 #import "RH_UserInfoManager.h"
 #import "RH_WebsocketManagar.h"
 #import "SH_NetWorkService+RegistAPI.h"
-@interface SH_LoginView()
-{
-    BOOL _isSelected;
+
+
+#import "RH_RegisetInitModel.h"
+#import "RH_RegistrationViewItem.h"
+#import "SH_RegistView.h"
+@interface SH_LoginView(){
+     RH_RegisetInitModel *registrationInitModel;
 }
 @property (weak, nonatomic) IBOutlet UIView *leftView;
 @property (weak, nonatomic) IBOutlet UITextField *account_textField;
 @property (weak, nonatomic) IBOutlet UITextField *password_textField;
 @property (weak, nonatomic) IBOutlet UITextField *check_textField;
 @property (weak, nonatomic) IBOutlet UIImageView *check_image;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintCaptchaHeight;
+@property (weak, nonatomic) IBOutlet UIView *rightContrainerView;
 @property (weak, nonatomic) IBOutlet UILabel *captcha_label;
 
 @property (nonatomic,assign) BOOL isOpenCaptcha ;
 @property (nonatomic,assign) BOOL isLogin;
 
+@property (weak, nonatomic) IBOutlet UIView *stackView;
+
+@property (nonatomic,strong)SH_RegistView  * registView;
 @end
 @implementation SH_LoginView
+
+#pragma mark -- Create  SH_LoginView
 +(instancetype)InstanceLoginView{
     return  [[[NSBundle  mainBundle] loadNibNamed:NSStringFromClass([self  class]) owner:nil options:nil] lastObject];
 }
@@ -38,7 +47,9 @@
     [super  awakeFromNib];
     [self  fetchHttpData];
     [self  configurationUI];
+    self.stackView.hidden = YES;
 }
+#pragma mark -- 登录是否需要验证码 返回bool
 -(void)fetchHttpData{
     __weak  typeof(self) weakSelf = self;
     [SH_NetWorkService  fetchIsOpenCodeVerifty:^(NSHTTPURLResponse *httpURLResponse, id response) {
@@ -54,10 +65,10 @@
         
     }];
 }
+#pragma mark -- 配置UI
 -(void)configurationUI{
     UIImage  * img = [UIImage  imageNamed:@"left_bg"];
     self.leftView.layer.contents = (__bridge id _Nullable)(img.CGImage);
-    self.tableView.hidden = YES;
    
     self.check_image.userInteractionEnabled = YES;
     UITapGestureRecognizer  * tap = [[UITapGestureRecognizer  alloc] initWithTarget:self action:@selector(startGetVerifyCode)];
@@ -74,7 +85,14 @@
         [sender setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
     }
     
+    [self  configRegistViewUI];
 }
+#pragma mark --  注册页面初始化
+-(void)configRegistViewUI{
+    
+  
+}
+#pragma mark --  登录输错密码之后的验证码
 -(void)startGetVerifyCode
 {
     __weak  typeof(self) weakSelf = self;
@@ -95,19 +113,24 @@
     // Drawing code
 }
 */
+#pragma mark --  button click method
 - (IBAction)btnlick:(UIButton *)sender {
     NSInteger tag = sender.tag -100;
    
     switch (tag) {
         case 0:{
-            self.tableView.hidden = YES;
+            self.stackView.hidden = YES;
             [sender setBackgroundImage:[UIImage imageNamed:@"login_button_click"] forState:UIControlStateNormal];
             UIButton  * btn  = [self  viewWithTag:101];
             [btn setBackgroundImage:[UIImage imageNamed:@"login_button"] forState:UIControlStateNormal];
             break;
         }
         case 1:{
-            self.tableView.hidden = false;
+            self.stackView.hidden = false;
+            [self.stackView addSubview:self.registView];
+            [self.registView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.edges.mas_equalTo(0);
+            }];
             [sender setBackgroundImage:[UIImage imageNamed:@"login_button_click"] forState:UIControlStateNormal];
             UIButton  * btn  = [self  viewWithTag:100];
             [btn setBackgroundImage:[UIImage imageNamed:@"login_button"] forState:UIControlStateNormal];
@@ -119,9 +142,9 @@
             break;
         }
         case 3:{
-            _isSelected = !_isSelected;
             NSUserDefaults  * dafault = [NSUserDefaults  standardUserDefaults];
-            [dafault setBool:_isSelected forKey:@"isRememberPwd"];
+            BOOL isSelect  = [dafault  boolForKey:@"isRememberPwd"];
+            [dafault setBool:!isSelect forKey:@"isRememberPwd"];
             [dafault  synchronize];
           
             if ([dafault boolForKey:@"isRememberPwd"]) {
@@ -137,6 +160,8 @@
     }
     
 }
+
+#pragma mark --  简单的非空判断
 -(void)whetherConformCondition{
     
     if (self.account_textField.text.length<1){
@@ -161,9 +186,7 @@
     [self  login];
 }
 
-/**
- 登录
- */
+#pragma mark --  登录
 -(void)login{
      __weak  typeof(self) weakSelf = self;
     [SH_NetWorkService login:self.account_textField.text psw:self.password_textField.text verfyCode:self.check_textField.text complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
@@ -190,12 +213,8 @@
     }];
 }
 
-/**
- 登录成功
 
- @param dic <#dic description#>
- @param httpURLResponse <#httpURLResponse description#>
- */
+#pragma mark --  登录成功
 -(void)loginSucessHandleRsponse:(NSDictionary*)dic httpURLResponse:(NSHTTPURLResponse *)httpURLResponse{
     AppDelegate * appDelegate =(AppDelegate*)[UIApplication  sharedApplication].delegate;
     UIWindow  * window = [UIApplication  sharedApplication].keyWindow;
@@ -226,6 +245,7 @@
         [defaults setObject:self.account_textField.text forKey:@"account"];
         [defaults setObject:self.password_textField.text forKey:@"password"];
 //        [defaults setObject:@(self.loginViewCell.isRemberPassword) forKey:@"loginIsRemberPassword"] ;
+        
         [defaults synchronize];
         if (self.dismissBlock) {
              self.dismissBlock();
@@ -237,11 +257,7 @@
     
 }
 
-/**
- 登录失败
-
- @param result <#result description#>
- */
+#pragma mark --  登录失败
 -(void)loginFailHandleRsponse:(NSDictionary*)result{
     AppDelegate * appDelegate =(AppDelegate*)[UIApplication  sharedApplication].delegate;
     UIWindow  * window = [UIApplication  sharedApplication].keyWindow;
@@ -262,5 +278,14 @@
         }
     }
     [appDelegate updateLoginStatus:NO] ;
+}
+
+#pragma mark -- getter  method
+
+-(SH_RegistView *)registView{
+    if (!_registView) {
+        _registView = [[SH_RegistView  alloc]init];
+    }
+    return  _registView;
 }
 @end

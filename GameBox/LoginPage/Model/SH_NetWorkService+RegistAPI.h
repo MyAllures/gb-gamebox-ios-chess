@@ -11,27 +11,14 @@
 @interface SH_NetWorkService (RegistAPI)
 +(void)fetchCaptchaCodeInfo:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
 
-/**
- 获取登录验证码
- 
- @param complete 成功的回调
- @param failed 失败的回调
- */
+#pragma mark ---  登录输错密码之后获取登录验证码
 +(void)fetchVerifyCode:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
-
-/**
- 注册验证码
-
- @param complete <#complete description#>
- @param failed <#failed description#>
- */
+#pragma mark ---  注册验证码
 +(void)fetchV3RegisetCaptchaCode:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
-
-/**
- <#Description#>
-
- @param complete <#complete description#>
- @param failed <#failed description#>
- */
+#pragma mark ---  用户登录是否开启验证码
 +(void)fetchIsOpenCodeVerifty:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
+#pragma mark --- 注册初始化
++(void)fetchV3RegisetInit:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
+#pragma mark --- 注册条款 
++(void)fetchV3RegisetTerm:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
 @end
