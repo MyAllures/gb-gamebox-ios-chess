@@ -58,7 +58,7 @@
         [self addSubview:button_Confirm];
         [button_Confirm mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(5);
-            make.right.mas_equalTo(15);
+            make.right.mas_equalTo(-15);
             make.height.mas_equalTo(44);
             make.width.mas_equalTo(60);
         }];
@@ -70,7 +70,7 @@
         UIView *line = [UIView new];
         [self addSubview:line];
         [line  mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.mas_equalTo(20);
+            make.left.right.mas_equalTo(-20);
             make.height.mas_equalTo(2);
             make.top.mas_equalTo(button_Confirm).mas_offset(10);
         }];

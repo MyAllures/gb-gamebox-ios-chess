@@ -6,100 +6,107 @@
 //  Copyright © 2018年 luis. All rights reserved.
 //
 
-//#import "RH_BasicModel.h"
+#import <JSONModel/JSONModel.h>
 
 @interface IpLocaleModel :JSONModel
-@property (nonatomic , strong , readonly) NSString              * region;
-@property (nonatomic , strong , readonly) NSString              * country;
-@property (nonatomic , strong , readonly) NSString              * city;
+@property (nonatomic , copy ) NSString              * region;
+@property (nonatomic , copy ) NSString              * country;
+@property (nonatomic , copy ) NSString              * city;
 
 @end
 
 @interface ParamsModel :JSONModel
-@property (nonatomic , assign ,readonly) NSInteger              minDate;
-@property (nonatomic , strong ,readonly) IpLocaleModel          * ipLocaleModel;
-@property (nonatomic , strong , readonly) NSString              * timezone;
-@property (nonatomic , strong , readonly) NSString              * registCode;
-@property (nonatomic , strong , readonly) NSString              * currency;
-@property (nonatomic , assign , readonly) NSInteger              maxDate;
+@property (nonatomic , assign ) NSInteger              minDate;
+@property (nonatomic , strong ) IpLocaleModel          * ipLocale;
+@property (nonatomic , copy ) NSString              * timezone;
+@property (nonatomic , copy ) NSString              * registCode;
+@property (nonatomic , copy ) NSString              * currency;
+@property (nonatomic , assign ) NSInteger              maxDate;
 
 @end
 
 @interface SignUpDataMapModel :JSONModel
-@property (nonatomic , strong , readonly) NSString              * realName;
-@property (nonatomic , strong , readonly) NSString              * sex;
-@property (nonatomic , strong , readonly) NSString              * m110;
-@property (nonatomic , strong , readonly) NSString              * defaultLocale;
-@property (nonatomic , strong , readonly) NSString              * m201;
-@property (nonatomic , strong , readonly) NSString              * paymentPassword;
-@property (nonatomic , strong , readonly) NSString              * birthday;
-@property (nonatomic , strong , readonly) NSString              * defaultTimezone;
-@property (nonatomic , strong , readonly) NSString              * password;
-@property (nonatomic , strong , readonly) NSString              * mainCurrency;
-@property (nonatomic , strong , readonly) NSString              * securityIssues;
-@property (nonatomic , strong , readonly) NSString              * m301;
-@property (nonatomic , strong , readonly) NSString              * username;
-@property (nonatomic , strong , readonly) NSString              * m304;
+@property (nonatomic , copy ) NSString              * realName;
+@property (nonatomic , copy ) NSString              * sex;
+@property (nonatomic , copy ) NSString              * m110;
+@property (nonatomic , copy ) NSString              * defaultLocale;
+@property (nonatomic , copy ) NSString              * m201;
+@property (nonatomic , copy ) NSString              * paymentPassword;
+@property (nonatomic , copy ) NSString              * birthday;
+@property (nonatomic , copy ) NSString              * defaultTimezone;
+@property (nonatomic , copy ) NSString              * password;
+@property (nonatomic , copy ) NSString              * mainCurrency;
+@property (nonatomic , copy ) NSString              * securityIssues;
+@property (nonatomic , copy ) NSString              * m301;
+@property (nonatomic , copy ) NSString              * username;
+@property (nonatomic , copy ) NSString              * m304;
 
 @end
 
+@protocol  FieldModel;
 @interface FieldModel :JSONModel
-@property (nonatomic , strong , readonly)NSString              * isRequired;
-@property (nonatomic , strong , readonly) NSString              * status;
-@property (nonatomic , strong , readonly) NSString              * isRegField;
-@property (nonatomic , assign , readonly) NSInteger              mId;
+@property (nonatomic , copy )NSString              * isRequired;
+@property (nonatomic , copy ) NSString              * status;
+@property (nonatomic , copy ) NSString              * isRegField;
+@property (nonatomic , assign ) NSInteger              mId;
 @property (nonatomic , assign ,readonly) NSInteger              sort;
 @property (nonatomic , assign ,readonly) BOOL              derail;
-@property (nonatomic , assign , readonly) BOOL              bulitIn;
-@property (nonatomic , strong , readonly) NSString              * isOnly;
-@property (nonatomic , strong , readonly) NSString              * i18nName;
-@property (nonatomic , strong ) NSString              * name;
+@property (nonatomic , assign ) BOOL              bulitIn;
+@property (nonatomic , copy ) NSString              * isOnly;
+@property (nonatomic , copy ) NSString              * i18nName;
+@property (nonatomic , copy ) NSString              * name;
 
 @end
 
+@protocol SexModel ;
 @interface SexModel :JSONModel
-@property (nonatomic , strong , readonly) NSString              * mValue;
-@property (nonatomic , strong , readonly) NSString              * mText;
+@property (nonatomic , copy ) NSString              * mValue;
+@property (nonatomic , copy ) NSString              * mText;
 
 @end
 
+@protocol  DefaultLocaleModel;
 @interface DefaultLocaleModel :JSONModel
-@property (nonatomic , strong , readonly) NSString              * mValue;
-@property (nonatomic , strong , readonly) NSString              * mText;
+@property (nonatomic , copy ) NSString              * mValue;
+@property (nonatomic , copy ) NSString              * mText;
 
 @end
 
+@protocol  MainCurrencyModel;
 @interface MainCurrencyModel :JSONModel
-@property (nonatomic , strong , readonly) NSString              * mValue;
-@property (nonatomic , strong , readonly) NSString              * mText;
+@property (nonatomic , copy ) NSString              * mValue;
+@property (nonatomic , copy ) NSString              * mText;
 
 @end
 
+@protocol  SecurityIssuesModel;
 @interface SecurityIssuesModel :JSONModel
-@property (nonatomic , strong , readonly) NSString              * mValue;
-@property (nonatomic , strong , readonly) NSString              * mText;
+@property (nonatomic , copy ) NSString              * mValue;
+@property (nonatomic , copy ) NSString              * mText;
 
 @end
+
 
 @interface SelectOptionModel :JSONModel
 
-@property (nonatomic , strong , readonly)  NSArray<SexModel *>              * sexModel;
-@property (nonatomic , strong , readonly)  NSArray<DefaultLocaleModel *>          * defaultLocaleModel;
-@property (nonatomic , strong , readonly)  NSArray<MainCurrencyModel *>              * mainCurrencyModel;
-@property (nonatomic , strong , readonly)  NSArray<SecurityIssuesModel *>              * securityIssuesModel;
+@property (nonatomic , strong )  NSArray<Optional, SexModel >              * sex;
+@property (nonatomic , strong )  NSArray<Optional,DefaultLocaleModel>      * defaultLocaleModel;
+@property (nonatomic , strong )  NSArray<Optional,MainCurrencyModel >      * mainCurrencyModel;
+@property (nonatomic , strong )  NSArray<Optional,SecurityIssuesModel >    * securityIssuesModel;
 
 @end
 
+@class  ParamsModel;
 @interface RH_RegisetInitModel :JSONModel
 
-@property (nonatomic , strong , readonly) ParamsModel              * paramsModel;
-@property (nonatomic , strong , readonly) SignUpDataMapModel              * signUpDataMapModel;
-@property (nonatomic , strong , readonly) NSArray<NSString *>              * requiredJson;
-@property (nonatomic , strong , readonly) NSArray<FieldModel *>              * fieldModel;
-@property (nonatomic , assign , readonly) BOOL              isPhone;
-@property (nonatomic , assign , readonly) BOOL              isRequiredForRegisterCode;
-@property (nonatomic , assign , readonly) BOOL              isEmail;
-@property (nonatomic , strong , readonly) SelectOptionModel              * selectOptionModel;
-@property (nonatomic , assign , readonly) BOOL              registCodeField;
+@property (nonatomic , strong ) ParamsModel              * params;
+@property (nonatomic , strong ) SignUpDataMapModel              * signUpDataMap;
+@property (nonatomic , strong ) NSArray<Optional>              * requiredJson;
+@property (nonatomic , strong ) NSArray<Optional,FieldModel >              * field;
+@property (nonatomic , assign ) BOOL              isPhone;
+@property (nonatomic , assign ) BOOL              isRequiredForRegisterCode;
+@property (nonatomic , assign ) BOOL              isEmail;
+@property (nonatomic , strong ) SelectOptionModel              * selectOption;
+@property (nonatomic , assign ) BOOL              registCodeField;
 
 @end

@@ -38,31 +38,31 @@
     
     keyboardManager.placeholderFont = [UIFont boldSystemFontOfSize:15]; // 设置占位文字的字体
     
-    keyboardManager.keyboardDistanceFromTextField = 8.0f; // 输入框距离键盘的距离
+    keyboardManager.keyboardDistanceFromTextField = 0.0f; // 输入框距离键盘的距离
     
 }
 
 #pragma mark----
 -(void)updateLoginStatus:(BOOL)loginStatus
 {
-  /*  if ([SITE_TYPE isEqualToString:@"integratedv3"] || [SITE_TYPE isEqualToString:@"integratedv3oc"]){
+   if (loginStatus){
         if (_isLogin !=loginStatus){
             NSLog(@"updateLoginStatus :%d",loginStatus);
             _isLogin = loginStatus;
             
             if (!_isLogin){
-                [[RH_UserInfoManager shareUserManager] setUserSafetyInfo:nil];
-                [[RH_UserInfoManager shareUserManager] setMineSettingInfo:nil];
-                [[RH_UserInfoManager shareUserManager] setUserWithDrawInfo:nil];
+//                [[RH_UserInfoManager shareUserManager] setUserSafetyInfo:nil];
+//                [[RH_UserInfoManager shareUserManager] setMineSettingInfo:nil];
+//                [[RH_UserInfoManager shareUserManager] setUserWithDrawInfo:nil];
             }
-            [[NSNotificationCenter defaultCenter] postNotificationName:NT_LoginStatusChangedNotification object:nil];
+//            [[NSNotificationCenter defaultCenter] postNotificationName:NT_LoginStatusChangedNotification object:nil];
         }
     }else{
         NSLog(@"updateLoginStatus :%d",loginStatus);
         _isLogin = loginStatus;
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:NT_LoginStatusChangedNotification object:nil];
-    }*/
+//        [[NSNotificationCenter defaultCenter] postNotificationName:NT_LoginStatusChangedNotification object:nil];
+    }
 }
 
 -(void)updateApiDomain:(NSString*)apiDomain

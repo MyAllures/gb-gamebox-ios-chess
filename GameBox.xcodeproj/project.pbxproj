@@ -124,9 +124,11 @@
 		DA21F37C20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F37B20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m */; };
 		DA21F37F20F58F9000D20672 /* SH_RegistView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F37E20F58F9000D20672 /* SH_RegistView.m */; };
 		DA21F38520F5901900D20672 /* RH_Registration.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA21F38020F5901900D20672 /* RH_Registration.plist */; };
-		DA21F38620F5901900D20672 /* RH_RegistrationViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F38220F5901900D20672 /* RH_RegistrationViewItem.m */; };
-		DA21F38720F5901900D20672 /* RH_RegistrationSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F38320F5901900D20672 /* RH_RegistrationSelectView.m */; };
 		DA21F38D20F590A800D20672 /* RH_RegisetInitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F38B20F590A800D20672 /* RH_RegisetInitModel.m */; };
+		DA21F39020F6069600D20672 /* UIView+FrameSize.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F38F20F6069600D20672 /* UIView+FrameSize.m */; };
+		DA21F3AE20F6FCD000D20672 /* RH_RegistrationViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F3AB20F6FCD000D20672 /* RH_RegistrationViewItem.m */; };
+		DA21F3AF20F6FCD000D20672 /* RH_RegistrationSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F3AD20F6FCD000D20672 /* RH_RegistrationSelectView.m */; };
+		DA21F3B220F742B700D20672 /* NSDate+CLCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F3B120F742B700D20672 /* NSDate+CLCategory.m */; };
 		DA22F34120F43ABC0058A54F /* SH_LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA22F34020F43ABC0058A54F /* SH_LoginView.m */; };
 		DA22F34320F43AD00058A54F /* SH_LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA22F34220F43AD00058A54F /* SH_LoginView.xib */; };
 		DA22F3B420F448ED0058A54F /* RH_UserInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA22F3B220F448ED0058A54F /* RH_UserInfoManager.m */; };
@@ -362,12 +364,16 @@
 		DA21F37D20F58F9000D20672 /* SH_RegistView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_RegistView.h; sourceTree = "<group>"; };
 		DA21F37E20F58F9000D20672 /* SH_RegistView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_RegistView.m; sourceTree = "<group>"; };
 		DA21F38020F5901900D20672 /* RH_Registration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RH_Registration.plist; sourceTree = "<group>"; };
-		DA21F38120F5901900D20672 /* RH_RegistrationViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RH_RegistrationViewItem.h; sourceTree = "<group>"; };
-		DA21F38220F5901900D20672 /* RH_RegistrationViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RH_RegistrationViewItem.m; sourceTree = "<group>"; };
-		DA21F38320F5901900D20672 /* RH_RegistrationSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RH_RegistrationSelectView.m; sourceTree = "<group>"; };
-		DA21F38420F5901900D20672 /* RH_RegistrationSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RH_RegistrationSelectView.h; sourceTree = "<group>"; };
 		DA21F38B20F590A800D20672 /* RH_RegisetInitModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RH_RegisetInitModel.m; sourceTree = "<group>"; };
 		DA21F38C20F590A800D20672 /* RH_RegisetInitModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RH_RegisetInitModel.h; sourceTree = "<group>"; };
+		DA21F38E20F6069600D20672 /* UIView+FrameSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FrameSize.h"; sourceTree = "<group>"; };
+		DA21F38F20F6069600D20672 /* UIView+FrameSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FrameSize.m"; sourceTree = "<group>"; };
+		DA21F3AA20F6FCD000D20672 /* RH_RegistrationViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RH_RegistrationViewItem.h; sourceTree = "<group>"; };
+		DA21F3AB20F6FCD000D20672 /* RH_RegistrationViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RH_RegistrationViewItem.m; sourceTree = "<group>"; };
+		DA21F3AC20F6FCD000D20672 /* RH_RegistrationSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RH_RegistrationSelectView.h; sourceTree = "<group>"; };
+		DA21F3AD20F6FCD000D20672 /* RH_RegistrationSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RH_RegistrationSelectView.m; sourceTree = "<group>"; };
+		DA21F3B020F742B600D20672 /* NSDate+CLCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+CLCategory.h"; sourceTree = "<group>"; };
+		DA21F3B120F742B700D20672 /* NSDate+CLCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+CLCategory.m"; sourceTree = "<group>"; };
 		DA22F33F20F43ABC0058A54F /* SH_LoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_LoginView.h; sourceTree = "<group>"; };
 		DA22F34020F43ABC0058A54F /* SH_LoginView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_LoginView.m; sourceTree = "<group>"; };
 		DA22F34220F43AD00058A54F /* SH_LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_LoginView.xib; sourceTree = "<group>"; };
@@ -886,6 +892,10 @@
 		BFFC846A20F344C8008AD801 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				DA21F3B020F742B600D20672 /* NSDate+CLCategory.h */,
+				DA21F3B120F742B700D20672 /* NSDate+CLCategory.m */,
+				DA21F38E20F6069600D20672 /* UIView+FrameSize.h */,
+				DA21F38F20F6069600D20672 /* UIView+FrameSize.m */,
 				DA22F40120F494C50058A54F /* NSDictionary+CLCategory.h */,
 				DA22F40620F494C60058A54F /* NSDictionary+CLCategory.m */,
 				DA22F40020F494C50058A54F /* ScreenAdaptation.h */,
@@ -950,11 +960,11 @@
 		DA22F33E20F43AA10058A54F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DA21F3AC20F6FCD000D20672 /* RH_RegistrationSelectView.h */,
+				DA21F3AD20F6FCD000D20672 /* RH_RegistrationSelectView.m */,
+				DA21F3AA20F6FCD000D20672 /* RH_RegistrationViewItem.h */,
+				DA21F3AB20F6FCD000D20672 /* RH_RegistrationViewItem.m */,
 				DA21F38020F5901900D20672 /* RH_Registration.plist */,
-				DA21F38420F5901900D20672 /* RH_RegistrationSelectView.h */,
-				DA21F38320F5901900D20672 /* RH_RegistrationSelectView.m */,
-				DA21F38120F5901900D20672 /* RH_RegistrationViewItem.h */,
-				DA21F38220F5901900D20672 /* RH_RegistrationViewItem.m */,
 				DA22F33F20F43ABC0058A54F /* SH_LoginView.h */,
 				DA22F34020F43ABC0058A54F /* SH_LoginView.m */,
 				DA22F34220F43AD00058A54F /* SH_LoginView.xib */,
@@ -1185,6 +1195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2248B0D220F58F5A0077EF58 /* SH_PromoListView.m in Sources */,
+				DA21F3AF20F6FCD000D20672 /* RH_RegistrationSelectView.m in Sources */,
 				DA22F3C420F44DA80058A54F /* CLPathManager.m in Sources */,
 				DA21F38D20F590A800D20672 /* RH_RegisetInitModel.m in Sources */,
 				BF44ECB020F495C400BC6EF3 /* PGDatePicker+DateHour.m in Sources */,
@@ -1236,11 +1247,12 @@
 				BFFC847220F3452A008AD801 /* NSLayoutConstraint+RH_IBDesignable.m in Sources */,
 				BF44ECA120F495C400BC6EF3 /* PGDatePicker.m in Sources */,
 				BF44EC4D20F44BA300BC6EF3 /* SH_BitCoinViewController.m in Sources */,
+				DA21F3B220F742B700D20672 /* NSDate+CLCategory.m in Sources */,
+				DA21F39020F6069600D20672 /* UIView+FrameSize.m in Sources */,
 				BF44ECA620F495C400BC6EF3 /* PGPickerView.m in Sources */,
 				DA22F3DB20F455FA0058A54F /* UIImage+Orientation.m in Sources */,
 				BF44ECA920F495C400BC6EF3 /* NSCalendar+PGCurrent.m in Sources */,
 				DA22F3B820F44A130058A54F /* RH_UserSafetyCodeModel.m in Sources */,
-				DA21F38620F5901900D20672 /* RH_RegistrationViewItem.m in Sources */,
 				BF44ECAF20F495C400BC6EF3 /* NSDate+PGCategory.m in Sources */,
 				BFFC845220F2F253008AD801 /* SH_RechargeCenterViewController.m in Sources */,
 				5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */,
@@ -1278,10 +1290,10 @@
 				5401C55320ECA1B80027246D /* SH_NetWorkService.m in Sources */,
 				DA22F3E120F4562B0058A54F /* UIImage+Alpha.m in Sources */,
 				DA22F3C320F44DA80058A54F /* CLDocumentCachePool.m in Sources */,
-				DA21F38720F5901900D20672 /* RH_RegistrationSelectView.m in Sources */,
 				BF44ECBB20F4B36000BC6EF3 /* SH_RechargeDetailViewController.m in Sources */,
 				BFFC847120F3452A008AD801 /* UIButton+Category.m in Sources */,
 				BF44ECB220F495C400BC6EF3 /* PGDatePicker+TimeAndSecond.m in Sources */,
+				DA21F3AE20F6FCD000D20672 /* RH_RegistrationViewItem.m in Sources */,
 				DA22F3E520F4597E0058A54F /* RH_WebsocketManagar.m in Sources */,
 				DA22F3C520F44DA80058A54F /* CLBasicFileCachePool.m in Sources */,
 				54C8758320F3562700AA0594 /* SH_InfoCenterTabView.m in Sources */,
