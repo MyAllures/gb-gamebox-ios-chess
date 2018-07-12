@@ -584,9 +584,10 @@
 
     imageView_VerifyCode.backgroundColor = [UIColor orangeColor];
     [SH_NetWorkService fetchV3RegisetCaptchaCode:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        
+        NSData * data = ConvertToClassPointer(NSData, response);
+         self->imageView_VerifyCode.image = [UIImage  imageWithData:data];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
+//        showErrorMessage(<#UIView *view#>, <#NSError *error#>, <#NSString *titleText#>)
     }];
     imageView_VerifyCode.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(changeImageView_VerfyCode)];
