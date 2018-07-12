@@ -69,14 +69,19 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoViewCell" owner:nil options:nil] lastObject];
     }
     SH_PromoListModel *model = self.promoListArr[indexPath.row];
-    
-    [cell.bgImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",[NetWorkLineMangaer sharedManager].currentHost,model.photo]]];
+    [cell.bgImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://%@%@",[NetWorkLineMangaer sharedManager].currentHost,model.photo]]];
+    //    [cell.bgImageView sd_setImageWithURL:[NSURL URLWithString:model.photo]
+    //                                   completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+    //                                       if (image){
+    //                                           [self.discountActivityModel updateImageSize:image.size] ;
+    //                                       }
+    //                                   }] ;
     NSLog(@"model.photo==%@",[NSString stringWithFormat:@"https://%@%@",[NetWorkLineMangaer sharedManager].currentHost,model.photo]);
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 100;
+    return 250;
 }
 
 #pragma mark - UITableViewDelegate M

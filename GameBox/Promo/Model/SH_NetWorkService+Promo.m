@@ -9,7 +9,7 @@
 #import "SH_NetWorkService+Promo.h"
 
 @implementation SH_NetWorkService_Promo
-
+#pragma 获取优惠主界面列表
 + (void)getPromoList:(NSInteger )pageNumber pageSize:(NSInteger )pageSize activityClassifyKey:(NSString *)activityClassifyKey complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
 {
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/discountsOrigin/getActivityTypeList.html"];
