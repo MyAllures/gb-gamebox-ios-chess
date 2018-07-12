@@ -8,9 +8,14 @@
 
 #import "SH_BitCoinViewController.h"
 #import "SH_BitCoinView.h"
-
-@interface SH_BitCoinViewController ()
-
+#import "SH_NetWorkService+BitCoin.h"
+#import "SH_PreferentialPopView.h"
+#import "SH_BitCoinSuccessView.h"
+@interface SH_BitCoinViewController ()<SH_BitCoinViewDelegate,SH_PreferentialPopViewDelegate>
+@property(nonatomic,copy)NSString *num;//比特币数量
+@property(nonatomic,copy)NSString *date;//交易时间
+@property(nonatomic,copy)NSString *address;//比特币地址
+@property(nonatomic,copy)NSString *txid;
 @end
 
 @implementation SH_BitCoinViewController
@@ -21,19 +26,49 @@
     [self configUI];
 }
 -(void)configUI{
-    UIScrollView *bgScrollView = [[UIScrollView alloc]init];
-    bgScrollView.contentSize = CGSizeZero;
-    [self.view addSubview:bgScrollView];
-    [bgScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.bottom.right.equalTo(self.view);
-        make.top.equalTo(self.view).offset(NavigationBarHeight);
-    }];
     SH_BitCoinView *bitCoinView = [[SH_BitCoinView alloc]init];
-    [bgScrollView addSubview:bitCoinView];
+    bitCoinView.delegate = self;
+    [self.bgScrollView addSubview:bitCoinView];
     bitCoinView.targetVC = self;
     [bitCoinView mas_makeConstraints:^(MASConstraintMaker *make) {
-       make.top.left.bottom.right.equalTo(bgScrollView);
+       make.top.left.bottom.right.equalTo(self.bgScrollView);
         make.width.mas_equalTo(SCREEN_WIDTH);
+    }];
+    [bitCoinView updateUIWithChannelModel:self.channelModel];
+    
+}
+#pragma mark--
+#pragma mark--bitCoinView代理
+- (void)SH_BitCoinViewAdress:(NSString *)address Txid:(NSString *)txid BitCoinNum:(NSString *)num date:(NSString *)date{
+    self.address = address;
+    self.txid = txid;
+    self.num = num;
+    self.date = date;
+    //输入的地址 txid等
+    //请求优惠接口
+    [SH_NetWorkService getSaleWithCoinNum:num Payway:self.channelModel.depositWay Txid:txid PayAccountId:self.channelModel.searchId Complete:^(SH_BitCoinSaleModel *model) {
+        SH_PreferentialPopView *popView = [[SH_PreferentialPopView alloc]initWithFrame:CGRectMake(0, 0, screenSize().width, screenSize().height)];
+        popView.delegate  =  self;
+        [popView popViewShow];
+        [popView updateUIWithSaleModel:model];
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        
+    }];
+}
+#pragma mark--
+#pragma mark-- popView马上付款按钮
+- (void)popViewSelectedActivityId:(NSString *)activityId{
+    [SH_NetWorkService bitCoinPayWithRechargeType:self.channelModel.rechargeType PayAccountId:self.channelModel.searchId ActivityId:activityId ReturnTime:self.date Adrress:self.address BitCoinNum:self.num Txid:self.txid Complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (response) {
+            SH_BitCoinSuccessView *popView = [[SH_BitCoinSuccessView alloc]initWithFrame:CGRectMake(0, 0, screenSize().width, screenSize().height)];
+            popView.targetVC = self;
+            [popView popViewShow];
+        }else
+        {
+            showMessage(self.view, @"存款失败", nil);
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        
     }];
 }
 - (void)didReceiveMemoryWarning {

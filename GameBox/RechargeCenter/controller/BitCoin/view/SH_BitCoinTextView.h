@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 @protocol SH_BitCoinTextViewDelegate<NSObject>
 -(void)SH_BitCoinTextViewChooseDateBtnClick;
+-(void)SH_BitCoinTextViewSubmitBtnClickWithAdress:(NSString *)address Txid:(NSString *)txid BitCoinNum:(NSString *)num date:(NSString *)date;
 @end
 @interface SH_BitCoinTextView : UIView
 @property(nonatomic,weak)id<SH_BitCoinTextViewDelegate>delegate;

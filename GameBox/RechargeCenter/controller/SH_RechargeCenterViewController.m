@@ -20,6 +20,8 @@
 #import "SH_RechargeCenterDataHandle.h" //处理cell选中状态
 #import "SH_BitCoinViewController.h"
 #import "SH_RechargeDetailViewController.h"
+#import "SH_RechargeBankDetailViewController.h"
+#import "SH_KuaiChongViewController.h"
 @interface SH_RechargeCenterViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,RH_RechargeCenterFooterViewDelegate>
 @property(nonatomic,strong)UICollectionView *mainCollectionView;
 @property(nonatomic,strong)NSMutableArray *dataArray;
@@ -28,6 +30,8 @@
 @property(nonatomic,strong)NSMutableArray *selectedStatusArray;
 @property(nonatomic,strong)NSMutableDictionary *platformDic;//记录当前选中哪个平台
 @property(nonatomic,copy)NSString *number;//选中金额
+@property(nonatomic,strong)SH_RechargeCenterPlatformModel *platformModel;//记录当前选中哪一个平台，方便传值
+@property(nonatomic,strong)SH_RechargeCenterChannelModel *channelModel;//选中付款方式后要把这个数据传到跳转的页面
 @end
 
 @implementation SH_RechargeCenterViewController
@@ -77,6 +81,7 @@
         NSArray *platforms= array;
         [weakSelf.dataArray addObject:platforms?platforms:[NSArray array]];
         if (platforms.count > 0) {
+            weakSelf.platformModel = platforms[0];
             //添加第一组cell选择状态
             NSMutableArray *sectionOneArray = [NSMutableArray array];
             for (int i = 0; i < platforms.count; i++) {
@@ -86,7 +91,7 @@
                     [sectionOneArray addObject:@"unSelected"];
                 }
             }
-            [self.selectedStatusArray addObject:sectionOneArray];
+            [weakSelf.selectedStatusArray addObject:sectionOneArray];
             SH_RechargeCenterPlatformModel *platformModel = platforms[0];
             //请求默认的第一个
             [weakSelf.platformDic setObject:platformModel.code forKey:@"code"] ;
@@ -96,8 +101,8 @@
                 NSArray *payways = paywayModel.arrayList;
                 NSArray *moneys = paywayModel.quickMoneys;
                 if (payways.count > 0) {
-                    SH_RechargeCenterChannelModel *channelModel = payways[0];
-                     [weakSelf.platformDic setObject:channelModel.type forKey:@"type"] ;
+                    weakSelf.channelModel = payways[0];
+                     [weakSelf.platformDic setObject:self.channelModel.type forKey:@"type"] ;
                 }
                 NSMutableArray *sectionTwoArray = [NSMutableArray array];
                 for (int i = 0; i < payways.count; i++) {
@@ -120,7 +125,7 @@
                 [weakSelf.selectedStatusArray addObject:sectionThreeArray];
                 [weakSelf.dataArray addObject:payways?payways:[NSArray array]];
                 [weakSelf.dataArray addObject:chooseMoneyArray?chooseMoneyArray:[NSArray array]];
-                [self.mainCollectionView reloadData];
+                [weakSelf.mainCollectionView reloadData];
             } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
                 
             }];
@@ -152,7 +157,13 @@
 #pragma mark--
 #pragma mark--collectionViewDelegate,datasource
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return self.dataArray.count;
+    if ([self.platformModel.name isEqualToString:@"快充中心"]||[self.platformModel.code isEqualToString:@"bitcoin"]) {
+        return 1;
+    }else{
+        
+        return self.dataArray.count;
+        
+    }
 }
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return [self.dataArray[section] count];
@@ -162,13 +173,50 @@
     if (indexPath.section == 0) {
         cellId = @"SH_DespositePlatformCollectionViewCell";
     }else if(indexPath.section == 1){
-        cellId = @"SH_DepositeWayCollectionViewCell";
-    }else{
+        //因为在线支付只会返回2组 所以要特殊处理
+        if ([self.channelModel.type isEqualToString:@"2"]&&[self.channelModel.accountType isEqualToString:@"2"]) {
+            cellId = @"SH_DespositeChooseMoneyCollectionViewCell";
+        }else{
+            cellId = @"SH_DepositeWayCollectionViewCell";
+        }
+       
+    }else if(indexPath.section == 2){
         cellId = @"SH_DespositeChooseMoneyCollectionViewCell";
     }
     SH_RechargeCenterBasicCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
     [cell updateUIWithContex:self.dataArray[indexPath.section][indexPath.row] Selected:self.selectedStatusArray[indexPath.section][indexPath.row]];
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    //处理cell选中状态
+    if (indexPath.section == 2) {
+            self.number = [NSString stringWithFormat:@"%@",self.dataArray[indexPath.section][indexPath.row][@"num"]];
+            [collectionView reloadData];
+
+    }else{
+        if (indexPath.section == 0) {
+            self.platformModel = self.dataArray[indexPath.section][indexPath.row];//选中哪一个平台就记录下来
+            if ([self.platformModel.name isEqualToString:@"快充中心"]) {
+                //这里用name判断是因为快充中心的code是一个路径 所以不能走下面的处理方法
+                SH_KuaiChongViewController *vc = [[SH_KuaiChongViewController alloc]init];
+                vc.platformModel = self.platformModel;
+                [self presentViewController:vc animated:YES completion:nil];
+            }
+        }
+          __weak typeof(self) weakSelf = self;
+        [SH_RechargeCenterDataHandle dealSelectedStatusWithSlectedArray:self.selectedStatusArray indexPath:indexPath DataArray:self.dataArray CollectionView:collectionView Platform:self.platformDic Block:^(SH_RechargeCenterChannelModel *model) {
+            weakSelf.channelModel = model;
+            if (indexPath.section == 0) {
+                if ([self.platformModel.code isEqualToString:@"bitcoin"]){
+                    SH_BitCoinViewController *bvc = [[SH_BitCoinViewController alloc]init];
+                    bvc.channelModel = weakSelf.channelModel;
+                    [weakSelf presentViewController:bvc animated:YES completion:nil];
+                }
+            }
+        }];
+    }
+   
 }
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
@@ -178,26 +226,15 @@
         return UIEdgeInsetsMake(0, 10, 20, 10);
     }
 }
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    //处理cell选中状态
-    if (indexPath.section == 2) {
-            self.number = [NSString stringWithFormat:@"%@",self.dataArray[indexPath.section][indexPath.row][@"num"]];
-            [collectionView reloadData];
-
-    }else{
-    [SH_RechargeCenterDataHandle dealSelectedStatusWithSlectedArray:self.selectedStatusArray indexPath:indexPath DataArray:self.dataArray CollectionView:collectionView Platform:self.platformDic Number:self.number];
-    }
-}
 //定义每个UICollectionView 的大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        NSLog(@"SCREEN_WIDTH == %f",SCREEN_WIDTH);
-        return CGSizeMake((MainScreenW - 6 * 10.0)/5.0, 70);
+        return CGSizeMake((screenSize().width - 6 * 10.0)/5.0, 70);
     }else if (indexPath.section == 1){
-        return CGSizeMake((MainScreenW - 3 * 15.0)/2.0, 40);
+        return CGSizeMake((screenSize().width - 3 * 15.0)/2.0, 40);
     }else{
-        return CGSizeMake((MainScreenW - 6 * 10.0)/5.0, (MainScreenW - 6 * 10)/5.0);
+        return CGSizeMake((screenSize().width - 6 * 11.0)/5.0, (screenSize().width - 6 * 10)/5.0);
     }
 }
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
@@ -237,7 +274,7 @@
 #pragma mark--
 #pragma mark--footerView delegate
 - (void)RH_RechargeCenterFooterViewSubmitBtnClick{
-    [self presentViewController:[[SH_RechargeDetailViewController alloc]init] animated:YES completion:nil];
+    [self presentViewController:[[SH_RechargeBankDetailViewController alloc]init] animated:YES completion:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
