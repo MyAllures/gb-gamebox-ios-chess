@@ -9,7 +9,7 @@
 #import "NSDate+PGCategory.h"
 #import "UIColor+PGHex.h"
 #import "NSCalendar+PGCurrent.h"
-#import "PGPickerView.h"
+#import <PGPickerView/PGPickerView.h>
 
 typedef NS_ENUM(NSInteger, PGDatePickerMode) {
     PGDatePickerModeYear, //年
@@ -18,6 +18,10 @@ typedef NS_ENUM(NSInteger, PGDatePickerMode) {
     PGDatePickerModeDateHour, //年月日时
     PGDatePickerModeDateHourMinute, //年月日时分
     PGDatePickerModeDateHourMinuteSecond, //年月日时分秒
+    PGDatePickerModeMonthDay, //月日
+    PGDatePickerModeMonthDayHour, //月日时
+    PGDatePickerModeMonthDayHourMinute, //月日时分
+    PGDatePickerModeMonthDayHourMinuteSecond, //月日时分秒
     PGDatePickerModeTime, //时分
     PGDatePickerModeTimeAndSecond, //时分秒
     PGDatePickerModeMinuteAndSecond, //分秒

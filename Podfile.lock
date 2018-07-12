@@ -14,11 +14,14 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - IQKeyboardManager (6.0.4)
+  - IQKeyboardManager (6.0.3)
   - JSONModel (1.7.0)
   - Masonry (1.1.0)
   - MBProgressHUD (1.1.0)
   - MJRefresh (3.1.15.3)
+  - PGDatePicker (2.4.5):
+    - PGPickerView
+  - PGPickerView (1.2.6)
   - Reachability (3.2)
   - SAMKeychain (1.5.3)
   - SDWebImage (4.4.1):
@@ -29,11 +32,12 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
-  - IQKeyboardManager (~> 6.0.4)
+  - IQKeyboardManager
   - JSONModel
   - Masonry
   - MBProgressHUD (~> 1.1.0)
   - MJRefresh
+  - PGDatePicker
   - Reachability (~> 3.2)
   - SAMKeychain (~> 1.5.3)
   - SDWebImage (~> 4.0)
@@ -48,6 +52,8 @@ SPEC REPOS:
     - Masonry
     - MBProgressHUD
     - MJRefresh
+    - PGDatePicker
+    - PGPickerView
     - Reachability
     - SAMKeychain
     - SDWebImage
@@ -56,17 +62,19 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  IQKeyboardManager: 29514134ef0334a6fa33cf4eee11c36c064baeaf
+  IQKeyboardManager: c390e612f4b98c8fd748016470138537dc163ead
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
+  PGDatePicker: 37fb49a78d0dad9e0c55dc20f1d0242dbae20ade
+  PGPickerView: 8fbbf63d0404065a43a495a0115d339455e0f819
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
   SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
   WebViewJavascriptBridge: 7f5bc4d3581e672e8f32bd0f812d54bc69bb8e29
 
-PODFILE CHECKSUM: b07c6a5da18f97c456709f7da65188ec6e6cf188
+PODFILE CHECKSUM: cea2c6a3323aff485f3304eea0e18a104112acbe
 
 COCOAPODS: 1.5.3
