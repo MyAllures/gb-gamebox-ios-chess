@@ -14,8 +14,7 @@
 #import "AppDelegate.h"
 #import "PGDatePicker.h"
 #import "PGDatePickManager.h"
-
-@interface SH_GameAnnouncementView ()<UITableViewDataSource, UITableViewDelegate, PGDatePickerDelegate>
+@interface SH_GameAnnouncementView ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *view1;
 @property (weak, nonatomic) IBOutlet UIView *view2;
 @property (weak, nonatomic) IBOutlet UIView *view3;
@@ -23,30 +22,35 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) NSMutableArray *gameAnnouncementArr;
+@property (weak, nonatomic) IBOutlet UIButton *startTimeBtn;
+@property (weak, nonatomic) IBOutlet UIButton *endTimeBtn;
 
 @end
 
 @implementation SH_GameAnnouncementView
 
 - (IBAction)startTimeAction:(id)sender {
-    PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
-    datePickManager.style = PGDatePickManagerStyle1;
-    datePickManager.isShadeBackgroud = true;
-    
-    PGDatePicker *datePicker = datePickManager.datePicker;
-    datePicker.isHiddenMiddleText = false;
-    datePicker.delegate = self;
-    datePicker.datePickerType = PGPickerViewType3;
-    datePicker.datePickerMode = PGDatePickerModeDate;
-//    [self presentViewController:datePickManager animated:false completion:nil];
-    [[UIApplication sharedApplication].keyWindow addSubview:datePickManager.view];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"seleteDate" object:nil];
+}
+- (IBAction)endTimeAction:(id)sender {
+    NSDictionary *dict = [[NSDictionary alloc]initWithObjectsAndKeys:@"end",@"isEnd", nil];
+    NSNotification *notification = [NSNotification notificationWithName:@"seleteEndTime" object:nil userInfo:dict];
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
 }
 
+-(void)changedDate:(NSNotification *)nt {
+    [self.startTimeBtn setTitle:nt.userInfo[@"date"] forState:UIControlStateNormal];
+}
+
+-(void)seletedEndDate:(NSNotification *)nt {
+    [self.endTimeBtn setTitle:nt.userInfo[@"date"] forState:UIControlStateNormal];
+}
 
 -(void)awakeFromNib {
     [super awakeFromNib];
-    
-    self.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changedDate:) name:@"seletedDate" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(seletedEndDate:) name:@"seletedEndDate" object:nil];
+//    self.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1];
 //    self.tableView.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
     self.gameAnnouncementArr = [NSMutableArray array];
     AppDelegate *appdelegate=(AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -122,9 +126,8 @@
     
 }
 
-#pragma mark - PGDatePickerDelegate M
-- (void)datePicker:(PGDatePicker *)datePicker didSelectDate:(NSDateComponents *)dateComponents {
-    NSLog(@"dateComponents = %@", dateComponents);
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"seletedDate" object:nil];
 }
 
 @end

@@ -124,7 +124,7 @@
 - (IBAction)rechargeClick:(id)sender {    
     [self presentViewController:[[SH_RechargeCenterViewController alloc]init] animated:YES completion:nil];
 }
-#pragma 优惠
+#pragma mark 优惠
 - (IBAction)activitiesClick:(id)sender {
     SH_PromoContentView *promoContentView = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoContentView" owner:nil options:nil] lastObject];
     AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:promoContentView viewHeight:[UIScreen mainScreen].bounds.size.height-60 viewWidth:[UIScreen mainScreen].bounds.size.width-160];
