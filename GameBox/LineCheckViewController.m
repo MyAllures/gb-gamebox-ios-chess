@@ -30,7 +30,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     __weak typeof(self) weakSelf = self;
-
+    
     //先检查缓存的ips是否还有效
     BOOL isIPsValid = [[IPsCacheManager sharedManager] isIPsValid];
     if (isIPsValid) {
@@ -45,25 +45,8 @@
     }
     else
     {
-        //第一步
-        NSLog(@"第一步：从DNS获取bossAPI");
-        [SH_NetWorkService fetchBossAPIFromDNSGroup:^(NSString *dns, BOOL success) {
-            NSLog(@">>>%@检测结果:%i",dns,success);
-            weakSelf.progress += 0.1;
-            weakSelf.lineCheckStatus = @"正在匹配服务器，请稍后...";
-        } complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-            NSLog(@"检测完毕:%@",response);
-            //第二步
-            NSLog(@"第二步：从bossAPI获取IPS");
-            NSString *host = [response objectForKey:@"host"];
-            NSArray *ips = [response objectForKey:@"ips"];
-            NSMutableArray *bossApiArr = [NSMutableArray array];
-            for (NSString *bossApi in ips) {
-                NSString *url = [NSString stringWithFormat:@"https://%@:1344/boss-api",bossApi];
-                [bossApiArr addObject:url];
-            }
-            
-            [SH_NetWorkService fetchIPSFromBossAPIGroup:bossApiArr host:host oneTurn:^(NSString *bossapi, BOOL success) {
+        if ([SID isEqualToString:@"21"]) {
+            [SH_NetWorkService fetchIPSFromBossAPIGroup:@[@"http://boss-api-test.gbboss.com/boss-api"] host:@"" oneTurn:^(NSString *bossapi, BOOL success) {
                 NSLog(@">>>%@检测结果:%i",bossapi,success);
                 weakSelf.progress += 0.1;
                 weakSelf.lineCheckStatus = @"正在匹配服务器，请稍后...";
@@ -80,9 +63,49 @@
             } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
                 NSLog(@"检测失败:%@",err);
             }];
-        } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
-            NSLog(@"检测失败:%@",err);
-        }];
+
+        }
+        else
+        {
+            //第一步
+            NSLog(@"第一步：从DNS获取bossAPI");
+            [SH_NetWorkService fetchBossAPIFromDNSGroup:^(NSString *dns, BOOL success) {
+                NSLog(@">>>%@检测结果:%i",dns,success);
+                weakSelf.progress += 0.1;
+                weakSelf.lineCheckStatus = @"正在匹配服务器，请稍后...";
+            } complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+                NSLog(@"检测完毕:%@",response);
+                //第二步
+                NSLog(@"第二步：从bossAPI获取IPS");
+                NSString *host = [response objectForKey:@"host"];
+                NSArray *ips = [response objectForKey:@"ips"];
+                NSMutableArray *bossApiArr = [NSMutableArray array];
+                for (NSString *bossApi in ips) {
+                    NSString *url = [NSString stringWithFormat:@"https://%@:1344/boss-api",bossApi];
+                    [bossApiArr addObject:url];
+                }
+                
+                [SH_NetWorkService fetchIPSFromBossAPIGroup:bossApiArr host:host oneTurn:^(NSString *bossapi, BOOL success) {
+                    NSLog(@">>>%@检测结果:%i",bossapi,success);
+                    weakSelf.progress += 0.1;
+                    weakSelf.lineCheckStatus = @"正在匹配服务器，请稍后...";
+                } complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+                    NSLog(@"检测完毕:%@",response);
+                    
+                    NSLog(@"第三步：check-ip");
+                    [weakSelf checkIPS:response complete:^(NSDictionary *ips) {
+                        //check成功 更新缓存
+                        [[IPsCacheManager sharedManager] updateIPsList:ips];
+                    } failed:^{
+                        //
+                    }];
+                } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
+                    NSLog(@"检测失败:%@",err);
+                }];
+            } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
+                NSLog(@"检测失败:%@",err);
+            }];
+        }
     }
 }
 
