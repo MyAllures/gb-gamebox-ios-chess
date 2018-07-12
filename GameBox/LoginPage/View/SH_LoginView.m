@@ -219,7 +219,6 @@
     AppDelegate * appDelegate =(AppDelegate*)[UIApplication  sharedApplication].delegate;
     UIWindow  * window = [UIApplication  sharedApplication].keyWindow;
     
-    [appDelegate updateLoginStatus:YES] ;
     
     [[RH_UserInfoManager shareUserManager] updateLoginInfoWithUserName:self.account_textField.text
                                                              LoginTime:dateStringWithFormatter([NSDate date], @"yyyy-MM-dd HH:mm:ss")] ;
@@ -234,7 +233,7 @@
         showMessage(window, @"登录成功", nil);
         
         //登录成功后测试websocket
-        [[RH_WebsocketManagar instance] SRWebSocketOpenWithURLString:appDelegate.domain];
+        [[RH_WebsocketManagar instance] SRWebSocketOpenWithURLString:[NetWorkLineMangaer sharedManager].currentHost];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SRWebSocketDidOpen) name:kWebSocketDidOpenNote object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SRWebSocketDidReceiveMsg:) name:kWebSocketdidReceiveMessageNote object:nil];
@@ -277,7 +276,6 @@
             showMessage(window, [[result objectForKey:@"propMessages"] objectForKey:@"captcha"], nil);
         }
     }
-    [appDelegate updateLoginStatus:NO] ;
 }
 
 #pragma mark -- getter  method
