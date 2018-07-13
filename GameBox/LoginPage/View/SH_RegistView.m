@@ -17,6 +17,7 @@
 {
     RH_RegisetInitModel *registrationInitModel;
     BOOL isAgreedServiceTerm;
+    NSInteger animate_Item_Index;
 }
 
 @property(nonatomic,strong)UIScrollView * scrollview;
@@ -36,6 +37,7 @@
     if (self = [super init]) {
         [self startV3RegisetInit];
         isAgreedServiceTerm = YES;
+         animate_Item_Index = 1;
     }
     return  self;
 }
@@ -233,7 +235,20 @@
     }];
     [self layoutIfNeeded];
     self.scrollview.contentSize = CGSizeMake(self.frameWidth, temp.count*50+150);
-    [self setupBottomView];
+    [self startAnimate];
+}
+- (void)startAnimate {
+    if (animate_Item_Index < self.stackView.subviews.count + 1) {
+        RH_RegistrationViewItem *item = (RH_RegistrationViewItem *)self.stackView.subviews[animate_Item_Index - 1];
+        [UIView animateWithDuration:0.2 animations:^{
+            item.transform = CGAffineTransformIdentity;
+        } completion:^(BOOL finished) {
+            self->animate_Item_Index++;
+            [self startAnimate];
+        }];
+    }else {
+        [self setupBottomView];
+    }
 }
 
 - (void)setupBottomView {

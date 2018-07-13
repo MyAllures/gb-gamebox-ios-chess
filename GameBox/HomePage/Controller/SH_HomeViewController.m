@@ -16,7 +16,6 @@
 #import "SH_RechargeCenterViewController.h"
 #import "View+MASAdditions.h"
 #import "SH_CycleScrollView.h"
-#import "LoginViewController.h"
 #import "SH_PlayerCenterView.h"
 #import "SH_WelfareView.h"
 #import "AlertViewController.h"
@@ -127,6 +126,9 @@
     AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:260 viewWidth:494];
     login.dismissBlock = ^{
         [cvc  close];
+    };
+    login.changeChannelBlock = ^(NSString *string) {
+        [cvc  setSubTitle:string];
     };
     cvc.title = @"测试";
     cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;

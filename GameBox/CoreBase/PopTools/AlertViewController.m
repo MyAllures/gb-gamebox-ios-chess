@@ -136,7 +136,10 @@
         [[NSNotificationCenter defaultCenter] postNotification:notification];
     }
 }
-
+-(void)setSubTitle:(NSString *)subTitle{
+    self.subTitle = subTitle;
+    self.title = subTitle;
+}
 -(void)dealloc{
     NSLog(@"clean .......");
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"seleteDate" object:nil];

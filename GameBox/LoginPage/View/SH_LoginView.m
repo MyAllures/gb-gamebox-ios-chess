@@ -126,6 +126,9 @@
             [sender setBackgroundImage:[UIImage imageNamed:@"login_button_click"] forState:UIControlStateNormal];
             UIButton  * btn  = [self  viewWithTag:101];
             [btn setBackgroundImage:[UIImage imageNamed:@"login_button"] forState:UIControlStateNormal];
+            if (self.changeChannelBlock) {
+                self.changeChannelBlock(@"登录");
+            }
             break;
         }
         case 1:{
@@ -137,6 +140,9 @@
             [sender setBackgroundImage:[UIImage imageNamed:@"login_button_click"] forState:UIControlStateNormal];
             UIButton  * btn  = [self  viewWithTag:100];
             [btn setBackgroundImage:[UIImage imageNamed:@"login_button"] forState:UIControlStateNormal];
+            if (self.changeChannelBlock) {
+                self.changeChannelBlock(@"注册");
+            }
             break;
         }
         case 2:{
