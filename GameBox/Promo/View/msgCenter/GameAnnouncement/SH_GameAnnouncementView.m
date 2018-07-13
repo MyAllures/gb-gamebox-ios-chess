@@ -47,7 +47,7 @@
         NSString *endTime = [self getCurrentTimes];
         NSLog(@"startTime==%@",startTime);
         NSLog(@"endTime==%@",[self getCurrentTimes]);
-        [SH_NetWorkService_Promo startLoadGameNoticeStartTime:startTime endTime:endTime pageNumber:1 pageSize:50 apiId:-1 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        [SH_NetWorkService_Promo startLoadGameNoticeStartTime:startTime endTime:endTime pageNumber:0 pageSize:50 apiId:-1 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *dic = (NSDictionary *)response;
             NSLog(@"dic===%@",dic);
             for (NSDictionary *dict in dic[@"data"][@"list"]) {
