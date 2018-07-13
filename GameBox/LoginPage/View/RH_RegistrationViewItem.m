@@ -71,7 +71,7 @@
         textField.textColor = [UIColor  whiteColor];
         textField.delegate = self;
         textField.backgroundColor = [UIColor  colorWithHexStr:@"0x232B6A"];
-      
+        
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeImageView_VerfyCode1) name:@"changeImageView_VerfyCode" object:nil];
         
@@ -193,6 +193,10 @@
                 label_Title.text = @"回答安全问题⭐️";
                 textField.placeholder = @"请输入回答";break ;
             }
+            if (textField.placeholder.length >0) {
+                UIColor *color = [UIColor whiteColor];
+                textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:textField.placeholder attributes:@{NSForegroundColorAttributeName: color,NSFontAttributeName:[UIFont  systemFontOfSize:12]}];
+            }
         }
         
     }
@@ -287,8 +291,11 @@
         label_Title.text = @"回答安全问题";
         textField.placeholder = @"请输入回答";
     }
-    UIColor *color = [UIColor whiteColor];
-    textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:textField.placeholder attributes:@{NSForegroundColorAttributeName: color,NSFontAttributeName:[UIFont  systemFontOfSize:12]}];
+    if (textField.placeholder.length >0) {
+        UIColor *color = [UIColor whiteColor];
+        textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:textField.placeholder attributes:@{NSForegroundColorAttributeName: color,NSFontAttributeName:[UIFont  systemFontOfSize:12]}];
+    }
+    
 }
 
 - (void)setTimeZone:(NSString *)zone {
@@ -343,7 +350,7 @@
         make.height.mas_equalTo(20);
     }];
 
-    [button setImage:ImageWithName(@"down") forState:UIControlStateNormal];
+    [button setImage:ImageWithName(@"arrow") forState:UIControlStateNormal];
     [button addTarget:self action:@selector(sexSelectDidTap) forControlEvents:UIControlEventTouchUpInside];
 }
 
@@ -354,11 +361,9 @@
         [selectView setSelectViewType:@""];
         [selectView setColumNumbers:1];
         [selectView setDataList:sexModel];
-//        selectView.frame = CGRectMake(0, MainScreenH, MainScreenW, 200);
           selectView.frame = CGRectMake(0, MainScreenH, MainScreenW, MainScreenH);
         [self.window addSubview:selectView];
         [UIView animateWithDuration:0.3 animations:^{
-//            self->selectView.frame = CGRectMake(0, MainScreenH - 200, MainScreenW, 200);
                 self->selectView.frame = CGRectMake(0, 0, MainScreenW, MainScreenH);
         }];
     }else {
@@ -380,7 +385,7 @@
         make.height.mas_equalTo(20);
     }];
 
-    [button setImage:ImageWithName(@"down") forState:UIControlStateNormal];
+    [button setImage:ImageWithName(@"arrow") forState:UIControlStateNormal];
     [button addTarget:self action:@selector(mainCurrencyDidTaped) forControlEvents:UIControlEventTouchUpInside];
 }
 - (void)mainCurrencyDidTaped {
@@ -413,7 +418,7 @@
         make.width.mas_equalTo(25);
         make.height.mas_equalTo(20);
     }];
-    [button setImage:ImageWithName(@"down") forState:UIControlStateNormal];
+    [button setImage:ImageWithName(@"arrow") forState:UIControlStateNormal];
     [button addTarget:self action:@selector(defaultLocaleDidTaped) forControlEvents:UIControlEventTouchUpInside];
 }
 - (void)defaultLocaleDidTaped {
@@ -447,7 +452,7 @@
         make.height.mas_equalTo(20);
     }];
 
-    [button setImage:ImageWithName(@"down") forState:UIControlStateNormal];
+    [button setImage:ImageWithName(@"arrow") forState:UIControlStateNormal];
     [button addTarget:self action:@selector(securityIssuesDidTaped) forControlEvents:UIControlEventTouchUpInside];
 }
 - (void)securityIssuesDidTaped {
@@ -479,7 +484,7 @@
         make.width.mas_equalTo(25);
         make.height.mas_equalTo(20);
     }];
-    [button setImage:ImageWithName(@"down") forState:UIControlStateNormal];
+    [button setImage:ImageWithName(@"arrow") forState:UIControlStateNormal];
     [button addTarget:self action:@selector(birthdaySelectTaped) forControlEvents:UIControlEventTouchUpInside];
 }
 - (void)birthdaySelectTaped {
