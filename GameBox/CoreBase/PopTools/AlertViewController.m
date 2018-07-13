@@ -137,8 +137,7 @@
     }
 }
 -(void)setSubTitle:(NSString *)subTitle{
-    self.subTitle = subTitle;
-    self.title = subTitle;
+    self.title_label.text = subTitle;
 }
 -(void)dealloc{
     NSLog(@"clean .......");

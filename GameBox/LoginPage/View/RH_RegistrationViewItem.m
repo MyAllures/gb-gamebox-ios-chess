@@ -681,13 +681,13 @@
         UIButton *button = [self viewWithTag:1002];
         if (countDownNumber > 0) {
             button.enabled = NO;
-            button.layer.borderColor = colorWithRGB(168, 168, 168).CGColor;
+            button.layer.borderColor =[UIColor  whiteColor].CGColor;// colorWithRGB(168, 168, 168).CGColor;
             [button setTitle:[NSString stringWithFormat:@"%lds",(long)countDownNumber] forState:UIControlStateNormal];
-            [button setTitleColor:colorWithRGB(168, 168, 168) forState:UIControlStateNormal];
+            [button setTitleColor:[UIColor  whiteColor] forState:UIControlStateNormal];//colorWithRGB(168, 168, 168)
         }else {
             [self.timer invalidate];
-            button.layer.borderColor = colorWithRGB(20, 90, 180).CGColor;
-            [button setTitleColor:colorWithRGB(20, 90, 180) forState:UIControlStateNormal];
+            button.layer.borderColor = [UIColor  whiteColor].CGColor;// colorWithRGB(20, 90, 180).CGColor; //colorWithRGB(20, 90, 180)
+            [button setTitleColor:[UIColor  whiteColor] forState:UIControlStateNormal];
             [button setTitle:@"获取验证码" forState:UIControlStateNormal];
             button.enabled = YES;
         }
