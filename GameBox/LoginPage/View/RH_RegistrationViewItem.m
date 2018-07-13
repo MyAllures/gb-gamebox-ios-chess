@@ -5,7 +5,6 @@
 //  Created by Lenny on 2018/3/23.
 //  Copyright © 2018年 luis. All rights reserved.
 //
-//#import "RH_APPDelegate.h"
 #import "RH_RegistrationSelectView.h"
 #import "RH_RegistrationViewItem.h"
 #import "coreLib.h"
@@ -14,7 +13,7 @@
 #import "RH_UserInfoManager.h"
 @interface RH_RegistrationViewItem() <RH_RegistrationSelectViewDelegate, UIGestureRecognizerDelegate, UITextFieldDelegate>
 @property (nonatomic, strong) NSTimer *timer;
-//@property (nonatomic, strong)
+
 @end
 @implementation RH_RegistrationViewItem
 {
@@ -36,7 +35,6 @@
     
     id selectedItem;
     NSInteger countDownNumber;
-   NSArray * subViewArray;
 }
 
 - (instancetype)init {
@@ -70,7 +68,7 @@
         textField.clipsToBounds = YES;
         textField.font = [UIFont systemFontOfSize:15];
         textField.textColor = colorWithRGB(99, 99, 99);
-//        textField.delegate = self;
+        textField.delegate = self;
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeImageView_VerfyCode1) name:@"changeImageView_VerfyCode" object:nil];
         
@@ -636,15 +634,10 @@
     [button setTitleColor:colorWithRGB(168, 168, 168) forState:UIControlStateHighlighted];
     [button addTarget:self action:@selector(obtainVerifyTaped) forControlEvents:UIControlEventTouchUpInside];
 }
--(void)setSubViewArray:(NSArray *)subViewsArray{
-    subViewArray = subViewsArray;
-    NSLog(@"-----%@",subViewArray);
-}
 - (void)obtainVerifyTaped {
    //WHC_StackView *stackView = (WHC_StackView *)self.superview;
-     NSLog(@"-----%@",subViewArray);
     NSString *phone;
-    for (RH_RegistrationViewItem *item in subViewArray) {
+    for (RH_RegistrationViewItem *item in self.superview.subviews) {
         if ([item.contentType isEqualToString:@"110"]) {
             phone = item.textFieldContent;
         }
@@ -655,45 +648,22 @@
         return ;
     }
     [SH_NetWorkService  fetchMobileCodeWithPhoneNumber:phone complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        
-    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
-    }];
-//    [serverRequest startV3GetPhoneCodeWithPhoneNumber:phone] ;
-}
-/*
--(void)serviceRequest:(RH_ServiceRequest *)serviceRequest serviceType:(ServiceRequestType)type didSuccessRequestWithData:(id)data {
-    NSLog(@"%@", data);
-    if (type == ServiceRequestTypeV3GetPhoneCode) {
-        NSDictionary *dict = ConvertToClassPointer(NSDictionary, data);
+        NSDictionary *dict = ConvertToClassPointer(NSDictionary, response);
         NSLog(@"%@", dict);
-            if ([dict[@"success"] isEqual:@YES]) {
-                countDownNumber = 90;
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(startCountDown) userInfo:nil repeats:YES];
-                });
-            }else {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    showMessage(self.window, @"发送失败", @"");
-                });
-            }
-    }
-    else if (type==ServiceRequestTypeV3RegiestCaptchaCode){
-        imageView_VerifyCode.image = ConvertToClassPointer(UIImage, data);
-    }
+        if ([dict[@"success"] isEqual:@YES]) {
+            self->countDownNumber = 90;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(startCountDown) userInfo:nil repeats:YES];
+            });
+        }else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                showMessage(self.window, @"发送失败", @"");
+            });
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        showMessage(self.window, err, nil);
+    }];
 }
-
--(void)serviceRequest:(RH_ServiceRequest *)serviceRequest serviceType:(ServiceRequestType)type didFailRequestWithError:(NSError *)error
-{
-    if (type == ServiceRequestTypeV3GetPhoneCode) {
-        showErrorMessage(self.window, error, nil);
-    }else if (type == ServiceRequestTypeV3RegiestCaptchaCode){
-        showErrorMessage(self.window, error, nil);
-        [self.serviceRequest startV3RegisetCaptchaCode];
-    }
-
-}
-*/
 - (void)startCountDown {
     NSLog(@"%s", __func__);
         countDownNumber--;
