@@ -104,5 +104,19 @@
         }
     }];
 }
-
+#pragma mark - 获取手机验证码
++(void)fetchMobileCodeWithPhoneNumber:(NSString*)phoneNUmber complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed{
+    NSDictionary  * dic = [NSDictionary  dictionaryWithObjectsAndKeys:phoneNUmber,@"phone", nil];
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/origin/sendPhoneCode.html"];
+    NSDictionary  * header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost};
+    [self post:url parameter:dic header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (complete) {
+            complete(httpURLResponse, response);
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        if (failed) {
+            failed(httpURLResponse, err);
+        }
+    }];
+}
 @end

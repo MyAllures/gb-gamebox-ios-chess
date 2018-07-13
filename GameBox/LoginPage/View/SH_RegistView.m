@@ -19,7 +19,7 @@
 
 @property(nonatomic,strong)UIScrollView * scrollview;
 @property(nonatomic,strong,readonly)UIView *stackView;
-
+@property(nonatomic,strong) NSArray * temp;
 @end
 @implementation SH_RegistView
 @synthesize stackView = _stackView;
@@ -230,6 +230,9 @@
         make.height.mas_equalTo(temp.count*60);
     }];
     [self layoutIfNeeded];
+//    self.temp = temp;
+    RH_RegistrationViewItem * obj = [RH_RegistrationViewItem  new];
+    [obj  setSubViewArray:temp];
     self.scrollview.contentSize = CGSizeMake(self.frameWidth, temp.count*60+150);
     [self setupBottomView];
 }
@@ -481,5 +484,11 @@
         _stackView = [UIView  new];
     }
     return  _stackView;
+}
+-(NSArray *)temp{
+    if (!_temp) {
+        _temp = [NSArray array];
+    }
+    return  _temp;
 }
 @end

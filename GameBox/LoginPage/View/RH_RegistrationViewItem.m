@@ -14,7 +14,7 @@
 #import "RH_UserInfoManager.h"
 @interface RH_RegistrationViewItem() <RH_RegistrationSelectViewDelegate, UIGestureRecognizerDelegate, UITextFieldDelegate>
 @property (nonatomic, strong) NSTimer *timer;
-
+//@property (nonatomic, strong)
 @end
 @implementation RH_RegistrationViewItem
 {
@@ -36,7 +36,7 @@
     
     id selectedItem;
     NSInteger countDownNumber;
-    
+   NSArray * subViewArray;
 }
 
 - (instancetype)init {
@@ -636,11 +636,15 @@
     [button setTitleColor:colorWithRGB(168, 168, 168) forState:UIControlStateHighlighted];
     [button addTarget:self action:@selector(obtainVerifyTaped) forControlEvents:UIControlEventTouchUpInside];
 }
-
+-(void)setSubViewArray:(NSArray *)subViewsArray{
+    subViewArray = subViewsArray;
+    NSLog(@"-----%@",subViewArray);
+}
 - (void)obtainVerifyTaped {
-/*   WHC_StackView *stackView = (WHC_StackView *)self.superview;
+   //WHC_StackView *stackView = (WHC_StackView *)self.superview;
+     NSLog(@"-----%@",subViewArray);
     NSString *phone;
-    for (RH_RegistrationViewItem *item in stackView.whc_Subviews) {
+    for (RH_RegistrationViewItem *item in subViewArray) {
         if ([item.contentType isEqualToString:@"110"]) {
             phone = item.textFieldContent;
         }
@@ -649,7 +653,12 @@
     if (phone.length != 11) {
         showMessage(self.window, @"请输入正确的手机号码", nil);
         return ;
-    }*/
+    }
+    [SH_NetWorkService  fetchMobileCodeWithPhoneNumber:phone complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        
+    }];
 //    [serverRequest startV3GetPhoneCodeWithPhoneNumber:phone] ;
 }
 /*

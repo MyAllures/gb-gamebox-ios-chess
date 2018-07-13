@@ -216,7 +216,7 @@
 
 #pragma mark --  登录成功
 -(void)loginSucessHandleRsponse:(NSDictionary*)dic httpURLResponse:(NSHTTPURLResponse *)httpURLResponse{
-    AppDelegate * appDelegate =(AppDelegate*)[UIApplication  sharedApplication].delegate;
+//    AppDelegate * appDelegate =(AppDelegate*)[UIApplication  sharedApplication].delegate;
     UIWindow  * window = [UIApplication  sharedApplication].keyWindow;
     
     
@@ -238,12 +238,9 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SRWebSocketDidOpen) name:kWebSocketDidOpenNote object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SRWebSocketDidReceiveMsg:) name:kWebSocketdidReceiveMessageNote object:nil];*/
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//        NSString *account = [defaults stringForKey:@"account"] ;
-
         
         [defaults setObject:self.account_textField.text forKey:@"account"];
         [defaults setObject:self.password_textField.text forKey:@"password"];
-//        [defaults setObject:@(self.loginViewCell.isRemberPassword) forKey:@"loginIsRemberPassword"] ;
         
         [defaults synchronize];
         if (self.dismissBlock) {
@@ -258,7 +255,7 @@
 
 #pragma mark --  登录失败
 -(void)loginFailHandleRsponse:(NSDictionary*)result{
-    AppDelegate * appDelegate =(AppDelegate*)[UIApplication  sharedApplication].delegate;
+
     UIWindow  * window = [UIApplication  sharedApplication].keyWindow;
     
     if (![[result objectForKey:@"message"] isEqual:[NSNull null]]) {

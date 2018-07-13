@@ -17,6 +17,7 @@
 - (void)setMainCurrencyModel:(NSArray<MainCurrencyModel *> *)models;
 - (void)setDefaultLocale:(NSArray<DefaultLocaleModel *> *)models;
 - (void)setSecurityIssues:(NSArray<SecurityIssuesModel *> *)models;
+- (void)setSubViewArray:(NSArray*)subViewsArray;
 
 - (NSString *)contentType;
 
