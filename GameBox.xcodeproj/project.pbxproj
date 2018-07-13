@@ -148,6 +148,8 @@
 		DA22F40820F494C60058A54F /* ScreenAdaptation.m in Sources */ = {isa = PBXBuildFile; fileRef = DA22F40220F494C60058A54F /* ScreenAdaptation.m */; };
 		DA22F40920F494C60058A54F /* UIViewController+Instance.m in Sources */ = {isa = PBXBuildFile; fileRef = DA22F40420F494C60058A54F /* UIViewController+Instance.m */; };
 		DA22F40A20F494C60058A54F /* NSDictionary+CLCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = DA22F40620F494C60058A54F /* NSDictionary+CLCategory.m */; };
+		DA6EE1BD20F8BECD009A01C5 /* SH_UserInformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6EE1BC20F8BECD009A01C5 /* SH_UserInformationView.m */; };
+		DA6EE1BF20F8BEDA009A01C5 /* SH_UserInformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA6EE1BE20F8BEDA009A01C5 /* SH_UserInformationView.xib */; };
 		F88297C8CDA8BE450455395E /* libPods-GameBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C23814E2A7636D1CE6B89BC /* libPods-GameBox.a */; };
 /* End PBXBuildFile section */
 
@@ -405,6 +407,9 @@
 		DA22F40420F494C60058A54F /* UIViewController+Instance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Instance.m"; sourceTree = "<group>"; };
 		DA22F40520F494C60058A54F /* UIViewController+Instance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Instance.h"; sourceTree = "<group>"; };
 		DA22F40620F494C60058A54F /* NSDictionary+CLCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+CLCategory.m"; sourceTree = "<group>"; };
+		DA6EE1BB20F8BECD009A01C5 /* SH_UserInformationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_UserInformationView.h; sourceTree = "<group>"; };
+		DA6EE1BC20F8BECD009A01C5 /* SH_UserInformationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_UserInformationView.m; sourceTree = "<group>"; };
+		DA6EE1BE20F8BEDA009A01C5 /* SH_UserInformationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_UserInformationView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -990,6 +995,7 @@
 		DA22F33E20F43AA10058A54F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DA6EE1BA20F8BEAE009A01C5 /* UserInformationView  */,
 				DA22F33F20F43ABC0058A54F /* SH_LoginView.h */,
 				DA22F34020F43ABC0058A54F /* SH_LoginView.m */,
 				DA22F34220F43AD00058A54F /* SH_LoginView.xib */,
@@ -1067,6 +1073,16 @@
 				DA22F3E320F4597D0058A54F /* RH_WebsocketManagar.m */,
 			);
 			path = websocketVC;
+			sourceTree = "<group>";
+		};
+		DA6EE1BA20F8BEAE009A01C5 /* UserInformationView  */ = {
+			isa = PBXGroup;
+			children = (
+				DA6EE1BB20F8BECD009A01C5 /* SH_UserInformationView.h */,
+				DA6EE1BC20F8BECD009A01C5 /* SH_UserInformationView.m */,
+				DA6EE1BE20F8BEDA009A01C5 /* SH_UserInformationView.xib */,
+			);
+			path = "UserInformationView ";
 			sourceTree = "<group>";
 		};
 		F14E4A72378CCD648FF29337 /* Pods */ = {
@@ -1159,6 +1175,7 @@
 				54C8759D20F756A500AA0594 /* bgm.mp3 in Resources */,
 				5401C53920ECA1100027246D /* Assets.xcassets in Resources */,
 				2248B11A20F5EF7E0077EF58 /* SH_GameBulletinTCell.xib in Resources */,
+				DA6EE1BF20F8BEDA009A01C5 /* SH_UserInformationView.xib in Resources */,
 				2209026720F053D400F8828E /* SH_PromoViewCell.xib in Resources */,
 				BF2F916020EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.xib in Resources */,
 				54C8757B20F3509100AA0594 /* SH_PromoContentView.xib in Resources */,
@@ -1318,6 +1335,7 @@
 				BFFC845A20F2F260008AD801 /* DepositeHeadCollectionReusableView.m in Sources */,
 				54C8758B20F498C700AA0594 /* SH_GameItemView.m in Sources */,
 				5401C55320ECA1B80027246D /* SH_NetWorkService.m in Sources */,
+				DA6EE1BD20F8BECD009A01C5 /* SH_UserInformationView.m in Sources */,
 				DA22F3E120F4562B0058A54F /* UIImage+Alpha.m in Sources */,
 				DA22F3C320F44DA80058A54F /* CLDocumentCachePool.m in Sources */,
 				BF44ECED20F7096600BC6EF3 /* SH_PreferentialPopView.m in Sources */,

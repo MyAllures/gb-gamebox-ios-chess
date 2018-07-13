@@ -64,7 +64,6 @@
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
-    [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didRegistratedSuccessful) name:@"didRegistratedSuccessful" object:nil];
 }
 
 #pragma mark -- 配置UI
@@ -280,21 +279,20 @@
         }
     }
 }
-#pragma mark 注册成功的通知
--(void)didRegistratedSuccessful{
-    UIButton  * btn = [self  viewWithTag:100];
-    [self  btnlick:btn];
-}
+
 #pragma mark -- getter  method
 
 -(SH_RegistView *)registView{
     if (!_registView) {
         _registView = [[SH_RegistView  alloc]init];
         _registView.backgroundColor = [UIColor colorWithHexStr:@"0x4854A9"];
+        __weak typeof(self) weakSelf = self;
+        _registView.closeAlerViewBlock = ^{
+            if (weakSelf.dismissBlock) {
+                weakSelf.dismissBlock();
+            }
+        };
     }
     return  _registView;
-}
--(void)dealloc{
-    [[NSNotificationCenter  defaultCenter] removeObserver:self];
 }
 @end

@@ -489,8 +489,12 @@
             
             [defaults synchronize];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"didRegistratedSuccessful" object:nil];
+            __weak  typeof(self) weakSelf = self;
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //                [self.navigationController popToRootViewControllerAnimated:YES];
+                if (weakSelf.closeAlerViewBlock) {
+                    weakSelf.closeAlerViewBlock();
+                }
             });
         }
         showMessage(window, @"提示信息",[dict objectForKey:@"message"] );

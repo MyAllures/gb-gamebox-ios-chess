@@ -70,4 +70,9 @@
                              checkPhone:(NSString *)checkPhone
                                complete:(SHNetWorkComplete)complete
                                  failed:(SHNetWorkFailed)failed;
+#pragma mark --- 自动登录 
++(void)fetchAutoLoginWithUserName:(NSString*)userName
+    Password:(NSString*)password
+    complete:(SHNetWorkComplete)complete
+    failed:(SHNetWorkFailed)failed;
 @end
