@@ -43,8 +43,11 @@
     AppDelegate *appdelegate=(AppDelegate *)[UIApplication sharedApplication].delegate;
     [self.gameAnnouncementArr removeAllObjects];
     if (appdelegate.isLogin) {
-        
-        [SH_NetWorkService_Promo startLoadGameNoticeStartTime:nt.userInfo[@"date"] endTime:[self getCurrentTimes] pageNumber:1 pageSize:50 apiId:-1 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSString *startTime = nt.userInfo[@"date"];
+        NSString *endTime = [self getCurrentTimes];
+        NSLog(@"startTime==%@",startTime);
+        NSLog(@"endTime==%@",[self getCurrentTimes]);
+        [SH_NetWorkService_Promo startLoadGameNoticeStartTime:startTime endTime:endTime pageNumber:1 pageSize:50 apiId:-1 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *dic = (NSDictionary *)response;
             NSLog(@"dic===%@",dic);
             for (NSDictionary *dict in dic[@"data"][@"list"]) {
@@ -147,11 +150,13 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"SH_GameBulletinTCell" owner:nil options:nil] lastObject];
     }
-    SH_GameBulletinModel *model = self.gameAnnouncementArr[indexPath.row];
-
-    cell.publishTimeLabel.text = [self timeStampWithDate:model.publishTime];
-    cell.contentLabel.text = model.context;
-    cell.gameNameLabel.text = model.gameName;
+    if (self.gameAnnouncementArr.count > 0) {
+        SH_GameBulletinModel *model = self.gameAnnouncementArr[indexPath.row];
+        
+        cell.publishTimeLabel.text = [self timeStampWithDate:model.publishTime];
+        cell.contentLabel.text = model.context;
+        cell.gameNameLabel.text = model.gameName;
+    }
     
     return cell;
 }
