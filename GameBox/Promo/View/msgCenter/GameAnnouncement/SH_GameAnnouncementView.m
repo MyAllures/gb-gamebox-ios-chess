@@ -11,7 +11,7 @@
 #import "SH_GameBulletinTCell.h"
 #import "SH_NetWorkService+Promo.h"
 #import "SH_GameBulletinModel.h"
-#import "AppDelegate.h"
+#import "RH_UserInfoManager.h"
 #import "PGDatePicker.h"
 #import "PGDatePickManager.h"
 @interface SH_GameAnnouncementView ()<UITableViewDataSource, UITableViewDelegate>
@@ -40,14 +40,10 @@
 
 -(void)changedDate:(NSNotification *)nt {
     [self.startTimeBtn setTitle:nt.userInfo[@"date"] forState:UIControlStateNormal];
-    AppDelegate *appdelegate=(AppDelegate *)[UIApplication sharedApplication].delegate;
+   
     [self.gameAnnouncementArr removeAllObjects];
-    if (appdelegate.isLogin) {
-        NSString *startTime = nt.userInfo[@"date"];
-        NSString *endTime = [self getCurrentTimes];
-        NSLog(@"startTime==%@",startTime);
-        NSLog(@"endTime==%@",[self getCurrentTimes]);
-        [SH_NetWorkService_Promo startLoadGameNoticeStartTime:startTime endTime:endTime pageNumber:0 pageSize:50 apiId:-1 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    if ([RH_UserInfoManager shareUserManager].isLogin) {
+        [SH_NetWorkService_Promo startLoadGameNoticeStartTime:nt.userInfo[@"date"] endTime:[self getCurrentTimes] pageNumber:1 pageSize:50 apiId:-1 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *dic = (NSDictionary *)response;
             NSLog(@"dic===%@",dic);
             for (NSDictionary *dict in dic[@"data"][@"list"]) {
@@ -95,9 +91,9 @@
     [self.startTimeBtn setTitle:[self getCurrentTimes] forState:UIControlStateNormal];
     [self.endTimeBtn setTitle:[self getCurrentTimes] forState:UIControlStateNormal];
     self.gameAnnouncementArr = [NSMutableArray array];
-    AppDelegate *appdelegate=(AppDelegate *)[UIApplication sharedApplication].delegate;
-    if (appdelegate.isLogin) {
-        [SH_NetWorkService_Promo startLoadGameNoticeStartTime:[self getCurrentTimes] endTime:[self getCurrentTimes] pageNumber:1 pageSize:2 apiId:-1 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    if ([RH_UserInfoManager shareUserManager].isLogin) {
+        [SH_NetWorkService_Promo startLoadGameNoticeStartTime:[self getCurrentTimes] endTime:[self getCurrentTimes] pageNumber:1 pageSize:20 apiId:-1 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+
             NSDictionary *dic = (NSDictionary *)response;
             NSLog(@"dic===%@",dic);
             for (NSDictionary *dict in dic[@"data"][@"list"]) {
