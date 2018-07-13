@@ -13,7 +13,7 @@
 #import "RH_UserInfoManager.h"
 #import "RH_WebsocketManagar.h"
 #import "SH_NetWorkService+RegistAPI.h"
-
+#import "UIColor+HexString.h"
 
 #import "RH_RegisetInitModel.h"
 #import "RH_RegistrationViewItem.h"
@@ -281,6 +281,7 @@
 -(SH_RegistView *)registView{
     if (!_registView) {
         _registView = [[SH_RegistView  alloc]init];
+        _registView.backgroundColor = [UIColor colorWithHexStr:@"0x4854A9"];
     }
     return  _registView;
 }

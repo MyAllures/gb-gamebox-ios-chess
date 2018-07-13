@@ -10,6 +10,7 @@
 #import "SH_NetWorkService+RegistAPI.h"
 #import "RH_RegisetInitModel.h"
 #import "RH_RegistrationViewItem.h"
+#import "UIColor+HexString.h"
 
 #import "AppDelegate.h"
 @interface SH_RegistView()
@@ -56,7 +57,7 @@
         make.top.mas_equalTo(self.scrollview.mas_top).mas_offset(8);
         make.leading.mas_equalTo(self.scrollview.mas_leading).mas_offset(8);
         make.centerX.mas_equalTo(self.scrollview.mas_centerX).mas_offset(0);
-        make.height.mas_equalTo( 600);
+        make.height.mas_equalTo( self->registrationInitModel.field.count*50);
     }];
     
     NSMutableArray * temp = [NSMutableArray  array];
@@ -76,7 +77,7 @@
                     make.top.mas_equalTo(obj.mas_bottom).mas_offset(0);
                 }
                 make.trailing.mas_equalTo(self.stackView);
-                make.height.mas_equalTo(60);
+                make.height.mas_equalTo(50);
             }];
         }
      }
@@ -103,13 +104,13 @@
             [item setSexModel:registrationInitModel.selectOption.sex];
         }
         if ([field.name isEqualToString:@"mainCurrency"]) {
-            [item setMainCurrencyModel:registrationInitModel.selectOption.mainCurrencyModel];
+            [item setMainCurrencyModel:registrationInitModel.selectOption.mainCurrency];
         }
         if ([field.name isEqualToString:@"defaultLocale"]) {
-            [item setDefaultLocale:registrationInitModel.selectOption.defaultLocaleModel];
+            [item setDefaultLocale:registrationInitModel.selectOption.defaultLocale];
         }
         if ([field.name isEqualToString:@"securityIssues"]) {
-            [item setSecurityIssues:registrationInitModel.selectOption.securityIssuesModel];
+            [item setSecurityIssues:registrationInitModel.selectOption.securityIssues];
         }
         [self.stackView addSubview:item];
         [temp addObject:item];
@@ -122,7 +123,7 @@
                 make.top.mas_equalTo(obj.mas_bottom).mas_offset(0);
             }
             make.trailing.mas_equalTo(self.stackView);
-            make.height.mas_equalTo(60);
+            make.height.mas_equalTo(50);
         }];
         
         if ([field.name isEqualToString:@"password"]) {
@@ -141,7 +142,7 @@
                     make.top.mas_equalTo(obj.mas_bottom).mas_offset(0);
                 }
                 make.trailing.mas_equalTo(self.stackView);
-                make.height.mas_equalTo(60);
+                make.height.mas_equalTo(50);
             }];
         }
         if (registrationInitModel.isPhone) {
@@ -161,7 +162,7 @@
                         make.top.mas_equalTo(obj.mas_bottom).mas_offset(0);
                     }
                     make.trailing.mas_equalTo(self.stackView);
-                    make.height.mas_equalTo(60);
+                    make.height.mas_equalTo(50);
                 }];
             }
         }
@@ -181,7 +182,7 @@
                     make.top.mas_equalTo(obj.mas_bottom).mas_offset(0);
                 }
                 make.trailing.mas_equalTo(self.stackView);
-                make.height.mas_equalTo(60);
+                make.height.mas_equalTo(50);
             }];
         }
         if ([field.name isEqualToString:@"securityIssues"]) {
@@ -200,7 +201,7 @@
                     make.top.mas_equalTo(obj.mas_bottom).mas_offset(0);
                 }
                 make.trailing.mas_equalTo(self.stackView);
-                make.height.mas_equalTo(60);
+                make.height.mas_equalTo(50);
             }];
         }
         [item setRequiredJson:registrationInitModel.requiredJson];
@@ -223,15 +224,15 @@
                     make.top.mas_equalTo(obj.mas_bottom).mas_offset(0);
                 }
                 make.trailing.mas_equalTo(self.stackView);
-                make.height.mas_equalTo(60);
+                make.height.mas_equalTo(50);
             }];
         }
     }
     [self.stackView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo(temp.count*60);
+        make.height.mas_equalTo(temp.count*50);
     }];
     [self layoutIfNeeded];
-    self.scrollview.contentSize = CGSizeMake(self.frameWidth, temp.count*60+150);
+    self.scrollview.contentSize = CGSizeMake(self.frameWidth, temp.count*50+150);
     [self setupBottomView];
 }
 
@@ -240,8 +241,8 @@
     button_Check.tag = 1023;
     [self.scrollview addSubview:button_Check];
     [button_Check mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.stackView.mas_bottom).mas_offset(20);
-        make.leading.mas_equalTo(8);
+        make.top.mas_equalTo(self.stackView.mas_bottom).mas_offset(8);
+        make.leading.mas_equalTo(128);
         make.width.height.mas_equalTo(25);
     }];
     
@@ -256,23 +257,25 @@
         
     }];
 
-    label.titleLabel.font = [UIFont systemFontOfSize:15];
-    [label setTitleColor:colorWithRGB(168, 168, 168) forState:UIControlStateNormal]; ;
-    [label setTitle:@"注册条款" forState:UIControlStateNormal];
+    label.titleLabel.font = [UIFont systemFontOfSize:9];
+    [label setTitleColor:[UIColor  whiteColor] forState:UIControlStateNormal]; ;
+    [label setTitle:@"我已满合法博彩年龄，同意各项开户条约" forState:UIControlStateNormal];
     [label addTarget:self action:@selector(zhucetiaokuan) forControlEvents:UIControlEventTouchUpInside];
     UIButton *button = [UIButton new];
     [self.scrollview addSubview:button];
     [button  mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(button_Check.mas_bottom).mas_offset(20);
-        make.centerX.mas_equalTo(self.scrollview);
+//        make.centerX.mas_equalTo(self.scrollview);
+        make.width.mas_equalTo(145);
         make.leading.mas_equalTo(button_Check);
-        make.height.mas_equalTo(44);
+        make.height.mas_equalTo(48);
     }];
     
     button.layer.cornerRadius = 5;
     button.clipsToBounds = YES;
     [button setTitle:@"立即注册" forState:UIControlStateNormal];
-    [button setBackgroundColor:colorWithRGB(20, 90, 180)];
+//    [button setBackgroundColor:colorWithRGB(20, 90, 180)];
+    [button setBackgroundImage:[UIImage imageNamed:@"login_button_long"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(buttonRegistrationHandle) forControlEvents:UIControlEventTouchUpInside];
 }
 
@@ -497,12 +500,14 @@
         _scrollview.showsVerticalScrollIndicator = YES;
         _scrollview.showsHorizontalScrollIndicator = false;
         _scrollview.contentSize = CGSizeMake(self.frameWidth, self.frameHeigh + 200);
+        _scrollview.backgroundColor =[UIColor colorWithHexStr:@"0x4854A9"] ;
     }
     return  _scrollview;
 }
 -(UIView *)stackView{
     if (!_stackView) {
         _stackView = [UIView  new];
+        _stackView.backgroundColor = [UIColor  colorWithHexStr:@"0x4854A9"];
     }
     return  _stackView;
 }
