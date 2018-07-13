@@ -54,20 +54,12 @@
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/getGameNotice.html"];
     NSDictionary *parameter;
     if (apiId > 0) {
-         parameter =  @{@"search.startTime":startTime?:@"",@"search.endTime":endTime?:@"",@"paging.pageNumber":@(pageNumber),@"paging.pageNumber":@(pageSize),@"search.apiId":@(apiId)};
+        parameter =  @{@"search.startTime":startTime,@"search.endTime":endTime?:@"",@"paging.pageNumber":@(pageNumber),@"paging.pageSize":@(pageSize),@"search.apiId":@(apiId)};
     }else{
-        parameter =  @{@"search.startTime":startTime?:@"",@"search.endTime":endTime?:@"",@"paging.pageNumber":@(pageNumber),@"paging.pageNumber":@(pageSize)};
+        parameter =  @{@"search.startTime":startTime,@"search.endTime":endTime?:@"",@"paging.pageNumber":@(pageNumber),@"paging.pageSize":@(pageSize)};
     }
     
     NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost, @"Cookie":[NetWorkLineMangaer sharedManager].currentCookie?:@""};
-    
-//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-//    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-//    NSDate *startDate = [dateFormatter dateFromString:startTime];
-//    NSDate *endDate = [dateFormatter dateFromString:endTime];
-//    if (startDate > endDate) {
-//        showAlertView(@"提示", @"时间选择有误,请重试选择");
-//    }
     NSLog(@"url====%@",url);
     [SH_NetWorkService post:url parameter:parameter header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
