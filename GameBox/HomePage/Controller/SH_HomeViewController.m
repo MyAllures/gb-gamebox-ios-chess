@@ -27,6 +27,7 @@
 #import "SH_NetWorkService+Home.h"
 #import "SH_HomeBannerModel.h"
 #import "SH_RingManager.h"
+#import "SH_RingButton.h"
 
 @interface SH_HomeViewController ()<SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate>
 
