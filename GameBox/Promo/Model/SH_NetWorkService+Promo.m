@@ -52,7 +52,13 @@
                            complete:(SHNetWorkComplete)complete
                              failed:(SHNetWorkFailed)failed {
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/getGameNotice.html"];
-    NSDictionary *parameter =  @{@"search.startTime":startTime?:@"",@"search.endTime":endTime?:@"",@"paging.pageNumber":@(pageNumber),@"paging.pageNumber":@(pageSize),apiId>0?@"search.apiId":@(apiId):@""};
+    NSDictionary *parameter;
+    if (apiId > 0) {
+         parameter =  @{@"search.startTime":startTime?:@"",@"search.endTime":endTime?:@"",@"paging.pageNumber":@(pageNumber),@"paging.pageNumber":@(pageSize),@"search.apiId":@(apiId)};
+    }else{
+        parameter =  @{@"search.startTime":startTime?:@"",@"search.endTime":endTime?:@"",@"paging.pageNumber":@(pageNumber),@"paging.pageNumber":@(pageSize)};
+    }
+    
     NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost, @"Cookie":[NetWorkLineMangaer sharedManager].currentCookie?:@""};
     
 //    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];

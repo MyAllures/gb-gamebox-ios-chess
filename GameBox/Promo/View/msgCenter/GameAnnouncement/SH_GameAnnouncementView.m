@@ -43,7 +43,6 @@
    
     [self.gameAnnouncementArr removeAllObjects];
     if ([RH_UserInfoManager shareUserManager].isLogin) {
-        
         [SH_NetWorkService_Promo startLoadGameNoticeStartTime:nt.userInfo[@"date"] endTime:[self getCurrentTimes] pageNumber:1 pageSize:50 apiId:-1 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *dic = (NSDictionary *)response;
             NSLog(@"dic===%@",dic);
@@ -93,7 +92,7 @@
     [self.endTimeBtn setTitle:[self getCurrentTimes] forState:UIControlStateNormal];
     self.gameAnnouncementArr = [NSMutableArray array];
     if ([RH_UserInfoManager shareUserManager].isLogin) {
-        [SH_NetWorkService_Promo startLoadGameNoticeStartTime:@"" endTime:@"" pageNumber:1 pageSize:2 apiId:-1 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        [SH_NetWorkService_Promo startLoadGameNoticeStartTime:[self getCurrentTimes] endTime:[self getCurrentTimes] pageNumber:1 pageSize:20 apiId:-1 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
 
             NSDictionary *dic = (NSDictionary *)response;
             NSLog(@"dic===%@",dic);
