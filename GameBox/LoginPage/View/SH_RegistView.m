@@ -17,11 +17,11 @@
 {
     RH_RegisetInitModel *registrationInitModel;
     BOOL isAgreedServiceTerm;
+    NSInteger animate_Item_Index;
 }
 
 @property(nonatomic,strong)UIScrollView * scrollview;
 @property(nonatomic,strong,readonly)UIView *stackView;
-@property(nonatomic,strong) NSArray * temp;
 @end
 @implementation SH_RegistView
 @synthesize stackView = _stackView;
@@ -36,6 +36,7 @@
     if (self = [super init]) {
         [self startV3RegisetInit];
         isAgreedServiceTerm = YES;
+         animate_Item_Index = 1;
     }
     return  self;
 }
@@ -233,7 +234,23 @@
     }];
     [self layoutIfNeeded];
     self.scrollview.contentSize = CGSizeMake(self.frameWidth, temp.count*50+150);
-    [self setupBottomView];
+    for (RH_RegistrationViewItem *item in self.stackView.subviews) {
+        item.transform = CGAffineTransformMakeTranslation(self.frameWidth, 0);
+    }
+    [self startAnimate];
+}
+- (void)startAnimate {
+    if (animate_Item_Index < self.stackView.subviews.count + 1) {
+        RH_RegistrationViewItem *item = (RH_RegistrationViewItem *)self.stackView.subviews[animate_Item_Index - 1];
+        [UIView animateWithDuration:0.2 animations:^{
+            item.transform = CGAffineTransformIdentity;
+        } completion:^(BOOL finished) {
+            self->animate_Item_Index++;
+            [self startAnimate];
+        }];
+    }else {
+        [self setupBottomView];
+    }
 }
 
 - (void)setupBottomView {
@@ -472,8 +489,12 @@
             
             [defaults synchronize];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"didRegistratedSuccessful" object:nil];
+            __weak  typeof(self) weakSelf = self;
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //                [self.navigationController popToRootViewControllerAnimated:YES];
+                if (weakSelf.closeAlerViewBlock) {
+                    weakSelf.closeAlerViewBlock();
+                }
             });
         }
         showMessage(window, @"提示信息",[dict objectForKey:@"message"] );
@@ -510,11 +531,5 @@
         _stackView.backgroundColor = [UIColor  colorWithHexStr:@"0x4854A9"];
     }
     return  _stackView;
-}
--(NSArray *)temp{
-    if (!_temp) {
-        _temp = [NSArray array];
-    }
-    return  _temp;
 }
 @end

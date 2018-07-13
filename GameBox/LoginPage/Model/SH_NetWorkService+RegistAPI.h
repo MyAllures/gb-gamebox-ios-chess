@@ -21,9 +21,9 @@
 +(void)fetchV3RegisetInit:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
 #pragma mark --- 注册条款 
 +(void)fetchV3RegisetTerm:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
-#pragma mark - 获取手机验证码
+#pragma mark --- 获取手机验证码
 +(void)fetchMobileCodeWithPhoneNumber:(NSString*)phoneNUmber complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
-#pragma mark - 注册提交
+#pragma mark --- 注册提交
 /**
  注册提交
  
@@ -70,4 +70,9 @@
                              checkPhone:(NSString *)checkPhone
                                complete:(SHNetWorkComplete)complete
                                  failed:(SHNetWorkFailed)failed;
+#pragma mark --- 自动登录 
++(void)fetchAutoLoginWithUserName:(NSString*)userName
+    Password:(NSString*)password
+    complete:(SHNetWorkComplete)complete
+    failed:(SHNetWorkFailed)failed;
 @end

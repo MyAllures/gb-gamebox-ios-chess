@@ -268,7 +268,7 @@
     }
     if ([model.name isEqualToString:@"birthday"]) {
         label_Title.text = @"生日";
-        textField.placeholder = @"";
+        textField.placeholder = @"请选择生日";
         [self setBirthdaySelectLayout];
     }
     if ([model.name isEqualToString:@"sex"]) {
@@ -635,14 +635,14 @@
         make.height.mas_equalTo(35);
     }];
 
-    button.layer.borderColor = colorWithRGB(20, 90, 180).CGColor;
-    [button setTitleColor:colorWithRGB(20, 90, 180) forState:UIControlStateNormal];
+    button.layer.borderColor = [UIColor whiteColor].CGColor;
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     button.layer.borderWidth = 1;
     button.layer.cornerRadius = 3;
     button.clipsToBounds = YES;
     [button setTitle:@"获取验证码" forState:UIControlStateNormal];
     [button setShowsTouchWhenHighlighted:YES];
-    [button setTitleColor:colorWithRGB(168, 168, 168) forState:UIControlStateHighlighted];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     [button addTarget:self action:@selector(obtainVerifyTaped) forControlEvents:UIControlEventTouchUpInside];
 }
 - (void)obtainVerifyTaped {
@@ -681,13 +681,13 @@
         UIButton *button = [self viewWithTag:1002];
         if (countDownNumber > 0) {
             button.enabled = NO;
-            button.layer.borderColor = colorWithRGB(168, 168, 168).CGColor;
+            button.layer.borderColor =[UIColor  whiteColor].CGColor;// colorWithRGB(168, 168, 168).CGColor;
             [button setTitle:[NSString stringWithFormat:@"%lds",(long)countDownNumber] forState:UIControlStateNormal];
-            [button setTitleColor:colorWithRGB(168, 168, 168) forState:UIControlStateNormal];
+            [button setTitleColor:[UIColor  whiteColor] forState:UIControlStateNormal];//colorWithRGB(168, 168, 168)
         }else {
             [self.timer invalidate];
-            button.layer.borderColor = colorWithRGB(20, 90, 180).CGColor;
-            [button setTitleColor:colorWithRGB(20, 90, 180) forState:UIControlStateNormal];
+            button.layer.borderColor = [UIColor  whiteColor].CGColor;// colorWithRGB(20, 90, 180).CGColor; //colorWithRGB(20, 90, 180)
+            [button setTitleColor:[UIColor  whiteColor] forState:UIControlStateNormal];
             [button setTitle:@"获取验证码" forState:UIControlStateNormal];
             button.enabled = YES;
         }

@@ -166,4 +166,24 @@
         }
     }];
 }
+
+#pragma mark --- 自动登录
++(void)fetchAutoLoginWithUserName:(NSString*)userName
+                         Password:(NSString*)password
+                         complete:(SHNetWorkComplete)complete
+                           failed:(SHNetWorkFailed)failed{
+    
+    NSDictionary  * dic = [NSDictionary  dictionaryWithObjectsAndKeys:userName,@"username",password,@"password", nil];
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/login/autoLogin.html"];
+    NSDictionary  * header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost};
+    [self post:url parameter:dic header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (complete) {
+            complete(httpURLResponse, response);
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        if (failed) {
+            failed(httpURLResponse, err);
+        }
+    }];
+}
 @end
