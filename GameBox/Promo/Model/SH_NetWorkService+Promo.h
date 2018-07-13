@@ -11,7 +11,11 @@
 @interface SH_NetWorkService_Promo : SH_NetWorkService
 
 #pragma mark - 获取优惠主界面列表
-+ (void)getPromoList:(NSInteger )pageNumber pageSize:(NSInteger )pageSize activityClassifyKey:(NSString *)activityClassifyKey complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
++ (void)getPromoList:(NSInteger )pageNumber
+            pageSize:(NSInteger )pageSize
+ activityClassifyKey:(NSString *)activityClassifyKey
+            complete:(SHNetWorkComplete)complete
+              failed:(SHNetWorkFailed)failed;
 
 #pragma mark - 获取游戏公告
 +(void)startLoadGameNoticeStartTime:(NSString *)startTime
@@ -29,5 +33,11 @@
                              pageSize:(NSInteger)pageSize
                              complete:(SHNetWorkComplete)complete
                                failed:(SHNetWorkFailed)failed;
+
+#pragma mark - 获取游戏分类
+-(void)startV3LoadGameTypeWithApiId:(NSInteger)apiId
+                    searchApiTypeId:(NSInteger)apiTypeId
+                           complete:(SHNetWorkComplete)complete
+                             failed:(SHNetWorkFailed)failed;
 
 @end

@@ -14,6 +14,7 @@
 #import "RH_UserInfoManager.h"
 #import "PGDatePicker.h"
 #import "PGDatePickManager.h"
+#import "PGPickerView.h"
 @interface SH_GameAnnouncementView ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *view1;
 @property (weak, nonatomic) IBOutlet UIView *view2;
@@ -25,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *startTimeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *endTimeBtn;
 
+@property (strong, nonatomic) NSString *startTimeStr;
+@property (strong, nonatomic) NSString *endTimeStr;
 @end
 
 @implementation SH_GameAnnouncementView
@@ -40,10 +43,21 @@
 
 -(void)changedDate:(NSNotification *)nt {
     [self.startTimeBtn setTitle:nt.userInfo[@"date"] forState:UIControlStateNormal];
-   
+    self.startTimeStr = nt.userInfo[@"date"];
+    if (!self.endTimeStr) {
+        self.endTimeStr = [self getCurrentTimes];
+    }
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate *startDate = [dateFormatter dateFromString:self.startTimeStr];
+    NSDate *endDate = [dateFormatter dateFromString:self.endTimeStr];
+    if (startDate > endDate) {
+        showAlertView(@"提示", @"时间选择有误,请重试选择");
+        return;
+    }
     [self.gameAnnouncementArr removeAllObjects];
     if ([RH_UserInfoManager shareUserManager].isLogin) {
-        [SH_NetWorkService_Promo startLoadGameNoticeStartTime:nt.userInfo[@"date"] endTime:[self getCurrentTimes] pageNumber:1 pageSize:50 apiId:-1 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        [SH_NetWorkService_Promo startLoadGameNoticeStartTime:self.startTimeStr endTime:self.endTimeStr pageNumber:1 pageSize:50000 apiId:-1 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *dic = (NSDictionary *)response;
             NSLog(@"dic===%@",dic);
             for (NSDictionary *dict in dic[@"data"][@"list"]) {
@@ -60,6 +74,33 @@
 
 -(void)seletedEndDate:(NSNotification *)nt {
     [self.endTimeBtn setTitle:nt.userInfo[@"date"] forState:UIControlStateNormal];
+    self.endTimeStr = nt.userInfo[@"date"];
+    if (!self.startTimeStr) {
+        self.startTimeStr = [self getCurrentTimes];
+    }
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate *startDate = [dateFormatter dateFromString:self.startTimeStr];
+    NSDate *endDate = [dateFormatter dateFromString:self.endTimeStr];
+    if (startDate > endDate) {
+        showAlertView(@"提示", @"时间选择有误,请重试选择");
+        return;
+    }
+    [self.gameAnnouncementArr removeAllObjects];
+    if ([RH_UserInfoManager shareUserManager].isLogin) {
+        [SH_NetWorkService_Promo startLoadGameNoticeStartTime:[self getCurrentTimes] endTime:self.endTimeStr pageNumber:1 pageSize:50000 apiId:-1 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+            NSDictionary *dic = (NSDictionary *)response;
+            NSLog(@"dic===%@",dic);
+            for (NSDictionary *dict in dic[@"data"][@"list"]) {
+                NSError *err;
+                SH_GameBulletinModel *model = [[SH_GameBulletinModel alloc] initWithDictionary:dict error:&err];
+                [self.gameAnnouncementArr addObject:model];
+            }
+            [self.tableView reloadData];
+        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+            
+        }];
+    }
 }
 
 -(NSString*)getCurrentTimes{
