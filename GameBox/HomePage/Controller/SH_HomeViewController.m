@@ -124,7 +124,7 @@
 
 - (IBAction)avatarClick:(id)sender {
     SH_LoginView *login = [SH_LoginView  InstanceLoginView];
-    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:260 viewWidth:414];
+    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:260 viewWidth:494];
     login.dismissBlock = ^{
         [cvc  close];
     };
