@@ -9,6 +9,7 @@
 #import "SH_SystemMsgView.h"
 #import <Masonry/Masonry.h>
 #import "SH_SiteMsgViewCell.h"
+#import "SH_NetWorkService+Promo.h"
 
 @interface SH_SystemMsgView () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -22,6 +23,13 @@
 //    self.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
 //    self.tableView.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
     self.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1];
+    
+    [SH_NetWorkService_Promo startLoadSystemMessageWithpageNumber:1 pageSize:5000 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSDictionary *dict = (NSDictionary *)response;
+        NSLog(@"dict====%@",dict);
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        
+    }];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
