@@ -52,12 +52,13 @@
                            complete:(SHNetWorkComplete)complete
                              failed:(SHNetWorkFailed)failed {
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/getGameNotice.html"];
-//    if (apiId > 0) {
-//        
-//    }else{
-//        apiId = -1;
-//    }
-    NSDictionary *parameter =  @{@"search.startTime":startTime,@"search.endTime":endTime?:@"",@"paging.pageNumber":@(pageNumber),@"paging.pageSize":@(pageSize)};
+    NSDictionary *parameter;
+    if (apiId > 0) {
+        parameter =  @{@"search.startTime":startTime,@"search.endTime":endTime?:@"",@"paging.pageNumber":@(pageNumber),@"paging.pageSize":@(pageSize),@"search.apiId":@(apiId)};
+    }else{
+        parameter =  @{@"search.startTime":startTime,@"search.endTime":endTime?:@"",@"paging.pageNumber":@(pageNumber),@"paging.pageSize":@(pageSize)};
+    }
+    
     NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost, @"Cookie":[NetWorkLineMangaer sharedManager].currentCookie?:@""};
     NSLog(@"url====%@",url);
     [SH_NetWorkService post:url parameter:parameter header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {

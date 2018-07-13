@@ -96,6 +96,9 @@
                             <state key="normal" title="游戏类型">
                                 <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="tapApiName:" destination="iN0-l3-epB" eventType="touchUpInside" id="3V6-47-u3q"/>
+                            </connections>
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down" translatesAutoresizingMaskIntoConstraints="NO" id="0YB-6c-kW8">
                             <rect key="frame" x="100" y="5" width="25" height="25"/>
@@ -133,13 +136,14 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="endTimeBtn" destination="ZeW-Et-V6H" id="afS-0C-wX3"/>
+                <outlet property="gameTypeBtn" destination="iXl-vk-E9V" id="YSN-Aj-fo1"/>
                 <outlet property="startTimeBtn" destination="P2J-52-bqe" id="T3k-kX-34a"/>
                 <outlet property="tableView" destination="n8Z-c5-UNM" id="Tyv-wg-KSA"/>
                 <outlet property="view1" destination="4c6-zS-CUz" id="GWy-6P-kkg"/>
                 <outlet property="view2" destination="ASB-TD-RuX" id="JdI-7C-4Wt"/>
                 <outlet property="view3" destination="Zzz-hU-odJ" id="A2Y-8o-0Fi"/>
             </connections>
-            <point key="canvasLocation" x="-145" y="-52"/>
+            <point key="canvasLocation" x="-714" y="-45"/>
         </view>
     </objects>
     <resources>

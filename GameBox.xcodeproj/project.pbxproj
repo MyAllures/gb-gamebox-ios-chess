@@ -26,6 +26,7 @@
 		22552CEB20F4B7720090EFBC /* SH_SiteMsgViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22552CE920F4B7720090EFBC /* SH_SiteMsgViewCell.xib */; };
 		22552CEE20F4CCE50090EFBC /* SH_NetWorkService+Promo.m in Sources */ = {isa = PBXBuildFile; fileRef = 22552CED20F4CCE50090EFBC /* SH_NetWorkService+Promo.m */; };
 		22552CF120F4E0BB0090EFBC /* SH_PromoListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22552CF020F4E0BB0090EFBC /* SH_PromoListModel.m */; };
+		22573D3420F8999800D0EB0A /* SH_ApiSelectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22573D3320F8999800D0EB0A /* SH_ApiSelectModel.m */; };
 		229A219E20F3826E00F5A969 /* SH_GameAnnouncementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A219D20F3826E00F5A969 /* SH_GameAnnouncementView.m */; };
 		229A21A020F3827700F5A969 /* SH_GameAnnouncementView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229A219F20F3827700F5A969 /* SH_GameAnnouncementView.xib */; };
 		42BF3E6E20F33A5D00F36B82 /* SH_PlayerCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BF3E6D20F33A5D00F36B82 /* SH_PlayerCenterView.m */; };
@@ -183,6 +184,8 @@
 		22552CED20F4CCE50090EFBC /* SH_NetWorkService+Promo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+Promo.m"; sourceTree = "<group>"; };
 		22552CEF20F4E0BB0090EFBC /* SH_PromoListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoListModel.h; sourceTree = "<group>"; };
 		22552CF020F4E0BB0090EFBC /* SH_PromoListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoListModel.m; sourceTree = "<group>"; };
+		22573D3220F8999800D0EB0A /* SH_ApiSelectModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ApiSelectModel.h; sourceTree = "<group>"; };
+		22573D3320F8999800D0EB0A /* SH_ApiSelectModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_ApiSelectModel.m; sourceTree = "<group>"; };
 		229A219C20F3826E00F5A969 /* SH_GameAnnouncementView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_GameAnnouncementView.h; sourceTree = "<group>"; };
 		229A219D20F3826E00F5A969 /* SH_GameAnnouncementView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_GameAnnouncementView.m; sourceTree = "<group>"; };
 		229A219F20F3827700F5A969 /* SH_GameAnnouncementView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_GameAnnouncementView.xib; sourceTree = "<group>"; };
@@ -565,7 +568,6 @@
 			isa = PBXGroup;
 			children = (
 				BF44ED0020F7828400BC6EF3 /* 滚轮选择器 */,
-				BF44EC6A20F495C300BC6EF3 /* PGDatePicker */,
 				54C875A520F75B6400AA0594 /* RingButton */,
 				54C875A120F7570800AA0594 /* RingManager */,
 				BF44EC5320F454E100BC6EF3 /* Macro */,
@@ -686,6 +688,8 @@
 				2231283320F6F26D00D1BF5E /* SH_GameBulletinModel.m */,
 				2231283520F707F500D1BF5E /* SH_SystemNotificationModel.h */,
 				2231283620F707F500D1BF5E /* SH_SystemNotificationModel.m */,
+				22573D3220F8999800D0EB0A /* SH_ApiSelectModel.h */,
+				22573D3320F8999800D0EB0A /* SH_ApiSelectModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1314,6 +1318,7 @@
 				BF44ECF620F7399800BC6EF3 /* SH_PopSubViewTableViewCell.m in Sources */,
 				BFFC846920F34397008AD801 /* SH_RechargeCenterBasicCollectionViewCell.m in Sources */,
 				2231283420F6F26D00D1BF5E /* SH_GameBulletinModel.m in Sources */,
+				22573D3420F8999800D0EB0A /* SH_ApiSelectModel.m in Sources */,
 				54C875A820F75B7700AA0594 /* SH_RingButton.m in Sources */,
 				54C21AB120EE23B2006FCA0F /* SH_BaseViewController.m in Sources */,
 				DA22F40A20F494C60058A54F /* NSDictionary+CLCategory.m in Sources */,
