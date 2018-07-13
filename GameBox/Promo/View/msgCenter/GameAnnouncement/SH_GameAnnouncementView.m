@@ -49,7 +49,7 @@
 
 - (IBAction)tapApiName:(id)sender {
 //    _pickView.hidden = NO;
-    self.pickView.backgroundColor =[UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
+    self.pickView.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
     [self addSubview:self.pickView];
     [_pickView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(0);
