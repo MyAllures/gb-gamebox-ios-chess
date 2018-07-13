@@ -14,7 +14,7 @@
 @property (nonatomic, assign) BOOL forceLandscape;//强制横屏
 @property (nonatomic, assign) BOOL forcePortrait;//强制竖屏
 
-@property (nonatomic,assign,readonly) BOOL isLogin;
+@property (nonatomic,assign) BOOL isLogin;
 
 @end
 
