@@ -147,11 +147,13 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"SH_GameBulletinTCell" owner:nil options:nil] lastObject];
     }
-    SH_GameBulletinModel *model = self.gameAnnouncementArr[indexPath.row];
-
-    cell.publishTimeLabel.text = [self timeStampWithDate:model.publishTime];
-    cell.contentLabel.text = model.context;
-    cell.gameNameLabel.text = model.gameName;
+    if (self.gameAnnouncementArr.count > 0) {
+        SH_GameBulletinModel *model = self.gameAnnouncementArr[indexPath.row];
+        
+        cell.publishTimeLabel.text = [self timeStampWithDate:model.publishTime];
+        cell.contentLabel.text = model.context;
+        cell.gameNameLabel.text = model.gameName;
+    }
     
     return cell;
 }

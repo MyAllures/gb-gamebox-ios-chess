@@ -55,13 +55,14 @@
     NSDictionary *parameter =  @{@"search.startTime":startTime?:@"",@"search.endTime":endTime?:@"",@"paging.pageNumber":@(pageNumber),@"paging.pageNumber":@(pageSize),apiId>0?@"search.apiId":@(apiId):@""};
     NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost, @"Cookie":[NetWorkLineMangaer sharedManager].currentCookie?:@""};
     
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSDate *startDate = [dateFormatter dateFromString:startTime];
-    NSDate *endDate = [dateFormatter dateFromString:endTime];
-    if (startDate > endDate) {
-        showAlertView(@"提示", @"时间选择有误,请重试选择");
-    }
+//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+//    NSDate *startDate = [dateFormatter dateFromString:startTime];
+//    NSDate *endDate = [dateFormatter dateFromString:endTime];
+//    if (startDate > endDate) {
+//        showAlertView(@"提示", @"时间选择有误,请重试选择");
+//    }
+    NSLog(@"url====%@",url);
     [SH_NetWorkService post:url parameter:parameter header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse, response);
