@@ -12,7 +12,7 @@
 #import "SH_PromoViewCell.h"
 #import "SH_NetWorkService+Promo.h"
 #import "SH_SystemNotificationModel.h"
-#import "AppDelegate.h"
+#import "RH_UserInfoManager.h"
 @interface SH_SystemNotification () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *view1;
@@ -35,8 +35,8 @@
 //    self.quickSeleteBtn.layer.cornerRadius = 5;
 //    self.quickSeleteBtn.clipsToBounds = YES;
     self.gameBulletinArr = [NSMutableArray array];
-    AppDelegate *appdelegate=(AppDelegate *)[UIApplication sharedApplication].delegate;
-    if (appdelegate.isLogin) {
+   
+    if ([RH_UserInfoManager shareUserManager].isLogin) {
         [SH_NetWorkService_Promo startLoadSystemNoticeStartTime:@"" endTime:@"" pageNumber:1 pageSize:50 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *dic = (NSDictionary *)response;
             for (NSDictionary *dict in dic[@"data"][@"list"]) {

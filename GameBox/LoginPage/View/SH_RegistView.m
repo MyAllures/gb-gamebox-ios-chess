@@ -231,9 +231,6 @@
         make.height.mas_equalTo(temp.count*60);
     }];
     [self layoutIfNeeded];
-//    self.temp = temp;
-    RH_RegistrationViewItem * obj = [RH_RegistrationViewItem  new];
-    [obj  setSubViewArray:temp];
     self.scrollview.contentSize = CGSizeMake(self.frameWidth, temp.count*60+150);
     [self setupBottomView];
 }
@@ -457,9 +454,32 @@
         showMessage(window, @"请同意注册条款", nil);
         return ;
     }
-   /* NSString *registcode = registrationInitModel.paramsModel.registCode ?: @"";
-    [self showProgressIndicatorViewWithAnimated:YES title:@"正在注册..."];
-    [self.serviceRequest startV3RegisetSubmitWithBirthday:[NSString stringWithFormat:@"%@",birthday] sex:sex permissionPwd:permission defaultTimezone:timezone defaultLocale:defaultLocale phonecontactValue:phone realName:realname defaultCurrency:mainCurrency password:password question1:securityIssues emailValue:email qqValue:qq weixinValue:weixin userName:usernama captchaCode:verificationCode recommendRegisterCode:registcode editType:@"" recommendUserInputCode:regCode confirmPassword:password2 confirmPermissionPwd:permission2 answer1:securityIssues2 termsOfService:@"11" requiredJson:registrationInitModel.requiredJson phoneCode:phoneVerify checkPhone:@"checkPhone"];*/
+    NSString *registcode = registrationInitModel.params.registCode ?: @"";
+//    [self showProgressIndicatorViewWithAnimated:YES title:@"正在注册..."];
+    
+    [SH_NetWorkService fetchV3RegisetSubmitWithBirthday:[NSString stringWithFormat:@"%@",birthday] sex:sex permissionPwd:permission defaultTimezone:timezone defaultLocale:defaultLocale phonecontactValue:phone realName:realname defaultCurrency:mainCurrency password:password question1:securityIssues emailValue:email qqValue:qq weixinValue:weixin userName:usernama captchaCode:verificationCode recommendRegisterCode:registcode editType:@"" recommendUserInputCode:regCode confirmPassword:password2 confirmPermissionPwd:permission2 answer1:securityIssues2 termsOfService:@"11" requiredJson:registrationInitModel.requiredJson phoneCode:phoneVerify checkPhone:@"checkPhone" complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSLog(@"----%@",response);
+        NSDictionary *dict = ConvertToClassPointer(NSDictionary, response);
+        NSLog(@"···%@", dict);
+        
+        if ([dict[@"success"] isEqual:@true]) {
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:[self obtainContent:@"username"] forKey:@"account"];
+            [defaults setObject:[self obtainContent:@"password"] forKey:@"password"];
+            
+            [defaults synchronize];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"didRegistratedSuccessful" object:nil];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                [self.navigationController popToRootViewControllerAnimated:YES];
+            });
+        }
+        showMessage(window, @"提示信息",[dict objectForKey:@"message"] );
+        if ([[dict objectForKey:@"message"] isEqualToString:@"验证码输入错误"]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"changeImageView_VerfyCode" object:self];
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        
+    }] ;
     
 }
 

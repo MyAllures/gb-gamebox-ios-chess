@@ -216,7 +216,7 @@
 
 #pragma mark --  登录成功
 -(void)loginSucessHandleRsponse:(NSDictionary*)dic httpURLResponse:(NSHTTPURLResponse *)httpURLResponse{
-    AppDelegate * appDelegate =(AppDelegate*)[UIApplication  sharedApplication].delegate;
+//    AppDelegate * appDelegate =(AppDelegate*)[UIApplication  sharedApplication].delegate;
     UIWindow  * window = [UIApplication  sharedApplication].keyWindow;
     
     
@@ -228,7 +228,7 @@
     NSUInteger lenth = endLocation - startLocation;
     NSString *cookie = [setCookie substringWithRange:NSMakeRange(startLocation, lenth)];
     [NetWorkLineMangaer sharedManager].currentCookie = cookie;
-    appDelegate.isLogin = YES;
+    [[RH_UserInfoManager  shareUserManager] updateIsLogin:YES];
     
     [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
         showMessage(window, @"登录成功", nil);

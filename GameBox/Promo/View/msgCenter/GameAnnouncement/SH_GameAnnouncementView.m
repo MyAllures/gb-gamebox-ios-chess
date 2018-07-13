@@ -11,7 +11,7 @@
 #import "SH_GameBulletinTCell.h"
 #import "SH_NetWorkService+Promo.h"
 #import "SH_GameBulletinModel.h"
-#import "AppDelegate.h"
+#import "RH_UserInfoManager.h"
 #import "PGDatePicker.h"
 #import "PGDatePickManager.h"
 @interface SH_GameAnnouncementView ()<UITableViewDataSource, UITableViewDelegate>
@@ -53,8 +53,7 @@
 //    self.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1];
 //    self.tableView.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
     self.gameAnnouncementArr = [NSMutableArray array];
-    AppDelegate *appdelegate=(AppDelegate *)[UIApplication sharedApplication].delegate;
-    if (appdelegate.isLogin) {
+    if ([RH_UserInfoManager shareUserManager].isLogin) {
         [SH_NetWorkService_Promo startLoadGameNoticeStartTime:@"" endTime:@"" pageNumber:1 pageSize:2 apiId:-1 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *dic = (NSDictionary *)response;
             NSLog(@"dic===%@",dic);

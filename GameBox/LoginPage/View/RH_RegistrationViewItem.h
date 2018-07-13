@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "RH_RegisetInitModel.h"
 @interface RH_RegistrationViewItem : UIView
+
 - (void)setRequiredJson:(NSArray<NSString *> *)requiredJson;
 - (void)setFieldModel:(FieldModel *)model;
 - (void)setTimeZone:(NSString *)zone;
@@ -17,7 +18,6 @@
 - (void)setMainCurrencyModel:(NSArray<MainCurrencyModel *> *)models;
 - (void)setDefaultLocale:(NSArray<DefaultLocaleModel *> *)models;
 - (void)setSecurityIssues:(NSArray<SecurityIssuesModel *> *)models;
-- (void)setSubViewArray:(NSArray*)subViewsArray;
 
 - (NSString *)contentType;
 
