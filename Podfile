@@ -8,9 +8,11 @@ pod 'MJRefresh'
 pod 'Masonry'
 pod 'MBProgressHUD', '~> 1.1.0'
 pod 'WebViewJavascriptBridge', '~> 6.0'
-pod 'IQKeyboardManager', '~> 6.0.4'
+pod 'IQKeyboardManager'
 pod 'JSONModel'
 pod 'SAMKeychain', '~> 1.5.3'
 pod 'Reachability', '~> 3.2'
+pod 'PGDatePicker'
+
 end
 

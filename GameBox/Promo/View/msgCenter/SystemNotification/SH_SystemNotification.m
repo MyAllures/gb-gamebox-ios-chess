@@ -12,6 +12,7 @@
 #import "SH_PromoViewCell.h"
 #import "SH_NetWorkService+Promo.h"
 #import "SH_SystemNotificationModel.h"
+#import "AppDelegate.h"
 @interface SH_SystemNotification () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *view1;
@@ -34,23 +35,24 @@
 //    self.quickSeleteBtn.layer.cornerRadius = 5;
 //    self.quickSeleteBtn.clipsToBounds = YES;
     self.gameBulletinArr = [NSMutableArray array];
-    
-    [SH_NetWorkService_Promo startLoadSystemNoticeStartTime:@"" endTime:@"" pageNumber:1 pageSize:50 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        NSDictionary *dic = (NSDictionary *)response;
-        for (NSDictionary *dict in dic[@"data"][@"list"]) {
-            NSError *err;
-            SH_SystemNotificationModel *model = [[SH_SystemNotificationModel alloc] initWithDictionary:dict error:&err];
-            if (model) {
-                [self.gameBulletinArr addObject:model];
+    AppDelegate *appdelegate=(AppDelegate *)[UIApplication sharedApplication].delegate;
+    if (appdelegate.isLogin) {
+        [SH_NetWorkService_Promo startLoadSystemNoticeStartTime:@"" endTime:@"" pageNumber:1 pageSize:50 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+            NSDictionary *dic = (NSDictionary *)response;
+            for (NSDictionary *dict in dic[@"data"][@"list"]) {
+                NSError *err;
+                SH_SystemNotificationModel *model = [[SH_SystemNotificationModel alloc] initWithDictionary:dict error:&err];
+                if (model) {
+                    [self.gameBulletinArr addObject:model];
+                }
+                
+                [self.tableView reloadData];
             }
             
-            [self.tableView reloadData];
-        }
-        
-    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
-    }];
-    
+        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+            
+        }];
+    }
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"SH_GameBulletinTCell" bundle:nil] forCellReuseIdentifier:@"cell"];

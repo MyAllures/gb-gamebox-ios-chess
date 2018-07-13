@@ -11,7 +11,9 @@
 #import "SH_GameBulletinTCell.h"
 #import "SH_NetWorkService+Promo.h"
 #import "SH_GameBulletinModel.h"
-
+#import "AppDelegate.h"
+#import "PGDatePicker.h"
+#import "PGDatePickManager.h"
 @interface SH_GameAnnouncementView ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *view1;
 @property (weak, nonatomic) IBOutlet UIView *view2;
@@ -20,31 +22,52 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) NSMutableArray *gameAnnouncementArr;
+@property (weak, nonatomic) IBOutlet UIButton *startTimeBtn;
+@property (weak, nonatomic) IBOutlet UIButton *endTimeBtn;
 
 @end
 
 @implementation SH_GameAnnouncementView
 
+- (IBAction)startTimeAction:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"seleteDate" object:nil];
+}
+- (IBAction)endTimeAction:(id)sender {
+    NSDictionary *dict = [[NSDictionary alloc]initWithObjectsAndKeys:@"end",@"isEnd", nil];
+    NSNotification *notification = [NSNotification notificationWithName:@"seleteEndTime" object:nil userInfo:dict];
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
+}
+
+-(void)changedDate:(NSNotification *)nt {
+    [self.startTimeBtn setTitle:nt.userInfo[@"date"] forState:UIControlStateNormal];
+}
+
+-(void)seletedEndDate:(NSNotification *)nt {
+    [self.endTimeBtn setTitle:nt.userInfo[@"date"] forState:UIControlStateNormal];
+}
+
 -(void)awakeFromNib {
     [super awakeFromNib];
-    
-    self.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changedDate:) name:@"seletedDate" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(seletedEndDate:) name:@"seletedEndDate" object:nil];
+//    self.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1];
 //    self.tableView.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
     self.gameAnnouncementArr = [NSMutableArray array];
-    
-    [SH_NetWorkService_Promo startLoadGameNoticeStartTime:@"" endTime:@"" pageNumber:1 pageSize:2 apiId:-1 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        NSDictionary *dic = (NSDictionary *)response;
-        NSLog(@"dic===%@",dic);
-        for (NSDictionary *dict in dic[@"data"][@"list"]) {
-            NSError *err;
-            SH_GameBulletinModel *model = [[SH_GameBulletinModel alloc] initWithDictionary:dict error:&err];
-            [self.gameAnnouncementArr addObject:model];
-        }
-        [self.tableView reloadData];
-    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
-    }];
-    
+    AppDelegate *appdelegate=(AppDelegate *)[UIApplication sharedApplication].delegate;
+    if (appdelegate.isLogin) {
+        [SH_NetWorkService_Promo startLoadGameNoticeStartTime:@"" endTime:@"" pageNumber:1 pageSize:2 apiId:-1 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+            NSDictionary *dic = (NSDictionary *)response;
+            NSLog(@"dic===%@",dic);
+            for (NSDictionary *dict in dic[@"data"][@"list"]) {
+                NSError *err;
+                SH_GameBulletinModel *model = [[SH_GameBulletinModel alloc] initWithDictionary:dict error:&err];
+                [self.gameAnnouncementArr addObject:model];
+            }
+            [self.tableView reloadData];
+        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+            
+        }];
+    }
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"SH_GameBulletinTCell" bundle:nil] forCellReuseIdentifier:@"cell"];
@@ -101,6 +124,10 @@
 #pragma mark - UITableViewDelegate M
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+}
+
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"seletedDate" object:nil];
 }
 
 @end
