@@ -22,7 +22,6 @@
 
 @property(nonatomic,strong)UIScrollView * scrollview;
 @property(nonatomic,strong,readonly)UIView *stackView;
-@property(nonatomic,strong) NSArray * temp;
 @end
 @implementation SH_RegistView
 @synthesize stackView = _stackView;
@@ -235,6 +234,9 @@
     }];
     [self layoutIfNeeded];
     self.scrollview.contentSize = CGSizeMake(self.frameWidth, temp.count*50+150);
+    for (RH_RegistrationViewItem *item in self.stackView.subviews) {
+        item.transform = CGAffineTransformMakeTranslation(self.frameWidth, 0);
+    }
     [self startAnimate];
 }
 - (void)startAnimate {
@@ -525,11 +527,5 @@
         _stackView.backgroundColor = [UIColor  colorWithHexStr:@"0x4854A9"];
     }
     return  _stackView;
-}
--(NSArray *)temp{
-    if (!_temp) {
-        _temp = [NSArray array];
-    }
-    return  _temp;
 }
 @end
