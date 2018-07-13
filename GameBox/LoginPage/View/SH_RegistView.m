@@ -11,6 +11,7 @@
 #import "RH_RegisetInitModel.h"
 #import "RH_RegistrationViewItem.h"
 
+#import "AppDelegate.h"
 @interface SH_RegistView()
 {
     RH_RegisetInitModel *registrationInitModel;
