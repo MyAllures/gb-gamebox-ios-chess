@@ -145,15 +145,20 @@
     [dict setObject:confirmPermissionPwd forKey:@"confirmPermissionPwd"];
     [dict setObject:answer1 forKey:@"sysUserProtection.answer1"];
     [dict setObject:termsOfService forKey:@"termsOfService"];
-    [dict setObject:requiredJson forKey:@"requiredJson"];
     [dict setObject:phoneCode forKey:@"phoneCode"];
     [dict setObject:checkPhone forKey:@"checkPhone"];
     
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization     dataWithJSONObject:requiredJson options:NSJSONWritingPrettyPrinted   error:&error];
+    NSString *jsonString = [[NSString alloc]    initWithData:jsonData encoding:NSUTF8StringEncoding];
+    [dict setObject:jsonString forKey:@"requiredJson"];
+   
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/registerOrigin/save.html"];
-    NSDictionary  * header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentSID?[NetWorkLineMangaer sharedManager].currentSID:@""};
+    NSDictionary  * header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost};
     [self post:url parameter:dict header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse, response);
+
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         if (failed) {

@@ -15,6 +15,7 @@
 #import "SH_NetWorkService+RegistAPI.h"
 #import "UIColor+HexString.h"
 
+
 #import "RH_RegisetInitModel.h"
 #import "RH_RegistrationViewItem.h"
 #import "SH_RegistView.h"
@@ -64,7 +65,9 @@
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
+    [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didRegistratedSuccessful) name:@"didRegistratedSuccessful" object:nil];
 }
+
 #pragma mark -- 配置UI
 -(void)configurationUI{
     UIImage  * img = [UIImage  imageNamed:@"left_bg"];
@@ -275,7 +278,11 @@
         }
     }
 }
-
+#pragma mark 注册成功的通知
+-(void)didRegistratedSuccessful{
+    UIButton  * btn = [self  viewWithTag:100];
+    [self  btnlick:btn];
+}
 #pragma mark -- getter  method
 
 -(SH_RegistView *)registView{

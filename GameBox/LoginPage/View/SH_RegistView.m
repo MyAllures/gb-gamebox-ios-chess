@@ -247,7 +247,7 @@
     }];
     
     [button_Check setSelected:YES];
-    [button_Check setImage:ImageWithName(@"choose") forState:UIControlStateNormal];
+    [button_Check setImage:ImageWithName(@"circular") forState:UIControlStateNormal];
     [button_Check addTarget:self action:@selector(button_CheckHandle:) forControlEvents:UIControlEventTouchUpInside];
     UIButton *label = [UIButton new];
     [self.scrollview addSubview:label];
@@ -287,7 +287,7 @@
         isAgreedServiceTerm = NO;
     }else {
         [button setSelected:YES];
-        [button setImage:ImageWithName(@"choose") forState:UIControlStateNormal];
+        [button setImage:ImageWithName(@"circular") forState:UIControlStateNormal];
         isAgreedServiceTerm = YES;
     }
 }
