@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class SH_GameItemModel;
 @interface SH_GameItemView : UIView
+
+@property (nonatomic, strong) SH_GameItemModel *gameItemModel;
 
 @end

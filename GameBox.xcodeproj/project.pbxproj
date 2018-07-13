@@ -63,6 +63,7 @@
 		54C875A020F756A500AA0594 /* errRing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 54C8759C20F756A500AA0594 /* errRing.mp3 */; };
 		54C875A420F7570800AA0594 /* SH_RingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C875A320F7570800AA0594 /* SH_RingManager.m */; };
 		54C875A820F75B7700AA0594 /* SH_RingButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C875A720F75B7700AA0594 /* SH_RingButton.m */; };
+		54C875AB20F84BFF00AA0594 /* SH_GameItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C875AA20F84BFF00AA0594 /* SH_GameItemModel.m */; };
 		BF2F915A20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F915820EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m */; };
 		BF2F915B20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2F915920EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib */; };
 		BF2F915F20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F915D20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m */; };
@@ -249,6 +250,8 @@
 		54C875A320F7570800AA0594 /* SH_RingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_RingManager.m; sourceTree = "<group>"; };
 		54C875A620F75B7700AA0594 /* SH_RingButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_RingButton.h; sourceTree = "<group>"; };
 		54C875A720F75B7700AA0594 /* SH_RingButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_RingButton.m; sourceTree = "<group>"; };
+		54C875A920F84BFF00AA0594 /* SH_GameItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_GameItemModel.h; sourceTree = "<group>"; };
+		54C875AA20F84BFF00AA0594 /* SH_GameItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_GameItemModel.m; sourceTree = "<group>"; };
 		BF2F915720EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_DepositeWayCollectionViewCell.h; sourceTree = "<group>"; };
 		BF2F915820EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_DepositeWayCollectionViewCell.m; sourceTree = "<group>"; };
 		BF2F915920EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_DepositeWayCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -565,7 +568,6 @@
 			isa = PBXGroup;
 			children = (
 				BF44ED0020F7828400BC6EF3 /* 滚轮选择器 */,
-				BF44EC6A20F495C300BC6EF3 /* PGDatePicker */,
 				54C875A520F75B6400AA0594 /* RingButton */,
 				54C875A120F7570800AA0594 /* RingManager */,
 				BF44EC5320F454E100BC6EF3 /* Macro */,
@@ -644,6 +646,8 @@
 				54C8758F20F7333300AA0594 /* SH_NetWorkService+Home.m */,
 				54C8759120F7372D00AA0594 /* SH_HomeBannerModel.h */,
 				54C8759220F7372D00AA0594 /* SH_HomeBannerModel.m */,
+				54C875A920F84BFF00AA0594 /* SH_GameItemModel.h */,
+				54C875AA20F84BFF00AA0594 /* SH_GameItemModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1293,6 +1297,7 @@
 				BFFC845220F2F253008AD801 /* SH_RechargeCenterViewController.m in Sources */,
 				BF44ECDF20F6F6AA00BC6EF3 /* UILabel+handle.m in Sources */,
 				5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */,
+				54C875AB20F84BFF00AA0594 /* SH_GameItemModel.m in Sources */,
 				BFFEDCBB20F35627002E69FD /* SH_RechargeCenterAccountModel.m in Sources */,
 				DA22F40820F494C60058A54F /* ScreenAdaptation.m in Sources */,
 				DA22F3D820F455C50058A54F /* UIImage+Representation.m in Sources */,

@@ -28,6 +28,8 @@
 #import "SH_HomeBannerModel.h"
 #import "SH_RingManager.h"
 #import "SH_RingButton.h"
+#import "SH_GameItemModel.h"
+#import "SH_GameItemView.h"
 
 @interface SH_HomeViewController ()<SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate>
 
@@ -40,6 +42,7 @@
 @property (nonatomic, strong) UIView *welBackV;
 @property (strong, nonatomic) SH_GamesListScrollView *gamesListScrollView;
 @property (nonatomic, strong) NSMutableArray *bannerArr;
+@property (nonatomic, strong) NSMutableArray *siteApiRelationArr;
 
 @end
 
@@ -60,6 +63,18 @@
         _bannerArr = [NSMutableArray array];
     }
     return _bannerArr;
+}
+
+- (NSMutableArray *)siteApiRelationArr
+{
+    if (_siteApiRelationArr == nil) {
+        _siteApiRelationArr = [NSMutableArray array];
+    }
+    return _siteApiRelationArr;
+}
+
+- (IBAction)homeinfo:(id)sender {
+    [self refreshHomeInfo];
 }
 
 - (IBAction)login:(id)sender {
@@ -262,10 +277,12 @@
     return _gamesListScrollView;
 }
 
-- (void)fetchHomeInfo
+- (void)refreshHomeInfo
 {
     __weak typeof(self) weakSelf = self;
-
+    [self.bannerArr removeAllObjects];
+    [self.siteApiRelationArr removeAllObjects];
+    
     [SH_NetWorkService fetchHomeInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *data = [response objectForKey:@"data"];
         
@@ -277,6 +294,12 @@
         }
         [weakSelf.cycleAdView reloadDataWithCompleteBlock:nil];
         
+        NSArray *siteApiRelation = [data objectForKey:@"siteApiRelation"];
+        for (NSDictionary *siteApiRelationDic in siteApiRelation) {
+            NSError *err;
+            SH_GameItemModel *gameItemModel = [[SH_GameItemModel alloc] initWithDictionary:siteApiRelationDic error:&err];
+            [weakSelf.siteApiRelationArr addObject:gameItemModel];
+        }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         //
     }];
@@ -321,12 +344,14 @@
 
 - (NSInteger)numberOfItemsOfGamesListScrollView:(SH_GamesListScrollView *)scrollView
 {
-    return 23;
+    return self.siteApiRelationArr.count;
 }
 
 - (UIView *)gamesListScrollView:(SH_GamesListScrollView *)scrollView viewForItem:(NSInteger)index
 {
-    return [[[NSBundle mainBundle] loadNibNamed:@"SH_GameItemView" owner:nil options:nil] lastObject];
+    SH_GameItemView *gameItemView =[[[NSBundle mainBundle] loadNibNamed:@"SH_GameItemView" owner:nil options:nil] lastObject];
+    gameItemView.gameItemModel = self.siteApiRelationArr[index];
+    return gameItemView;
 }
 
 #pragma mark - GamesListScrollViewDelegate M

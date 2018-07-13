@@ -7,6 +7,7 @@
 //
 
 #import "SH_GameItemView.h"
+#import "SH_GameItemModel.h"
 
 @implementation SH_GameItemView
 
