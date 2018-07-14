@@ -108,6 +108,42 @@
     }];
 }
 
++(void)startAddApplyDiscountsVerify:(SHNetWorkComplete)complete
+                             failed:(SHNetWorkFailed)failed {
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/getNoticeSiteType.html"];
+    NSDictionary *parameter =  @{};
+    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost};
+    [SH_NetWorkService post:url parameter:parameter header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (complete) {
+            complete(httpURLResponse, response);
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
+        if (failed) {
+            failed(httpURLResponse, err);
+        }
+    }];
+}
+
++(void)startAddApplyDiscountsWithAdvisoryType:(NSString *)advisoryType
+                                advisoryTitle:(NSString *)advisoryTitle
+                              advisoryContent:(NSString *)advisoryContent
+                                         code:(NSString *)code
+                                     complete:(SHNetWorkComplete)complete
+                                       failed:(SHNetWorkFailed)failed {
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/addNoticeSite.html"];
+    NSDictionary *parameter =  @{@"result.advisoryType":advisoryType,@"result.advisoryTitle":advisoryTitle,@"result.advisoryContent":advisoryContent,@"code":code};
+    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost, @"Cookie":[NetWorkLineMangaer sharedManager].currentCookie?:@""};
+    [SH_NetWorkService post:url parameter:parameter header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (complete) {
+            complete(httpURLResponse, response);
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
+        if (failed) {
+            failed(httpURLResponse, err);
+        }
+    }];
+}
+
 +(void)startLoadMessageCenterSiteMessageUnReadCount:(SHNetWorkComplete)complete
                                              failed:(SHNetWorkFailed)failed {
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/getUnReadCount.html"];

@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SH_MyMsgTabelViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *advisoryContentLabel;
+@property (weak, nonatomic) IBOutlet UILabel *advisoryTimeLabel;
 
 @end
