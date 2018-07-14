@@ -56,7 +56,7 @@
     [self.gamesListScrollView reloaData];
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didRegistratedSuccessful) name:@"didRegistratedSuccessful" object:nil];
     [self  configUI];
-    [self  autoLoginIsRegist:YES];
+    [self  autoLoginIsRegist:false];
 }
 #pragma mark --- 记着密码启动自动登录
 #pragma  mark --- 自动登录
@@ -74,7 +74,7 @@
             if ([result boolValueForKey:@"success"]){
                 [[RH_UserInfoManager shareUserManager] updateLoginInfoWithUserName:account
                                                                          LoginTime:dateStringWithFormatter([NSDate date], @"yyyy-MM-dd HH:mm:ss")] ;
-                [self autoLoginSuccess:httpURLResponse];
+                [self autoLoginSuccess:httpURLResponse isRegist:isRegist];
             }
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             
@@ -85,7 +85,7 @@
             if ([result boolValueForKey:@"success"]){
                 [[RH_UserInfoManager shareUserManager] updateLoginInfoWithUserName:account
                                                                          LoginTime:dateStringWithFormatter([NSDate date], @"yyyy-MM-dd HH:mm:ss")] ;
-                [self autoLoginSuccess:httpURLResponse];
+                [self autoLoginSuccess:httpURLResponse isRegist:isRegist];
             }
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             
@@ -93,28 +93,19 @@
     }
 }
 #pragma mark --- 登录成功之后 获取用户信息
--(void)autoLoginSuccess:(NSHTTPURLResponse *)httpURLResponse{
+-(void)autoLoginSuccess:(NSHTTPURLResponse *)httpURLResponse isRegist:(BOOL)isRegist{
     
-    NSString *setCookie = [httpURLResponse.allHeaderFields objectForKey:@"Set-Cookie"];
+    NSString * setCookie = [httpURLResponse.allHeaderFields objectForKey:@"Set-Cookie"];
     NSString *cookie;
-    if ([setCookie rangeOfString:@"GMT, "].location !=NSNotFound) {
-//        NSUInteger startLocation = [setCookie rangeOfString:@"GMT, "].location +4;
-//        NSUInteger endLocation = [setCookie rangeOfString:@" rememberMe=deleteMe"].location;
-//        NSUInteger lenth = endLocation - startLocation;
-//        cookie = [setCookie substringWithRange:NSMakeRange(startLocation, lenth)];
-        NSString *responseStr = httpURLResponse.allHeaderFields[@"Set-Cookie"] ;
-        NSMutableArray *mArr = [NSMutableArray array] ;
-        if (isSidStr(responseStr)) {
-            [mArr addObjectsFromArray:matchLongString(responseStr)] ;
-        }
-        if (mArr.count>0) {
-             [NetWorkLineMangaer sharedManager].currentCookie  = [NSString stringWithFormat:@"SID=%@",[mArr firstObject]] ;
-        }
+    if (isRegist) {
+        NSUInteger startLocation = [setCookie rangeOfString:@"GMT, "].location +4;
+        NSUInteger endLocation = [setCookie rangeOfString:@" rememberMe=deleteMe"].location;
+        NSUInteger lenth = endLocation - startLocation;
+        cookie = [setCookie substringWithRange:NSMakeRange(startLocation, lenth)];
     }else{
         cookie = setCookie;
     }
-    
-//    [NetWorkLineMangaer sharedManager].currentCookie = cookie;
+    [NetWorkLineMangaer sharedManager].currentCookie = cookie;
     [[RH_UserInfoManager  shareUserManager] updateIsLogin:YES];
     [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
