@@ -150,6 +150,10 @@
 		DA22F40A20F494C60058A54F /* NSDictionary+CLCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = DA22F40620F494C60058A54F /* NSDictionary+CLCategory.m */; };
 		DA6EE1BD20F8BECD009A01C5 /* SH_UserInformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6EE1BC20F8BECD009A01C5 /* SH_UserInformationView.m */; };
 		DA6EE1BF20F8BEDA009A01C5 /* SH_UserInformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA6EE1BE20F8BEDA009A01C5 /* SH_UserInformationView.xib */; };
+		DA6EE1C220F98B72009A01C5 /* SH_AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6EE1C120F98B72009A01C5 /* SH_AlertView.m */; };
+		DA6EE1C420F98B7F009A01C5 /* SH_AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA6EE1C320F98B7F009A01C5 /* SH_AlertView.xib */; };
+		DA6EE1C720F99F39009A01C5 /* SH_SettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6EE1C620F99F39009A01C5 /* SH_SettingView.m */; };
+		DA6EE1C920F99F45009A01C5 /* SH_SettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA6EE1C820F99F45009A01C5 /* SH_SettingView.xib */; };
 		F88297C8CDA8BE450455395E /* libPods-GameBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C23814E2A7636D1CE6B89BC /* libPods-GameBox.a */; };
 /* End PBXBuildFile section */
 
@@ -410,6 +414,12 @@
 		DA6EE1BB20F8BECD009A01C5 /* SH_UserInformationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_UserInformationView.h; sourceTree = "<group>"; };
 		DA6EE1BC20F8BECD009A01C5 /* SH_UserInformationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_UserInformationView.m; sourceTree = "<group>"; };
 		DA6EE1BE20F8BEDA009A01C5 /* SH_UserInformationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_UserInformationView.xib; sourceTree = "<group>"; };
+		DA6EE1C020F98B72009A01C5 /* SH_AlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_AlertView.h; sourceTree = "<group>"; };
+		DA6EE1C120F98B72009A01C5 /* SH_AlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_AlertView.m; sourceTree = "<group>"; };
+		DA6EE1C320F98B7F009A01C5 /* SH_AlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_AlertView.xib; sourceTree = "<group>"; };
+		DA6EE1C520F99F39009A01C5 /* SH_SettingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SettingView.h; sourceTree = "<group>"; };
+		DA6EE1C620F99F39009A01C5 /* SH_SettingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SettingView.m; sourceTree = "<group>"; };
+		DA6EE1C820F99F45009A01C5 /* SH_SettingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_SettingView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1081,6 +1091,12 @@
 				DA6EE1BB20F8BECD009A01C5 /* SH_UserInformationView.h */,
 				DA6EE1BC20F8BECD009A01C5 /* SH_UserInformationView.m */,
 				DA6EE1BE20F8BEDA009A01C5 /* SH_UserInformationView.xib */,
+				DA6EE1C020F98B72009A01C5 /* SH_AlertView.h */,
+				DA6EE1C120F98B72009A01C5 /* SH_AlertView.m */,
+				DA6EE1C320F98B7F009A01C5 /* SH_AlertView.xib */,
+				DA6EE1C520F99F39009A01C5 /* SH_SettingView.h */,
+				DA6EE1C620F99F39009A01C5 /* SH_SettingView.m */,
+				DA6EE1C820F99F45009A01C5 /* SH_SettingView.xib */,
 			);
 			path = "UserInformationView ";
 			sourceTree = "<group>";
@@ -1168,6 +1184,7 @@
 				22552CE120F494F00090EFBC /* SH_SiteMsgView.xib in Resources */,
 				BF44ECD120F59A6300BC6EF3 /* SH_RechargeDetailBankView.xib in Resources */,
 				54C8758020F3560100AA0594 /* SH_PromoListView.xib in Resources */,
+				DA6EE1C920F99F45009A01C5 /* SH_SettingView.xib in Resources */,
 				5401C55120ECA1B80027246D /* GameWebViewController.xib in Resources */,
 				54C875A020F756A500AA0594 /* errRing.mp3 in Resources */,
 				22552CE620F49DB90090EFBC /* SH_SendMsgView.xib in Resources */,
@@ -1185,6 +1202,7 @@
 				22552CDC20F48DBA0090EFBC /* SH_SystemMsgView.xib in Resources */,
 				BFFC845920F2F260008AD801 /* DepositeHeadCollectionReusableView.xib in Resources */,
 				5401C53720ECA10F0027246D /* Main.storyboard in Resources */,
+				DA6EE1C420F98B7F009A01C5 /* SH_AlertView.xib in Resources */,
 				54C8759F20F756A500AA0594 /* showAlertRing.mp3 in Resources */,
 				BF44ECF720F7399800BC6EF3 /* SH_PopSubViewTableViewCell.xib in Resources */,
 				DA18EFBD20F0A9C3002B7E22 /* AlertViewController.xib in Resources */,
@@ -1314,6 +1332,7 @@
 				54C8758820F48CD500AA0594 /* SH_GamesListScrollView.m in Sources */,
 				54C8757920F3508600AA0594 /* SH_PromoContentView.m in Sources */,
 				5401C55620ECA2CC0027246D /* IPsCacheManager.m in Sources */,
+				DA6EE1C720F99F39009A01C5 /* SH_SettingView.m in Sources */,
 				5401C53F20ECA1100027246D /* main.m in Sources */,
 				22552CDF20F494E80090EFBC /* SH_SiteMsgView.m in Sources */,
 				5401C55A20ECA48D0027246D /* NetWorkLineMangaer.m in Sources */,
@@ -1337,6 +1356,7 @@
 				5401C55320ECA1B80027246D /* SH_NetWorkService.m in Sources */,
 				DA6EE1BD20F8BECD009A01C5 /* SH_UserInformationView.m in Sources */,
 				DA22F3E120F4562B0058A54F /* UIImage+Alpha.m in Sources */,
+				DA6EE1C220F98B72009A01C5 /* SH_AlertView.m in Sources */,
 				DA22F3C320F44DA80058A54F /* CLDocumentCachePool.m in Sources */,
 				BF44ECED20F7096600BC6EF3 /* SH_PreferentialPopView.m in Sources */,
 				BF44ECBB20F4B36000BC6EF3 /* SH_RechargeDetailViewController.m in Sources */,

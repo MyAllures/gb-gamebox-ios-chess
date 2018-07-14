@@ -54,15 +54,19 @@
                                 <constraint firstItem="k8V-nF-s7S" firstAttribute="top" secondItem="W8q-tW-WAo" secondAttribute="top" id="rS5-8J-wGb"/>
                             </constraints>
                         </view>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="ODB-xJ-e5g">
+                        <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="ODB-xJ-e5g">
                             <rect key="frame" x="16.5" y="4" width="40" height="42"/>
+                            <gestureRecognizers/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="40" id="Xh8-Kw-mfo"/>
                                 <constraint firstAttribute="height" constant="41.5" id="cDf-j8-S3s"/>
                             </constraints>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="YK5-4V-tmw" appends="YES" id="hnJ-wU-plX"/>
+                            </connections>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Rm-T9-KIw" customClass="SH_RingButton">
-                            <rect key="frame" x="16" y="4" width="118.5" height="42"/>
+                            <rect key="frame" x="56.5" y="4" width="78" height="42"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="ringType">
                                     <integer key="value" value="0"/>
@@ -198,9 +202,6 @@
                                         <constraint firstAttribute="width" constant="34.5" id="x2v-UX-gMT"/>
                                     </constraints>
                                     <state key="normal" image="btn_top_recharge"/>
-                                    <connections>
-                                        <action selector="enterGame:" destination="-1" eventType="touchUpInside" id="7T0-XV-Ukn"/>
-                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -240,13 +241,13 @@
                         <constraint firstItem="0Xm-2S-7AG" firstAttribute="centerY" secondItem="T5H-Wr-I5l" secondAttribute="centerY" id="4yO-ZD-aCc"/>
                         <constraint firstItem="W8q-tW-WAo" firstAttribute="centerY" secondItem="T5H-Wr-I5l" secondAttribute="centerY" id="59D-x4-8nY"/>
                         <constraint firstAttribute="height" constant="50" id="5Ar-GN-NUf"/>
-                        <constraint firstItem="4Rm-T9-KIw" firstAttribute="leading" secondItem="ODB-xJ-e5g" secondAttribute="leading" id="5LA-RS-pf9"/>
                         <constraint firstItem="vZe-oG-L3k" firstAttribute="top" secondItem="T5H-Wr-I5l" secondAttribute="top" id="5n1-46-az3"/>
                         <constraint firstItem="Tpc-06-QYF" firstAttribute="centerY" secondItem="W4P-iA-pmO" secondAttribute="centerY" id="F3y-hF-zCQ"/>
                         <constraint firstItem="ODB-xJ-e5g" firstAttribute="leading" secondItem="T5H-Wr-I5l" secondAttribute="leading" constant="16.5" id="IKA-AG-R3J"/>
                         <constraint firstItem="W8q-tW-WAo" firstAttribute="leading" secondItem="T5H-Wr-I5l" secondAttribute="leading" constant="29" id="Kgk-Ob-1Qv"/>
                         <constraint firstItem="Tpc-06-QYF" firstAttribute="centerY" secondItem="T5H-Wr-I5l" secondAttribute="centerY" id="NQS-xO-fw4"/>
                         <constraint firstItem="W8q-tW-WAo" firstAttribute="centerY" secondItem="ODB-xJ-e5g" secondAttribute="centerY" id="YKs-pG-arT"/>
+                        <constraint firstItem="4Rm-T9-KIw" firstAttribute="leading" secondItem="ODB-xJ-e5g" secondAttribute="trailing" id="ab9-uQ-gWw"/>
                         <constraint firstAttribute="bottom" secondItem="vZe-oG-L3k" secondAttribute="bottom" id="dae-FD-5vN"/>
                         <constraint firstAttribute="trailing" secondItem="vZe-oG-L3k" secondAttribute="trailing" id="eMc-B3-tXX"/>
                         <constraint firstItem="vZe-oG-L3k" firstAttribute="leading" secondItem="T5H-Wr-I5l" secondAttribute="leading" id="jAm-oP-M13"/>
@@ -377,8 +378,13 @@
                 <constraint firstItem="T5H-Wr-I5l" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nmD-DT-8uu"/>
                 <constraint firstItem="5xu-Rj-Dcf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="yhJ-Rm-kDQ"/>
             </constraints>
-            <point key="canvasLocation" x="-20" y="19"/>
+            <point key="canvasLocation" x="-20.5" y="18.5"/>
         </view>
+        <tapGestureRecognizer id="YK5-4V-tmw">
+            <connections>
+                <action selector="avaterClick:" destination="-1" id="eyR-W7-jaE"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="Rounded-bg" width="229" height="42"/>

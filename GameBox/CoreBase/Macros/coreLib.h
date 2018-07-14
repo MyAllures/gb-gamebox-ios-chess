@@ -29,7 +29,7 @@
 #import <Masonry.h>
 
 #pragma mark-
-
+#import "RH_UserInfoManager.h"
 
 
 
