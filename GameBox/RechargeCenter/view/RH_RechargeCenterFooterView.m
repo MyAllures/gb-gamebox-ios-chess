@@ -8,7 +8,7 @@
 
 #import "RH_RechargeCenterFooterView.h"
 #import "THScrollChooseView.h"
-#import "SH_RechargeCenterChannelModel.h"
+
 @interface RH_RechargeCenterFooterView()
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UILabel *messageLab;
@@ -18,37 +18,20 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *btnTop;
 @property(nonatomic,strong)NSArray *bankArray;
 @property (weak, nonatomic) IBOutlet UILabel *bankNameLab;
-
+@property(nonatomic,copy)NSString *code;
+@property(nonatomic,copy)NSString *bankName;
 @end
 @implementation RH_RechargeCenterFooterView
 - (void)awakeFromNib{
     [super awakeFromNib];
-//    [self addSureBtnInTextfield];
-    
 }
-//-(void)addSureBtnInTextfield{
-//    UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, 30)];
-//    toolBar.backgroundColor = [UIColor lightGrayColor];
-//
-//    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    btn.frame = CGRectMake(0, 0, 50, 30);
-//    [btn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
-//    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//    [btn setTitle:@"完成" forState:UIControlStateNormal];
-//    UIBarButtonItem * btnSpace = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
-//    UIBarButtonItem *btnItem = [[UIBarButtonItem alloc]initWithCustomView:btn];
-//    [toolBar setItems:@[btnSpace,btnItem]];
-//    self.textField.inputAccessoryView = toolBar;
-//
-//}
-//-(void)btnClick{
-//    [self.textField endEditing:YES];
-//}
 -(void)updateUIWithCode:(NSString *)code
                    Type:(NSString *)type
                  Number:(NSString *)number
-      ChannelModelArray:(NSArray *)array{
+      ChannelModelArray:(NSArray *)array
+           ChannelModel:(SH_RechargeCenterChannelModel *)channelModel{
     self.bankArray = array;
+    self.code = code;
     if ([code isEqualToString:@"online"]) {
         self.content = @"温馨提示：\n• 为了提高对账速度及成功率，当前支付方式已开随机额度，请输入整数存款金额，将随机增加0.01~0.99元！\n• 请保留好转账单据作为核对证明。\n• 如出现充值失败或充值后未到账等情况，请联系在线客服获取帮助。 点击联系在线客服";
         self.chooseBKBtn.hidden = NO;
@@ -86,9 +69,16 @@
     }
     }
     self.messageLab.text = self.content;
+    self.textField.placeholder = [NSString stringWithFormat:@"%@~%@",channelModel.singleDepositMin,channelModel.singleDepositMax];
     self.textField.text = number;
 }
 - (IBAction)submitBtnClick:(id)sender {
+    if ([self.code isEqualToString:@"online"]) {
+        if (self.bankName.length == 0) {
+            showMessage(self.superview.superview, @"请选择银行", nil);
+            return;
+        }
+    }
     [self.delegate RH_RechargeCenterFooterViewSubmitBtnClick];
 }
 - (IBAction)chooseBKBtnXClick:(id)sender {
@@ -104,6 +94,7 @@
     scrollChooseView.confirmBlock = ^(NSInteger selectedQuestion) {
         SH_RechargeCenterChannelModel *model = weakSelf.bankArray[selectedQuestion];
         self.bankNameLab.text = model.payName;
+        self.bankName = model.payName;
         weakSelf.textField.placeholder = [NSString stringWithFormat:@"%@~%@",model.singleDepositMin,model.singleDepositMax];
     };
 }

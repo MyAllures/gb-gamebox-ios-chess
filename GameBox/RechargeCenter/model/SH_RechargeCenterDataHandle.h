@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "SH_RechargeCenterChannelModel.h"
-
-typedef void(^HandleBlock)(SH_RechargeCenterChannelModel *model,NSArray *titles);
+#import "SH_RechargeCenterPaywayModel.h"
+typedef void(^HandleBlock)(SH_RechargeCenterChannelModel *model,NSArray *titles,SH_RechargeCenterPaywayModel *paywayModel);
 @interface SH_RechargeCenterDataHandle : NSObject
 
 /**
