@@ -16,7 +16,6 @@
 #import "SH_RechargeCenterViewController.h"
 #import "View+MASAdditions.h"
 #import "SH_CycleScrollView.h"
-#import "LoginViewController.h"
 #import "SH_PlayerCenterView.h"
 #import "SH_WelfareView.h"
 #import "AlertViewController.h"
@@ -29,6 +28,8 @@
 #import "SH_RingManager.h"
 #import "SH_RingButton.h"
 
+#import "SH_UserInformationView.h"
+#import "SH_NetWorkService+RegistAPI.h"
 @interface SH_HomeViewController ()<SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImg;
@@ -52,6 +53,7 @@
     [self fetchCookie];
     [self initAdScroll];
     [self.gamesListScrollView reloaData];
+    [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didRegistratedSuccessful) name:@"didRegistratedSuccessful" object:nil];
 }
 
 - (NSMutableArray *)bannerArr
@@ -82,6 +84,13 @@
 }
 
 - (IBAction)enterGame:(id)sender {
+    SH_UserInformationView * inforView = [SH_UserInformationView  instanceInformationView];
+    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:inforView viewHeight:200 viewWidth:322];
+    cvc.title = @"个人信息";
+    cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:cvc animated:YES completion:nil];
+    /*
     __weak typeof(self) weakSelf = self;
     
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/origin/getGameLink.html?apiId=10&apiTypeId=2&gameId=100303&gameCode=5902"];
@@ -93,7 +102,7 @@
         [weakSelf presentViewController:gameVC animated:YES completion:nil];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         //
-    }];
+    }];*/
 }
 
 - (IBAction)rechargeAction:(id)sender {
@@ -124,11 +133,14 @@
 
 - (IBAction)avatarClick:(id)sender {
     SH_LoginView *login = [SH_LoginView  InstanceLoginView];
-    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:260 viewWidth:414];
+    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:260 viewWidth:494];
     login.dismissBlock = ^{
         [cvc  close];
     };
-    cvc.title = @"测试";
+    login.changeChannelBlock = ^(NSString *string) {
+        [cvc  setSubTitle:string];
+    };
+    cvc.title = @"登录";
     cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
     [self presentViewController:cvc animated:YES completion:nil];
@@ -282,6 +294,15 @@
     }];
 }
 
+#pragma mark ---注册成功的通知 这里自动登录
+-(void)didRegistratedSuccessful{
+    NSUserDefaults  * defaults = [NSUserDefaults standardUserDefaults];
+    [SH_NetWorkService  fetchAutoLoginWithUserName:[defaults objectForKey:@"username"] Password:[defaults objectForKey:@"account"] complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        
+    }];
+}
 #pragma mark - SH_CycleScrollViewDataSource
 
 - (NSArray *)numberOfCycleScrollView:(SH_CycleScrollView *)bannerView

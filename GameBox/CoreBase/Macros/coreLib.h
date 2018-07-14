@@ -20,6 +20,7 @@
 #import "NSDictionary+CLCategory.h"
 #import "UIView+FrameSize.h"
 #import "NSDate+CLCategory.h"
+#import "UIColor+HexString.h"
 #pragma MARK-网络相关
 #import "NetWorkLineMangaer.h"
 #import <JSONModel.h>

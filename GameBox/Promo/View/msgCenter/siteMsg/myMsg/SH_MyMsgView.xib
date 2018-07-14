@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="r5r-cr-I3k" customClass="SH_MyMsgView">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHA-Lx-AWn">
+                    <rect key="frame" x="15" y="15" width="96" height="30"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="96" id="bl8-ar-ktx"/>
+                        <constraint firstAttribute="height" constant="30" id="v7x-8P-nM9"/>
+                    </constraints>
+                    <state key="normal" title="全选">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DxW-3F-1cF">
+                    <rect key="frame" x="132" y="15" width="49" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="删除">
+                        <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5ss-i8-i7T">
+                    <rect key="frame" x="0.0" y="58" width="480" height="262"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="262" id="7xK-5o-orJ"/>
+                        <constraint firstAttribute="width" constant="480" id="JZt-jb-IVR"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="dataSource" destination="r5r-cr-I3k" id="Mhf-9O-44a"/>
+                        <outlet property="delegate" destination="r5r-cr-I3k" id="ML4-eb-2Rj"/>
+                    </connections>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wQH-lT-z4a">
+                    <rect key="frame" x="189" y="15" width="114" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="标注已读">
+                        <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="5ss-i8-i7T" secondAttribute="trailing" id="AMg-BG-4Q9"/>
+                <constraint firstItem="qHA-Lx-AWn" firstAttribute="top" secondItem="r5r-cr-I3k" secondAttribute="top" constant="15" id="EgG-Uy-qhF"/>
+                <constraint firstAttribute="bottom" secondItem="5ss-i8-i7T" secondAttribute="bottom" id="jT6-wR-ifp"/>
+                <constraint firstItem="5ss-i8-i7T" firstAttribute="top" secondItem="r5r-cr-I3k" secondAttribute="top" constant="58" id="kYL-tw-fb1"/>
+                <constraint firstItem="5ss-i8-i7T" firstAttribute="leading" secondItem="r5r-cr-I3k" secondAttribute="leading" id="nsC-Ur-YRW"/>
+                <constraint firstItem="qHA-Lx-AWn" firstAttribute="leading" secondItem="r5r-cr-I3k" secondAttribute="leading" constant="15" id="vJw-Ap-C44"/>
+            </constraints>
+            <connections>
+                <outlet property="tableView" destination="5ss-i8-i7T" id="AC3-ZH-oWz"/>
+            </connections>
+        </view>
+    </objects>
+</document>

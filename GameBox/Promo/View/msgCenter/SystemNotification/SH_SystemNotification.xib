@@ -45,6 +45,9 @@
                             <state key="normal" title="2017-02-03" image="betRec_calendar_icon">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="startTimeAction:" destination="tIW-ZM-OaV" eventType="touchUpInside" id="1wP-PS-1JN"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -73,6 +76,9 @@
                             <state key="normal" title="2017-02-03" image="betRec_calendar_icon">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="endTimeAction:" destination="tIW-ZM-OaV" eventType="touchUpInside" id="Vkb-lG-iAw"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -87,6 +93,9 @@
                     <state key="normal" title="快选" backgroundImage="login_button">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="quickSeleteAction:" destination="tIW-ZM-OaV" eventType="touchUpInside" id="v9t-lp-fbY"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -104,7 +113,9 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="endTimeBtn" destination="Kve-pE-bhJ" id="11x-8F-sHC"/>
                 <outlet property="quickSeleteBtn" destination="8Oy-Z2-evD" id="c5C-1c-ChU"/>
+                <outlet property="startTimeBtn" destination="1MC-96-XPQ" id="9d9-Ja-ym8"/>
                 <outlet property="tableView" destination="1Fi-pm-fNn" id="NaO-QF-Tkr"/>
                 <outlet property="view1" destination="rg0-eZ-wyW" id="gKr-ie-lSF"/>
                 <outlet property="view2" destination="ME2-kX-MUM" id="rtP-d1-OGt"/>

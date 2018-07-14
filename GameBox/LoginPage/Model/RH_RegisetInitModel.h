@@ -90,9 +90,9 @@
 @interface SelectOptionModel :JSONModel
 
 @property (nonatomic , strong )  NSArray<Optional, SexModel >              * sex;
-@property (nonatomic , strong )  NSArray<Optional,DefaultLocaleModel>      * defaultLocaleModel;
-@property (nonatomic , strong )  NSArray<Optional,MainCurrencyModel >      * mainCurrencyModel;
-@property (nonatomic , strong )  NSArray<Optional,SecurityIssuesModel >    * securityIssuesModel;
+@property (nonatomic , strong )  NSArray<Optional,DefaultLocaleModel>      * defaultLocale;
+@property (nonatomic , strong )  NSArray<Optional,MainCurrencyModel >      * mainCurrency;
+@property (nonatomic , strong )  NSArray<Optional,SecurityIssuesModel >    * securityIssues;
 
 @end
 

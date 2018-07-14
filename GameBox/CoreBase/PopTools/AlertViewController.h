@@ -24,4 +24,5 @@ typedef void(^alertViewDismissBlock)(void);
  */
 -(instancetype)initAlertView:(UIView*)view viewHeight:(CGFloat)height viewWidth:(CGFloat)width;
 -(void)close;
+-(void)setSubTitle:(NSString *)subTitle;
 @end
