@@ -12,7 +12,7 @@ typedef void(^bitCoinSale) (SH_BitCoinSaleModel *model);
 @interface SH_NetWorkService (BitCoin)
 
 /**
- 请求比特币优惠接口
+ 请求存款优惠接口
 
  @param num 比特币的数量
  @param payway 

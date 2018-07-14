@@ -33,15 +33,14 @@
                     <rect key="frame" x="25" y="47.5" width="325" height="120"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z09-vI-3cd">
-                            <rect key="frame" x="10" y="6" width="30" height="14"/>
+                            <rect key="frame" x="15" y="6" width="14" height="14"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="14" id="Pqd-wC-4j1"/>
-                                <constraint firstAttribute="width" constant="30" id="bls-oA-TIq"/>
+                                <constraint firstAttribute="width" constant="14" id="bls-oA-TIq"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvG-Dx-ERh">
-                            <rect key="frame" x="55" y="6" width="223" height="14.5"/>
-                            <color key="backgroundColor" red="0.1069291686" green="1" blue="0.040969342489999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <rect key="frame" x="44" y="6" width="234" height="14.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -57,6 +56,9 @@
                             <state key="normal" title="复制">
                                 <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <connections>
+                                <action selector="copyBankBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="9jl-Tm-H3R"/>
+                            </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dr5-EA-jr2" userLabel="lineView">
                             <rect key="frame" x="0.0" y="26" width="325" height="1"/>
@@ -82,6 +84,9 @@
                             <state key="normal" title="复制">
                                 <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <connections>
+                                <action selector="copyNumBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="xAl-xn-3jn"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKT-E2-UxW">
                             <rect key="frame" x="273" y="79" width="36" height="22"/>
@@ -94,6 +99,9 @@
                             <state key="normal" title="复制">
                                 <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <connections>
+                                <action selector="copyPersonNameBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="gPp-oj-Wi6"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ck1-7Q-uj2">
                             <rect key="frame" x="30" y="81.5" width="40" height="17"/>
@@ -119,7 +127,7 @@
                         <constraint firstItem="XVQ-7F-HOs" firstAttribute="centerY" secondItem="gEb-x6-21u" secondAttribute="centerY" id="ALj-TQ-Wnr"/>
                         <constraint firstItem="dr5-EA-jr2" firstAttribute="leading" secondItem="dhL-xR-wG4" secondAttribute="leading" id="ARW-Zo-3rK"/>
                         <constraint firstItem="ck1-7Q-uj2" firstAttribute="trailing" secondItem="Pqk-nt-MrQ" secondAttribute="leading" id="BRl-9I-qEp"/>
-                        <constraint firstItem="z09-vI-3cd" firstAttribute="leading" secondItem="dhL-xR-wG4" secondAttribute="leading" constant="10" id="C4p-En-ak8"/>
+                        <constraint firstItem="z09-vI-3cd" firstAttribute="leading" secondItem="dhL-xR-wG4" secondAttribute="leading" constant="15" id="C4p-En-ak8"/>
                         <constraint firstItem="gEb-x6-21u" firstAttribute="top" secondItem="dr5-EA-jr2" secondAttribute="bottom" constant="15" id="GRH-Qd-VU6"/>
                         <constraint firstItem="XVQ-7F-HOs" firstAttribute="trailing" secondItem="gEb-x6-21u" secondAttribute="leading" id="HYb-xH-kQm"/>
                         <constraint firstItem="dvG-Dx-ERh" firstAttribute="centerY" secondItem="z09-vI-3cd" secondAttribute="centerY" id="ODT-qu-bv6"/>
@@ -161,6 +169,9 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <state key="normal" title="保存到手机"/>
+                    <connections>
+                        <action selector="saveToPhoneBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="a8D-cW-Xxc"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unh-j4-Ze4" userLabel="打开">
                     <rect key="frame" x="192.5" y="288.5" width="110" height="30"/>
@@ -171,6 +182,9 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <state key="normal" title="打开"/>
+                    <connections>
+                        <action selector="openAppBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="dcz-QM-cL2"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -195,10 +209,15 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="bankLab" destination="dvG-Dx-ERh" id="aSa-qv-1YT"/>
+                <outlet property="iconImageView" destination="z09-vI-3cd" id="NTu-kk-MBN"/>
+                <outlet property="nameLab" destination="Pqk-nt-MrQ" id="cjG-px-Wk3"/>
+                <outlet property="numLab" destination="XVQ-7F-HOs" id="Dev-vb-eU0"/>
                 <outlet property="openBtn" destination="unh-j4-Ze4" id="aFb-ad-GVj"/>
+                <outlet property="qrImageView" destination="Jug-YB-hlP" id="KMA-5l-VAb"/>
                 <outlet property="saveBtnCenterX" destination="VuV-vv-1tY" id="pFr-4u-QbO"/>
             </connections>
-            <point key="canvasLocation" x="24.5" y="51.5"/>
+            <point key="canvasLocation" x="-259" y="10"/>
         </view>
     </objects>
 </document>

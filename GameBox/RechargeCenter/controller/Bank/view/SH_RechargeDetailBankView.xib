@@ -33,14 +33,14 @@
                     <rect key="frame" x="25" y="49" width="325" height="200"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UkJ-wm-yhR">
-                            <rect key="frame" x="8" y="8" width="30" height="15"/>
+                            <rect key="frame" x="20" y="8" width="15" height="15"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="30" id="NW1-hy-Zj5"/>
+                                <constraint firstAttribute="width" constant="15" id="NW1-hy-Zj5"/>
                                 <constraint firstAttribute="height" constant="15" id="aVE-R7-YO0"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txQ-vW-7jq">
-                            <rect key="frame" x="53" y="7" width="36" height="17"/>
+                            <rect key="frame" x="50" y="7" width="36" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -65,7 +65,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="银行开户名:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RnS-xG-0GN" userLabel="personLab">
-                            <rect key="frame" x="8" y="79" width="76" height="17"/>
+                            <rect key="frame" x="8" y="79" width="75.5" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -134,6 +134,7 @@
                         <constraint firstItem="RnS-xG-0GN" firstAttribute="top" secondItem="W9U-PV-vCk" secondAttribute="bottom" constant="15" id="6t5-Mo-Mtd"/>
                         <constraint firstItem="UkJ-wm-yhR" firstAttribute="top" secondItem="HM4-uA-nFZ" secondAttribute="top" constant="8" id="APg-lY-LMu"/>
                         <constraint firstItem="N0v-Z8-HEp" firstAttribute="top" secondItem="Y6N-v9-bnM" secondAttribute="bottom" constant="5" id="Hzz-Sj-0Wo"/>
+                        <constraint firstItem="RnS-xG-0GN" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="cs1-qd-aUh" secondAttribute="leading" id="JgW-X7-cKM"/>
                         <constraint firstAttribute="trailing" secondItem="HRc-a7-00K" secondAttribute="trailing" constant="8" id="Kat-OF-T6L"/>
                         <constraint firstItem="HRc-a7-00K" firstAttribute="centerY" secondItem="W9U-PV-vCk" secondAttribute="centerY" id="Khi-Ac-Ed7"/>
                         <constraint firstItem="fe4-t4-PHe" firstAttribute="centerY" secondItem="b9v-2c-THg" secondAttribute="centerY" id="MqX-h0-eZh"/>
@@ -149,12 +150,13 @@
                         <constraint firstAttribute="height" constant="200" id="ZKx-s6-6w3"/>
                         <constraint firstItem="RnS-xG-0GN" firstAttribute="leading" secondItem="W9U-PV-vCk" secondAttribute="leading" id="bJm-5S-Kk0"/>
                         <constraint firstItem="cs1-qd-aUh" firstAttribute="centerX" secondItem="HRc-a7-00K" secondAttribute="centerX" id="eSF-nn-060"/>
+                        <constraint firstItem="b9v-2c-THg" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="fe4-t4-PHe" secondAttribute="leading" id="i5U-fG-nhV"/>
                         <constraint firstItem="q4E-Km-kSm" firstAttribute="top" secondItem="fe4-t4-PHe" secondAttribute="bottom" constant="5" id="iVk-Cy-mSa"/>
                         <constraint firstItem="cs1-qd-aUh" firstAttribute="centerY" secondItem="RnS-xG-0GN" secondAttribute="centerY" id="mit-RW-OhQ"/>
                         <constraint firstAttribute="trailing" secondItem="N0v-Z8-HEp" secondAttribute="trailing" id="rT1-XO-nLJ"/>
                         <constraint firstItem="b9v-2c-THg" firstAttribute="leading" secondItem="RnS-xG-0GN" secondAttribute="leading" id="sgH-Fw-uBp"/>
                         <constraint firstItem="Y6N-v9-bnM" firstAttribute="centerY" secondItem="txQ-vW-7jq" secondAttribute="centerY" id="tOS-YY-KxN"/>
-                        <constraint firstItem="UkJ-wm-yhR" firstAttribute="leading" secondItem="HM4-uA-nFZ" secondAttribute="leading" constant="8" id="v4O-jp-lqU"/>
+                        <constraint firstItem="UkJ-wm-yhR" firstAttribute="leading" secondItem="HM4-uA-nFZ" secondAttribute="leading" constant="20" id="v4O-jp-lqU"/>
                         <constraint firstItem="fe4-t4-PHe" firstAttribute="centerX" secondItem="cs1-qd-aUh" secondAttribute="centerX" id="xKp-4h-5x1"/>
                     </constraints>
                 </view>
@@ -235,6 +237,9 @@
                         <constraint firstAttribute="height" constant="40" id="OvJ-jz-bbR"/>
                     </constraints>
                     <state key="normal" title="提交"/>
+                    <connections>
+                        <action selector="submitBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="Zf3-SL-VzN"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -280,8 +285,12 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="addressTextField" destination="vJZ-Dr-5PP" id="tIh-ng-h7e"/>
+                <outlet property="adressLab" destination="Tqn-aC-JoT" id="Dp4-wi-dV4"/>
                 <outlet property="bankLab" destination="b9v-2c-THg" id="Uf8-kc-AjN"/>
                 <outlet property="cardNumLab" destination="W9U-PV-vCk" id="sOs-K3-dEM"/>
+                <outlet property="chooseDepositeBtn" destination="1gL-bA-Oyy" id="GkX-yQ-yYY"/>
+                <outlet property="contactCustomerServiceBtn" destination="HRc-a7-00K" id="VTW-DQ-IBl"/>
+                <outlet property="depositeLab" destination="pZs-gP-QsN" id="pb8-In-Uo8"/>
                 <outlet property="iconImageView" destination="UkJ-wm-yhR" id="duz-da-bTj"/>
                 <outlet property="messageLab" destination="q4E-Km-kSm" id="a8t-bL-VdD"/>
                 <outlet property="personLab" destination="RnS-xG-0GN" id="edH-Bm-6Dx"/>

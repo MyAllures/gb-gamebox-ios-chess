@@ -6,10 +6,10 @@
 //  Copyright © 2018年 shin. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import <JSONModel/JSONModel.h>
 
 @protocol SH_RechargeCenterAccountModel;
 @interface SH_RechargeCenterAccountModel : JSONModel
-@property(nonatomic,strong,readonly)NSString <Optional>*code;
-@property (nonatomic,strong,readonly)NSString <Optional>*name;
+@property(nonatomic,copy)NSString <Optional>*code;
+@property (nonatomic,copy)NSString <Optional>*name;
 @end

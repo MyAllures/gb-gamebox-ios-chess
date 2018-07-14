@@ -102,6 +102,11 @@
 		BF44ECFD20F7477900BC6EF3 /* SH_BitCoinSuccessPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF44ECFC20F7477900BC6EF3 /* SH_BitCoinSuccessPopView.m */; };
 		BF44ECFF20F7478600BC6EF3 /* SH_BitCoinSuccessPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF44ECFE20F7478600BC6EF3 /* SH_BitCoinSuccessPopView.xib */; };
 		BF44ED0320F7828400BC6EF3 /* THScrollChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF44ED0120F7828400BC6EF3 /* THScrollChooseView.m */; };
+		BFD6CFC120F8901500EDBC5B /* SH_NetWorkService+Bank.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFC020F8901500EDBC5B /* SH_NetWorkService+Bank.m */; };
+		BFD6CFC520F997B800EDBC5B /* SavePhotoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFC420F997B800EDBC5B /* SavePhotoTool.m */; };
+		BFD6CFCC20F9D20C00EDBC5B /* AttributeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFCB20F9D20C00EDBC5B /* AttributeModel.m */; };
+		BFD6CFCF20F9E01C00EDBC5B /* SH_testViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFCE20F9E01C00EDBC5B /* SH_testViewController.m */; };
+		BFD6CFD320F9FAE700EDBC5B /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFD220F9FAE700EDBC5B /* TTTAttributedLabel.m */; };
 		BFFC845220F2F253008AD801 /* SH_RechargeCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFC845120F2F252008AD801 /* SH_RechargeCenterViewController.m */; };
 		BFFC845920F2F260008AD801 /* DepositeHeadCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFFC845420F2F260008AD801 /* DepositeHeadCollectionReusableView.xib */; };
 		BFFC845A20F2F260008AD801 /* DepositeHeadCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFC845620F2F260008AD801 /* DepositeHeadCollectionReusableView.m */; };
@@ -316,6 +321,16 @@
 		BF44ECFE20F7478600BC6EF3 /* SH_BitCoinSuccessPopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_BitCoinSuccessPopView.xib; sourceTree = "<group>"; };
 		BF44ED0120F7828400BC6EF3 /* THScrollChooseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THScrollChooseView.m; sourceTree = "<group>"; };
 		BF44ED0220F7828400BC6EF3 /* THScrollChooseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THScrollChooseView.h; sourceTree = "<group>"; };
+		BFD6CFBF20F8901500EDBC5B /* SH_NetWorkService+Bank.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+Bank.h"; sourceTree = "<group>"; };
+		BFD6CFC020F8901500EDBC5B /* SH_NetWorkService+Bank.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+Bank.m"; sourceTree = "<group>"; };
+		BFD6CFC320F997B800EDBC5B /* SavePhotoTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SavePhotoTool.h; sourceTree = "<group>"; };
+		BFD6CFC420F997B800EDBC5B /* SavePhotoTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SavePhotoTool.m; sourceTree = "<group>"; };
+		BFD6CFCA20F9D20C00EDBC5B /* AttributeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AttributeModel.h; sourceTree = "<group>"; };
+		BFD6CFCB20F9D20C00EDBC5B /* AttributeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AttributeModel.m; sourceTree = "<group>"; };
+		BFD6CFCD20F9E01C00EDBC5B /* SH_testViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_testViewController.h; sourceTree = "<group>"; };
+		BFD6CFCE20F9E01C00EDBC5B /* SH_testViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_testViewController.m; sourceTree = "<group>"; };
+		BFD6CFD120F9FAE700EDBC5B /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
+		BFD6CFD220F9FAE700EDBC5B /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
 		BFFC845020F2F252008AD801 /* SH_RechargeCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_RechargeCenterViewController.h; sourceTree = "<group>"; };
 		BFFC845120F2F252008AD801 /* SH_RechargeCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_RechargeCenterViewController.m; sourceTree = "<group>"; };
 		BFFC845320F2F260008AD801 /* DepositeHeadCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepositeHeadCollectionReusableView.h; sourceTree = "<group>"; };
@@ -564,8 +579,9 @@
 		5401C54520ECA1B80027246D /* CoreBase */ = {
 			isa = PBXGroup;
 			children = (
+				BFD6CFD020F9FAE700EDBC5B /* TTTAttributedLabel */,
+				BFD6CFC220F9974B00EDBC5B /* SavePhoto */,
 				BF44ED0020F7828400BC6EF3 /* 滚轮选择器 */,
-				BF44EC6A20F495C300BC6EF3 /* PGDatePicker */,
 				54C875A520F75B6400AA0594 /* RingButton */,
 				54C875A120F7570800AA0594 /* RingManager */,
 				BF44EC5320F454E100BC6EF3 /* Macro */,
@@ -760,6 +776,8 @@
 				BFFC845120F2F252008AD801 /* SH_RechargeCenterViewController.m */,
 				BF44EC6720F4890B00BC6EF3 /* SH_RechargeBasicViewController.h */,
 				BF44EC6820F4890B00BC6EF3 /* SH_RechargeBasicViewController.m */,
+				BFD6CFCD20F9E01C00EDBC5B /* SH_testViewController.h */,
+				BFD6CFCE20F9E01C00EDBC5B /* SH_testViewController.m */,
 				BF44ECB820F4B32B00BC6EF3 /* RechargeDetail */,
 				BF44ECD520F5AD6500BC6EF3 /* Bank */,
 				BF44ECD920F602D500BC6EF3 /* KuaiChong */,
@@ -836,11 +854,8 @@
 			children = (
 				BF44ECD220F5AD5C00BC6EF3 /* SH_RechargeBankDetailViewController.h */,
 				BF44ECD320F5AD5C00BC6EF3 /* SH_RechargeBankDetailViewController.m */,
-				BF44ECCD20F59A5800BC6EF3 /* SH_RechargeDetailBankView.h */,
-				BF44ECCE20F59A5800BC6EF3 /* SH_RechargeDetailBankView.m */,
-				BF44ECD020F59A6300BC6EF3 /* SH_RechargeDetailBankView.xib */,
-				BF44ECD620F5AE1300BC6EF3 /* SH_RechargeBankDetailView.h */,
-				BF44ECD720F5AE1300BC6EF3 /* SH_RechargeBankDetailView.m */,
+				BFD6CFBE20F88FEA00EDBC5B /* model */,
+				BFD6CFBD20F88FE000EDBC5B /* view */,
 			);
 			path = Bank;
 			sourceTree = "<group>";
@@ -904,6 +919,45 @@
 			path = "滚轮选择器";
 			sourceTree = "<group>";
 		};
+		BFD6CFBD20F88FE000EDBC5B /* view */ = {
+			isa = PBXGroup;
+			children = (
+				BF44ECCD20F59A5800BC6EF3 /* SH_RechargeDetailBankView.h */,
+				BF44ECCE20F59A5800BC6EF3 /* SH_RechargeDetailBankView.m */,
+				BF44ECD020F59A6300BC6EF3 /* SH_RechargeDetailBankView.xib */,
+				BF44ECD620F5AE1300BC6EF3 /* SH_RechargeBankDetailView.h */,
+				BF44ECD720F5AE1300BC6EF3 /* SH_RechargeBankDetailView.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		BFD6CFBE20F88FEA00EDBC5B /* model */ = {
+			isa = PBXGroup;
+			children = (
+				BFD6CFBF20F8901500EDBC5B /* SH_NetWorkService+Bank.h */,
+				BFD6CFC020F8901500EDBC5B /* SH_NetWorkService+Bank.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		BFD6CFC220F9974B00EDBC5B /* SavePhoto */ = {
+			isa = PBXGroup;
+			children = (
+				BFD6CFC320F997B800EDBC5B /* SavePhotoTool.h */,
+				BFD6CFC420F997B800EDBC5B /* SavePhotoTool.m */,
+			);
+			path = SavePhoto;
+			sourceTree = "<group>";
+		};
+		BFD6CFD020F9FAE700EDBC5B /* TTTAttributedLabel */ = {
+			isa = PBXGroup;
+			children = (
+				BFD6CFD120F9FAE700EDBC5B /* TTTAttributedLabel.h */,
+				BFD6CFD220F9FAE700EDBC5B /* TTTAttributedLabel.m */,
+			);
+			path = TTTAttributedLabel;
+			sourceTree = "<group>";
+		};
 		BFFC845D20F2F268008AD801 /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -928,6 +982,8 @@
 			children = (
 				BF44ECDE20F6F6AA00BC6EF3 /* UILabel+handle.h */,
 				BF44ECDD20F6F6AA00BC6EF3 /* UILabel+handle.m */,
+				BFD6CFCA20F9D20C00EDBC5B /* AttributeModel.h */,
+				BFD6CFCB20F9D20C00EDBC5B /* AttributeModel.m */,
 				DA21F3B020F742B600D20672 /* NSDate+CLCategory.h */,
 				DA21F3B120F742B700D20672 /* NSDate+CLCategory.m */,
 				DA21F38E20F6069600D20672 /* UIView+FrameSize.h */,
@@ -1268,7 +1324,10 @@
 				BF44EC5A20F4588D00BC6EF3 /* SH_BitCoinSubView.m in Sources */,
 				5401C53420ECA10F0027246D /* LineCheckViewController.m in Sources */,
 				BF44EC6920F4890B00BC6EF3 /* SH_RechargeBasicViewController.m in Sources */,
+				BFD6CFCC20F9D20C00EDBC5B /* AttributeModel.m in Sources */,
+				BFD6CFC520F997B800EDBC5B /* SavePhotoTool.m in Sources */,
 				22552CE420F49DB20090EFBC /* SH_SendMsgView.m in Sources */,
+				BFD6CFD320F9FAE700EDBC5B /* TTTAttributedLabel.m in Sources */,
 				BF44ECEA20F6FF4D00BC6EF3 /* SH_BitCoinSaleDetailModel.m in Sources */,
 				DA22F3E020F4562B0058A54F /* UIImage+Size.m in Sources */,
 				2231283720F707F500D1BF5E /* SH_SystemNotificationModel.m in Sources */,
@@ -1280,6 +1339,7 @@
 				2209026620F053D400F8828E /* SH_PromoViewCell.m in Sources */,
 				22552CEA20F4B7720090EFBC /* SH_SiteMsgViewCell.m in Sources */,
 				DA22F3C920F44E470058A54F /* help.m in Sources */,
+				BFD6CFCF20F9E01C00EDBC5B /* SH_testViewController.m in Sources */,
 				BFFC847220F3452A008AD801 /* NSLayoutConstraint+RH_IBDesignable.m in Sources */,
 				BF44EC4D20F44BA300BC6EF3 /* SH_BitCoinViewController.m in Sources */,
 				DA21F3B220F742B700D20672 /* NSDate+CLCategory.m in Sources */,
@@ -1320,6 +1380,7 @@
 				DA21F37C20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m in Sources */,
 				22552CC820F448740090EFBC /* SH_SystemNotification.m in Sources */,
 				DA22F40920F494C60058A54F /* UIViewController+Instance.m in Sources */,
+				BFD6CFC120F8901500EDBC5B /* SH_NetWorkService+Bank.m in Sources */,
 				2248B11920F5EF7E0077EF58 /* SH_GameBulletinTCell.m in Sources */,
 				DA21F37F20F58F9000D20672 /* SH_RegistView.m in Sources */,
 				54C8759320F7372D00AA0594 /* SH_HomeBannerModel.m in Sources */,
