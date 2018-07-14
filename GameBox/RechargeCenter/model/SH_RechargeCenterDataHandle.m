@@ -55,7 +55,7 @@
                 }else if(dataArray.count == 2){
                     [dataArray replaceObjectAtIndex:1 withObject:chooseMoneyArray?chooseMoneyArray:[NSArray array]];
                 }
-                block(channelModel,@[@"",@"请选择或输入金额"]);
+                block(channelModel,@[@"",@"请选择或输入金额"],paywayModel);
             }else{
                 if (dataArray.count == 3) {
                     [dataArray replaceObjectAtIndex:1 withObject:payways?payways:[NSArray array]];
@@ -64,7 +64,7 @@
                     [dataArray replaceObjectAtIndex:1 withObject:payways?payways:[NSArray array]];
                     [dataArray addObject:chooseMoneyArray?chooseMoneyArray:[NSArray array]];
                 }
-                block(channelModel,@[@"",@"付款方式",@"请选择或输入金额"]);
+                block(channelModel,@[@"",@"付款方式",@"请选择或输入金额"],paywayModel);
             }
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             
@@ -76,9 +76,9 @@
         //处理平台的type
         if (dataArray.count == 2){
             //当前选中的是在线支付
-            block(channelModel,@[@"",@"请选择或输入金额"]);
+            block(channelModel,@[@"",@"请选择或输入金额"],nil);
         }else{
-            block(channelModel,@[@"",@"付款方式",@"请选择或输入金额"]);
+            block(channelModel,@[@"",@"付款方式",@"请选择或输入金额"],nil);
             NSMutableArray *array2 = selectedArray[1];
             if ([array2 containsObject:@"selected"]) {
                 //表示只在第二行点击没有点击过第一行

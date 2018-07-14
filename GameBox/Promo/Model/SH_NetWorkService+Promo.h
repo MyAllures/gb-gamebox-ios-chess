@@ -34,10 +34,32 @@
                              complete:(SHNetWorkComplete)complete
                                failed:(SHNetWorkFailed)failed;
 
-#pragma mark - 获取游戏分类
--(void)startV3LoadGameTypeWithApiId:(NSInteger)apiId
-                    searchApiTypeId:(NSInteger)apiTypeId
-                           complete:(SHNetWorkComplete)complete
-                             failed:(SHNetWorkFailed)failed;
+#pragma mark - 站点信息  我的消息
++(void)startSiteMessageMyMessageWithpageNumber:(NSInteger)pageNumber
+                                        pageSize:(NSInteger)pageSize
+                                        complete:(SHNetWorkComplete)complete
+                                          failed:(SHNetWorkFailed)failed;
+
+#pragma mark - 站点信息  系统消息
++(void)startLoadSystemMessageWithpageNumber:(NSInteger)pageNumber
+                                      pageSize:(NSInteger)pageSize
+                                      complete:(SHNetWorkComplete)complete
+                                        failed:(SHNetWorkFailed)failed;
+
+#pragma mark - 消息中心 发送消息
++(void)startAddApplyDiscountsWithAdvisoryType:(NSString *)advisoryType
+                                  advisoryTitle:(NSString *)advisoryTitle
+                                advisoryContent:(NSString *)advisoryContent
+                                           code:(NSString *)code
+                                       complete:(SHNetWorkComplete)complete
+                                         failed:(SHNetWorkFailed)failed;
+
+#pragma mark - 发送消息验证
++(void)startAddApplyDiscountsVerify:(SHNetWorkComplete)complete
+                               failed:(SHNetWorkFailed)failed;
+
+#pragma mark  - 获取站点消息-系统消息&&我的消息 未读消息的条数
++(void)startLoadMessageCenterSiteMessageUnReadCount:(SHNetWorkComplete)complete
+                                             failed:(SHNetWorkFailed)failed;
 
 @end

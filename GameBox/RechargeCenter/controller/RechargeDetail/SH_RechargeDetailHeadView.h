@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SH_RechargeCenterChannelModel.h"
 
 @interface SH_RechargeDetailHeadView : UIView
--(void)updateWithInteger:(NSInteger)index;
+-(void)updateWithChannelModel:(SH_RechargeCenterChannelModel *)channelModel;
 @end
