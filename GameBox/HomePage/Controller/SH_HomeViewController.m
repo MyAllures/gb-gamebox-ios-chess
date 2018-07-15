@@ -133,7 +133,7 @@
 }
 #pragma  mark --- 配置UI
 -(void)configUI{
-    self.userAccountLB.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.username?:@"sjjaid09";
+    self.userAccountLB.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.username?:@"登录/注册";
 }
 - (NSMutableArray *)bannerArr
 {
