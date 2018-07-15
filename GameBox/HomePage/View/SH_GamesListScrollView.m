@@ -36,7 +36,7 @@
     CGFloat calculationW = (itemsNum/2+itemsNum%2)*SH_GAMELIST_ITEM_WIDTH;
     CGFloat contentSizeW = calculationW > self.scrollView.frame.size.width ? calculationW : self.scrollView.frame.size.width;
     
-    [self.scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+    [self.scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
     if (calculationW > self.scrollView.frame.size.width) {
         self.nextBT.hidden = NO;
         self.preBT.hidden = YES;

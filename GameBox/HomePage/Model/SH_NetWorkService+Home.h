@@ -12,4 +12,6 @@
 
 + (void)fetchHomeInfo:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
 
++ (void)fetchGameLink:(NSString *)link complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
+
 @end

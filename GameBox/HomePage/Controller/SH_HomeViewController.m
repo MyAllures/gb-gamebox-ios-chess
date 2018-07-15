@@ -29,11 +29,12 @@
 #import "SH_RingButton.h"
 #import "SH_GameItemModel.h"
 #import "SH_GameItemView.h"
-
 #import "SH_UserInformationView.h"
 #import "SH_AlertView.h"
 #import "SH_SettingView.h"
 #import "SH_NetWorkService+RegistAPI.h"
+#import "SH_WKGameViewController.h"
+
 @interface SH_HomeViewController ()<SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImg;
 @property (weak, nonatomic) IBOutlet UILabel *userAccountLB;
@@ -630,18 +631,43 @@
 
 - (void)gamesListScrollView:(SH_GamesListScrollView *)scrollView didSelectItem:(SH_GameItemModel *)model
 {
+    __weak typeof(self) weakSelf = self;
+    
     self.currentGameItemModel = model;
     if (self.enterDZGameLevel == NO) {
         self.enterDZGameLevel = self.currentLevel == 0 && [self.currentGameItemModel.name isEqualToString:@"电子游艺"];
     }
     
     if ([model.type isEqualToString:@"game"]) {
+        if (![[RH_UserInfoManager shareUserManager] isLogin]) {
+            [self login];
+            return;
+        }
         //进入游戏
-        NSLog(@"进入游戏...");
+        //先获取游戏的url
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [SH_NetWorkService fetchGameLink:model.gameLink complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+            //
+            NSString *gameMsg = [[response objectForKey:@"data"] objectForKey:@"gameMsg"];
+            if (IS_EMPTY_STRING(gameMsg)) {
+                NSString *gameLink = [[response objectForKey:@"data"] objectForKey:@"gameLink"];
+//                GameWebViewController *gameVC = [[GameWebViewController alloc] initWithNibName:@"GameWebViewController" bundle:nil];
+                SH_WKGameViewController *gameVC = [[SH_WKGameViewController alloc] init];
+                gameVC.url = gameLink;
+                [weakSelf.navigationController pushViewController:gameVC animated:NO];
+            }
+            else
+            {
+                showErrorMessage([UIApplication sharedApplication].keyWindow, nil, gameMsg);
+            }
+            [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+            showErrorMessage([UIApplication sharedApplication].keyWindow, nil, @"连接游戏失败");
+            [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+        }];
     }
     else
     {
-        NSLog(@"进入下级页面...");
         //进入下级页面
         self.currentLevel ++;
         if (self.enterDZGameLevel == YES) {

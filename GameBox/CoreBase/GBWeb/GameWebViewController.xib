@@ -27,24 +27,10 @@
                         <outlet property="delegate" destination="-1" id="vVv-C2-LrE"/>
                     </connections>
                 </webView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Myd-je-G9i">
-                    <rect key="frame" x="601" y="20" width="46" height="30"/>
-                    <color key="backgroundColor" red="1" green="0.067689732142857145" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="46" id="29x-h0-xeW"/>
-                        <constraint firstAttribute="height" constant="30" id="tKj-NX-Jjy"/>
-                    </constraints>
-                    <state key="normal" title="关闭"/>
-                    <connections>
-                        <action selector="dismiss:" destination="-1" eventType="touchUpInside" id="kRq-Zg-DeF"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Myd-je-G9i" secondAttribute="trailing" constant="20" id="SY4-dg-IvE"/>
                 <constraint firstItem="Z7z-9p-uZO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XGY-mN-GeE"/>
-                <constraint firstItem="Myd-je-G9i" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="aig-Pw-5e2"/>
                 <constraint firstItem="Z7z-9p-uZO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="eqH-72-QdD"/>
                 <constraint firstAttribute="trailing" secondItem="Z7z-9p-uZO" secondAttribute="trailing" id="nMf-a6-bts"/>
                 <constraint firstAttribute="bottom" secondItem="Z7z-9p-uZO" secondAttribute="bottom" id="wry-5B-phT"/>
