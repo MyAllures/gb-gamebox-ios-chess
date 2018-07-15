@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class SH_GamesListScrollView;
+@class SH_GameItemModel;
 
 @protocol GamesListScrollViewDataSource <NSObject>
 
@@ -21,7 +22,7 @@
 @protocol GamesListScrollViewDelegate <NSObject>
 
 @optional
-- (void)gamesListScrollView:(SH_GamesListScrollView *)scrollView didSelectItem:(NSInteger)index;
+- (void)gamesListScrollView:(SH_GamesListScrollView *)scrollView didSelectItem:(SH_GameItemModel *)model;
 
 @end
 

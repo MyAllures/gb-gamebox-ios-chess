@@ -35,14 +35,22 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImg;
 @property (weak, nonatomic) IBOutlet UILabel *userAccountLB;
+@property (weak, nonatomic) IBOutlet UIButton *upLevelBT;
+@property (weak, nonatomic) IBOutlet UIImageView *dzGameMarkImg;
 @property (strong, nonatomic) SH_CycleScrollView *cycleAdView;
 @property (nonatomic, strong) UIView *backV;
 @property (nonatomic, strong) SH_PlayerCenterView *pcv;
 @property (nonatomic, strong) SH_WelfareView *welfareV;
 @property (nonatomic, strong) UIView *welBackV;
-@property (strong, nonatomic) SH_GamesListScrollView *gamesListScrollView;
+@property (strong, nonatomic) SH_GamesListScrollView *topGamesListScrollView;
+@property (strong, nonatomic) SH_GamesListScrollView *midGamesListScrollView;
+@property (strong, nonatomic) SH_GamesListScrollView *lastGamesListScrollView;
 @property (nonatomic, strong) NSMutableArray *bannerArr;
 @property (nonatomic, strong) NSMutableArray *siteApiRelationArr;
+@property (nonatomic, strong) SH_GameItemModel *currentGameItemModel;
+@property (nonatomic, assign) int currentLevel;
+@property (nonatomic, strong) NSString *currentDZGameTypeName;
+@property (nonatomic, assign) BOOL enterDZGameLevel;
 
 @end
 
@@ -54,7 +62,7 @@
 
     [self fetchCookie];
     [self initAdScroll];
-    [self.gamesListScrollView reloaData];
+    [self refreshHomeInfo];
 }
 
 - (NSMutableArray *)bannerArr
@@ -73,8 +81,53 @@
     return _siteApiRelationArr;
 }
 
-- (IBAction)homeinfo:(id)sender {
-    [self refreshHomeInfo];
+- (void)setCurrentLevel:(int)currentLevel
+{
+    _currentLevel = currentLevel;
+    self.upLevelBT.hidden = _currentLevel == 0;
+}
+
+- (void)setCurrentDZGameTypeName:(NSString *)currentDZGameTypeName
+{
+    _currentDZGameTypeName = currentDZGameTypeName;
+    
+    if ([_currentDZGameTypeName isEqualToString:@"MG电子"]) {
+        self.dzGameMarkImg.image = [UIImage imageNamed:@"logo01"];
+    }
+    else if ([_currentDZGameTypeName isEqualToString:@"AG电子"])
+    {
+        self.dzGameMarkImg.image = [UIImage imageNamed:@"logo08"];
+    }
+    else if ([_currentDZGameTypeName isEqualToString:@"HABA电子"])
+    {
+        self.dzGameMarkImg.image = [UIImage imageNamed:@"logo07"];
+    }
+    else if ([_currentDZGameTypeName isEqualToString:@"PT电子"])
+    {
+        self.dzGameMarkImg.image = [UIImage imageNamed:@"logo04"];
+    }
+}
+
+- (IBAction)upToLastLevel:(id)sender {
+    self.currentLevel --;
+    if (self.enterDZGameLevel && self.currentLevel == 0) {
+        self.enterDZGameLevel = NO;
+    }
+    self.dzGameMarkImg.image = nil;
+    if (self.currentLevel == 1) {
+        self.cycleAdView.hidden = YES;
+        self.topGamesListScrollView.hidden = YES;
+        self.midGamesListScrollView.hidden = NO;
+        self.lastGamesListScrollView.hidden = YES;
+    }
+    else if (self.currentLevel == 0)
+    {
+        self.cycleAdView.hidden = NO;
+        self.topGamesListScrollView.hidden = NO;
+        self.midGamesListScrollView.hidden = YES;
+        self.lastGamesListScrollView.hidden = YES;
+    }
+    
 }
 
 - (IBAction)login:(id)sender {
@@ -260,21 +313,55 @@
     }];
 }
 
-- (SH_GamesListScrollView *)gamesListScrollView
+- (SH_GamesListScrollView *)topGamesListScrollView
 {
-    if (_gamesListScrollView == nil) {
-        _gamesListScrollView = [[SH_GamesListScrollView alloc] init];
-        _gamesListScrollView.dataSource = self;
-        _gamesListScrollView.delegate = self;
-        [self.view addSubview:_gamesListScrollView];
-        [_gamesListScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.cycleAdView.mas_right).mas_equalTo(0);
-            make.top.equalTo(self.cycleAdView.mas_top);
-            make.bottom.equalTo(self.cycleAdView.mas_bottom);
+    if (_topGamesListScrollView == nil) {
+        _topGamesListScrollView = [[SH_GamesListScrollView alloc] init];
+        _topGamesListScrollView.dataSource = self;
+        _topGamesListScrollView.delegate = self;
+        [self.view addSubview:_topGamesListScrollView];
+        [_topGamesListScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(18+190);
+            make.top.mas_equalTo(88);
+            make.height.mas_equalTo(224);
             make.right.equalTo(self.view.mas_right);
         }];
     }
-    return _gamesListScrollView;
+    return _topGamesListScrollView;
+}
+
+- (SH_GamesListScrollView *)midGamesListScrollView
+{
+    if (_midGamesListScrollView == nil) {
+        _midGamesListScrollView = [[SH_GamesListScrollView alloc] init];
+        _midGamesListScrollView.dataSource = self;
+        _midGamesListScrollView.delegate = self;
+        [self.view addSubview:_midGamesListScrollView];
+        [_midGamesListScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(0);
+            make.top.mas_equalTo(88);
+            make.height.mas_equalTo(224);
+            make.right.equalTo(self.view.mas_right);
+        }];
+    }
+    return _midGamesListScrollView;
+}
+
+- (SH_GamesListScrollView *)lastGamesListScrollView
+{
+    if (_lastGamesListScrollView == nil) {
+        _lastGamesListScrollView = [[SH_GamesListScrollView alloc] init];
+        _lastGamesListScrollView.dataSource = self;
+        _lastGamesListScrollView.delegate = self;
+        [self.view addSubview:_lastGamesListScrollView];
+        [_lastGamesListScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(0);
+            make.top.mas_equalTo(88);
+            make.height.mas_equalTo(224);
+            make.right.equalTo(self.view.mas_right);
+        }];
+    }
+    return _lastGamesListScrollView;
 }
 
 - (void)refreshHomeInfo
@@ -300,6 +387,7 @@
             SH_GameItemModel *gameItemModel = [[SH_GameItemModel alloc] initWithDictionary:siteApiRelationDic error:&err];
             [weakSelf.siteApiRelationArr addObject:gameItemModel];
         }
+        [weakSelf.topGamesListScrollView reloaData];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         //
     }];
@@ -344,20 +432,71 @@
 
 - (NSInteger)numberOfItemsOfGamesListScrollView:(SH_GamesListScrollView *)scrollView
 {
-    return self.siteApiRelationArr.count;
+    if (self.currentLevel == 0) {
+        return self.siteApiRelationArr.count;
+    }
+    else
+    {
+        return self.currentGameItemModel.relation.count;
+    }
 }
 
 - (UIView *)gamesListScrollView:(SH_GamesListScrollView *)scrollView viewForItem:(NSInteger)index
 {
+    NSMutableArray *dataArr = [NSMutableArray array];
+    if (scrollView == self.topGamesListScrollView) {
+        dataArr = self.siteApiRelationArr;
+    }
+    else
+    {
+        dataArr = [NSMutableArray arrayWithArray:self.currentGameItemModel.relation];
+    }
+
     SH_GameItemView *gameItemView =[[[NSBundle mainBundle] loadNibNamed:@"SH_GameItemView" owner:nil options:nil] lastObject];
-    gameItemView.gameItemModel = self.siteApiRelationArr[index];
+    gameItemView.gameItemModel = dataArr[index];
     return gameItemView;
 }
 
 #pragma mark - GamesListScrollViewDelegate M
 
-- (void)gamesListScrollView:(SH_GamesListScrollView *)scrollView didSelectItem:(NSInteger)index
-{}
+- (void)gamesListScrollView:(SH_GamesListScrollView *)scrollView didSelectItem:(SH_GameItemModel *)model
+{
+    self.currentGameItemModel = model;
+    if (self.enterDZGameLevel == NO) {
+        self.enterDZGameLevel = self.currentLevel == 0 && [self.currentGameItemModel.name isEqualToString:@"电子游艺"];
+    }
+    
+    if ([model.type isEqualToString:@"game"]) {
+        //进入游戏
+        NSLog(@"进入游戏...");
+    }
+    else
+    {
+        NSLog(@"进入下级页面...");
+        //进入下级页面
+        self.currentLevel ++;
+        if (self.enterDZGameLevel == YES) {
+            self.currentDZGameTypeName = self.currentGameItemModel.name;
+        }
+        if (self.currentLevel == 1) {
+            self.cycleAdView.hidden = YES;
+            self.topGamesListScrollView.hidden = YES;
+            self.midGamesListScrollView.hidden = NO;
+            self.lastGamesListScrollView.hidden = YES;
+
+            [self.midGamesListScrollView reloaData];
+        }
+        else if (self.currentLevel == 2)
+        {
+            self.cycleAdView.hidden = YES;
+            self.topGamesListScrollView.hidden = YES;
+            self.midGamesListScrollView.hidden = YES;
+            self.lastGamesListScrollView.hidden = NO;
+
+            [self.lastGamesListScrollView reloaData];
+        }
+    }
+}
 
 @end
 

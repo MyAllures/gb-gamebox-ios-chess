@@ -9,6 +9,11 @@
 #import "SH_GameItemView.h"
 #import "SH_GameItemModel.h"
 
+@interface SH_GameItemView ()
+@property (weak, nonatomic) IBOutlet UIImageView *iconImg;
+
+@end
+
 @implementation SH_GameItemView
 
 /*
@@ -18,5 +23,19 @@
     // Drawing code
 }
 */
+
+- (void)setGameItemModel:(SH_GameItemModel *)gameItemModel
+{
+    _gameItemModel = gameItemModel;
+    [self.iconImg sd_setImageWithURL:[NSURL URLWithString:_gameItemModel.cover] placeholderImage:[UIImage imageNamed:@"game_chess_34_870"] options:SDWebImageAllowInvalidSSLCertificates];
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    ifRespondsSelector(self.delegate, @selector(gameItemView:didSelect:))
+    {
+        [self.delegate gameItemView:self didSelect:self.gameItemModel];
+    }
+}
 
 @end
