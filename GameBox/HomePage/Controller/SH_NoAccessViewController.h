@@ -1,14 +1,14 @@
 //
-//  SH_HomeViewController.h
+//  SH_NoAccessViewController.h
 //  GameBox
 //
-//  Created by shin on 2018/7/4.
+//  Created by shin on 2018/7/15.
 //  Copyright © 2018年 shin. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "SH_BaseViewController.h"
 
-@interface SH_HomeViewController : SH_BaseViewController
+@interface SH_NoAccessViewController : SH_BaseViewController
 
 @end

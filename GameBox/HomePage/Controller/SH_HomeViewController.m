@@ -34,6 +34,7 @@
 #import "SH_SettingView.h"
 #import "SH_NetWorkService+RegistAPI.h"
 #import "SH_WKGameViewController.h"
+#import "SH_NoAccessViewController.h"
 
 @interface SH_HomeViewController ()<SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImg;
@@ -70,8 +71,10 @@
     [self  configUI];
     [self  autoLoginIsRegist:false];
 }
-#pragma mark --- 记着密码启动自动登录
-#pragma  mark --- 自动登录
+
+#pragma mark - 记着密码启动自动登录
+#pragma mark - 自动登录
+
 -(void)autoLoginIsRegist:(BOOL)isRegist{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *account = [defaults objectForKey:@"account"];
@@ -104,7 +107,9 @@
         }];
     }
 }
-#pragma mark --- 登录成功之后 获取用户信息
+
+#pragma mark - 登录成功之后 获取用户信息
+
 -(void)autoLoginSuccess:(NSHTTPURLResponse *)httpURLResponse isRegist:(BOOL)isRegist{
     
     NSString * setCookie = [httpURLResponse.allHeaderFields objectForKey:@"Set-Cookie"];
@@ -131,10 +136,13 @@
         //
     }];
 }
-#pragma  mark --- 配置UI
+
+#pragma mark - 更新用户信息
+
 -(void)configUI{
     self.userAccountLB.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.username?:@"登录/注册";
 }
+
 - (NSMutableArray *)bannerArr
 {
     if (_bannerArr == nil) {
@@ -250,53 +258,30 @@
         //
     }];
 }
-#pragma   mark ---   test  code
-- (IBAction)enterGame:(id)sender {
-    
-    /*
-    __weak typeof(self) weakSelf = self;
-    
-    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/origin/getGameLink.html?apiId=10&apiTypeId=2&gameId=100303&gameCode=5902"];
-    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
-    [SH_NetWorkService post:url parameter:nil header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        NSString *gameUrl = [[response objectForKey:@"data"] objectForKey:@"gameLink"];
-        GameWebViewController *gameVC = [[GameWebViewController alloc] initWithNibName:@"GameWebViewController" bundle:nil];
-        gameVC.url = gameUrl;
-        [weakSelf presentViewController:gameVC animated:YES completion:nil];
-    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        //
-    }];*/
-}
-
-- (IBAction)rechargeAction:(id)sender {
-    //    SH_PromoView *promoView = [[SH_PromoView alloc]initWithFrame:CGRectZero];
-    //    [[UIApplication sharedApplication].keyWindow addSubview:promoView];
-    //    UIEdgeInsets padding = UIEdgeInsetsMake(10, 80, 20, 80);
-    //    [promoView mas_makeConstraints:^(MASConstraintMaker *make) {
-    //        make.edges.equalTo(self.view).with.insets(padding);
-    ////        make.top.equalTo(self.view.mas_top).with.offset(padding.top);
-    ////        make.bottom.equalTo(self.view.mas_bottom).with.offset(-padding.bottom);
-    ////        make.left.equalTo(self.view.mas_left).with.offset(padding.left);
-    ////        make.right.equalTo(self.view.mas_right).with.offset(-padding.right);
-    //    }];
-}
 
 /**
  * 获取Cookie
  */
 - (void)fetchCookie
 {
+    __weak typeof(self) weakSelf = self;
+
     [SH_NetWorkService fetchHttpCookie:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSString *setCookie = [httpURLResponse.allHeaderFields objectForKey:@"Set-Cookie"];
         [NetWorkLineMangaer sharedManager].currentCookie = setCookie;
     } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
-        //
+        if (httpURLResponse.statusCode == 605) {
+            [weakSelf showNoAccess];
+        }
     }];
 }
-#pragma  mark --- 用户登录
+
+#pragma mark - 用户登录
+
 - (IBAction)avaterClick:(id)sender {
     [self login];
 }
+
 -(void)login{
     SH_LoginView *login = [SH_LoginView  InstanceLoginView];
     AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:260 viewWidth:494];
@@ -312,7 +297,9 @@
     cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
     [self presentViewController:cvc animated:YES completion:nil];
 }
-#pragma  mark --- 个人设置
+
+#pragma mark - 个人设置
+
 - (IBAction)avatarClick:(id)sender {
     if (![RH_UserInfoManager  shareUserManager].isLogin) {
         [self login];
@@ -365,7 +352,9 @@
 - (IBAction)rechargeClick:(id)sender {    
     [self presentViewController:[[SH_RechargeCenterViewController alloc]init] animated:YES completion:nil];
 }
-#pragma mark 优惠
+
+#pragma mark - 优惠活动
+
 - (IBAction)activitiesClick:(id)sender {
     SH_PromoContentView *promoContentView = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoContentView" owner:nil options:nil] lastObject];
     AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:promoContentView viewHeight:[UIScreen mainScreen].bounds.size.height-60 viewWidth:[UIScreen mainScreen].bounds.size.width-160];
@@ -375,6 +364,8 @@
     cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
     [self presentViewController:cvc animated:YES completion:nil];
 }
+
+#pragma mark - 玩家中心
 
 //玩家中心
 - (IBAction)userCenterClick:(id)sender
@@ -407,6 +398,7 @@
 }
 
 #pragma mark - SH_PlayerCenterViewDelegate
+
 - (void)removeView
 {
     [UIView animateWithDuration:2.0 animations:^{
@@ -549,7 +541,9 @@
         }
         [weakSelf.topGamesListScrollView reloaData];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        //
+        if (httpURLResponse.statusCode == 605) {
+            [weakSelf showNoAccess];
+        }
     }];
 }
 
@@ -691,6 +685,17 @@
             [self.lastGamesListScrollView reloaData];
         }
     }
+}
+
+- (void)showNoAccess
+{
+    __weak typeof(self) weakSelf = self;
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        SH_NoAccessViewController *vc = [[SH_NoAccessViewController alloc] initWithNibName:@"SH_NoAccessViewController" bundle:nil];
+        [weakSelf.navigationController pushViewController:vc animated:NO];
+    });
 }
 
 @end
