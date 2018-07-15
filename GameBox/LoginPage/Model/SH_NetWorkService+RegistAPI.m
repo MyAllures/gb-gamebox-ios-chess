@@ -145,13 +145,38 @@
     [dict setObject:confirmPermissionPwd forKey:@"confirmPermissionPwd"];
     [dict setObject:answer1 forKey:@"sysUserProtection.answer1"];
     [dict setObject:termsOfService forKey:@"termsOfService"];
-    [dict setObject:requiredJson forKey:@"requiredJson"];
     [dict setObject:phoneCode forKey:@"phoneCode"];
     [dict setObject:checkPhone forKey:@"checkPhone"];
     
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization     dataWithJSONObject:requiredJson options:NSJSONWritingPrettyPrinted   error:&error];
+    NSString *jsonString = [[NSString alloc]    initWithData:jsonData encoding:NSUTF8StringEncoding];
+    [dict setObject:jsonString forKey:@"requiredJson"];
+   
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/registerOrigin/save.html"];
-    NSDictionary  * header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentSID?[NetWorkLineMangaer sharedManager].currentSID:@""};
+    NSDictionary  * header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost};
     [self post:url parameter:dict header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (complete) {
+            complete(httpURLResponse, response);
+
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        if (failed) {
+            failed(httpURLResponse, err);
+        }
+    }];
+}
+
+#pragma mark --- 自动登录
++(void)fetchAutoLoginWithUserName:(NSString*)userName
+                         Password:(NSString*)password
+                         complete:(SHNetWorkComplete)complete
+                           failed:(SHNetWorkFailed)failed{
+    
+    NSDictionary  * dic = [NSDictionary  dictionaryWithObjectsAndKeys:userName,@"username",password,@"password", nil];
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/login/autoLogin.html"];
+    NSDictionary  * header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":([NetWorkLineMangaer sharedManager].currentCookie?[NetWorkLineMangaer sharedManager].currentCookie:@"")};
+    [self post:url parameter:dic header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse, response);
         }
@@ -161,4 +186,35 @@
         }
     }];
 }
+#pragma mark - 退出登录
++(void)fetchUserLoginOut:(SHNetWorkComplete)complete
+                  failed:(SHNetWorkFailed)failed{
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/logout.html"];
+    NSDictionary  * header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost};
+    [self post:url parameter:nil header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (complete) {
+            complete(httpURLResponse, response);
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        if (failed) {
+            failed(httpURLResponse, err);
+        }
+    }];
+}
+
++ (void)fetchUserInfo:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
+{
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/userInfoOrigin/getUserInfo.html"];
+    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":([NetWorkLineMangaer sharedManager].currentCookie?[NetWorkLineMangaer sharedManager].currentCookie:@"")};
+    [self post:url parameter:nil header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (complete) {
+            complete(httpURLResponse, response);
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        if (failed) {
+            failed(httpURLResponse, err);
+        }
+    }];
+}
+
 @end

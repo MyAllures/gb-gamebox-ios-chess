@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SH_RegistView : UIView
-
+@property(nonatomic,copy)void (^closeAlerViewBlock)(void);
 @end

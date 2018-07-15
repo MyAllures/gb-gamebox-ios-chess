@@ -43,32 +43,35 @@
         label_Title = [UILabel new];
         [self addSubview:label_Title];
         [label_Title mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(2);
             make.left.mas_equalTo(0);
-            make.height.mas_equalTo(18);
+            make.height.mas_equalTo(24);
+            make.width.mas_equalTo(120);
+            make.centerY.mas_equalTo(self);
         }];
 
         label_Title.font = [UIFont systemFontOfSize:13];
-        label_Title.textColor = colorWithRGB(131, 131, 131);
-        label_Title.textAlignment = NSTextAlignmentCenter;
+        label_Title.textColor = [UIColor  colorWithHexStr:@"0xFFFFFF"];
+        label_Title.textAlignment = NSTextAlignmentRight;
         
         textField = [UITextField new];
         [self addSubview:textField];
         [textField mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(self->label_Title.mas_bottom).mas_offset(1);
+            make.centerY.mas_equalTo(self);
             make.trailing.mas_equalTo(0);
-            make.leading.mas_equalTo(self->label_Title.mas_leading).mas_offset(0);
+            make.leading.mas_equalTo(self->label_Title.mas_trailing).mas_offset(8);
             make.height.mas_equalTo(38);
         }];
 
-        textField.layer.borderColor = colorWithRGB(234, 234, 234).CGColor;
+        textField.layer.borderColor = [[UIColor  colorWithHexStr:@"0x0E295F"] CGColor];
         textField.borderStyle = UITextBorderStyleRoundedRect;
         textField.layer.borderWidth = 1;
         textField.layer.cornerRadius = 3;
         textField.clipsToBounds = YES;
         textField.font = [UIFont systemFontOfSize:15];
-        textField.textColor = colorWithRGB(99, 99, 99);
+        textField.textColor = [UIColor  whiteColor];
         textField.delegate = self;
+        textField.backgroundColor = [UIColor  colorWithHexStr:@"0x232B6A"];
+        
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeImageView_VerfyCode1) name:@"changeImageView_VerfyCode" object:nil];
         
@@ -190,6 +193,10 @@
                 label_Title.text = @"回答安全问题⭐️";
                 textField.placeholder = @"请输入回答";break ;
             }
+            if (textField.placeholder.length >0) {
+                UIColor *color = [UIColor whiteColor];
+                textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:textField.placeholder attributes:@{NSForegroundColorAttributeName: color,NSFontAttributeName:[UIFont  systemFontOfSize:12]}];
+            }
         }
         
     }
@@ -261,7 +268,7 @@
     }
     if ([model.name isEqualToString:@"birthday"]) {
         label_Title.text = @"生日";
-        textField.placeholder = @"";
+        textField.placeholder = @"请选择生日";
         [self setBirthdaySelectLayout];
     }
     if ([model.name isEqualToString:@"sex"]) {
@@ -284,6 +291,11 @@
         label_Title.text = @"回答安全问题";
         textField.placeholder = @"请输入回答";
     }
+    if (textField.placeholder.length >0) {
+        UIColor *color = [UIColor whiteColor];
+        textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:textField.placeholder attributes:@{NSForegroundColorAttributeName: color,NSFontAttributeName:[UIFont  systemFontOfSize:12]}];
+    }
+    
 }
 
 - (void)setTimeZone:(NSString *)zone {
@@ -338,7 +350,7 @@
         make.height.mas_equalTo(20);
     }];
 
-    [button setImage:ImageWithName(@"down") forState:UIControlStateNormal];
+    [button setImage:ImageWithName(@"arrow") forState:UIControlStateNormal];
     [button addTarget:self action:@selector(sexSelectDidTap) forControlEvents:UIControlEventTouchUpInside];
 }
 
@@ -349,14 +361,14 @@
         [selectView setSelectViewType:@""];
         [selectView setColumNumbers:1];
         [selectView setDataList:sexModel];
-        selectView.frame = CGRectMake(0, self.frameHeigh, self.frameWidth, 200);
+          selectView.frame = CGRectMake(0, MainScreenH, MainScreenW, MainScreenH);
         [self.window addSubview:selectView];
         [UIView animateWithDuration:0.3 animations:^{
-            self->selectView.frame = CGRectMake(0, self.frameHeigh - 200, self.frameWidth, 200);
+                self->selectView.frame = CGRectMake(0, 0, MainScreenW, MainScreenH);
         }];
     }else {
         [UIView animateWithDuration:0.3 animations:^{
-            self->selectView.frame = CGRectMake(0, self.frameHeigh, self.frameWidth, 200);
+            self->selectView.frame = CGRectMake(0, MainScreenH, MainScreenW, MainScreenH);
         }completion:^(BOOL finished) {
             [self->selectView removeFromSuperview];
         }];
@@ -373,7 +385,7 @@
         make.height.mas_equalTo(20);
     }];
 
-    [button setImage:ImageWithName(@"down") forState:UIControlStateNormal];
+    [button setImage:ImageWithName(@"arrow") forState:UIControlStateNormal];
     [button addTarget:self action:@selector(mainCurrencyDidTaped) forControlEvents:UIControlEventTouchUpInside];
 }
 - (void)mainCurrencyDidTaped {
@@ -383,14 +395,14 @@
         [selectView setSelectViewType:@""];
         [selectView setColumNumbers:1];
         [selectView setDataList:mainCurrencyModel];
-        selectView.frame = CGRectMake(0, self.frameHeigh, self.frameWidth, 200);
+        selectView.frame = CGRectMake(0, MainScreenH, MainScreenW, MainScreenH);
         [self.window addSubview:selectView];
         [UIView animateWithDuration:0.3 animations:^{
-            self->selectView.frame = CGRectMake(0, self.frameHeigh - 200, self.frameWidth, 200);
+            self->selectView.frame = CGRectMake(0, 0, MainScreenW, MainScreenH);
         }];
     }else {
         [UIView animateWithDuration:0.3 animations:^{
-            self->selectView.frame = CGRectMake(0, self.frameHeigh, self.frameWidth, 200);
+            self->selectView.frame = CGRectMake(0, MainScreenH, MainScreenW, MainScreenH);
         }completion:^(BOOL finished) {
             [self->selectView removeFromSuperview];
         }];
@@ -406,7 +418,7 @@
         make.width.mas_equalTo(25);
         make.height.mas_equalTo(20);
     }];
-    [button setImage:ImageWithName(@"down") forState:UIControlStateNormal];
+    [button setImage:ImageWithName(@"arrow") forState:UIControlStateNormal];
     [button addTarget:self action:@selector(defaultLocaleDidTaped) forControlEvents:UIControlEventTouchUpInside];
 }
 - (void)defaultLocaleDidTaped {
@@ -416,14 +428,14 @@
         [selectView setSelectViewType:@""];
         [selectView setColumNumbers:1];
         [selectView setDataList:defaultLocaleModel];
-        selectView.frame = CGRectMake(0, self.frameHeigh, self.frameWidth, 200);
+        selectView.frame = CGRectMake(0, MainScreenH, MainScreenW, MainScreenH);
         [self.window addSubview:selectView];
         [UIView animateWithDuration:0.3 animations:^{
-            self->selectView.frame = CGRectMake(0, self.frameHeigh - 200, self.frameWidth, 200);
+            self->selectView.frame = CGRectMake(0, 0, MainScreenW, MainScreenH);
         }];
     }else {
         [UIView animateWithDuration:0.3 animations:^{
-            self->selectView.frame = CGRectMake(0, self.frameHeigh, self.frameWidth, 200);
+            self->selectView.frame = CGRectMake(0, MainScreenH, MainScreenW, MainScreenH);
         }completion:^(BOOL finished) {
             [self->selectView removeFromSuperview];
         }];
@@ -439,8 +451,8 @@
         make.width.mas_equalTo(25);
         make.height.mas_equalTo(20);
     }];
-//    button.whc_CenterYToView(0, textField).whc_RightSpace(25).whc_Width(25).whc_Height(20);
-    [button setImage:ImageWithName(@"down") forState:UIControlStateNormal];
+
+    [button setImage:ImageWithName(@"arrow") forState:UIControlStateNormal];
     [button addTarget:self action:@selector(securityIssuesDidTaped) forControlEvents:UIControlEventTouchUpInside];
 }
 - (void)securityIssuesDidTaped {
@@ -450,14 +462,14 @@
         [selectView setSelectViewType:@""];
         [selectView setColumNumbers:1];
         [selectView setDataList:securityIssuesModel];
-        selectView.frame = CGRectMake(0, self.frameHeigh, self.frameWidth, 200);
+        selectView.frame = CGRectMake(0, MainScreenH, MainScreenW, MainScreenH);
         [self.window addSubview:selectView];
         [UIView animateWithDuration:0.3 animations:^{
-            self-> selectView.frame = CGRectMake(0, self.frameHeigh - 200, self.frameWidth, 200);
+            self-> selectView.frame = CGRectMake(0, 0, MainScreenW, MainScreenH);
         }];
     }else {
         [UIView animateWithDuration:0.3 animations:^{
-            self-> selectView.frame = CGRectMake(0, self.frameHeigh, self.frameWidth, 200);
+            self-> selectView.frame = CGRectMake(0, MainScreenH, MainScreenW, MainScreenH);
         }completion:^(BOOL finished) {
             [self->selectView removeFromSuperview];
         }];
@@ -472,8 +484,7 @@
         make.width.mas_equalTo(25);
         make.height.mas_equalTo(20);
     }];
-//    button.whc_CenterYToView(0, textField).whc_RightSpace(25).whc_Width(25).whc_Height(20);
-    [button setImage:ImageWithName(@"down") forState:UIControlStateNormal];
+    [button setImage:ImageWithName(@"arrow") forState:UIControlStateNormal];
     [button addTarget:self action:@selector(birthdaySelectTaped) forControlEvents:UIControlEventTouchUpInside];
 }
 - (void)birthdaySelectTaped {
@@ -483,14 +494,14 @@
         selectView.delegate = self;
         [selectView setSelectViewType:@"birthday"];
         [selectView setColumNumbers:3];
-        selectView.frame = CGRectMake(0, self.frameHeigh, self.frameWidth, 200);
+        selectView.frame = CGRectMake(0, MainScreenH, MainScreenW, MainScreenH);
         [self.window addSubview:selectView];
         [UIView animateWithDuration:0.3 animations:^{
-            self-> selectView.frame = CGRectMake(0, self.frameHeigh - 200, self.frameWidth, 200);
+            self-> selectView.frame = CGRectMake(0, 0, MainScreenW, MainScreenH);
         }];
     }else {
         [UIView animateWithDuration:0.3 animations:^{
-            self-> selectView.frame = CGRectMake(0, self.frameHeigh, self.frameWidth, 200);
+            self-> selectView.frame = CGRectMake(0, MainScreenH, MainScreenW, MainScreenH);
         }completion:^(BOOL finished) {
             [self->selectView removeFromSuperview];
         }];
@@ -500,7 +511,7 @@
 
 - (void)RH_RegistrationSelectViewDidCancelButtonTaped {
     [UIView animateWithDuration:0.3 animations:^{
-        self-> selectView.frame = CGRectMake(0, self.frameHeigh, self.frameWidth, 200);
+        self-> selectView.frame = CGRectMake(0, MainScreenH, MainScreenW, MainScreenH);
     }completion:^(BOOL finished) {
         [self->selectView removeFromSuperview];
     }];
@@ -508,7 +519,7 @@
 - (void)RH_RegistrationSelectViewDidConfirmButtonTapedwith:(NSString *)selected {
     textField.text = selected;
     [UIView animateWithDuration:0.3 animations:^{
-        self->selectView.frame = CGRectMake(0, self.frameHeigh, self.frameWidth, 200);
+        self->selectView.frame = CGRectMake(0, MainScreenH, MainScreenW, MainScreenH);
     }completion:^(BOOL finished) {
         [self->selectView removeFromSuperview];
     }];
@@ -533,7 +544,7 @@
     }
     
     [UIView animateWithDuration:0.3 animations:^{
-        self->selectView.frame = CGRectMake(0, self.frameHeigh, self.frameWidth, 200);
+        self->selectView.frame = CGRectMake(0, MainScreenH, MainScreenW, MainScreenH);
     }completion:^(BOOL finished) {
         [self->selectView removeFromSuperview];
     }];
@@ -624,14 +635,14 @@
         make.height.mas_equalTo(35);
     }];
 
-    button.layer.borderColor = colorWithRGB(20, 90, 180).CGColor;
-    [button setTitleColor:colorWithRGB(20, 90, 180) forState:UIControlStateNormal];
+    button.layer.borderColor = [UIColor whiteColor].CGColor;
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     button.layer.borderWidth = 1;
     button.layer.cornerRadius = 3;
     button.clipsToBounds = YES;
     [button setTitle:@"获取验证码" forState:UIControlStateNormal];
     [button setShowsTouchWhenHighlighted:YES];
-    [button setTitleColor:colorWithRGB(168, 168, 168) forState:UIControlStateHighlighted];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     [button addTarget:self action:@selector(obtainVerifyTaped) forControlEvents:UIControlEventTouchUpInside];
 }
 - (void)obtainVerifyTaped {
@@ -670,13 +681,13 @@
         UIButton *button = [self viewWithTag:1002];
         if (countDownNumber > 0) {
             button.enabled = NO;
-            button.layer.borderColor = colorWithRGB(168, 168, 168).CGColor;
+            button.layer.borderColor =[UIColor  whiteColor].CGColor;// colorWithRGB(168, 168, 168).CGColor;
             [button setTitle:[NSString stringWithFormat:@"%lds",(long)countDownNumber] forState:UIControlStateNormal];
-            [button setTitleColor:colorWithRGB(168, 168, 168) forState:UIControlStateNormal];
+            [button setTitleColor:[UIColor  whiteColor] forState:UIControlStateNormal];//colorWithRGB(168, 168, 168)
         }else {
             [self.timer invalidate];
-            button.layer.borderColor = colorWithRGB(20, 90, 180).CGColor;
-            [button setTitleColor:colorWithRGB(20, 90, 180) forState:UIControlStateNormal];
+            button.layer.borderColor = [UIColor  whiteColor].CGColor;// colorWithRGB(20, 90, 180).CGColor; //colorWithRGB(20, 90, 180)
+            [button setTitleColor:[UIColor  whiteColor] forState:UIControlStateNormal];
             [button setTitle:@"获取验证码" forState:UIControlStateNormal];
             button.enabled = YES;
         }

@@ -24,10 +24,11 @@ typedef void(^AutoLoginCompletation)(BOOL result) ;
 
 @interface RH_UserInfoManager : NSObject
 +(instancetype)shareUserManager ;
-
+@property(nonatomic,strong,readonly) RH_MineInfoModel *mineSettingInfo ;
 @property(nonatomic,strong,readonly) NSString *timeZone ;
 @property(nonatomic,assign,readonly) BOOL  isLogin;
 
+-(void)setMineSettingInfo:(RH_MineInfoModel *)mineSettingInfo ;
 ///----app 层 相关开关
 
 @property (nonatomic,assign,readonly) BOOL isVoiceSwitch    ; //声音开关

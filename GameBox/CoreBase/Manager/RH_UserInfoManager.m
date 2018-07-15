@@ -49,9 +49,10 @@
     return self ;
 }
 
--(void)dealloc
-{
 
+-(void)setMineSettingInfo:(RH_MineInfoModel *)mineSettingInfo
+{
+    _mineSettingInfo = mineSettingInfo ;
 }
 
 -(void)updateIsLogin:(BOOL)isLogin{
@@ -90,4 +91,8 @@
     [userDefaults setObject:loginTime?:@""  forKey:key_lastLoginTime];
 }
 
+-(void)dealloc
+{
+    
+}
 @end

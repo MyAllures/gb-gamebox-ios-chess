@@ -13,8 +13,9 @@
 #import "RH_UserInfoManager.h"
 #import "RH_WebsocketManagar.h"
 #import "SH_NetWorkService+RegistAPI.h"
+#import "UIColor+HexString.h"
 
-
+#import "RH_MineInfoModel.h"
 #import "RH_RegisetInitModel.h"
 #import "RH_RegistrationViewItem.h"
 #import "SH_RegistView.h"
@@ -47,7 +48,6 @@
     [super  awakeFromNib];
     [self  fetchHttpData];
     [self  configurationUI];
-    self.stackView.hidden = YES;
 }
 #pragma mark -- 登录是否需要验证码 返回bool
 -(void)fetchHttpData{
@@ -65,8 +65,12 @@
         
     }];
 }
+
 #pragma mark -- 配置UI
 -(void)configurationUI{
+    
+    self.stackView.hidden = YES;
+    
     UIImage  * img = [UIImage  imageNamed:@"left_bg"];
     self.leftView.layer.contents = (__bridge id _Nullable)(img.CGImage);
    
@@ -123,6 +127,9 @@
             [sender setBackgroundImage:[UIImage imageNamed:@"login_button_click"] forState:UIControlStateNormal];
             UIButton  * btn  = [self  viewWithTag:101];
             [btn setBackgroundImage:[UIImage imageNamed:@"login_button"] forState:UIControlStateNormal];
+            if (self.changeChannelBlock) {
+                self.changeChannelBlock(@"登录");
+            }
             break;
         }
         case 1:{
@@ -134,6 +141,9 @@
             [sender setBackgroundImage:[UIImage imageNamed:@"login_button_click"] forState:UIControlStateNormal];
             UIButton  * btn  = [self  viewWithTag:100];
             [btn setBackgroundImage:[UIImage imageNamed:@"login_button"] forState:UIControlStateNormal];
+            if (self.changeChannelBlock) {
+                self.changeChannelBlock(@"注册");
+            }
             break;
         }
         case 2:{
@@ -216,9 +226,7 @@
 
 #pragma mark --  登录成功
 -(void)loginSucessHandleRsponse:(NSDictionary*)dic httpURLResponse:(NSHTTPURLResponse *)httpURLResponse{
-//    AppDelegate * appDelegate =(AppDelegate*)[UIApplication  sharedApplication].delegate;
     UIWindow  * window = [UIApplication  sharedApplication].keyWindow;
-    
     
     [[RH_UserInfoManager shareUserManager] updateLoginInfoWithUserName:self.account_textField.text
                                                              LoginTime:dateStringWithFormatter([NSDate date], @"yyyy-MM-dd HH:mm:ss")] ;
@@ -231,21 +239,24 @@
     [[RH_UserInfoManager  shareUserManager] updateIsLogin:YES];
     
     [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        showMessage(window, @"登录成功", nil);
         
-        //登录成功后测试websocket
-       /* [[RH_WebsocketManagar instance] SRWebSocketOpenWithURLString:[NetWorkLineMangaer sharedManager].currentHost];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SRWebSocketDidOpen) name:kWebSocketDidOpenNote object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SRWebSocketDidReceiveMsg:) name:kWebSocketdidReceiveMessageNote object:nil];*/
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        
-        [defaults setObject:self.account_textField.text forKey:@"account"];
-        [defaults setObject:self.password_textField.text forKey:@"password"];
-        
-        [defaults synchronize];
-        if (self.dismissBlock) {
-             self.dismissBlock();
+        NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
+        if ([dict  boolValueForKey:@"success"]) {
+            showMessage(window, @"登录成功", nil);
+            RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[dict[@"data"] objectForKey:@"user"] error:nil];
+            [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
+            
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            
+            [defaults setObject:self.account_textField.text forKey:@"account"];
+            [defaults setObject:self.password_textField.text forKey:@"password"];
+            
+            [defaults synchronize];
+            if (self.dismissBlock) {
+                self.dismissBlock();
+            }
+        }else{
+             showMessage(window, [dict objectForKey:@"message"], nil);
         }
         
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
@@ -281,6 +292,13 @@
 -(SH_RegistView *)registView{
     if (!_registView) {
         _registView = [[SH_RegistView  alloc]init];
+        _registView.backgroundColor = [UIColor colorWithHexStr:@"0x4854A9"];
+        __weak typeof(self) weakSelf = self;
+        _registView.closeAlerViewBlock = ^{
+            if (weakSelf.dismissBlock) {
+                weakSelf.dismissBlock();
+            }
+        };
     }
     return  _registView;
 }

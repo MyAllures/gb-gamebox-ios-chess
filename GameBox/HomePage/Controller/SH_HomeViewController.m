@@ -16,7 +16,6 @@
 #import "SH_RechargeCenterViewController.h"
 #import "View+MASAdditions.h"
 #import "SH_CycleScrollView.h"
-#import "LoginViewController.h"
 #import "SH_PlayerCenterView.h"
 #import "SH_WelfareView.h"
 #import "AlertViewController.h"
@@ -31,8 +30,11 @@
 #import "SH_GameItemModel.h"
 #import "SH_GameItemView.h"
 
+#import "SH_UserInformationView.h"
+#import "SH_AlertView.h"
+#import "SH_SettingView.h"
+#import "SH_NetWorkService+RegistAPI.h"
 @interface SH_HomeViewController ()<SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate>
-
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImg;
 @property (weak, nonatomic) IBOutlet UILabel *userAccountLB;
 @property (weak, nonatomic) IBOutlet UIButton *upLevelBT;
@@ -63,8 +65,75 @@
     [self fetchCookie];
     [self initAdScroll];
     [self refreshHomeInfo];
+    [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didRegistratedSuccessful) name:@"didRegistratedSuccessful" object:nil];
+    [self  configUI];
+    [self  autoLoginIsRegist:false];
 }
-
+#pragma mark --- 记着密码启动自动登录
+#pragma  mark --- 自动登录
+-(void)autoLoginIsRegist:(BOOL)isRegist{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *account = [defaults objectForKey:@"account"];
+    NSString *password = [defaults objectForKey:@"password"];
+    
+    if(account.length==0 || password.length ==0){
+        return;
+    }
+    if (isRegist) {
+        [SH_NetWorkService  fetchAutoLoginWithUserName:account Password:password complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+            NSDictionary *result = ConvertToClassPointer(NSDictionary, response) ;
+            if ([result boolValueForKey:@"success"]){
+                [[RH_UserInfoManager shareUserManager] updateLoginInfoWithUserName:account
+                                                                         LoginTime:dateStringWithFormatter([NSDate date], @"yyyy-MM-dd HH:mm:ss")] ;
+                [self autoLoginSuccess:httpURLResponse isRegist:isRegist];
+            }
+        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+            
+        }];
+    }else if ([defaults boolForKey:@"isRememberPwd"]) {
+        [SH_NetWorkService  login:account psw:password verfyCode:@"" complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+            NSDictionary *result = ConvertToClassPointer(NSDictionary, response) ;
+            if ([result boolValueForKey:@"success"]){
+                [[RH_UserInfoManager shareUserManager] updateLoginInfoWithUserName:account
+                                                                         LoginTime:dateStringWithFormatter([NSDate date], @"yyyy-MM-dd HH:mm:ss")] ;
+                [self autoLoginSuccess:httpURLResponse isRegist:isRegist];
+            }
+        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+            
+        }];
+    }
+}
+#pragma mark --- 登录成功之后 获取用户信息
+-(void)autoLoginSuccess:(NSHTTPURLResponse *)httpURLResponse isRegist:(BOOL)isRegist{
+    
+    NSString * setCookie = [httpURLResponse.allHeaderFields objectForKey:@"Set-Cookie"];
+    NSString *cookie;
+    if (isRegist) {
+        NSUInteger startLocation = [setCookie rangeOfString:@"GMT, "].location +4;
+        NSUInteger endLocation = [setCookie rangeOfString:@" rememberMe=deleteMe"].location;
+        NSUInteger lenth = endLocation - startLocation;
+        cookie = [setCookie substringWithRange:NSMakeRange(startLocation, lenth)];
+    }else{
+        cookie = setCookie;
+    }
+    [NetWorkLineMangaer sharedManager].currentCookie = cookie;
+    [[RH_UserInfoManager  shareUserManager] updateIsLogin:YES];
+    [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
+        if ([dict  boolValueForKey:@"success"]) {
+            RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[dict[@"data"] objectForKey:@"user"] error:nil];
+            [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
+            [self  configUI];
+        }
+        
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        //
+    }];
+}
+#pragma  mark --- 配置UI
+-(void)configUI{
+    self.userAccountLB.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.username?:@"sjjaid09";
+}
 - (NSMutableArray *)bannerArr
 {
     if (_bannerArr == nil) {
@@ -105,6 +174,38 @@
     else if ([_currentDZGameTypeName isEqualToString:@"PT电子"])
     {
         self.dzGameMarkImg.image = [UIImage imageNamed:@"logo04"];
+    }
+    else if ([_currentDZGameTypeName isEqualToString:@"DT电子"])
+    {
+        self.dzGameMarkImg.image = [UIImage imageNamed:@"logo10"];
+    }
+    else if ([_currentDZGameTypeName isEqualToString:@"新霸电子"])
+    {
+        self.dzGameMarkImg.image = [UIImage imageNamed:@"logo05"];
+    }
+    else if ([_currentDZGameTypeName isEqualToString:@"GNS电子"])
+    {
+        self.dzGameMarkImg.image = [UIImage imageNamed:@""];
+    }
+    else if ([_currentDZGameTypeName isEqualToString:@"PP电子"])
+    {
+        self.dzGameMarkImg.image = [UIImage imageNamed:@"logo02"];
+    }
+    else if ([_currentDZGameTypeName isEqualToString:@"GG捕鱼"])
+    {
+        self.dzGameMarkImg.image = [UIImage imageNamed:@""];
+    }
+    else if ([_currentDZGameTypeName isEqualToString:@"PNG电子"])
+    {
+        self.dzGameMarkImg.image = [UIImage imageNamed:@"logo06"];
+    }
+    else if ([_currentDZGameTypeName isEqualToString:@"BSG"])
+    {
+        self.dzGameMarkImg.image = [UIImage imageNamed:@"logo03"];
+    }
+    else if ([_currentDZGameTypeName isEqualToString:@"MW电子"])
+    {
+        self.dzGameMarkImg.image = [UIImage imageNamed:@"logo11"];
     }
 }
 
@@ -148,8 +249,10 @@
         //
     }];
 }
-
+#pragma   mark ---   test  code
 - (IBAction)enterGame:(id)sender {
+    
+    /*
     __weak typeof(self) weakSelf = self;
     
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/origin/getGameLink.html?apiId=10&apiTypeId=2&gameId=100303&gameCode=5902"];
@@ -161,7 +264,7 @@
         [weakSelf presentViewController:gameVC animated:YES completion:nil];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         //
-    }];
+    }];*/
 }
 
 - (IBAction)rechargeAction:(id)sender {
@@ -189,14 +292,70 @@
         //
     }];
 }
-
-- (IBAction)avatarClick:(id)sender {
+#pragma  mark --- 用户登录
+- (IBAction)avaterClick:(id)sender {
+    [self login];
+}
+-(void)login{
     SH_LoginView *login = [SH_LoginView  InstanceLoginView];
-    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:260 viewWidth:414];
+    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:260 viewWidth:494];
     login.dismissBlock = ^{
         [cvc  close];
+        [self  configUI];
     };
-    cvc.title = @"测试";
+    login.changeChannelBlock = ^(NSString *string) {
+        [cvc  setSubTitle:string];
+    };
+    cvc.title = @"登录";
+    cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:cvc animated:YES completion:nil];
+}
+#pragma  mark --- 个人设置
+- (IBAction)avatarClick:(id)sender {
+    if (![RH_UserInfoManager  shareUserManager].isLogin) {
+        [self login];
+        return;
+    }
+    SH_UserInformationView * inforView = [SH_UserInformationView  instanceInformationView];
+    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:inforView viewHeight:200 viewWidth:322];
+    cvc.title = @"个人信息";
+    inforView.buttonClickBlock = ^(NSInteger tag) {
+        if (tag==100) {
+            SH_AlertView * alert = [SH_AlertView  instanceAlertView];
+            AlertViewController * vc = [[AlertViewController  alloc] initAlertView:alert viewHeight:174 viewWidth:288];
+            alert.btnClickBlock = ^(NSInteger tag) {
+                if (tag==100) {
+                    [vc close];
+                }else{
+                    [SH_NetWorkService  fetchUserLoginOut:^(NSHTTPURLResponse *httpURLResponse, id response) {
+                        [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
+                        [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:nil];
+                        [self configUI];
+                        showMessage([UIApplication  sharedApplication].keyWindow, @"已成功退出", nil);
+                        if ([vc respondsToSelector:@selector(presentingViewController)]){
+                            [vc.presentingViewController.presentingViewController dismissViewControllerAnimated:NO completion:nil];
+                        }else {
+                            [vc.parentViewController.parentViewController dismissViewControllerAnimated:NO completion:nil];
+                        }
+                    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+                        showMessage([UIApplication  sharedApplication].keyWindow, @"退出失败", nil);
+                    }];
+                    
+                }
+            };
+            vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+            vc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
+            [cvc presentViewController:vc animated:YES completion:nil];
+        }else{
+            SH_SettingView * settingView = [SH_SettingView instanceSettingView];
+            AlertViewController * setVC = [[AlertViewController  alloc] initAlertView:settingView viewHeight:130 viewWidth:251];
+            setVC.subTitle = @"设置";
+            setVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+            setVC.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
+            [cvc presentViewController:setVC animated:YES completion:nil];
+        }
+    };
     cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
     [self presentViewController:cvc animated:YES completion:nil];
@@ -393,6 +552,16 @@
     }];
 }
 
+#pragma mark ---注册成功的通知 这里自动登录
+-(void)didRegistratedSuccessful{
+   /* NSUserDefaults  * defaults = [NSUserDefaults standardUserDefaults];
+    [SH_NetWorkService  fetchAutoLoginWithUserName:[defaults objectForKey:@"username"] Password:[defaults objectForKey:@"account"] complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        
+    }];*/
+    [self  autoLoginIsRegist:YES];
+}
 #pragma mark - SH_CycleScrollViewDataSource
 
 - (NSArray *)numberOfCycleScrollView:(SH_CycleScrollView *)bannerView

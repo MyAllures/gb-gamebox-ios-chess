@@ -10,6 +10,7 @@
 #import "SH_BitCoinSubView.h"
 #import "SH_BitCoinTextView.h"
 #import "PGDatePickManager.h"
+#import "SavePhotoTool.h"
 @interface SH_BitCoinView()<SH_BitCoinTextViewDelegate,PGDatePickerDelegate>
 @property(nonatomic,strong)UIImageView *QRImageView;
 @property(nonatomic,strong)SH_BitCoinTextView *bitCoinView;
@@ -96,6 +97,7 @@
     saveBtn.titleLabel.font = [UIFont systemFontOfSize:12];
     saveBtn.backgroundColor = colorWithRGB(0, 122, 255);
     [saveBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [saveBtn addTarget:self action:@selector(saveToPhoneBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:saveBtn];
     [saveBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.centerX.equalTo(weakSelf.QRImageView);
@@ -146,5 +148,8 @@
 - (void)updateUIWithChannelModel:(SH_RechargeCenterChannelModel *)model{
     [self.QRImageView setImageWithType:1 ImageName:model.qrCodeUrl];
     [self.bitConnHeadView updateUIWithChannelModel:model];
+}
+-(void)saveToPhoneBtnClick{
+    [[SavePhotoTool shared]saveImageToPhoneImage:self.QRImageView.image];
 }
 @end

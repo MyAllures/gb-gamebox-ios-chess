@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SH_RechargeCenterChannelModel.h"
 @protocol RH_RechargeCenterFooterViewDelegate<NSObject>
 -(void)RH_RechargeCenterFooterViewSubmitBtnClick;
 @end
@@ -15,5 +16,6 @@
 -(void)updateUIWithCode:(NSString *)code
                    Type:(NSString *)type
                  Number:(NSString *)number
-      ChannelModelArray:(NSArray *)array;
+      ChannelModelArray:(NSArray *)array
+           ChannelModel:(SH_RechargeCenterChannelModel *)channelModel;
 @end
