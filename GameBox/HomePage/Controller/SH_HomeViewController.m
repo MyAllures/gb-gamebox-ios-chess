@@ -349,8 +349,7 @@
     [self presentViewController:cvc animated:YES completion:nil];
 }
 
-- (IBAction)rechargeClick:(id)sender {    
-//    [self presentViewController:[[SH_RechargeCenterViewController alloc]init] animated:YES completion:nil];
+- (IBAction)rechargeClick:(id)sender {
     [self.navigationController pushViewController:[[SH_RechargeCenterViewController alloc]init] animated:YES];
 }
 
