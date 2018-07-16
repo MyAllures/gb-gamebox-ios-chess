@@ -46,7 +46,9 @@
     //寻找建立UISlider;
     UISlider* volumeViewSlider = nil;
     //设置音量大小
-    volumeViewSlider.value = 0.7;
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    CGFloat currentVol = audioSession.outputVolume;
+    volumeViewSlider.value = currentVol;
     for (UIView *view in [volumeView subviews]){
         if ([view.class.description isEqualToString:@"MPVolumeSlider"]){
             volumeViewSlider = (UISlider*)view;
