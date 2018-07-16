@@ -19,10 +19,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q7A-15-qvn">
-                        <rect key="frame" x="9" y="6" width="32" height="30"/>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q7A-15-qvn">
+                        <rect key="frame" x="9" y="6" width="20" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal" backgroundImage="not-choose"/>
+                        <connections>
+                            <action selector="seleteAction:" destination="2Ny-ag-3c5" eventType="touchUpInside" id="nud-Jd-fTG"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Labelalsjdfhsfah;sdfj" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yz7-9F-RUE">
                         <rect key="frame" x="63" y="11" width="166" height="41"/>
@@ -31,11 +34,11 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018-03-13" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QgI-L8-dTG">
-                        <rect key="frame" x="231" y="48" width="73" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018-03-13" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QgI-L8-dTG">
+                        <rect key="frame" x="154" y="48" width="150" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="73" id="w1M-6m-hRS"/>
-                            <constraint firstAttribute="height" constant="21" id="z5L-54-igb"/>
+                            <constraint firstAttribute="height" constant="21" id="1BD-ze-vMC"/>
+                            <constraint firstAttribute="width" constant="150" id="PIF-rC-xcG"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
@@ -50,17 +53,18 @@
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="QgI-L8-dTG" firstAttribute="trailing" secondItem="mCo-UG-goC" secondAttribute="trailingMargin" id="MRE-u7-ZtX"/>
-                    <constraint firstItem="QgI-L8-dTG" firstAttribute="bottom" secondItem="mCo-UG-goC" secondAttribute="bottomMargin" id="Sbx-gP-woe"/>
+                    <constraint firstItem="QgI-L8-dTG" firstAttribute="trailing" secondItem="mCo-UG-goC" secondAttribute="trailingMargin" id="FMg-z9-D6V"/>
                     <constraint firstItem="1PX-3m-4Of" firstAttribute="top" secondItem="mCo-UG-goC" secondAttribute="top" id="Yq1-Db-Y6I"/>
+                    <constraint firstItem="QgI-L8-dTG" firstAttribute="bottom" secondItem="mCo-UG-goC" secondAttribute="bottomMargin" id="YzF-ua-w1j"/>
                     <constraint firstAttribute="trailing" secondItem="1PX-3m-4Of" secondAttribute="trailing" id="hP5-t8-CrX"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="advisoryContentLabel" destination="Yz7-9F-RUE" id="YS2-Ic-93g"/>
                 <outlet property="advisoryTimeLabel" destination="QgI-L8-dTG" id="9Z9-FS-vW7"/>
+                <outlet property="seleteBtn" destination="q7A-15-qvn" id="1IM-VK-HI8"/>
             </connections>
-            <point key="canvasLocation" x="42" y="180"/>
+            <point key="canvasLocation" x="-418" y="284"/>
         </tableViewCell>
     </objects>
     <resources>

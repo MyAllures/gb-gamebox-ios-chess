@@ -32,6 +32,7 @@
 #import "SH_CardRecordView.h"
 #import "SH_GameItemModel.h"
 #import "SH_GameItemView.h"
+#import "SH_DZGameItemView.h"
 #import "SH_UserInformationView.h"
 #import "SH_AlertView.h"
 #import "SH_SettingView.h"
@@ -64,7 +65,7 @@
 @property (nonatomic, strong) NSMutableArray *siteApiRelationArr;
 @property (nonatomic, strong) SH_GameItemModel *currentGameItemModel;
 @property (nonatomic, assign) int currentLevel;
-@property (nonatomic, assign) int currentDZGameTypeId;
+@property (nonatomic, strong) NSString *currentDZGameTypeId;
 @property (nonatomic, assign) BOOL enterDZGameLevel;
 @property (nonatomic, strong) SH_AnnouncementView *announcementView;
 @property (weak, nonatomic) IBOutlet UILabel *suishenFuLiLab;
@@ -192,11 +193,12 @@
     self.upLevelBT.hidden = _currentLevel == 0;
 }
 
-- (void)setCurrentDZGameTypeId:(int)currentDZGameTypeId
+- (void)setCurrentDZGameTypeId:(NSString *)currentDZGameTypeId
 {
     _currentDZGameTypeId = currentDZGameTypeId;
+    int typeId = [_currentDZGameTypeId intValue];
     
-    switch (_currentDZGameTypeId) {
+    switch (typeId) {
         case 28:
         {
             //GG捕鱼
@@ -436,11 +438,8 @@
 #pragma mark - 优惠活动
 - (IBAction)activitiesClick:(id)sender {
     SH_PromoContentView *promoContentView = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoContentView" owner:nil options:nil] lastObject];
-
-
     AlertViewController  * cvc = [[AlertViewController  alloc] initAlertView:promoContentView viewHeight:[UIScreen mainScreen].bounds.size.height-80 titleImageName:@"progress_bar_icon" alertViewType:AlertViewTypeLong];
     //    cvc.imageName = @"progress_bar_icon";
-
     cvc.title = @"优惠活动";
     cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
@@ -776,9 +775,17 @@
         dataArr = [NSMutableArray arrayWithArray:self.currentGameItemModel.relation];
     }
 
-    SH_GameItemView *gameItemView =[[[NSBundle mainBundle] loadNibNamed:@"SH_GameItemView" owner:nil options:nil] lastObject];
-    gameItemView.gameItemModel = dataArr[index];
-    return gameItemView;
+    if (self.enterDZGameLevel && self.currentLevel == 2) {
+        SH_DZGameItemView *gameItemView =[[[NSBundle mainBundle] loadNibNamed:@"SH_DZGameItemView" owner:nil options:nil] lastObject];
+        gameItemView.gameItemModel = dataArr[index];
+        return gameItemView;
+    }
+    else
+    {
+        SH_GameItemView *gameItemView =[[[NSBundle mainBundle] loadNibNamed:@"SH_GameItemView" owner:nil options:nil] lastObject];
+        gameItemView.gameItemModel = dataArr[index];
+        return gameItemView;
+    }
 }
 
 #pragma mark - GamesListScrollViewDelegate M
@@ -789,7 +796,7 @@
     
     self.currentGameItemModel = model;
     if (self.enterDZGameLevel == NO) {
-        self.enterDZGameLevel = self.currentLevel == 0 && self.currentGameItemModel.id == 2;
+        self.enterDZGameLevel = self.currentLevel == 0 && [self.currentGameItemModel.apiTypeId intValue] == 2;
     }
     
     if ([model.type isEqualToString:@"game"]) {
@@ -825,7 +832,7 @@
         //进入下级页面
         self.currentLevel ++;
         if (self.enterDZGameLevel == YES) {
-            self.currentDZGameTypeId = self.currentGameItemModel.id;
+            self.currentDZGameTypeId = self.currentGameItemModel.apiId;
         }
         if (self.currentLevel == 1) {
             self.cycleAdView.hidden = YES;
