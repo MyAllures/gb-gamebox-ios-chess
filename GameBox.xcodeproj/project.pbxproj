@@ -33,15 +33,15 @@
 		22573D3F20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22573D3D20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.xib */; };
 		229A219E20F3826E00F5A969 /* SH_GameAnnouncementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A219D20F3826E00F5A969 /* SH_GameAnnouncementView.m */; };
 		229A21A020F3827700F5A969 /* SH_GameAnnouncementView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229A219F20F3827700F5A969 /* SH_GameAnnouncementView.xib */; };
-		425A90C020F8873E004B681A /* HLPopTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 425A90BF20F8873E004B681A /* HLPopTableView.m */; };
-		425A90C320F88746004B681A /* UIView+HLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 425A90C220F88746004B681A /* UIView+HLExtension.m */; };
-		425A90C620FAD459004B681A /* SH_SecurityCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 425A90C520FAD459004B681A /* SH_SecurityCenterView.m */; };
-		425A90C920FB2F49004B681A /* SH_CardRecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 425A90C820FB2F49004B681A /* SH_CardRecordView.m */; };
 		22E486D220F9C9920051A68C /* SH_SendMsgTabelViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E486D020F9C9920051A68C /* SH_SendMsgTabelViewCell.m */; };
 		22E486D320F9C9920051A68C /* SH_SendMsgTabelViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22E486D120F9C9920051A68C /* SH_SendMsgTabelViewCell.xib */; };
 		22E486D620F9F1100051A68C /* SH_AdvisoryTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E486D520F9F1100051A68C /* SH_AdvisoryTypeModel.m */; };
 		22E486D920F9F8AE0051A68C /* SH_SysMsgDataListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E486D820F9F8AE0051A68C /* SH_SysMsgDataListModel.m */; };
 		22E486DC20FC3F0F0051A68C /* SH_MyMsgDataListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E486DB20FC3F0F0051A68C /* SH_MyMsgDataListModel.m */; };
+		425A90C020F8873E004B681A /* HLPopTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 425A90BF20F8873E004B681A /* HLPopTableView.m */; };
+		425A90C320F88746004B681A /* UIView+HLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 425A90C220F88746004B681A /* UIView+HLExtension.m */; };
+		425A90C620FAD459004B681A /* SH_SecurityCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 425A90C520FAD459004B681A /* SH_SecurityCenterView.m */; };
+		425A90C920FB2F49004B681A /* SH_CardRecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 425A90C820FB2F49004B681A /* SH_CardRecordView.m */; };
 		42BF3E6E20F33A5D00F36B82 /* SH_PlayerCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BF3E6D20F33A5D00F36B82 /* SH_PlayerCenterView.m */; };
 		42BF3E7420F4974C00F36B82 /* SH_WelfareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BF3E7320F4974C00F36B82 /* SH_WelfareView.m */; };
 		5401C53120ECA10F0027246D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C53020ECA10F0027246D /* AppDelegate.m */; };
@@ -83,6 +83,7 @@
 		54C875B520FB4E2D00AA0594 /* SH_DragableMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C875B420FB4E2D00AA0594 /* SH_DragableMenuView.xib */; };
 		54C875B920FB788D00AA0594 /* SH_NoAccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C875B720FB788D00AA0594 /* SH_NoAccessViewController.m */; };
 		54C875BA20FB788D00AA0594 /* SH_NoAccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C875B820FB788D00AA0594 /* SH_NoAccessViewController.xib */; };
+		54C875BD20FC4B0B00AA0594 /* SH_AnnouncementModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C875BC20FC4B0B00AA0594 /* SH_AnnouncementModel.m */; };
 		BF2F915A20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F915820EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m */; };
 		BF2F915B20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2F915920EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib */; };
 		BF2F915F20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F915D20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m */; };
@@ -312,6 +313,8 @@
 		54C875B620FB788D00AA0594 /* SH_NoAccessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_NoAccessViewController.h; sourceTree = "<group>"; };
 		54C875B720FB788D00AA0594 /* SH_NoAccessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_NoAccessViewController.m; sourceTree = "<group>"; };
 		54C875B820FB788D00AA0594 /* SH_NoAccessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_NoAccessViewController.xib; sourceTree = "<group>"; };
+		54C875BB20FC4B0B00AA0594 /* SH_AnnouncementModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_AnnouncementModel.h; sourceTree = "<group>"; };
+		54C875BC20FC4B0B00AA0594 /* SH_AnnouncementModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_AnnouncementModel.m; sourceTree = "<group>"; };
 		BF2F915720EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_DepositeWayCollectionViewCell.h; sourceTree = "<group>"; };
 		BF2F915820EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_DepositeWayCollectionViewCell.m; sourceTree = "<group>"; };
 		BF2F915920EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_DepositeWayCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -750,6 +753,8 @@
 				54C8759220F7372D00AA0594 /* SH_HomeBannerModel.m */,
 				54C875A920F84BFF00AA0594 /* SH_GameItemModel.h */,
 				54C875AA20F84BFF00AA0594 /* SH_GameItemModel.m */,
+				54C875BB20FC4B0B00AA0594 /* SH_AnnouncementModel.h */,
+				54C875BC20FC4B0B00AA0594 /* SH_AnnouncementModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1459,6 +1464,7 @@
 				BFD6CFD320F9FAE700EDBC5B /* TTTAttributedLabel.m in Sources */,
 				BF44ECEA20F6FF4D00BC6EF3 /* SH_BitCoinSaleDetailModel.m in Sources */,
 				22573D3820F8C6D900D0EB0A /* SH_MyMsgView.m in Sources */,
+				54C875BD20FC4B0B00AA0594 /* SH_AnnouncementModel.m in Sources */,
 				DA22F3E020F4562B0058A54F /* UIImage+Size.m in Sources */,
 				2231283720F707F500D1BF5E /* SH_SystemNotificationModel.m in Sources */,
 				BF2F916420EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.m in Sources */,
