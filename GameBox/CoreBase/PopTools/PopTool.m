@@ -33,8 +33,8 @@
 }
 -(void)showWithPresentView:(UIView *)presentView withWidth:(CGFloat)width withHeight:(CGFloat)height subTitle:(NSString *)subTitle AnimatedType:(AnimationType)animatedType AnimationDirectionType:(AnimationDirection)animationDirectionType {
     _animationDirection = animationDirectionType;
-    self.alertController = [[AlertViewController  alloc] initAlertView:presentView viewHeight:height viewWidth:width];
-    self.alertController.subTitle = subTitle;
+//    self.alertController = [[AlertViewController  alloc] initAlertView:presentView viewHeight:height viewWidth:width titleImageName:@""];
+//    self.alertController.subTitle = subTitle;
     /*
     __weak  typeof(self) weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{

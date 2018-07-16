@@ -39,6 +39,7 @@
 #import "SH_WKGameViewController.h"
 #import "SH_NoAccessViewController.h"
 #import "SH_PromoDetailView.h"
+#import "SH_AnnouncementView.h"
 
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate,PlayerCenterViewDelegate>
 
@@ -47,6 +48,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *userAccountLB;
 @property (weak, nonatomic) IBOutlet UIButton *upLevelBT;
 @property (weak, nonatomic) IBOutlet UIImageView *dzGameMarkImg;
+@property (weak, nonatomic) IBOutlet UIImageView *runLBBGImg;
 @property (strong, nonatomic) SH_CycleScrollView *cycleAdView;
 @property (nonatomic, strong) SH_PlayerCenterView *pcv;
 @property (nonatomic, strong) UIView *backV;
@@ -59,8 +61,9 @@
 @property (nonatomic, strong) NSMutableArray *siteApiRelationArr;
 @property (nonatomic, strong) SH_GameItemModel *currentGameItemModel;
 @property (nonatomic, assign) int currentLevel;
-@property (nonatomic, strong) NSString *currentDZGameTypeName;
+@property (nonatomic, assign) int currentDZGameTypeId;
 @property (nonatomic, assign) BOOL enterDZGameLevel;
+@property (nonatomic, strong) SH_AnnouncementView *announcementView;
 
 @end
 
@@ -72,6 +75,7 @@
 
     [self fetchCookie];
     [self initAdScroll];
+    [self refreshAnnouncement];
     [self refreshHomeInfo];
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didRegistratedSuccessful) name:@"didRegistratedSuccessful" object:nil];
     [self  configUI];
@@ -98,7 +102,7 @@
                 [self autoLoginSuccess:httpURLResponse isRegist:isRegist];
             }
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-            
+            [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
         }];
     }else if ([defaults boolForKey:@"isRememberPwd"]) {
         if ([RH_UserInfoManager  shareUserManager].isLogin) {
@@ -112,7 +116,7 @@
                 [self autoLoginSuccess:httpURLResponse isRegist:isRegist];
             }
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-            
+            [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
         }];
     }
 }
@@ -143,6 +147,7 @@
         
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         //
+        [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
     }];
 }
 
@@ -150,6 +155,12 @@
 
 -(void)configUI{
     self.userAccountLB.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.username?:@"登录/注册";
+    
+    if ([RH_UserInfoManager  shareUserManager].isLogin) {
+        self.avatarImg.image = [UIImage  imageNamed:@"photo_male"];
+    }else{
+        self.avatarImg.image = [UIImage  imageNamed:@"avatar"];
+    }
 }
 
 - (NSMutableArray *)bannerArr
@@ -174,56 +185,109 @@
     self.upLevelBT.hidden = _currentLevel == 0;
 }
 
-- (void)setCurrentDZGameTypeName:(NSString *)currentDZGameTypeName
+- (void)setCurrentDZGameTypeId:(int)currentDZGameTypeId
 {
-    _currentDZGameTypeName = currentDZGameTypeName;
+    _currentDZGameTypeId = currentDZGameTypeId;
     
-    if ([_currentDZGameTypeName isEqualToString:@"MG电子"]) {
-        self.dzGameMarkImg.image = [UIImage imageNamed:@"logo01"];
-    }
-    else if ([_currentDZGameTypeName isEqualToString:@"AG电子"])
-    {
-        self.dzGameMarkImg.image = [UIImage imageNamed:@"logo08"];
-    }
-    else if ([_currentDZGameTypeName isEqualToString:@"HABA电子"])
-    {
-        self.dzGameMarkImg.image = [UIImage imageNamed:@"logo07"];
-    }
-    else if ([_currentDZGameTypeName isEqualToString:@"PT电子"])
-    {
-        self.dzGameMarkImg.image = [UIImage imageNamed:@"logo04"];
-    }
-    else if ([_currentDZGameTypeName isEqualToString:@"DT电子"])
-    {
-        self.dzGameMarkImg.image = [UIImage imageNamed:@"logo10"];
-    }
-    else if ([_currentDZGameTypeName isEqualToString:@"新霸电子"])
-    {
-        self.dzGameMarkImg.image = [UIImage imageNamed:@"logo05"];
-    }
-    else if ([_currentDZGameTypeName isEqualToString:@"GNS电子"])
-    {
-        self.dzGameMarkImg.image = [UIImage imageNamed:@""];
-    }
-    else if ([_currentDZGameTypeName isEqualToString:@"PP电子"])
-    {
-        self.dzGameMarkImg.image = [UIImage imageNamed:@"logo02"];
-    }
-    else if ([_currentDZGameTypeName isEqualToString:@"GG捕鱼"])
-    {
-        self.dzGameMarkImg.image = [UIImage imageNamed:@""];
-    }
-    else if ([_currentDZGameTypeName isEqualToString:@"PNG电子"])
-    {
-        self.dzGameMarkImg.image = [UIImage imageNamed:@"logo06"];
-    }
-    else if ([_currentDZGameTypeName isEqualToString:@"BSG"])
-    {
-        self.dzGameMarkImg.image = [UIImage imageNamed:@"logo03"];
-    }
-    else if ([_currentDZGameTypeName isEqualToString:@"MW电子"])
-    {
-        self.dzGameMarkImg.image = [UIImage imageNamed:@"logo11"];
+    switch (_currentDZGameTypeId) {
+        case 28:
+        {
+            //GG捕鱼
+            self.dzGameMarkImg.image = [UIImage imageNamed:@""];
+        }
+            break;
+        case 35:
+        {
+            //MW电子
+            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo11"];
+        }
+            break;
+        case 15:
+        {
+            //HB电子
+            self.dzGameMarkImg.image = [UIImage imageNamed:@""];
+        }
+            break;
+        case 26:
+        {
+            //PNG电子
+            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo06"];
+        }
+            break;
+        case 20:
+        {
+            //BSG电子
+            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo03"];
+        }
+            break;
+        case 27:
+        {
+            //DT电子
+            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo10"];
+        }
+            break;
+        case 6:
+        {
+            //PT电子
+            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo04"];
+        }
+            break;
+        case 25:
+        {
+            //新霸电子
+            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo05"];
+        }
+            break;
+        case 3:
+        {
+            //MG电子
+            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo01"];
+        }
+            break;
+        case 9:
+        {
+            //AG电子
+            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo08"];
+        }
+            break;
+        case 10:
+        {
+            //BB电子
+            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo09"];
+        }
+            break;
+        case 44:
+        {
+            //NT电子
+            self.dzGameMarkImg.image = [UIImage imageNamed:@""];
+        }
+            break;
+        case 38:
+        {
+            //新PP电子
+            self.dzGameMarkImg.image = [UIImage imageNamed:@""];
+        }
+            break;
+        case 45:
+        {
+            //PG老虎机
+            self.dzGameMarkImg.image = [UIImage imageNamed:@""];
+        }
+            break;
+        case 14:
+        {
+            //NYX电子
+            self.dzGameMarkImg.image = [UIImage imageNamed:@""];
+        }
+            break;
+        case 32:
+        {
+            //PP电子
+            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo02"];
+        }
+            break;
+        default:
+            break;
     }
 }
 
@@ -289,18 +353,16 @@
 
 -(void)login{
     SH_LoginView *login = [SH_LoginView  InstanceLoginView];
-    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:260 viewWidth:494];
+    //AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:260 viewWidth:494 titleImageName:@"title01"];
+    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:260 titleImageName:@"title01" alertViewType:AlertViewTypeLong];
     login.dismissBlock = ^{
         [cvc  close];
         [self  configUI];
     };
     login.changeChannelBlock = ^(NSString *string) {
-        [cvc  setSubTitle:string];
+      [cvc setImageName:string];
+        
     };
-   /* cvc.title = @"登录";
-    cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:cvc animated:YES completion:nil];*/
     [self presentViewController:cvc addTargetViewController:self];
 }
 
@@ -312,13 +374,12 @@
         return;
     }
     SH_UserInformationView * inforView = [SH_UserInformationView  instanceInformationView];
-    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:inforView viewHeight:200 viewWidth:322];
-    cvc.subTitle = @"个人信息";
+    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:inforView viewHeight:204 titleImageName:@"title04" alertViewType:AlertViewTypeShort];
     __weak  typeof(self) weakSelf = self;
     inforView.buttonClickBlock = ^(NSInteger tag) {
         if (tag==100) {
             SH_AlertView * alert = [SH_AlertView  instanceAlertView];
-            AlertViewController * vc = [[AlertViewController  alloc] initAlertView:alert viewHeight:174 viewWidth:288];
+             AlertViewController * vc = [[AlertViewController  alloc] initAlertView:alert viewHeight:174 titleImageName:@"title03" alertViewType:AlertViewTypeShort];
             alert.btnClickBlock = ^(NSInteger tag) {
                 if (tag==100) {
                     [vc close];
@@ -326,6 +387,8 @@
                     [SH_NetWorkService  fetchUserLoginOut:^(NSHTTPURLResponse *httpURLResponse, id response) {
                         [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
                         [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:nil];
+                      /*  [[NSUserDefaults  standardUserDefaults] setObject:@"" forKey:@"password"];
+                        [[NSUserDefaults  standardUserDefaults] synchronize];*/
                         [weakSelf configUI];
                         showMessage([UIApplication  sharedApplication].keyWindow, @"已成功退出", nil);
                         if ([vc respondsToSelector:@selector(presentingViewController)]){
@@ -339,23 +402,13 @@
                     
                 }
             };
-            /*vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-            vc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
-            [cvc presentViewController:vc animated:YES completion:nil];*/
             [weakSelf  presentViewController:vc addTargetViewController:cvc];
         }else{
             SH_SettingView * settingView = [SH_SettingView instanceSettingView];
-            AlertViewController * setVC = [[AlertViewController  alloc] initAlertView:settingView viewHeight:130 viewWidth:251];
-           /* setVC.subTitle = @"设置";
-            setVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-            setVC.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
-            [cvc presentViewController:setVC animated:YES completion:nil];*/
+             AlertViewController * setVC = [[AlertViewController  alloc] initAlertView:settingView viewHeight:130 titleImageName:@"title05" alertViewType:AlertViewTypeShort];
             [weakSelf  presentViewController:setVC addTargetViewController:cvc];
         }
     };
-   /* cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:cvc animated:YES completion:nil];*/
     [self presentViewController:cvc addTargetViewController:self];
 }
 #pragma mark --- 模态弹出viewController
@@ -366,13 +419,18 @@
 }
 
 - (IBAction)rechargeClick:(id)sender {
+    if (![[RH_UserInfoManager shareUserManager] isLogin]) {
+        [self login];
+        return;
+    }
     [self.navigationController pushViewController:[[SH_RechargeCenterViewController alloc]init] animated:YES];
 }
 
 #pragma mark - 优惠活动
 - (IBAction)activitiesClick:(id)sender {
     SH_PromoContentView *promoContentView = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoContentView" owner:nil options:nil] lastObject];
-    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:promoContentView viewHeight:[UIScreen mainScreen].bounds.size.height-80 viewWidth:[UIScreen mainScreen].bounds.size.width-160];
+    AlertViewController  * cvc = [[AlertViewController  alloc] initAlertView:promoContentView viewHeight:[UIScreen mainScreen].bounds.size.height-80 titleImageName:@"progress_bar_icon" alertViewType:AlertViewTypeLong];
+    //    cvc.imageName = @"progress_bar_icon";
     cvc.title = @"优惠活动";
     cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
@@ -382,7 +440,8 @@
 #pragma mark - 优惠活动详情
 -(void)gotoPromoDetail {
     SH_PromoDetailView *promoDetailView = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoDetailView" owner:nil options:nil] lastObject];
-    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:promoDetailView viewHeight:[UIScreen mainScreen].bounds.size.height-60 viewWidth:224];
+  
+    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:promoDetailView viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"" alertViewType:AlertViewTypeLong];
     cvc.title = @"优惠活动";
     cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
@@ -444,7 +503,8 @@
         self.welfareV.layer.cornerRadius = 4.5;
         [self.welBackV addSubview:self.welfareV];
         
-        AlertViewController *cvc = [[AlertViewController alloc] initAlertView:self.welfareV viewHeight:[UIScreen mainScreen].bounds.size.height-60 viewWidth:[UIScreen mainScreen].bounds.size.width-160];
+        AlertViewController *cvc  = [[AlertViewController  alloc] initAlertView:self.welfareV viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"" alertViewType:AlertViewTypeLong];
+        
         cvc.title = @"福利记录";
         cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         cvc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -462,8 +522,8 @@
         securityView.backgroundColor = [UIColor whiteColor];
         securityView.layer.cornerRadius = 4.5;
         [securityBackV addSubview:securityView];
-        
-        AlertViewController *avc = [[AlertViewController alloc] initAlertView:securityView viewHeight:[UIScreen mainScreen].bounds.size.height-60 viewWidth:[UIScreen mainScreen].bounds.size.width-160];
+    
+      AlertViewController *avc  = [[AlertViewController  alloc] initAlertView:securityView viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"" alertViewType:AlertViewTypeLong];
         avc.title = @"安全中心";
         avc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         avc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -482,7 +542,7 @@
         crv.layer.cornerRadius = 4.5;
         [cardBackV addSubview:crv];
         
-        AlertViewController *acr = [[AlertViewController alloc] initAlertView:crv viewHeight:[UIScreen mainScreen].bounds.size.height-60 viewWidth:[UIScreen mainScreen].bounds.size.width-160];
+        AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:crv viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"" alertViewType:AlertViewTypeLong];
         acr.title = @"牌局记录";
         acr.modalPresentationStyle = UIModalPresentationCurrentContext;
         acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -599,14 +659,36 @@
     }];
 }
 
+- (void)refreshAnnouncement
+{
+    __weak typeof(self) weakSelf = self;
+    if (_announcementView == nil) {
+        _announcementView = [[SH_AnnouncementView alloc] initWithFrame:CGRectZero];
+        [self.view addSubview:_announcementView];
+        [_announcementView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.runLBBGImg).mas_equalTo(8);
+            make.right.equalTo(self.runLBBGImg).mas_equalTo(-8);
+            make.top.bottom.equalTo(self.runLBBGImg).mas_equalTo(0);
+        }];
+    }
+
+    [SH_NetWorkService fetchAnnouncement:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSDictionary *data = [response objectForKey:@"data"];
+        NSArray *announcementArr = [data objectForKey:@"announcement"];
+        NSString *announcementStr = [NSString string];
+        for (NSDictionary *announcementDic in announcementArr) {
+            NSString *content = [announcementDic objectForKey:@"content"];
+            announcementStr = [announcementStr stringByAppendingString:[NSString stringWithFormat:@"     %@",content]];
+        }
+        weakSelf.announcementView.string = announcementStr;
+        [weakSelf.announcementView start];
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        //
+    }];
+}
+
 #pragma mark ---注册成功的通知 这里自动登录
 -(void)didRegistratedSuccessful{
-   /* NSUserDefaults  * defaults = [NSUserDefaults standardUserDefaults];
-    [SH_NetWorkService  fetchAutoLoginWithUserName:[defaults objectForKey:@"username"] Password:[defaults objectForKey:@"account"] complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-
-    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
-    }];*/
     [self  autoLoginIsRegist:YES];
 }
 #pragma mark - SH_CycleScrollViewDataSource
@@ -681,7 +763,7 @@
     
     self.currentGameItemModel = model;
     if (self.enterDZGameLevel == NO) {
-        self.enterDZGameLevel = self.currentLevel == 0 && [self.currentGameItemModel.name isEqualToString:@"电子游艺"];
+        self.enterDZGameLevel = self.currentLevel == 0 && self.currentGameItemModel.id == 2;
     }
     
     if ([model.type isEqualToString:@"game"]) {
@@ -717,7 +799,7 @@
         //进入下级页面
         self.currentLevel ++;
         if (self.enterDZGameLevel == YES) {
-            self.currentDZGameTypeName = self.currentGameItemModel.name;
+            self.currentDZGameTypeId = self.currentGameItemModel.id;
         }
         if (self.currentLevel == 1) {
             self.cycleAdView.hidden = YES;

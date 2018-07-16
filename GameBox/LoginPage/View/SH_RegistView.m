@@ -260,12 +260,12 @@
     [self.scrollview addSubview:button_Check];
     [button_Check mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.stackView.mas_bottom).mas_offset(8);
-        make.leading.mas_equalTo(128);
+        make.leading.mas_equalTo(130);//128
         make.width.height.mas_equalTo(25);
     }];
     
     [button_Check setSelected:YES];
-    [button_Check setImage:ImageWithName(@"circular") forState:UIControlStateNormal];
+    [button_Check setImage:ImageWithName(@"select") forState:UIControlStateNormal];
     [button_Check addTarget:self action:@selector(button_CheckHandle:) forControlEvents:UIControlEventTouchUpInside];
     UIButton *label = [UIButton new];
     [self.scrollview addSubview:label];
@@ -285,7 +285,7 @@
         make.top.mas_equalTo(button_Check.mas_bottom).mas_offset(20);
 //        make.centerX.mas_equalTo(self.scrollview);
         make.width.mas_equalTo(145);
-        make.leading.mas_equalTo(button_Check);
+        make.leading.mas_equalTo(button_Check.mas_leading).mas_offset(5);
         make.height.mas_equalTo(48);
     }];
     
@@ -301,11 +301,11 @@
     
     if ([button isSelected]) {
         [button setSelected:NO];
-        [button setImage:ImageWithName(@"not-choose") forState:UIControlStateNormal];
+        [button setImage:ImageWithName(@"unselect") forState:UIControlStateNormal];
         isAgreedServiceTerm = NO;
     }else {
         [button setSelected:YES];
-        [button setImage:ImageWithName(@"circular") forState:UIControlStateNormal];
+        [button setImage:ImageWithName(@"select") forState:UIControlStateNormal];
         isAgreedServiceTerm = YES;
     }
 }
