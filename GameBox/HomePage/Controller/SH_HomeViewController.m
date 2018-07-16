@@ -39,7 +39,7 @@
 #import "SH_WKGameViewController.h"
 #import "SH_NoAccessViewController.h"
 #import "SH_PromoDetailView.h"
-#import "SH_ViewController.h"
+#import "SH_AnnouncementView.h"
 
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate,PlayerCenterViewDelegate>
 
@@ -48,6 +48,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *userAccountLB;
 @property (weak, nonatomic) IBOutlet UIButton *upLevelBT;
 @property (weak, nonatomic) IBOutlet UIImageView *dzGameMarkImg;
+@property (weak, nonatomic) IBOutlet UIImageView *runLBBGImg;
 @property (strong, nonatomic) SH_CycleScrollView *cycleAdView;
 @property (nonatomic, strong) SH_PlayerCenterView *pcv;
 @property (nonatomic, strong) UIView *backV;
@@ -62,6 +63,7 @@
 @property (nonatomic, assign) int currentLevel;
 @property (nonatomic, assign) int currentDZGameTypeId;
 @property (nonatomic, assign) BOOL enterDZGameLevel;
+@property (nonatomic, strong) SH_AnnouncementView *announcementView;
 
 @end
 
@@ -78,11 +80,6 @@
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didRegistratedSuccessful) name:@"didRegistratedSuccessful" object:nil];
     [self  configUI];
     [self  autoLoginIsRegist:false];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        SH_ViewController *vc = [[SH_ViewController alloc] initWithNibName:nil bundle:nil];
-        [self.navigationController pushViewController:vc animated:NO];
-    });
 }
 
 #pragma mark - 记着密码启动自动登录
@@ -421,6 +418,10 @@
 }
 
 - (IBAction)rechargeClick:(id)sender {
+    if (![[RH_UserInfoManager shareUserManager] isLogin]) {
+        [self login];
+        return;
+    }
     [self.navigationController pushViewController:[[SH_RechargeCenterViewController alloc]init] animated:YES];
 }
 
@@ -662,8 +663,25 @@
 
 - (void)refreshAnnouncement
 {
+    __weak typeof(self) weakSelf = self;
+
+    _announcementView = [[SH_AnnouncementView alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:_announcementView];
+    [_announcementView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.runLBBGImg).mas_equalTo(8);
+        make.right.equalTo(self.runLBBGImg).mas_equalTo(-8);
+        make.top.bottom.equalTo(self.runLBBGImg).mas_equalTo(0);
+    }];
     [SH_NetWorkService fetchAnnouncement:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        //
+        NSDictionary *data = [response objectForKey:@"data"];
+        NSArray *announcementArr = [data objectForKey:@"announcement"];
+        NSString *announcementStr = [NSString string];
+        for (NSDictionary *announcementDic in announcementArr) {
+            NSString *content = [announcementDic objectForKey:@"content"];
+            announcementStr = [announcementStr stringByAppendingString:content];
+        }
+        weakSelf.announcementView.string = announcementStr;
+        [weakSelf.announcementView start];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         //
     }];

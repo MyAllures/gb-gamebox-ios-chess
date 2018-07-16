@@ -86,7 +86,6 @@
 		54C875B920FB788D00AA0594 /* SH_NoAccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C875B720FB788D00AA0594 /* SH_NoAccessViewController.m */; };
 		54C875BA20FB788D00AA0594 /* SH_NoAccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C875B820FB788D00AA0594 /* SH_NoAccessViewController.xib */; };
 		54C875BD20FC4B0B00AA0594 /* SH_AnnouncementModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C875BC20FC4B0B00AA0594 /* SH_AnnouncementModel.m */; };
-		54C875C020FC818D00AA0594 /* SH_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C875BF20FC818D00AA0594 /* SH_ViewController.m */; };
 		54C875C320FC846200AA0594 /* SH_AnnouncementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C875C220FC846200AA0594 /* SH_AnnouncementView.m */; };
 		BF2F915A20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F915820EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m */; };
 		BF2F915B20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2F915920EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib */; };
@@ -321,8 +320,6 @@
 		54C875B820FB788D00AA0594 /* SH_NoAccessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_NoAccessViewController.xib; sourceTree = "<group>"; };
 		54C875BB20FC4B0B00AA0594 /* SH_AnnouncementModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_AnnouncementModel.h; sourceTree = "<group>"; };
 		54C875BC20FC4B0B00AA0594 /* SH_AnnouncementModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_AnnouncementModel.m; sourceTree = "<group>"; };
-		54C875BE20FC818D00AA0594 /* SH_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ViewController.h; sourceTree = "<group>"; };
-		54C875BF20FC818D00AA0594 /* SH_ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_ViewController.m; sourceTree = "<group>"; };
 		54C875C120FC846200AA0594 /* SH_AnnouncementView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_AnnouncementView.h; sourceTree = "<group>"; };
 		54C875C220FC846200AA0594 /* SH_AnnouncementView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_AnnouncementView.m; sourceTree = "<group>"; };
 		BF2F915720EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_DepositeWayCollectionViewCell.h; sourceTree = "<group>"; };
@@ -757,8 +754,6 @@
 				54C875B620FB788D00AA0594 /* SH_NoAccessViewController.h */,
 				54C875B720FB788D00AA0594 /* SH_NoAccessViewController.m */,
 				54C875B820FB788D00AA0594 /* SH_NoAccessViewController.xib */,
-				54C875BE20FC818D00AA0594 /* SH_ViewController.h */,
-				54C875BF20FC818D00AA0594 /* SH_ViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1535,7 +1530,6 @@
 				22552CDF20F494E80090EFBC /* SH_SiteMsgView.m in Sources */,
 				5401C55A20ECA48D0027246D /* NetWorkLineMangaer.m in Sources */,
 				22E486D920F9F8AE0051A68C /* SH_SysMsgDataListModel.m in Sources */,
-				54C875C020FC818D00AA0594 /* SH_ViewController.m in Sources */,
 				BF44ECE420F6FB7000BC6EF3 /* SH_NetWorkService+BitCoin.m in Sources */,
 				BF44ECF620F7399800BC6EF3 /* SH_PopSubViewTableViewCell.m in Sources */,
 				BFFC846920F34397008AD801 /* SH_RechargeCenterBasicCollectionViewCell.m in Sources */,

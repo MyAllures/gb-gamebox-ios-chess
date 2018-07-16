@@ -10,4 +10,8 @@
 
 @interface SH_AnnouncementView : UIView
 
+@property (nonatomic, strong) NSString *string;
+-(void)start;
+
 @end
+
