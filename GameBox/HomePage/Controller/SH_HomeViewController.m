@@ -95,6 +95,9 @@
             
         }];
     }else if ([defaults boolForKey:@"isRememberPwd"]) {
+        if ([RH_UserInfoManager  shareUserManager].isLogin) {
+            return;
+        }
         [SH_NetWorkService  login:account psw:password verfyCode:@"" complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *result = ConvertToClassPointer(NSDictionary, response) ;
             if ([result boolValueForKey:@"success"]){
@@ -278,10 +281,6 @@
 
 #pragma mark - 用户登录
 
-- (IBAction)avaterClick:(id)sender {
-    [self login];
-}
-
 -(void)login{
     SH_LoginView *login = [SH_LoginView  InstanceLoginView];
     AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:260 viewWidth:494];
@@ -292,10 +291,11 @@
     login.changeChannelBlock = ^(NSString *string) {
         [cvc  setSubTitle:string];
     };
-    cvc.title = @"登录";
+   /* cvc.title = @"登录";
     cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:cvc animated:YES completion:nil];
+    [self presentViewController:cvc animated:YES completion:nil];*/
+    [self presentViewController:cvc addTargetViewController:self];
 }
 
 #pragma mark - 个人设置
@@ -307,7 +307,8 @@
     }
     SH_UserInformationView * inforView = [SH_UserInformationView  instanceInformationView];
     AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:inforView viewHeight:200 viewWidth:322];
-    cvc.title = @"个人信息";
+    cvc.subTitle = @"个人信息";
+    __weak  typeof(self) weakSelf = self;
     inforView.buttonClickBlock = ^(NSInteger tag) {
         if (tag==100) {
             SH_AlertView * alert = [SH_AlertView  instanceAlertView];
@@ -319,7 +320,7 @@
                     [SH_NetWorkService  fetchUserLoginOut:^(NSHTTPURLResponse *httpURLResponse, id response) {
                         [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
                         [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:nil];
-                        [self configUI];
+                        [weakSelf configUI];
                         showMessage([UIApplication  sharedApplication].keyWindow, @"已成功退出", nil);
                         if ([vc respondsToSelector:@selector(presentingViewController)]){
                             [vc.presentingViewController.presentingViewController dismissViewControllerAnimated:NO completion:nil];
@@ -332,21 +333,30 @@
                     
                 }
             };
-            vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+            /*vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
             vc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
-            [cvc presentViewController:vc animated:YES completion:nil];
+            [cvc presentViewController:vc animated:YES completion:nil];*/
+            [weakSelf  presentViewController:vc addTargetViewController:cvc];
         }else{
             SH_SettingView * settingView = [SH_SettingView instanceSettingView];
             AlertViewController * setVC = [[AlertViewController  alloc] initAlertView:settingView viewHeight:130 viewWidth:251];
-            setVC.subTitle = @"设置";
+           /* setVC.subTitle = @"设置";
             setVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
             setVC.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
-            [cvc presentViewController:setVC animated:YES completion:nil];
+            [cvc presentViewController:setVC animated:YES completion:nil];*/
+            [weakSelf  presentViewController:setVC addTargetViewController:cvc];
         }
     };
-    cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+   /* cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:cvc animated:YES completion:nil];
+    [self presentViewController:cvc animated:YES completion:nil];*/
+    [self presentViewController:cvc addTargetViewController:self];
+}
+#pragma mark --- 模态弹出viewController
+-(void)presentViewController:(UIViewController*)viewController addTargetViewController:(UIViewController*)targetVC{
+    viewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    viewController.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
+    [targetVC presentViewController:viewController animated:YES completion:nil];
 }
 
 - (IBAction)rechargeClick:(id)sender {
@@ -523,23 +533,27 @@
     [self.siteApiRelationArr removeAllObjects];
     
     [SH_NetWorkService fetchHomeInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        NSDictionary *data = [response objectForKey:@"data"];
-        
-        //获取banner数据并更新UI
-        NSArray *banner = [data objectForKey:@"banner"];
-        for (NSDictionary *bannerDic in banner) {
-            SH_HomeBannerModel *homeBannerModel = [[SH_HomeBannerModel alloc] initWithDictionary:bannerDic error:nil];
-            [weakSelf.bannerArr addObject:homeBannerModel.cover];
+        NSDictionary * result = ConvertToClassPointer(NSDictionary, response);
+        if ([result  boolValueForKey:@"success"]) {
+            NSDictionary *data = [response objectForKey:@"data"];
+            
+            //获取banner数据并更新UI
+            NSArray *banner = [data objectForKey:@"banner"];
+            for (NSDictionary *bannerDic in banner) {
+                SH_HomeBannerModel *homeBannerModel = [[SH_HomeBannerModel alloc] initWithDictionary:bannerDic error:nil];
+                [weakSelf.bannerArr addObject:homeBannerModel.cover];
+            }
+            [weakSelf.cycleAdView reloadDataWithCompleteBlock:nil];
+            
+            NSArray *siteApiRelation = [data objectForKey:@"siteApiRelation"];
+            for (NSDictionary *siteApiRelationDic in siteApiRelation) {
+                NSError *err;
+                SH_GameItemModel *gameItemModel = [[SH_GameItemModel alloc] initWithDictionary:siteApiRelationDic error:&err];
+                [weakSelf.siteApiRelationArr addObject:gameItemModel];
+            }
+            [weakSelf.topGamesListScrollView reloaData];
         }
-        [weakSelf.cycleAdView reloadDataWithCompleteBlock:nil];
-        
-        NSArray *siteApiRelation = [data objectForKey:@"siteApiRelation"];
-        for (NSDictionary *siteApiRelationDic in siteApiRelation) {
-            NSError *err;
-            SH_GameItemModel *gameItemModel = [[SH_GameItemModel alloc] initWithDictionary:siteApiRelationDic error:&err];
-            [weakSelf.siteApiRelationArr addObject:gameItemModel];
-        }
-        [weakSelf.topGamesListScrollView reloaData];
+       
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         if (httpURLResponse.statusCode == 605) {
             [weakSelf showNoAccess];

@@ -137,7 +137,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tss-Nc-pu5">
-                            <rect key="frame" x="55.5" y="151" width="145" height="38"/>
+                            <rect key="frame" x="80" y="151" width="145" height="38"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="38" id="bTM-7N-aF5"/>
                             </constraints>
@@ -200,10 +200,10 @@
                         <constraint firstItem="V90-gp-QJ4" firstAttribute="trailing" secondItem="N0y-Qo-ZTY" secondAttribute="trailing" id="cHk-Pz-kvH"/>
                         <constraint firstItem="Ue5-ax-zvL" firstAttribute="leading" secondItem="aoe-eq-j4I" secondAttribute="trailing" constant="8" id="d2m-O7-ZLX"/>
                         <constraint firstItem="tss-Nc-pu5" firstAttribute="top" secondItem="Gfy-cV-HV0" secondAttribute="bottom" constant="16" id="hBG-E9-eiQ"/>
+                        <constraint firstItem="tss-Nc-pu5" firstAttribute="leading" secondItem="Gfy-cV-HV0" secondAttribute="leading" id="kMD-zc-GFQ"/>
                         <constraint firstItem="JOr-0j-YBn" firstAttribute="leading" secondItem="N0y-Qo-ZTY" secondAttribute="leading" id="o3q-wj-5cV"/>
                         <constraint firstItem="aoe-eq-j4I" firstAttribute="centerY" secondItem="Ue5-ax-zvL" secondAttribute="centerY" id="t53-vi-c5r"/>
                         <constraint firstItem="NH3-tB-QIO" firstAttribute="trailing" secondItem="aoe-eq-j4I" secondAttribute="trailing" id="vCq-Sb-eXx"/>
-                        <constraint firstItem="tss-Nc-pu5" firstAttribute="centerX" secondItem="dJ0-VR-dqr" secondAttribute="centerX" id="yZp-cm-CbV"/>
                         <constraint firstAttribute="bottom" secondItem="RHZ-se-umN" secondAttribute="bottom" id="zVa-5T-X74"/>
                     </constraints>
                 </view>
