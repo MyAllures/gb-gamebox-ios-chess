@@ -31,9 +31,9 @@
     [self  configSlide];
 }
 -(void)configSlide{
-    UIImage *imagea=[self OriginImage:[UIImage imageNamed:@"circular_slide"] scaleToSize:CGSizeMake(12, 12)];
-    [self.sound_slide  setThumbImage:imagea forState:UIControlStateNormal];
-    [self.soundeffec_slide  setThumbImage:imagea forState:UIControlStateNormal];
+    UIImage *imagea=[self OriginImage:[UIImage imageNamed:@"circular_slide"] scaleToSize:CGSizeMake(20, 20)];
+    [self.sound_slide  setThumbImage:[UIImage imageNamed:@"circular_slide"] forState:UIControlStateNormal];
+    [self.soundeffec_slide  setThumbImage:[UIImage imageNamed:@"circular_slide"] forState:UIControlStateNormal];
     
     //自定义MPVolumeView 高度不能改变其他都可以
     MPVolumeView *volumeView = [[MPVolumeView alloc] initWithFrame:CGRectZero];
@@ -56,7 +56,7 @@
             break;
         }
     }
-    [volumeViewSlider setThumbImage:imagea forState:UIControlStateNormal];
+    [volumeViewSlider setThumbImage:[UIImage imageNamed:@"circular_slide"] forState:UIControlStateNormal];
     volumeViewSlider.minimumTrackTintColor = [UIColor colorWithHexStr:@"0x88CE2E"];
     volumeViewSlider.maximumTrackTintColor = [UIColor colorWithHexStr:@"0x136D6B"];
 }
