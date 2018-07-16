@@ -40,47 +40,56 @@
     
     self = [super init];
     if (self) {
-        self.backgroundColor = colorWithRGB(213, 213, 213);
+        self.backgroundColor =[UIColor  clearColor] ;
+        UIView  * backView = [UIView  new];
+        backView.backgroundColor = colorWithRGB(213, 213, 213);
+        [self addSubview: backView];
+        
+        [backView  mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.trailing.bottom.mas_equalTo(self);
+            make.height.mas_equalTo(200);
+        }];
+        
+        
         UIButton *button_Cancel = [UIButton new];
-        [self addSubview:button_Cancel];
+        [backView addSubview:button_Cancel];
         [button_Cancel  mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(15);
+            make.left.mas_equalTo(25);
             make.top.mas_equalTo(5);
             make.width.mas_equalTo(60);
             make.height.mas_equalTo(44);
         }];
-//        button_Cancel.whc_LeftSpace(15).whc_TopSpace(5).whc_Width(60).whc_Height(44);
         button_Cancel.layer.cornerRadius = 5;
         button_Cancel.clipsToBounds = YES;
         [button_Cancel setTitle:@"取消" forState:UIControlStateNormal];
         [button_Cancel addTarget:self action:@selector(cancel) forControlEvents:UIControlEventTouchUpInside];
+        
         UIButton *button_Confirm = [UIButton new];
-        [self addSubview:button_Confirm];
+        [backView addSubview:button_Confirm];
         [button_Confirm mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(5);
-            make.right.mas_equalTo(-15);
+            make.right.mas_equalTo(-25);
             make.height.mas_equalTo(44);
             make.width.mas_equalTo(60);
         }];
-//        button_Confirm.whc_TopSpace(5).whc_RightSpace(15).whc_Height(44).whc_Width(60);
         button_Confirm.layer.cornerRadius = 5;
         button_Confirm.clipsToBounds = YES;
         [button_Confirm setTitle:@"确定" forState:UIControlStateNormal];
         [button_Confirm addTarget:self action:@selector(confirm) forControlEvents:UIControlEventTouchUpInside];
+        
         UIView *line = [UIView new];
         [self addSubview:line];
         [line  mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.mas_equalTo(-20);
+            make.left.mas_equalTo(20);
+            make.right.mas_equalTo(-20);
             make.height.mas_equalTo(2);
-            make.top.mas_equalTo(button_Confirm).mas_offset(10);
+            make.top.mas_equalTo(button_Confirm.mas_bottom).mas_offset(10);
         }];
-//        line.whc_LeftSpace(20).whc_RightSpace(20).whc_Height(2).whc_TopSpaceToView(10, button_Confirm);
-        
-        [self addSubview:self.pickView];
-//        self.pickView.whc_TopSpaceToView(5, line).whc_LeftSpace(0).whc_RightSpace(0).whc_BottomSpace(0);
+
+        [backView addSubview:self.pickView];
         [self.pickView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.bottom.right.mas_equalTo(0);
-            make.top.mas_equalTo(line).mas_offset(5);
+            make.top.mas_equalTo(line.mas_bottom).mas_offset(5);
         }];
         selectedDay = 01;
         selectedYear = 1918;

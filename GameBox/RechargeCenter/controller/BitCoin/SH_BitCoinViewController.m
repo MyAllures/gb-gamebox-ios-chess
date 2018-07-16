@@ -59,16 +59,15 @@
 #pragma mark-- popView马上付款按钮
 - (void)popViewSelectedActivityId:(NSString *)activityId{
     [SH_NetWorkService bitCoinPayWithRechargeType:self.channelModel.rechargeType PayAccountId:self.channelModel.searchId ActivityId:activityId ReturnTime:self.date Adrress:self.address BitCoinNum:self.num Txid:self.txid Complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        if (response) {
+        if ([[response objectForKey:@"data"] isKindOfClass:[NSNull class]]) {
+            showMessage(self.view, [NSString stringWithFormat:@"%@",response[@"message"]], nil);
+        }else{
             SH_BitCoinSuccessView *popView = [[SH_BitCoinSuccessView alloc]initWithFrame:CGRectMake(0, 0, screenSize().width, screenSize().height)];
             popView.targetVC = self;
             [popView popViewShow];
-        }else
-        {
-            showMessage(self.view, @"存款失败", nil);
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
+        showMessage(self.view, @"存款失败", nil);
     }];
 }
 - (void)didReceiveMemoryWarning {

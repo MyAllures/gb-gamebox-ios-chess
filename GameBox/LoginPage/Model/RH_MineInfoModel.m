@@ -9,5 +9,7 @@
 #import "RH_MineInfoModel.h"
 
 @implementation RH_MineInfoModel
-
++(BOOL)propertyIsOptional:(NSString *)propertyName{
+    return  YES;
+}
 @end

@@ -22,7 +22,8 @@
 #import "SH_RechargeDetailViewController.h"
 #import "SH_RechargeBankDetailViewController.h"
 #import "SH_KuaiChongViewController.h"
-@interface SH_RechargeCenterViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,RH_RechargeCenterFooterViewDelegate>
+#import "SH_PreferentialPopView.h"
+@interface SH_RechargeCenterViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,RH_RechargeCenterFooterViewDelegate,SH_PreferentialPopViewDelegate>
 @property(nonatomic,strong)UICollectionView *mainCollectionView;
 @property(nonatomic,strong)NSMutableArray *dataArray;
 @property(nonatomic,strong)UILabel *tipLab;
@@ -31,6 +32,8 @@
 @property(nonatomic,copy)NSString *number;//选中金额
 @property(nonatomic,strong)SH_RechargeCenterPlatformModel *platformModel;//记录当前选中哪一个平台，方便传值
 @property(nonatomic,strong)SH_RechargeCenterChannelModel *channelModel;//选中付款方式后要把这个数据传到跳转的页面
+
+@property(nonatomic,strong)SH_RechargeCenterPaywayModel *paywayModel;//跳转银行有个hide参数要用到，仅此而已，烦
 @property(nonatomic,strong)NSMutableArray *channelModelArray;//因为在线支付只有两组，所以要把返回的保存下来
 @end
 
@@ -93,13 +96,17 @@
             }
             [weakSelf.selectedStatusArray addObject:sectionOneArray];
             SH_RechargeCenterPlatformModel *platformModel = platforms[0];
+            
             //请求默认的第一个
             [SH_NetWorkService RechargeCenterPayway:platformModel.code Complete:^(SH_RechargeCenterPaywayModel *model) {
                 SH_RechargeCenterPaywayModel *paywayModel = model;
+                weakSelf.paywayModel = paywayModel;
                 NSArray *payways = paywayModel.arrayList;
                 NSArray *moneys = paywayModel.quickMoneys;
                 if (payways.count > 0) {
                     weakSelf.channelModel = payways[0];
+                    [weakSelf.channelModelArray removeAllObjects];
+                    [weakSelf.channelModelArray addObjectsFromArray:payways];
                 }
                 NSMutableArray *sectionTwoArray = [NSMutableArray array];
                 for (int i = 0; i < payways.count; i++) {
@@ -198,18 +205,21 @@
                 //这里用name判断是因为快充中心的code是一个路径 所以不能走下面的处理方法
                 SH_KuaiChongViewController *vc = [[SH_KuaiChongViewController alloc]init];
                 vc.platformModel = self.platformModel;
-                [self presentViewController:vc animated:YES completion:nil];
+                [self.navigationController pushViewController:vc animated:YES];
             }
         }
           __weak typeof(self) weakSelf = self;
-        [SH_RechargeCenterDataHandle dealSelectedStatusWithSlectedArray:self.selectedStatusArray indexPath:indexPath DataArray:self.dataArray ChannelArray:self.channelModelArray Block:^(SH_RechargeCenterChannelModel *model,NSArray *titles) {
+        [SH_RechargeCenterDataHandle dealSelectedStatusWithSlectedArray:self.selectedStatusArray indexPath:indexPath DataArray:self.dataArray ChannelArray:self.channelModelArray Block:^(SH_RechargeCenterChannelModel *model,NSArray *titles,SH_RechargeCenterPaywayModel *paywayModel) {
+            if (paywayModel) {
+                weakSelf.paywayModel = paywayModel;
+            }
             weakSelf.channelModel = model;
             weakSelf.sectionTitles = titles;
             if (indexPath.section == 0) {
                 if ([self.platformModel.code isEqualToString:@"bitcoin"]){
                     SH_BitCoinViewController *bvc = [[SH_BitCoinViewController alloc]init];
                     bvc.channelModel = weakSelf.channelModel;
-                    [weakSelf presentViewController:bvc animated:YES completion:nil];
+                    [weakSelf.navigationController pushViewController:bvc animated:YES];
                 }
             }else{
                 if (titles.count == 2) {
@@ -260,7 +270,7 @@
     }else{
         RH_RechargeCenterFooterView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"RH_RechargeCenterFooterView" forIndexPath:indexPath];
         footerView.delegate = self;
-        [footerView updateUIWithCode:self.platformModel.code Type:self.channelModel.type Number:self.number ChannelModelArray:self.channelModelArray];
+        [footerView updateUIWithCode:self.platformModel.code Type:self.channelModel.type Number:self.number ChannelModelArray:self.channelModelArray ChannelModel:self.channelModel];
         return footerView;
     }
     
@@ -291,13 +301,72 @@
             }
           
         }
-    
-    
 }
 #pragma mark--
 #pragma mark--footerView delegate
 - (void)RH_RechargeCenterFooterViewSubmitBtnClick{
-    [self presentViewController:[[SH_RechargeBankDetailViewController alloc]init] animated:YES completion:nil];
+    
+    
+    if (self.number.length == 0) {
+        showMessage(self.view, @"请输入金额", nil);
+    }else{
+        if ([self.platformModel.code isEqualToString:@"counter"]||[self.platformModel.code isEqualToString:@"company"]) {
+            //柜员机和网银存款
+            SH_RechargeBankDetailViewController *vc = [[SH_RechargeBankDetailViewController alloc]init];
+            vc.channelModel = self.channelModel;
+            vc.paywayModel = self.paywayModel;
+            vc.platformModel = self.platformModel;
+            vc.money = self.number;
+//            [self presentViewController:vc animated:YES completion:nil];
+             [self.navigationController pushViewController:vc animated:YES];
+        }else if ([self.platformModel.code isEqualToString:@"online"]){
+            //请求优惠接口
+            [self requestNormalPreferential];
+        }else{
+            if ([self.channelModel.type isEqualToString:@"1"]) {
+                //直接跳页面
+                SH_RechargeDetailViewController *vc = [[SH_RechargeDetailViewController alloc]init];
+                vc.channelModel = self.channelModel;
+                vc.paywayModel = self.paywayModel;
+                vc.platformModel = self.platformModel;
+                vc.money = self.number;
+                [self.navigationController pushViewController:vc animated:YES];
+                
+            }else if ([self.channelModel.type isEqualToString:@"2"]){
+                //2表示扫码支付，要先请求一个优惠接口
+                [self requestNormalPreferential];
+            }
+        }
+    }
+}
+#pragma mark--
+#pragma mark-- popView马上付款按钮
+- (void)popViewSelectedActivityId:(NSString *)activityId{
+    [SH_NetWorkService onlineDepositeyWithRechargeAmount:self.number rechargeType:self.channelModel.depositWay payAccountId:self.channelModel.searchId activityId:activityId Complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if ([response[@"data"] isKindOfClass:[NSNull class]]) {
+            showMessage(self.view,[NSString stringWithFormat:@"%@",response[@"message"]], nil);
+        }else{
+            NSString *url = response[@"data"][@"payLink"];
+#warning 这里要跳转
+            NSLog(@"这里是要跳转的URL %@",url);
+            
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+         showMessage(self.view, @"存款失败", nil);
+    }];
+}
+#pragma mark--
+#pragma mark--请求优惠接口
+-(void)requestNormalPreferential{
+    //获取优惠接口
+    [SH_NetWorkService getNormalDepositeNum:self.number Payway:self.channelModel.depositWay PayAccountId:self.channelModel.searchId Complete:^(SH_BitCoinSaleModel *model) {
+        SH_PreferentialPopView *popView = [[SH_PreferentialPopView alloc]initWithFrame:CGRectMake(0, 0, screenSize().width, screenSize().height)];
+        popView.delegate  =  self;
+        [popView popViewShow];
+        [popView updateUIWithSaleModel:model];
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        
+    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -16,4 +16,6 @@
 - (NSString *)stringByInsertMark:(NSString *)mark withSpace:(NSUInteger)space;
 - (NSString *)stringByInsertMark:(NSString *)mark withSpace:(NSUInteger)space reverse:(BOOL)reverse;
 - (NSString *) trim ;
+- (BOOL)isEmptyString;
+
 @end

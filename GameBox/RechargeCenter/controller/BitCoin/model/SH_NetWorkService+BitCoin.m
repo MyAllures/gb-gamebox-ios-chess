@@ -25,7 +25,6 @@
     [self post:url parameter:param header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             NSDictionary *dic = (NSDictionary *)response;
-            NSLog(@"%@",dic[@"message"]);
             NSError *erro;
             SH_BitCoinSaleModel *model = [[SH_BitCoinSaleModel alloc]initWithDictionary:dic[@"data"] error:&erro];
             complete(model);

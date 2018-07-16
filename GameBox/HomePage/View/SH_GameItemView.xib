@@ -27,6 +27,9 @@
                 <constraint firstAttribute="bottom" secondItem="IFV-zN-oFQ" secondAttribute="bottom" constant="5" id="zs0-9t-PAY"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="iconImg" destination="IFV-zN-oFQ" id="IOM-FE-Q7C"/>
+            </connections>
             <point key="canvasLocation" x="-29" y="-160"/>
         </view>
     </objects>

@@ -36,7 +36,7 @@
 #pragma mark--
 #pragma mark--navi back
 -(void)SH_NavigationViewBackBtnClick{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (UIScrollView *)bgScrollView{
     if (!_bgScrollView) {

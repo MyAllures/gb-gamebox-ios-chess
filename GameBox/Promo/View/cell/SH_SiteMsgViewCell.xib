@@ -12,45 +12,59 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="SH_SiteMsgViewCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="2Ny-ag-3c5" customClass="SH_SiteMsgViewCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Ny-ag-3c5" id="mCo-UG-goC">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sd7-6p-7Vg">
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q7A-15-qvn">
                         <rect key="frame" x="9" y="6" width="32" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" backgroundImage="btn_refresh"/>
+                        <state key="normal" backgroundImage="not-choose"/>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Labelalsjdfhsfah;sdfj" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdz-L2-9u2">
-                        <rect key="frame" x="63" y="11" width="166" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Labelalsjdfhsfah;sdfj" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yz7-9F-RUE">
+                        <rect key="frame" x="63" y="11" width="166" height="41"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018-03-13" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gB3-A6-KqP">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018-03-13" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QgI-L8-dTG">
                         <rect key="frame" x="231" y="48" width="73" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="Ysj-qP-fxt"/>
-                            <constraint firstAttribute="width" constant="73" id="waC-6D-2fh"/>
+                            <constraint firstAttribute="width" constant="73" id="w1M-6m-hRS"/>
+                            <constraint firstAttribute="height" constant="21" id="z5L-54-igb"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mearkRead" translatesAutoresizingMaskIntoConstraints="NO" id="1PX-3m-4Of" customClass="mearkRead">
+                        <rect key="frame" x="276" y="0.0" width="44" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="44" id="FBg-Ow-DtW"/>
+                            <constraint firstAttribute="height" constant="44" id="TCg-CQ-V8l"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="gB3-A6-KqP" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="ZCO-vq-1iB"/>
-                    <constraint firstItem="gB3-A6-KqP" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="zMX-mT-VBv"/>
+                    <constraint firstItem="QgI-L8-dTG" firstAttribute="trailing" secondItem="mCo-UG-goC" secondAttribute="trailingMargin" id="MRE-u7-ZtX"/>
+                    <constraint firstItem="QgI-L8-dTG" firstAttribute="bottom" secondItem="mCo-UG-goC" secondAttribute="bottomMargin" id="Sbx-gP-woe"/>
+                    <constraint firstItem="1PX-3m-4Of" firstAttribute="top" secondItem="mCo-UG-goC" secondAttribute="top" id="Yq1-Db-Y6I"/>
+                    <constraint firstAttribute="trailing" secondItem="1PX-3m-4Of" secondAttribute="trailing" id="hP5-t8-CrX"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="-73" y="146"/>
+            <connections>
+                <outlet property="advisoryContentLabel" destination="Yz7-9F-RUE" id="YS2-Ic-93g"/>
+                <outlet property="advisoryTimeLabel" destination="QgI-L8-dTG" id="9Z9-FS-vW7"/>
+            </connections>
+            <point key="canvasLocation" x="42" y="180"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="btn_refresh" width="34" height="36"/>
+        <image name="mearkRead" width="41" height="41"/>
+        <image name="not-choose" width="15" height="15"/>
     </resources>
 </document>

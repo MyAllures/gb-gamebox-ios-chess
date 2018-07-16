@@ -13,7 +13,7 @@
 #define SH_GAMELIST_ITEM_WIDTH 125
 #define SH_GAMELIST_ITEM_HEIGHT 108
 
-@interface SH_GamesListScrollView () <UIScrollViewDelegate>
+@interface SH_GamesListScrollView () <UIScrollViewDelegate, SH_GameItemViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIButton *preBT;
@@ -26,11 +26,17 @@
 
 - (void)reloaData
 {
+    for (id subView in self.scrollView.subviews) {
+        if ([subView isMemberOfClass:[SH_GameItemView class]]) {
+            [subView removeFromSuperview];
+        }
+    }
+    
     NSInteger itemsNum = [self.dataSource numberOfItemsOfGamesListScrollView:self];
     CGFloat calculationW = (itemsNum/2+itemsNum%2)*SH_GAMELIST_ITEM_WIDTH;
     CGFloat contentSizeW = calculationW > self.scrollView.frame.size.width ? calculationW : self.scrollView.frame.size.width;
     
-    [self.scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+    [self.scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
     if (calculationW > self.scrollView.frame.size.width) {
         self.nextBT.hidden = NO;
         self.preBT.hidden = YES;
@@ -45,6 +51,7 @@
     for (int i = 0; i < itemsNum; i++) {
         SH_GameItemView *gameItemView = (SH_GameItemView *)[self.dataSource gamesListScrollView:self viewForItem:i];
         [self.scrollView addSubview:gameItemView];
+        gameItemView.delegate = self;
         [gameItemView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo((i/2)*SH_GAMELIST_ITEM_WIDTH);
             make.top.mas_equalTo((i%2)*SH_GAMELIST_ITEM_HEIGHT);
@@ -131,7 +138,6 @@
 #pragma mark - UIScrollViewDelegate M
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    NSLog(@"=====>%f",scrollView.contentOffset.x);
     int currentPage = scrollView.contentOffset.x/scrollView.frame.size.width + ((int)scrollView.contentOffset.x%(int)scrollView.frame.size.width == 0 ? 0 : 1);
     self.currentPage = currentPage;
     int totalPage = ceil(scrollView.contentSize.width/scrollView.frame.size.width);
@@ -147,6 +153,16 @@
         //中间页
         self.nextBT.hidden = NO;
         self.preBT.hidden = NO;
+    }
+}
+
+#pragma mark - SH_GameItemViewDelegate M
+
+- (void)gameItemView:(SH_GameItemView *)view didSelect:(SH_GameItemModel *)model
+{
+    ifRespondsSelector(self.delegate, @selector(gamesListScrollView:didSelectItem:))
+    {
+        [self.delegate gamesListScrollView:self didSelectItem:model];
     }
 }
 

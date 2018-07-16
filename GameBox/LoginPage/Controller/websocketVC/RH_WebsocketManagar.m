@@ -7,7 +7,6 @@
 //
 
 #import "RH_WebsocketManagar.h"
-#import "RH_UserInfoManager.h"
 #import "AppDelegate.h"
 
 /*
@@ -66,7 +65,7 @@ NSString * const kWebSocketdidReceiveMessageNote = @"kWebSocketdidReceiveMessage
     
     //设置请求头
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:[NSURL URLWithString:wsUrl] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
-    [request addValue:[NSString stringWithFormat:@"%@",[RH_UserInfoManager shareUserManager].sidString] forHTTPHeaderField:@"Cookie"];
+    [request addValue:[NSString stringWithFormat:@"%@", [NetWorkLineMangaer sharedManager].currentSID] forHTTPHeaderField:@"Cookie"];
     [request addValue:@"app_ios, iPhone" forHTTPHeaderField:@"User-Agent"];
     
     [request addValue:[NetWorkLineMangaer sharedManager].currentHost forHTTPHeaderField:@"Host"];

@@ -1,3 +1,4 @@
+
 //
 //  SH_RingManager.m
 //  GameBox
@@ -34,6 +35,7 @@
     if (_bgmPlayer == nil) {
         NSURL *url = [[NSBundle mainBundle] URLForResource:@"bgm.mp3" withExtension:nil];
         _bgmPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+        _bgmPlayer.numberOfLoops = -1;
         [_bgmPlayer prepareToPlay];
     }
     return _bgmPlayer;

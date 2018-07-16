@@ -21,11 +21,20 @@
      [self configNavigationWithTitle:@"快充中心"];
     [self configUI];
 }
+- (WKWebView *)wkWebView{
+    if (!_wkWebView) {
+        _wkWebView = [[WKWebView alloc] init];
+        _wkWebView.navigationDelegate = self ;
+        _wkWebView.UIDelegate = self;
+        [self.view addSubview:_wkWebView];
+    }
+    return _wkWebView;
+}
 -(void)configUI{
-    self.wkWebView = [[WKWebView alloc] initWithFrame:CGRectMake(0,NavigationBarHeight, screenSize().width, screenSize().height-NavigationBarHeight)] ;
-    self.wkWebView.navigationDelegate = self ;
-    self.wkWebView.UIDelegate = self;
-    [self.view addSubview:self.wkWebView];
+    [self.wkWebView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.bottom.right.equalTo(self.view);
+        make.top.equalTo(self.view).offset(NavigationBarHeight);
+    }];
     [self.wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.platformModel.code]]];
     
     self.progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, NavigationBarHeight , screenSize().width, 2)];
