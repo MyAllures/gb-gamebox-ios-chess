@@ -167,6 +167,9 @@
         }
         return  mutableAttributedString;
         }];
+    NSRange boldRange1 = [message rangeOfString:@"点击联系在线客服" options:NSCaseInsensitiveSearch];
+    [self.tttLab addLinkToURL:[NSURL URLWithString:@""]
+                        withRange:boldRange1];
 }
 #pragma mark - TTTAttributedLabelDelegate
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url
