@@ -54,12 +54,6 @@
                         <action selector="submitBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="TyB-Kh-pHh"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vcm-oW-wDX">
-                    <rect key="frame" x="10" y="198" width="355" height="0.0"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付银行" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwx-Yv-Lqa">
                     <rect key="frame" x="15" y="70" width="62" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -96,14 +90,11 @@
                 <constraint firstItem="nPe-c7-Ksu" firstAttribute="centerY" secondItem="jwx-Yv-Lqa" secondAttribute="centerY" id="LSR-qD-QiR"/>
                 <constraint firstItem="Lt5-wf-Mjg" firstAttribute="centerY" secondItem="kzX-zQ-gnl" secondAttribute="centerY" id="Lsu-ih-yWr"/>
                 <constraint firstItem="ppU-5L-OD5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="NEl-Dq-ahp"/>
-                <constraint firstAttribute="trailing" secondItem="Vcm-oW-wDX" secondAttribute="trailing" constant="10" id="QOo-MW-Qzn"/>
                 <constraint firstAttribute="trailing" secondItem="ppU-5L-OD5" secondAttribute="trailing" constant="10" id="jbn-Ab-hCp"/>
                 <constraint firstItem="Lt5-wf-Mjg" firstAttribute="leading" secondItem="kzX-zQ-gnl" secondAttribute="trailing" constant="40" id="lfi-9Z-J4w"/>
                 <constraint firstItem="MRR-aI-uVO" firstAttribute="trailing" secondItem="nPe-c7-Ksu" secondAttribute="leading" id="m1j-EO-z9Z"/>
                 <constraint firstItem="kzX-zQ-gnl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="oC9-MU-YGU"/>
                 <constraint firstItem="MRR-aI-uVO" firstAttribute="centerY" secondItem="jwx-Yv-Lqa" secondAttribute="centerY" id="prL-QH-ZHH"/>
-                <constraint firstItem="Vcm-oW-wDX" firstAttribute="top" secondItem="ppU-5L-OD5" secondAttribute="bottom" constant="20" id="rRM-xf-w7Z"/>
-                <constraint firstItem="Vcm-oW-wDX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="riw-uw-JR2"/>
                 <constraint firstItem="jwx-Yv-Lqa" firstAttribute="centerY" secondItem="kzX-zQ-gnl" secondAttribute="centerY" constant="50" id="tqh-Tf-Rmp"/>
                 <constraint firstItem="N75-HR-jLW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="uS4-ue-7UY"/>
                 <constraint firstItem="nPe-c7-Ksu" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="vvZ-IQ-aWO"/>
@@ -115,7 +106,7 @@
                 <outlet property="btnTop" destination="zF5-Pv-Mg0" id="QBg-EM-XxB"/>
                 <outlet property="chooseBKBtn" destination="nPe-c7-Ksu" id="BIt-zr-LIy"/>
                 <outlet property="chooseBkLab" destination="jwx-Yv-Lqa" id="dTQ-vb-r1I"/>
-                <outlet property="messageLab" destination="Vcm-oW-wDX" id="D0j-Gg-cu9"/>
+                <outlet property="submitBtn" destination="ppU-5L-OD5" id="cM6-qL-daZ"/>
                 <outlet property="textField" destination="Lt5-wf-Mjg" id="jGM-6Y-y4B"/>
             </connections>
         </view>

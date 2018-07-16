@@ -14,7 +14,6 @@
 @property(nonatomic,strong)SH_RechargeDetailHeadView *headView;
 @property(nonatomic,strong)SH_RechargeDetailMainSubmitView *submitView;
 @property(nonatomic,strong)UILabel *messageLab;
-@property(nonatomic,strong)UILabel *bottomLab;
 @property(nonatomic,strong)TTTAttributedLabel *tttLab;
 @end
 @implementation SH_RechargeDetailMainView
@@ -43,19 +42,9 @@
     }
     return _messageLab;
 }
--(UILabel *)bottomLab{
-    if (!_bottomLab) {
-        _bottomLab = [[UILabel alloc]init];
-        _bottomLab.numberOfLines = 0;
-        _bottomLab.font = [UIFont systemFontOfSize:14];
-        [self addSubview:_bottomLab];
-    }
-    return _bottomLab;
-}
 - (TTTAttributedLabel *)tttLab{
     if (!_tttLab) {
         _tttLab = [TTTAttributedLabel  new];
-        _tttLab.backgroundColor = colorWithRGB(246, 246, 246);
         _tttLab.lineBreakMode = NSLineBreakByWordWrapping;
         _tttLab.numberOfLines = 0;
         _tttLab.delegate = self;
@@ -63,7 +52,7 @@
         //要放在`text`, with either `setText:` or `setText:afterInheritingLabelAttributesAndConfiguringWithBlock:前面才有效
         _tttLab.enabledTextCheckingTypes = NSTextCheckingTypePhoneNumber|NSTextCheckingTypeAddress|NSTextCheckingTypeLink;
         //链接正常状态文本属性
-        _tttLab.linkAttributes = @{NSForegroundColorAttributeName:[UIColor purpleColor],NSUnderlineStyleAttributeName:@(1)};
+        _tttLab.linkAttributes = @{NSForegroundColorAttributeName:[UIColor blueColor],NSUnderlineStyleAttributeName:@(1)};
         //链接高亮状态文本属性
         _tttLab.activeLinkAttributes = @{NSForegroundColorAttributeName:[UIColor blackColor],NSUnderlineStyleAttributeName:@(1)};
         _tttLab.font = [UIFont  systemFontOfSize:14.0];
@@ -96,11 +85,6 @@
         make.left.right.equalTo(weakSelf);
         make.height.equalTo(@160);
     }];
-//    [self.bottomLab mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(weakSelf.submitView.mas_bottom).offset(40);
-//        make.left.equalTo(weakSelf).offset(20);
-//        make.right.bottom.equalTo(weakSelf).offset(-20);
-//    }];
     [self.tttLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakSelf.submitView.mas_bottom).offset(40);
         make.left.equalTo(weakSelf).offset(20);
@@ -141,16 +125,11 @@
     [self.delegate SH_RechargeDetailMainViewSubmitRealName:realName AccountNum:accountNum OrderNum:orderNum];
 }
 -(void)setBottomLabWithMessage:(NSString *)message{
-//    [self.bottomLab setTextWithFirstString:message SecondString:@"点击联系在线客服" FontSize:14 Color:[UIColor blueColor]];
-//    [self.bottomLab addAttributeTapActionWithStrings:@[@"点击联系在线客服"] tapClicked:^(NSString *string, NSRange range,NSInteger index) {
-//        NSLog(@"点击联系在线客服");
-//    }];
-
         [ self.tttLab  setText:message afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
         //设置可点击文字的范围
         NSRange boldRange = [[mutableAttributedString string]rangeOfString:@"点击联系在线客服"options:NSCaseInsensitiveSearch];
         //设定可点击文字的的大小
-        UIFont*boldSystemFont = [UIFont systemFontOfSize:13];
+        UIFont*boldSystemFont = [UIFont systemFontOfSize:14];
         CTFontRef font =CTFontCreateWithName((__bridge CFStringRef)boldSystemFont.fontName, boldSystemFont.pointSize,NULL);
         if(font){
         {
@@ -160,13 +139,14 @@
                                     range:boldRange];
         //文字颜色
         [mutableAttributedString addAttribute:(NSString *)kCTForegroundColorAttributeName
-                                    value:[UIColor redColor]
+                                    value:[UIColor blueColor]
                                     range:boldRange];
         CFRelease(font);
         }
         }
         return  mutableAttributedString;
         }];
+
     NSRange boldRange1 = [message rangeOfString:@"点击联系在线客服" options:NSCaseInsensitiveSearch];
     [self.tttLab addLinkToURL:[NSURL URLWithString:@""]
                         withRange:boldRange1];
@@ -174,9 +154,6 @@
 #pragma mark - TTTAttributedLabelDelegate
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url
 {
-    NSLog(@"点击了");
-//    if (self.delegate && [self.delegate  respondsToSelector:@selector(didSelectLinkHandle)]) {
-//        [self.delegate  didSelectLinkHandle];
-//    }
+    NSLog(@"点击联系在线客服");
 }
 @end

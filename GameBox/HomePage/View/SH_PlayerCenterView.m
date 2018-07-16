@@ -11,9 +11,9 @@
 
 @interface SH_PlayerCenterView ()
 //用户信息视图
-@property (nonatomic, strong) UIView *informationV;
+@property (nonatomic, strong) UIImageView *informationV;
 //用户记录视图
-@property (nonatomic, strong) UIView *recordV;
+@property (nonatomic, strong) UIImageView *recordV;
 //背景视图
 @property (nonatomic, strong) UIView *backgroundV;
 //用户头像
@@ -31,7 +31,7 @@
 ////福利视图窗口
 //@property (nonatomic, strong) UIView *welfareV;
 //关闭窗口按钮
-@property (nonatomic, strong) UIButton *closeBtn;
+//@property (nonatomic, strong) UIButton *closeBtn;
 //按钮
 @property (nonatomic, strong) UIButton *btn;
 //按钮标题
@@ -54,8 +54,9 @@
 - (void)createInformationV
 {
     //用户信息视图
-    self.informationV = [[UIView alloc] init];
-    self.informationV.backgroundColor = [UIColor blueColor];
+    self.informationV = [[UIImageView alloc] init];
+    self.informationV.image = [UIImage imageNamed:@"top-bg"];
+    self.informationV.userInteractionEnabled = YES;
     [self addSubview:self.informationV];
     
     [self.informationV mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -64,7 +65,6 @@
         make.height.mas_equalTo(95);
         make.right.mas_equalTo(0);
     }];
-    
     
     //用户头像
     self.headImage = [[UIImageView alloc] init];
@@ -108,8 +108,7 @@
         make.left.equalTo(self.informationV.mas_left).with.offset(75);
 
     }];
-    
-    
+
     //当前福利
     self.welcomLbl = [[UILabel alloc] init];
     [self.informationV addSubview:self.welcomLbl];
@@ -140,12 +139,13 @@
 //创建用户记录视图
 - (void)createRecordV
 {
-    self.recordV = [[UIView alloc] init];
+    self.recordV = [[UIImageView alloc] init];
+    self.recordV.image = [UIImage imageNamed:@"menu-bg"];
+    self.recordV.userInteractionEnabled = YES;
     [self addSubview:self.recordV];
-    self.recordV.backgroundColor = [UIColor whiteColor];
-                                    
+    
     [self.recordV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.informationV.mas_bottom).with.offset(2);
+        make.top.equalTo(self.informationV.mas_bottom).with.offset(0);
         make.bottom.equalTo(self.mas_bottom);
         make.right.mas_equalTo(0);
         make.left.mas_equalTo(0);
@@ -159,11 +159,10 @@
     NSMutableArray * btnArray = [NSMutableArray array];
     for (int i = 0; i < count; i++) {
         self.btn = [[UIButton alloc] init];
-//        self.btn.tag = i;
         [self.btn setTitle:[self.titleArr objectAtIndex:i] forState:UIControlStateNormal];
         [self.btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self.btn setBackgroundImage:[UIImage imageNamed:@"login_button"] forState:UIControlStateNormal];
-        [self.btn addTarget:self action:@selector(popView:) forControlEvents:UIControlEventTouchUpInside];
+        [self.btn addTarget:self action:@selector(playerBtn:) forControlEvents:UIControlEventTouchUpInside];
         self.btn.titleLabel.font = [UIFont systemFontOfSize:15.0];
         [self.recordV addSubview:self.btn];
         [btnArray addObject:self.btn];
@@ -171,29 +170,24 @@
         [self.btn mas_makeConstraints:^(MASConstraintMaker *make) {
             if (i == 0) {
                  make.top.equalTo(self.recordV.mas_top).with.offset(12);
-//                NSLog(@"this is a test :%ld",self.btn.tag);
-            }else{
+            } else {
                  UIButton *button = btnArray[i-1];
                  make.top.equalTo(button.mas_bottom).with.offset(12);
-//                NSLog(@"This is a test : %ld",self.btn.tag);
             }
            
             make.left.equalTo(self.recordV.mas_left).with.offset(35);
             make.height.mas_equalTo(40);
         }];
 
-//        NSLog(@"THIS IS A TEST:%ld",self.btn.tag);
     }
 
     self.backBtn = [[UIButton alloc] init];
     [self.recordV addSubview:self.backBtn];
-    [self.backBtn setTitle:@"返回" forState:UIControlStateNormal];
-    [self.backBtn addTarget:self action:@selector(backView) forControlEvents:UIControlEventTouchUpInside];
-    [self.backBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    self.backBtn.titleLabel.font = [UIFont systemFontOfSize:15.0];
+    [self.backBtn addTarget:self action:@selector(pressBackBtn) forControlEvents:UIControlEventTouchUpInside];
+    [self.backBtn setBackgroundImage:[UIImage imageNamed:@"return"] forState:UIControlStateNormal];
     
     [self.backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(90, 45));
+        make.size.mas_equalTo(CGSizeMake(70, 40));
         make.top.equalTo(self.recordV.mas_top).with.mas_equalTo(220);
         make.left.equalTo(self.recordV.mas_left).with.offset(50);
     }];
@@ -201,33 +195,18 @@
 }
 
 //返回视图
-- (void)backView
+- (void)pressBackBtn
 {
     if ([self.delegate respondsToSelector:@selector(removeView)]) {
         [self.delegate removeView];
     }
 }
 
-- (void)popView:(UIButton *)btn
+- (void)playerBtn:(UIButton *)btn
 {
     if ([self.delegate respondsToSelector:@selector(popView:)]) {
         [self.delegate popView:btn];
     }
-
-//    NSLog(@"this is a test:%ld",btn.tag);
 }
-
-//
-//- (void)closeView
-//{
-//    NSLog(@"关闭视图");
-//
-//    [UIView animateWithDuration:1.0 animations:^{
-//        [self.welfareV removeFromSuperview];
-//        [self.closeBtn removeFromSuperview];
-//    }];
-//}
-
-
 
 @end

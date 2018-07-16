@@ -58,7 +58,8 @@
     }];
     
 }
--(void)updateUIWithSaleModel:(SH_BitCoinSaleModel *)model{
+-(void)updateUIWithSaleModel:(SH_BitCoinSaleModel *)model moneyString:(NSString *)money{
+    self.moneyLab.text = money;
     self.msgLab.text = model.msg;
     self.dataArray = model.sales;
     if (self.dataArray.count == 0) {
