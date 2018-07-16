@@ -13,6 +13,8 @@
             <connections>
                 <outlet property="avatarImg" destination="ODB-xJ-e5g" id="Xv8-r5-H5z"/>
                 <outlet property="dzGameMarkImg" destination="lo0-ep-RC7" id="goR-vs-8Bn"/>
+                <outlet property="runLBBGImg" destination="hn2-KE-0LR" id="fPY-of-f4g"/>
+                <outlet property="suishenFuLiLab" destination="3EE-iu-I0p" id="oLC-x0-nsa"/>
                 <outlet property="upLevelBT" destination="HeW-dE-RHz" id="GgB-FK-2Al"/>
                 <outlet property="userAccountLB" destination="k8V-nF-s7S" id="dTq-v5-oaj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

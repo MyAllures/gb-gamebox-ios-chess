@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SH_PrifitOutCoinView : UIView
-
+-(void)updateUIWithBalance:(NSString *)balance
+                   BankNum:(NSString *)bankNum;
 @end
