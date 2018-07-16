@@ -38,6 +38,8 @@
 #import "SH_NetWorkService+RegistAPI.h"
 #import "SH_WKGameViewController.h"
 #import "SH_NoAccessViewController.h"
+#import "SH_PromoDetailView.h"
+#import "SH_ViewController.h"
 
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate,PlayerCenterViewDelegate>
 
@@ -76,6 +78,11 @@
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didRegistratedSuccessful) name:@"didRegistratedSuccessful" object:nil];
     [self  configUI];
     [self  autoLoginIsRegist:false];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        SH_ViewController *vc = [[SH_ViewController alloc] initWithNibName:nil bundle:nil];
+        [self.navigationController pushViewController:vc animated:NO];
+    });
 }
 
 #pragma mark - 记着密码启动自动登录
@@ -423,10 +430,19 @@
 }
 
 #pragma mark - 优惠活动
-
 - (IBAction)activitiesClick:(id)sender {
     SH_PromoContentView *promoContentView = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoContentView" owner:nil options:nil] lastObject];
     AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:promoContentView viewHeight:[UIScreen mainScreen].bounds.size.height-80 viewWidth:465];
+    cvc.title = @"优惠活动";
+    cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:cvc animated:YES completion:nil];
+}
+
+#pragma mark - 优惠活动详情
+-(void)gotoPromoDetail {
+    SH_PromoDetailView *promoDetailView = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoDetailView" owner:nil options:nil] lastObject];
+    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:promoDetailView viewHeight:[UIScreen mainScreen].bounds.size.height-60 viewWidth:224];
     cvc.title = @"优惠活动";
     cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;

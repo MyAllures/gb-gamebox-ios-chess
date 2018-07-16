@@ -42,11 +42,12 @@
     self.depositeWay = depositeWay;
     self.personName = person;
     self.address = address;
+      __weak typeof(self) weakSelf = self;
     [SH_NetWorkService getNormalDepositeNum:self.money Payway:depositeWay PayAccountId:self.channelModel.searchId Complete:^(SH_BitCoinSaleModel *model) {
         SH_PreferentialPopView *popView = [[SH_PreferentialPopView alloc]initWithFrame:CGRectMake(0, 0, screenSize().width, screenSize().height)];
         popView.delegate  =  self;
         [popView popViewShow];
-        [popView updateUIWithSaleModel:model];
+        [popView updateUIWithSaleModel:model Money:weakSelf.money];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];

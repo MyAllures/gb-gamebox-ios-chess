@@ -44,13 +44,14 @@
     self.txid = txid;
     self.num = num;
     self.date = date;
+      __weak typeof(self) weakSelf = self;
     //输入的地址 txid等
     //请求优惠接口
     [SH_NetWorkService getSaleWithCoinNum:num Payway:self.channelModel.depositWay Txid:txid PayAccountId:self.channelModel.searchId Complete:^(SH_BitCoinSaleModel *model) {
         SH_PreferentialPopView *popView = [[SH_PreferentialPopView alloc]initWithFrame:CGRectMake(0, 0, screenSize().width, screenSize().height)];
         popView.delegate  =  self;
         [popView popViewShow];
-        [popView updateUIWithSaleModel:model];
+        [popView updateUIWithSaleModel:model Money:@""];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
