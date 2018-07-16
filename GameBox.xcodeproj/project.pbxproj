@@ -33,10 +33,15 @@
 		22573D3F20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22573D3D20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.xib */; };
 		229A219E20F3826E00F5A969 /* SH_GameAnnouncementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A219D20F3826E00F5A969 /* SH_GameAnnouncementView.m */; };
 		229A21A020F3827700F5A969 /* SH_GameAnnouncementView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229A219F20F3827700F5A969 /* SH_GameAnnouncementView.xib */; };
+		425A90C020F8873E004B681A /* HLPopTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 425A90BF20F8873E004B681A /* HLPopTableView.m */; };
+		425A90C320F88746004B681A /* UIView+HLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 425A90C220F88746004B681A /* UIView+HLExtension.m */; };
+		425A90C620FAD459004B681A /* SH_SecurityCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 425A90C520FAD459004B681A /* SH_SecurityCenterView.m */; };
+		425A90C920FB2F49004B681A /* SH_CardRecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 425A90C820FB2F49004B681A /* SH_CardRecordView.m */; };
 		22E486D220F9C9920051A68C /* SH_SendMsgTabelViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E486D020F9C9920051A68C /* SH_SendMsgTabelViewCell.m */; };
 		22E486D320F9C9920051A68C /* SH_SendMsgTabelViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22E486D120F9C9920051A68C /* SH_SendMsgTabelViewCell.xib */; };
 		22E486D620F9F1100051A68C /* SH_AdvisoryTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E486D520F9F1100051A68C /* SH_AdvisoryTypeModel.m */; };
 		22E486D920F9F8AE0051A68C /* SH_SysMsgDataListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E486D820F9F8AE0051A68C /* SH_SysMsgDataListModel.m */; };
+		22E486DC20FC3F0F0051A68C /* SH_MyMsgDataListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E486DB20FC3F0F0051A68C /* SH_MyMsgDataListModel.m */; };
 		42BF3E6E20F33A5D00F36B82 /* SH_PlayerCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BF3E6D20F33A5D00F36B82 /* SH_PlayerCenterView.m */; };
 		42BF3E7420F4974C00F36B82 /* SH_WelfareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BF3E7320F4974C00F36B82 /* SH_WelfareView.m */; };
 		5401C53120ECA10F0027246D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C53020ECA10F0027246D /* AppDelegate.m */; };
@@ -223,7 +228,17 @@
 		22E486D520F9F1100051A68C /* SH_AdvisoryTypeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_AdvisoryTypeModel.m; sourceTree = "<group>"; };
 		22E486D720F9F8AE0051A68C /* SH_SysMsgDataListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SysMsgDataListModel.h; sourceTree = "<group>"; };
 		22E486D820F9F8AE0051A68C /* SH_SysMsgDataListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SysMsgDataListModel.m; sourceTree = "<group>"; };
+		22E486DA20FC3F0F0051A68C /* SH_MyMsgDataListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_MyMsgDataListModel.h; sourceTree = "<group>"; };
+		22E486DB20FC3F0F0051A68C /* SH_MyMsgDataListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_MyMsgDataListModel.m; sourceTree = "<group>"; };
 		3BBE090F9B091E073F4BB10C /* Pods-GameBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameBox/Pods-GameBox.release.xcconfig"; sourceTree = "<group>"; };
+		425A90BE20F8873D004B681A /* HLPopTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLPopTableView.h; sourceTree = "<group>"; };
+		425A90BF20F8873E004B681A /* HLPopTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLPopTableView.m; sourceTree = "<group>"; };
+		425A90C120F88746004B681A /* UIView+HLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HLExtension.h"; sourceTree = "<group>"; };
+		425A90C220F88746004B681A /* UIView+HLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HLExtension.m"; sourceTree = "<group>"; };
+		425A90C420FAD459004B681A /* SH_SecurityCenterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SecurityCenterView.h; sourceTree = "<group>"; };
+		425A90C520FAD459004B681A /* SH_SecurityCenterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SecurityCenterView.m; sourceTree = "<group>"; };
+		425A90C720FB2F49004B681A /* SH_CardRecordView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_CardRecordView.h; sourceTree = "<group>"; };
+		425A90C820FB2F49004B681A /* SH_CardRecordView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_CardRecordView.m; sourceTree = "<group>"; };
 		42BF3E6C20F33A5D00F36B82 /* SH_PlayerCenterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PlayerCenterView.h; sourceTree = "<group>"; };
 		42BF3E6D20F33A5D00F36B82 /* SH_PlayerCenterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PlayerCenterView.m; sourceTree = "<group>"; };
 		42BF3E7220F4974C00F36B82 /* SH_WelfareView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_WelfareView.h; sourceTree = "<group>"; };
@@ -739,6 +754,10 @@
 		5401C55E20ECF9B30027246D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				425A90BE20F8873D004B681A /* HLPopTableView.h */,
+				425A90BF20F8873E004B681A /* HLPopTableView.m */,
+				425A90C120F88746004B681A /* UIView+HLExtension.h */,
+				425A90C220F88746004B681A /* UIView+HLExtension.m */,
 				54C21AB720F1B981006FCA0F /* SH_CycleScrollView.h */,
 				54C21AB820F1B981006FCA0F /* SH_CycleScrollView.m */,
 				42BF3E6C20F33A5D00F36B82 /* SH_PlayerCenterView.h */,
@@ -750,6 +769,10 @@
 				54C8758920F498C700AA0594 /* SH_GameItemView.h */,
 				54C8758A20F498C700AA0594 /* SH_GameItemView.m */,
 				54C8758C20F498E200AA0594 /* SH_GameItemView.xib */,
+				425A90C420FAD459004B681A /* SH_SecurityCenterView.h */,
+				425A90C520FAD459004B681A /* SH_SecurityCenterView.m */,
+				425A90C720FB2F49004B681A /* SH_CardRecordView.h */,
+				425A90C820FB2F49004B681A /* SH_CardRecordView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -780,6 +803,8 @@
 				22E486D520F9F1100051A68C /* SH_AdvisoryTypeModel.m */,
 				22E486D720F9F8AE0051A68C /* SH_SysMsgDataListModel.h */,
 				22E486D820F9F8AE0051A68C /* SH_SysMsgDataListModel.m */,
+				22E486DA20FC3F0F0051A68C /* SH_MyMsgDataListModel.h */,
+				22E486DB20FC3F0F0051A68C /* SH_MyMsgDataListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1390,6 +1415,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				425A90C320F88746004B681A /* UIView+HLExtension.m in Sources */,
 				2248B0D220F58F5A0077EF58 /* SH_PromoListView.m in Sources */,
 				DA21F3AF20F6FCD000D20672 /* RH_RegistrationSelectView.m in Sources */,
 				DA22F3C420F44DA80058A54F /* CLPathManager.m in Sources */,
@@ -1398,6 +1424,7 @@
 				BF44ECC920F4D6BE00BC6EF3 /* SH_RechargeDetailMainSubmitView.m in Sources */,
 				22552CF120F4E0BB0090EFBC /* SH_PromoListModel.m in Sources */,
 				5401C55220ECA1B80027246D /* GameWebViewController.m in Sources */,
+				22E486DC20FC3F0F0051A68C /* SH_MyMsgDataListModel.m in Sources */,
 				229A219E20F3826E00F5A969 /* SH_GameAnnouncementView.m in Sources */,
 				BF2F915A20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m in Sources */,
 				BFFEDCB820F34CDC002E69FD /* SH_RechargeCenterChannelModel.m in Sources */,
@@ -1420,6 +1447,7 @@
 				BF44EC5A20F4588D00BC6EF3 /* SH_BitCoinSubView.m in Sources */,
 				5401C53420ECA10F0027246D /* LineCheckViewController.m in Sources */,
 				BF44EC6920F4890B00BC6EF3 /* SH_RechargeBasicViewController.m in Sources */,
+				425A90C920FB2F49004B681A /* SH_CardRecordView.m in Sources */,
 				BFD6CFCC20F9D20C00EDBC5B /* AttributeModel.m in Sources */,
 				BFD6CFC520F997B800EDBC5B /* SavePhotoTool.m in Sources */,
 				22552CE420F49DB20090EFBC /* SH_SendMsgView.m in Sources */,
@@ -1481,6 +1509,7 @@
 				54C21AB120EE23B2006FCA0F /* SH_BaseViewController.m in Sources */,
 				DA22F40A20F494C60058A54F /* NSDictionary+CLCategory.m in Sources */,
 				DA21F37C20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m in Sources */,
+				425A90C620FAD459004B681A /* SH_SecurityCenterView.m in Sources */,
 				22552CC820F448740090EFBC /* SH_SystemNotification.m in Sources */,
 				DA22F40920F494C60058A54F /* UIViewController+Instance.m in Sources */,
 				BFD6CFC120F8901500EDBC5B /* SH_NetWorkService+Bank.m in Sources */,
@@ -1498,6 +1527,7 @@
 				BF44ECED20F7096600BC6EF3 /* SH_PreferentialPopView.m in Sources */,
 				BF44ECBB20F4B36000BC6EF3 /* SH_RechargeDetailViewController.m in Sources */,
 				BFFC847120F3452A008AD801 /* UIButton+Category.m in Sources */,
+				425A90C020F8873E004B681A /* HLPopTableView.m in Sources */,
 				DA21F3AE20F6FCD000D20672 /* RH_RegistrationViewItem.m in Sources */,
 				54C875AF20FB414200AA0594 /* SH_WKGameViewController.m in Sources */,
 				DA22F3E520F4597E0058A54F /* RH_WebsocketManagar.m in Sources */,
