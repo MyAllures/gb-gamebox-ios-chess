@@ -39,6 +39,7 @@
 #import "SH_WKGameViewController.h"
 #import "SH_NoAccessViewController.h"
 #import "SH_PromoDetailView.h"
+#import "SH_AnnouncementView.h"
 
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate,PlayerCenterViewDelegate>
 
@@ -47,6 +48,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *userAccountLB;
 @property (weak, nonatomic) IBOutlet UIButton *upLevelBT;
 @property (weak, nonatomic) IBOutlet UIImageView *dzGameMarkImg;
+@property (weak, nonatomic) IBOutlet UIImageView *runLBBGImg;
 @property (strong, nonatomic) SH_CycleScrollView *cycleAdView;
 @property (nonatomic, strong) SH_PlayerCenterView *pcv;
 @property (nonatomic, strong) UIView *backV;
@@ -59,8 +61,9 @@
 @property (nonatomic, strong) NSMutableArray *siteApiRelationArr;
 @property (nonatomic, strong) SH_GameItemModel *currentGameItemModel;
 @property (nonatomic, assign) int currentLevel;
-@property (nonatomic, strong) NSString *currentDZGameTypeName;
+@property (nonatomic, assign) int currentDZGameTypeId;
 @property (nonatomic, assign) BOOL enterDZGameLevel;
+@property (nonatomic, strong) SH_AnnouncementView *announcementView;
 
 @end
 
@@ -72,6 +75,7 @@
 
     [self fetchCookie];
     [self initAdScroll];
+    [self refreshAnnouncement];
     [self refreshHomeInfo];
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didRegistratedSuccessful) name:@"didRegistratedSuccessful" object:nil];
     [self  configUI];
@@ -181,56 +185,109 @@
     self.upLevelBT.hidden = _currentLevel == 0;
 }
 
-- (void)setCurrentDZGameTypeName:(NSString *)currentDZGameTypeName
+- (void)setCurrentDZGameTypeId:(int)currentDZGameTypeId
 {
-    _currentDZGameTypeName = currentDZGameTypeName;
+    _currentDZGameTypeId = currentDZGameTypeId;
     
-    if ([_currentDZGameTypeName isEqualToString:@"MG电子"]) {
-        self.dzGameMarkImg.image = [UIImage imageNamed:@"logo01"];
-    }
-    else if ([_currentDZGameTypeName isEqualToString:@"AG电子"])
-    {
-        self.dzGameMarkImg.image = [UIImage imageNamed:@"logo08"];
-    }
-    else if ([_currentDZGameTypeName isEqualToString:@"HABA电子"])
-    {
-        self.dzGameMarkImg.image = [UIImage imageNamed:@"logo07"];
-    }
-    else if ([_currentDZGameTypeName isEqualToString:@"PT电子"])
-    {
-        self.dzGameMarkImg.image = [UIImage imageNamed:@"logo04"];
-    }
-    else if ([_currentDZGameTypeName isEqualToString:@"DT电子"])
-    {
-        self.dzGameMarkImg.image = [UIImage imageNamed:@"logo10"];
-    }
-    else if ([_currentDZGameTypeName isEqualToString:@"新霸电子"])
-    {
-        self.dzGameMarkImg.image = [UIImage imageNamed:@"logo05"];
-    }
-    else if ([_currentDZGameTypeName isEqualToString:@"GNS电子"])
-    {
-        self.dzGameMarkImg.image = [UIImage imageNamed:@""];
-    }
-    else if ([_currentDZGameTypeName isEqualToString:@"PP电子"])
-    {
-        self.dzGameMarkImg.image = [UIImage imageNamed:@"logo02"];
-    }
-    else if ([_currentDZGameTypeName isEqualToString:@"GG捕鱼"])
-    {
-        self.dzGameMarkImg.image = [UIImage imageNamed:@""];
-    }
-    else if ([_currentDZGameTypeName isEqualToString:@"PNG电子"])
-    {
-        self.dzGameMarkImg.image = [UIImage imageNamed:@"logo06"];
-    }
-    else if ([_currentDZGameTypeName isEqualToString:@"BSG"])
-    {
-        self.dzGameMarkImg.image = [UIImage imageNamed:@"logo03"];
-    }
-    else if ([_currentDZGameTypeName isEqualToString:@"MW电子"])
-    {
-        self.dzGameMarkImg.image = [UIImage imageNamed:@"logo11"];
+    switch (_currentDZGameTypeId) {
+        case 28:
+        {
+            //GG捕鱼
+            self.dzGameMarkImg.image = [UIImage imageNamed:@""];
+        }
+            break;
+        case 35:
+        {
+            //MW电子
+            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo11"];
+        }
+            break;
+        case 15:
+        {
+            //HB电子
+            self.dzGameMarkImg.image = [UIImage imageNamed:@""];
+        }
+            break;
+        case 26:
+        {
+            //PNG电子
+            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo06"];
+        }
+            break;
+        case 20:
+        {
+            //BSG电子
+            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo03"];
+        }
+            break;
+        case 27:
+        {
+            //DT电子
+            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo10"];
+        }
+            break;
+        case 6:
+        {
+            //PT电子
+            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo04"];
+        }
+            break;
+        case 25:
+        {
+            //新霸电子
+            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo05"];
+        }
+            break;
+        case 3:
+        {
+            //MG电子
+            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo01"];
+        }
+            break;
+        case 9:
+        {
+            //AG电子
+            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo08"];
+        }
+            break;
+        case 10:
+        {
+            //BB电子
+            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo09"];
+        }
+            break;
+        case 44:
+        {
+            //NT电子
+            self.dzGameMarkImg.image = [UIImage imageNamed:@""];
+        }
+            break;
+        case 38:
+        {
+            //新PP电子
+            self.dzGameMarkImg.image = [UIImage imageNamed:@""];
+        }
+            break;
+        case 45:
+        {
+            //PG老虎机
+            self.dzGameMarkImg.image = [UIImage imageNamed:@""];
+        }
+            break;
+        case 14:
+        {
+            //NYX电子
+            self.dzGameMarkImg.image = [UIImage imageNamed:@""];
+        }
+            break;
+        case 32:
+        {
+            //PP电子
+            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo02"];
+        }
+            break;
+        default:
+            break;
     }
 }
 
@@ -362,6 +419,10 @@
 }
 
 - (IBAction)rechargeClick:(id)sender {
+    if (![[RH_UserInfoManager shareUserManager] isLogin]) {
+        [self login];
+        return;
+    }
     [self.navigationController pushViewController:[[SH_RechargeCenterViewController alloc]init] animated:YES];
 }
 
@@ -601,6 +662,34 @@
     }];
 }
 
+- (void)refreshAnnouncement
+{
+    __weak typeof(self) weakSelf = self;
+    if (_announcementView == nil) {
+        _announcementView = [[SH_AnnouncementView alloc] initWithFrame:CGRectZero];
+        [self.view addSubview:_announcementView];
+        [_announcementView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.runLBBGImg).mas_equalTo(8);
+            make.right.equalTo(self.runLBBGImg).mas_equalTo(-8);
+            make.top.bottom.equalTo(self.runLBBGImg).mas_equalTo(0);
+        }];
+    }
+
+    [SH_NetWorkService fetchAnnouncement:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSDictionary *data = [response objectForKey:@"data"];
+        NSArray *announcementArr = [data objectForKey:@"announcement"];
+        NSString *announcementStr = [NSString string];
+        for (NSDictionary *announcementDic in announcementArr) {
+            NSString *content = [announcementDic objectForKey:@"content"];
+            announcementStr = [announcementStr stringByAppendingString:[NSString stringWithFormat:@"     %@",content]];
+        }
+        weakSelf.announcementView.string = announcementStr;
+        [weakSelf.announcementView start];
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        //
+    }];
+}
+
 #pragma mark ---注册成功的通知 这里自动登录
 -(void)didRegistratedSuccessful{
     [self  autoLoginIsRegist:YES];
@@ -677,7 +766,7 @@
     
     self.currentGameItemModel = model;
     if (self.enterDZGameLevel == NO) {
-        self.enterDZGameLevel = self.currentLevel == 0 && [self.currentGameItemModel.name isEqualToString:@"电子游艺"];
+        self.enterDZGameLevel = self.currentLevel == 0 && self.currentGameItemModel.id == 2;
     }
     
     if ([model.type isEqualToString:@"game"]) {
@@ -713,7 +802,7 @@
         //进入下级页面
         self.currentLevel ++;
         if (self.enterDZGameLevel == YES) {
-            self.currentDZGameTypeName = self.currentGameItemModel.name;
+            self.currentDZGameTypeId = self.currentGameItemModel.id;
         }
         if (self.currentLevel == 1) {
             self.cycleAdView.hidden = YES;

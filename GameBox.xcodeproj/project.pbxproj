@@ -85,6 +85,8 @@
 		54C875B520FB4E2D00AA0594 /* SH_DragableMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C875B420FB4E2D00AA0594 /* SH_DragableMenuView.xib */; };
 		54C875B920FB788D00AA0594 /* SH_NoAccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C875B720FB788D00AA0594 /* SH_NoAccessViewController.m */; };
 		54C875BA20FB788D00AA0594 /* SH_NoAccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C875B820FB788D00AA0594 /* SH_NoAccessViewController.xib */; };
+		54C875BD20FC4B0B00AA0594 /* SH_AnnouncementModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C875BC20FC4B0B00AA0594 /* SH_AnnouncementModel.m */; };
+		54C875C320FC846200AA0594 /* SH_AnnouncementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C875C220FC846200AA0594 /* SH_AnnouncementView.m */; };
 		BF2F915A20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F915820EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m */; };
 		BF2F915B20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2F915920EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib */; };
 		BF2F915F20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F915D20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m */; };
@@ -316,6 +318,10 @@
 		54C875B620FB788D00AA0594 /* SH_NoAccessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_NoAccessViewController.h; sourceTree = "<group>"; };
 		54C875B720FB788D00AA0594 /* SH_NoAccessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_NoAccessViewController.m; sourceTree = "<group>"; };
 		54C875B820FB788D00AA0594 /* SH_NoAccessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_NoAccessViewController.xib; sourceTree = "<group>"; };
+		54C875BB20FC4B0B00AA0594 /* SH_AnnouncementModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_AnnouncementModel.h; sourceTree = "<group>"; };
+		54C875BC20FC4B0B00AA0594 /* SH_AnnouncementModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_AnnouncementModel.m; sourceTree = "<group>"; };
+		54C875C120FC846200AA0594 /* SH_AnnouncementView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_AnnouncementView.h; sourceTree = "<group>"; };
+		54C875C220FC846200AA0594 /* SH_AnnouncementView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_AnnouncementView.m; sourceTree = "<group>"; };
 		BF2F915720EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_DepositeWayCollectionViewCell.h; sourceTree = "<group>"; };
 		BF2F915820EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_DepositeWayCollectionViewCell.m; sourceTree = "<group>"; };
 		BF2F915920EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_DepositeWayCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -763,6 +769,8 @@
 				54C8759220F7372D00AA0594 /* SH_HomeBannerModel.m */,
 				54C875A920F84BFF00AA0594 /* SH_GameItemModel.h */,
 				54C875AA20F84BFF00AA0594 /* SH_GameItemModel.m */,
+				54C875BB20FC4B0B00AA0594 /* SH_AnnouncementModel.h */,
+				54C875BC20FC4B0B00AA0594 /* SH_AnnouncementModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -789,6 +797,8 @@
 				425A90C520FAD459004B681A /* SH_SecurityCenterView.m */,
 				425A90C720FB2F49004B681A /* SH_CardRecordView.h */,
 				425A90C820FB2F49004B681A /* SH_CardRecordView.m */,
+				54C875C120FC846200AA0594 /* SH_AnnouncementView.h */,
+				54C875C220FC846200AA0594 /* SH_AnnouncementView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1438,6 +1448,7 @@
 				DA22F3C420F44DA80058A54F /* CLPathManager.m in Sources */,
 				DA21F38D20F590A800D20672 /* RH_RegisetInitModel.m in Sources */,
 				DA22F3CC20F44F610058A54F /* CLNetReachability.m in Sources */,
+				54C875C320FC846200AA0594 /* SH_AnnouncementView.m in Sources */,
 				BF44ECC920F4D6BE00BC6EF3 /* SH_RechargeDetailMainSubmitView.m in Sources */,
 				22552CF120F4E0BB0090EFBC /* SH_PromoListModel.m in Sources */,
 				5401C55220ECA1B80027246D /* GameWebViewController.m in Sources */,
@@ -1472,6 +1483,7 @@
 				BFD6CFD320F9FAE700EDBC5B /* TTTAttributedLabel.m in Sources */,
 				BF44ECEA20F6FF4D00BC6EF3 /* SH_BitCoinSaleDetailModel.m in Sources */,
 				22573D3820F8C6D900D0EB0A /* SH_MyMsgView.m in Sources */,
+				54C875BD20FC4B0B00AA0594 /* SH_AnnouncementModel.m in Sources */,
 				DA22F3E020F4562B0058A54F /* UIImage+Size.m in Sources */,
 				2231283720F707F500D1BF5E /* SH_SystemNotificationModel.m in Sources */,
 				BF2F916420EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.m in Sources */,

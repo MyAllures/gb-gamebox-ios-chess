@@ -13,6 +13,7 @@
 @interface SH_GameItemModel : JSONModel
 
 @property (nonatomic, assign) int autoPay;
+@property (nonatomic, assign) int id;
 @property (nonatomic, strong) NSString <Optional> *cover;
 @property (nonatomic, strong) NSString <Optional> *gameLink;
 @property (nonatomic, strong) NSString <Optional> *gameMsg;
