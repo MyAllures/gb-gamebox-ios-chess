@@ -8,11 +8,9 @@
 
 #import "AlertViewController.h"
 #import <Masonry.h>
-#import "PGDatePicker.h"
-#import "PGDatePickManager.h"
 #import "AppDelegate.h"
 
-@interface AlertViewController ()<UIGestureRecognizerDelegate, PGDatePickerDelegate>
+@interface AlertViewController ()<UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *title_imageView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintWidth;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintHeight;
@@ -65,8 +63,6 @@
             make.edges.mas_equalTo(self.containerView);
         }];
         
-        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(seleteDate) name:@"seleteDate" object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(seleteEndTime:) name:@"seleteEndTime" object:nil];
         
         UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.containerView.bounds byRoundingCorners: UIRectCornerBottomRight|UIRectCornerBottomLeft cornerRadii:CGSizeMake(8, 8)];
         CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
@@ -106,32 +102,6 @@
     
 }
  */
--(void)seleteDate{
-    PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
-    datePickManager.style = PGDatePickManagerStyle1;
-    datePickManager.isShadeBackgroud = true;
-    
-    PGDatePicker *datePicker = datePickManager.datePicker;
-    datePicker.isHiddenMiddleText = false;
-    datePicker.delegate = self;
-    datePicker.datePickerType = PGPickerViewType3;
-    datePicker.datePickerMode = PGDatePickerModeDate;
-    [self presentViewController:datePickManager animated:false completion:nil];
-}
--(void)seleteEndTime:(NSNotification *)nt {
-    self.startAndEndDateStr = nt.userInfo[@"isEnd"];
-    PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
-    datePickManager.style = PGDatePickManagerStyle1;
-    datePickManager.isShadeBackgroud = true;
-    
-    PGDatePicker *datePicker = datePickManager.datePicker;
-    datePicker.isHiddenMiddleText = false;
-    datePicker.delegate = self;
-    datePicker.datePickerType = PGPickerViewType3;
-    datePicker.datePickerMode = PGDatePickerModeDate;
-    
-    [self presentViewController:datePickManager animated:false completion:nil];
-}
 
 - (IBAction)closeClick:(id)sender {
 
@@ -141,39 +111,6 @@
     [self closeClick:nil];
 }
 
-#pragma mark - PGDatePickerDelegate M
-- (void)datePicker:(PGDatePicker *)datePicker didSelectDate:(NSDateComponents *)dateComponents {
-    NSLog(@"dateComponents = %@", dateComponents);
-    NSString *month ;
-    NSString *day;
-    if (dateComponents.month < 10) {
-        month = [NSString stringWithFormat:@"0%@",@(dateComponents.month)];
-    }else{
-        month = [NSString stringWithFormat:@"%@",@(dateComponents.month)];
-    }
-    
-    if (dateComponents.day < 10) {
-        day = [NSString stringWithFormat:@"0%@",@(dateComponents.day)];
-    }else{
-        day = [NSString stringWithFormat:@"%@",@(dateComponents.day)];
-    }
-    if ([self.startAndEndDateStr isEqualToString:@"end"]) {
-        NSString *dateStr = [NSString stringWithFormat:@"%@-%@-%@",@(dateComponents.year),month,day];
-        NSDictionary *dict =[[NSDictionary alloc]initWithObjectsAndKeys:dateStr,@"date",nil];
-        //创建通知
-        NSNotification *notification =[NSNotification notificationWithName:@"seletedEndDate" object:nil userInfo:dict];
-        //通过通知中心发送通知
-        [[NSNotificationCenter defaultCenter] postNotification:notification];
-        self.startAndEndDateStr = @"";
-    } else {
-        NSString *dateStr = [NSString stringWithFormat:@"%@-%@-%@",@(dateComponents.year),month,day];
-        NSDictionary *dict =[[NSDictionary alloc]initWithObjectsAndKeys:dateStr,@"date",nil];
-        //创建通知
-        NSNotification *notification =[NSNotification notificationWithName:@"seletedDate" object:nil userInfo:dict];
-        //通过通知中心发送通知
-        [[NSNotificationCenter defaultCenter] postNotification:notification];
-    }
-}
 
 -(void)setImageName:(NSString *)imageName{
     self.headImage.image = [UIImage imageNamed:imageName];
@@ -181,7 +118,7 @@
 }
 -(void)dealloc{
     NSLog(@"clean .......");
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"seleteDate" object:nil];
+  
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -13,7 +13,14 @@
 #import "SH_NetWorkService+Promo.h"
 #import "SH_SystemNotificationModel.h"
 #import "RH_UserInfoManager.h"
-@interface SH_SystemNotification () <UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
+
+#import "PGDatePicker.h"
+#import "PGDatePickManager.h"
+
+@interface SH_SystemNotification () <UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate,PGDatePickerDelegate>
+{
+    PGDatePickManager *_datePickManager;
+}
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *view1;
 @property (weak, nonatomic) IBOutlet UIView *view2;
@@ -29,6 +36,7 @@
 
 @property (strong, nonatomic) UIPickerView *pickView;
 
+@property(nonatomic, strong) NSString *startAndEndDateStr;
 @end
 
 @implementation SH_SystemNotification
@@ -44,12 +52,35 @@
 }
 
 - (IBAction)startTimeAction:(id)sender {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"seleteDate" object:nil];
+    PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
+    datePickManager.style = PGDatePickManagerStyle1;
+    datePickManager.isShadeBackgroud = true;
+    
+    PGDatePicker *datePicker = datePickManager.datePicker;
+    datePicker.isHiddenMiddleText = false;
+    datePicker.delegate = self;
+    datePicker.datePickerType = PGPickerViewType3;
+    datePicker.datePickerMode = PGDatePickerModeDate;
+    _datePickManager = datePickManager;
+     UIWindow  * window = [UIApplication  sharedApplication].keyWindow;
+     window.backgroundColor = [UIColor  yellowColor];
+     [window addSubview:_datePickManager.view];
 }
 - (IBAction)endTimeAction:(id)sender {
     NSDictionary *dict = [[NSDictionary alloc]initWithObjectsAndKeys:@"end",@"isEnd", nil];
-    NSNotification *notification = [NSNotification notificationWithName:@"seleteEndTime" object:nil userInfo:dict];
-    [[NSNotificationCenter defaultCenter] postNotification:notification];
+    self.startAndEndDateStr = dict[@"isEnd"];
+    PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
+    datePickManager.style = PGDatePickManagerStyle1;
+    datePickManager.isShadeBackgroud = true;
+    
+    PGDatePicker *datePicker = datePickManager.datePicker;
+    datePicker.isHiddenMiddleText = false;
+    datePicker.delegate = self;
+    datePicker.datePickerType = PGPickerViewType3;
+    datePicker.datePickerMode = PGDatePickerModeDate;
+     _datePickManager = datePickManager;
+    [self.window addSubview:datePickManager.view];
+
 }
 
 - (IBAction)quickSeleteAction:(id)sender {
@@ -65,8 +96,8 @@
 -(void)awakeFromNib {
     [super awakeFromNib];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changedDate:) name:@"seletedDate" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(seletedEndDate:) name:@"seletedEndDate" object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changedDate:) name:@"seletedDate" object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(seletedEndDate:) name:@"seletedEndDate" object:nil];
 //    self.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
 //    self.tableView.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
     
@@ -104,9 +135,9 @@
     [self.tableView reloadData];
 }
 
--(void)changedDate:(NSNotification *)nt {
-    [self.startTimeBtn setTitle:nt.userInfo[@"date"] forState:UIControlStateNormal];
-    self.startTimeStr = nt.userInfo[@"date"];
+-(void)changedDate:(NSDictionary *)nt {
+    [self.startTimeBtn setTitle:nt[@"date"] forState:UIControlStateNormal];
+    self.startTimeStr = nt[@"date"];
     if (!self.endTimeStr) {
         self.endTimeStr = [self getCurrentTimes];
     }
@@ -138,9 +169,9 @@
     }
 }
 
--(void)seletedEndDate:(NSNotification *)nt {
-    [self.endTimeBtn setTitle:nt.userInfo[@"date"] forState:UIControlStateNormal];
-    self.endTimeStr = nt.userInfo[@"date"];
+-(void)seletedEndDate:(NSDictionary *)nt {
+    [self.endTimeBtn setTitle:nt[@"date"] forState:UIControlStateNormal];
+    self.endTimeStr = nt[@"date"];
     if (!self.startTimeStr) {
         self.startTimeStr = [self getCurrentTimes];
     }
@@ -421,6 +452,47 @@
     //NSString转NSDate
     NSDate *date = [formatter dateFromString:str2] ;
     return date;
+}
+
+
+#pragma mark - PGDatePickerDelegate M
+- (void)datePicker:(PGDatePicker *)datePicker didSelectDate:(NSDateComponents *)dateComponents {
+    NSLog(@"dateComponents = %@", dateComponents);
+    NSString *month ;
+    NSString *day;
+    if (dateComponents.month < 10) {
+        month = [NSString stringWithFormat:@"0%@",@(dateComponents.month)];
+    }else{
+        month = [NSString stringWithFormat:@"%@",@(dateComponents.month)];
+    }
+    
+    if (dateComponents.day < 10) {
+        day = [NSString stringWithFormat:@"0%@",@(dateComponents.day)];
+    }else{
+        day = [NSString stringWithFormat:@"%@",@(dateComponents.day)];
+    }
+    NSString *dateStr = [NSString stringWithFormat:@"%@-%@-%@",@(dateComponents.year),month,day];
+    NSLog(@"---%@",dateStr);
+    if ([self.startAndEndDateStr isEqualToString:@"end"]) {
+        NSString *dateStr = [NSString stringWithFormat:@"%@-%@-%@",@(dateComponents.year),month,day];
+        NSDictionary *dict =[[NSDictionary alloc]initWithObjectsAndKeys:dateStr,@"date",nil];
+        [self seletedEndDate:dict];
+//        //创建通知
+//        NSNotification *notification =[NSNotification notificationWithName:@"seletedEndDate" object:nil userInfo:dict];
+//        //通过通知中心发送通知
+//        [[NSNotificationCenter defaultCenter] postNotification:notification];
+//        self.startAndEndDateStr = @"";
+        
+    } else {
+        NSString *dateStr = [NSString stringWithFormat:@"%@-%@-%@",@(dateComponents.year),month,day];
+        NSDictionary *dict =[[NSDictionary alloc]initWithObjectsAndKeys:dateStr,@"date",nil];
+        [self changedDate:dict];
+        //创建通知
+//        [self seletedDate:dict];
+//        NSNotification *notification =[NSNotification notificationWithName:@"seletedDate" object:nil userInfo:dict];
+//        //通过通知中心发送通知
+//        [[NSNotificationCenter defaultCenter] postNotification:notification];
+    }
 }
 
 @end

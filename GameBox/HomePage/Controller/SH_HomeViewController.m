@@ -98,7 +98,7 @@
                 [self autoLoginSuccess:httpURLResponse isRegist:isRegist];
             }
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-            
+            [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
         }];
     }else if ([defaults boolForKey:@"isRememberPwd"]) {
         if ([RH_UserInfoManager  shareUserManager].isLogin) {
@@ -112,7 +112,7 @@
                 [self autoLoginSuccess:httpURLResponse isRegist:isRegist];
             }
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-            
+            [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
         }];
     }
 }
@@ -143,6 +143,7 @@
         
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         //
+        [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
     }];
 }
 
