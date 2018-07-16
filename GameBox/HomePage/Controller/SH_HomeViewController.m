@@ -27,6 +27,9 @@
 #import "SH_HomeBannerModel.h"
 #import "SH_RingManager.h"
 #import "SH_RingButton.h"
+#import "SH_PlayerCenterView.h"
+#import "SH_SecurityCenterView.h"
+#import "SH_CardRecordView.h"
 #import "SH_GameItemModel.h"
 #import "SH_GameItemView.h"
 #import "SH_UserInformationView.h"
@@ -36,14 +39,16 @@
 #import "SH_WKGameViewController.h"
 #import "SH_NoAccessViewController.h"
 
-@interface SH_HomeViewController ()<SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate>
+@interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate,PlayerCenterViewDelegate>
+
+
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImg;
 @property (weak, nonatomic) IBOutlet UILabel *userAccountLB;
 @property (weak, nonatomic) IBOutlet UIButton *upLevelBT;
 @property (weak, nonatomic) IBOutlet UIImageView *dzGameMarkImg;
 @property (strong, nonatomic) SH_CycleScrollView *cycleAdView;
-@property (nonatomic, strong) UIView *backV;
 @property (nonatomic, strong) SH_PlayerCenterView *pcv;
+@property (nonatomic, strong) UIView *backV;
 @property (nonatomic, strong) SH_WelfareView *welfareV;
 @property (nonatomic, strong) UIView *welBackV;
 @property (strong, nonatomic) SH_GamesListScrollView *topGamesListScrollView;
@@ -359,8 +364,7 @@
     [targetVC presentViewController:viewController animated:YES completion:nil];
 }
 
-- (IBAction)rechargeClick:(id)sender {    
-//    [self presentViewController:[[SH_RechargeCenterViewController alloc]init] animated:YES completion:nil];
+- (IBAction)rechargeClick:(id)sender {
     [self.navigationController pushViewController:[[SH_RechargeCenterViewController alloc]init] animated:YES];
 }
 
@@ -369,7 +373,6 @@
 - (IBAction)activitiesClick:(id)sender {
     SH_PromoContentView *promoContentView = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoContentView" owner:nil options:nil] lastObject];
     AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:promoContentView viewHeight:[UIScreen mainScreen].bounds.size.height-60 viewWidth:[UIScreen mainScreen].bounds.size.width-160];
-    //    cvc.imageName = @"progress_bar_icon";
     cvc.title = @"优惠活动";
     cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
@@ -386,7 +389,6 @@
     [self.view addSubview:self.backV];
 
     self.pcv = [[SH_PlayerCenterView alloc] init];
-    self.pcv.backgroundColor = [UIColor greenColor];
     self.pcv.delegate = self;
     [self.backV addSubview:self.pcv];
     
@@ -402,9 +404,7 @@
             make.bottom.equalTo(self.backV).mas_equalTo(0);
             make.top.equalTo(self.backV.mas_top);
         }];
-    
-        
-        
+   
     }];
 }
 
@@ -422,34 +422,61 @@
 {
     [self removeView];
     
-    self.welBackV = [[UIView alloc] init];
-    self.welBackV.backgroundColor = [UIColor colorWithWhite:0.2f alpha:0.5];
-    [self.view addSubview:self.welBackV];
-    
-    
-    
-    self.welfareV = [[SH_WelfareView alloc] init];
-    self.welfareV.backgroundColor = [UIColor whiteColor];
-    self.welfareV.delegate = self;
-    self.welfareV.layer.cornerRadius = 4.5;
-    [self.welBackV addSubview:self.welfareV];
-    
-    
     if ([btn.currentTitle isEqualToString:@"福利记录"]) {
-        [UIView animateWithDuration:2.0 animations:^{
-          
-            [self.welBackV mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.right.top.bottom.equalTo(self.view);
-            }];
-            
-            
-            [self.welfareV mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.size.mas_equalTo(CGSizeMake(470, 380));
-                make.top.equalTo(self.view.mas_top).with.offset(25);
-                make.left.equalTo(self.view.mas_left).with.offset(105);
-                make.bottom.equalTo(self.view.mas_bottom).with.offset(-22);
-            }];
-        }];
+        
+        self.welBackV = [[UIView alloc] init];
+        self.welBackV.backgroundColor = [UIColor colorWithWhite:0.2f alpha:0.5];
+        [self.view addSubview:self.welBackV];
+        
+        //福利记录
+        self.welfareV = [[SH_WelfareView alloc] init];
+        self.welfareV.backgroundColor = [UIColor whiteColor];
+        self.welfareV.layer.cornerRadius = 4.5;
+        [self.welBackV addSubview:self.welfareV];
+        
+        AlertViewController *cvc = [[AlertViewController alloc] initAlertView:self.welfareV viewHeight:[UIScreen mainScreen].bounds.size.height-60 viewWidth:[UIScreen mainScreen].bounds.size.width-160];
+        cvc.title = @"福利记录";
+        cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        cvc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self presentViewController:cvc animated:YES completion:nil];
+    }
+    
+    else if ([btn.currentTitle isEqualToString:@"安全中心"]) {
+        
+        //安全中心
+        UIView *securityBackV = [[UIView alloc] init];
+        securityBackV.backgroundColor = [UIColor colorWithWhite:0.2f alpha:0.5];
+        [self.view addSubview:securityBackV];
+        
+        SH_SecurityCenterView *securityView = [[SH_SecurityCenterView alloc] init];
+        securityView.backgroundColor = [UIColor whiteColor];
+        securityView.layer.cornerRadius = 4.5;
+        [securityBackV addSubview:securityView];
+        
+        AlertViewController *avc = [[AlertViewController alloc] initAlertView:securityView viewHeight:[UIScreen mainScreen].bounds.size.height-60 viewWidth:[UIScreen mainScreen].bounds.size.width-160];
+        avc.title = @"安全中心";
+        avc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        avc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self presentViewController:avc animated:YES completion:nil];
+    }
+
+    else if ([btn.currentTitle isEqualToString:@"牌局记录"]) {
+        
+        //牌局记录
+        UIView *cardBackV = [[UIView alloc] init];
+        cardBackV.backgroundColor = [UIColor colorWithWhite:0.2f alpha:0.5];
+        [self.view addSubview:cardBackV];
+        
+        SH_CardRecordView *crv = [[SH_CardRecordView alloc] init];
+        crv.backgroundColor = [UIColor whiteColor];
+        crv.layer.cornerRadius = 4.5;
+        [cardBackV addSubview:crv];
+        
+        AlertViewController *acr = [[AlertViewController alloc] initAlertView:crv viewHeight:[UIScreen mainScreen].bounds.size.height-60 viewWidth:[UIScreen mainScreen].bounds.size.width-160];
+        acr.title = @"牌局记录";
+        acr.modalPresentationStyle = UIModalPresentationCurrentContext;
+        acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self presentViewController:acr animated:YES completion:nil];
     }
 }
 

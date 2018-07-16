@@ -206,7 +206,6 @@
                 SH_KuaiChongViewController *vc = [[SH_KuaiChongViewController alloc]init];
                 vc.platformModel = self.platformModel;
                 [self.navigationController pushViewController:vc animated:YES];
-//                [self presentViewController:vc animated:YES completion:nil];
             }
         }
           __weak typeof(self) weakSelf = self;
@@ -220,7 +219,6 @@
                 if ([self.platformModel.code isEqualToString:@"bitcoin"]){
                     SH_BitCoinViewController *bvc = [[SH_BitCoinViewController alloc]init];
                     bvc.channelModel = weakSelf.channelModel;
-//                    [weakSelf presentViewController:bvc animated:YES completion:nil];
                     [weakSelf.navigationController pushViewController:bvc animated:YES];
                 }
             }else{
@@ -332,7 +330,6 @@
                 vc.paywayModel = self.paywayModel;
                 vc.platformModel = self.platformModel;
                 vc.money = self.number;
-//                [self presentViewController:vc animated:YES completion:nil];
                 [self.navigationController pushViewController:vc animated:YES];
                 
             }else if ([self.channelModel.type isEqualToString:@"2"]){
