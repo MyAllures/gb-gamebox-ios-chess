@@ -58,6 +58,7 @@
         if (weakSelf.isOpenCaptcha) {
             [weakSelf  startGetVerifyCode];
             weakSelf.captcha_label.hidden = false;
+            weakSelf.check_textField.hidden = false;
             weakSelf.constraintCaptchaHeight.constant = 33;
             [weakSelf  layoutIfNeeded];
         }
@@ -71,6 +72,7 @@
     
     self.stackView.hidden = YES;
     self.captcha_label.hidden = YES;
+    self.check_textField.hidden = YES;
     
     UIImage  * img = [UIImage  imageNamed:@"left_bg"];
     self.leftView.layer.contents = (__bridge id _Nullable)(img.CGImage);
@@ -85,9 +87,9 @@
     self.account_textField.text = [dafault objectForKey:@"account"];
     if ([dafault  boolForKey:@"isRememberPwd"]) {
         self.password_textField.text = [dafault objectForKey:@"password"];
-        [sender setImage:[UIImage imageNamed:@"tick"] forState:UIControlStateNormal];
+        [sender setImage:[UIImage imageNamed:@"select2"] forState:UIControlStateNormal];
     }else{
-        [sender setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+        [sender setImage:[UIImage imageNamed:@"unselect2"] forState:UIControlStateNormal];
     }
     
     [self  configRegistViewUI];
@@ -129,7 +131,7 @@
             UIButton  * btn  = [self  viewWithTag:101];
             [btn setBackgroundImage:[UIImage imageNamed:@"login_button"] forState:UIControlStateNormal];
             if (self.changeChannelBlock) {
-                self.changeChannelBlock(@"登录");
+                self.changeChannelBlock(@"title01");
             }
             break;
         }
@@ -143,7 +145,7 @@
             UIButton  * btn  = [self  viewWithTag:100];
             [btn setBackgroundImage:[UIImage imageNamed:@"login_button"] forState:UIControlStateNormal];
             if (self.changeChannelBlock) {
-                self.changeChannelBlock(@"注册");
+                self.changeChannelBlock(@"title02");
             }
             break;
         }
@@ -159,9 +161,9 @@
             [dafault  synchronize];
           
             if ([dafault boolForKey:@"isRememberPwd"]) {
-                 [sender setImage:[UIImage imageNamed:@"tick"] forState:UIControlStateNormal];
+                 [sender setImage:[UIImage imageNamed:@"select2"] forState:UIControlStateNormal];
             }else{
-                 [sender setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+                 [sender setImage:[UIImage imageNamed:@"unselect2"] forState:UIControlStateNormal];
             }
             
             break;
@@ -199,6 +201,7 @@
 
 #pragma mark --  登录
 -(void)login{
+//    [MBProgressHUD showHUDAddedTo:self.window animated:YES];
      __weak  typeof(self) weakSelf = self;
     [SH_NetWorkService login:self.account_textField.text psw:self.password_textField.text verfyCode:self.check_textField.text complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *result = ConvertToClassPointer(NSDictionary, response) ;
@@ -208,11 +211,13 @@
             weakSelf.isOpenCaptcha = [result boolValueForKey:@"isOpenCaptcha"];
             if (!weakSelf.isOpenCaptcha) {
                 weakSelf.captcha_label.hidden = YES;
+                weakSelf.check_textField.hidden = YES;
                 weakSelf.constraintCaptchaHeight.constant = 0;
                 [weakSelf  layoutIfNeeded];
             }else{
                 [weakSelf  startGetVerifyCode];
                 weakSelf.captcha_label.hidden = false;
+                weakSelf.check_textField.hidden = false;
                 weakSelf.constraintCaptchaHeight.constant = 33;
                 [weakSelf  layoutIfNeeded];
             }

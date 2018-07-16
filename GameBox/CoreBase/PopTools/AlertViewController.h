@@ -7,11 +7,16 @@
 //
 
 #import "SH_BaseViewController.h"
+
+typedef NS_ENUM(NSUInteger ,AlertViewType){
+    AlertViewTypeLong,
+    AlertViewTypeShort
+} ;
 @class AlertViewController;
 typedef void(^alertViewDismissBlock)(void);
 @interface AlertViewController : SH_BaseViewController
-@property(nonatomic,copy)NSString * imageName;
 @property(nonatomic,copy)NSString * subTitle;
+@property(nonatomic,copy,readonly)NSString * imageName;
 @property(nonatomic,copy)alertViewDismissBlock dismissBlock;
 @property (weak, nonatomic) IBOutlet UIView *animationView;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
@@ -22,7 +27,10 @@ typedef void(^alertViewDismissBlock)(void);
  @param width 自定义的UIView的宽度
  @return return value description
  */
--(instancetype)initAlertView:(UIView*)view viewHeight:(CGFloat)height viewWidth:(CGFloat)width;
+-(instancetype)initAlertView:(UIView*)view
+                  viewHeight:(CGFloat)height
+              titleImageName:(NSString*)imageName
+               alertViewType:(AlertViewType)type;
 -(void)close;
--(void)setSubTitle:(NSString *)subTitle;
+-(void)setImageName:(NSString *)imageName;
 @end

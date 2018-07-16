@@ -31,7 +31,7 @@
 -(void)awakeFromNib {
     [super awakeFromNib];
     
-    [SH_NetWorkService_Promo getPromoList:1 pageSize:50 activityClassifyKey:@"" complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [SH_NetWorkService_Promo getPromoList:1 pageSize:5000 activityClassifyKey:@"" complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         self.promoListArr = [NSMutableArray array];
         NSDictionary *dic = (NSDictionary *)response;
         for (NSDictionary *dict in dic[@"data"][@"list"]) {
@@ -81,7 +81,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 250;
+    return 86;
 }
 
 #pragma mark - UITableViewDelegate M

@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -92,7 +91,7 @@
                                 <constraint firstAttribute="height" constant="15" id="3iC-gf-ho4"/>
                             </constraints>
                         </imageView>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G7D-ZI-yiN">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G7D-ZI-yiN">
                             <rect key="frame" x="80" y="9" width="180" height="30"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
@@ -111,6 +110,9 @@
                             </constraints>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                             <state key="normal" title="绑定福利账号" backgroundImage="btn_blue_long_action"/>
+                            <connections>
+                                <action selector="bindProfitAccountNumBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="Xmf-9d-BaG"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.3294117647" green="0.4431372549" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -129,7 +131,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aai-XB-8wJ">
-                    <rect key="frame" x="22" y="118" width="421" height="47"/>
+                    <rect key="frame" x="20" y="118" width="423" height="47"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="font_money" translatesAutoresizingMaskIntoConstraints="NO" id="mCf-Oc-gEf">
                             <rect key="frame" x="10" y="15.5" width="60" height="15"/>
@@ -138,7 +140,7 @@
                                 <constraint firstAttribute="width" constant="60" id="Qp8-kE-p6C"/>
                             </constraints>
                         </imageView>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E25-4K-mCq">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E25-4K-mCq">
                             <rect key="frame" x="80" y="8" width="180" height="30"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
@@ -147,7 +149,7 @@
                             </constraints>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0IP-nq-dCH">
                             <rect key="frame" x="278" y="5.5" width="40" height="35"/>
@@ -157,6 +159,9 @@
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <state key="normal" title="+50" backgroundImage="blueframe-click-1"/>
+                            <connections>
+                                <action selector="add50BtnClik:" destination="iN0-l3-epB" eventType="touchUpInside" id="zpz-GK-Iuj"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6NB-um-8aF">
                             <rect key="frame" x="348" y="5.5" width="40" height="35"/>
@@ -166,6 +171,9 @@
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <state key="normal" title="+100" backgroundImage="blueframe-click-1"/>
+                            <connections>
+                                <action selector="add100BtnClik:" destination="iN0-l3-epB" eventType="touchUpInside" id="DK1-oA-Ii2"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.32941176470588235" green="0.44313725490196076" blue="0.76470588235294112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -193,6 +201,9 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                     <state key="normal" title="确定出币" backgroundImage="button-large-1"/>
+                    <connections>
+                        <action selector="sureBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="oHJ-WD-9bm"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o5T-O7-JjP" userLabel="lineView">
                     <rect key="frame" x="0.0" y="238" width="465" height="0.5"/>
@@ -231,9 +242,9 @@ j5bmlrnlvI/vvIzmj5Dlj5bmlLblj5YyJeeahOaJi+e7rei0ue+8jOS4lOWPquiDveaYrzUw55qE5YCN
                 <constraint firstItem="o5T-O7-JjP" firstAttribute="top" secondItem="wgy-oS-Fai" secondAttribute="bottom" constant="10" id="Hcm-7K-gFW"/>
                 <constraint firstItem="95P-5W-htK" firstAttribute="trailing" secondItem="3pE-Od-FPa" secondAttribute="trailing" constant="-10" id="Hpy-jW-LjF"/>
                 <constraint firstItem="m7K-TU-09U" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="IRz-Vu-cto"/>
-                <constraint firstItem="wEC-kL-uk3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="LHy-3i-6Xu"/>
                 <constraint firstAttribute="trailing" secondItem="o5T-O7-JjP" secondAttribute="trailing" id="Lp3-ub-0Qc"/>
                 <constraint firstItem="rdp-rv-nXY" firstAttribute="leading" secondItem="02T-Hg-xQ1" secondAttribute="leading" constant="18" id="RpE-7M-hS0"/>
+                <constraint firstItem="wEC-kL-uk3" firstAttribute="leading" secondItem="m7K-TU-09U" secondAttribute="leading" constant="10" id="TNo-vj-Ry1"/>
                 <constraint firstItem="tic-xz-RjW" firstAttribute="centerY" secondItem="Q2c-Mb-pm9" secondAttribute="centerY" id="VP7-3O-XTy"/>
                 <constraint firstAttribute="trailing" secondItem="m7K-TU-09U" secondAttribute="trailing" constant="10" id="VR5-TF-zU3"/>
                 <constraint firstItem="02T-Hg-xQ1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="W9V-zJ-xvW"/>
@@ -247,7 +258,7 @@ j5bmlrnlvI/vvIzmj5Dlj5bmlLblj5YyJeeahOaJi+e7rei0ue+8jOS4lOWPquiDveaYrzUw55qE5YCN
                 <constraint firstItem="3pE-Od-FPa" firstAttribute="centerY" secondItem="rdp-rv-nXY" secondAttribute="centerY" id="hOq-8S-DRZ"/>
                 <constraint firstItem="wgy-oS-Fai" firstAttribute="top" secondItem="m7K-TU-09U" secondAttribute="bottom" constant="8" id="hfb-BM-0Xk"/>
                 <constraint firstItem="m7K-TU-09U" firstAttribute="top" secondItem="02T-Hg-xQ1" secondAttribute="bottom" constant="5" id="isR-HW-9m3"/>
-                <constraint firstItem="aai-XB-8wJ" firstAttribute="leading" secondItem="m7K-TU-09U" secondAttribute="leading" constant="12" id="mOF-Xw-Eyv"/>
+                <constraint firstItem="aai-XB-8wJ" firstAttribute="leading" secondItem="m7K-TU-09U" secondAttribute="leading" constant="10" id="mOF-Xw-Eyv"/>
                 <constraint firstItem="3pE-Od-FPa" firstAttribute="leading" secondItem="rdp-rv-nXY" secondAttribute="trailing" constant="20" id="moH-qU-QZc"/>
                 <constraint firstItem="o5T-O7-JjP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nIA-NE-NCF"/>
                 <constraint firstAttribute="trailing" secondItem="wEC-kL-uk3" secondAttribute="trailing" constant="24" id="tPn-jt-mBB"/>
@@ -256,6 +267,12 @@ j5bmlrnlvI/vvIzmj5Dlj5bmlLblj5YyJeeahOaJi+e7rei0ue+8jOS4lOWPquiDveaYrzUw55qE5YCN
                 <constraint firstItem="Q2c-Mb-pm9" firstAttribute="centerY" secondItem="95P-5W-htK" secondAttribute="centerY" id="xut-Mi-amX"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="accountTextField" destination="G7D-ZI-yiN" id="Z3Y-SU-cxm"/>
+                <outlet property="balanceLab" destination="95P-5W-htK" id="ASE-iU-DDg"/>
+                <outlet property="feeLab" destination="ZL9-rA-b0O" id="4Fj-BO-zfB"/>
+                <outlet property="numTextField" destination="E25-4K-mCq" id="BaA-oi-Bw9"/>
+            </connections>
         </view>
     </objects>
     <resources>

@@ -19,24 +19,23 @@
                     <rect key="frame" x="0.0" y="0.0" width="135" height="300"/>
                     <subviews>
                         <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hzc-wN-B7s">
-                            <rect key="frame" x="8" y="8" width="119" height="38"/>
+                            <rect key="frame" x="8" y="8" width="119" height="50"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="38" id="AuZ-Pm-KUw"/>
+                                <constraint firstAttribute="height" constant="50" id="AuZ-Pm-KUw"/>
                             </constraints>
-                            <state key="normal" title="登录" backgroundImage="login_button_click">
+                            <state key="normal" image="title01" backgroundImage="login_button_click">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="btnlick:" destination="iN0-l3-epB" eventType="touchUpInside" id="QkG-jW-OfQ"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vn4-9U-mLf">
-                            <rect key="frame" x="8" y="54" width="119" height="38"/>
+                        <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vn4-9U-mLf">
+                            <rect key="frame" x="8" y="66" width="119" height="50"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="38" id="oaA-26-Xm0"/>
+                                <constraint firstAttribute="height" constant="50" id="oaA-26-Xm0"/>
                             </constraints>
-                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                            <state key="normal" title="注册" backgroundImage="login_button">
+                            <state key="normal" image="title02" backgroundImage="login_button">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
@@ -137,9 +136,9 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tss-Nc-pu5">
-                            <rect key="frame" x="80" y="151" width="145" height="38"/>
+                            <rect key="frame" x="80" y="151" width="145" height="50"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="38" id="bTM-7N-aF5"/>
+                                <constraint firstAttribute="height" constant="50" id="bTM-7N-aF5"/>
                             </constraints>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                             <state key="normal" title="立即登录" backgroundImage="login_button_long">
@@ -238,5 +237,7 @@
         <image name="login_button_click" width="122" height="47"/>
         <image name="login_button_long" width="145" height="47"/>
         <image name="tick" width="13" height="13"/>
+        <image name="title01" width="60" height="22"/>
+        <image name="title02" width="60" height="22"/>
     </resources>
 </document>
