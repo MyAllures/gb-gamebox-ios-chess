@@ -481,7 +481,7 @@
 //        NSNotification *notification =[NSNotification notificationWithName:@"seletedEndDate" object:nil userInfo:dict];
 //        //通过通知中心发送通知
 //        [[NSNotificationCenter defaultCenter] postNotification:notification];
-//        self.startAndEndDateStr = @"";
+        self.startAndEndDateStr = @"";
         
     } else {
         NSString *dateStr = [NSString stringWithFormat:@"%@-%@-%@",@(dateComponents.year),month,day];
