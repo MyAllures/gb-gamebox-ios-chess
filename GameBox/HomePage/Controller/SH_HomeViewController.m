@@ -38,6 +38,7 @@
 #import "SH_NetWorkService+RegistAPI.h"
 #import "SH_WKGameViewController.h"
 #import "SH_NoAccessViewController.h"
+#import "SH_PromoDetailView.h"
 
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate,PlayerCenterViewDelegate>
 
@@ -369,10 +370,19 @@
 }
 
 #pragma mark - 优惠活动
-
 - (IBAction)activitiesClick:(id)sender {
     SH_PromoContentView *promoContentView = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoContentView" owner:nil options:nil] lastObject];
     AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:promoContentView viewHeight:[UIScreen mainScreen].bounds.size.height-60 viewWidth:[UIScreen mainScreen].bounds.size.width-160];
+    cvc.title = @"优惠活动";
+    cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:cvc animated:YES completion:nil];
+}
+
+#pragma mark - 优惠活动详情
+-(void)gotoPromoDetail {
+    SH_PromoDetailView *promoDetailView = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoDetailView" owner:nil options:nil] lastObject];
+    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:promoDetailView viewHeight:[UIScreen mainScreen].bounds.size.height-60 viewWidth:224];
     cvc.title = @"优惠活动";
     cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
