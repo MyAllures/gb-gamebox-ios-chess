@@ -102,11 +102,9 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"SH_SiteMsgViewCell" owner:nil options:nil] lastObject];
     }
-    
-    
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     SH_SysMsgDataListModel *model = self.dataListArr[indexPath.row];
     cell.advisoryContentLabel.text = model.advisoryContent;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.advisoryTimeLabel.text = [self timeStampWithDate:model.advisoryTime];
     if (model.selectedFlag) {
         [cell.seleteBtn setBackgroundImage: [UIImage imageNamed:@"choose"] forState:UIControlStateNormal];

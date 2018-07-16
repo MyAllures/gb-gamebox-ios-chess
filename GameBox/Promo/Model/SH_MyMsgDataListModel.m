@@ -9,5 +9,8 @@
 #import "SH_MyMsgDataListModel.h"
 
 @implementation SH_MyMsgDataListModel
-
+-(void)updateSelectedFlag:(BOOL)bFlag
+{
+    _selectedFlag = bFlag ;
+}
 @end

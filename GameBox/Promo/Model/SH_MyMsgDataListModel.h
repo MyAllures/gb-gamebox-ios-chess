@@ -16,4 +16,7 @@
 @property (assign, nonatomic) NSInteger read;
 //@property (strong, nonatomic) NSString *replyTitle;
 
+@property(nonatomic,readonly,assign)  BOOL selectedFlag ;
+-(void)updateSelectedFlag:(BOOL)bFlag ; //更新是否勾选状态
+
 @end
