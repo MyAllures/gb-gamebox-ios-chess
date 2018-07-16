@@ -506,7 +506,7 @@
         self.welfareV.layer.cornerRadius = 4.5;
         [self.welBackV addSubview:self.welfareV];
         
-        AlertViewController *cvc  = [[AlertViewController  alloc] initAlertView:self.welfareV viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"" alertViewType:AlertViewTypeLong];
+        AlertViewController *cvc  = [[AlertViewController  alloc] initAlertView:self.welfareV viewHeight:303 titleImageName:@"title06" alertViewType:AlertViewTypeLong];
         
         cvc.title = @"福利记录";
         cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
