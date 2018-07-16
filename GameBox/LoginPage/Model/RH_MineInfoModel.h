@@ -9,18 +9,20 @@
 #import "JSONModel.h"
 
 @interface RH_MineInfoModel : JSONModel
-@property(nonatomic,strong,readonly) NSString  *avatalUrl ;
-@property(nonatomic,strong,readonly) NSString  *currency ;
-@property(nonatomic,strong,readonly) NSString  *preferentialAmount ;
-@property(nonatomic,strong,readonly) NSString  *loginTime ;
-@property(nonatomic,strong,readonly) NSString  *recomdAmount ;
-@property(nonatomic,assign,readonly) float  totalAssets ;
-@property(nonatomic,assign,readonly) float   transferAmount ;
-@property(nonatomic,assign,readonly) float   unReadCount ;
-@property(nonatomic,strong,readonly) NSString  *userName ;
-@property(nonatomic,assign,readonly) float  walletBalance ;
-@property(nonatomic,assign,readonly) float  withdrawAmount ;
-@property(nonatomic,assign,readonly) BOOL  isBit ;
-@property(nonatomic,assign,readonly) BOOL   isCash ;
-@property(nonatomic,assign,readonly) BOOL   isAutoPay ;
+@property(nonatomic,strong) NSString  *avatalUrl ;
+@property(nonatomic,strong) NSString  *currency ;
+@property(nonatomic,strong) NSString  *preferentialAmount ;
+@property(nonatomic,strong) NSString  *loginTime ;
+@property(nonatomic,strong) NSString  *lastLoginTime ;
+@property(nonatomic,strong) NSString  *recomdAmount ;
+@property(nonatomic,assign) float  totalAssets ;
+@property(nonatomic,assign) float   transferAmount ;
+@property(nonatomic,assign) float   unReadCount ;
+@property(nonatomic,strong) NSString  *username ;
+@property(nonatomic,strong) NSString  *realName ;
+@property(nonatomic,assign) float  walletBalance ;
+@property(nonatomic,assign) float  withdrawAmount ;
+@property(nonatomic,assign) BOOL  isBit ;
+@property(nonatomic,assign) BOOL   isCash ;
+@property(nonatomic,assign) BOOL   isAutoPay ;
 @end

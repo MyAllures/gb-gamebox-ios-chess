@@ -319,6 +319,7 @@ __NSX_PASTE__(__bRet,L);    \
 #define WEAK_REFRENCE(_obj,_name) typeof(_obj) __weak _name = _obj;
 #define STRONG_REFRENCE(_obj,_name) typeof(_obj) __strong _name = _obj;
 
+#define IS_EMPTY_STRING(para) [para isEqual:[NSNull null]] || para == nil || [[para stringByReplacingOccurrencesOfString:@" " withString:@""] isEqualToString:@""]
 
 //调试输出
 

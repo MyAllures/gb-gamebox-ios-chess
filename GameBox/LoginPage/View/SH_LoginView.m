@@ -15,7 +15,7 @@
 #import "SH_NetWorkService+RegistAPI.h"
 #import "UIColor+HexString.h"
 
-
+#import "RH_MineInfoModel.h"
 #import "RH_RegisetInitModel.h"
 #import "RH_RegistrationViewItem.h"
 #import "SH_RegistView.h"
@@ -228,7 +228,6 @@
 -(void)loginSucessHandleRsponse:(NSDictionary*)dic httpURLResponse:(NSHTTPURLResponse *)httpURLResponse{
     UIWindow  * window = [UIApplication  sharedApplication].keyWindow;
     
-    
     [[RH_UserInfoManager shareUserManager] updateLoginInfoWithUserName:self.account_textField.text
                                                              LoginTime:dateStringWithFormatter([NSDate date], @"yyyy-MM-dd HH:mm:ss")] ;
     NSString *setCookie = [httpURLResponse.allHeaderFields objectForKey:@"Set-Cookie"];
@@ -240,16 +239,24 @@
     [[RH_UserInfoManager  shareUserManager] updateIsLogin:YES];
     
     [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        showMessage(window, @"登录成功", nil);
         
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        
-        [defaults setObject:self.account_textField.text forKey:@"account"];
-        [defaults setObject:self.password_textField.text forKey:@"password"];
-        
-        [defaults synchronize];
-        if (self.dismissBlock) {
-             self.dismissBlock();
+        NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
+        if ([dict  boolValueForKey:@"success"]) {
+            showMessage(window, @"登录成功", nil);
+            RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[dict[@"data"] objectForKey:@"user"] error:nil];
+            [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
+            
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            
+            [defaults setObject:self.account_textField.text forKey:@"account"];
+            [defaults setObject:self.password_textField.text forKey:@"password"];
+            
+            [defaults synchronize];
+            if (self.dismissBlock) {
+                self.dismissBlock();
+            }
+        }else{
+             showMessage(window, [dict objectForKey:@"message"], nil);
         }
         
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {

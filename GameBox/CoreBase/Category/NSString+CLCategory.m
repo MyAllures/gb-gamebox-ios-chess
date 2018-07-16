@@ -67,4 +67,10 @@
 {
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
+
+- (BOOL)isEmptyString
+{
+    return [self isEqual:[NSNull null]] || self == nil || [[self stringByReplacingOccurrencesOfString:@" " withString:@""] isEqualToString:@""];
+}
+
 @end

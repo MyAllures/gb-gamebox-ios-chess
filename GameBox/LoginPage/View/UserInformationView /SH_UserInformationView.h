@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SH_UserInformationView : UIView
+@property(nonatomic,copy)void(^buttonClickBlock)(NSInteger  tag);
 +(instancetype)instanceInformationView;
+
 @end

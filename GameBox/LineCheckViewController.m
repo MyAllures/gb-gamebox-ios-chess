@@ -63,7 +63,25 @@
             } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
                 NSLog(@"检测失败:%@",err);
             }];
-
+        }
+        else if ([SID isEqualToString:@"18"]) {
+            [SH_NetWorkService fetchIPSFromBossAPIGroup:@[@"http://192.168.0.92/boss-api"] host:@"" oneTurn:^(NSString *bossapi, BOOL success) {
+                NSLog(@">>>%@检测结果:%i",bossapi,success);
+                weakSelf.progress += 0.1;
+                weakSelf.lineCheckStatus = @"正在匹配服务器，请稍后...";
+            } complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+                NSLog(@"检测完毕:%@",response);
+                
+                NSLog(@"第三步：check-ip");
+                [weakSelf checkIPS:response complete:^(NSDictionary *ips) {
+                    //check成功 更新缓存
+                    [[IPsCacheManager sharedManager] updateIPsList:ips];
+                } failed:^{
+                    //
+                }];
+            } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
+                NSLog(@"检测失败:%@",err);
+            }];
         }
         else
         {

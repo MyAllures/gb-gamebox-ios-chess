@@ -75,4 +75,9 @@
     Password:(NSString*)password
     complete:(SHNetWorkComplete)complete
     failed:(SHNetWorkFailed)failed;
+#pragma mark - 退出登录
++(void)fetchUserLoginOut:(SHNetWorkComplete)complete
+failed:(SHNetWorkFailed)failed;
+
++ (void)fetchUserInfo:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
 @end

@@ -29,7 +29,7 @@
 
 -(instancetype)initAlertView:(UIView*)view viewHeight:(CGFloat)height viewWidth:(CGFloat)width{
     if (self = [super  init]) {
-        self.viewHeight = height +50;
+        self.viewHeight = height +40;
         self.viewWidth = width+40;
         self.presentView = view;
         
@@ -61,6 +61,12 @@
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(seleteDate) name:@"seleteDate" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(seleteEndTime:) name:@"seleteEndTime" object:nil];
+    
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.containerView.bounds byRoundingCorners: UIRectCornerBottomRight|UIRectCornerBottomLeft cornerRadii:CGSizeMake(8, 8)];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = self.containerView.bounds;
+    maskLayer.path = maskPath.CGPath;
+    self.self.containerView.layer.mask = maskLayer;
 }
 -(void)seleteDate{
     PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
