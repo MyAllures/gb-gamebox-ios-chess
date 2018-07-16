@@ -300,13 +300,13 @@
     
         if ([self.channelModel.type isEqualToString:@"2"]&&[self.channelModel.accountType isEqualToString:@"2"]) {
             if (section == 1) {
-                return CGSizeMake(SCREEN_WIDTH, 500);
+                return CGSizeMake(SCREEN_WIDTH, 300);
             }else{
                  return CGSizeMake(0, 0);
             }
         }else{
             if (section == 2) {
-                return CGSizeMake(SCREEN_WIDTH, 500);
+                return CGSizeMake(SCREEN_WIDTH, 300);
             }else{
                  return CGSizeMake(0, 0);
             }

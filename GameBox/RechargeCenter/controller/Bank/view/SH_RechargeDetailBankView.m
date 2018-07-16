@@ -34,6 +34,7 @@
     self.depositeTypeArray = [NSMutableArray array];
 }
 - (IBAction)contactCustomerServiceBtnClick:(id)sender {
+    
 }
 - (IBAction)copyPersonName:(id)sender {
     //复制开户名
