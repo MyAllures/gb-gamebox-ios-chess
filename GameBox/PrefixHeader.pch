@@ -13,9 +13,9 @@
 
 //#ifdef _8l6r
 //
-#define CODE    @"8l6r"
-#define S       @"6bf3b743e414045e5123fc317fb9b535"
-#define SID     @"71"
+//#define CODE    @"8l6r"
+//#define S       @"6bf3b743e414045e5123fc317fb9b535"
+//#define SID     @"71"
 
 //#ifdef _nu9r
 //
@@ -25,9 +25,9 @@
 
 #ifdef _wjbn
 
-//#define CODE    @"wjbn"
-//#define S       @"f0581a9da25c2476d18f7675362f596c"
-//#define SID     @"21"
+#define CODE    @"wjbn"
+#define S       @"f0581a9da25c2476d18f7675362f596c"
+#define SID     @"21"
 
 //#ifdef _7wt3
 //
