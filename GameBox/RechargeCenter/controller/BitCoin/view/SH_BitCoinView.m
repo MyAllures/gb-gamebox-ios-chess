@@ -11,11 +11,13 @@
 #import "SH_BitCoinTextView.h"
 #import "PGDatePickManager.h"
 #import "SavePhotoTool.h"
-@interface SH_BitCoinView()<SH_BitCoinTextViewDelegate,PGDatePickerDelegate>
+#import "TTTAttributedLabel.h"
+@interface SH_BitCoinView()<SH_BitCoinTextViewDelegate,PGDatePickerDelegate,TTTAttributedLabelDelegate>
 @property(nonatomic,strong)UIImageView *QRImageView;
 @property(nonatomic,strong)SH_BitCoinTextView *bitCoinView;
 @property(nonatomic,strong)UILabel *massegeLab;
 @property(nonatomic,strong)SH_BitCoinSubView *bitConnHeadView;
+@property(nonatomic,strong)TTTAttributedLabel *tttLab;
 @end
 @implementation SH_BitCoinView
 -(instancetype)initWithFrame:(CGRect)frame{
@@ -49,14 +51,23 @@
     }
     return _bitCoinView;
 }
-- (UILabel *)massegeLab{
-    if (!_massegeLab) {
-        _massegeLab = [[UILabel alloc]init];
-        _massegeLab.numberOfLines = 0;
-        _massegeLab.font = [UIFont systemFontOfSize:14];
-        [self addSubview:_massegeLab];
+- (TTTAttributedLabel *)tttLab{
+    if (!_tttLab) {
+        _tttLab = [TTTAttributedLabel  new];
+        _tttLab.lineBreakMode = NSLineBreakByWordWrapping;
+        _tttLab.numberOfLines = 0;
+        _tttLab.delegate = self;
+        _tttLab.lineSpacing = 1;
+        //要放在`text`, with either `setText:` or `setText:afterInheritingLabelAttributesAndConfiguringWithBlock:前面才有效
+        _tttLab.enabledTextCheckingTypes = NSTextCheckingTypePhoneNumber|NSTextCheckingTypeAddress|NSTextCheckingTypeLink;
+        //链接正常状态文本属性
+        _tttLab.linkAttributes = @{NSForegroundColorAttributeName:[UIColor blueColor],NSUnderlineStyleAttributeName:@(1)};
+        //链接高亮状态文本属性
+        _tttLab.activeLinkAttributes = @{NSForegroundColorAttributeName:[UIColor blackColor],NSUnderlineStyleAttributeName:@(1)};
+        _tttLab.font = [UIFont  systemFontOfSize:14.0];
+        [self addSubview:_tttLab];
     }
-    return _massegeLab;
+    return _tttLab;
 }
 -(void)configUI{
       __weak typeof(self) weakSelf = self;
@@ -111,13 +122,13 @@
         make.height.equalTo(@260);
     }];
     
-    [self.massegeLab mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.tttLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakSelf.bitCoinView.mas_bottom).offset(30);
         make.left.equalTo(self).offset(15);
         make.right.bottom.equalTo(self).offset(-15);
 
     }];
-    self.massegeLab.text = @"温馨提示：\n• 为了方便系统快速完成转账，请输入正确的txId、交易时间，以加快系统入款速度。\n• 建议您使用Internet Explorer 9以上、360浏览器、Firefox或Google Chrome等浏览器浏览。\n• 如出现充值失败或充值后未到账等情况，请联系在线客服获取帮助。 点击联系在线客服";
+    [self setBottomLabWithMessage:@"温馨提示：\n• 为了方便系统快速完成转账，请输入正确的txId、交易时间，以加快系统入款速度。\n• 建议您使用Internet Explorer 9以上、360浏览器、Firefox或Google Chrome等浏览器浏览。\n• 如出现充值失败或充值后未到账等情况，请联系在线客服获取帮助。 点击联系在线客服"];
 }
 - (void)setTargetVC:(UIViewController *)targetVC{
     _targetVC = targetVC;
@@ -151,5 +162,36 @@
 }
 -(void)saveToPhoneBtnClick{
     [[SavePhotoTool shared]saveImageToPhoneImage:self.QRImageView.image];
+}
+-(void)setBottomLabWithMessage:(NSString *)message{
+    [ self.tttLab  setText:message afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+        //设置可点击文字的范围
+        NSRange boldRange = [[mutableAttributedString string]rangeOfString:@"点击联系在线客服"options:NSCaseInsensitiveSearch];
+        //设定可点击文字的的大小
+        UIFont*boldSystemFont = [UIFont systemFontOfSize:14];
+        CTFontRef font =CTFontCreateWithName((__bridge CFStringRef)boldSystemFont.fontName, boldSystemFont.pointSize,NULL);
+        if(font){
+            {
+                //设置可点击文本的大小
+                [mutableAttributedString addAttribute:(NSString *)kCTFontAttributeName
+                                                value:(__bridge id)font
+                                                range:boldRange];
+                //文字颜色
+                [mutableAttributedString addAttribute:(NSString *)kCTForegroundColorAttributeName
+                                                value:[UIColor blueColor]
+                                                range:boldRange];
+                CFRelease(font);
+            }
+        }
+        return  mutableAttributedString;
+    }];
+    NSRange boldRange1 = [message rangeOfString:@"点击联系在线客服" options:NSCaseInsensitiveSearch];
+    [self.tttLab addLinkToURL:[NSURL URLWithString:@""]
+                    withRange:boldRange1];
+}
+#pragma mark - TTTAttributedLabelDelegate
+- (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url
+{
+    NSLog(@"点击联系在线客服");
 }
 @end

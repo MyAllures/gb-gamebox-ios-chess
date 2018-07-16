@@ -13,5 +13,5 @@
 @end
 @interface SH_PreferentialPopSubView : UIView
 @property(nonatomic,weak)id<SH_PreferentialPopSubViewDelegate>delegate;
--(void)updateUIWithSaleModel:(SH_BitCoinSaleModel *)model;
+-(void)updateUIWithSaleModel:(SH_BitCoinSaleModel *)model moneyString:(NSString *)money;
 @end

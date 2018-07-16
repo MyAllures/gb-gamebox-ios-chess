@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SH_RechargeCenterChannelModel.h"
 @protocol RH_RechargeCenterFooterViewDelegate<NSObject>
--(void)RH_RechargeCenterFooterViewSubmitBtnClick;
+-(void)RH_RechargeCenterFooterViewSubmitBtnClickWithMoney:(NSString *)money;
 @end
 @interface RH_RechargeCenterFooterView : UICollectionReusableView
 @property(nonatomic,weak)id<RH_RechargeCenterFooterViewDelegate>delegate;
