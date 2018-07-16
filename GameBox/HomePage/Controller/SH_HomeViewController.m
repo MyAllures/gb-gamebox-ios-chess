@@ -350,7 +350,8 @@
 }
 
 - (IBAction)rechargeClick:(id)sender {    
-    [self presentViewController:[[SH_RechargeCenterViewController alloc]init] animated:YES completion:nil];
+//    [self presentViewController:[[SH_RechargeCenterViewController alloc]init] animated:YES completion:nil];
+    [self.navigationController pushViewController:[[SH_RechargeCenterViewController alloc]init] animated:YES];
 }
 
 #pragma mark - 优惠活动

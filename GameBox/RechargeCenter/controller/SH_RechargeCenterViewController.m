@@ -205,7 +205,8 @@
                 //这里用name判断是因为快充中心的code是一个路径 所以不能走下面的处理方法
                 SH_KuaiChongViewController *vc = [[SH_KuaiChongViewController alloc]init];
                 vc.platformModel = self.platformModel;
-                [self presentViewController:vc animated:YES completion:nil];
+                [self.navigationController pushViewController:vc animated:YES];
+//                [self presentViewController:vc animated:YES completion:nil];
             }
         }
           __weak typeof(self) weakSelf = self;
@@ -219,7 +220,8 @@
                 if ([self.platformModel.code isEqualToString:@"bitcoin"]){
                     SH_BitCoinViewController *bvc = [[SH_BitCoinViewController alloc]init];
                     bvc.channelModel = weakSelf.channelModel;
-                    [weakSelf presentViewController:bvc animated:YES completion:nil];
+//                    [weakSelf presentViewController:bvc animated:YES completion:nil];
+                    [weakSelf.navigationController pushViewController:bvc animated:YES];
                 }
             }else{
                 if (titles.count == 2) {
@@ -317,7 +319,8 @@
             vc.paywayModel = self.paywayModel;
             vc.platformModel = self.platformModel;
             vc.money = self.number;
-            [self presentViewController:vc animated:YES completion:nil];
+//            [self presentViewController:vc animated:YES completion:nil];
+             [self.navigationController pushViewController:vc animated:YES];
         }else if ([self.platformModel.code isEqualToString:@"online"]){
             //请求优惠接口
             [self requestNormalPreferential];
@@ -329,7 +332,8 @@
                 vc.paywayModel = self.paywayModel;
                 vc.platformModel = self.platformModel;
                 vc.money = self.number;
-                [self presentViewController:vc animated:YES completion:nil];
+//                [self presentViewController:vc animated:YES completion:nil];
+                [self.navigationController pushViewController:vc animated:YES];
                 
             }else if ([self.channelModel.type isEqualToString:@"2"]){
                 //2表示扫码支付，要先请求一个优惠接口
