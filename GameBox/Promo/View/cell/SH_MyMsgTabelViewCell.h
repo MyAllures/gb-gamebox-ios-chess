@@ -11,5 +11,6 @@
 @interface SH_MyMsgTabelViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *advisoryContentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *advisoryTimeLabel;
+@property (weak, nonatomic) IBOutlet UIButton *seleteBtn;
 
 @end

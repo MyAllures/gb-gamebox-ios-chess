@@ -19,10 +19,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fz0-On-i2Q">
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fz0-On-i2Q">
                         <rect key="frame" x="9" y="6" width="20" height="15"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal" backgroundImage="not-choose"/>
+                        <connections>
+                            <action selector="seleteAction:" destination="QN6-Yw-dme" eventType="touchUpInside" id="Oem-in-8bV"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Labelalsjdfhsfah;sdfj" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cX-o2-dqy">
                         <rect key="frame" x="63" y="11" width="166" height="41"/>
@@ -59,6 +62,7 @@
             <connections>
                 <outlet property="advisoryContentLabel" destination="1cX-o2-dqy" id="dp8-d7-wb5"/>
                 <outlet property="advisoryTimeLabel" destination="MbQ-xg-5gW" id="cKd-DW-oHL"/>
+                <outlet property="seleteBtn" destination="fz0-On-i2Q" id="43m-AQ-Ana"/>
             </connections>
             <point key="canvasLocation" x="-204" y="177"/>
         </tableViewCell>
