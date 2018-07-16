@@ -13,6 +13,9 @@
 @property (assign, nonatomic) NSInteger advisoryTime;
 @property (strong, nonatomic) NSString *advisoryTitle;
 @property (assign, nonatomic) NSInteger id;
+
+@property(nonatomic,readonly,assign)  BOOL selectedFlag ;
+-(void)updateSelectedFlag:(BOOL)bFlag ; //更新是否勾选状态
 //@property (assign, nonatomic) NSInteger read;
 //@property (strong, nonatomic) NSString *replyTitle;
 @end
