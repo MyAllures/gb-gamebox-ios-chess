@@ -87,6 +87,8 @@
 		54C875BA20FB788D00AA0594 /* SH_NoAccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C875B820FB788D00AA0594 /* SH_NoAccessViewController.xib */; };
 		54C875BD20FC4B0B00AA0594 /* SH_AnnouncementModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C875BC20FC4B0B00AA0594 /* SH_AnnouncementModel.m */; };
 		54C875C320FC846200AA0594 /* SH_AnnouncementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C875C220FC846200AA0594 /* SH_AnnouncementView.m */; };
+		54C875C620FCBE0E00AA0594 /* SH_DZGameItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C875C520FCBE0E00AA0594 /* SH_DZGameItemView.m */; };
+		54C875C820FCBE1900AA0594 /* SH_DZGameItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C875C720FCBE1900AA0594 /* SH_DZGameItemView.xib */; };
 		BF2F915A20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F915820EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m */; };
 		BF2F915B20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2F915920EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib */; };
 		BF2F915F20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F915D20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m */; };
@@ -322,6 +324,9 @@
 		54C875BC20FC4B0B00AA0594 /* SH_AnnouncementModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_AnnouncementModel.m; sourceTree = "<group>"; };
 		54C875C120FC846200AA0594 /* SH_AnnouncementView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_AnnouncementView.h; sourceTree = "<group>"; };
 		54C875C220FC846200AA0594 /* SH_AnnouncementView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_AnnouncementView.m; sourceTree = "<group>"; };
+		54C875C420FCBE0E00AA0594 /* SH_DZGameItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_DZGameItemView.h; sourceTree = "<group>"; };
+		54C875C520FCBE0E00AA0594 /* SH_DZGameItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_DZGameItemView.m; sourceTree = "<group>"; };
+		54C875C720FCBE1900AA0594 /* SH_DZGameItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_DZGameItemView.xib; sourceTree = "<group>"; };
 		BF2F915720EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_DepositeWayCollectionViewCell.h; sourceTree = "<group>"; };
 		BF2F915820EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_DepositeWayCollectionViewCell.m; sourceTree = "<group>"; };
 		BF2F915920EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_DepositeWayCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -799,6 +804,9 @@
 				425A90C820FB2F49004B681A /* SH_CardRecordView.m */,
 				54C875C120FC846200AA0594 /* SH_AnnouncementView.h */,
 				54C875C220FC846200AA0594 /* SH_AnnouncementView.m */,
+				54C875C420FCBE0E00AA0594 /* SH_DZGameItemView.h */,
+				54C875C520FCBE0E00AA0594 /* SH_DZGameItemView.m */,
+				54C875C720FCBE1900AA0594 /* SH_DZGameItemView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1362,6 +1370,7 @@
 				DA6EE1C920F99F45009A01C5 /* SH_SettingView.xib in Resources */,
 				5401C55120ECA1B80027246D /* GameWebViewController.xib in Resources */,
 				54C875A020F756A500AA0594 /* errRing.mp3 in Resources */,
+				54C875C820FCBE1900AA0594 /* SH_DZGameItemView.xib in Resources */,
 				22552CE620F49DB90090EFBC /* SH_SendMsgView.xib in Resources */,
 				229A21A020F3827700F5A969 /* SH_GameAnnouncementView.xib in Resources */,
 				54C8759D20F756A500AA0594 /* bgm.mp3 in Resources */,
@@ -1474,6 +1483,7 @@
 				54C875B920FB788D00AA0594 /* SH_NoAccessViewController.m in Sources */,
 				BFFC847320F3452A008AD801 /* UIImageView+handle.m in Sources */,
 				BF44EC5A20F4588D00BC6EF3 /* SH_BitCoinSubView.m in Sources */,
+				54C875C620FCBE0E00AA0594 /* SH_DZGameItemView.m in Sources */,
 				5401C53420ECA10F0027246D /* LineCheckViewController.m in Sources */,
 				BF44EC6920F4890B00BC6EF3 /* SH_RechargeBasicViewController.m in Sources */,
 				425A90C920FB2F49004B681A /* SH_CardRecordView.m in Sources */,
