@@ -103,7 +103,7 @@
                 [self autoLoginSuccess:httpURLResponse isRegist:isRegist];
             }
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-            
+            [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
         }];
     }else if ([defaults boolForKey:@"isRememberPwd"]) {
         if ([RH_UserInfoManager  shareUserManager].isLogin) {
@@ -117,7 +117,7 @@
                 [self autoLoginSuccess:httpURLResponse isRegist:isRegist];
             }
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-            
+            [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
         }];
     }
 }
@@ -148,6 +148,7 @@
         
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         //
+        [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
     }];
 }
 
@@ -430,11 +431,8 @@
 #pragma mark - 优惠活动
 - (IBAction)activitiesClick:(id)sender {
     SH_PromoContentView *promoContentView = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoContentView" owner:nil options:nil] lastObject];
-
-
     AlertViewController  * cvc = [[AlertViewController  alloc] initAlertView:promoContentView viewHeight:[UIScreen mainScreen].bounds.size.height-80 titleImageName:@"progress_bar_icon" alertViewType:AlertViewTypeLong];
     //    cvc.imageName = @"progress_bar_icon";
-
     cvc.title = @"优惠活动";
     cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;

@@ -31,11 +31,11 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018-03-13" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MbQ-xg-5gW">
-                        <rect key="frame" x="231" y="48" width="73" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018-03-13" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MbQ-xg-5gW">
+                        <rect key="frame" x="154" y="48" width="150" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="C0g-By-ek8"/>
-                            <constraint firstAttribute="width" constant="73" id="UaV-QF-wh9"/>
+                            <constraint firstAttribute="height" constant="21" id="PQH-3y-EdG"/>
+                            <constraint firstAttribute="width" constant="150" id="ftT-iG-PLf"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
@@ -51,9 +51,9 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="RC1-OF-31M" firstAttribute="top" secondItem="Hir-2u-viy" secondAttribute="top" id="2fD-ZK-2MC"/>
-                    <constraint firstItem="MbQ-xg-5gW" firstAttribute="trailing" secondItem="Hir-2u-viy" secondAttribute="trailingMargin" id="AgM-ko-o2H"/>
+                    <constraint firstItem="MbQ-xg-5gW" firstAttribute="bottom" secondItem="Hir-2u-viy" secondAttribute="bottomMargin" id="9eP-SW-wPb"/>
                     <constraint firstAttribute="trailing" secondItem="RC1-OF-31M" secondAttribute="trailing" id="BCU-fk-ED4"/>
-                    <constraint firstItem="MbQ-xg-5gW" firstAttribute="bottom" secondItem="Hir-2u-viy" secondAttribute="bottomMargin" id="fUb-Xs-Vwy"/>
+                    <constraint firstItem="MbQ-xg-5gW" firstAttribute="trailing" secondItem="Hir-2u-viy" secondAttribute="trailingMargin" id="g3a-5g-oYm"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

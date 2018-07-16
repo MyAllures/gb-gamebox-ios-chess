@@ -72,6 +72,7 @@
             self.contentView.frame = contentViewFrame;
         }completion:^(BOOL finished) {
             [self dismissViewControllerAnimated:false completion:nil];
+            [self.view  removeFromSuperview];
         }];
     }else {
         [self dismissViewControllerAnimated:false completion:nil];
