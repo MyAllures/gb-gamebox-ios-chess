@@ -157,6 +157,12 @@
 
 -(void)configUI{
     self.userAccountLB.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.username?:@"登录/注册";
+    
+    if ([RH_UserInfoManager  shareUserManager].isLogin) {
+        self.avatarImg.image = [UIImage  imageNamed:@"photo_male"];
+    }else{
+        self.avatarImg.image = [UIImage  imageNamed:@"avatar"];
+    }
 }
 
 - (NSMutableArray *)bannerArr
@@ -349,18 +355,16 @@
 
 -(void)login{
     SH_LoginView *login = [SH_LoginView  InstanceLoginView];
-    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:260 viewWidth:494];
+    //AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:260 viewWidth:494 titleImageName:@"title01"];
+    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:260 titleImageName:@"title01" alertViewType:AlertViewTypeLong];
     login.dismissBlock = ^{
         [cvc  close];
         [self  configUI];
     };
     login.changeChannelBlock = ^(NSString *string) {
-        [cvc  setSubTitle:string];
+      [cvc setImageName:string];
+        
     };
-   /* cvc.title = @"登录";
-    cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:cvc animated:YES completion:nil];*/
     [self presentViewController:cvc addTargetViewController:self];
 }
 
@@ -372,13 +376,12 @@
         return;
     }
     SH_UserInformationView * inforView = [SH_UserInformationView  instanceInformationView];
-    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:inforView viewHeight:200 viewWidth:322];
-    cvc.subTitle = @"个人信息";
+    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:inforView viewHeight:204 titleImageName:@"title04" alertViewType:AlertViewTypeShort];
     __weak  typeof(self) weakSelf = self;
     inforView.buttonClickBlock = ^(NSInteger tag) {
         if (tag==100) {
             SH_AlertView * alert = [SH_AlertView  instanceAlertView];
-            AlertViewController * vc = [[AlertViewController  alloc] initAlertView:alert viewHeight:174 viewWidth:288];
+             AlertViewController * vc = [[AlertViewController  alloc] initAlertView:alert viewHeight:174 titleImageName:@"title03" alertViewType:AlertViewTypeShort];
             alert.btnClickBlock = ^(NSInteger tag) {
                 if (tag==100) {
                     [vc close];
@@ -386,6 +389,8 @@
                     [SH_NetWorkService  fetchUserLoginOut:^(NSHTTPURLResponse *httpURLResponse, id response) {
                         [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
                         [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:nil];
+                      /*  [[NSUserDefaults  standardUserDefaults] setObject:@"" forKey:@"password"];
+                        [[NSUserDefaults  standardUserDefaults] synchronize];*/
                         [weakSelf configUI];
                         showMessage([UIApplication  sharedApplication].keyWindow, @"已成功退出", nil);
                         if ([vc respondsToSelector:@selector(presentingViewController)]){
@@ -399,23 +404,13 @@
                     
                 }
             };
-            /*vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-            vc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
-            [cvc presentViewController:vc animated:YES completion:nil];*/
             [weakSelf  presentViewController:vc addTargetViewController:cvc];
         }else{
             SH_SettingView * settingView = [SH_SettingView instanceSettingView];
-            AlertViewController * setVC = [[AlertViewController  alloc] initAlertView:settingView viewHeight:130 viewWidth:251];
-           /* setVC.subTitle = @"设置";
-            setVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-            setVC.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
-            [cvc presentViewController:setVC animated:YES completion:nil];*/
+             AlertViewController * setVC = [[AlertViewController  alloc] initAlertView:settingView viewHeight:130 titleImageName:@"title05" alertViewType:AlertViewTypeShort];
             [weakSelf  presentViewController:setVC addTargetViewController:cvc];
         }
     };
-   /* cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:cvc animated:YES completion:nil];*/
     [self presentViewController:cvc addTargetViewController:self];
 }
 #pragma mark --- 模态弹出viewController
@@ -432,7 +427,11 @@
 #pragma mark - 优惠活动
 - (IBAction)activitiesClick:(id)sender {
     SH_PromoContentView *promoContentView = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoContentView" owner:nil options:nil] lastObject];
-    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:promoContentView viewHeight:[UIScreen mainScreen].bounds.size.height-80 viewWidth:465];
+
+
+    AlertViewController  * cvc = [[AlertViewController  alloc] initAlertView:promoContentView viewHeight:[UIScreen mainScreen].bounds.size.height-80 titleImageName:@"progress_bar_icon" alertViewType:AlertViewTypeLong];
+    //    cvc.imageName = @"progress_bar_icon";
+
     cvc.title = @"优惠活动";
     cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
@@ -442,7 +441,8 @@
 #pragma mark - 优惠活动详情
 -(void)gotoPromoDetail {
     SH_PromoDetailView *promoDetailView = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoDetailView" owner:nil options:nil] lastObject];
-    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:promoDetailView viewHeight:[UIScreen mainScreen].bounds.size.height-60 viewWidth:224];
+  
+    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:promoDetailView viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"" alertViewType:AlertViewTypeLong];
     cvc.title = @"优惠活动";
     cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
@@ -504,7 +504,8 @@
         self.welfareV.layer.cornerRadius = 4.5;
         [self.welBackV addSubview:self.welfareV];
         
-        AlertViewController *cvc = [[AlertViewController alloc] initAlertView:self.welfareV viewHeight:[UIScreen mainScreen].bounds.size.height-60 viewWidth:[UIScreen mainScreen].bounds.size.width-160];
+        AlertViewController *cvc  = [[AlertViewController  alloc] initAlertView:self.welfareV viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"" alertViewType:AlertViewTypeLong];
+        
         cvc.title = @"福利记录";
         cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         cvc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -522,8 +523,8 @@
         securityView.backgroundColor = [UIColor whiteColor];
         securityView.layer.cornerRadius = 4.5;
         [securityBackV addSubview:securityView];
-        
-        AlertViewController *avc = [[AlertViewController alloc] initAlertView:securityView viewHeight:[UIScreen mainScreen].bounds.size.height-60 viewWidth:[UIScreen mainScreen].bounds.size.width-160];
+    
+      AlertViewController *avc  = [[AlertViewController  alloc] initAlertView:securityView viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"" alertViewType:AlertViewTypeLong];
         avc.title = @"安全中心";
         avc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         avc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -542,7 +543,7 @@
         crv.layer.cornerRadius = 4.5;
         [cardBackV addSubview:crv];
         
-        AlertViewController *acr = [[AlertViewController alloc] initAlertView:crv viewHeight:[UIScreen mainScreen].bounds.size.height-60 viewWidth:[UIScreen mainScreen].bounds.size.width-160];
+        AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:crv viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"" alertViewType:AlertViewTypeLong];
         acr.title = @"牌局记录";
         acr.modalPresentationStyle = UIModalPresentationCurrentContext;
         acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -670,12 +671,6 @@
 
 #pragma mark ---注册成功的通知 这里自动登录
 -(void)didRegistratedSuccessful{
-   /* NSUserDefaults  * defaults = [NSUserDefaults standardUserDefaults];
-    [SH_NetWorkService  fetchAutoLoginWithUserName:[defaults objectForKey:@"username"] Password:[defaults objectForKey:@"account"] complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-
-    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
-    }];*/
     [self  autoLoginIsRegist:YES];
 }
 #pragma mark - SH_CycleScrollViewDataSource
