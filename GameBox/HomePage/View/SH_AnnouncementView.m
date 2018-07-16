@@ -58,7 +58,8 @@
 }
 
 -(void)start{
-    if (self.isAnimation) return ;
+    if (self.isAnimation)
+        return ;
     [UIView animateWithDuration:_dynamicTimeInterval//动画持续时间
                           delay:0//动画延迟执行的时间
                         options:(UIViewAnimationOptionCurveLinear)//动画的过渡效果
@@ -74,9 +75,7 @@
                                                                self.textSize.width,
                                                                self.textSize.height) ;
                          self.isAnimation = NO;
-                         if (self.window){
-                             [self start];//动画执行完毕后的操作
-                         }
+                         [self start];//动画执行完毕后的操作
                      }];
 }
 

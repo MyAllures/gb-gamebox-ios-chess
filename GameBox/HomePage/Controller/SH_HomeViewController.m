@@ -664,21 +664,23 @@
 - (void)refreshAnnouncement
 {
     __weak typeof(self) weakSelf = self;
+    if (_announcementView == nil) {
+        _announcementView = [[SH_AnnouncementView alloc] initWithFrame:CGRectZero];
+        [self.view addSubview:_announcementView];
+        [_announcementView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.runLBBGImg).mas_equalTo(8);
+            make.right.equalTo(self.runLBBGImg).mas_equalTo(-8);
+            make.top.bottom.equalTo(self.runLBBGImg).mas_equalTo(0);
+        }];
+    }
 
-    _announcementView = [[SH_AnnouncementView alloc] initWithFrame:CGRectZero];
-    [self.view addSubview:_announcementView];
-    [_announcementView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.runLBBGImg).mas_equalTo(8);
-        make.right.equalTo(self.runLBBGImg).mas_equalTo(-8);
-        make.top.bottom.equalTo(self.runLBBGImg).mas_equalTo(0);
-    }];
     [SH_NetWorkService fetchAnnouncement:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *data = [response objectForKey:@"data"];
         NSArray *announcementArr = [data objectForKey:@"announcement"];
         NSString *announcementStr = [NSString string];
         for (NSDictionary *announcementDic in announcementArr) {
             NSString *content = [announcementDic objectForKey:@"content"];
-            announcementStr = [announcementStr stringByAppendingString:content];
+            announcementStr = [announcementStr stringByAppendingString:[NSString stringWithFormat:@"     %@",content]];
         }
         weakSelf.announcementView.string = announcementStr;
         [weakSelf.announcementView start];
