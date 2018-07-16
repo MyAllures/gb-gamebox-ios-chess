@@ -234,10 +234,11 @@
     }];
     [self layoutIfNeeded];
     self.scrollview.contentSize = CGSizeMake(self.frameWidth, temp.count*50+150);
-    for (RH_RegistrationViewItem *item in self.stackView.subviews) {
+    [self setupBottomView];
+   /* for (RH_RegistrationViewItem *item in self.stackView.subviews) {
         item.transform = CGAffineTransformMakeTranslation(self.frameWidth, 0);
     }
-    [self startAnimate];
+    [self startAnimate];*/
 }
 - (void)startAnimate {
     if (animate_Item_Index < self.stackView.subviews.count + 1) {

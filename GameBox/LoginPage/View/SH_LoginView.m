@@ -70,6 +70,7 @@
 -(void)configurationUI{
     
     self.stackView.hidden = YES;
+    self.captcha_label.hidden = YES;
     
     UIImage  * img = [UIImage  imageNamed:@"left_bg"];
     self.leftView.layer.contents = (__bridge id _Nullable)(img.CGImage);
