@@ -13,15 +13,42 @@
 @interface SH_MyMsgView ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *dataListArr;
+@property (weak, nonatomic) IBOutlet UIImageView *seleteAllImageView;
+@property (weak, nonatomic) IBOutlet UIButton *seleteAllBtn;
+@property (strong, nonatomic) NSIndexPath *indexPath1;
+
+
 @end
 
 @implementation SH_MyMsgView
+
+- (IBAction)seleteAllBtn:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    if (sender.selected) {
+        self.seleteAllImageView.image = [UIImage imageNamed:@"choose"];
+        [self.seleteAllBtn setTitle:@"取消全选" forState:UIControlStateNormal];
+        for (SH_MyMsgDataListModel *model in self.dataListArr) {
+            [model updateSelectedFlag:YES];
+        }
+        [self.tableView reloadData];
+    }else{
+        self.seleteAllImageView.image = [UIImage imageNamed:@"not-choose"];
+        [self.seleteAllBtn setTitle:@"全选" forState:UIControlStateNormal];
+        for (SH_MyMsgDataListModel *model in self.dataListArr) {
+            [model updateSelectedFlag:NO];
+        }
+        [self.tableView reloadData];
+    }
+}
 
 -(void)awakeFromNib {
     [super awakeFromNib];
     
     //    self.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
     //    self.tableView.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCell:) name:@"changedImage1" object:nil];
+    
     self.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1];
     self.dataListArr = [NSMutableArray array];
     
@@ -45,6 +72,22 @@
     [self.tableView reloadData];
 }
 
+-(void)updateCell: (NSNotification *)noti {
+    NSString *row = noti.userInfo[@"row"];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[row integerValue] inSection:0];
+//    NSArray <NSIndexPath *> *indexPathArray = @[indexPath];
+    SH_MyMsgDataListModel *model = self.dataListArr[[row integerValue]];
+    if (model.selectedFlag == NO) {
+        [model updateSelectedFlag:YES];
+    }else{
+        [model updateSelectedFlag:NO];
+    }
+    
+    self.indexPath1 = indexPath;
+//    [self.tableView reloadRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView reloadData];
+}
+
 #pragma mark - UITableViewDataSource M
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -59,8 +102,15 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"SH_MyMsgTabelViewCell" owner:nil options:nil] lastObject];
     }
     SH_MyMsgDataListModel *model = self.dataListArr[indexPath.row];
+    cell.seleteBtn.tag = indexPath.row;
     cell.advisoryContentLabel.text = model.advisoryContent;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.advisoryTimeLabel.text = [self timeStampWithDate:model.advisoryTime];
+    if (model.selectedFlag) {
+        [cell.seleteBtn setBackgroundImage: [UIImage imageNamed:@"choose"] forState:UIControlStateNormal];
+    }else{
+        [cell.seleteBtn setBackgroundImage: [UIImage imageNamed:@"not-choose"] forState:UIControlStateNormal];
+    }
     return cell;
 }
 
