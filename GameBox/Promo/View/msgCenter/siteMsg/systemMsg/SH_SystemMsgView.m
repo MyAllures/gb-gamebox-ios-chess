@@ -34,6 +34,7 @@
             NSError *err;
             SH_SysMsgDataListModel *model = [[SH_SysMsgDataListModel alloc] initWithDictionary:dic error:&err];
             [self.dataListArr addObject:model];
+            [self.tableView reloadData];
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
