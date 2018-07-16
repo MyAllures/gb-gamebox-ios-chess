@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *bankNameLab;
 @property(nonatomic,copy)NSString *code;
 @property(nonatomic,copy)NSString *bankName;
+@property(nonatomic,strong)SH_RechargeCenterChannelModel *channelModel;
 @end
 @implementation RH_RechargeCenterFooterView
 - (void)awakeFromNib{
@@ -32,6 +33,7 @@
            ChannelModel:(SH_RechargeCenterChannelModel *)channelModel{
     self.bankArray = array;
     self.code = code;
+    self.channelModel = channelModel;
     if ([code isEqualToString:@"online"]) {
         self.content = @"温馨提示：\n• 为了提高对账速度及成功率，当前支付方式已开随机额度，请输入整数存款金额，将随机增加0.01~0.99元！\n• 请保留好转账单据作为核对证明。\n• 如出现充值失败或充值后未到账等情况，请联系在线客服获取帮助。 点击联系在线客服";
         self.chooseBKBtn.hidden = NO;
@@ -51,21 +53,10 @@
             self.content = @"温馨提示：\n• 为了提高对账速度及成功率，当前支付方式已开随机额度，请输入整数存款金额，将随机增加0.01~0.99元！\n• 支付成功后，请等待几秒钟，提示「支付成功」按确认键后再关闭支付窗口。\n• 如出现充值失败或充值后未到账等情况，请联系在线客服获取帮助。 点击联系在线客服";
         }
         
-    }
-    else if ([code isEqualToString:@"onecodepay"]) {
-        self.content = @"温馨提示：\n• 存款金额请加以小数点或尾数，以便区别。如充值200元，请输入201元或200.1之类小数。\n• 如有任何疑问，请联系在线客服获取帮助。点击联系在线客服";
-    }
-    else if ([code isEqualToString:@"company"]) {
-        self.content = @"温馨提示：\n• 存款金额请加以小数点或尾数，以便区别。如充值200元，请输入201元或200.1之类小数。\n• 如有任何疑问，请联系在线客服获取帮助。点击联系在线客服";
-    }
-    else if ([code isEqualToString:@"counter"]) {
-        self.content = @"温馨提示：\n• 存款金额请加以小数点或尾数，以便区别。如充值200元，请输入201元或200.1之类小数。\n• 如有任何疑问，请联系在线客服获取帮助。点击联系在线客服";
-    }
-    else if ([code isEqualToString:@"other"]) {
-        self.content = @"温馨提示：\n• 存款金额请加以小数点或尾数，以便区别。如充值200元，请输入201元或200.1之类小数。\n• 如有任何疑问，请联系在线客服获取帮助。点击联系在线客服";
-    }
-    else if ([code isEqualToString:@"easy"]) {
+    }else if ([code isEqualToString:@"easy"]) {
         self.content = @"温馨提示：\n• 当前支付额度必须精确到小数点，请严格核对您的转账金额精确到分，如：100.51，否则无法提高对账速度及成功率，谢谢您的配合。\n• 如有任何疑问，请联系在线客服获取帮助。点击联系在线客服";
+    }else{
+        self.content = @"温馨提示：\n• 存款金额请加以小数点或尾数，以便区别。如充值200元，请输入201元或200.1之类小数。\n• 如有任何疑问，请联系在线客服获取帮助。点击联系在线客服";
     }
     }
     self.messageLab.text = self.content;
@@ -79,7 +70,13 @@
             return;
         }
     }
-    [self.delegate RH_RechargeCenterFooterViewSubmitBtnClick];
+    
+    if ([self.textField.text floatValue]<[self.channelModel.singleDepositMin floatValue] ||[self.textField.text floatValue]>[self.channelModel.singleDepositMax floatValue]) {
+        showMessage(self.superview.superview, nil, [NSString stringWithFormat:@"请输入%@~%@",self.channelModel.singleDepositMin,self.channelModel.singleDepositMax]);
+        return;
+    }
+    
+    [self.delegate RH_RechargeCenterFooterViewSubmitBtnClickWithMoney:self.textField.text];
 }
 - (IBAction)chooseBKBtnXClick:(id)sender {
     NSMutableArray *bankNameArray = [NSMutableArray array];

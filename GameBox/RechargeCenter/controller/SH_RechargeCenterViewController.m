@@ -44,7 +44,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self configNavigationWithTitle:@"充值中心"];
-    self.channelModelArray = [NSMutableArray array];
+    
     [self loadData];
     [self configUI];
 }
@@ -76,6 +76,7 @@
     return _tipLab;
 }
 -(void)loadData{
+    self.channelModelArray = [NSMutableArray array];
     self.dataArray = [NSMutableArray array];
     self.selectedStatusArray = [NSMutableArray array];
     self.sectionTitles = @[@"",@"付款方式",@"请选择或输入金额"];
@@ -130,8 +131,18 @@
                 [weakSelf.dataArray addObject:payways?payways:[NSArray array]];
                 [weakSelf.dataArray addObject:chooseMoneyArray?chooseMoneyArray:[NSArray array]];
                 [weakSelf.mainCollectionView reloadData];
-            } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
                 
+                if ([weakSelf.mainCollectionView.mj_header isRefreshing]) {
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [weakSelf.mainCollectionView.mj_header endRefreshing];
+                    });
+                }
+            } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+                if ([weakSelf.mainCollectionView.mj_header isRefreshing]) {
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [weakSelf.mainCollectionView.mj_header endRefreshing];
+                    });
+                }
             }];
             
         }
@@ -156,7 +167,7 @@
     [self.mainCollectionView registerNib:[UINib nibWithNibName:@"SH_DespositeChooseMoneyCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"SH_DespositeChooseMoneyCollectionViewCell"];
     [self.mainCollectionView registerNib:[UINib nibWithNibName:@"DepositeHeadCollectionReusableView" bundle:[NSBundle mainBundle]] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"DepositeHeadCollectionReusableView"];
     [self.mainCollectionView registerNib:[UINib nibWithNibName:@"RH_RechargeCenterFooterView" bundle:[NSBundle mainBundle]] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"RH_RechargeCenterFooterView"];
-    //添加footerView
+    self.mainCollectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
 }
 #pragma mark--
 #pragma mark--collectionViewDelegate,datasource
@@ -304,9 +315,8 @@
 }
 #pragma mark--
 #pragma mark--footerView delegate
-- (void)RH_RechargeCenterFooterViewSubmitBtnClick{
-    
-    
+- (void)RH_RechargeCenterFooterViewSubmitBtnClickWithMoney:(NSString *)money{
+    self.number = money;
     if (self.number.length == 0) {
         showMessage(self.view, @"请输入金额", nil);
     }else{
@@ -317,7 +327,6 @@
             vc.paywayModel = self.paywayModel;
             vc.platformModel = self.platformModel;
             vc.money = self.number;
-//            [self presentViewController:vc animated:YES completion:nil];
              [self.navigationController pushViewController:vc animated:YES];
         }else if ([self.platformModel.code isEqualToString:@"online"]){
             //请求优惠接口
@@ -347,9 +356,7 @@
             showMessage(self.view,[NSString stringWithFormat:@"%@",response[@"message"]], nil);
         }else{
             NSString *url = response[@"data"][@"payLink"];
-#warning 这里要跳转
-            NSLog(@"这里是要跳转的URL %@",url);
-            
+            [[UIApplication sharedApplication]openURL:[NSURL URLWithString:url]];
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
          showMessage(self.view, @"存款失败", nil);
@@ -359,11 +366,12 @@
 #pragma mark--请求优惠接口
 -(void)requestNormalPreferential{
     //获取优惠接口
+      __weak typeof(self) weakSelf = self;
     [SH_NetWorkService getNormalDepositeNum:self.number Payway:self.channelModel.depositWay PayAccountId:self.channelModel.searchId Complete:^(SH_BitCoinSaleModel *model) {
         SH_PreferentialPopView *popView = [[SH_PreferentialPopView alloc]initWithFrame:CGRectMake(0, 0, screenSize().width, screenSize().height)];
-        popView.delegate  =  self;
+        popView.delegate  =  weakSelf;
         [popView popViewShow];
-        [popView updateUIWithSaleModel:model];
+        [popView updateUIWithSaleModel:model Money:weakSelf.number];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];

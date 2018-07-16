@@ -59,8 +59,8 @@
     }];
 
 }
--(void)updateUIWithSaleModel:(SH_BitCoinSaleModel *)model{
-    [self.popSubView updateUIWithSaleModel:model];
+-(void)updateUIWithSaleModel:(SH_BitCoinSaleModel *)model Money:(NSString *)money{
+    [self.popSubView updateUIWithSaleModel:model moneyString:money];
 }
 #pragma mark--
 #pragma mark--popSubView 代理

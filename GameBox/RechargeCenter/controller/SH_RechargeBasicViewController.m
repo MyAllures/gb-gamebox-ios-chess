@@ -8,6 +8,7 @@
 
 #import "SH_RechargeBasicViewController.h"
 #import "SH_NavigationView.h"
+#import "SH_RechargeCenterViewController.h"
 @interface SH_RechargeBasicViewController ()<SH_NavigationViewDelegate>
 
 @end
@@ -36,7 +37,13 @@
 #pragma mark--
 #pragma mark--navi back
 -(void)SH_NavigationViewBackBtnClick{
-    [self.navigationController popViewControllerAnimated:YES];
+
+    if ([self isKindOfClass:[SH_RechargeCenterViewController class]]) {
+        [self.navigationController popViewControllerAnimated:NO];
+    }else{
+         [self.navigationController popViewControllerAnimated:YES];
+    }
+    
 }
 - (UIScrollView *)bgScrollView{
     if (!_bgScrollView) {
