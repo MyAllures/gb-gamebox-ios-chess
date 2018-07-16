@@ -50,6 +50,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *upLevelBT;
 @property (weak, nonatomic) IBOutlet UIImageView *dzGameMarkImg;
 @property (weak, nonatomic) IBOutlet UIImageView *runLBBGImg;
+@property (weak, nonatomic) IBOutlet UIView *searchView;
 @property (strong, nonatomic) SH_CycleScrollView *cycleAdView;
 @property (nonatomic, strong) SH_PlayerCenterView *pcv;
 @property (nonatomic, strong) UIView *backV;
@@ -299,6 +300,7 @@
         self.enterDZGameLevel = NO;
     }
     self.dzGameMarkImg.image = nil;
+    self.searchView.hidden = YES;
     if (self.currentLevel == 1) {
         self.cycleAdView.hidden = YES;
         self.topGamesListScrollView.hidden = YES;
@@ -808,8 +810,9 @@
     {
         //进入下级页面
         self.currentLevel ++;
-        if (self.enterDZGameLevel == YES) {
+        if (self.enterDZGameLevel == YES && self.currentLevel == 2) {
             self.currentDZGameTypeId = self.currentGameItemModel.apiId;
+            self.searchView.hidden = NO;
         }
         if (self.currentLevel == 1) {
             self.cycleAdView.hidden = YES;
