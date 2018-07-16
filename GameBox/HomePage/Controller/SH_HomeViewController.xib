@@ -282,7 +282,6 @@
                             <rect key="frame" x="16.5" y="4.5" width="130" height="47"/>
                             <state key="normal" image="btn_recharge"/>
                             <connections>
-                                <action selector="rechargeAction:" destination="-1" eventType="touchUpInside" id="dyZ-Bh-T21"/>
                                 <action selector="rechargeClick:" destination="-1" eventType="touchUpInside" id="Zlg-XM-3Iv"/>
                             </connections>
                         </button>
