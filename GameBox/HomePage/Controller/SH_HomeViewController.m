@@ -38,7 +38,7 @@
 #import "SH_NetWorkService+RegistAPI.h"
 #import "SH_WKGameViewController.h"
 #import "SH_NoAccessViewController.h"
-
+#import "SH_PrifitOutCoinView.h"
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate,PlayerCenterViewDelegate>
 
 
@@ -480,7 +480,12 @@
     }
 }
 
+#pragma mark--
+#pragma mark--收益按钮
 - (IBAction)incomeClick:(id)sender {
+    
+    SH_PrifitOutCoinView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_PrifitOutCoinView" owner:self options:nil].firstObject;
+//    AlertViewController *vc = [AlertViewController alloc]init
 }
 
 - (IBAction)shareClick:(id)sender {
