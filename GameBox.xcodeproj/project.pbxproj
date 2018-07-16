@@ -41,6 +41,7 @@
 		22E486D320F9C9920051A68C /* SH_SendMsgTabelViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22E486D120F9C9920051A68C /* SH_SendMsgTabelViewCell.xib */; };
 		22E486D620F9F1100051A68C /* SH_AdvisoryTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E486D520F9F1100051A68C /* SH_AdvisoryTypeModel.m */; };
 		22E486D920F9F8AE0051A68C /* SH_SysMsgDataListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E486D820F9F8AE0051A68C /* SH_SysMsgDataListModel.m */; };
+		22E486DC20FC3F0F0051A68C /* SH_MyMsgDataListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E486DB20FC3F0F0051A68C /* SH_MyMsgDataListModel.m */; };
 		42BF3E6E20F33A5D00F36B82 /* SH_PlayerCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BF3E6D20F33A5D00F36B82 /* SH_PlayerCenterView.m */; };
 		42BF3E7420F4974C00F36B82 /* SH_WelfareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BF3E7320F4974C00F36B82 /* SH_WelfareView.m */; };
 		5401C53120ECA10F0027246D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C53020ECA10F0027246D /* AppDelegate.m */; };
@@ -228,6 +229,8 @@
 		22E486D520F9F1100051A68C /* SH_AdvisoryTypeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_AdvisoryTypeModel.m; sourceTree = "<group>"; };
 		22E486D720F9F8AE0051A68C /* SH_SysMsgDataListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SysMsgDataListModel.h; sourceTree = "<group>"; };
 		22E486D820F9F8AE0051A68C /* SH_SysMsgDataListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SysMsgDataListModel.m; sourceTree = "<group>"; };
+		22E486DA20FC3F0F0051A68C /* SH_MyMsgDataListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_MyMsgDataListModel.h; sourceTree = "<group>"; };
+		22E486DB20FC3F0F0051A68C /* SH_MyMsgDataListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_MyMsgDataListModel.m; sourceTree = "<group>"; };
 		3BBE090F9B091E073F4BB10C /* Pods-GameBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameBox/Pods-GameBox.release.xcconfig"; sourceTree = "<group>"; };
 		425A90BE20F8873D004B681A /* HLPopTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLPopTableView.h; sourceTree = "<group>"; };
 		425A90BF20F8873E004B681A /* HLPopTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLPopTableView.m; sourceTree = "<group>"; };
@@ -803,6 +806,8 @@
 				22E486D520F9F1100051A68C /* SH_AdvisoryTypeModel.m */,
 				22E486D720F9F8AE0051A68C /* SH_SysMsgDataListModel.h */,
 				22E486D820F9F8AE0051A68C /* SH_SysMsgDataListModel.m */,
+				22E486DA20FC3F0F0051A68C /* SH_MyMsgDataListModel.h */,
+				22E486DB20FC3F0F0051A68C /* SH_MyMsgDataListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1424,6 +1429,7 @@
 				BF44ECC920F4D6BE00BC6EF3 /* SH_RechargeDetailMainSubmitView.m in Sources */,
 				22552CF120F4E0BB0090EFBC /* SH_PromoListModel.m in Sources */,
 				5401C55220ECA1B80027246D /* GameWebViewController.m in Sources */,
+				22E486DC20FC3F0F0051A68C /* SH_MyMsgDataListModel.m in Sources */,
 				229A219E20F3826E00F5A969 /* SH_GameAnnouncementView.m in Sources */,
 				BF2F915A20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m in Sources */,
 				BFFEDCB820F34CDC002E69FD /* SH_RechargeCenterChannelModel.m in Sources */,
