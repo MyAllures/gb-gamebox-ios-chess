@@ -8,10 +8,16 @@
 //
 
 #import "SH_WelfareView.h"
-#import "Masonry.h"
+
 #import "HLPopTableView.h"
 
-@interface SH_WelfareView() <UITextFieldDelegate>
+#import "PGDatePicker.h"
+#import "PGDatePickManager.h"
+
+@interface SH_WelfareView() <UITextFieldDelegate,PGDatePickerDelegate>
+{
+    PGDatePickManager *_datePickManager;
+}
 //资金日期
 @property (nonatomic, strong) UILabel *foundLbl;
 //开始时间
@@ -41,6 +47,12 @@
 //转账余额
 @property (nonatomic, strong) UILabel *balanceT;
 
+
+@property (strong, nonatomic) NSString *startTimeStr;
+@property (strong, nonatomic) NSString *endTimeStr;
+
+@property(nonatomic, strong) NSString *startAndEndDateStr;
+
 @end
 
 @implementation SH_WelfareView
@@ -51,7 +63,7 @@
     
     if (self) {
         [self createUI];
-        [self createDatePicker];
+//        [self createDatePicker];
     }
     return self;
 }
@@ -66,9 +78,9 @@
     [self addSubview:self.foundLbl];
     
     [self.foundLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.mas_top).mas_equalTo(40);
+        make.top.equalTo(self.mas_top).mas_equalTo(8);
         make.left.equalTo(self.mas_left).mas_equalTo(15);
-        make.size.mas_equalTo(CGSizeMake(130, 35));
+        make.size.mas_equalTo(CGSizeMake(130, 45));
     }];
 
     //开始时间
@@ -77,10 +89,13 @@
     self.startField.tag = 101;
     self.startField.backgroundColor = [UIColor whiteColor];
     self.startField.borderStyle = UITextBorderStyleLine;
+    self.startField.placeholder = @"请选择开始时间";
+    
     //左侧图片
     UIImage *img = [UIImage imageNamed:@"betRec_calendar_icon"];
     UIImageView *imgV = [[UIImageView alloc] initWithImage:img];
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    imgV.contentMode = UIViewContentModeScaleToFill;
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 45)];
     imgV.center = view.center;
     [view addSubview:imgV];
     
@@ -89,11 +104,19 @@
     [self addSubview:self.startField];
 
     [self.startField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.mas_top).with.offset(40);
+        make.top.equalTo(self.mas_top).with.offset(8);
         make.left.equalTo(self.mas_left).with.offset(100);
         make.size.mas_equalTo(CGSizeMake(140, 45));
     }];
 
+    UIButton  * startBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self addSubview:startBtn];
+    [startBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(self.startField);
+    }];
+    [startBtn addTarget:self action:@selector(startBtnClick) forControlEvents:UIControlEventTouchUpInside];
+  
+    
     //间隔线
     self.distanceLbl = [[UILabel alloc] init];
     self.distanceLbl.text = @"~";
@@ -104,7 +127,7 @@
     [self.distanceLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(20, 10));
         make.left.equalTo(self.startField.mas_right).with.offset(5);
-        make.top.equalTo(self.mas_top).with.offset(55);
+        make.top.equalTo(self.mas_top).with.offset(23);
     }];
 
     //结束时间
@@ -113,11 +136,12 @@
     self.endField.tag = 102;
     self.endField.backgroundColor = [UIColor whiteColor];
     self.endField.borderStyle = UITextBorderStyleLine;
-    
+    self.endField.placeholder = @"请选择结束时间";
     //左侧图片
     UIImage *img1 = [UIImage imageNamed:@"betRec_calendar_icon"];
     UIImageView *imgView = [[UIImageView alloc] initWithImage:img1];
-    UIView *leftV = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 200)];
+    imgView.contentMode = UIViewContentModeScaleToFill;
+    UIView *leftV = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 45)];
     imgView.center = leftV.center;
     [leftV addSubview:imgView];
     
@@ -129,9 +153,16 @@
     [self.endField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(140, 45));
         make.left.equalTo(self.distanceLbl.mas_right).with.offset(0);
-        make.top.equalTo(self.mas_top).with.offset(40);
+        make.top.equalTo(self.mas_top).with.offset(8);
     }];
 
+    UIButton  * endBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self addSubview:endBtn];
+    [endBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(self.endField);
+    }];
+    [endBtn addTarget:self action:@selector(endBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
     //快选
     self.selectBtn = [[UIButton alloc] init];
     [self.selectBtn setTitle:@"快选" forState:UIControlStateNormal];
@@ -143,21 +174,22 @@
     [self addSubview:self.selectBtn];
 
     [self.selectBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.mas_right).with.offset(-23);
-        make.top.equalTo(self.mas_top).with.offset(45);
+        make.right.equalTo(self.mas_right).with.offset(-8);
+//        make.top.equalTo(self.mas_top).with.offset(45);
+        make.centerY.mas_equalTo(self.endField.mas_centerY);
         make.size.mas_equalTo(CGSizeMake(60, 40));
     }];
 
     //分割线1
     self.lineFirst = [[UIView alloc] init];
-    self.lineFirst.backgroundColor = [UIColor lightGrayColor];
+    self.lineFirst.backgroundColor = [UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1.0];
     [self addSubview:self.lineFirst];
     
     [self.lineFirst mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.mas_top).with.offset(100);
+        make.top.equalTo(self.startField.mas_bottom).with.offset(8);
         make.left.equalTo(self.mas_left).with.offset(10);
         make.right.equalTo(self.mas_right).with.offset(-10);
-        make.height.mas_equalTo(1);
+        make.height.mas_equalTo(1.0);
     }];
     
     //全部类型
@@ -193,14 +225,14 @@
 
     //分割线2
     self.lineSecond = [[UIView alloc] init];
-    self.lineSecond.backgroundColor = [UIColor lightGrayColor];
+    self.lineSecond.backgroundColor = [UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1.0];
     [self addSubview:self.lineSecond];
     
     [self.lineSecond mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left).with.offset(0);
         make.right.equalTo(self.mas_right).with.offset(0);
         make.top.equalTo(self.searchBtn.mas_bottom).with.offset(10);
-        make.height.mas_equalTo(1);
+        make.height.mas_equalTo(1.0);
     }];
 
     //取款处理中
@@ -252,7 +284,7 @@
     
     //间隔线
     self.lineThird = [[UIView alloc] init];
-    self.lineThird.backgroundColor = [UIColor lightGrayColor];
+    self.lineThird.backgroundColor = [UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1.0];;
     [self addSubview:self.lineThird];
     
     [self.lineThird mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -261,33 +293,6 @@
         make.right.equalTo(self.mas_right).with.offset(0);
         make.height.mas_equalTo(8);
     }];
-}
-
-//创建日期选择器
-- (void)createDatePicker
-{
-    UIDatePicker *datePicker = [[UIDatePicker alloc] init];
-    datePicker.locale = [NSLocale localeWithLocaleIdentifier:@"zh"];
-    datePicker.datePickerMode = UIDatePickerModeDate;
-    [datePicker setDate:[NSDate date] animated:YES];
-    
-    [datePicker addTarget:self action:@selector(changeDate:) forControlEvents:UIControlEventValueChanged];
-    
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDate *currentDate = [NSDate date];
-    NSDateComponents *comps = [[NSDateComponents alloc] init];
-    //设置最大时间，当前时间往后推10年
-    [comps setYear:10];
-    NSDate *maxDate = [calendar dateByAddingComponents:comps toDate:currentDate options:0];
-    //设置最小时间，当前时间往前推10年
-    [comps setYear:-10];
-    NSDate *minDate = [calendar dateByAddingComponents:comps toDate:currentDate options:0];
-    
-    [datePicker setDate:minDate];
-    [datePicker setDate:maxDate];
-    
-    self.startField.inputView = datePicker;
-    self.endField.inputView = datePicker;
 }
 
 - (void)changeDate:(UIDatePicker *)datePicker
@@ -320,26 +325,142 @@
 //全部类型
 - (void)pressAllBtn
 {
-    NSArray *arr = @[@"所有",@"存款",@"返水",@"取款",@"推荐"];
-    
+    NSArray *arr = @[@"所有类型",@"存款",@"返水",@"取款",@"推荐"];
+    __weak typeof(self) weakSelf = self;
     HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, self.allBtn.bounds.size.width, 140) dependView:self.allBtn textArr:arr block:^(NSString *region_name, NSInteger index) {
-        
+        [weakSelf.allBtn setTitle:region_name forState:UIControlStateNormal];
     }];
 
     [self addSubview:popTV];
 }
-
+#pragma mark -- 搜索
 - (void)search
 {
    
 }
 
+#pragma mark -- 点击选择开始时间
+-(void)startBtnClick{
+    PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
+    datePickManager.style = PGDatePickManagerStyle1;
+    datePickManager.isShadeBackgroud = true;
+    
+    PGDatePicker *datePicker = datePickManager.datePicker;
+    datePicker.isHiddenMiddleText = false;
+    datePicker.delegate = self;
+    datePicker.datePickerType = PGPickerViewType3;
+    datePicker.datePickerMode = PGDatePickerModeDate;
+    _datePickManager = datePickManager;
+    UIWindow  * window = [UIApplication  sharedApplication].keyWindow;
+    window.backgroundColor = [UIColor  yellowColor];
+    [window addSubview:_datePickManager.view];
+}
+#pragma mark -- 点击选择结束时间
+-(void)endBtnClick{
+    NSDictionary *dict = [[NSDictionary alloc]initWithObjectsAndKeys:@"end",@"isEnd", nil];
+    self.startAndEndDateStr = dict[@"isEnd"];
+    PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
+    datePickManager.style = PGDatePickManagerStyle1;
+    datePickManager.isShadeBackgroud = true;
+    
+    PGDatePicker *datePicker = datePickManager.datePicker;
+    datePicker.isHiddenMiddleText = false;
+    datePicker.delegate = self;
+    datePicker.datePickerType = PGPickerViewType3;
+    datePicker.datePickerMode = PGDatePickerModeDate;
+    _datePickManager = datePickManager;
+    [self.window addSubview:datePickManager.view];
+}
+#pragma mark -- 结束时间
+-(void)seletedEndDate:(NSDictionary *)nt {
+
+    self.endField.text = nt[@"date"];
+    self.endTimeStr = nt[@"date"];
+    if (!self.startTimeStr) {
+        self.startTimeStr = [self getCurrentTimes];
+    }
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate *startDate = [dateFormatter dateFromString:self.startTimeStr];
+    NSDate *endDate = [dateFormatter dateFromString:self.endTimeStr];
+    if (startDate > endDate) {
+        showAlertView(@"提示", @"时间选择有误,请重试选择");
+        return;
+    }
+    
+}
+#pragma mark -- 开始时间
+-(void)changedDate:(NSDictionary *)nt {
+    self.startField.text = nt[@"date"];
+    self.startTimeStr = nt[@"date"];
+    if (!self.endTimeStr) {
+        self.endTimeStr = [self getCurrentTimes];
+    }
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate *startDate = [dateFormatter dateFromString:self.startTimeStr];
+    NSDate *endDate = [dateFormatter dateFromString:self.endTimeStr];
+    if (startDate > endDate) {
+        showAlertView(@"提示", @"时间选择有误,请重试选择");
+        return;
+    }
+    
+}
+#pragma mark - PGDatePickerDelegate M
+- (void)datePicker:(PGDatePicker *)datePicker didSelectDate:(NSDateComponents *)dateComponents {
+    NSLog(@"dateComponents = %@", dateComponents);
+    NSString *month ;
+    NSString *day;
+    if (dateComponents.month < 10) {
+        month = [NSString stringWithFormat:@"0%@",@(dateComponents.month)];
+    }else{
+        month = [NSString stringWithFormat:@"%@",@(dateComponents.month)];
+    }
+    
+    if (dateComponents.day < 10) {
+        day = [NSString stringWithFormat:@"0%@",@(dateComponents.day)];
+    }else{
+        day = [NSString stringWithFormat:@"%@",@(dateComponents.day)];
+    }
+    NSString *dateStr = [NSString stringWithFormat:@"%@-%@-%@",@(dateComponents.year),month,day];
+    NSLog(@"---%@",dateStr);
+    if ([self.startAndEndDateStr isEqualToString:@"end"]) {
+        NSString *dateStr = [NSString stringWithFormat:@"%@-%@-%@",@(dateComponents.year),month,day];
+        NSDictionary *dict =[[NSDictionary alloc]initWithObjectsAndKeys:dateStr,@"date",nil];
+        [self seletedEndDate:dict];
+        self.startAndEndDateStr = @"";
+        
+    } else {
+        NSString *dateStr = [NSString stringWithFormat:@"%@-%@-%@",@(dateComponents.year),month,day];
+        NSDictionary *dict =[[NSDictionary alloc]initWithObjectsAndKeys:dateStr,@"date",nil];
+        [self changedDate:dict];
+    }
+}
 #pragma mark - UITextFieldDelegate
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     return NO;
 }
+#pragma  mark --- getter method
 
-
+-(NSString*)getCurrentTimes{
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    
+    // ----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
+    
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    
+    //现在时间,你可以输出来看下是什么格式
+    
+    NSDate *datenow = [NSDate date];
+    
+    //----------将nsdate按formatter格式转成nsstring
+    
+    NSString *currentTimeString = [formatter stringFromDate:datenow];
+    
+    return currentTimeString;
+    
+}
 
 @end

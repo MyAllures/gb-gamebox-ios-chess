@@ -9,11 +9,12 @@
 #import "SH_GamesListScrollView.h"
 #import <Masonry/Masonry.h>
 #import "SH_GameItemView.h"
+#import "SH_DZGameItemView.h"
 
-#define SH_GAMELIST_ITEM_WIDTH 125
+#define SH_GAMELIST_ITEM_WIDTH 108
 #define SH_GAMELIST_ITEM_HEIGHT 108
 
-@interface SH_GamesListScrollView () <UIScrollViewDelegate, SH_GameItemViewDelegate>
+@interface SH_GamesListScrollView () <UIScrollViewDelegate, SH_GameItemViewDelegate, SH_DZGameItemViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIButton *preBT;
@@ -27,7 +28,7 @@
 - (void)reloaData
 {
     for (id subView in self.scrollView.subviews) {
-        if ([subView isMemberOfClass:[SH_GameItemView class]]) {
+        if ([subView isMemberOfClass:[SH_GameItemView class]] || [subView isMemberOfClass:[SH_DZGameItemView class]]) {
             [subView removeFromSuperview];
         }
     }
@@ -49,15 +50,30 @@
 
     self.scrollView.contentSize = CGSizeMake(contentSizeW, self.scrollView.frame.size.height);
     for (int i = 0; i < itemsNum; i++) {
-        SH_GameItemView *gameItemView = (SH_GameItemView *)[self.dataSource gamesListScrollView:self viewForItem:i];
-        [self.scrollView addSubview:gameItemView];
-        gameItemView.delegate = self;
-        [gameItemView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo((i/2)*SH_GAMELIST_ITEM_WIDTH);
-            make.top.mas_equalTo((i%2)*SH_GAMELIST_ITEM_HEIGHT);
-            make.width.mas_equalTo(SH_GAMELIST_ITEM_WIDTH);
-            make.height.mas_equalTo(SH_GAMELIST_ITEM_HEIGHT);
-        }];
+        id itemView =[self.dataSource gamesListScrollView:self viewForItem:i];
+        if ([itemView isMemberOfClass:[SH_DZGameItemView class]]) {
+            SH_DZGameItemView *gameItemView = (SH_DZGameItemView *)[self.dataSource gamesListScrollView:self viewForItem:i];
+            [self.scrollView addSubview:gameItemView];
+            gameItemView.delegate = self;
+            [gameItemView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.mas_equalTo((i/2)*SH_GAMELIST_ITEM_WIDTH);
+                make.top.mas_equalTo((i%2)*SH_GAMELIST_ITEM_HEIGHT);
+                make.width.mas_equalTo(SH_GAMELIST_ITEM_WIDTH);
+                make.height.mas_equalTo(SH_GAMELIST_ITEM_HEIGHT);
+            }];
+        }
+        else if ([itemView isMemberOfClass:[SH_GameItemView class]])
+        {
+            SH_GameItemView *gameItemView = (SH_GameItemView *)[self.dataSource gamesListScrollView:self viewForItem:i];
+            [self.scrollView addSubview:gameItemView];
+            gameItemView.delegate = self;
+            [gameItemView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.mas_equalTo((i/2)*SH_GAMELIST_ITEM_WIDTH);
+                make.top.mas_equalTo((i%2)*SH_GAMELIST_ITEM_HEIGHT);
+                make.width.mas_equalTo(SH_GAMELIST_ITEM_WIDTH);
+                make.height.mas_equalTo(SH_GAMELIST_ITEM_HEIGHT);
+            }];
+        }
     }
 }
 
@@ -166,4 +182,13 @@
     }
 }
 
+#pragma mark - SH_DZGameItemViewDelegate M
+
+- (void)dzGameItemView:(SH_DZGameItemView *)view didSelect:(SH_GameItemModel *)model
+{
+    ifRespondsSelector(self.delegate, @selector(gamesListScrollView:didSelectItem:))
+    {
+        [self.delegate gamesListScrollView:self didSelectItem:model];
+    }
+}
 @end

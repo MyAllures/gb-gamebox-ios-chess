@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SH_DZGameItemView">
+            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="game_chess_34_870" translatesAutoresizingMaskIntoConstraints="NO" id="hAw-gd-rS9">
+                    <rect key="frame" x="5" y="5" width="80" height="80"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="game_deco" translatesAutoresizingMaskIntoConstraints="NO" id="rO2-71-oRK">
+                    <rect key="frame" x="5" y="5" width="80" height="80"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="妞妞" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXd-Q1-UYd">
+                    <rect key="frame" x="15" y="66" width="60" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="wdu-S3-lwt"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="rO2-71-oRK" firstAttribute="trailing" secondItem="hAw-gd-rS9" secondAttribute="trailing" id="EFD-im-tZH"/>
+                <constraint firstItem="aXd-Q1-UYd" firstAttribute="bottom" secondItem="rO2-71-oRK" secondAttribute="bottom" constant="-1" id="SLP-oB-Lmd"/>
+                <constraint firstItem="rO2-71-oRK" firstAttribute="leading" secondItem="hAw-gd-rS9" secondAttribute="leading" id="Tfn-wj-lmz"/>
+                <constraint firstAttribute="trailing" secondItem="hAw-gd-rS9" secondAttribute="trailing" constant="5" id="aVy-Ae-sd5"/>
+                <constraint firstItem="rO2-71-oRK" firstAttribute="bottom" secondItem="hAw-gd-rS9" secondAttribute="bottom" id="hEo-sH-4Yr"/>
+                <constraint firstItem="aXd-Q1-UYd" firstAttribute="leading" secondItem="rO2-71-oRK" secondAttribute="leading" constant="10" id="kBZ-Rb-Js8"/>
+                <constraint firstAttribute="bottom" secondItem="hAw-gd-rS9" secondAttribute="bottom" constant="5" id="q6r-zc-IOc"/>
+                <constraint firstItem="aXd-Q1-UYd" firstAttribute="trailing" secondItem="rO2-71-oRK" secondAttribute="trailing" constant="-10" id="tFg-zT-TQP"/>
+                <constraint firstItem="hAw-gd-rS9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="tgW-34-8uP"/>
+                <constraint firstItem="rO2-71-oRK" firstAttribute="top" secondItem="hAw-gd-rS9" secondAttribute="top" id="tly-es-dcS"/>
+                <constraint firstItem="hAw-gd-rS9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="wIY-Q1-xF0"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="gameNameLB" destination="aXd-Q1-UYd" id="FR6-VP-2JA"/>
+                <outlet property="iconImg" destination="hAw-gd-rS9" id="qgb-3v-epe"/>
+            </connections>
+            <point key="canvasLocation" x="-153" y="-188"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="game_chess_34_870" width="126" height="107"/>
+        <image name="game_deco" width="90" height="90"/>
+    </resources>
+</document>
