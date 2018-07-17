@@ -83,12 +83,14 @@
     [self fetchCookie];
     [self initAdScroll];
     [self refreshAnnouncement];
-//    [self refreshHomeInfo];
+    [self refreshHomeInfo];
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didRegistratedSuccessful) name:@"didRegistratedSuccessful" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(statusBarOrientationChange:)
-                                                 name:UIApplicationDidChangeStatusBarOrientationNotification
-                                               object:nil];
+    if (iPhoneX) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(statusBarOrientationChange:)
+                                                     name:UIApplicationDidChangeStatusBarOrientationNotification
+                                                   object:nil];
+    }
     [self  configUI];
     [self  autoLoginIsRegist:false];
 }
