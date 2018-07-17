@@ -312,7 +312,7 @@
     NSMutableArray * tmp = [NSMutableArray  array];
     NSMutableArray * tmpLine = [NSMutableArray  array];
 //    NSLog(@"%f",self.bounds.size.width);
-    CGFloat width = 125;
+    CGFloat width = 121.5;
     for (int i=0; i<4; i++) {
         UILabel * label = [UILabel  new];
         label.backgroundColor = [UIColor  lightGrayColor];
@@ -340,7 +340,7 @@
         
         [line mas_makeConstraints:^(MASConstraintMaker *make) {
             if (i==0) {
-                make.leading.mas_equalTo(width);
+                make.leading.mas_equalTo(122);
             }else{
                 UILabel *l = tmp[i-1];
                 make.leading.mas_equalTo(l.mas_trailing);
