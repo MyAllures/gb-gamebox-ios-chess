@@ -22,4 +22,5 @@ typedef void (^jiHeBlock)(SH_JiHeModel *model);
                           failed:(SHNetWorkFailed)failed;
 +(void)jiHeListSuccess:(jiHeBlock)success
                 Failed:(SHNetWorkFailed)failed;
+
 @end

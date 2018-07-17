@@ -16,4 +16,7 @@
 
 + (void)fetchAnnouncement:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
 
++(void)onekeyrecoveryApiId:(NSString *)apiId
+                   Success:(SHNetWorkComplete)success
+                      failed:(SHNetWorkFailed)failed;
 @end
