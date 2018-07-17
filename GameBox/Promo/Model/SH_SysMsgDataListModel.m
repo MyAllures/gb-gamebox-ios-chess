@@ -8,7 +8,6 @@
 
 #import "SH_SysMsgDataListModel.h"
 @implementation SH_SysMsgDataListModel
-#pragma mark-
 -(void)updateSelectedFlag:(BOOL)bFlag
 {
     _selectedFlag = bFlag ;

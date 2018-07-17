@@ -39,7 +39,10 @@
 #import "SH_NetWorkService+RegistAPI.h"
 #import "SH_WKGameViewController.h"
 #import "SH_NoAccessViewController.h"
+#import "SH_PrifitOutCoinView.h"
 #import "SH_PromoDetailView.h"
+#import "SH_NetWorkService+Profit.h"
+#import "SH_ProfitModel.h"
 #import "SH_AnnouncementView.h"
 #import "SH_WelfareDetailView.h"
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate,PlayerCenterViewDelegate>
@@ -50,6 +53,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *upLevelBT;
 @property (weak, nonatomic) IBOutlet UIImageView *dzGameMarkImg;
 @property (weak, nonatomic) IBOutlet UIImageView *runLBBGImg;
+@property (weak, nonatomic) IBOutlet UIView *searchView;
 @property (strong, nonatomic) SH_CycleScrollView *cycleAdView;
 @property (nonatomic, strong) SH_PlayerCenterView *pcv;
 @property (nonatomic, strong) UIView *backV;
@@ -64,6 +68,8 @@
 @property (nonatomic, strong) NSString *currentDZGameTypeId;
 @property (nonatomic, assign) BOOL enterDZGameLevel;
 @property (nonatomic, strong) SH_AnnouncementView *announcementView;
+@property (weak, nonatomic) IBOutlet UILabel *suishenFuLiLab;
+
 
 
 @end
@@ -79,6 +85,12 @@
     [self refreshAnnouncement];
     [self refreshHomeInfo];
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didRegistratedSuccessful) name:@"didRegistratedSuccessful" object:nil];
+    if (iPhoneX) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(statusBarOrientationChange:)
+                                                     name:UIApplicationDidChangeStatusBarOrientationNotification
+                                                   object:nil];
+    }
     [self  configUI];
     [self  autoLoginIsRegist:false];
 }
@@ -159,6 +171,8 @@
     
     if ([RH_UserInfoManager  shareUserManager].isLogin) {
         self.avatarImg.image = [UIImage  imageNamed:@"photo_male"];
+        //刷新随身福利
+        self.suishenFuLiLab.text = [NSString stringWithFormat:@"%.2f",[RH_UserInfoManager shareUserManager].mineSettingInfo.walletBalance];        
     }else{
         self.avatarImg.image = [UIImage  imageNamed:@"avatar"];
     }
@@ -183,6 +197,23 @@
 - (void)setCurrentLevel:(int)currentLevel
 {
     _currentLevel = currentLevel;
+    if (self.currentLevel == 0)
+    {
+        self.topGamesListScrollView.hidden = NO;
+        self.midGamesListScrollView.hidden = YES;
+        self.lastGamesListScrollView.hidden = YES;
+    }
+    else if (self.currentLevel == 1) {
+        self.topGamesListScrollView.hidden = YES;
+        self.midGamesListScrollView.hidden = NO;
+        self.lastGamesListScrollView.hidden = YES;
+    }
+    else if (self.currentLevel == 2) {
+        self.topGamesListScrollView.hidden = YES;
+        self.midGamesListScrollView.hidden = YES;
+        self.lastGamesListScrollView.hidden = NO;
+    }
+
     self.upLevelBT.hidden = _currentLevel == 0;
 }
 
@@ -299,6 +330,7 @@
         self.enterDZGameLevel = NO;
     }
     self.dzGameMarkImg.image = nil;
+    self.searchView.hidden = YES;
     if (self.currentLevel == 1) {
         self.cycleAdView.hidden = YES;
         self.topGamesListScrollView.hidden = YES;
@@ -420,14 +452,6 @@
     [targetVC presentViewController:viewController animated:YES completion:nil];
 }
 
-- (IBAction)rechargeClick:(id)sender {
-    if (![[RH_UserInfoManager shareUserManager] isLogin]) {
-        [self login];
-        return;
-    }
-    [self.navigationController pushViewController:[[SH_RechargeCenterViewController alloc]init] animated:YES];
-}
-
 #pragma mark - 优惠活动
 - (IBAction)activitiesClick:(id)sender {
     SH_PromoContentView *promoContentView = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoContentView" owner:nil options:nil] lastObject];
@@ -448,6 +472,32 @@
     cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
     [self presentViewController:cvc animated:YES completion:nil];
+}
+#pragma mark--
+#pragma mark--充值中心
+
+- (IBAction)recharegeBtnClick:(id)sender {
+    if (![[RH_UserInfoManager shareUserManager] isLogin]) {
+        [self login];
+        return;
+    }
+    [self.navigationController pushViewController:[[SH_RechargeCenterViewController alloc]init] animated:YES];
+}
+#pragma mark--
+#pragma mark--收益按钮
+- (IBAction)profitBtnClick:(id)sender {
+    SH_PrifitOutCoinView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_PrifitOutCoinView" owner:nil options:nil].lastObject;
+    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-75 titleImageName:@"profitTitle" alertViewType:AlertViewTypeLong];
+    acr.title = @"牌局记录";
+    acr.modalPresentationStyle = UIModalPresentationCurrentContext;
+    acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:acr animated:YES completion:nil];
+    
+    [SH_NetWorkService getBankInforComplete:^(SH_ProfitModel *model) {
+        [view updateUIWithBalance:model.totalBalance BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:acr];
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        
+    }];
 }
 
 #pragma mark - 玩家中心
@@ -560,8 +610,7 @@
     }
 }
 
-- (IBAction)incomeClick:(id)sender {
-}
+
 
 - (IBAction)shareClick:(id)sender {
 }
@@ -575,8 +624,9 @@
     _cycleAdView.continuous = YES;
     _cycleAdView.autoPlayTimeInterval = 5;
     [self.view addSubview:_cycleAdView];
+    UIInterfaceOrientation oriention = [UIApplication sharedApplication].statusBarOrientation;
     [_cycleAdView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(18);
+        make.left.mas_equalTo(oriention == UIInterfaceOrientationLandscapeLeft ? 18 : (iPhoneX ? 18+30 : 18));
         make.top.mas_equalTo(88);
         make.width.mas_equalTo(190);
         make.height.mas_equalTo(224);
@@ -590,11 +640,13 @@
         _topGamesListScrollView.dataSource = self;
         _topGamesListScrollView.delegate = self;
         [self.view addSubview:_topGamesListScrollView];
+        UIInterfaceOrientation oriention = [UIApplication sharedApplication].statusBarOrientation;
+
         [_topGamesListScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(18+190);
             make.top.mas_equalTo(88);
             make.height.mas_equalTo(224);
-            make.right.equalTo(self.view.mas_right);
+            make.right.mas_equalTo(oriention == UIInterfaceOrientationLandscapeLeft ? (iPhoneX ? -30 : 0) : 0);
         }];
     }
     return _topGamesListScrollView;
@@ -604,14 +656,16 @@
 {
     if (_midGamesListScrollView == nil) {
         _midGamesListScrollView = [[SH_GamesListScrollView alloc] init];
+        _midGamesListScrollView.hidden = YES;
         _midGamesListScrollView.dataSource = self;
         _midGamesListScrollView.delegate = self;
         [self.view addSubview:_midGamesListScrollView];
+        UIInterfaceOrientation oriention = [UIApplication sharedApplication].statusBarOrientation;
         [_midGamesListScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(0);
+            make.left.mas_equalTo(oriention == UIInterfaceOrientationLandscapeLeft ? 0 : (iPhoneX ? 30 : 0));
             make.top.mas_equalTo(88);
             make.height.mas_equalTo(224);
-            make.right.equalTo(self.view.mas_right);
+            make.right.mas_equalTo(oriention == UIInterfaceOrientationLandscapeLeft ? (iPhoneX ? -30 : 0) : 0);
         }];
     }
     return _midGamesListScrollView;
@@ -621,14 +675,16 @@
 {
     if (_lastGamesListScrollView == nil) {
         _lastGamesListScrollView = [[SH_GamesListScrollView alloc] init];
+        _lastGamesListScrollView.hidden = YES;
         _lastGamesListScrollView.dataSource = self;
         _lastGamesListScrollView.delegate = self;
         [self.view addSubview:_lastGamesListScrollView];
+        UIInterfaceOrientation oriention = [UIApplication sharedApplication].statusBarOrientation;
         [_lastGamesListScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(0);
+            make.left.mas_equalTo(oriention == UIInterfaceOrientationLandscapeLeft ? 0 : (iPhoneX ? 30 : 0));
             make.top.mas_equalTo(88);
             make.height.mas_equalTo(224);
-            make.right.equalTo(self.view.mas_right);
+            make.right.mas_equalTo(oriention == UIInterfaceOrientationLandscapeLeft ? (iPhoneX ? -30 : 0) : 0);
         }];
     }
     return _lastGamesListScrollView;
@@ -816,8 +872,9 @@
     {
         //进入下级页面
         self.currentLevel ++;
-        if (self.enterDZGameLevel == YES) {
+        if (self.enterDZGameLevel == YES && self.currentLevel == 2) {
             self.currentDZGameTypeId = self.currentGameItemModel.apiId;
+            self.searchView.hidden = NO;
         }
         if (self.currentLevel == 1) {
             self.cycleAdView.hidden = YES;
@@ -850,5 +907,68 @@
     });
 }
 
+- (void)statusBarOrientationChange:(NSNotification *)notification
+{
+    UIInterfaceOrientation oriention = [UIApplication sharedApplication].statusBarOrientation;
+    if (oriention == UIInterfaceOrientationLandscapeLeft) {
+        [self.cycleAdView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(18);
+            make.top.mas_equalTo(88);
+            make.width.mas_equalTo(190);
+            make.height.mas_equalTo(224);
+        }];
+
+        [self.topGamesListScrollView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(18+190);
+            make.top.mas_equalTo(88);
+            make.height.mas_equalTo(224);
+            make.right.mas_equalTo(iPhoneX ? -30 : 0);
+        }];
+        
+        [self.midGamesListScrollView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(0);
+            make.top.mas_equalTo(88);
+            make.height.mas_equalTo(224);
+            make.right.mas_equalTo(iPhoneX ? -30 : 0);
+        }];
+        
+        [self.lastGamesListScrollView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(0);
+            make.top.mas_equalTo(88);
+            make.height.mas_equalTo(224);
+            make.right.mas_equalTo(iPhoneX ? -30 : 0);
+        }];
+    }
+    else if (oriention == UIInterfaceOrientationLandscapeRight)
+    {
+        [self.cycleAdView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(iPhoneX ? 18+30 : 18);
+            make.top.mas_equalTo(88);
+            make.width.mas_equalTo(190);
+            make.height.mas_equalTo(224);
+        }];
+        
+        [self.topGamesListScrollView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(iPhoneX ? 18+190+30: 18+190);
+            make.top.mas_equalTo(88);
+            make.height.mas_equalTo(224);
+            make.right.mas_equalTo(0);
+        }];
+        
+        [self.midGamesListScrollView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(iPhoneX ? 30 : 0);
+            make.top.mas_equalTo(88);
+            make.height.mas_equalTo(224);
+            make.right.mas_equalTo(0);
+        }];
+        
+        [self.lastGamesListScrollView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(iPhoneX ? 30 : 0);
+            make.top.mas_equalTo(88);
+            make.height.mas_equalTo(224);
+            make.right.mas_equalTo(0);
+        }];
+    }
+}
 @end
 

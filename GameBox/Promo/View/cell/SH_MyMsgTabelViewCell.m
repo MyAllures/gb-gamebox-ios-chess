@@ -10,6 +10,17 @@
 
 @implementation SH_MyMsgTabelViewCell
 
+- (IBAction)seleteAction:(UIButton
+                          *)sender {
+    
+    sender.selected = !sender.selected;
+    NSLog(@"tag===%ld",(long)sender.tag);
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%ld",(long)sender.tag],@"row", nil];
+    NSNotification *noti = [NSNotification notificationWithName:@"changedImage1" object:nil userInfo:dict];
+    [[NSNotificationCenter defaultCenter] postNotification:noti];
+    
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
