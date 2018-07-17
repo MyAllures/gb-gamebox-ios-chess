@@ -44,6 +44,7 @@
 #import "SH_NetWorkService+Profit.h"
 #import "SH_ProfitModel.h"
 #import "SH_AnnouncementView.h"
+#import "YFAnimationManager.h"
 
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate,PlayerCenterViewDelegate>
 
@@ -84,6 +85,9 @@
     [self initAdScroll];
     [self refreshAnnouncement];
     [self refreshHomeInfo];
+    
+    [[YFAnimationManager shareInstancetype] showAnimationInView:self.view withAnimationStyle:YFAnimationStyleOfSnow];
+
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didRegistratedSuccessful) name:@"didRegistratedSuccessful" object:nil];
     if (iPhoneX) {
         [[NSNotificationCenter defaultCenter] addObserver:self
