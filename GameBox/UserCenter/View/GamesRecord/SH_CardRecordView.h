@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SH_CardRecordView : UIView
-
++(instancetype)instanceCardRecordView;
 @end

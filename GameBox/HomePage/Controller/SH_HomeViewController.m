@@ -17,7 +17,7 @@
 #import "View+MASAdditions.h"
 #import "SH_CycleScrollView.h"
 #import "SH_PlayerCenterView.h"
-#import "SH_WelfareView.h"
+#import "SH_WelfareRecordView.h"
 #import "AlertViewController.h"
 #import "SH_LoginView.h"
 #import "SH_PromoContentView.h"
@@ -45,6 +45,7 @@
 #import "SH_ProfitModel.h"
 #import "SH_AnnouncementView.h"
 #import "YFAnimationManager.h"
+#import "SH_WelfareDetailView.h"
 #import "SH_SaftyCenterView.h"
 
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate,PlayerCenterViewDelegate>
@@ -59,7 +60,6 @@
 @property (strong, nonatomic) SH_CycleScrollView *cycleAdView;
 @property (nonatomic, strong) SH_PlayerCenterView *pcv;
 @property (nonatomic, strong) UIView *backV;
-@property (nonatomic, strong) SH_WelfareView *welfareV;
 @property (nonatomic, strong) UIView *welBackV;
 @property (strong, nonatomic) SH_GamesListScrollView *topGamesListScrollView;
 @property (strong, nonatomic) SH_GamesListScrollView *midGamesListScrollView;
@@ -72,6 +72,7 @@
 @property (nonatomic, assign) BOOL enterDZGameLevel;
 @property (nonatomic, strong) SH_AnnouncementView *announcementView;
 @property (weak, nonatomic) IBOutlet UILabel *suishenFuLiLab;
+
 
 
 @end
@@ -551,7 +552,7 @@
         [self.backV removeFromSuperview];
     }];
 }
-
+#pragma  mark ---  玩家中心
 - (void)popView:(UIButton *)btn
 {
     [self removeView];
@@ -560,17 +561,26 @@
         
         self.welBackV = [[UIView alloc] init];
         self.welBackV.backgroundColor = [UIColor colorWithWhite:0.2f alpha:0.5];
-        [self.view addSubview:self.welBackV];
+        [[UIApplication sharedApplication].keyWindow addSubview:self.welBackV];
         
         //福利记录
-        self.welfareV = [[SH_WelfareView alloc] init];
+       /* self.welfareV = [[SH_WelfareView alloc] init];
         self.welfareV.backgroundColor = [UIColor whiteColor];
-        self.welfareV.layer.cornerRadius = 4.5;
-        [self.welBackV addSubview:self.welfareV];
+        self.welfareV.layer.cornerRadius = 4.5;*/
+        SH_WelfareRecordView   *welfare =  [SH_WelfareRecordView instanceWelfareRecordView];
+        [self.welBackV addSubview: welfare];
         
-        AlertViewController *cvc  = [[AlertViewController  alloc] initAlertView:self.welfareV viewHeight:303 titleImageName:@"title06" alertViewType:AlertViewTypeLong];
         
-        cvc.title = @"福利记录";
+        AlertViewController *cvc  = [[AlertViewController  alloc] initAlertView:welfare viewHeight:303 titleImageName:@"title06" alertViewType:AlertViewTypeLong];
+        
+        welfare.backToDetailViewBlock = ^(NSString *searchId,SH_FundListModel * model) {
+            SH_WelfareDetailView * detail = [SH_WelfareDetailView  instanceWelfareDetailView];
+            detail.searchId = searchId;
+            detail.infoModel = model;
+             AlertViewController *dvc  = [[AlertViewController  alloc] initAlertView:detail viewHeight:303 titleImageName:@"title06" alertViewType:AlertViewTypeLong];
+            [self presentViewController:dvc addTargetViewController:cvc];
+        };
+        
         cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         cvc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         [self presentViewController:cvc animated:YES completion:nil];
@@ -603,16 +613,13 @@
         cardBackV.backgroundColor = [UIColor colorWithWhite:0.2f alpha:0.5];
         [self.view addSubview:cardBackV];
         
-        SH_CardRecordView *crv = [[SH_CardRecordView alloc] init];
+        SH_CardRecordView *crv = [SH_CardRecordView  instanceCardRecordView];
         crv.backgroundColor = [UIColor whiteColor];
         crv.layer.cornerRadius = 4.5;
         [cardBackV addSubview:crv];
         
         AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:crv viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"" alertViewType:AlertViewTypeLong];
-        acr.title = @"牌局记录";
-        acr.modalPresentationStyle = UIModalPresentationCurrentContext;
-        acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        [self presentViewController:acr animated:YES completion:nil];
+        [self presentViewController:acr addTargetViewController:self];
     }
 }
 
@@ -814,7 +821,7 @@
 #pragma mark - SH_WelfareViewDelegate
 - (void)welfareViewDisappear
 {
-    [self.welfareV removeFromSuperview];
+//    [self.welfareV removeFromSuperview];
     [self.welBackV removeFromSuperview];
 }
 

@@ -11,27 +11,27 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SH_WelfareRecordView">
-            <rect key="frame" x="0.0" y="0.0" width="465" height="320"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SH_CardRecordView">
+            <rect key="frame" x="0.0" y="0.0" width="579" height="709"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xny-b4-QPR">
-                    <rect key="frame" x="0.0" y="0.0" width="465" height="320"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KhP-c5-WwK">
+                    <rect key="frame" x="0.0" y="0.0" width="579" height="709"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Xny-b4-QPR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0ae-zZ-Z3N"/>
-                <constraint firstItem="Xny-b4-QPR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="KSZ-aS-bTO"/>
-                <constraint firstAttribute="trailing" secondItem="Xny-b4-QPR" secondAttribute="trailing" id="lKV-M2-Etw"/>
-                <constraint firstAttribute="bottom" secondItem="Xny-b4-QPR" secondAttribute="bottom" id="pvC-pv-hbH"/>
+                <constraint firstItem="KhP-c5-WwK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="KIb-1u-Smq"/>
+                <constraint firstAttribute="bottom" secondItem="KhP-c5-WwK" secondAttribute="bottom" id="LUc-GH-pCL"/>
+                <constraint firstItem="KhP-c5-WwK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QiR-PI-tIK"/>
+                <constraint firstAttribute="trailing" secondItem="KhP-c5-WwK" secondAttribute="trailing" id="nwc-Jf-bwc"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="tableView" destination="Xny-b4-QPR" id="eBx-Dg-bWh"/>
+                <outlet property="tableView" destination="KhP-c5-WwK" id="97f-il-cL5"/>
             </connections>
-            <point key="canvasLocation" x="-275" y="-42"/>
+            <point key="canvasLocation" x="135.5" y="83.5"/>
         </view>
     </objects>
 </document>
