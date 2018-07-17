@@ -44,6 +44,7 @@
 #import "SH_NetWorkService+Profit.h"
 #import "SH_ProfitModel.h"
 #import "SH_AnnouncementView.h"
+#import "SH_SaftyCenterView.h"
 
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate,PlayerCenterViewDelegate>
 
@@ -400,6 +401,14 @@
     [self presentViewController:cvc addTargetViewController:self];
 }
 
+- (IBAction)oneKeyReciveBtnClick:(id)sender {
+    [SH_NetWorkService onekeyrecoveryApiId:nil Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        
+    }];
+}
+
 #pragma mark - 个人设置
 
 - (IBAction)avatarClick:(id)sender {
@@ -566,16 +575,17 @@
     else if ([btn.currentTitle isEqualToString:@"安全中心"]) {
         
         //安全中心
-        UIView *securityBackV = [[UIView alloc] init];
-        securityBackV.backgroundColor = [UIColor colorWithWhite:0.2f alpha:0.5];
-        [self.view addSubview:securityBackV];
-        
-        SH_SecurityCenterView *securityView = [[SH_SecurityCenterView alloc] init];
-        securityView.backgroundColor = [UIColor whiteColor];
-        securityView.layer.cornerRadius = 4.5;
-        [securityBackV addSubview:securityView];
+//        UIView *securityBackV = [[UIView alloc] init];
+//        securityBackV.backgroundColor = [UIColor colorWithWhite:0.2f alpha:0.5];
+//        [self.view addSubview:securityBackV];
+//
+//        SH_SecurityCenterView *securityView = [[SH_SecurityCenterView alloc] init];
+//        securityView.backgroundColor = [UIColor whiteColor];
+//        securityView.layer.cornerRadius = 4.5;
+//        [securityBackV addSubview:securityView];
+        SH_SaftyCenterView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_SaftyCenterView" owner:self options:nil].firstObject;
     
-      AlertViewController *avc  = [[AlertViewController  alloc] initAlertView:securityView viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"" alertViewType:AlertViewTypeLong];
+      AlertViewController *avc  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-30 titleImageName:@"saftyTtile" alertViewType:AlertViewTypeLong];
         avc.title = @"安全中心";
         avc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         avc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;

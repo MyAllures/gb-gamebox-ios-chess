@@ -202,6 +202,9 @@
                                         <constraint firstAttribute="height" constant="36.5" id="gig-Ey-ZTJ"/>
                                     </constraints>
                                     <state key="normal" image="btn_refresh"/>
+                                    <connections>
+                                        <action selector="oneKeyReciveBtnClick:" destination="-1" eventType="touchUpInside" id="jOo-RY-ceW"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hmz-LQ-ONl">
                                     <rect key="frame" x="191" y="3.5" width="34.5" height="36.5"/>
