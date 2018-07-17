@@ -7,41 +7,45 @@
 //
 
 #import "SH_LookJiHeView.h"
-#import "SH_LookJiHeCollectionViewCell.h"
-@interface SH_LookJiHeView()<UICollectionViewDelegate,UICollectionViewDataSource>
-@property (weak, nonatomic) IBOutlet UICollectionView *mainCollectionView;
-
+#import "SH_LookJiHeTableViewCell.h"
+#import "SH_NetWorkService+Profit.h"
+@interface SH_LookJiHeView()<UITableViewDelegate,UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *mainTableView;
+@property(nonatomic,strong)NSArray *dataArray;
 @end
 @implementation SH_LookJiHeView
 
 - (void)awakeFromNib{
     [super awakeFromNib];
+    [self loadData];
     [self configUI];
 }
+-(void)loadData{
+    [SH_NetWorkService jiHeListSuccess:^(SH_JiHeModel *model) {
+        self.dataArray = model.withdrawAudit;
+        [self.mainTableView reloadData];
+    } Failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        
+    }];
+}
 -(void)configUI{
-    self.mainCollectionView.delegate = self;
-    self.mainCollectionView.dataSource = self;
-    [self.mainCollectionView registerNib:[UINib nibWithNibName:@"SH_LookJiHeCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"SH_LookJiHeCollectionViewCell"];
+    self.mainTableView.delegate  = self;
+    self.mainTableView.dataSource = self;
+    [self.mainTableView registerNib:[UINib nibWithNibName:@"SH_LookJiHeTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SH_LookJiHeTableViewCell"];
 }
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 50;
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.dataArray.count;
 }
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    SH_LookJiHeCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SH_LookJiHeCollectionViewCell" forIndexPath:indexPath];
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 30;
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    SH_LookJiHeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SH_LookJiHeTableViewCell"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [cell updaetUIWithModel:self.dataArray[indexPath.row]];
     return cell;
 }
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return CGSizeMake((self.mainCollectionView.frame.size.width - 3 * 2)/4.0, 30);
-}
--(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-{
-    return UIEdgeInsetsMake(0, 0, 0, 0);
-}
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
-    return 2;
-}
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
-    return 2;
+- (void)setTargetVC:(UIViewController *)targetVC{
+    _targetVC = targetVC;
 }
 @end

@@ -9,4 +9,8 @@
 #import "SH_PromoListModel.h"
 
 @implementation SH_PromoListModel
+-(void)updateImageSize:(CGSize)size
+{
+    _showImageSize = size ;
+}
 @end

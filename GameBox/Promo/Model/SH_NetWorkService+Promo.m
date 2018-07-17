@@ -144,6 +144,41 @@
         }
     }];
 }
+#pragma mark - 站点信息 - 我的消息删除
++(void)startLoadMyMessageDeleteWithIds:(NSString *)ids
+                              complete:(SHNetWorkComplete)complete
+                                failed:(SHNetWorkFailed)failed {
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/deleteAdvisoryMessage.html"];
+    NSDictionary *parameter =  @{@"ids":ids};
+    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost, @"Cookie":[NetWorkLineMangaer sharedManager].currentCookie?:@""};
+    [SH_NetWorkService post:url parameter:parameter header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (complete) {
+            complete(httpURLResponse, response);
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
+        if (failed) {
+            failed(httpURLResponse, err);
+        }
+    }];
+}
+#pragma mark - V3 站点信息 系统信息删除
++(void)startLoadSystemMessageDeleteWithIds:(NSString *)ids
+                                  complete:(SHNetWorkComplete)complete
+                                    failed:(SHNetWorkFailed)failed {
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/deleteSiteSysNotice.html"];
+    NSDictionary *parameter =  @{@"ids":ids};
+    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost, @"Cookie":[NetWorkLineMangaer sharedManager].currentCookie?:@""};
+    [SH_NetWorkService post:url parameter:parameter header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (complete) {
+            complete(httpURLResponse, response);
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
+        if (failed) {
+            failed(httpURLResponse, err);
+        }
+    }];
+}
+
 #pragma mark  - 获取站点消息-系统消息&&我的消息 未读消息的条数
 +(void)startLoadMessageCenterSiteMessageUnReadCount:(SHNetWorkComplete)complete
                                              failed:(SHNetWorkFailed)failed {

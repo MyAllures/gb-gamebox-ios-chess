@@ -5,7 +5,8 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14113"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,10 +18,54 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="66a-UP-S79">
                     <rect key="frame" x="5" y="3" width="310" height="270"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QI9-Ws-ha7">
+                            <rect key="frame" x="0.0" y="5" width="310" height="205"/>
+                            <color key="backgroundColor" red="0.18823529411764706" green="0.23529411764705882" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </tableView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Jx-pb-qEM">
+                            <rect key="frame" x="22.5" y="216" width="130" height="47"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="47" id="3f8-jA-Dpp"/>
+                                <constraint firstAttribute="width" constant="130" id="wOz-AC-CId"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                            <state key="normal" title="查看稽核" backgroundImage="button-large-1"/>
+                            <connections>
+                                <action selector="lookJiHeBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="FeS-8Q-smb"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svl-rE-TNT">
+                            <rect key="frame" x="157.5" y="216" width="130" height="47"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="130" id="Nca-sw-3fC"/>
+                                <constraint firstAttribute="height" constant="47" id="Wnt-UW-JB3"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                            <state key="normal" title="确定出币" backgroundImage="button-large-1"/>
+                            <connections>
+                                <action selector="sureOutCoinBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="puj-8P-5hE"/>
+                            </connections>
+                        </button>
+                    </subviews>
                     <color key="backgroundColor" red="0.18823529411764706" green="0.23529411764705882" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="QI9-Ws-ha7" secondAttribute="bottom" constant="60" id="63l-EE-Srv"/>
+                        <constraint firstItem="svl-rE-TNT" firstAttribute="leading" secondItem="3Jx-pb-qEM" secondAttribute="trailing" constant="5" id="9A6-CN-FUc"/>
+                        <constraint firstAttribute="bottom" secondItem="3Jx-pb-qEM" secondAttribute="bottom" constant="7" id="9RK-YJ-bl2"/>
+                        <constraint firstItem="3Jx-pb-qEM" firstAttribute="trailing" secondItem="66a-UP-S79" secondAttribute="centerX" constant="-2.5" id="HW9-Uf-Zyc"/>
+                        <constraint firstItem="svl-rE-TNT" firstAttribute="centerY" secondItem="3Jx-pb-qEM" secondAttribute="centerY" id="NAU-5q-xu1"/>
+                        <constraint firstItem="QI9-Ws-ha7" firstAttribute="leading" secondItem="66a-UP-S79" secondAttribute="leading" id="dBq-ab-cy9"/>
+                        <constraint firstItem="QI9-Ws-ha7" firstAttribute="top" secondItem="66a-UP-S79" secondAttribute="top" constant="5" id="jFq-rG-V3L"/>
+                        <constraint firstAttribute="trailing" secondItem="QI9-Ws-ha7" secondAttribute="trailing" id="o7G-Fe-q3a"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.16470588235294117" green="0.20784313725490194" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="66a-UP-S79" secondAttribute="bottom" constant="7" id="67t-ps-R7G"/>
                 <constraint firstItem="66a-UP-S79" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="3" id="N41-iZ-ycg">
@@ -33,6 +78,13 @@
                 <constraint firstAttribute="trailing" secondItem="66a-UP-S79" secondAttribute="trailing" constant="5" id="ral-Kb-OAg"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="bgView" destination="66a-UP-S79" id="T8G-XS-0qD"/>
+                <outlet property="mainTableView" destination="QI9-Ws-ha7" id="50Q-su-rhA"/>
+            </connections>
         </view>
     </objects>
+    <resources>
+        <image name="button-large-1" width="120" height="45"/>
+    </resources>
 </document>

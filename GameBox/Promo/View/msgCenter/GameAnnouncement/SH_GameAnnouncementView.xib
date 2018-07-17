@@ -32,7 +32,11 @@
                         <constraint firstItem="n8Z-c5-UNM" firstAttribute="leading" secondItem="Sd3-yn-A5b" secondAttribute="leading" id="FhT-sW-9ZM"/>
                         <constraint firstAttribute="trailing" secondItem="n8Z-c5-UNM" secondAttribute="trailing" id="Jjz-Xj-KxM"/>
                         <constraint firstItem="n8Z-c5-UNM" firstAttribute="top" secondItem="Sd3-yn-A5b" secondAttribute="top" id="MaK-hR-45q"/>
+                        <constraint firstItem="n8Z-c5-UNM" firstAttribute="leading" secondItem="Sd3-yn-A5b" secondAttribute="leading" id="VqZ-OB-4uv"/>
                         <constraint firstAttribute="bottom" secondItem="n8Z-c5-UNM" secondAttribute="bottom" id="aY4-rW-xac"/>
+                        <constraint firstAttribute="trailing" secondItem="n8Z-c5-UNM" secondAttribute="trailing" id="nf1-Am-2c0"/>
+                        <constraint firstAttribute="bottom" secondItem="n8Z-c5-UNM" secondAttribute="bottom" id="oLd-LG-Mux"/>
+                        <constraint firstItem="n8Z-c5-UNM" firstAttribute="top" secondItem="Sd3-yn-A5b" secondAttribute="top" id="sty-9S-3oz"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4c6-zS-CUz">

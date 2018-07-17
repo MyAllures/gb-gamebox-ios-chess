@@ -108,11 +108,12 @@
     NSDate *startDate = [dateFormatter dateFromString:self.startTimeStr];
     NSDate *endDate = [dateFormatter dateFromString:self.endTimeStr];
     if (startDate > endDate) {
-        showAlertView(@"提示", @"时间选择有误,请重试选择");
+        showMessage(self, @"提示", @"时间选择有误,请重试选择");
         return;
     }
     [self.gameAnnouncementArr removeAllObjects];
     if ([RH_UserInfoManager shareUserManager].isLogin) {
+        [MBProgressHUD showHUDAddedTo:self animated:YES];
         [SH_NetWorkService_Promo startLoadGameNoticeStartTime:self.startTimeStr endTime:self.endTimeStr pageNumber:1 pageSize:50000 apiId:-1 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *dic = (NSDictionary *)response;
             NSLog(@"dic===%@",dic);
@@ -122,6 +123,7 @@
                 [self.gameAnnouncementArr addObject:model];
             }
             [self.tableView reloadData];
+            [MBProgressHUD hideHUDForView:self animated:YES];
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             
         }];
@@ -139,11 +141,12 @@
     NSDate *startDate = [dateFormatter dateFromString:self.startTimeStr];
     NSDate *endDate = [dateFormatter dateFromString:self.endTimeStr];
     if (startDate > endDate) {
-        showAlertView(@"提示", @"时间选择有误,请重试选择");
+        showMessage(self, @"提示", @"时间选择有误,请重试选择");
         return;
     }
     [self.gameAnnouncementArr removeAllObjects];
     if ([RH_UserInfoManager shareUserManager].isLogin) {
+        [MBProgressHUD showHUDAddedTo:self animated:YES];
         [SH_NetWorkService_Promo startLoadGameNoticeStartTime:[self getCurrentTimes] endTime:self.endTimeStr pageNumber:1 pageSize:50000 apiId:-1 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *dic = (NSDictionary *)response;
             NSLog(@"dic===%@",dic);
@@ -153,6 +156,7 @@
                 [self.gameAnnouncementArr addObject:model];
             }
             [self.tableView reloadData];
+            [MBProgressHUD hideHUDForView:self animated:YES];
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             
         }];
@@ -190,6 +194,7 @@
     self.gameAnnouncementArr = [NSMutableArray array];
     self.apiNameArr = [NSMutableArray array];
     if ([RH_UserInfoManager shareUserManager].isLogin) {
+        [MBProgressHUD showHUDAddedTo:self animated:YES];
         [SH_NetWorkService_Promo startLoadGameNoticeStartTime:[self getCurrentTimes] endTime:[self getCurrentTimes] pageNumber:1 pageSize:20 apiId:-1 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
 
             NSDictionary *dic = (NSDictionary *)response;
@@ -206,13 +211,17 @@
                 [self.apiNameArr addObject:model];
             }
             [self.tableView reloadData];
+            [MBProgressHUD hideHUDForView:self animated:YES];
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             
         }];
+    }else{
+        showMessage(self, @"", @"请先登录");
     }
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerNib:[UINib nibWithNibName:@"SH_GameBulletinTCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
     [self.tableView reloadData];
@@ -302,12 +311,13 @@
     NSDate *startDate = [dateFormatter dateFromString:self.startTimeStr];
     NSDate *endDate = [dateFormatter dateFromString:self.endTimeStr];
     if (startDate > endDate) {
-        showAlertView(@"提示", @"时间选择有误,请重试选择");
+        showMessage(self, @"提示", @"时间选择有误,请重试选择");
         return;
     }
     [self.gameTypeBtn setTitle:model.apiName forState:UIControlStateNormal];
     [self.gameAnnouncementArr removeAllObjects];
     if ([RH_UserInfoManager shareUserManager].isLogin) {
+        [MBProgressHUD showHUDAddedTo:self animated:YES];
         [SH_NetWorkService_Promo startLoadGameNoticeStartTime:self.startTimeStr endTime:self.endTimeStr pageNumber:1 pageSize:50000 apiId:model.apiId complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *dic = (NSDictionary *)response;
             NSLog(@"dic===%@",dic);
@@ -317,6 +327,7 @@
                 [self.gameAnnouncementArr addObject:model];
             }
             [self.tableView reloadData];
+            [MBProgressHUD hideHUDForView:self animated:YES];
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             
         }];

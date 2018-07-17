@@ -112,6 +112,7 @@
     NSArray *arr = @[@"今天",@"昨天",@"本周",@"上周",@"本月"];
     self.quickSeleteArr = [NSMutableArray arrayWithArray:arr];
     if ([RH_UserInfoManager shareUserManager].isLogin) {
+        [MBProgressHUD showHUDAddedTo:self animated:YES];
         [SH_NetWorkService_Promo startLoadSystemNoticeStartTime:[self getCurrentTimes] endTime:[self getCurrentTimes] pageNumber:1 pageSize:500 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *dic = (NSDictionary *)response;
             for (NSDictionary *dict in dic[@"data"][@"list"]) {
@@ -123,13 +124,16 @@
                 
                 [self.tableView reloadData];
             }
-            
+            [MBProgressHUD hideHUDForView:self animated:YES];
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             
         }];
+    }else{
+        showMessage(self, @"", @"请先登录");
     }
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerNib:[UINib nibWithNibName:@"SH_GameBulletinTCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
     [self.tableView reloadData];
@@ -146,11 +150,12 @@
     NSDate *startDate = [dateFormatter dateFromString:self.startTimeStr];
     NSDate *endDate = [dateFormatter dateFromString:self.endTimeStr];
     if (startDate > endDate) {
-        showAlertView(@"提示", @"时间选择有误,请重试选择");
+        showMessage(self, @"提示", @"时间选择有误,请重试选择");
         return;
     }
     [self.gameBulletinArr removeAllObjects];
     if ([RH_UserInfoManager shareUserManager].isLogin) {
+        [MBProgressHUD showHUDAddedTo:self animated:YES];
         [SH_NetWorkService_Promo startLoadSystemNoticeStartTime:self.startTimeStr endTime:self.endTimeStr pageNumber:1 pageSize:50000 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *dic = (NSDictionary *)response;
             for (NSDictionary *dict in dic[@"data"][@"list"]) {
@@ -162,10 +167,12 @@
                 
                 [self.tableView reloadData];
             }
-            
+            [MBProgressHUD hideHUDForView:self animated:YES];
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             
         }];
+    }else{
+        showMessage(self, @"", @"请先登录");
     }
 }
 
@@ -180,11 +187,12 @@
     NSDate *startDate = [dateFormatter dateFromString:self.startTimeStr];
     NSDate *endDate = [dateFormatter dateFromString:self.endTimeStr];
     if (startDate > endDate) {
-        showAlertView(@"提示", @"时间选择有误,请重试选择");
+        showMessage(self, @"提示", @"时间选择有误,请重试选择");
         return;
     }
     [self.gameBulletinArr removeAllObjects];
     if ([RH_UserInfoManager shareUserManager].isLogin) {
+        [MBProgressHUD showHUDAddedTo:self animated:YES];
         [SH_NetWorkService_Promo startLoadSystemNoticeStartTime:self.startTimeStr endTime:self.endTimeStr pageNumber:1 pageSize:50000 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *dic = (NSDictionary *)response;
             for (NSDictionary *dict in dic[@"data"][@"list"]) {
@@ -196,7 +204,7 @@
                 
                 [self.tableView reloadData];
             }
-            
+            [MBProgressHUD hideHUDForView:self animated:YES];
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             
         }];
@@ -331,6 +339,7 @@
     self.startTimeStr = dateStringWithFormatter(startDate, @"yyyy-MM-dd");
     self.endTimeStr = dateStringWithFormatter(endDate, @"yyyy-MM-dd") ;
     if ([RH_UserInfoManager shareUserManager].isLogin) {
+        [MBProgressHUD showHUDAddedTo:self animated:YES];
         [SH_NetWorkService_Promo startLoadSystemNoticeStartTime:self.startTimeStr endTime:self.endTimeStr pageNumber:1 pageSize:500 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *dic = (NSDictionary *)response;
             for (NSDictionary *dict in dic[@"data"][@"list"]) {
@@ -341,7 +350,7 @@
                 }
                 [self.tableView reloadData];
             }
-            
+            [MBProgressHUD hideHUDForView:self animated:YES];
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             
         }];

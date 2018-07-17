@@ -38,19 +38,24 @@
 -(void)configUI {
     
     self.arr = [NSMutableArray array];
+    if ([RH_UserInfoManager shareUserManager].isLogin) {
+        [MBProgressHUD showHUDAddedTo:self animated:YES];
+        [SH_NetWorkService_Promo startAddApplyDiscountsVerify:^(NSHTTPURLResponse *httpURLResponse, id response) {
+            NSDictionary *dic = (NSDictionary *)response;
+            NSLog(@"dic===%@",dic);
+            for (NSDictionary *dict in dic[@"data"][@"advisoryTypeList"]) {
+                NSError *err;
+                SH_AdvisoryTypeModel *model = [[SH_AdvisoryTypeModel alloc] initWithDictionary:dict error:&err];
+                [self.arr addObject:model];
+            }
+            [MBProgressHUD hideHUDForView:self animated:YES];
+        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+            
+        }];
+    }else{
+        showMessage(self, @"", @"请先登录");
+    }
     
-    [SH_NetWorkService_Promo startAddApplyDiscountsVerify:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        NSDictionary *dic = (NSDictionary *)response;
-        NSLog(@"dic===%@",dic);
-        for (NSDictionary *dict in dic[@"data"][@"advisoryTypeList"]) {
-            NSError *err;
-            SH_AdvisoryTypeModel *model = [[SH_AdvisoryTypeModel alloc] initWithDictionary:dict error:&err];
-            [self.arr addObject:model];
-        }
-        
-    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
-    }];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addPickView) name:@"pickView" object:nil];
     
     self.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1];

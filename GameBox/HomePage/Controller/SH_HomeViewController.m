@@ -452,14 +452,6 @@
     [targetVC presentViewController:viewController animated:YES completion:nil];
 }
 
-- (IBAction)rechargeClick:(id)sender {
-    if (![[RH_UserInfoManager shareUserManager] isLogin]) {
-        [self login];
-        return;
-    }
-    [self.navigationController pushViewController:[[SH_RechargeCenterViewController alloc]init] animated:YES];
-}
-
 #pragma mark - 优惠活动
 - (IBAction)activitiesClick:(id)sender {
     SH_PromoContentView *promoContentView = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoContentView" owner:nil options:nil] lastObject];
@@ -480,6 +472,32 @@
     cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
     [self presentViewController:cvc animated:YES completion:nil];
+}
+#pragma mark--
+#pragma mark--充值中心
+
+- (IBAction)recharegeBtnClick:(id)sender {
+    if (![[RH_UserInfoManager shareUserManager] isLogin]) {
+        [self login];
+        return;
+    }
+    [self.navigationController pushViewController:[[SH_RechargeCenterViewController alloc]init] animated:YES];
+}
+#pragma mark--
+#pragma mark--收益按钮
+- (IBAction)profitBtnClick:(id)sender {
+    SH_PrifitOutCoinView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_PrifitOutCoinView" owner:nil options:nil].lastObject;
+    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-75 titleImageName:@"profitTitle" alertViewType:AlertViewTypeLong];
+    acr.title = @"牌局记录";
+    acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:acr animated:YES completion:nil];
+    
+    [SH_NetWorkService getBankInforComplete:^(SH_ProfitModel *model) {
+        [view updateUIWithBalance:model.totalBalance BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:acr];
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        
+    }];
 }
 
 #pragma mark - 玩家中心
@@ -587,17 +605,18 @@
 #pragma mark--
 #pragma mark--收益按钮
 - (IBAction)incomeClick:(id)sender {
-    
+    __weak typeof(self) weakSelf = self;
+
     SH_PrifitOutCoinView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_PrifitOutCoinView" owner:self options:nil].firstObject;
     
     AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-75 titleImageName:@"profitTitle" alertViewType:AlertViewTypeLong];
     acr.title = @"牌局记录";
-    acr.modalPresentationStyle = UIModalPresentationCurrentContext;
+    acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:acr animated:YES completion:nil];
     
     [SH_NetWorkService getBankInforComplete:^(SH_ProfitModel *model) {
-        [view updateUIWithBalance:model.totalBalance BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"]];
+        [view updateUIWithBalance:model.totalBalance BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:weakSelf];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
 
     }];

@@ -51,7 +51,7 @@
                             <constraint firstAttribute="trailing" secondItem="3hl-pc-gWy" secondAttribute="trailing" id="wNI-UQ-qGg"/>
                         </constraints>
                     </view>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="请输入内容" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="i6s-6y-WWk">
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="i6s-6y-WWk">
                         <rect key="frame" x="8" y="109" width="304" height="81"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -149,7 +149,7 @@
                 <outlet property="textView" destination="i6s-6y-WWk" id="vgz-4D-0EB"/>
                 <outlet property="typeBtn" destination="TEi-P0-cCj" id="rgL-oT-cTg"/>
             </connections>
-            <point key="canvasLocation" x="292" y="198.5"/>
+            <point key="canvasLocation" x="-2" y="163"/>
         </tableViewCell>
     </objects>
     <resources>
