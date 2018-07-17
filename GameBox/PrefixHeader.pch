@@ -9,11 +9,7 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
-<<<<<<< HEAD
 #define _wjbn
-=======
-#define _7wt3
->>>>>>> 7394275a417fd8ce98d8d2a7e68c1ab8ad710227
 
 //#ifdef _8l6r
 //
@@ -33,11 +29,11 @@
 #define S       @"f0581a9da25c2476d18f7675362f596c"
 #define SID     @"21"
 
-#ifdef _7wt3
-
-#define CODE    @"7wt3"
-#define S       @"1d497c482250b85debcaff3b9099d469"
-#define SID     @"18"
+//#ifdef _7wt3
+//
+//#define CODE    @"7wt3"
+//#define S       @"1d497c482250b85debcaff3b9099d469"
+//#define SID     @"18"
 
 #endif
 

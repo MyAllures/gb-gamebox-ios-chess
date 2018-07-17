@@ -44,12 +44,11 @@
 #import "SH_NetWorkService+Profit.h"
 #import "SH_ProfitModel.h"
 #import "SH_AnnouncementView.h"
-<<<<<<< HEAD
+
 #import "SH_WelfareDetailView.h"
-=======
+
 #import "SH_SaftyCenterView.h"
 
->>>>>>> 7394275a417fd8ce98d8d2a7e68c1ab8ad710227
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate,PlayerCenterViewDelegate>
 
 
