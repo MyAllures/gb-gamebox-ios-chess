@@ -24,6 +24,9 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *promoListArr;
 
+@property(nonatomic,assign) CGSize imageSize ;
+@property (nonatomic, strong) SH_PromoViewCell *cell;
+
 @end
 
 @implementation SH_PromoListView
@@ -31,6 +34,8 @@
 -(void)awakeFromNib {
     [super awakeFromNib];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ImageSizeChanged:) name:@"ImageSizeChanged" object:nil];
+    [MBProgressHUD showHUDAddedTo:self animated:YES];
     [SH_NetWorkService_Promo getPromoList:1 pageSize:5000 activityClassifyKey:@"" complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         self.promoListArr = [NSMutableArray array];
         NSDictionary *dic = (NSDictionary *)response;
@@ -39,9 +44,17 @@
             [self.promoListArr addObject:model];
             [self.tableView reloadData];
         }
+        [MBProgressHUD hideHUDForView:self animated:YES];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
+}
+
+-(void)ImageSizeChanged:(NSNotification *)noti {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:self.cell] ;
+    if (indexPath){
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone] ;
+    }
 }
 
 - (void)reloadData
@@ -64,24 +77,35 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *identifier = @"cell";
     
-    SH_PromoViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoViewCell" owner:nil options:nil] lastObject];
+    self.cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (self.cell == nil) {
+        self.cell = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoViewCell" owner:nil options:nil] lastObject];
     }
     SH_PromoListModel *model = self.promoListArr[indexPath.row];
-    [cell.bgImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://%@%@",[NetWorkLineMangaer sharedManager].currentHost,model.photo]]];
-    //    [cell.bgImageView sd_setImageWithURL:[NSURL URLWithString:model.photo]
-    //                                   completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-    //                                       if (image){
-    //                                           [self.discountActivityModel updateImageSize:image.size] ;
-    //                                       }
-    //                                   }] ;
+    [self.cell.bgImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://%@%@",[NetWorkLineMangaer sharedManager].currentHost,model.photo]] placeholderImage:[UIImage imageNamed:@""] options:SDWebImageAllowInvalidSSLCertificates completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        if (image){
+            NSLog(@"height==%f",image.size.height);
+            [model updateImageSize:image.size] ;
+            if (self.imageSize.height != image.size.height) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"ImageSizeChanged" object:nil];
+            }
+        }
+    }];
+    self.cell.backgroundColor = [UIColor redColor];
+//    [cell.bgImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://%@%@",[NetWorkLineMangaer sharedManager].currentHost,model.photo]]];
     NSLog(@"model.photo==%@",[NSString stringWithFormat:@"https://%@%@",[NetWorkLineMangaer sharedManager].currentHost,model.photo]);
-    return cell;
+    return self.cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 86;
+    
+    SH_PromoListModel *discountActivityModel = self.promoListArr[indexPath.row] ;
+    if (discountActivityModel){
+        self.imageSize = discountActivityModel.showImageSize;
+        NSLog(@"==----%f",floor(discountActivityModel.showImageSize.height));
+        return floor(discountActivityModel.showImageSize.height) ;
+    }
+    return 0.0f  ;
 }
 
 #pragma mark - UITableViewDelegate M

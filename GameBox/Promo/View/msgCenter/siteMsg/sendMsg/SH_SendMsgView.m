@@ -39,6 +39,7 @@
     
     self.arr = [NSMutableArray array];
     if ([RH_UserInfoManager shareUserManager].isLogin) {
+        [MBProgressHUD showHUDAddedTo:self animated:YES];
         [SH_NetWorkService_Promo startAddApplyDiscountsVerify:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *dic = (NSDictionary *)response;
             NSLog(@"dic===%@",dic);
@@ -47,7 +48,7 @@
                 SH_AdvisoryTypeModel *model = [[SH_AdvisoryTypeModel alloc] initWithDictionary:dict error:&err];
                 [self.arr addObject:model];
             }
-            
+            [MBProgressHUD hideHUDForView:self animated:YES];
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             
         }];

@@ -18,7 +18,7 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="game_chess_34_870" translatesAutoresizingMaskIntoConstraints="NO" id="hAw-gd-rS9">
                     <rect key="frame" x="5" y="5" width="80" height="80"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="game_deco" translatesAutoresizingMaskIntoConstraints="NO" id="rO2-71-oRK">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="game_deco" translatesAutoresizingMaskIntoConstraints="NO" id="rO2-71-oRK">
                     <rect key="frame" x="5" y="5" width="80" height="80"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="妞妞" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXd-Q1-UYd">

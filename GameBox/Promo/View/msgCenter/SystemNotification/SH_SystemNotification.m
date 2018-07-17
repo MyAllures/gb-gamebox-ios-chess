@@ -112,6 +112,7 @@
     NSArray *arr = @[@"今天",@"昨天",@"本周",@"上周",@"本月"];
     self.quickSeleteArr = [NSMutableArray arrayWithArray:arr];
     if ([RH_UserInfoManager shareUserManager].isLogin) {
+        [MBProgressHUD showHUDAddedTo:self animated:YES];
         [SH_NetWorkService_Promo startLoadSystemNoticeStartTime:[self getCurrentTimes] endTime:[self getCurrentTimes] pageNumber:1 pageSize:500 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *dic = (NSDictionary *)response;
             for (NSDictionary *dict in dic[@"data"][@"list"]) {
@@ -123,7 +124,7 @@
                 
                 [self.tableView reloadData];
             }
-            
+            [MBProgressHUD hideHUDForView:self animated:YES];
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             
         }];
@@ -154,6 +155,7 @@
     }
     [self.gameBulletinArr removeAllObjects];
     if ([RH_UserInfoManager shareUserManager].isLogin) {
+        [MBProgressHUD showHUDAddedTo:self animated:YES];
         [SH_NetWorkService_Promo startLoadSystemNoticeStartTime:self.startTimeStr endTime:self.endTimeStr pageNumber:1 pageSize:50000 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *dic = (NSDictionary *)response;
             for (NSDictionary *dict in dic[@"data"][@"list"]) {
@@ -165,7 +167,7 @@
                 
                 [self.tableView reloadData];
             }
-            
+            [MBProgressHUD hideHUDForView:self animated:YES];
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             
         }];
@@ -190,6 +192,7 @@
     }
     [self.gameBulletinArr removeAllObjects];
     if ([RH_UserInfoManager shareUserManager].isLogin) {
+        [MBProgressHUD showHUDAddedTo:self animated:YES];
         [SH_NetWorkService_Promo startLoadSystemNoticeStartTime:self.startTimeStr endTime:self.endTimeStr pageNumber:1 pageSize:50000 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *dic = (NSDictionary *)response;
             for (NSDictionary *dict in dic[@"data"][@"list"]) {
@@ -201,7 +204,7 @@
                 
                 [self.tableView reloadData];
             }
-            
+            [MBProgressHUD hideHUDForView:self animated:YES];
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             
         }];
@@ -336,6 +339,7 @@
     self.startTimeStr = dateStringWithFormatter(startDate, @"yyyy-MM-dd");
     self.endTimeStr = dateStringWithFormatter(endDate, @"yyyy-MM-dd") ;
     if ([RH_UserInfoManager shareUserManager].isLogin) {
+        [MBProgressHUD showHUDAddedTo:self animated:YES];
         [SH_NetWorkService_Promo startLoadSystemNoticeStartTime:self.startTimeStr endTime:self.endTimeStr pageNumber:1 pageSize:500 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *dic = (NSDictionary *)response;
             for (NSDictionary *dict in dic[@"data"][@"list"]) {
@@ -346,7 +350,7 @@
                 }
                 [self.tableView reloadData];
             }
-            
+            [MBProgressHUD hideHUDForView:self animated:YES];
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             
         }];

@@ -16,15 +16,15 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="game_chess_34_870" translatesAutoresizingMaskIntoConstraints="NO" id="IFV-zN-oFQ">
-                    <rect key="frame" x="5" y="5" width="240" height="230"/>
+                    <rect key="frame" x="0.0" y="0.0" width="250" height="240"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="IFV-zN-oFQ" secondAttribute="trailing" constant="5" id="idk-yy-5s0"/>
-                <constraint firstItem="IFV-zN-oFQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="ySM-LF-Ah3"/>
-                <constraint firstItem="IFV-zN-oFQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="yru-tv-b8z"/>
-                <constraint firstAttribute="bottom" secondItem="IFV-zN-oFQ" secondAttribute="bottom" constant="5" id="zs0-9t-PAY"/>
+                <constraint firstAttribute="trailing" secondItem="IFV-zN-oFQ" secondAttribute="trailing" id="idk-yy-5s0"/>
+                <constraint firstItem="IFV-zN-oFQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ySM-LF-Ah3"/>
+                <constraint firstItem="IFV-zN-oFQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="yru-tv-b8z"/>
+                <constraint firstAttribute="bottom" secondItem="IFV-zN-oFQ" secondAttribute="bottom" id="zs0-9t-PAY"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

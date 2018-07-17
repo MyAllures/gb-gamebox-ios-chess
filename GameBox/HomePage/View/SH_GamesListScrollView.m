@@ -11,8 +11,8 @@
 #import "SH_GameItemView.h"
 #import "SH_DZGameItemView.h"
 
-#define SH_GAMELIST_ITEM_WIDTH 108
-#define SH_GAMELIST_ITEM_HEIGHT 108
+#define SH_GAMELIST_ITEM_WIDTH self.frame.size.height/2.0*(128/107.5) //128
+#define SH_GAMELIST_ITEM_HEIGHT self.frame.size.height/2.0 //107.5
 
 @interface SH_GamesListScrollView () <UIScrollViewDelegate, SH_GameItemViewDelegate, SH_DZGameItemViewDelegate>
 

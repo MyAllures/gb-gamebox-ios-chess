@@ -9,8 +9,10 @@
 #import "SH_NetWorkService.h"
 #import "SH_ProfitModel.h"
 #import "SH_FeeModel.h"
+#import "SH_JiHeModel.h"
 typedef void(^profitBlock) (SH_ProfitModel *model);
 typedef void (^feeBlock)(SH_FeeModel *model);
+typedef void (^jiHeBlock)(SH_JiHeModel *model);
 @interface SH_NetWorkService (Profit)
 +(void)getBankInforComplete:(profitBlock)complete
                      failed:(SHNetWorkFailed)failed;
@@ -18,4 +20,7 @@ typedef void (^feeBlock)(SH_FeeModel *model);
 +(void)caculateOutCoinFeeWithNum:(NSString *)num
                         Complete:(feeBlock)complete
                           failed:(SHNetWorkFailed)failed;
++(void)jiHeListSuccess:(jiHeBlock)success
+                Failed:(SHNetWorkFailed)failed;
+
 @end

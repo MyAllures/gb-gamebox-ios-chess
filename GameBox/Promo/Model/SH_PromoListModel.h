@@ -16,5 +16,7 @@
 @property (nonatomic, strong) NSString *photo;
 @property (nonatomic, strong) NSString *url;
 
-//-(id)initWithDict: (NSDictionary *)dict;
+@property(nonatomic,assign,readonly) CGSize showImageSize ;
+
+-(void)updateImageSize:(CGSize)size ;
 @end

@@ -11,6 +11,7 @@
 #import "AlertViewController.h"
 #import "SH_OutCoinDetailView.h"
 #import "SH_FeeModel.h"
+#import "SH_ProfitAlertView.h"
 @interface SH_PrifitOutCoinView()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *numTextField;
 @property (weak, nonatomic) IBOutlet UILabel *feeLab;
@@ -45,12 +46,13 @@
 }
 - (IBAction)sureBtnClick:(id)sender {
     if (self.numTextField.text.length == 0) {
-        showMessage(self, @"请输入出币数量", nil);
+        [self popAlertView];
+    }else if ([self.bankNumLab.text isEqualToString:@"请绑定银行卡"]){
+         showMessage(self, @"请绑定银行卡", nil);
     }else{
         SH_OutCoinDetailView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_OutCoinDetailView" owner:self options:nil].firstObject;
         AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-95 titleImageName:@"outCoinDetail" alertViewType:AlertViewTypeLong];
-        acr.title = @"牌局记录";
-        acr.modalPresentationStyle = UIModalPresentationCurrentContext;
+        acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         [self.targetVC presentViewController:acr animated:YES completion:nil];
         [view updateUIWithDetailArray:@[self.bankNumLab.text,self.numTextField.text,self.feeModel.counterFee,self.feeModel.administrativeFee,self.feeModel.deductFavorable,self.feeModel.actualWithdraw] TargetVC:acr];
@@ -64,7 +66,7 @@
     }else{
         self.bankNumLab.text = bankNum;
     }
-    self.balanceLab.text = balance;
+    self.balanceLab.text = [NSString stringWithFormat:@"%.2f",[balance floatValue]];
     self.targetVC = targetVC;
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField{
@@ -79,5 +81,14 @@
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
+}
+-(void)popAlertView{
+    SH_ProfitAlertView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_ProfitAlertView" owner:self options:nil].firstObject;
+    view.targetVC = self.targetVC;
+    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-175 titleImageName:@"title03" alertViewType:AlertViewTypeShort];
+    acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self.targetVC presentViewController:acr animated:YES completion:nil];
+
 }
 @end

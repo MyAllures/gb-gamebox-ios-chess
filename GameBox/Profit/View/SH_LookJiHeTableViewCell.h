@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "SH_JiHeSubModel.h"
 @interface SH_LookJiHeTableViewCell : UITableViewCell
-
+-(void)updaetUIWithModel:(SH_JiHeSubModel *)model;
 @end
