@@ -139,6 +139,8 @@
 		BFA068AE20FD8AFF00F5ADFE /* SH_FeeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA068AD20FD8AFF00F5ADFE /* SH_FeeModel.m */; };
 		BFA068B220FD9C3300F5ADFE /* SH_LookJiHeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA068B020FD9C3300F5ADFE /* SH_LookJiHeTableViewCell.m */; };
 		BFA068B320FD9C3300F5ADFE /* SH_LookJiHeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA068B120FD9C3300F5ADFE /* SH_LookJiHeTableViewCell.xib */; };
+		BFA068B620FDE2EC00F5ADFE /* SH_JiHeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA068B520FDE2EC00F5ADFE /* SH_JiHeModel.m */; };
+		BFA068B920FDE33200F5ADFE /* SH_JiHeSubModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA068B820FDE33200F5ADFE /* SH_JiHeSubModel.m */; };
 		BFD6CFC120F8901500EDBC5B /* SH_NetWorkService+Bank.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFC020F8901500EDBC5B /* SH_NetWorkService+Bank.m */; };
 		BFD6CFC520F997B800EDBC5B /* SavePhotoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFC420F997B800EDBC5B /* SavePhotoTool.m */; };
 		BFD6CFCC20F9D20C00EDBC5B /* AttributeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFCB20F9D20C00EDBC5B /* AttributeModel.m */; };
@@ -427,6 +429,10 @@
 		BFA068AF20FD9C3300F5ADFE /* SH_LookJiHeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_LookJiHeTableViewCell.h; sourceTree = "<group>"; };
 		BFA068B020FD9C3300F5ADFE /* SH_LookJiHeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_LookJiHeTableViewCell.m; sourceTree = "<group>"; };
 		BFA068B120FD9C3300F5ADFE /* SH_LookJiHeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_LookJiHeTableViewCell.xib; sourceTree = "<group>"; };
+		BFA068B420FDE2EC00F5ADFE /* SH_JiHeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_JiHeModel.h; sourceTree = "<group>"; };
+		BFA068B520FDE2EC00F5ADFE /* SH_JiHeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_JiHeModel.m; sourceTree = "<group>"; };
+		BFA068B720FDE33200F5ADFE /* SH_JiHeSubModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_JiHeSubModel.h; sourceTree = "<group>"; };
+		BFA068B820FDE33200F5ADFE /* SH_JiHeSubModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_JiHeSubModel.m; sourceTree = "<group>"; };
 		BFD6CFBF20F8901500EDBC5B /* SH_NetWorkService+Bank.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+Bank.h"; sourceTree = "<group>"; };
 		BFD6CFC020F8901500EDBC5B /* SH_NetWorkService+Bank.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+Bank.m"; sourceTree = "<group>"; };
 		BFD6CFC320F997B800EDBC5B /* SavePhotoTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SavePhotoTool.h; sourceTree = "<group>"; };
@@ -1134,6 +1140,10 @@
 				BFA068A520FCC0CF00F5ADFE /* SH_NetWorkService+Profit.m */,
 				BFA068AC20FD8AFF00F5ADFE /* SH_FeeModel.h */,
 				BFA068AD20FD8AFF00F5ADFE /* SH_FeeModel.m */,
+				BFA068B420FDE2EC00F5ADFE /* SH_JiHeModel.h */,
+				BFA068B520FDE2EC00F5ADFE /* SH_JiHeModel.m */,
+				BFA068B720FDE33200F5ADFE /* SH_JiHeSubModel.h */,
+				BFA068B820FDE33200F5ADFE /* SH_JiHeSubModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1619,6 +1629,7 @@
 				BFD6CFD320F9FAE700EDBC5B /* TTTAttributedLabel.m in Sources */,
 				BF44ECEA20F6FF4D00BC6EF3 /* SH_BitCoinSaleDetailModel.m in Sources */,
 				DA1BCC4D20FCBB1800201DBC /* SH_WelfareRecordView.m in Sources */,
+				BFA068B920FDE33200F5ADFE /* SH_JiHeSubModel.m in Sources */,
 				22573D3820F8C6D900D0EB0A /* SH_MyMsgView.m in Sources */,
 				54C875BD20FC4B0B00AA0594 /* SH_AnnouncementModel.m in Sources */,
 				DA22F3E020F4562B0058A54F /* UIImage+Size.m in Sources */,
@@ -1683,6 +1694,7 @@
 				DA21F37C20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m in Sources */,
 				22552CC820F448740090EFBC /* SH_SystemNotification.m in Sources */,
 				DA22F40920F494C60058A54F /* UIViewController+Instance.m in Sources */,
+				BFA068B620FDE2EC00F5ADFE /* SH_JiHeModel.m in Sources */,
 				BFD6CFC120F8901500EDBC5B /* SH_NetWorkService+Bank.m in Sources */,
 				2248B11920F5EF7E0077EF58 /* SH_GameBulletinTCell.m in Sources */,
 				DA21F37F20F58F9000D20672 /* SH_RegistView.m in Sources */,

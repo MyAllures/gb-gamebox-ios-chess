@@ -46,6 +46,8 @@
 - (IBAction)sureBtnClick:(id)sender {
     if (self.numTextField.text.length == 0) {
         showMessage(self, @"请输入出币数量", nil);
+    }else if ([self.bankNumLab.text isEqualToString:@"请绑定银行卡"]){
+         showMessage(self, @"请绑定银行卡", nil);
     }else{
         SH_OutCoinDetailView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_OutCoinDetailView" owner:self options:nil].firstObject;
         AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-95 titleImageName:@"outCoinDetail" alertViewType:AlertViewTypeLong];
@@ -64,7 +66,7 @@
     }else{
         self.bankNumLab.text = bankNum;
     }
-    self.balanceLab.text = balance;
+    self.balanceLab.text = [NSString stringWithFormat:@"%.2f",[balance floatValue]];
     self.targetVC = targetVC;
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField{
