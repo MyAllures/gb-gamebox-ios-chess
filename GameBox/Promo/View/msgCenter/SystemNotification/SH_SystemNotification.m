@@ -127,9 +127,12 @@
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             
         }];
+    }else{
+        showMessage(self, @"", @"请先登录");
     }
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerNib:[UINib nibWithNibName:@"SH_GameBulletinTCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
     [self.tableView reloadData];
@@ -146,7 +149,7 @@
     NSDate *startDate = [dateFormatter dateFromString:self.startTimeStr];
     NSDate *endDate = [dateFormatter dateFromString:self.endTimeStr];
     if (startDate > endDate) {
-        showAlertView(@"提示", @"时间选择有误,请重试选择");
+        showMessage(self, @"提示", @"时间选择有误,请重试选择");
         return;
     }
     [self.gameBulletinArr removeAllObjects];
@@ -166,6 +169,8 @@
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             
         }];
+    }else{
+        showMessage(self, @"", @"请先登录");
     }
 }
 
@@ -180,7 +185,7 @@
     NSDate *startDate = [dateFormatter dateFromString:self.startTimeStr];
     NSDate *endDate = [dateFormatter dateFromString:self.endTimeStr];
     if (startDate > endDate) {
-        showAlertView(@"提示", @"时间选择有误,请重试选择");
+        showMessage(self, @"提示", @"时间选择有误,请重试选择");
         return;
     }
     [self.gameBulletinArr removeAllObjects];

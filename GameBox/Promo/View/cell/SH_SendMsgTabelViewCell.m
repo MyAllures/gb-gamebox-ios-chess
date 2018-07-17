@@ -20,6 +20,18 @@
 @implementation SH_SendMsgTabelViewCell
 
 - (IBAction)confirmAction:(id)sender {
+    if ([self.typeBtn.titleLabel.text isEqualToString:@"请选择"]) {
+        showMessage(self, @"发送失败", @"请选择问题类型");
+        return;
+    }
+    if (self.textField.text.length < 4 || self.textField.text.length > 10) {
+        showMessage(self, @"发送失败", @"标题在4-10个字");
+        return;
+    }
+    if (self.textView.text.length > 10 || self.textView.text.length < 2000) {
+        showMessage(self, @"发送失败", @"内容在10字以上2000字以下");
+        return;
+    }
     [SH_NetWorkService_Promo startAddApplyDiscountsWithAdvisoryType:self.advisoryType advisoryTitle:self.textField.text advisoryContent:self.textView.text code:@"" complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dic = (NSDictionary *)response;
         NSLog(@"dic====%@",dic);

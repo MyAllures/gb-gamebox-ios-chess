@@ -61,4 +61,12 @@
 +(void)startLoadMessageCenterSiteMessageUnReadCount:(SHNetWorkComplete)complete
                                              failed:(SHNetWorkFailed)failed;
 
++(void)startLoadMyMessageDeleteWithIds:(NSString *)ids
+                              complete:(SHNetWorkComplete)complete
+                                failed:(SHNetWorkFailed)failed;
+
++(void)startLoadSystemMessageDeleteWithIds:(NSString *)ids
+                                    complete:(SHNetWorkComplete)complete
+                                      failed:(SHNetWorkFailed)failed;
+
 @end
