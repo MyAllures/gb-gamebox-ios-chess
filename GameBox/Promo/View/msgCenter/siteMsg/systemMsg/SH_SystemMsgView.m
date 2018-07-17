@@ -63,11 +63,12 @@
         }
         [self.deleteArr removeAllObjects];
         [self.dataListArr removeAllObjects];
+        [MBProgressHUD showHUDAddedTo:self animated:YES];
         [SH_NetWorkService_Promo startLoadSystemMessageDeleteWithIds:str complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *dict =(NSDictionary *)response;
             NSLog(@"dict===%@",dict);
             NSLog(@"message===%@",dict[@"message"]);
-            
+            [MBProgressHUD hideHUDForView:self animated:YES];
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             
         }];
@@ -89,11 +90,12 @@
                 }
             }
             [self.deleteArr removeAllObjects];
+            [MBProgressHUD showHUDAddedTo:self animated:YES];
             [SH_NetWorkService_Promo startLoadSystemMessageDeleteWithIds:str complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
                 NSDictionary *dict =(NSDictionary *)response;
                 NSLog(@"dict===%@",dict);
                 NSLog(@"message===%@",dict[@"message"]);
-                
+                [MBProgressHUD hideHUDForView:self animated:YES];
             } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
                 
             }];
@@ -118,6 +120,7 @@
     self.deleteArr = [NSMutableArray array];
     self.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1];
     if ([RH_UserInfoManager shareUserManager].isLogin) {
+        [MBProgressHUD showHUDAddedTo:self animated:YES];
         [SH_NetWorkService_Promo startLoadSystemMessageWithpageNumber:1 pageSize:5000 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *dict = (NSDictionary *)response;
             NSLog(@"dict====%@",dict);
@@ -128,6 +131,7 @@
                 [self.dataListArr addObject:model];
                 [self.tableView reloadData];
             }
+            [MBProgressHUD hideHUDForView:self animated:YES];
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             NSLog(@"%@",err);
             showAlertView(@"", err);

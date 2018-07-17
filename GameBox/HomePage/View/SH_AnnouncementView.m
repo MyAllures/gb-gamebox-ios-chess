@@ -58,6 +58,8 @@
 }
 
 -(void)start{
+    return;
+    
     if (self.isAnimation)
         return ;
     [UIView animateWithDuration:_dynamicTimeInterval//动画持续时间

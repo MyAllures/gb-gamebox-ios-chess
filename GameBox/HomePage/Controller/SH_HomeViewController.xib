@@ -15,6 +15,7 @@
                 <outlet property="dzGameMarkImg" destination="lo0-ep-RC7" id="goR-vs-8Bn"/>
                 <outlet property="runLBBGImg" destination="hn2-KE-0LR" id="fPY-of-f4g"/>
                 <outlet property="searchView" destination="tQ1-dV-GAz" id="7ii-yP-qq5"/>
+                <outlet property="suishenFuLiLab" destination="3EE-iu-I0p" id="oLC-x0-nsa"/>
                 <outlet property="suishenFuLiLab" destination="SqL-w0-8Nr" id="b24-si-bnp"/>
                 <outlet property="upLevelBT" destination="HeW-dE-RHz" id="GgB-FK-2Al"/>
                 <outlet property="userAccountLB" destination="k8V-nF-s7S" id="dTq-v5-oaj"/>
@@ -305,17 +306,18 @@
                                     <state key="normal" image="btn-welfare"/>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBQ-EQ-jrJ">
-                                    <rect key="frame" x="150.5" y="0.0" width="106" height="54"/>
+                                    <rect key="frame" x="149" y="0.0" width="106" height="54"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="106" id="74L-Tg-4Tb"/>
                                     </constraints>
                                     <state key="normal" image="btn_income"/>
                                     <connections>
+                                        <action selector="incomeClick:" destination="-1" eventType="touchUpInside" id="ggs-hb-Uxl"/>
                                         <action selector="profitBtnClick:" destination="-1" eventType="touchUpInside" id="UFf-1L-nN9"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNI-Sq-0dm">
-                                    <rect key="frame" x="268" y="0.0" width="103" height="54"/>
+                                    <rect key="frame" x="265" y="0.0" width="103" height="54"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="102.5" id="dBs-kI-snC"/>
                                     </constraints>
@@ -340,16 +342,16 @@
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="tBQ-EQ-jrJ" secondAttribute="bottom" id="33H-cM-tAA"/>
                                 <constraint firstAttribute="width" constant="462" id="6Dv-ah-GeI"/>
+                                <constraint firstItem="UNI-Sq-0dm" firstAttribute="leading" secondItem="tBQ-EQ-jrJ" secondAttribute="trailing" constant="10" id="8hl-7N-mpo"/>
                                 <constraint firstAttribute="bottom" secondItem="HeW-dE-RHz" secondAttribute="bottom" constant="2" id="Bjs-Mp-6XG"/>
-                                <constraint firstItem="tbe-jn-DfO" firstAttribute="leading" secondItem="0Zi-QQ-yBM" secondAttribute="leading" id="GHI-SJ-O5o"/>
-                                <constraint firstItem="tBQ-EQ-jrJ" firstAttribute="leading" secondItem="tbe-jn-DfO" secondAttribute="trailing" constant="11.5" id="Nli-dG-OTZ"/>
+                                <constraint firstItem="HeW-dE-RHz" firstAttribute="leading" secondItem="UNI-Sq-0dm" secondAttribute="trailing" id="FNh-BH-mCD"/>
+                                <constraint firstItem="tBQ-EQ-jrJ" firstAttribute="leading" secondItem="tbe-jn-DfO" secondAttribute="trailing" constant="10" id="L0F-7T-uFF"/>
                                 <constraint firstItem="tbe-jn-DfO" firstAttribute="top" secondItem="0Zi-QQ-yBM" secondAttribute="top" id="UP0-Q4-gkA"/>
                                 <constraint firstItem="tBQ-EQ-jrJ" firstAttribute="top" secondItem="0Zi-QQ-yBM" secondAttribute="top" id="jik-YV-IQA"/>
                                 <constraint firstAttribute="bottom" secondItem="tbe-jn-DfO" secondAttribute="bottom" id="mcY-yE-tEO"/>
                                 <constraint firstAttribute="trailing" secondItem="HeW-dE-RHz" secondAttribute="trailing" constant="3.5" id="qRH-yU-J0h"/>
                                 <constraint firstAttribute="bottom" secondItem="UNI-Sq-0dm" secondAttribute="bottom" id="qnK-nt-3hZ"/>
                                 <constraint firstItem="UNI-Sq-0dm" firstAttribute="top" secondItem="0Zi-QQ-yBM" secondAttribute="top" id="rnJ-GX-jJU"/>
-                                <constraint firstItem="UNI-Sq-0dm" firstAttribute="leading" secondItem="tBQ-EQ-jrJ" secondAttribute="trailing" constant="11.5" id="vhP-1x-oHA"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -453,7 +455,7 @@
         <image name="btn_return" width="91" height="36"/>
         <image name="btn_share" width="103" height="52"/>
         <image name="btn_top_recharge" width="34" height="36"/>
-        <image name="footer-bg" width="659" height="38"/>
+        <image name="footer-bg" width="660" height="38"/>
         <image name="icon_player" width="63" height="42"/>
         <image name="icon_promo" width="62" height="41"/>
         <image name="icon_search" width="26" height="26"/>
