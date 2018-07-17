@@ -181,6 +181,8 @@
 		DA1BCC8020FE055800201DBC /* SH_CardRecordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1BCC7F20FE055800201DBC /* SH_CardRecordView.xib */; };
 		DA1BCC8320FE06D300201DBC /* SH_CardRecordHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCC8220FE06D300201DBC /* SH_CardRecordHeaderView.m */; };
 		DA1BCC8520FE06E900201DBC /* SH_CardRecordHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1BCC8420FE06E900201DBC /* SH_CardRecordHeaderView.xib */; };
+		DA1BCC8820FE1FFE00201DBC /* RH_BettingDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCC8620FE1FFE00201DBC /* RH_BettingDetailModel.m */; };
+		DA1BCC8B20FE200700201DBC /* RH_BettingInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCC8920FE200700201DBC /* RH_BettingInfoModel.m */; };
 		DA21F37C20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F37B20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m */; };
 		DA21F37F20F58F9000D20672 /* SH_RegistView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F37E20F58F9000D20672 /* SH_RegistView.m */; };
 		DA21F38D20F590A800D20672 /* RH_RegisetInitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F38B20F590A800D20672 /* RH_RegisetInitModel.m */; };
@@ -518,6 +520,10 @@
 		DA1BCC8120FE06D300201DBC /* SH_CardRecordHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_CardRecordHeaderView.h; sourceTree = "<group>"; };
 		DA1BCC8220FE06D300201DBC /* SH_CardRecordHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_CardRecordHeaderView.m; sourceTree = "<group>"; };
 		DA1BCC8420FE06E900201DBC /* SH_CardRecordHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_CardRecordHeaderView.xib; sourceTree = "<group>"; };
+		DA1BCC8620FE1FFE00201DBC /* RH_BettingDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RH_BettingDetailModel.m; sourceTree = "<group>"; };
+		DA1BCC8720FE1FFE00201DBC /* RH_BettingDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RH_BettingDetailModel.h; sourceTree = "<group>"; };
+		DA1BCC8920FE200700201DBC /* RH_BettingInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RH_BettingInfoModel.m; sourceTree = "<group>"; };
+		DA1BCC8A20FE200700201DBC /* RH_BettingInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RH_BettingInfoModel.h; sourceTree = "<group>"; };
 		DA21F37A20F4E97800D20672 /* SH_NetWorkService+RegistAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+RegistAPI.h"; sourceTree = "<group>"; };
 		DA21F37B20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+RegistAPI.m"; sourceTree = "<group>"; };
 		DA21F37D20F58F9000D20672 /* SH_RegistView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_RegistView.h; sourceTree = "<group>"; };
@@ -1319,6 +1325,8 @@
 		DA1BCC4020FCB74400201DBC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DA1BCC8A20FE200700201DBC /* RH_BettingInfoModel.h */,
+				DA1BCC8920FE200700201DBC /* RH_BettingInfoModel.m */,
 				DA1BCC7220FDE6D500201DBC /* Detail */,
 				DA1BCC5020FD7C6D00201DBC /* SH_NetWorkService+UserCenter.h */,
 				DA1BCC5120FD7C6D00201DBC /* SH_NetWorkService+UserCenter.m */,
@@ -1367,6 +1375,8 @@
 		DA1BCC7220FDE6D500201DBC /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				DA1BCC8720FE1FFE00201DBC /* RH_BettingDetailModel.h */,
+				DA1BCC8620FE1FFE00201DBC /* RH_BettingDetailModel.m */,
 				DA1BCC7320FDE6D500201DBC /* RH_CapitalDetailModel.h */,
 				DA1BCC7420FDE6D500201DBC /* RH_CapitalDetailModel.m */,
 			);
@@ -1698,6 +1708,7 @@
 				DA22F34120F43ABC0058A54F /* SH_LoginView.m in Sources */,
 				BFA0689020FC8C1000F5ADFE /* SH_OutCoinDetailView.m in Sources */,
 				DA18EFBF20F0A9C3002B7E22 /* PopTool.m in Sources */,
+				DA1BCC8B20FE200700201DBC /* RH_BettingInfoModel.m in Sources */,
 				BF44ECCF20F59A5800BC6EF3 /* SH_RechargeDetailBankView.m in Sources */,
 				BF44ECC120F4B4BF00BC6EF3 /* SH_RechargeDetailHeadView.m in Sources */,
 				DA18EFBE20F0A9C3002B7E22 /* AlertViewController.m in Sources */,
@@ -1799,6 +1810,7 @@
 				DA6EE1C220F98B72009A01C5 /* SH_AlertView.m in Sources */,
 				DA22F3C320F44DA80058A54F /* CLDocumentCachePool.m in Sources */,
 				DA1BCC7E20FE054500201DBC /* SH_CardRecordView.m in Sources */,
+				DA1BCC8820FE1FFE00201DBC /* RH_BettingDetailModel.m in Sources */,
 				BF44ECED20F7096600BC6EF3 /* SH_PreferentialPopView.m in Sources */,
 				BF44ECBB20F4B36000BC6EF3 /* SH_RechargeDetailViewController.m in Sources */,
 				BFFC847120F3452A008AD801 /* UIButton+Category.m in Sources */,
