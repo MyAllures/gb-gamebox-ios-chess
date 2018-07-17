@@ -41,7 +41,7 @@
             img_name = @"title_bg";
             self.btnContrainsHeight.constant = 40;
             self.constraintHeight.constant = height +50;
-            self.constraintWidth.constant = 526;
+            self.constraintWidth.constant = [UIScreen mainScreen].bounds.size.width-[UIScreen mainScreen].bounds.size.width/5;
             [self.view  layoutIfNeeded];
         }else{
             img_name = @"title_bg";
