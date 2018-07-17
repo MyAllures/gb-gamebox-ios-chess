@@ -59,12 +59,15 @@
         }
         [self.deleteArr removeAllObjects];
         [self.dataListArr removeAllObjects];
+        
+        [MBProgressHUD showHUDAddedTo:self animated:YES];
         [SH_NetWorkService_Promo startLoadMyMessageDeleteWithIds:str complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *dict =(NSDictionary *)response;
             NSLog(@"dict===%@",dict);
             NSLog(@"message===%@",dict[@"message"]);
             
             
+            [MBProgressHUD hideHUDForView:self animated:YES];
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             
         }];
@@ -88,12 +91,15 @@
             }
             NSLog(@"count1=====%lu",(unsigned long)self.dataListArr.count);
             [self.deleteArr removeAllObjects];
+            
+            [MBProgressHUD showHUDAddedTo:self animated:YES];
             [SH_NetWorkService_Promo startLoadMyMessageDeleteWithIds:str complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
                 NSDictionary *dict =(NSDictionary *)response;
                 NSLog(@"dict===%@",dict);
                 NSLog(@"message===%@",dict[@"message"]);
                 
                 
+                [MBProgressHUD hideHUDForView:self animated:YES];
             } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
                 
             }];
@@ -119,7 +125,9 @@
     self.isSelete = NO;
     self.dataListArr = [NSMutableArray array];
     self.deleteArr = [NSMutableArray array];
+    
     if ([RH_UserInfoManager shareUserManager].isLogin) {
+        [MBProgressHUD showHUDAddedTo:self animated:YES];
         [SH_NetWorkService_Promo startSiteMessageMyMessageWithpageNumber:1 pageSize:5000 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *dict = (NSDictionary *)response;
             NSLog(@"dict===%@",dict);
@@ -129,6 +137,8 @@
                 [self.dataListArr addObject:model];
                 [self.tableView reloadData];
             }
+            
+            [MBProgressHUD hideHUDForView:self animated:YES];
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             
         }];
