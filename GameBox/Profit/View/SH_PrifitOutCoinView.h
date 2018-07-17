@@ -10,5 +10,5 @@
 
 @interface SH_PrifitOutCoinView : UIView
 -(void)updateUIWithBalance:(NSString *)balance
-                   BankNum:(NSString *)bankNum;
+                   BankNum:(NSString *)bankNum TargetVC:(UIViewController *)targetVC;
 @end

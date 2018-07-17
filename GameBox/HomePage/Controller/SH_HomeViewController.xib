@@ -14,8 +14,8 @@
                 <outlet property="avatarImg" destination="ODB-xJ-e5g" id="Xv8-r5-H5z"/>
                 <outlet property="dzGameMarkImg" destination="lo0-ep-RC7" id="goR-vs-8Bn"/>
                 <outlet property="runLBBGImg" destination="hn2-KE-0LR" id="fPY-of-f4g"/>
-                <outlet property="suishenFuLiLab" destination="3EE-iu-I0p" id="oLC-x0-nsa"/>
                 <outlet property="searchView" destination="tQ1-dV-GAz" id="7ii-yP-qq5"/>
+                <outlet property="suishenFuLiLab" destination="SqL-w0-8Nr" id="b24-si-bnp"/>
                 <outlet property="upLevelBT" destination="HeW-dE-RHz" id="GgB-FK-2Al"/>
                 <outlet property="userAccountLB" destination="k8V-nF-s7S" id="dTq-v5-oaj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -288,7 +288,7 @@
                             <rect key="frame" x="16.5" y="4.5" width="130" height="47"/>
                             <state key="normal" image="btn_recharge"/>
                             <connections>
-                                <action selector="rechargeClick:" destination="-1" eventType="touchUpInside" id="Zlg-XM-3Iv"/>
+                                <action selector="recharegeBtnClick:" destination="-1" eventType="touchUpInside" id="ETt-E8-zmv"/>
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Zi-QQ-yBM">
@@ -308,7 +308,7 @@
                                     </constraints>
                                     <state key="normal" image="btn_income"/>
                                     <connections>
-                                        <action selector="incomeClick:" destination="-1" eventType="touchUpInside" id="685-q0-1eu"/>
+                                        <action selector="profitBtnClick:" destination="-1" eventType="touchUpInside" id="UFf-1L-nN9"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNI-Sq-0dm">
