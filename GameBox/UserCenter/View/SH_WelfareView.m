@@ -307,11 +307,12 @@
         make.right.equalTo(self.mas_right).with.offset(0);
         make.height.mas_equalTo(30);
     }];
-    bottom.backgroundColor = [UIColor  orangeColor];
+//    bottom.backgroundColor = [UIColor  orangeColor];
     NSArray * title = @[@"时间",@"金额",@"状态",@"类型"];
     NSMutableArray * tmp = [NSMutableArray  array];
     NSMutableArray * tmpLine = [NSMutableArray  array];
-    CGFloat width = 121.5;
+//    NSLog(@"%f",self.bounds.size.width);
+    CGFloat width = 125;
     for (int i=0; i<4; i++) {
         UILabel * label = [UILabel  new];
         label.backgroundColor = [UIColor  lightGrayColor];
@@ -339,7 +340,7 @@
         
         [line mas_makeConstraints:^(MASConstraintMaker *make) {
             if (i==0) {
-                make.leading.mas_equalTo(122);
+                make.leading.mas_equalTo(width);
             }else{
                 UILabel *l = tmp[i-1];
                 make.leading.mas_equalTo(l.mas_trailing);
@@ -454,7 +455,6 @@
 #pragma mark -- 结束时间
 -(void)seletedEndDate:(NSDictionary *)nt {
 
-    self.endField.text = nt[@"date"];
     self.endTimeStr = nt[@"date"];
     if (!self.startTimeStr) {
         self.startTimeStr = [self getCurrentTimes];
@@ -467,11 +467,11 @@
         showAlertView(@"提示", @"时间选择有误,请重试选择");
         return;
     }
-    
+      self.endField.text = nt[@"date"];
 }
 #pragma mark -- 开始时间
 -(void)changedDate:(NSDictionary *)nt {
-    self.startField.text = nt[@"date"];
+    
     self.startTimeStr = nt[@"date"];
     if (!self.endTimeStr) {
         self.endTimeStr = [self getCurrentTimes];
@@ -484,7 +484,7 @@
         showAlertView(@"提示", @"时间选择有误,请重试选择");
         return;
     }
-    
+    self.startField.text = nt[@"date"];
 }
 #pragma mark - PGDatePickerDelegate M
 - (void)datePicker:(PGDatePicker *)datePicker didSelectDate:(NSDateComponents *)dateComponents {
@@ -553,6 +553,7 @@
             // 今天
             date = [NSDate date];
             self.endField.text = dateString(date, @"yyyy-MM-dd");
+            self.startField.text =dateString(date, @"yyyy-MM-dd");
             break;
          }
         case 1:{

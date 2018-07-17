@@ -106,7 +106,7 @@
     SH_FundListModel * model = self.dataArray[indexPath.row];
     NSString * searchId = [NSString  stringWithFormat:@"%ld",model.mId];
     if (self.backToDetailViewBlock) {
-        self.backToDetailViewBlock(searchId);
+        self.backToDetailViewBlock(searchId,model);
     }
 }
 #pragma mark --- getter method

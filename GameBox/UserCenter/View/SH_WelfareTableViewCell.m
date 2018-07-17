@@ -24,7 +24,7 @@
 -(void)updateCellWithInfo:(NSDictionary *)info context:(id)context{
     SH_FundListModel * model =  ConvertToClassPointer(SH_FundListModel, context);
    
-    self.one_label.text =   dateString(model.createTime, @"yyyy-MM-dd");
+    self.one_label.text =  dateStringWithFormatter(model.createTime, @"yyyy-MM-dd");
     self.two_label.text = model.transactionMoney;
     self.three_label.text = model.statusName;
     self.four_label.text = model.transaction_typeName;

@@ -559,9 +559,10 @@
         
         AlertViewController *cvc  = [[AlertViewController  alloc] initAlertView:welfare viewHeight:303 titleImageName:@"title06" alertViewType:AlertViewTypeLong];
         
-        welfare.backToDetailViewBlock = ^(NSString *searchId) {
+        welfare.backToDetailViewBlock = ^(NSString *searchId,SH_FundListModel * model) {
             SH_WelfareDetailView * detail = [SH_WelfareDetailView  instanceWelfareDetailView];
             detail.searchId = searchId;
+            detail.infoModel = model;
              AlertViewController *dvc  = [[AlertViewController  alloc] initAlertView:detail viewHeight:303 titleImageName:@"title06" alertViewType:AlertViewTypeLong];
             [self presentViewController:dvc addTargetViewController:cvc];
         };
@@ -597,16 +598,13 @@
         cardBackV.backgroundColor = [UIColor colorWithWhite:0.2f alpha:0.5];
         [self.view addSubview:cardBackV];
         
-        SH_CardRecordView *crv = [[SH_CardRecordView alloc] init];
+        SH_CardRecordView *crv = [SH_CardRecordView  instanceCardRecordView];
         crv.backgroundColor = [UIColor whiteColor];
         crv.layer.cornerRadius = 4.5;
         [cardBackV addSubview:crv];
         
         AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:crv viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"" alertViewType:AlertViewTypeLong];
-        acr.title = @"牌局记录";
-        acr.modalPresentationStyle = UIModalPresentationCurrentContext;
-        acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        [self presentViewController:acr animated:YES completion:nil];
+        [self presentViewController:acr addTargetViewController:self];
     }
 }
 

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "SH_FundListModel.h"
 @interface SH_WelfareDetailView : UIView
 @property(nonatomic,copy)NSString * searchId;
+@property(nonatomic,strong)SH_FundListModel * infoModel;
 +(instancetype)instanceWelfareDetailView;
 @end

@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class SH_FundListModel;
 @interface SH_WelfareRecordView : UIView
-@property(nonatomic,copy)void (^backToDetailViewBlock)(NSString * searchId);
+@property(nonatomic,copy)void (^backToDetailViewBlock)(NSString * searchId,SH_FundListModel * model);
 +(instancetype)instanceWelfareRecordView;
 @end

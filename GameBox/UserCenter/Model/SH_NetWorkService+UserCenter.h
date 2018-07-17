@@ -26,9 +26,18 @@
                PageSize:(NSInteger)pageSize
                complete:(SHNetWorkComplete)complete
                   failed:(SHNetWorkFailed)failed;
+#pragma  mark --- 搜索条件
 +(void)fetchDepositPulldownListComplete:(SHNetWorkComplete)complete
                                  failed:(SHNetWorkFailed)failed;
+#pragma  mark --- 福利记录
 +(void)fetchDepositListDetail:(NSString*)Id
                      complete:(SHNetWorkComplete)complete
                        failed:(SHNetWorkFailed)failed;
+#pragma mark -牌局记录
++(void)fetchBettingList:(NSString*)startDate EndDate:(NSString*)endDate
+             PageNumber:(NSInteger)pageNumber
+               PageSize:(NSInteger)pageSize
+       withIsStatistics:(BOOL)isShowStatistics
+               complete:(SHNetWorkComplete)complete
+                 failed:(SHNetWorkFailed)failed;
 @end
