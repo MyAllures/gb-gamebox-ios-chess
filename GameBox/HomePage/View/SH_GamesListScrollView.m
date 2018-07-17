@@ -27,6 +27,10 @@
 
 - (void)reloaData
 {
+    if (@available(iOS 11.0, *)) {
+        self.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+    
     for (id subView in self.scrollView.subviews) {
         if ([subView isMemberOfClass:[SH_GameItemView class]] || [subView isMemberOfClass:[SH_DZGameItemView class]]) {
             [subView removeFromSuperview];
@@ -37,7 +41,6 @@
     CGFloat calculationW = (itemsNum/2+itemsNum%2)*SH_GAMELIST_ITEM_WIDTH;
     CGFloat contentSizeW = calculationW > self.scrollView.frame.size.width ? calculationW : self.scrollView.frame.size.width;
     
-    [self.scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
     if (calculationW > self.scrollView.frame.size.width) {
         self.nextBT.hidden = NO;
         self.preBT.hidden = YES;
@@ -49,6 +52,8 @@
     }
 
     self.scrollView.contentSize = CGSizeMake(contentSizeW, self.scrollView.frame.size.height);
+    [self.scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
+
     for (int i = 0; i < itemsNum; i++) {
         id itemView =[self.dataSource gamesListScrollView:self viewForItem:i];
         if ([itemView isMemberOfClass:[SH_DZGameItemView class]]) {

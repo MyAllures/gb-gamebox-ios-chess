@@ -83,8 +83,14 @@
     [self fetchCookie];
     [self initAdScroll];
     [self refreshAnnouncement];
-//    [self refreshHomeInfo];
+    [self refreshHomeInfo];
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didRegistratedSuccessful) name:@"didRegistratedSuccessful" object:nil];
+    if (iPhoneX) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(statusBarOrientationChange:)
+                                                     name:UIApplicationDidChangeStatusBarOrientationNotification
+                                                   object:nil];
+    }
     [self  configUI];
     [self  autoLoginIsRegist:false];
 }
@@ -191,6 +197,23 @@
 - (void)setCurrentLevel:(int)currentLevel
 {
     _currentLevel = currentLevel;
+    if (self.currentLevel == 0)
+    {
+        self.topGamesListScrollView.hidden = NO;
+        self.midGamesListScrollView.hidden = YES;
+        self.lastGamesListScrollView.hidden = YES;
+    }
+    else if (self.currentLevel == 1) {
+        self.topGamesListScrollView.hidden = YES;
+        self.midGamesListScrollView.hidden = NO;
+        self.lastGamesListScrollView.hidden = YES;
+    }
+    else if (self.currentLevel == 2) {
+        self.topGamesListScrollView.hidden = YES;
+        self.midGamesListScrollView.hidden = YES;
+        self.lastGamesListScrollView.hidden = NO;
+    }
+
     self.upLevelBT.hidden = _currentLevel == 0;
 }
 
@@ -592,8 +615,9 @@
     _cycleAdView.continuous = YES;
     _cycleAdView.autoPlayTimeInterval = 5;
     [self.view addSubview:_cycleAdView];
+    UIInterfaceOrientation oriention = [UIApplication sharedApplication].statusBarOrientation;
     [_cycleAdView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(18);
+        make.left.mas_equalTo(oriention == UIInterfaceOrientationLandscapeLeft ? 18 : (iPhoneX ? 18+30 : 18));
         make.top.mas_equalTo(88);
         make.width.mas_equalTo(190);
         make.height.mas_equalTo(224);
@@ -607,11 +631,13 @@
         _topGamesListScrollView.dataSource = self;
         _topGamesListScrollView.delegate = self;
         [self.view addSubview:_topGamesListScrollView];
+        UIInterfaceOrientation oriention = [UIApplication sharedApplication].statusBarOrientation;
+
         [_topGamesListScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(18+190);
             make.top.mas_equalTo(88);
             make.height.mas_equalTo(224);
-            make.right.equalTo(self.view.mas_right);
+            make.right.mas_equalTo(oriention == UIInterfaceOrientationLandscapeLeft ? (iPhoneX ? -30 : 0) : 0);
         }];
     }
     return _topGamesListScrollView;
@@ -621,14 +647,16 @@
 {
     if (_midGamesListScrollView == nil) {
         _midGamesListScrollView = [[SH_GamesListScrollView alloc] init];
+        _midGamesListScrollView.hidden = YES;
         _midGamesListScrollView.dataSource = self;
         _midGamesListScrollView.delegate = self;
         [self.view addSubview:_midGamesListScrollView];
+        UIInterfaceOrientation oriention = [UIApplication sharedApplication].statusBarOrientation;
         [_midGamesListScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(0);
+            make.left.mas_equalTo(oriention == UIInterfaceOrientationLandscapeLeft ? 0 : (iPhoneX ? 30 : 0));
             make.top.mas_equalTo(88);
             make.height.mas_equalTo(224);
-            make.right.equalTo(self.view.mas_right);
+            make.right.mas_equalTo(oriention == UIInterfaceOrientationLandscapeLeft ? (iPhoneX ? -30 : 0) : 0);
         }];
     }
     return _midGamesListScrollView;
@@ -638,14 +666,16 @@
 {
     if (_lastGamesListScrollView == nil) {
         _lastGamesListScrollView = [[SH_GamesListScrollView alloc] init];
+        _lastGamesListScrollView.hidden = YES;
         _lastGamesListScrollView.dataSource = self;
         _lastGamesListScrollView.delegate = self;
         [self.view addSubview:_lastGamesListScrollView];
+        UIInterfaceOrientation oriention = [UIApplication sharedApplication].statusBarOrientation;
         [_lastGamesListScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(0);
+            make.left.mas_equalTo(oriention == UIInterfaceOrientationLandscapeLeft ? 0 : (iPhoneX ? 30 : 0));
             make.top.mas_equalTo(88);
             make.height.mas_equalTo(224);
-            make.right.equalTo(self.view.mas_right);
+            make.right.mas_equalTo(oriention == UIInterfaceOrientationLandscapeLeft ? (iPhoneX ? -30 : 0) : 0);
         }];
     }
     return _lastGamesListScrollView;
@@ -868,5 +898,68 @@
     });
 }
 
+- (void)statusBarOrientationChange:(NSNotification *)notification
+{
+    UIInterfaceOrientation oriention = [UIApplication sharedApplication].statusBarOrientation;
+    if (oriention == UIInterfaceOrientationLandscapeLeft) {
+        [self.cycleAdView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(18);
+            make.top.mas_equalTo(88);
+            make.width.mas_equalTo(190);
+            make.height.mas_equalTo(224);
+        }];
+
+        [self.topGamesListScrollView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(18+190);
+            make.top.mas_equalTo(88);
+            make.height.mas_equalTo(224);
+            make.right.mas_equalTo(iPhoneX ? -30 : 0);
+        }];
+        
+        [self.midGamesListScrollView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(0);
+            make.top.mas_equalTo(88);
+            make.height.mas_equalTo(224);
+            make.right.mas_equalTo(iPhoneX ? -30 : 0);
+        }];
+        
+        [self.lastGamesListScrollView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(0);
+            make.top.mas_equalTo(88);
+            make.height.mas_equalTo(224);
+            make.right.mas_equalTo(iPhoneX ? -30 : 0);
+        }];
+    }
+    else if (oriention == UIInterfaceOrientationLandscapeRight)
+    {
+        [self.cycleAdView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(iPhoneX ? 18+30 : 18);
+            make.top.mas_equalTo(88);
+            make.width.mas_equalTo(190);
+            make.height.mas_equalTo(224);
+        }];
+        
+        [self.topGamesListScrollView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(iPhoneX ? 18+190+30: 18+190);
+            make.top.mas_equalTo(88);
+            make.height.mas_equalTo(224);
+            make.right.mas_equalTo(0);
+        }];
+        
+        [self.midGamesListScrollView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(iPhoneX ? 30 : 0);
+            make.top.mas_equalTo(88);
+            make.height.mas_equalTo(224);
+            make.right.mas_equalTo(0);
+        }];
+        
+        [self.lastGamesListScrollView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(iPhoneX ? 30 : 0);
+            make.top.mas_equalTo(88);
+            make.height.mas_equalTo(224);
+            make.right.mas_equalTo(0);
+        }];
+    }
+}
 @end
 
