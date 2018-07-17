@@ -27,7 +27,7 @@
     }];
 }
 +(void)caculateOutCoinFeeWithNum:(NSString *)num
-                        Complete:(SHNetWorkComplete)complete
+                        Complete:(feeBlock)complete
                           failed:(SHNetWorkFailed)failed{
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/withdrawOrigin/withdrawFee.html"];
     NSDictionary *header = @{@"X-Requested-With":@"XMLHttpRequest",@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost};
@@ -36,6 +36,8 @@
     [self post:url parameter:param header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             NSDictionary *dic = [(NSDictionary *)response objectForKey:@"data"];
+            SH_FeeModel *model = [[SH_FeeModel alloc]initWithDictionary:dic error:nil];
+            complete(model);
 
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {

@@ -131,11 +131,14 @@
 		BFA0689220FC8C1A00F5ADFE /* SH_OutCoinDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA0689120FC8C1A00F5ADFE /* SH_OutCoinDetailView.xib */; };
 		BFA0689520FC8D9A00F5ADFE /* SH_LookJiHeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA0689420FC8D9A00F5ADFE /* SH_LookJiHeView.m */; };
 		BFA0689720FC8DB300F5ADFE /* SH_LookJiHeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA0689620FC8DB300F5ADFE /* SH_LookJiHeView.xib */; };
-		BFA0689B20FC91DC00F5ADFE /* SH_LookJiHeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA0689920FC91DC00F5ADFE /* SH_LookJiHeCollectionViewCell.m */; };
-		BFA0689C20FC91DC00F5ADFE /* SH_LookJiHeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA0689A20FC91DC00F5ADFE /* SH_LookJiHeCollectionViewCell.xib */; };
 		BFA068A020FCBEEE00F5ADFE /* SH_ProfitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA0689F20FCBEEE00F5ADFE /* SH_ProfitModel.m */; };
 		BFA068A320FCBF1700F5ADFE /* SH_AuditMapModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA068A220FCBF1700F5ADFE /* SH_AuditMapModel.m */; };
 		BFA068A620FCC0CF00F5ADFE /* SH_NetWorkService+Profit.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA068A520FCC0CF00F5ADFE /* SH_NetWorkService+Profit.m */; };
+		BFA068AA20FD86BF00F5ADFE /* SH_OutCoinDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA068A820FD86BF00F5ADFE /* SH_OutCoinDetailTableViewCell.m */; };
+		BFA068AB20FD86BF00F5ADFE /* SH_OutCoinDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA068A920FD86BF00F5ADFE /* SH_OutCoinDetailTableViewCell.xib */; };
+		BFA068AE20FD8AFF00F5ADFE /* SH_FeeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA068AD20FD8AFF00F5ADFE /* SH_FeeModel.m */; };
+		BFA068B220FD9C3300F5ADFE /* SH_LookJiHeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA068B020FD9C3300F5ADFE /* SH_LookJiHeTableViewCell.m */; };
+		BFA068B320FD9C3300F5ADFE /* SH_LookJiHeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA068B120FD9C3300F5ADFE /* SH_LookJiHeTableViewCell.xib */; };
 		BFD6CFC120F8901500EDBC5B /* SH_NetWorkService+Bank.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFC020F8901500EDBC5B /* SH_NetWorkService+Bank.m */; };
 		BFD6CFC520F997B800EDBC5B /* SavePhotoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFC420F997B800EDBC5B /* SavePhotoTool.m */; };
 		BFD6CFCC20F9D20C00EDBC5B /* AttributeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFCB20F9D20C00EDBC5B /* AttributeModel.m */; };
@@ -410,15 +413,20 @@
 		BFA0689320FC8D9A00F5ADFE /* SH_LookJiHeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_LookJiHeView.h; sourceTree = "<group>"; };
 		BFA0689420FC8D9A00F5ADFE /* SH_LookJiHeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_LookJiHeView.m; sourceTree = "<group>"; };
 		BFA0689620FC8DB300F5ADFE /* SH_LookJiHeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_LookJiHeView.xib; sourceTree = "<group>"; };
-		BFA0689820FC91DC00F5ADFE /* SH_LookJiHeCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_LookJiHeCollectionViewCell.h; sourceTree = "<group>"; };
-		BFA0689920FC91DC00F5ADFE /* SH_LookJiHeCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_LookJiHeCollectionViewCell.m; sourceTree = "<group>"; };
-		BFA0689A20FC91DC00F5ADFE /* SH_LookJiHeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_LookJiHeCollectionViewCell.xib; sourceTree = "<group>"; };
 		BFA0689E20FCBEEE00F5ADFE /* SH_ProfitModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ProfitModel.h; sourceTree = "<group>"; };
 		BFA0689F20FCBEEE00F5ADFE /* SH_ProfitModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_ProfitModel.m; sourceTree = "<group>"; };
 		BFA068A120FCBF1700F5ADFE /* SH_AuditMapModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_AuditMapModel.h; sourceTree = "<group>"; };
 		BFA068A220FCBF1700F5ADFE /* SH_AuditMapModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_AuditMapModel.m; sourceTree = "<group>"; };
 		BFA068A420FCC0CF00F5ADFE /* SH_NetWorkService+Profit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+Profit.h"; sourceTree = "<group>"; };
 		BFA068A520FCC0CF00F5ADFE /* SH_NetWorkService+Profit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+Profit.m"; sourceTree = "<group>"; };
+		BFA068A720FD86BF00F5ADFE /* SH_OutCoinDetailTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_OutCoinDetailTableViewCell.h; sourceTree = "<group>"; };
+		BFA068A820FD86BF00F5ADFE /* SH_OutCoinDetailTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_OutCoinDetailTableViewCell.m; sourceTree = "<group>"; };
+		BFA068A920FD86BF00F5ADFE /* SH_OutCoinDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_OutCoinDetailTableViewCell.xib; sourceTree = "<group>"; };
+		BFA068AC20FD8AFF00F5ADFE /* SH_FeeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_FeeModel.h; sourceTree = "<group>"; };
+		BFA068AD20FD8AFF00F5ADFE /* SH_FeeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_FeeModel.m; sourceTree = "<group>"; };
+		BFA068AF20FD9C3300F5ADFE /* SH_LookJiHeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_LookJiHeTableViewCell.h; sourceTree = "<group>"; };
+		BFA068B020FD9C3300F5ADFE /* SH_LookJiHeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_LookJiHeTableViewCell.m; sourceTree = "<group>"; };
+		BFA068B120FD9C3300F5ADFE /* SH_LookJiHeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_LookJiHeTableViewCell.xib; sourceTree = "<group>"; };
 		BFD6CFBF20F8901500EDBC5B /* SH_NetWorkService+Bank.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+Bank.h"; sourceTree = "<group>"; };
 		BFD6CFC020F8901500EDBC5B /* SH_NetWorkService+Bank.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+Bank.m"; sourceTree = "<group>"; };
 		BFD6CFC320F997B800EDBC5B /* SavePhotoTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SavePhotoTool.h; sourceTree = "<group>"; };
@@ -1102,12 +1110,15 @@
 				BFA0688E20FC8C1000F5ADFE /* SH_OutCoinDetailView.h */,
 				BFA0688F20FC8C1000F5ADFE /* SH_OutCoinDetailView.m */,
 				BFA0689120FC8C1A00F5ADFE /* SH_OutCoinDetailView.xib */,
+				BFA068A720FD86BF00F5ADFE /* SH_OutCoinDetailTableViewCell.h */,
+				BFA068A820FD86BF00F5ADFE /* SH_OutCoinDetailTableViewCell.m */,
+				BFA068A920FD86BF00F5ADFE /* SH_OutCoinDetailTableViewCell.xib */,
 				BFA0689320FC8D9A00F5ADFE /* SH_LookJiHeView.h */,
 				BFA0689420FC8D9A00F5ADFE /* SH_LookJiHeView.m */,
 				BFA0689620FC8DB300F5ADFE /* SH_LookJiHeView.xib */,
-				BFA0689820FC91DC00F5ADFE /* SH_LookJiHeCollectionViewCell.h */,
-				BFA0689920FC91DC00F5ADFE /* SH_LookJiHeCollectionViewCell.m */,
-				BFA0689A20FC91DC00F5ADFE /* SH_LookJiHeCollectionViewCell.xib */,
+				BFA068AF20FD9C3300F5ADFE /* SH_LookJiHeTableViewCell.h */,
+				BFA068B020FD9C3300F5ADFE /* SH_LookJiHeTableViewCell.m */,
+				BFA068B120FD9C3300F5ADFE /* SH_LookJiHeTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1121,6 +1132,8 @@
 				BFA068A220FCBF1700F5ADFE /* SH_AuditMapModel.m */,
 				BFA068A420FCC0CF00F5ADFE /* SH_NetWorkService+Profit.h */,
 				BFA068A520FCC0CF00F5ADFE /* SH_NetWorkService+Profit.m */,
+				BFA068AC20FD8AFF00F5ADFE /* SH_FeeModel.h */,
+				BFA068AD20FD8AFF00F5ADFE /* SH_FeeModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1459,6 +1472,7 @@
 				22573D3F20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.xib in Resources */,
 				54C875B520FB4E2D00AA0594 /* SH_DragableMenuView.xib in Resources */,
 				54C8758D20F498E200AA0594 /* SH_GameItemView.xib in Resources */,
+				BFA068AB20FD86BF00F5ADFE /* SH_OutCoinDetailTableViewCell.xib in Resources */,
 				BFFC845C20F2F260008AD801 /* RH_RechargeCenterFooterView.xib in Resources */,
 				22E486D320F9C9920051A68C /* SH_SendMsgTabelViewCell.xib in Resources */,
 				BF44EC6620F4878300BC6EF3 /* SH_NavigationView.xib in Resources */,
@@ -1500,8 +1514,8 @@
 				BF44ECF720F7399800BC6EF3 /* SH_PopSubViewTableViewCell.xib in Resources */,
 				DA18EFBD20F0A9C3002B7E22 /* AlertViewController.xib in Resources */,
 				BF44EC5C20F4589D00BC6EF3 /* SH_BitCoinSubView.xib in Resources */,
-				BFA0689C20FC91DC00F5ADFE /* SH_LookJiHeCollectionViewCell.xib in Resources */,
 				BF44ECF220F7259300BC6EF3 /* SH_PreferentialPopSubView.xib in Resources */,
+				BFA068B320FD9C3300F5ADFE /* SH_LookJiHeTableViewCell.xib in Resources */,
 				DA22F34320F43AD00058A54F /* SH_LoginView.xib in Resources */,
 				BF44ECCB20F4D6CC00BC6EF3 /* SH_RechargeDetailMainSubmitView.xib in Resources */,
 			);
@@ -1570,7 +1584,6 @@
 				54C875C320FC846200AA0594 /* SH_AnnouncementView.m in Sources */,
 				BF44ECC920F4D6BE00BC6EF3 /* SH_RechargeDetailMainSubmitView.m in Sources */,
 				22552CF120F4E0BB0090EFBC /* SH_PromoListModel.m in Sources */,
-				BFA0689B20FC91DC00F5ADFE /* SH_LookJiHeCollectionViewCell.m in Sources */,
 				5401C55220ECA1B80027246D /* GameWebViewController.m in Sources */,
 				22E486DC20FC3F0F0051A68C /* SH_MyMsgDataListModel.m in Sources */,
 				229A219E20F3826E00F5A969 /* SH_GameAnnouncementView.m in Sources */,
@@ -1579,6 +1592,7 @@
 				BFA0689520FC8D9A00F5ADFE /* SH_LookJiHeView.m in Sources */,
 				BFFC846620F3043A008AD801 /* SH_RechargeCenterPaywayModel.m in Sources */,
 				5401C56220ECF9EA0027246D /* SH_HomeViewController.m in Sources */,
+				BFA068B220FD9C3300F5ADFE /* SH_LookJiHeTableViewCell.m in Sources */,
 				54C21AB920F1B981006FCA0F /* SH_CycleScrollView.m in Sources */,
 				BFFC846320F2F268008AD801 /* SH_NetWorkService+RechargeCenter.m in Sources */,
 				BF2F915F20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m in Sources */,
@@ -1626,6 +1640,7 @@
 				BF44ECE720F6FECF00BC6EF3 /* SH_BitCoinSaleModel.m in Sources */,
 				DA22F3B820F44A130058A54F /* RH_UserSafetyCodeModel.m in Sources */,
 				BF44ECDC20F602FE00BC6EF3 /* SH_KuaiChongViewController.m in Sources */,
+				BFA068AA20FD86BF00F5ADFE /* SH_OutCoinDetailTableViewCell.m in Sources */,
 				22573D3E20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.m in Sources */,
 				BF44ECFD20F7477900BC6EF3 /* SH_BitCoinSuccessPopView.m in Sources */,
 				BFFC845220F2F253008AD801 /* SH_RechargeCenterViewController.m in Sources */,
@@ -1649,6 +1664,7 @@
 				5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */,
 				BF44ECD420F5AD5C00BC6EF3 /* SH_RechargeBankDetailViewController.m in Sources */,
 				54C8758820F48CD500AA0594 /* SH_GamesListScrollView.m in Sources */,
+				BFA068AE20FD8AFF00F5ADFE /* SH_FeeModel.m in Sources */,
 				54C8757920F3508600AA0594 /* SH_PromoContentView.m in Sources */,
 				5401C55620ECA2CC0027246D /* IPsCacheManager.m in Sources */,
 				DA6EE1C720F99F39009A01C5 /* SH_SettingView.m in Sources */,
