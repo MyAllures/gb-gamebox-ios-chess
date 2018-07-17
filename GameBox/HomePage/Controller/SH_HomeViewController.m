@@ -17,7 +17,7 @@
 #import "View+MASAdditions.h"
 #import "SH_CycleScrollView.h"
 #import "SH_PlayerCenterView.h"
-#import "SH_WelfareView.h"
+#import "SH_WelfareRecordView.h"
 #import "AlertViewController.h"
 #import "SH_LoginView.h"
 #import "SH_PromoContentView.h"
@@ -41,7 +41,7 @@
 #import "SH_NoAccessViewController.h"
 #import "SH_PromoDetailView.h"
 #import "SH_AnnouncementView.h"
-
+#import "SH_WelfareDetailView.h"
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate,PlayerCenterViewDelegate>
 
 
@@ -53,7 +53,6 @@
 @property (strong, nonatomic) SH_CycleScrollView *cycleAdView;
 @property (nonatomic, strong) SH_PlayerCenterView *pcv;
 @property (nonatomic, strong) UIView *backV;
-@property (nonatomic, strong) SH_WelfareView *welfareV;
 @property (nonatomic, strong) UIView *welBackV;
 @property (strong, nonatomic) SH_GamesListScrollView *topGamesListScrollView;
 @property (strong, nonatomic) SH_GamesListScrollView *midGamesListScrollView;
@@ -65,6 +64,7 @@
 @property (nonatomic, strong) NSString *currentDZGameTypeId;
 @property (nonatomic, assign) BOOL enterDZGameLevel;
 @property (nonatomic, strong) SH_AnnouncementView *announcementView;
+
 
 @end
 
@@ -488,7 +488,7 @@
         [self.backV removeFromSuperview];
     }];
 }
-
+#pragma  mark ---  玩家中心
 - (void)popView:(UIButton *)btn
 {
     [self removeView];
@@ -497,17 +497,25 @@
         
         self.welBackV = [[UIView alloc] init];
         self.welBackV.backgroundColor = [UIColor colorWithWhite:0.2f alpha:0.5];
-        [self.view addSubview:self.welBackV];
+        [[UIApplication sharedApplication].keyWindow addSubview:self.welBackV];
         
         //福利记录
-        self.welfareV = [[SH_WelfareView alloc] init];
+       /* self.welfareV = [[SH_WelfareView alloc] init];
         self.welfareV.backgroundColor = [UIColor whiteColor];
-        self.welfareV.layer.cornerRadius = 4.5;
-        [self.welBackV addSubview:self.welfareV];
+        self.welfareV.layer.cornerRadius = 4.5;*/
+        SH_WelfareRecordView   *welfare =  [SH_WelfareRecordView instanceWelfareRecordView];
+        [self.welBackV addSubview: welfare];
         
-        AlertViewController *cvc  = [[AlertViewController  alloc] initAlertView:self.welfareV viewHeight:303 titleImageName:@"title06" alertViewType:AlertViewTypeLong];
         
-        cvc.title = @"福利记录";
+        AlertViewController *cvc  = [[AlertViewController  alloc] initAlertView:welfare viewHeight:303 titleImageName:@"title06" alertViewType:AlertViewTypeLong];
+        
+        welfare.backToDetailViewBlock = ^(NSString *searchId) {
+            SH_WelfareDetailView * detail = [SH_WelfareDetailView  instanceWelfareDetailView];
+            detail.searchId = searchId;
+             AlertViewController *dvc  = [[AlertViewController  alloc] initAlertView:detail viewHeight:303 titleImageName:@"title06" alertViewType:AlertViewTypeLong];
+            [self presentViewController:dvc addTargetViewController:cvc];
+        };
+        
         cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         cvc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         [self presentViewController:cvc animated:YES completion:nil];
@@ -724,7 +732,7 @@
 #pragma mark - SH_WelfareViewDelegate
 - (void)welfareViewDisappear
 {
-    [self.welfareV removeFromSuperview];
+//    [self.welfareV removeFromSuperview];
     [self.welBackV removeFromSuperview];
 }
 

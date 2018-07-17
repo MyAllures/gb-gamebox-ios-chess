@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SH_WelfareView : UIView
-
+@property(nonatomic,copy)void (^dataBlock)(NSDictionary * context);
 @end

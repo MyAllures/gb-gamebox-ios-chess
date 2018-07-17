@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SH_WelfareRecordView : UIView
-
+@property(nonatomic,copy)void (^backToDetailViewBlock)(NSString * searchId);
++(instancetype)instanceWelfareRecordView;
 @end
