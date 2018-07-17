@@ -39,7 +39,10 @@
 #import "SH_NetWorkService+RegistAPI.h"
 #import "SH_WKGameViewController.h"
 #import "SH_NoAccessViewController.h"
+#import "SH_PrifitOutCoinView.h"
 #import "SH_PromoDetailView.h"
+#import "SH_NetWorkService+Profit.h"
+#import "SH_ProfitModel.h"
 #import "SH_AnnouncementView.h"
 
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate,PlayerCenterViewDelegate>
@@ -66,6 +69,8 @@
 @property (nonatomic, strong) NSString *currentDZGameTypeId;
 @property (nonatomic, assign) BOOL enterDZGameLevel;
 @property (nonatomic, strong) SH_AnnouncementView *announcementView;
+@property (weak, nonatomic) IBOutlet UILabel *suishenFuLiLab;
+
 
 @end
 
@@ -78,7 +83,7 @@
     [self fetchCookie];
     [self initAdScroll];
     [self refreshAnnouncement];
-    [self refreshHomeInfo];
+//    [self refreshHomeInfo];
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didRegistratedSuccessful) name:@"didRegistratedSuccessful" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(statusBarOrientationChange:)
@@ -164,6 +169,8 @@
     
     if ([RH_UserInfoManager  shareUserManager].isLogin) {
         self.avatarImg.image = [UIImage  imageNamed:@"photo_male"];
+        //刷新随身福利
+        self.suishenFuLiLab.text = [NSString stringWithFormat:@"%.2f",[RH_UserInfoManager shareUserManager].mineSettingInfo.walletBalance];        
     }else{
         self.avatarImg.image = [UIImage  imageNamed:@"avatar"];
     }
@@ -575,7 +582,23 @@
     }
 }
 
+#pragma mark--
+#pragma mark--收益按钮
 - (IBAction)incomeClick:(id)sender {
+    
+    SH_PrifitOutCoinView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_PrifitOutCoinView" owner:self options:nil].firstObject;
+    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-75 titleImageName:@"profitTitle" alertViewType:AlertViewTypeLong];
+    acr.title = @"牌局记录";
+    acr.modalPresentationStyle = UIModalPresentationCurrentContext;
+    acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:acr animated:YES completion:nil];
+    
+    [SH_NetWorkService getBankInforComplete:^(SH_ProfitModel *model) {
+        [view updateUIWithBalance:model.totalBalance BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"]];
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        
+    }];
+    
 }
 
 - (IBAction)shareClick:(id)sender {
