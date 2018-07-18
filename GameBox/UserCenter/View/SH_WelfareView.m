@@ -286,6 +286,7 @@
             break;
     }
     self.start_label.text = dateString(date, @"yyyy-MM-dd");
+    [self search];
     return date;
 }
 

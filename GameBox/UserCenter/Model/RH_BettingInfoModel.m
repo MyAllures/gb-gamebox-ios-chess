@@ -29,7 +29,9 @@
 -(NSString *)showBettingDate
 {
     if (!_showBettingDate){
-        _showBettingDate = dateStringWithFormatter(_betTime, @"yyyy-MM-dd \n HH:mm:ss") ;
+        NSTimeInterval interval    =[_betTime doubleValue] / 1000.0;
+        NSDate *date               = [NSDate dateWithTimeIntervalSince1970:interval];
+        _showBettingDate = dateStringWithFormatter(date, @"yyyy-MM-dd \n HH:mm:ss") ;
     }
     
     return _showBettingDate ;

@@ -45,7 +45,7 @@
     __weak typeof(self) weakSelf = self;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         self->page = 0;
-        [SH_NetWorkService  fetchDepositList:self->dict[@"startTime"]?:dateString([NSDate date], @"yyyy-MM-dd") EndDate:self->dict[@"endTime"]?:dateString([NSDate date], @"yyyy-MM-dd") SearchType:self->dict[@"type"]?:@"" PageNumber:page PageSize:20 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        [SH_NetWorkService  fetchDepositList:self->dict[@"startTime"]?:dateString([NSDate date], @"yyyy-MM-dd") EndDate:self->dict[@"endTime"]?:dateString([NSDate date], @"yyyy-MM-dd") SearchType:self->dict[@"type"]?:@"" PageNumber:self->page PageSize:20 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             [weakSelf.tableView.mj_header endRefreshing];
             NSArray * array = ConvertToClassPointer(NSArray, response);
             if (weakSelf.dataArray.count >0) {
