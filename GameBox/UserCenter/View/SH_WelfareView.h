@@ -10,4 +10,5 @@
 
 @interface SH_WelfareView : UIView
 @property(nonatomic,copy)void (^dataBlock)(NSDictionary * context);
++(instancetype)instanceWelfareView;
 @end

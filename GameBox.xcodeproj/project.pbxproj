@@ -195,6 +195,11 @@
 		DA1BCC8520FE06E900201DBC /* SH_CardRecordHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1BCC8420FE06E900201DBC /* SH_CardRecordHeaderView.xib */; };
 		DA1BCC8820FE1FFE00201DBC /* RH_BettingDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCC8620FE1FFE00201DBC /* RH_BettingDetailModel.m */; };
 		DA1BCC8B20FE200700201DBC /* RH_BettingInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCC8920FE200700201DBC /* RH_BettingInfoModel.m */; };
+		DA1BCC8F20FEC91200201DBC /* SH_CardRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCC8D20FEC91200201DBC /* SH_CardRecordTableViewCell.m */; };
+		DA1BCC9020FEC91200201DBC /* SH_CardRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1BCC8E20FEC91200201DBC /* SH_CardRecordTableViewCell.xib */; };
+		DA1BCC9320FED79200201DBC /* SH_CardRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCC9220FED79200201DBC /* SH_CardRecordModel.m */; };
+		DA1BCC9620FEE9E200201DBC /* SH_CardRecordDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCC9520FEE9E200201DBC /* SH_CardRecordDetailView.m */; };
+		DA1BCC9820FEED2100201DBC /* SH_WelfareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1BCC9720FEED2100201DBC /* SH_WelfareView.xib */; };
 		DA21F37C20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F37B20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m */; };
 		DA21F37F20F58F9000D20672 /* SH_RegistView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F37E20F58F9000D20672 /* SH_RegistView.m */; };
 		DA21F38D20F590A800D20672 /* RH_RegisetInitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F38B20F590A800D20672 /* RH_RegisetInitModel.m */; };
@@ -555,6 +560,14 @@
 		DA1BCC8720FE1FFE00201DBC /* RH_BettingDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RH_BettingDetailModel.h; sourceTree = "<group>"; };
 		DA1BCC8920FE200700201DBC /* RH_BettingInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RH_BettingInfoModel.m; sourceTree = "<group>"; };
 		DA1BCC8A20FE200700201DBC /* RH_BettingInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RH_BettingInfoModel.h; sourceTree = "<group>"; };
+		DA1BCC8C20FEC91200201DBC /* SH_CardRecordTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_CardRecordTableViewCell.h; sourceTree = "<group>"; };
+		DA1BCC8D20FEC91200201DBC /* SH_CardRecordTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_CardRecordTableViewCell.m; sourceTree = "<group>"; };
+		DA1BCC8E20FEC91200201DBC /* SH_CardRecordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_CardRecordTableViewCell.xib; sourceTree = "<group>"; };
+		DA1BCC9120FED79200201DBC /* SH_CardRecordModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_CardRecordModel.h; sourceTree = "<group>"; };
+		DA1BCC9220FED79200201DBC /* SH_CardRecordModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_CardRecordModel.m; sourceTree = "<group>"; };
+		DA1BCC9420FEE9E200201DBC /* SH_CardRecordDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_CardRecordDetailView.h; sourceTree = "<group>"; };
+		DA1BCC9520FEE9E200201DBC /* SH_CardRecordDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_CardRecordDetailView.m; sourceTree = "<group>"; };
+		DA1BCC9720FEED2100201DBC /* SH_WelfareView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_WelfareView.xib; sourceTree = "<group>"; };
 		DA21F37A20F4E97800D20672 /* SH_NetWorkService+RegistAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+RegistAPI.h"; sourceTree = "<group>"; };
 		DA21F37B20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+RegistAPI.m"; sourceTree = "<group>"; };
 		DA21F37D20F58F9000D20672 /* SH_RegistView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_RegistView.h; sourceTree = "<group>"; };
@@ -1402,6 +1415,8 @@
 				DA1BCC5A20FDBFCD00201DBC /* SH_FundListModel.m */,
 				DA1BCC6420FDD49E00201DBC /* SH_SearchTypeModel.h */,
 				DA1BCC6520FDD49E00201DBC /* SH_SearchTypeModel.m */,
+				DA1BCC9120FED79200201DBC /* SH_CardRecordModel.h */,
+				DA1BCC9220FED79200201DBC /* SH_CardRecordModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1411,13 +1426,14 @@
 			children = (
 				DA1BCC7B20FE050100201DBC /* GamesRecord */,
 				DA1BCC6720FDDE3600201DBC /* DetailView */,
-				DA1BCC4220FCB7AD00201DBC /* SH_WelfareView.h */,
-				DA1BCC4320FCB7AD00201DBC /* SH_WelfareView.m */,
-				DA1BCC4720FCB81300201DBC /* SH_SecurityCenterView.h */,
-				DA1BCC4520FCB81300201DBC /* SH_SecurityCenterView.m */,
 				DA1BCC4B20FCBB1800201DBC /* SH_WelfareRecordView.h */,
 				DA1BCC4C20FCBB1800201DBC /* SH_WelfareRecordView.m */,
 				DA1BCC4E20FCBB2400201DBC /* SH_WelfareRecordView.xib */,
+				DA1BCC4220FCB7AD00201DBC /* SH_WelfareView.h */,
+				DA1BCC4320FCB7AD00201DBC /* SH_WelfareView.m */,
+				DA1BCC9720FEED2100201DBC /* SH_WelfareView.xib */,
+				DA1BCC4720FCB81300201DBC /* SH_SecurityCenterView.h */,
+				DA1BCC4520FCB81300201DBC /* SH_SecurityCenterView.m */,
 				DA1BCC5C20FDC21600201DBC /* SH_WelfareTableViewCell.h */,
 				DA1BCC5D20FDC21600201DBC /* SH_WelfareTableViewCell.m */,
 				DA1BCC5E20FDC21600201DBC /* SH_WelfareTableViewCell.xib */,
@@ -1458,6 +1474,11 @@
 				DA1BCC8120FE06D300201DBC /* SH_CardRecordHeaderView.h */,
 				DA1BCC8220FE06D300201DBC /* SH_CardRecordHeaderView.m */,
 				DA1BCC8420FE06E900201DBC /* SH_CardRecordHeaderView.xib */,
+				DA1BCC8C20FEC91200201DBC /* SH_CardRecordTableViewCell.h */,
+				DA1BCC8D20FEC91200201DBC /* SH_CardRecordTableViewCell.m */,
+				DA1BCC8E20FEC91200201DBC /* SH_CardRecordTableViewCell.xib */,
+				DA1BCC9420FEE9E200201DBC /* SH_CardRecordDetailView.h */,
+				DA1BCC9520FEE9E200201DBC /* SH_CardRecordDetailView.m */,
 			);
 			path = GamesRecord;
 			sourceTree = "<group>";
@@ -1667,6 +1688,7 @@
 				54C8759D20F756A500AA0594 /* bgm.mp3 in Resources */,
 				22573D3A20F8C6E700D0EB0A /* SH_MyMsgView.xib in Resources */,
 				BFA068CA20FE0FFC00F5ADFE /* SH_ModifyLoginPSDView.xib in Resources */,
+				DA1BCC9020FEC91200201DBC /* SH_CardRecordTableViewCell.xib in Resources */,
 				5401C53920ECA1100027246D /* Assets.xcassets in Resources */,
 				2248B11A20F5EF7E0077EF58 /* SH_GameBulletinTCell.xib in Resources */,
 				BFA068C520FE0AE100F5ADFE /* SH_SaftyCenterView.xib in Resources */,
@@ -1683,6 +1705,7 @@
 				5401C53720ECA10F0027246D /* Main.storyboard in Resources */,
 				DA6EE1C420F98B7F009A01C5 /* SH_AlertView.xib in Resources */,
 				54C8759F20F756A500AA0594 /* showAlertRing.mp3 in Resources */,
+				DA1BCC9820FEED2100201DBC /* SH_WelfareView.xib in Resources */,
 				BFA0688D20FC70C200F5ADFE /* SH_PrifitOutCoinView.xib in Resources */,
 				BF44ECF720F7399800BC6EF3 /* SH_PopSubViewTableViewCell.xib in Resources */,
 				BFA068D420FE154000F5ADFE /* SH_BankCardView.xib in Resources */,
@@ -1803,6 +1826,7 @@
 				DA1BCC4D20FCBB1800201DBC /* SH_WelfareRecordView.m in Sources */,
 				BFA068B920FDE33200F5ADFE /* SH_JiHeSubModel.m in Sources */,
 				22573D3820F8C6D900D0EB0A /* SH_MyMsgView.m in Sources */,
+				DA1BCC9320FED79200201DBC /* SH_CardRecordModel.m in Sources */,
 				54C875BD20FC4B0B00AA0594 /* SH_AnnouncementModel.m in Sources */,
 				DA22F3E020F4562B0058A54F /* UIImage+Size.m in Sources */,
 				2231283720F707F500D1BF5E /* SH_SystemNotificationModel.m in Sources */,
@@ -1838,8 +1862,8 @@
 				DA22F40820F494C60058A54F /* ScreenAdaptation.m in Sources */,
 				22E486D220F9C9920051A68C /* SH_SendMsgTabelViewCell.m in Sources */,
 				54C875B320FB4E1200AA0594 /* SH_DragableMenuView.m in Sources */,
+				DA1BCC8F20FEC91200201DBC /* SH_CardRecordTableViewCell.m in Sources */,
 				BFA068C820FE0FF100F5ADFE /* SH_ModifyLoginPSDView.m in Sources */,
-				DA1BCC4A20FCB81300201DBC /* SH_CardRecordView.m in Sources */,
 				DA22F3D820F455C50058A54F /* UIImage+Representation.m in Sources */,
 				22E486D620F9F1100051A68C /* SH_AdvisoryTypeModel.m in Sources */,
 				DA1BCC4420FCB7AD00201DBC /* SH_WelfareView.m in Sources */,
@@ -1905,6 +1929,7 @@
 				BF44ECD820F5AE1300BC6EF3 /* SH_RechargeBankDetailView.m in Sources */,
 				42BF3E6E20F33A5D00F36B82 /* SH_PlayerCenterView.m in Sources */,
 				BFA068D220FE153000F5ADFE /* SH_BankCardView.m in Sources */,
+				DA1BCC9620FEE9E200201DBC /* SH_CardRecordDetailView.m in Sources */,
 				BF44EC6420F4875300BC6EF3 /* SH_NavigationView.m in Sources */,
 				5401C53120ECA10F0027246D /* AppDelegate.m in Sources */,
 				DA22F3D520F454840058A54F /* NSString+CLCategory.m in Sources */,

@@ -9,6 +9,13 @@
 #import "RH_BettingInfoModel.h"
 
 @implementation RH_BettingInfoModel
++(JSONKeyMapper *)keyMapper{
+    return [[JSONKeyMapper  alloc] initWithModelToJSONDictionary:@{@"mId":@"id"}];
+}
++(BOOL)propertyIsOptional:(NSString *)propertyName
+{
+    return  YES;
+}
 
 -(NSString *)showName
 {
@@ -22,7 +29,7 @@
 -(NSString *)showBettingDate
 {
     if (!_showBettingDate){
-        _showBettingDate = dateStringWithFormatter(_bettime, @"yyyy-MM-dd \n HH:mm:ss") ;
+        _showBettingDate = dateStringWithFormatter(_betTime, @"yyyy-MM-dd \n HH:mm:ss") ;
     }
     
     return _showBettingDate ;
@@ -68,10 +75,9 @@
 -(NSString *)showDetailUrl
 {
     if (!_showDetailUrl){
-        RH_APPDelegate *appDelegate = ConvertToClassPointer(RH_APPDelegate, [UIApplication sharedApplication].delegate) ;
-        if (_mURL.length){
-            if ([_mURL containsString:@"http"] || [_mURL containsString:@"https:"]) {
-                 _showDetailUrl = [NSString stringWithFormat:@"%@",_mURL] ;
+        if (_url.length){
+            if ([_url containsString:@"http"] || [_url containsString:@"https:"]) {
+                 _showDetailUrl = [NSString stringWithFormat:@"%@",_url] ;
             }else
             {
                 NSArray *checkTypeCom = [appDelegate.checkType componentsSeparatedByString:@"+"];

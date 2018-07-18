@@ -9,9 +9,17 @@
 #import "SH_CardRecordView.h"
 #import "SH_CardRecordHeaderView.h"
 #import "SH_NetWorkService+UserCenter.h"
+#import "SH_CardRecordTableViewCell.h"
+#import "SH_CardRecordModel.h"
 @interface  SH_CardRecordView()<UITableViewDelegate,UITableViewDataSource>
+{
+    NSInteger page;
+    NSString * startTime;
+    NSString * endTime;
+}
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic,strong)SH_CardRecordHeaderView *headerView;
+@property(nonatomic,strong)NSMutableArray * dataArray;
 @end
 @implementation SH_CardRecordView
 +(instancetype)instanceCardRecordView{
@@ -20,6 +28,9 @@
 -(void)awakeFromNib{
     [super awakeFromNib];
     [self  configUI];
+    page =0;
+    startTime =dateString([NSDate date], @"yyyy-MM-dd");
+    endTime  = dateString([NSDate date], @"yyyy-MM-dd");
 }
 #pragma  mark --- 配置UI
 -(void)configUI{
@@ -29,6 +40,11 @@
         make.edges.mas_equalTo(v);
     }];
     self.tableView.tableHeaderView = v;
+    self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+    self.tableView.rowHeight = 44;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.tableView  registerNib:[UINib  nibWithNibName:@"SH_CardRecordTableViewCell" bundle:nil] forCellReuseIdentifier:@"SH_CardRecordTableViewCell"];
     if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
         
         [self.tableView setSeparatorInset:UIEdgeInsetsZero];
@@ -40,6 +56,50 @@
         [self.tableView setLayoutMargins:UIEdgeInsetsZero];
         
     }
+    __weak  typeof(self)  weakSelf = self;
+    self.tableView.mj_header = [MJRefreshNormalHeader  headerWithRefreshingBlock:^{
+        self->page =0;
+        [SH_NetWorkService  fetchBettingList:self->startTime EndDate:self->endTime PageNumber:self->page PageSize:20 withIsStatistics:false complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+            [weakSelf.tableView.mj_header endRefreshing];
+            NSDictionary  * dic = ConvertToClassPointer(NSDictionary, response);
+            if ([dic boolValueForKey:@"success"]) {
+                SH_CardRecordModel  * model = [[SH_CardRecordModel alloc] initWithDictionary:dic[@"data"] error:nil];
+                if (weakSelf.dataArray.count >0) {
+                    [weakSelf.dataArray  removeAllObjects];
+                }
+                if (model.list.count ==20) {
+                    weakSelf.tableView.mj_footer.hidden = false;
+                }else{
+                    weakSelf.tableView.mj_footer.hidden = YES;
+                }
+                weakSelf.dataArray = model.list.mutableCopy;
+                
+                [weakSelf.tableView  reloadData];
+            }
+            
+        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+             [weakSelf.tableView.mj_header endRefreshing];
+        }];
+    }];
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter  footerWithRefreshingBlock:^{
+        self->page ++;
+        [SH_NetWorkService  fetchBettingList:self->startTime EndDate:self->endTime PageNumber:self->page PageSize:20 withIsStatistics:false complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+             [weakSelf.tableView.mj_footer endRefreshing];
+            NSDictionary  * dic = ConvertToClassPointer(NSDictionary, response);
+            if ([dic boolValueForKey:@"success"]) {
+                SH_CardRecordModel  * model = [[SH_CardRecordModel alloc] initWithDictionary:dic[@"data"] error:nil];
+                if (model.list.count <20) {
+                    weakSelf.tableView.mj_footer.hidden = YES;
+                }
+                [weakSelf.dataArray addObjectsFromArray:model.list];
+                [weakSelf.tableView  reloadData];
+            }
+            
+        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+               [weakSelf.tableView.mj_footer endRefreshing];
+        }];
+    }];
+    self.tableView.mj_footer.hidden = YES;
 }
 
 //cell分割线与屏幕等宽，两个方法同时添加iOS 10有效
@@ -51,20 +111,54 @@
         [cell setLayoutMargins:UIEdgeInsetsZero];
     }
 }
+#pragma mark --- tableView  delegate
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.dataArray.count;
+}
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    SH_CardRecordTableViewCell * cell = [tableView  dequeueReusableCellWithIdentifier:@"SH_CardRecordTableViewCell" forIndexPath:indexPath];
+    [cell updateCellWithInfo:nil context:self.dataArray[indexPath.row]];
+    return  cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView  deselectRowAtIndexPath:indexPath animated:YES];
+    RH_BettingInfoModel * info = self.dataArray[indexPath.row];
+    if (self.backToDetailViewBlock) {
+        self.backToDetailViewBlock(info);
+    }
+}
 #pragma  amark --- getter method
 -(SH_CardRecordHeaderView *)headerView{
     if (!_headerView) {
         _headerView = [SH_CardRecordHeaderView  instanceCardRecordHeaderView];
+        __weak  typeof(self)  weakSelf = self;
         _headerView.searchConditionBlock = ^(NSDictionary *context) {
             NSLog(@"%@----",context);
-            [SH_NetWorkService  fetchBettingList:context[@"startTime"] EndDate:context[@"endTime"] PageNumber:0 PageSize:20 withIsStatistics:false complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+            self->startTime = context[@"startTime"];
+            self->endTime = context[@"endTime"];
+            [SH_NetWorkService  fetchBettingList:context[@"startTime"] EndDate:context[@"endTime"] PageNumber:self->page PageSize:20 withIsStatistics:false complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+                NSDictionary  * dic = ConvertToClassPointer(NSDictionary, response);
+                if ([dic boolValueForKey:@"success"]) {
+                    SH_CardRecordModel  * model = [[SH_CardRecordModel alloc] initWithDictionary:dic[@"data"] error:nil];
+                    if (model.list.count ==20) {
+                        weakSelf.tableView.mj_footer.hidden = false;
+                    }
+                    weakSelf.dataArray = model.list.mutableCopy;
+                    [weakSelf.tableView  reloadData];
+                }
                 
-                NSLog(@"%@",response);
             } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
                 
             }];
         };
     }
     return  _headerView;
+}
+#pragma mark -- getter  method
+-(NSMutableArray *)dataArray{
+    if (!_dataArray) {
+        _dataArray = [NSMutableArray  array];
+    }
+    return  _dataArray;
 }
 @end

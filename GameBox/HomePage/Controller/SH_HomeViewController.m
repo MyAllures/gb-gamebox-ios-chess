@@ -615,8 +615,11 @@
         crv.backgroundColor = [UIColor whiteColor];
         crv.layer.cornerRadius = 4.5;
         [cardBackV addSubview:crv];
+        crv.backToDetailViewBlock = ^(RH_BettingInfoModel *info) {
+            
+        };
         
-        AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:crv viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"" alertViewType:AlertViewTypeLong];
+        AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:crv viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title10" alertViewType:AlertViewTypeLong];
         [self presentViewController:acr addTargetViewController:self];
     }
 }
