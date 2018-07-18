@@ -65,6 +65,10 @@
                               complete:(SHNetWorkComplete)complete
                                 failed:(SHNetWorkFailed)failed;
 
++(void)startLoadSystemMessageDetailWithSearchId:(NSString *)searchId
+                                         complete:(SHNetWorkComplete)complete
+                                           failed:(SHNetWorkFailed)failed;
+
 +(void)startLoadSystemMessageDeleteWithIds:(NSString *)ids
                                     complete:(SHNetWorkComplete)complete
                                       failed:(SHNetWorkFailed)failed;

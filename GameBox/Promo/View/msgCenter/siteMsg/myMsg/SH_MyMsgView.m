@@ -192,6 +192,7 @@
     cell.seleteBtn.tag = indexPath.row;
     cell.advisoryContentLabel.text = model.advisoryContent;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1];
     cell.advisoryTimeLabel.text = [self timeStampWithDate:model.advisoryTime];
     if (model.selectedFlag) {
         [cell.seleteBtn setBackgroundImage: [UIImage imageNamed:@"choose"] forState:UIControlStateNormal];
