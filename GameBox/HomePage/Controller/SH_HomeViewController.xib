@@ -15,6 +15,7 @@
                 <outlet property="dzGameMarkImg" destination="lo0-ep-RC7" id="goR-vs-8Bn"/>
                 <outlet property="runLBBGImg" destination="hn2-KE-0LR" id="fPY-of-f4g"/>
                 <outlet property="searchView" destination="tQ1-dV-GAz" id="7ii-yP-qq5"/>
+                <outlet property="snowBGImg" destination="M7k-mA-Vza" id="m86-fM-5lV"/>
                 <outlet property="suishenFuLiLab" destination="SqL-w0-8Nr" id="b24-si-bnp"/>
                 <outlet property="upLevelBT" destination="HeW-dE-RHz" id="GgB-FK-2Al"/>
                 <outlet property="userAccountLB" destination="k8V-nF-s7S" id="dTq-v5-oaj"/>

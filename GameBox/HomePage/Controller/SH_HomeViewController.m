@@ -58,6 +58,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *dzGameMarkImg;
 @property (weak, nonatomic) IBOutlet UIImageView *runLBBGImg;
 @property (weak, nonatomic) IBOutlet UIView *searchView;
+@property (weak, nonatomic) IBOutlet UIImageView *snowBGImg;
 @property (strong, nonatomic) SH_CycleScrollView *cycleAdView;
 @property (nonatomic, strong) SH_PlayerCenterView *pcv;
 @property (nonatomic, strong) UIView *backV;
@@ -89,7 +90,7 @@
     [self refreshAnnouncement];
     [self refreshHomeInfo];
     
-    [[YFAnimationManager shareInstancetype] showAnimationInView:self.view withAnimationStyle:YFAnimationStyleOfSnow];
+    [[YFAnimationManager shareInstancetype] showAnimationInView:self.snowBGImg withAnimationStyle:YFAnimationStyleOfSnow];
 
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didRegistratedSuccessful) name:@"didRegistratedSuccessful" object:nil];
     if (iPhoneX) {
@@ -596,21 +597,21 @@
     else if ([btn.currentTitle isEqualToString:@"安全中心"]) {
         
         //安全中心
-//        UIView *securityBackV = [[UIView alloc] init];
-//        securityBackV.backgroundColor = [UIColor colorWithWhite:0.2f alpha:0.5];
-//        [self.view addSubview:securityBackV];
-//
-//        SH_SecurityCenterView *securityView = [[SH_SecurityCenterView alloc] init];
-//        securityView.backgroundColor = [UIColor whiteColor];
-//        securityView.layer.cornerRadius = 4.5;
-//        [securityBackV addSubview:securityView];
-        SH_SaftyCenterView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_SaftyCenterView" owner:self options:nil].firstObject;
-    
-      AlertViewController *avc  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-50 titleImageName:@"saftyTtile" alertViewType:AlertViewTypeLong];
-        avc.title = @"安全中心";
-        avc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-        avc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        [self presentViewController:avc animated:YES completion:nil];
+        UIView *securityBackV = [[UIView alloc] init];
+        securityBackV.backgroundColor = [UIColor colorWithWhite:0.2f alpha:0.5];
+        [self.view addSubview:securityBackV];
+
+        SH_SecurityCenterView *securityView = [[SH_SecurityCenterView alloc] init];
+        securityView.backgroundColor = [UIColor whiteColor];
+        securityView.layer.cornerRadius = 4.5;
+        [securityBackV addSubview:securityView];
+//        SH_SaftyCenterView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_SaftyCenterView" owner:self options:nil].firstObject;
+//    
+//      AlertViewController *avc  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-50 titleImageName:@"saftyTtile" alertViewType:AlertViewTypeLong];
+//        avc.title = @"安全中心";
+//        avc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+//        avc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+//        [self presentViewController:avc animated:YES completion:nil];
     }
 
     else if ([btn.currentTitle isEqualToString:@"牌局记录"]) {
