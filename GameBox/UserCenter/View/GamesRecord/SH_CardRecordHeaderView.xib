@@ -67,12 +67,6 @@
                                 <constraint firstItem="0dJ-Sc-y2W" firstAttribute="top" secondItem="MfO-mc-lV9" secondAttribute="top" id="e39-uW-TAc"/>
                                 <constraint firstItem="iJS-PG-xbl" firstAttribute="centerY" secondItem="MfO-mc-lV9" secondAttribute="centerY" id="jlP-90-6sg"/>
                             </constraints>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                    <integer key="value" value="5"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                            </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BY5-5f-JxC">
                             <rect key="frame" x="262" y="5" width="120" height="53"/>
@@ -106,12 +100,6 @@
                                 <constraint firstItem="2x5-Yt-Ewa" firstAttribute="leading" secondItem="YUU-9z-J28" secondAttribute="trailing" constant="8" id="pPy-WG-eiV"/>
                                 <constraint firstAttribute="bottom" secondItem="toj-7l-CsE" secondAttribute="bottom" id="tjU-ri-6If"/>
                             </constraints>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                    <integer key="value" value="5"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                            </userDefinedRuntimeAttributes>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Emt-Hq-mM3">
                             <rect key="frame" x="235" y="21" width="11" height="21"/>
@@ -126,7 +114,6 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.53333333329999999" green="0.80784313730000001" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="PHq-wJ-XJa" firstAttribute="leading" secondItem="E87-9g-aWS" secondAttribute="leading" constant="8" id="2h7-ex-5XS"/>
                         <constraint firstItem="Emt-Hq-mM3" firstAttribute="leading" secondItem="MfO-mc-lV9" secondAttribute="trailing" constant="16" id="3OD-H8-71x"/>

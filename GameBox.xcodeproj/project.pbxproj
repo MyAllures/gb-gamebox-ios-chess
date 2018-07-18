@@ -86,6 +86,16 @@
 		54C875C320FC846200AA0594 /* SH_AnnouncementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C875C220FC846200AA0594 /* SH_AnnouncementView.m */; };
 		54C875C620FCBE0E00AA0594 /* SH_DZGameItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C875C520FCBE0E00AA0594 /* SH_DZGameItemView.m */; };
 		54C875C820FCBE1900AA0594 /* SH_DZGameItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C875C720FCBE1900AA0594 /* SH_DZGameItemView.xib */; };
+		54C8761420FE218B00AA0594 /* YFAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C875FE20FE218A00AA0594 /* YFAnimationManager.m */; };
+		54C8761520FE218B00AA0594 /* YFEmitterRainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8760320FE218B00AA0594 /* YFEmitterRainCell.m */; };
+		54C8761620FE218B00AA0594 /* rain.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C8760520FE218B00AA0594 /* rain.png */; };
+		54C8761720FE218B00AA0594 /* YFEmitterLeavesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8760720FE218B00AA0594 /* YFEmitterLeavesCell.m */; };
+		54C8761820FE218B00AA0594 /* leaves.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C8760920FE218B00AA0594 /* leaves.png */; };
+		54C8761920FE218B00AA0594 /* YFPublicParticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8760B20FE218B00AA0594 /* YFPublicParticleCell.m */; };
+		54C8761A20FE218B00AA0594 /* YFEmitterCustomLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8760E20FE218B00AA0594 /* YFEmitterCustomLayer.m */; };
+		54C8761B20FE218B00AA0594 /* snow.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C8761220FE218B00AA0594 /* snow.png */; };
+		54C8761C20FE218B00AA0594 /* YFEmitterSnowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8761320FE218B00AA0594 /* YFEmitterSnowCell.m */; };
+		54C8761F20FE220C00AA0594 /* UIImage+EXtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8761E20FE220C00AA0594 /* UIImage+EXtension.m */; };
 		BF2F915A20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F915820EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m */; };
 		BF2F915B20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2F915920EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib */; };
 		BF2F915F20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F915D20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m */; };
@@ -371,6 +381,23 @@
 		54C875C420FCBE0E00AA0594 /* SH_DZGameItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_DZGameItemView.h; sourceTree = "<group>"; };
 		54C875C520FCBE0E00AA0594 /* SH_DZGameItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_DZGameItemView.m; sourceTree = "<group>"; };
 		54C875C720FCBE1900AA0594 /* SH_DZGameItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_DZGameItemView.xib; sourceTree = "<group>"; };
+		54C875FE20FE218A00AA0594 /* YFAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YFAnimationManager.m; sourceTree = "<group>"; };
+		54C875FF20FE218A00AA0594 /* YFAnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YFAnimationManager.h; sourceTree = "<group>"; };
+		54C8760320FE218B00AA0594 /* YFEmitterRainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YFEmitterRainCell.m; sourceTree = "<group>"; };
+		54C8760420FE218B00AA0594 /* YFEmitterRainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YFEmitterRainCell.h; sourceTree = "<group>"; };
+		54C8760520FE218B00AA0594 /* rain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rain.png; sourceTree = "<group>"; };
+		54C8760720FE218B00AA0594 /* YFEmitterLeavesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YFEmitterLeavesCell.m; sourceTree = "<group>"; };
+		54C8760820FE218B00AA0594 /* YFEmitterLeavesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YFEmitterLeavesCell.h; sourceTree = "<group>"; };
+		54C8760920FE218B00AA0594 /* leaves.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leaves.png; sourceTree = "<group>"; };
+		54C8760B20FE218B00AA0594 /* YFPublicParticleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YFPublicParticleCell.m; sourceTree = "<group>"; };
+		54C8760C20FE218B00AA0594 /* YFPublicParticleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YFPublicParticleCell.h; sourceTree = "<group>"; };
+		54C8760E20FE218B00AA0594 /* YFEmitterCustomLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YFEmitterCustomLayer.m; sourceTree = "<group>"; };
+		54C8760F20FE218B00AA0594 /* YFEmitterCustomLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YFEmitterCustomLayer.h; sourceTree = "<group>"; };
+		54C8761120FE218B00AA0594 /* YFEmitterSnowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YFEmitterSnowCell.h; sourceTree = "<group>"; };
+		54C8761220FE218B00AA0594 /* snow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snow.png; sourceTree = "<group>"; };
+		54C8761320FE218B00AA0594 /* YFEmitterSnowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YFEmitterSnowCell.m; sourceTree = "<group>"; };
+		54C8761D20FE220B00AA0594 /* UIImage+EXtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+EXtension.h"; sourceTree = "<group>"; };
+		54C8761E20FE220C00AA0594 /* UIImage+EXtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+EXtension.m"; sourceTree = "<group>"; };
 		BF2F915720EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_DepositeWayCollectionViewCell.h; sourceTree = "<group>"; };
 		BF2F915820EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_DepositeWayCollectionViewCell.m; sourceTree = "<group>"; };
 		BF2F915920EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_DepositeWayCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -817,6 +844,7 @@
 		5401C54520ECA1B80027246D /* CoreBase */ = {
 			isa = PBXGroup;
 			children = (
+				54C875FC20FE217C00AA0594 /* SnowAnimation */,
 				BFD6CFD020F9FAE700EDBC5B /* TTTAttributedLabel */,
 				BFD6CFC220F9974B00EDBC5B /* SavePhoto */,
 				BF44ED0020F7828400BC6EF3 /* 滚轮选择器 */,
@@ -1014,6 +1042,94 @@
 				54C875A720F75B7700AA0594 /* SH_RingButton.m */,
 			);
 			path = RingButton;
+			sourceTree = "<group>";
+		};
+		54C875FC20FE217C00AA0594 /* SnowAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				54C8761D20FE220B00AA0594 /* UIImage+EXtension.h */,
+				54C8761E20FE220C00AA0594 /* UIImage+EXtension.m */,
+				54C875FD20FE218A00AA0594 /* YFAnimationManager */,
+				54C8760020FE218B00AA0594 /* YFAnimationStyle */,
+			);
+			path = SnowAnimation;
+			sourceTree = "<group>";
+		};
+		54C875FD20FE218A00AA0594 /* YFAnimationManager */ = {
+			isa = PBXGroup;
+			children = (
+				54C875FE20FE218A00AA0594 /* YFAnimationManager.m */,
+				54C875FF20FE218A00AA0594 /* YFAnimationManager.h */,
+			);
+			path = YFAnimationManager;
+			sourceTree = "<group>";
+		};
+		54C8760020FE218B00AA0594 /* YFAnimationStyle */ = {
+			isa = PBXGroup;
+			children = (
+				54C8760120FE218B00AA0594 /* YFAnimationEmitterStyle */,
+			);
+			path = YFAnimationStyle;
+			sourceTree = "<group>";
+		};
+		54C8760120FE218B00AA0594 /* YFAnimationEmitterStyle */ = {
+			isa = PBXGroup;
+			children = (
+				54C8760220FE218B00AA0594 /* RainCell */,
+				54C8760620FE218B00AA0594 /* LevaesCell */,
+				54C8760A20FE218B00AA0594 /* PublicParticleCell */,
+				54C8760D20FE218B00AA0594 /* EmitterLayer */,
+				54C8761020FE218B00AA0594 /* SnowCell */,
+			);
+			path = YFAnimationEmitterStyle;
+			sourceTree = "<group>";
+		};
+		54C8760220FE218B00AA0594 /* RainCell */ = {
+			isa = PBXGroup;
+			children = (
+				54C8760320FE218B00AA0594 /* YFEmitterRainCell.m */,
+				54C8760420FE218B00AA0594 /* YFEmitterRainCell.h */,
+				54C8760520FE218B00AA0594 /* rain.png */,
+			);
+			path = RainCell;
+			sourceTree = "<group>";
+		};
+		54C8760620FE218B00AA0594 /* LevaesCell */ = {
+			isa = PBXGroup;
+			children = (
+				54C8760720FE218B00AA0594 /* YFEmitterLeavesCell.m */,
+				54C8760820FE218B00AA0594 /* YFEmitterLeavesCell.h */,
+				54C8760920FE218B00AA0594 /* leaves.png */,
+			);
+			path = LevaesCell;
+			sourceTree = "<group>";
+		};
+		54C8760A20FE218B00AA0594 /* PublicParticleCell */ = {
+			isa = PBXGroup;
+			children = (
+				54C8760B20FE218B00AA0594 /* YFPublicParticleCell.m */,
+				54C8760C20FE218B00AA0594 /* YFPublicParticleCell.h */,
+			);
+			path = PublicParticleCell;
+			sourceTree = "<group>";
+		};
+		54C8760D20FE218B00AA0594 /* EmitterLayer */ = {
+			isa = PBXGroup;
+			children = (
+				54C8760E20FE218B00AA0594 /* YFEmitterCustomLayer.m */,
+				54C8760F20FE218B00AA0594 /* YFEmitterCustomLayer.h */,
+			);
+			path = EmitterLayer;
+			sourceTree = "<group>";
+		};
+		54C8761020FE218B00AA0594 /* SnowCell */ = {
+			isa = PBXGroup;
+			children = (
+				54C8761120FE218B00AA0594 /* YFEmitterSnowCell.h */,
+				54C8761220FE218B00AA0594 /* snow.png */,
+				54C8761320FE218B00AA0594 /* YFEmitterSnowCell.m */,
+			);
+			path = SnowCell;
 			sourceTree = "<group>";
 		};
 		87BD6A1D16B97D20B3D1FCB6 /* Frameworks */ = {
@@ -1681,11 +1797,13 @@
 				BFA068CF20FE135200F5ADFE /* SH_ModiftSaftyPSDView.xib in Resources */,
 				54C875C820FCBE1900AA0594 /* SH_DZGameItemView.xib in Resources */,
 				22552CE620F49DB90090EFBC /* SH_SendMsgView.xib in Resources */,
+				54C8761B20FE218B00AA0594 /* snow.png in Resources */,
 				DA1BCC7920FDEE1E00201DBC /* RH_CapitalRecordDetailsCell.xib in Resources */,
 				DA1BCC8020FE055800201DBC /* SH_CardRecordView.xib in Resources */,
 				229A21A020F3827700F5A969 /* SH_GameAnnouncementView.xib in Resources */,
 				DA1BCC4F20FCBB2400201DBC /* SH_WelfareRecordView.xib in Resources */,
 				54C8759D20F756A500AA0594 /* bgm.mp3 in Resources */,
+				54C8761620FE218B00AA0594 /* rain.png in Resources */,
 				22573D3A20F8C6E700D0EB0A /* SH_MyMsgView.xib in Resources */,
 				BFA068CA20FE0FFC00F5ADFE /* SH_ModifyLoginPSDView.xib in Resources */,
 				DA1BCC9020FEC91200201DBC /* SH_CardRecordTableViewCell.xib in Resources */,
@@ -1712,6 +1830,7 @@
 				DA18EFBD20F0A9C3002B7E22 /* AlertViewController.xib in Resources */,
 				BF44EC5C20F4589D00BC6EF3 /* SH_BitCoinSubView.xib in Resources */,
 				BF44ECF220F7259300BC6EF3 /* SH_PreferentialPopSubView.xib in Resources */,
+				54C8761820FE218B00AA0594 /* leaves.png in Resources */,
 				BFA068B320FD9C3300F5ADFE /* SH_LookJiHeTableViewCell.xib in Resources */,
 				DA22F34320F43AD00058A54F /* SH_LoginView.xib in Resources */,
 				BF44ECCB20F4D6CC00BC6EF3 /* SH_RechargeDetailMainSubmitView.xib in Resources */,
@@ -1802,6 +1921,7 @@
 				DA22F3B420F448ED0058A54F /* RH_UserInfoManager.m in Sources */,
 				DA22F40720F494C60058A54F /* UIColor+HexString.m in Sources */,
 				DA22F34120F43ABC0058A54F /* SH_LoginView.m in Sources */,
+				54C8761F20FE220C00AA0594 /* UIImage+EXtension.m in Sources */,
 				BFA0689020FC8C1000F5ADFE /* SH_OutCoinDetailView.m in Sources */,
 				DA18EFBF20F0A9C3002B7E22 /* PopTool.m in Sources */,
 				DA1BCC8B20FE200700201DBC /* RH_BettingInfoModel.m in Sources */,
@@ -1812,6 +1932,7 @@
 				54C875B920FB788D00AA0594 /* SH_NoAccessViewController.m in Sources */,
 				DA1BCC4920FCB81300201DBC /* SH_SecurityCenterView.m in Sources */,
 				BFFC847320F3452A008AD801 /* UIImageView+handle.m in Sources */,
+				54C8761520FE218B00AA0594 /* YFEmitterRainCell.m in Sources */,
 				BF44EC5A20F4588D00BC6EF3 /* SH_BitCoinSubView.m in Sources */,
 				54C875C620FCBE0E00AA0594 /* SH_DZGameItemView.m in Sources */,
 				BFA068C320FE0AD000F5ADFE /* SH_SaftyCenterView.m in Sources */,
@@ -1836,12 +1957,14 @@
 				BFFC846220F2F268008AD801 /* SH_RechargeCenterPlatformModel.m in Sources */,
 				BFFC845B20F2F260008AD801 /* RH_RechargeCenterFooterView.m in Sources */,
 				2209026620F053D400F8828E /* SH_PromoViewCell.m in Sources */,
+				54C8761420FE218B00AA0594 /* YFAnimationManager.m in Sources */,
 				22552CEA20F4B7720090EFBC /* SH_SiteMsgViewCell.m in Sources */,
 				DA22F3C920F44E470058A54F /* help.m in Sources */,
 				BFFC847220F3452A008AD801 /* NSLayoutConstraint+RH_IBDesignable.m in Sources */,
 				DA1BCC5F20FDC21600201DBC /* SH_WelfareTableViewCell.m in Sources */,
 				DA1BCC5220FD7C6D00201DBC /* SH_NetWorkService+UserCenter.m in Sources */,
 				BF44EC4D20F44BA300BC6EF3 /* SH_BitCoinViewController.m in Sources */,
+				54C8761720FE218B00AA0594 /* YFEmitterLeavesCell.m in Sources */,
 				DA1BCC5B20FDBFCD00201DBC /* SH_FundListModel.m in Sources */,
 				DA21F3B220F742B700D20672 /* NSDate+CLCategory.m in Sources */,
 				DA21F39020F6069600D20672 /* UIView+FrameSize.m in Sources */,
@@ -1850,6 +1973,7 @@
 				54C8759020F7333300AA0594 /* SH_NetWorkService+Home.m in Sources */,
 				BF44ECE720F6FECF00BC6EF3 /* SH_BitCoinSaleModel.m in Sources */,
 				DA22F3B820F44A130058A54F /* RH_UserSafetyCodeModel.m in Sources */,
+				54C8761920FE218B00AA0594 /* YFPublicParticleCell.m in Sources */,
 				BF44ECDC20F602FE00BC6EF3 /* SH_KuaiChongViewController.m in Sources */,
 				BFA068AA20FD86BF00F5ADFE /* SH_OutCoinDetailTableViewCell.m in Sources */,
 				22573D3E20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.m in Sources */,
@@ -1879,6 +2003,7 @@
 				54C8758820F48CD500AA0594 /* SH_GamesListScrollView.m in Sources */,
 				BFA068AE20FD8AFF00F5ADFE /* SH_FeeModel.m in Sources */,
 				54C8757920F3508600AA0594 /* SH_PromoContentView.m in Sources */,
+				54C8761A20FE218B00AA0594 /* YFEmitterCustomLayer.m in Sources */,
 				5401C55620ECA2CC0027246D /* IPsCacheManager.m in Sources */,
 				DA6EE1C720F99F39009A01C5 /* SH_SettingView.m in Sources */,
 				5401C53F20ECA1100027246D /* main.m in Sources */,
@@ -1933,6 +2058,7 @@
 				BF44EC6420F4875300BC6EF3 /* SH_NavigationView.m in Sources */,
 				5401C53120ECA10F0027246D /* AppDelegate.m in Sources */,
 				DA22F3D520F454840058A54F /* NSString+CLCategory.m in Sources */,
+				54C8761C20FE218B00AA0594 /* YFEmitterSnowCell.m in Sources */,
 				22552CDA20F48DAA0090EFBC /* SH_SystemMsgView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

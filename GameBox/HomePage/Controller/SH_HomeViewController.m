@@ -44,9 +44,9 @@
 #import "SH_NetWorkService+Profit.h"
 #import "SH_ProfitModel.h"
 #import "SH_AnnouncementView.h"
-
+#import "YFAnimationManager.h"
 #import "SH_WelfareDetailView.h"
-
+#import "SH_WelfareDetailView.h"
 #import "SH_SaftyCenterView.h"
 
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate,PlayerCenterViewDelegate>
@@ -58,6 +58,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *dzGameMarkImg;
 @property (weak, nonatomic) IBOutlet UIImageView *runLBBGImg;
 @property (weak, nonatomic) IBOutlet UIView *searchView;
+@property (weak, nonatomic) IBOutlet UIImageView *snowBGImg;
 @property (strong, nonatomic) SH_CycleScrollView *cycleAdView;
 @property (nonatomic, strong) SH_PlayerCenterView *pcv;
 @property (nonatomic, strong) UIView *backV;
@@ -88,6 +89,9 @@
     [self initAdScroll];
     [self refreshAnnouncement];
     [self refreshHomeInfo];
+    
+    [[YFAnimationManager shareInstancetype] showAnimationInView:self.snowBGImg withAnimationStyle:YFAnimationStyleOfSnow];
+
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didRegistratedSuccessful) name:@"didRegistratedSuccessful" object:nil];
     if (iPhoneX) {
         [[NSNotificationCenter defaultCenter] addObserver:self

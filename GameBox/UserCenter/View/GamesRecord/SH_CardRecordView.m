@@ -100,6 +100,7 @@
         }];
     }];
     self.tableView.mj_footer.hidden = YES;
+    [self.tableView.mj_header  beginRefreshing];
 }
 
 //cell分割线与屏幕等宽，两个方法同时添加iOS 10有效

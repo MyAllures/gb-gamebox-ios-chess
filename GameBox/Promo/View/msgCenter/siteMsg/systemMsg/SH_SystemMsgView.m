@@ -83,10 +83,8 @@
             }
             NSLog(@"str=====%@",str);
             for (SH_SysMsgDataListModel *model in self.deleteArr) {
-                for (SH_SysMsgDataListModel *mod in self.dataListArr) {
-                    if (model.id == mod.id) {
-                        [self.dataListArr removeObject:mod];
-                    }
+                if ([self.dataListArr containsObject:model]) {
+                    [self.dataListArr removeObject:model];
                 }
             }
             [self.deleteArr removeAllObjects];
@@ -125,7 +123,7 @@
             NSDictionary *dict = (NSDictionary *)response;
             NSLog(@"dict====%@",dict);
             NSLog(@"message====%@",dict[@"message"]);
-            for (NSDictionary *dic in dict[@"data"][@"dataList"]) {
+            for (NSDictionary *dic in dict[@"data"][@"list"]) {
                 NSError *err;
                 SH_SysMsgDataListModel *model = [[SH_SysMsgDataListModel alloc] initWithDictionary:dic error:&err];
                 [self.dataListArr addObject:model];
@@ -185,9 +183,14 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"SH_SiteMsgViewCell" owner:nil options:nil] lastObject];
     }
     SH_SysMsgDataListModel *model = self.dataListArr[indexPath.row];
-    cell.advisoryContentLabel.text = model.advisoryContent;
+    cell.advisoryContentLabel.text = model.title;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.advisoryTimeLabel.text = [self timeStampWithDate:model.advisoryTime];
+    if (model.read == 1) {
+        cell.mearkReadImageView.image = nil;
+    }else{
+        cell.mearkReadImageView.image = [UIImage imageNamed:@"mearkRead"];
+    }
+    cell.advisoryTimeLabel.text = [self timeStampWithDate:model.publishTime];
     NSLog(@"id=====%ld",(long)model.id);
     if (model.selectedFlag) {
         [cell.seleteBtn setBackgroundImage: [UIImage imageNamed:@"choose"] forState:UIControlStateNormal];

@@ -83,10 +83,8 @@
             NSLog(@"str=====%@",str);
             NSLog(@"count=====%lu",(unsigned long)self.dataListArr.count);
             for (SH_MyMsgDataListModel *model in self.deleteArr) {
-                for (SH_MyMsgDataListModel *mod in self.dataListArr) {
-                    if (model.id == mod.id) {
-                        [self.dataListArr removeObject:mod];
-                    }
+                if ([self.dataListArr containsObject:model]) {
+                    [self.dataListArr removeObject:model];
                 }
             }
             NSLog(@"count1=====%lu",(unsigned long)self.dataListArr.count);
