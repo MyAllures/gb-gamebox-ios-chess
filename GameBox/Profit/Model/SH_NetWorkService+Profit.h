@@ -23,4 +23,20 @@ typedef void (^jiHeBlock)(SH_JiHeModel *model);
 +(void)jiHeListSuccess:(jiHeBlock)success
                 Failed:(SHNetWorkFailed)failed;
 
+
+
+/**
+ 确认出币  也是GB的取款接口
+
+ @param money 金额
+ @param saftyPWD 安全密码
+ @param token token
+ @param way 选择方式
+ */
++(void)sureOutCoinMoney:(NSString *)money
+               SaftyPWD:(NSString *)saftyPWD
+                  Token:(NSString *)token
+                    Way:(NSString *)way
+                Success:(SHNetWorkComplete)success
+                 Failed:(SHNetWorkFailed)failed;
 @end

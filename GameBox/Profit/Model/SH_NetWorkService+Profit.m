@@ -63,4 +63,29 @@
         }
     }];
 }
++(void)sureOutCoinMoney:(NSString *)money
+               SaftyPWD:(NSString *)saftyPWD
+                  Token:(NSString *)token
+                    Way:(NSString *)way
+                Success:(SHNetWorkComplete)success
+                 Failed:(SHNetWorkFailed)failed{
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/withdrawOrigin/submitWithdraw.html"];
+    NSDictionary *header = @{@"X-Requested-With":@"XMLHttpRequest",@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost};
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    [param setValue:money forKey:@"withdrawAmount"];
+    [param setValue:saftyPWD forKey:@"originPwd"];
+    [param setValue:token forKey:@"gb.token"];
+    [param setValue:way forKey:@"remittanceWay"];
+    [self post:url parameter:param header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (success) {
+            success(httpURLResponse,response);
+          
+            
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
+        if (failed) {
+            failed(httpURLResponse, err);
+        }
+    }];
+}
 @end

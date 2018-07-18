@@ -10,12 +10,14 @@
 #import "SH_OutCoinDetailTableViewCell.h"
 #import "AlertViewController.h"
 #import "SH_LookJiHeView.h"
+#import "SH_NetWorkService+Profit.h"
 @interface SH_OutCoinDetailView()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
 @property(nonatomic,strong)NSArray *details;
 @property(nonatomic,strong)NSArray *titles;
 @property(nonatomic,strong)UIViewController *targetVC;
+@property(nonatomic,copy)NSString *token;
 @end
 @implementation SH_OutCoinDetailView
 
@@ -55,11 +57,19 @@
     view.targetVC = acr;
 }
 - (IBAction)sureOutCoinBtnClick:(id)sender {
-    
+#warning 这里要传安全密码
+    [SH_NetWorkService sureOutCoinMoney:self.details[1] SaftyPWD:@"123123" Token:self.token Way:@"1" Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
+            showMessage(self, [NSString stringWithFormat:@"%@",response[@"message"]], nil);
+    } Failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        
+    }];
 }
-- (void)updateUIWithDetailArray:(NSArray *)details TargetVC:(UIViewController *)targetVC{
+- (void)updateUIWithDetailArray:(NSArray *)details
+                       TargetVC:(UIViewController *)targetVC
+                          Token:(NSString *)token{
     self.targetVC = targetVC;
     self.details = details;
+    self.token = token;
     [self.mainTableView reloadData];
 }
 @end

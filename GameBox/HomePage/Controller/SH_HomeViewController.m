@@ -182,6 +182,7 @@
         self.suishenFuLiLab.text = [NSString stringWithFormat:@"%.2f",[RH_UserInfoManager shareUserManager].mineSettingInfo.walletBalance];        
     }else{
         self.avatarImg.image = [UIImage  imageNamed:@"avatar"];
+        self.suishenFuLiLab.text = @"0";
     }
 }
 
@@ -406,10 +407,15 @@
     };
     [self presentViewController:cvc addTargetViewController:self];
 }
-
+#pragma mark--
+#pragma mark--一键回收按钮
 - (IBAction)oneKeyReciveBtnClick:(id)sender {
+      __weak typeof(self) weakSelf = self;
     [SH_NetWorkService onekeyrecoveryApiId:nil Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        
+        //刷新用户余额
+        if (![[response objectForKey:@"data"] isKindOfClass:[NSNull class]]) {
+            weakSelf.suishenFuLiLab.text = response[@"data"][@"assets"];
+        }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
@@ -509,7 +515,7 @@
     [self presentViewController:acr animated:YES completion:nil];
     
     [SH_NetWorkService getBankInforComplete:^(SH_ProfitModel *model) {
-        [view updateUIWithBalance:model.totalBalance BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:acr];
+        [view updateUIWithBalance:model.totalBalance BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:acr Token:model.token];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
@@ -600,7 +606,7 @@
 //        [securityBackV addSubview:securityView];
         SH_SaftyCenterView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_SaftyCenterView" owner:self options:nil].firstObject;
     
-      AlertViewController *avc  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-30 titleImageName:@"saftyTtile" alertViewType:AlertViewTypeLong];
+      AlertViewController *avc  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-50 titleImageName:@"saftyTtile" alertViewType:AlertViewTypeLong];
         avc.title = @"安全中心";
         avc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         avc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -622,27 +628,6 @@
         AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:crv viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"" alertViewType:AlertViewTypeLong];
         [self presentViewController:acr addTargetViewController:self];
     }
-}
-
-#pragma mark--
-#pragma mark--收益按钮
-- (IBAction)incomeClick:(id)sender {
-    __weak typeof(self) weakSelf = self;
-
-    SH_PrifitOutCoinView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_PrifitOutCoinView" owner:self options:nil].firstObject;
-    
-    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-75 titleImageName:@"profitTitle" alertViewType:AlertViewTypeLong];
-    acr.title = @"牌局记录";
-    acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:acr animated:YES completion:nil];
-    
-    [SH_NetWorkService getBankInforComplete:^(SH_ProfitModel *model) {
-        [view updateUIWithBalance:model.totalBalance BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:weakSelf];
-    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-
-    }];
-    
 }
 
 - (IBAction)shareClick:(id)sender {
