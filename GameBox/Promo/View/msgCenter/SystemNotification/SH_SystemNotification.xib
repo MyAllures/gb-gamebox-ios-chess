@@ -36,12 +36,12 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rg0-eZ-wyW">
-                    <rect key="frame" x="10" y="13" width="101" height="35"/>
+                    <rect key="frame" x="10" y="13" width="84" height="35"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MC-96-XPQ">
-                            <rect key="frame" x="0.0" y="0.0" width="101" height="35"/>
+                            <rect key="frame" x="0.0" y="0.0" width="84" height="35"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
                             <state key="normal" title="2017-02-03" image="betRec_calendar_icon">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
@@ -52,27 +52,27 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="101" id="gn7-NS-iKW"/>
-                        <constraint firstAttribute="height" constant="35" id="lpd-XU-Iyt"/>
+                        <constraint firstAttribute="width" constant="84" id="MYd-ke-shf"/>
+                        <constraint firstAttribute="height" constant="35" id="mqc-Sl-9Vm"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFc-iS-mbj">
-                    <rect key="frame" x="114" y="13" width="21" height="35"/>
+                    <rect key="frame" x="94" y="13" width="21" height="35"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="35" id="AMD-0z-yb2"/>
-                        <constraint firstAttribute="width" constant="21" id="UN2-4o-3hX"/>
+                        <constraint firstAttribute="height" constant="35" id="5S9-m2-Tsf"/>
+                        <constraint firstAttribute="width" constant="21" id="C8B-Br-yky"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ME2-kX-MUM">
-                    <rect key="frame" x="138" y="13" width="101" height="35"/>
+                    <rect key="frame" x="115" y="13" width="101" height="35"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kve-pE-bhJ">
-                            <rect key="frame" x="0.0" y="0.0" width="101" height="35"/>
+                            <rect key="frame" x="0.0" y="0.0" width="84" height="35"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
                             <state key="normal" title="2017-02-03" image="betRec_calendar_icon">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
@@ -83,12 +83,12 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="101" id="r8C-Lw-p4o"/>
-                        <constraint firstAttribute="height" constant="35" id="xZN-iC-6DB"/>
+                        <constraint firstAttribute="height" constant="35" id="rrf-Qg-nuY"/>
+                        <constraint firstAttribute="width" constant="101" id="ySN-gF-Cpb"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Oy-Z2-evD">
-                    <rect key="frame" x="247" y="13" width="46" height="35"/>
+                    <rect key="frame" x="224" y="13" width="46" height="35"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="快选" backgroundImage="login_button">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -100,16 +100,16 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="ME2-kX-MUM" firstAttribute="leading" secondItem="jFc-iS-mbj" secondAttribute="trailing" id="28F-JR-B8d"/>
                 <constraint firstItem="LOc-Ik-PRZ" firstAttribute="leading" secondItem="tIW-ZM-OaV" secondAttribute="leading" id="6rY-cc-JfZ"/>
-                <constraint firstItem="rg0-eZ-wyW" firstAttribute="leading" secondItem="tIW-ZM-OaV" secondAttribute="leading" constant="10" id="EfN-h9-yB5"/>
-                <constraint firstItem="jFc-iS-mbj" firstAttribute="leading" secondItem="rg0-eZ-wyW" secondAttribute="trailing" constant="3" id="MDR-R7-zUk"/>
                 <constraint firstAttribute="bottom" secondItem="LOc-Ik-PRZ" secondAttribute="bottom" id="OWe-Ti-rX1"/>
-                <constraint firstItem="rg0-eZ-wyW" firstAttribute="top" secondItem="tIW-ZM-OaV" secondAttribute="top" constant="13" id="XfL-X0-a6Y"/>
+                <constraint firstItem="jFc-iS-mbj" firstAttribute="leading" secondItem="rg0-eZ-wyW" secondAttribute="trailing" id="Qz5-uZ-SGK"/>
                 <constraint firstAttribute="trailing" secondItem="LOc-Ik-PRZ" secondAttribute="trailing" id="hJl-Nq-AyW"/>
-                <constraint firstItem="ME2-kX-MUM" firstAttribute="top" secondItem="tIW-ZM-OaV" secondAttribute="top" constant="13" id="l7t-bn-4B5"/>
+                <constraint firstItem="ME2-kX-MUM" firstAttribute="top" secondItem="tIW-ZM-OaV" secondAttribute="top" constant="13" id="ilK-Z8-JpY"/>
+                <constraint firstItem="rg0-eZ-wyW" firstAttribute="leading" secondItem="tIW-ZM-OaV" secondAttribute="leading" constant="10" id="n0u-mh-97H"/>
                 <constraint firstItem="LOc-Ik-PRZ" firstAttribute="top" secondItem="tIW-ZM-OaV" secondAttribute="top" constant="60" id="pbj-Sp-WFE"/>
-                <constraint firstItem="ME2-kX-MUM" firstAttribute="leading" secondItem="jFc-iS-mbj" secondAttribute="trailing" constant="3" id="t37-yF-7Io"/>
-                <constraint firstItem="jFc-iS-mbj" firstAttribute="top" secondItem="tIW-ZM-OaV" secondAttribute="top" constant="13" id="vzh-wA-lsQ"/>
+                <constraint firstItem="rg0-eZ-wyW" firstAttribute="top" secondItem="tIW-ZM-OaV" secondAttribute="top" constant="13" id="yfB-Td-z96"/>
+                <constraint firstItem="jFc-iS-mbj" firstAttribute="top" secondItem="tIW-ZM-OaV" secondAttribute="top" constant="13" id="z7h-Zj-GKN"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

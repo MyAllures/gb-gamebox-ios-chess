@@ -63,14 +63,15 @@
     self.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
     self.bottomView.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
     self.btn1.selected = YES;
+    NSInteger width = screenW - 465;
     [self.btn1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo((screenW-81*3-160-135)/4);
+        make.left.mas_equalTo((screenW-81*3-width-135)/4);
         make.top.mas_equalTo(10);
         make.width.mas_equalTo(81);
         make.height.mas_equalTo(32);
     }];
     [self.btn2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.btn1).with.offset((screenW-81*3-160-135)/4+81);
+        make.left.equalTo(self.btn1).with.offset((screenW-81*3-width-135)/4+81);
 //        make.left.mas_equalTo((screenW-81*3)/4*2+81);
         make.top.mas_equalTo(10);
         make.width.mas_equalTo(81);
@@ -78,7 +79,7 @@
     }];
     [self.btn3 mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.left.mas_equalTo((screenW-81*3)/4*3+81);
-        make.left.equalTo(self.btn2).with.offset((screenW-81*3-160-135)/4+81);
+        make.left.equalTo(self.btn2).with.offset((screenW-81*3-width-135)/4+81);
         make.top.mas_equalTo(10);
         make.width.mas_equalTo(81);
         make.height.mas_equalTo(32);
