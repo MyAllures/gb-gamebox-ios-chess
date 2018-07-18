@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 @class RH_BettingInfoModel;
 @interface SH_CardRecordView : UIView
-@property(nonatomic,copy)void (^backToDetailViewBlock)(RH_BettingInfoModel * info);
+@property(nonatomic,copy)void (^backToDetailViewBlock)(NSString * info);
 +(instancetype)instanceCardRecordView;
 @end

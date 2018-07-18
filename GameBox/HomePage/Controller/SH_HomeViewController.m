@@ -49,6 +49,7 @@
 #import "SH_WelfareDetailView.h"
 #import "SH_SaftyCenterView.h"
 
+#import "SH_CardRecordDetailView.h"
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate,PlayerCenterViewDelegate>
 
 
@@ -619,11 +620,15 @@
         crv.backgroundColor = [UIColor whiteColor];
         crv.layer.cornerRadius = 4.5;
         [cardBackV addSubview:crv];
-        crv.backToDetailViewBlock = ^(RH_BettingInfoModel *info) {
-            
+        // 投注记录详情
+        AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:crv viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title10" alertViewType:AlertViewTypeLong];
+        crv.backToDetailViewBlock = ^(NSString *info) {
+            SH_CardRecordDetailView * cardDetail = [SH_CardRecordDetailView  instanceCardRecordDetailView];
+             cardDetail.mId = info;
+             AlertViewController *dcr  = [[AlertViewController  alloc] initAlertView:cardDetail viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title10" alertViewType:AlertViewTypeLong];
+             [self presentViewController:dcr addTargetViewController:acr];
         };
         
-        AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:crv viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title10" alertViewType:AlertViewTypeLong];
         [self presentViewController:acr addTargetViewController:self];
     }
 }

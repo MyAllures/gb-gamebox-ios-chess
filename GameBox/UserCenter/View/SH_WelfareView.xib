@@ -211,14 +211,14 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XlK-Mk-eOs">
                     <rect key="frame" x="0.0" y="122" width="493" height="30"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="取款处理中:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaE-aM-070">
-                            <rect key="frame" x="8" y="6" width="81" height="18"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="取款处理中:0.000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaE-aM-070">
+                            <rect key="frame" x="8" y="6" width="121" height="18"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="转账处理中:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5h-S6-Xd8">
-                            <rect key="frame" x="404" y="6" width="81" height="18"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="转账处理中:0.000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5h-S6-Xd8">
+                            <rect key="frame" x="364" y="6" width="121" height="18"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -343,7 +343,9 @@
                 <outlet property="quickBtn" destination="Whb-8d-X0l" id="A7P-xM-F3Y"/>
                 <outlet property="right_view" destination="MxY-z3-2YB" id="32S-sB-0Wu"/>
                 <outlet property="start_label" destination="iJc-Ve-CH9" id="zbO-cT-1WJ"/>
+                <outlet property="transfer_label" destination="o5h-S6-Xd8" id="vGy-Dt-RKk"/>
                 <outlet property="type_label" destination="UWK-yP-dsb" id="3Q8-C9-NUd"/>
+                <outlet property="withdrawal_label" destination="uaE-aM-070" id="2DT-3x-VoE"/>
             </connections>
             <point key="canvasLocation" x="0.5" y="135.5"/>
         </view>

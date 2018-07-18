@@ -11,10 +11,12 @@
 #import "SH_WelfareTableViewCell.h"
 #import "SH_NetWorkService+UserCenter.h"
 #import "SH_FundListModel.h"
+#import "SH_WelfareInfoModel.h"
 @interface  SH_WelfareRecordView()<UITableViewDelegate,UITableViewDataSource>
 {
     NSDictionary *dict;
     NSInteger page;
+    SH_WelfareInfoModel * model;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic,strong)SH_WelfareView * headerView;
@@ -28,6 +30,9 @@
     [super awakeFromNib];
     [self  configUI];
     page = 0;
+    self.headerView.withdrawal_label.text = [NSString  stringWithFormat:@"取款处理中:%.3f",model.withdrawSum];
+    self.headerView.transfer_label.text = [NSString  stringWithFormat:@"转账处理中:%.3f",model.transferSum];
+    
 }
 #pragma mark ---  配置UI
 -(void)configUI{
@@ -40,6 +45,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.rowHeight = 44.0;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.tableFooterView = [[UIView  alloc] initWithFrame:CGRectZero];
     [self.tableView registerNib:[UINib nibWithNibName:@"SH_WelfareTableViewCell" bundle:nil] forCellReuseIdentifier:@"SH_WelfareTableViewCell"];
     __weak typeof(self) weakSelf = self;
@@ -47,26 +53,38 @@
         self->page = 0;
         [SH_NetWorkService  fetchDepositList:self->dict[@"startTime"]?:dateString([NSDate date], @"yyyy-MM-dd") EndDate:self->dict[@"endTime"]?:dateString([NSDate date], @"yyyy-MM-dd") SearchType:self->dict[@"type"]?:@"" PageNumber:self->page PageSize:20 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             [weakSelf.tableView.mj_header endRefreshing];
-            NSArray * array = ConvertToClassPointer(NSArray, response);
-            if (weakSelf.dataArray.count >0) {
-                [weakSelf.dataArray  removeAllObjects];
+            NSDictionary * result = ConvertToClassPointer(NSDictionary, response);
+            if ([result boolValueForKey:@"success"]) {
+                NSError * errer;
+                SH_WelfareInfoModel * model = [[SH_WelfareInfoModel  alloc]initWithDictionary:result[@"data"] error:&errer];
+                if (weakSelf.dataArray.count >0) {
+                    [weakSelf.dataArray  removeAllObjects];
+                }
+                [weakSelf.dataArray addObjectsFromArray:model.fundListApps];
+                if (model.fundListApps.count <20) {
+                    weakSelf.tableView.mj_footer.hidden = YES;
+                }
+                [weakSelf.tableView  reloadData];
             }
-            [weakSelf.dataArray  addObjectsFromArray:array];
-            [weakSelf.tableView  reloadData];
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             [weakSelf.tableView.mj_header endRefreshing];
         }];//d
     }];
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter  footerWithRefreshingBlock:^{
         self->page ++;
-        [SH_NetWorkService  fetchDepositList:self->dict[@"startTime"]?:dateString([NSDate date], @"yyyy-MM-dd") EndDate:self->dict[@"endTime"]?:dateString([NSDate date], @"yyyy-MM-dd") SearchType:self->dict[@"type"]?:@"" PageNumber:0 PageSize:20 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        [SH_NetWorkService  fetchDepositList:self->dict[@"startTime"]?:dateString([NSDate date], @"yyyy-MM-dd") EndDate:self->dict[@"endTime"]?:dateString([NSDate date], @"yyyy-MM-dd") SearchType:self->dict[@"type"]?:@"" PageNumber:self->page PageSize:20 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             [weakSelf.tableView.mj_footer endRefreshing];
-            NSArray * array = ConvertToClassPointer(NSArray, response);
-            if (array.count <20) {
-                weakSelf.tableView.mj_footer.hidden = YES;
+            NSDictionary * result = ConvertToClassPointer(NSDictionary, response);
+            if ([result boolValueForKey:@"success"]) {
+                NSError * errer;
+                SH_WelfareInfoModel * model = [[SH_WelfareInfoModel  alloc]initWithDictionary:result[@"data"] error:&errer];
+                if (model.fundListApps.count <20) {
+                    weakSelf.tableView.mj_footer.hidden = YES;
+                }
+                [weakSelf.dataArray addObjectsFromArray:model.fundListApps];
+                [weakSelf.tableView  reloadData];
             }
-            [weakSelf.dataArray addObjectsFromArray:array];
-            [weakSelf.tableView  reloadData];
+
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             [weakSelf.tableView.mj_footer endRefreshing];
         }];//d
@@ -95,12 +113,17 @@
         _headerView.dataBlock = ^(NSDictionary *context) {
             self->dict = context;
             [SH_NetWorkService  fetchDepositList:context[@"startTime"] EndDate:context[@"endTime"] SearchType:context[@"type"] PageNumber:1 PageSize:20 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-                 NSArray * array = ConvertToClassPointer(NSArray, response);
-                [weakSelf.dataArray addObjectsFromArray:array];
-                if (array.count==20) {
-                    weakSelf.tableView.mj_footer.hidden = false;
+                NSDictionary * result = ConvertToClassPointer(NSDictionary, response);
+                if ([result boolValueForKey:@"success"]) {
+                    NSError * errer;
+                    self->model = [[SH_WelfareInfoModel  alloc]initWithDictionary:result[@"data"] error:&errer];
+                    [weakSelf.dataArray addObjectsFromArray:self->model.fundListApps];
+                    if (self->model.fundListApps.count==20) {
+                        weakSelf.tableView.mj_footer.hidden = false;
+                    }
+                    [weakSelf.tableView  reloadData];
                 }
-                [weakSelf.tableView  reloadData];
+               
             } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
                
             }];
@@ -119,6 +142,13 @@
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     SH_WelfareTableViewCell * cell = [tableView  dequeueReusableCellWithIdentifier:@"SH_WelfareTableViewCell" forIndexPath:indexPath];
+    if (indexPath.item%2==0) {
+        cell.contentView.backgroundColor = [UIColor colorWithHexStr:@"0xFAFAFA"];
+    }
+    else
+    {
+        cell.contentView.backgroundColor = [UIColor colorWithHexStr:@"0xFFFFFF"];
+    }
     [cell updateCellWithInfo:nil context:self.dataArray[indexPath.row]];
     return  cell;
 }

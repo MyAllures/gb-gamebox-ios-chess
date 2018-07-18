@@ -73,7 +73,7 @@
 
     return _showProfitAmount ;
 }
-/*
+
 -(NSString *)showDetailUrl
 {
     if (!_showDetailUrl){
@@ -82,8 +82,8 @@
                  _showDetailUrl = [NSString stringWithFormat:@"%@",_url] ;
             }else
             {
-                NSArray *checkTypeCom = [appDelegate.checkType componentsSeparatedByString:@"+"];
-                _showDetailUrl = [NSString stringWithFormat:@"%@://%@%@%@",checkTypeCom[0],appDelegate.headerDomain,checkTypeCom.count == 2 ? [NSString stringWithFormat:@":%@",checkTypeCom[1]] : @"",_mURL];
+                NSArray *checkTypeCom = [[NetWorkLineMangaer sharedManager].currentHttpType componentsSeparatedByString:@"+"];
+                _showDetailUrl = [NSString stringWithFormat:@"%@://%@%@%@",checkTypeCom[0],[NetWorkLineMangaer sharedManager].currentHost,checkTypeCom.count == 2 ? [NSString stringWithFormat:@":%@",checkTypeCom[1]] : @"",_url];
                 NSLog(@"");
             }
            
@@ -92,5 +92,5 @@
     return _showDetailUrl ;
     
 }
-*/
+
 @end

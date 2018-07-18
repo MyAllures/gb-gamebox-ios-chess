@@ -44,6 +44,7 @@
     self.tableView.rowHeight = 44;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView  registerNib:[UINib  nibWithNibName:@"SH_CardRecordTableViewCell" bundle:nil] forCellReuseIdentifier:@"SH_CardRecordTableViewCell"];
     if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
         
@@ -118,14 +119,22 @@
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     SH_CardRecordTableViewCell * cell = [tableView  dequeueReusableCellWithIdentifier:@"SH_CardRecordTableViewCell" forIndexPath:indexPath];
+    if (indexPath.item%2==0) {
+        cell.contentView.backgroundColor = [UIColor colorWithHexStr:@"0xFAFAFA"];
+    }
+    else
+    {
+        cell.contentView.backgroundColor = [UIColor colorWithHexStr:@"0xFFFFFF"];
+    }
     [cell updateCellWithInfo:nil context:self.dataArray[indexPath.row]];
     return  cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView  deselectRowAtIndexPath:indexPath animated:YES];
-    RH_BettingInfoModel * info = self.dataArray[indexPath.row];
+    RH_BettingInfoModel * info = ConvertToClassPointer(RH_BettingInfoModel, self.dataArray[indexPath.row]);
+    NSLog(@"----%@",info.mId);
     if (self.backToDetailViewBlock) {
-        self.backToDetailViewBlock(info);
+        self.backToDetailViewBlock(info.mId);
     }
 }
 #pragma  amark --- getter method
