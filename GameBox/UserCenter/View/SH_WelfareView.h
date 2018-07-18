@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface SH_WelfareView : UIView
+@property (weak, nonatomic) IBOutlet UILabel *withdrawal_label;
+@property (weak, nonatomic) IBOutlet UILabel *transfer_label;
 @property(nonatomic,copy)void (^dataBlock)(NSDictionary * context);
++(instancetype)instanceWelfareView;
 @end

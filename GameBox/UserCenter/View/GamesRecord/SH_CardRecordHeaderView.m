@@ -31,12 +31,21 @@
     [super  awakeFromNib];
     [self configUI];
 }
+
 #pragma mark --- 配置UI
 -(void)configUI{
     self.start_label.text = dateString([NSDate date], @"yyyy-MM-dd");
     self.end_label.text = dateString([NSDate date], @"yyyy-MM-dd");
+    [self borderColorWith:self.letf_view];
+    [self borderColorWith:self.right_view];
 }
-
+#pragma mark-- 切圆角 
+-(void)borderColorWith:(UIView*)view{
+    view.layer.cornerRadius= 5;
+    view.layer.masksToBounds = YES;
+    view.layer.borderWidth = 1;
+    view.layer.borderColor = [UIColor lightGrayColor].CGColor;
+}
 - (IBAction)searchBtnClick:(UIButton *)sender {
     if (sender.tag == 100) {
         PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
