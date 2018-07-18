@@ -573,13 +573,13 @@
         [self.welBackV addSubview: welfare];
         
         
-        AlertViewController *cvc  = [[AlertViewController  alloc] initAlertView:welfare viewHeight:303 titleImageName:@"title06" alertViewType:AlertViewTypeLong];
+        AlertViewController *cvc  = [[AlertViewController  alloc] initAlertView:welfare viewHeight:303 titleImageName:@"title09" alertViewType:AlertViewTypeLong];
         
         welfare.backToDetailViewBlock = ^(NSString *searchId,SH_FundListModel * model) {
             SH_WelfareDetailView * detail = [SH_WelfareDetailView  instanceWelfareDetailView];
             detail.searchId = searchId;
             detail.infoModel = model;
-             AlertViewController *dvc  = [[AlertViewController  alloc] initAlertView:detail viewHeight:303 titleImageName:@"title06" alertViewType:AlertViewTypeLong];
+             AlertViewController *dvc  = [[AlertViewController  alloc] initAlertView:detail viewHeight:303 titleImageName:@"title09" alertViewType:AlertViewTypeLong];
             [self presentViewController:dvc addTargetViewController:cvc];
         };
         
