@@ -11,6 +11,7 @@
 #import "SH_SiteMsgViewCell.h"
 #import "SH_NetWorkService+Promo.h"
 #import "SH_SysMsgDataListModel.h"
+#import "SH_MsgDetailView.h"
 
 @interface SH_SystemMsgView () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -21,7 +22,8 @@
 //删除的数据
 @property (strong, nonatomic) NSMutableArray *deleteArr;
 @property (assign, nonatomic) BOOL isSelete;
-
+@property (strong, nonatomic) SH_MsgDetailView *detailView ;
+@property (strong, nonatomic) NSString *searchId;
 @end
 
 @implementation SH_SystemMsgView
@@ -185,6 +187,7 @@
     SH_SysMsgDataListModel *model = self.dataListArr[indexPath.row];
     cell.advisoryContentLabel.text = model.title;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1];
     if (model.read == 1) {
         cell.mearkReadImageView.image = nil;
     }else{
@@ -245,6 +248,14 @@
 #pragma mark - UITableViewDelegate M
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    SH_SysMsgDataListModel *model = self.dataListArr[indexPath.row];
+    self.detailView =[[[NSBundle mainBundle] loadNibNamed:@"SH_MsgDetailView" owner:nil options:nil] lastObject];
+    NSLog(@"id====%ld",(long)model.searchId);
+    self.searchId = [NSString stringWithFormat:@"%ld",(long)model.searchId];
+    [[UIApplication sharedApplication].keyWindow addSubview:self.detailView];
+    [self.detailView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.bottom.mas_equalTo(0);
+    }];
 }
 
 

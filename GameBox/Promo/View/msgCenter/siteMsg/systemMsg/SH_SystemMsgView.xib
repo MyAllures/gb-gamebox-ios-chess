@@ -33,6 +33,7 @@
                         <constraint firstAttribute="width" constant="480" id="38H-AO-j7B"/>
                         <constraint firstAttribute="height" constant="262" id="yYL-X9-Srr"/>
                     </constraints>
+                    <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
                         <outlet property="dataSource" destination="iN0-l3-epB" id="jk6-gr-xVt"/>
                         <outlet property="delegate" destination="iN0-l3-epB" id="Zil-sC-bMo"/>
