@@ -13,6 +13,7 @@ pod 'JSONModel'
 pod 'SAMKeychain', '~> 1.5.3'
 pod 'Reachability', '~> 3.2'
 pod 'PGDatePicker'
+pod 'NJKWebViewProgress'
 
 end
 

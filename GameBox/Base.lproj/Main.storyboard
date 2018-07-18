@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -75,6 +76,20 @@
                                     <constraint firstItem="IFf-f3-2ib" firstAttribute="top" secondItem="gOX-s5-mV8" secondAttribute="top" constant="2" id="otb-IU-xOe"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="effects_star0" translatesAutoresizingMaskIntoConstraints="NO" id="uE9-et-Tce">
+                                <rect key="frame" x="50" y="0.0" width="392" height="320"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="320" id="6O6-46-bC6"/>
+                                    <constraint firstAttribute="width" constant="392" id="bj6-gf-qKE"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="effects_man" translatesAutoresizingMaskIntoConstraints="NO" id="suy-RU-j6c">
+                                <rect key="frame" x="47" y="29" width="573" height="219"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="219" id="DTH-ZX-RLi"/>
+                                    <constraint firstAttribute="width" constant="573" id="sQd-LY-IPj"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -86,12 +101,17 @@
                             <constraint firstItem="L6r-nP-SZN" firstAttribute="top" secondItem="Wz2-x6-9Jf" secondAttribute="bottom" constant="35.5" id="eJm-D1-1BN"/>
                             <constraint firstItem="Wz2-x6-9Jf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gu7-3t-0Y9"/>
                             <constraint firstItem="Uka-EU-gLu" firstAttribute="top" secondItem="VG6-jE-ntK" secondAttribute="bottom" id="l0g-o6-0Of"/>
+                            <constraint firstItem="suy-RU-j6c" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mbY-VV-WpH"/>
                             <constraint firstItem="Uka-EU-gLu" firstAttribute="bottom" secondItem="L6r-nP-SZN" secondAttribute="top" id="t4e-3y-GAs"/>
                             <constraint firstItem="Uka-EU-gLu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="tRn-3A-oox"/>
+                            <constraint firstItem="uE9-et-Tce" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="u8P-qw-qK3"/>
+                            <constraint firstItem="uE9-et-Tce" firstAttribute="top" secondItem="VG6-jE-ntK" secondAttribute="bottom" id="xWW-Mh-Wf3"/>
+                            <constraint firstItem="suy-RU-j6c" firstAttribute="top" secondItem="VG6-jE-ntK" secondAttribute="bottom" constant="29" id="zGo-Br-FOW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="DEp-M8-4Wh"/>
                     <connections>
+                        <outlet property="animationStartImg" destination="uE9-et-Tce" id="tSF-0H-Jcw"/>
                         <outlet property="progressMarkLeading" destination="8ps-o3-zMF" id="QTY-zv-QDn"/>
                         <outlet property="progressMarkView" destination="gOX-s5-mV8" id="UbF-ZJ-zVF"/>
                         <outlet property="progressNumLB" destination="IFf-f3-2ib" id="5dp-3u-0b9"/>
@@ -120,6 +140,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="effects_man" width="573" height="219"/>
+        <image name="effects_star0" width="392" height="320"/>
         <image name="progress_bar_icon" width="27" height="20"/>
         <image name="start_bg" width="667" height="375"/>
     </resources>

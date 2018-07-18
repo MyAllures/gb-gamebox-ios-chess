@@ -13,6 +13,8 @@ typedef void(^SHDragableMenuViewGoBack)(void);
 
 @interface SH_DragableMenuView : UIView
 
+@property (nonatomic, assign) BOOL autoAttract;//是否自动吸引
+
 - (void)closeAction:(SHDragableMenuViewClose)closeBlock;
 - (void)gobackAction:(SHDragableMenuViewClose)gobackBlock;
 

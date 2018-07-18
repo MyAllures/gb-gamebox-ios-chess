@@ -32,14 +32,12 @@
 }
 
 -(void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event {
-//    [super touchesBegan:touches withEvent:event];
     CGPoint pt = [[touches anyObject] locationInView:self];
     startLocation = pt;
     [[self superview] bringSubviewToFront:self];
 }
 
 -(void)touchesMoved:(NSSet*)touches withEvent:(UIEvent*)event {
-//    [super touchesMoved:touches withEvent:event];
     CGPoint pt = [[touches anyObject] locationInView:self];
     float dx = pt.x - startLocation.x;
     float dy = pt.y - startLocation.y;
@@ -57,16 +55,17 @@
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-//    [super touchesEnded:touches withEvent:event];
-    CGPoint point = self.center;
-    if (point.x>[self superview].frame.size.width/2.0) {
-        [UIView animateWithDuration:0.2 animations:^{
-            self.frame = CGRectMake([self superview].frame.size.width-self.frame.size.width, self.frame.origin.y, self.frame.size.width, self.frame.size.height) ;
-        }];
-    }else{
-        [UIView animateWithDuration:0.2 animations:^{
-            self.frame = CGRectMake(0, self.frame.origin.y, self.frame.size.width, self.frame.size.height) ;
-        }];
+    if (self.autoAttract) {
+        CGPoint point = self.center;
+        if (point.x>[self superview].frame.size.width/2.0) {
+            [UIView animateWithDuration:0.2 animations:^{
+                self.frame = CGRectMake([self superview].frame.size.width-self.frame.size.width, self.frame.origin.y, self.frame.size.width, self.frame.size.height) ;
+            }];
+        }else{
+            [UIView animateWithDuration:0.2 animations:^{
+                self.frame = CGRectMake(0, self.frame.origin.y, self.frame.size.width, self.frame.size.height) ;
+            }];
+        }
     }
 }
 

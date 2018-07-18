@@ -246,7 +246,7 @@
         case 15:
         {
             //HB电子
-            self.dzGameMarkImg.image = [UIImage imageNamed:@""];
+            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo07"];
         }
             break;
         case 26:
@@ -306,7 +306,7 @@
         case 38:
         {
             //新PP电子
-            self.dzGameMarkImg.image = [UIImage imageNamed:@""];
+            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo02"];
         }
             break;
         case 45:
@@ -888,8 +888,8 @@
             NSString *gameMsg = [[response objectForKey:@"data"] objectForKey:@"gameMsg"];
             if (IS_EMPTY_STRING(gameMsg)) {
                 NSString *gameLink = [[response objectForKey:@"data"] objectForKey:@"gameLink"];
-//                GameWebViewController *gameVC = [[GameWebViewController alloc] initWithNibName:@"GameWebViewController" bundle:nil];
-                SH_WKGameViewController *gameVC = [[SH_WKGameViewController alloc] init];
+                GameWebViewController *gameVC = [[GameWebViewController alloc] initWithNibName:@"GameWebViewController" bundle:nil];
+//                SH_WKGameViewController *gameVC = [[SH_WKGameViewController alloc] init];
                 gameVC.url = gameLink;
                 [weakSelf.navigationController pushViewController:gameVC animated:NO];
             }

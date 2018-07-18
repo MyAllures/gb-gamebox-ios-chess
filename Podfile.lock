@@ -19,6 +19,11 @@ PODS:
   - Masonry (1.1.0)
   - MBProgressHUD (1.1.0)
   - MJRefresh (3.1.15.3)
+  - NJKWebViewProgress (0.2.3):
+    - NJKWebViewProgress/Core (= 0.2.3)
+    - NJKWebViewProgress/ProgressView (= 0.2.3)
+  - NJKWebViewProgress/Core (0.2.3)
+  - NJKWebViewProgress/ProgressView (0.2.3)
   - PGDatePicker (2.4.5):
     - PGPickerView
   - PGPickerView (1.2.6)
@@ -37,6 +42,7 @@ DEPENDENCIES:
   - Masonry
   - MBProgressHUD (~> 1.1.0)
   - MJRefresh
+  - NJKWebViewProgress
   - PGDatePicker
   - Reachability (~> 3.2)
   - SAMKeychain (~> 1.5.3)
@@ -52,6 +58,7 @@ SPEC REPOS:
     - Masonry
     - MBProgressHUD
     - MJRefresh
+    - NJKWebViewProgress
     - PGDatePicker
     - PGPickerView
     - Reachability
@@ -67,6 +74,7 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
+  NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
   PGDatePicker: 37fb49a78d0dad9e0c55dc20f1d0242dbae20ade
   PGPickerView: 8fbbf63d0404065a43a495a0115d339455e0f819
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
@@ -75,6 +83,6 @@ SPEC CHECKSUMS:
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
   WebViewJavascriptBridge: 7f5bc4d3581e672e8f32bd0f812d54bc69bb8e29
 
-PODFILE CHECKSUM: cea2c6a3323aff485f3304eea0e18a104112acbe
+PODFILE CHECKSUM: 01db825cbba9a959f255d1a10d9bdf0cff8c8355
 
 COCOAPODS: 1.5.3
