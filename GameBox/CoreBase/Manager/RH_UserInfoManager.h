@@ -24,6 +24,7 @@ typedef void(^AutoLoginCompletation)(BOOL result) ;
 
 @interface RH_UserInfoManager : NSObject
 +(instancetype)shareUserManager ;
+@property(nonatomic,strong,readonly) RH_UserSafetyCodeModel *userSafetyInfo ;
 @property(nonatomic,strong,readonly) RH_MineInfoModel *mineSettingInfo ;
 @property(nonatomic,strong,readonly) NSString *timeZone ;
 @property(nonatomic,assign,readonly) BOOL  isLogin;

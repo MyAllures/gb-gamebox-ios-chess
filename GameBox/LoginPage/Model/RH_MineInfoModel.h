@@ -7,7 +7,7 @@
 //
 
 #import "JSONModel.h"
-
+#import "SH_BankCardModel.h"
 @interface RH_MineInfoModel : JSONModel
 @property(nonatomic,strong) NSString  *avatalUrl ;
 @property(nonatomic,strong) NSString  *currency ;
@@ -25,4 +25,5 @@
 @property(nonatomic,assign) BOOL  isBit ;
 @property(nonatomic,assign) BOOL   isCash ;
 @property(nonatomic,assign) BOOL   isAutoPay ;
+@property(nonatomic,strong)SH_BankCardModel *bankcard;
 @end

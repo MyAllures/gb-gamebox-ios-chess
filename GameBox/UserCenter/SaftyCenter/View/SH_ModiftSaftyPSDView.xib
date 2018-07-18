@@ -23,6 +23,7 @@
                         <constraint firstAttribute="width" constant="205" id="uCo-tP-O9y"/>
                     </constraints>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <textInputTraits key="textInputTraits"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
@@ -40,7 +41,8 @@
                         <constraint firstAttribute="width" constant="205" id="Gck-a0-uNF"/>
                     </constraints>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -57,7 +59,8 @@
                         <constraint firstAttribute="width" constant="205" id="vTh-Hm-xz1"/>
                     </constraints>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -74,7 +77,8 @@
                         <constraint firstAttribute="width" constant="205" id="mrv-Nk-1eJ"/>
                     </constraints>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -114,7 +118,10 @@
                         <constraint firstAttribute="width" constant="145" id="xIH-Ux-hwb"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                    <state key="normal" title="修改" backgroundImage="button-long-145"/>
+                    <state key="normal" title="设置" backgroundImage="button-long-145"/>
+                    <connections>
+                        <action selector="sureBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="sMn-CU-3Ek"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.3411764706" green="0.39607843139999999" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -123,7 +130,7 @@
                 <constraint firstItem="QFQ-yV-bV8" firstAttribute="centerX" secondItem="Tcr-pv-DXT" secondAttribute="centerX" id="6IM-1I-dnA"/>
                 <constraint firstItem="5f3-aV-gNR" firstAttribute="centerX" secondItem="QFQ-yV-bV8" secondAttribute="centerX" id="Frc-Fe-b6F"/>
                 <constraint firstItem="LIP-5j-gdb" firstAttribute="centerY" secondItem="CR3-h0-Scj" secondAttribute="centerY" id="Li6-OJ-1XZ"/>
-                <constraint firstItem="QFQ-yV-bV8" firstAttribute="top" secondItem="Tcr-pv-DXT" secondAttribute="bottom" constant="10" id="RDE-U6-M9I"/>
+                <constraint firstItem="QFQ-yV-bV8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="110" id="RDE-U6-M9I"/>
                 <constraint firstItem="YAN-zz-6Wn" firstAttribute="trailing" secondItem="LIP-5j-gdb" secondAttribute="trailing" id="SsH-2R-FTG"/>
                 <constraint firstItem="n07-Dx-kpF" firstAttribute="centerY" secondItem="5f3-aV-gNR" secondAttribute="centerY" id="VbM-LX-m1f"/>
                 <constraint firstItem="Tcr-pv-DXT" firstAttribute="top" secondItem="CR3-h0-Scj" secondAttribute="bottom" constant="10" id="Z1d-Af-AZt"/>
@@ -139,6 +146,14 @@
                 <constraint firstItem="5f3-aV-gNR" firstAttribute="top" secondItem="QFQ-yV-bV8" secondAttribute="bottom" constant="10" id="v9V-gm-mco"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="NewTF" destination="QFQ-yV-bV8" id="quG-qv-fqm"/>
+                <outlet property="currentLab" destination="K8n-Qx-tST" id="Fn9-9g-oSj"/>
+                <outlet property="currentTF" destination="Tcr-pv-DXT" id="GEp-Iw-7Gz"/>
+                <outlet property="realNameTF" destination="CR3-h0-Scj" id="Lsg-nw-yru"/>
+                <outlet property="sureTF" destination="5f3-aV-gNR" id="CDJ-Sf-GL8"/>
+                <outlet property="topDistance" destination="RDE-U6-M9I" id="ksk-GX-nDc"/>
+            </connections>
         </view>
     </objects>
     <resources>

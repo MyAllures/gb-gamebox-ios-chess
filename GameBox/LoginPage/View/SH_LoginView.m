@@ -19,6 +19,7 @@
 #import "RH_RegisetInitModel.h"
 #import "RH_RegistrationViewItem.h"
 #import "SH_RegistView.h"
+#import "SH_BankCardModel.h"
 @interface SH_LoginView(){
      RH_RegisetInitModel *registrationInitModel;
 }
@@ -251,9 +252,7 @@
             showMessage(window, @"登录成功", nil);
             RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[dict[@"data"] objectForKey:@"user"] error:nil];
             [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
-            
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            
             [defaults setObject:self.account_textField.text forKey:@"account"];
             [defaults setObject:self.password_textField.text forKey:@"password"];
             

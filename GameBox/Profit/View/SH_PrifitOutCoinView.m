@@ -12,6 +12,7 @@
 #import "SH_OutCoinDetailView.h"
 #import "SH_FeeModel.h"
 #import "SH_ProfitAlertView.h"
+#import "SH_SaftyCenterView.h"
 @interface SH_PrifitOutCoinView()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *numTextField;
 @property (weak, nonatomic) IBOutlet UILabel *feeLab;
@@ -30,7 +31,13 @@
 }
 - (IBAction)bindProfitAccountNumBtnClick:(id)sender {
     if ([self.bankNumLab.text isEqualToString:@"请绑定银行卡"]) {
-        
+        SH_SaftyCenterView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_SaftyCenterView" owner:self options:nil].firstObject;
+        AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-50 titleImageName:@"saftyTtile" alertViewType:AlertViewTypeLong];
+        acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self.targetVC presentViewController:acr animated:YES completion:nil];
+        view.targetVC = acr;
+        [view selectedWithType:@"bindBankcard"];
     }else{
         showMessage(self, @"您已绑定银行卡", nil);
     }

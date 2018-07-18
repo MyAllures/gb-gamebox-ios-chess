@@ -162,7 +162,7 @@
         NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
         if ([dict  boolValueForKey:@"success"]) {
             RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[dict[@"data"] objectForKey:@"user"] error:nil];
-            [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
+            [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];            
             [self  configUI];
         }
         
@@ -597,21 +597,22 @@
     else if ([btn.currentTitle isEqualToString:@"安全中心"]) {
         
         //安全中心
-        UIView *securityBackV = [[UIView alloc] init];
-        securityBackV.backgroundColor = [UIColor colorWithWhite:0.2f alpha:0.5];
-        [self.view addSubview:securityBackV];
+//        UIView *securityBackV = [[UIView alloc] init];
+//        securityBackV.backgroundColor = [UIColor colorWithWhite:0.2f alpha:0.5];
+//        [self.view addSubview:securityBackV];
+//
+//        SH_SecurityCenterView *securityView = [[SH_SecurityCenterView alloc] init];
+//        securityView.backgroundColor = [UIColor whiteColor];
+//        securityView.layer.cornerRadius = 4.5;
+//        [securityBackV addSubview:securityView];
+        SH_SaftyCenterView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_SaftyCenterView" owner:self options:nil].firstObject;
 
-        SH_SecurityCenterView *securityView = [[SH_SecurityCenterView alloc] init];
-        securityView.backgroundColor = [UIColor whiteColor];
-        securityView.layer.cornerRadius = 4.5;
-        [securityBackV addSubview:securityView];
-//        SH_SaftyCenterView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_SaftyCenterView" owner:self options:nil].firstObject;
-//    
-//      AlertViewController *avc  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-50 titleImageName:@"saftyTtile" alertViewType:AlertViewTypeLong];
-//        avc.title = @"安全中心";
-//        avc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-//        avc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-//        [self presentViewController:avc animated:YES completion:nil];
+      AlertViewController *avc  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-50 titleImageName:@"saftyTtile" alertViewType:AlertViewTypeLong];
+        avc.title = @"安全中心";
+        avc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        avc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self presentViewController:avc animated:YES completion:nil];
+        view.targetVC = avc;
     }
 
     else if ([btn.currentTitle isEqualToString:@"牌局记录"]) {

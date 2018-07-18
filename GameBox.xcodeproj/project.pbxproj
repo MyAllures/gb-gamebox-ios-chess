@@ -161,6 +161,8 @@
 		BFA068CF20FE135200F5ADFE /* SH_ModiftSaftyPSDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA068CE20FE135200F5ADFE /* SH_ModiftSaftyPSDView.xib */; };
 		BFA068D220FE153000F5ADFE /* SH_BankCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA068D120FE153000F5ADFE /* SH_BankCardView.m */; };
 		BFA068D420FE154000F5ADFE /* SH_BankCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA068D320FE154000F5ADFE /* SH_BankCardView.xib */; };
+		BFA068D820FEE2FA00F5ADFE /* SH_NetWorkService+SaftyCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA068D720FEE2FA00F5ADFE /* SH_NetWorkService+SaftyCenter.m */; };
+		BFA068DB20FF11E500F5ADFE /* SH_BankCardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA068DA20FF11E500F5ADFE /* SH_BankCardModel.m */; };
 		BFD6CFC120F8901500EDBC5B /* SH_NetWorkService+Bank.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFC020F8901500EDBC5B /* SH_NetWorkService+Bank.m */; };
 		BFD6CFC520F997B800EDBC5B /* SavePhotoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFC420F997B800EDBC5B /* SavePhotoTool.m */; };
 		BFD6CFCC20F9D20C00EDBC5B /* AttributeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFCB20F9D20C00EDBC5B /* AttributeModel.m */; };
@@ -502,6 +504,10 @@
 		BFA068D020FE153000F5ADFE /* SH_BankCardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_BankCardView.h; sourceTree = "<group>"; };
 		BFA068D120FE153000F5ADFE /* SH_BankCardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_BankCardView.m; sourceTree = "<group>"; };
 		BFA068D320FE154000F5ADFE /* SH_BankCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_BankCardView.xib; sourceTree = "<group>"; };
+		BFA068D620FEE2FA00F5ADFE /* SH_NetWorkService+SaftyCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+SaftyCenter.h"; sourceTree = "<group>"; };
+		BFA068D720FEE2FA00F5ADFE /* SH_NetWorkService+SaftyCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+SaftyCenter.m"; sourceTree = "<group>"; };
+		BFA068D920FF11E500F5ADFE /* SH_BankCardModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_BankCardModel.h; sourceTree = "<group>"; };
+		BFA068DA20FF11E500F5ADFE /* SH_BankCardModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_BankCardModel.m; sourceTree = "<group>"; };
 		BFD6CFBF20F8901500EDBC5B /* SH_NetWorkService+Bank.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+Bank.h"; sourceTree = "<group>"; };
 		BFD6CFC020F8901500EDBC5B /* SH_NetWorkService+Bank.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+Bank.m"; sourceTree = "<group>"; };
 		BFD6CFC320F997B800EDBC5B /* SavePhotoTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SavePhotoTool.h; sourceTree = "<group>"; };
@@ -1341,6 +1347,7 @@
 		BFA068BF20FE0A8F00F5ADFE /* SaftyCenter */ = {
 			isa = PBXGroup;
 			children = (
+				BFA068D520FEE2D900F5ADFE /* Model */,
 				BFA068C020FE0A9E00F5ADFE /* View */,
 			);
 			path = SaftyCenter;
@@ -1363,6 +1370,15 @@
 				BFA068D320FE154000F5ADFE /* SH_BankCardView.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		BFA068D520FEE2D900F5ADFE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BFA068D620FEE2FA00F5ADFE /* SH_NetWorkService+SaftyCenter.h */,
+				BFA068D720FEE2FA00F5ADFE /* SH_NetWorkService+SaftyCenter.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BFD6CFBD20F88FE000EDBC5B /* view */ = {
@@ -1615,6 +1631,8 @@
 				DA22F3BA20F44B1A0058A54F /* RH_MineInfoModel.m */,
 				DA21F37A20F4E97800D20672 /* SH_NetWorkService+RegistAPI.h */,
 				DA21F37B20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m */,
+				BFA068D920FF11E500F5ADFE /* SH_BankCardModel.h */,
+				BFA068DA20FF11E500F5ADFE /* SH_BankCardModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1886,6 +1904,7 @@
 				229A219E20F3826E00F5A969 /* SH_GameAnnouncementView.m in Sources */,
 				BF2F915A20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m in Sources */,
 				BFFEDCB820F34CDC002E69FD /* SH_RechargeCenterChannelModel.m in Sources */,
+				BFA068DB20FF11E500F5ADFE /* SH_BankCardModel.m in Sources */,
 				BFA0689520FC8D9A00F5ADFE /* SH_LookJiHeView.m in Sources */,
 				BFFC846620F3043A008AD801 /* SH_RechargeCenterPaywayModel.m in Sources */,
 				5401C56220ECF9EA0027246D /* SH_HomeViewController.m in Sources */,
@@ -1957,13 +1976,13 @@
 				BFFC845220F2F253008AD801 /* SH_RechargeCenterViewController.m in Sources */,
 				BF44ECDF20F6F6AA00BC6EF3 /* UILabel+handle.m in Sources */,
 				5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */,
+				BFA068D820FEE2FA00F5ADFE /* SH_NetWorkService+SaftyCenter.m in Sources */,
 				54C875AB20F84BFF00AA0594 /* SH_GameItemModel.m in Sources */,
 				BFFEDCBB20F35627002E69FD /* SH_RechargeCenterAccountModel.m in Sources */,
 				DA22F40820F494C60058A54F /* ScreenAdaptation.m in Sources */,
 				22E486D220F9C9920051A68C /* SH_SendMsgTabelViewCell.m in Sources */,
 				54C875B320FB4E1200AA0594 /* SH_DragableMenuView.m in Sources */,
 				BFA068C820FE0FF100F5ADFE /* SH_ModifyLoginPSDView.m in Sources */,
-				DA1BCC4A20FCB81300201DBC /* SH_CardRecordView.m in Sources */,
 				DA22F3D820F455C50058A54F /* UIImage+Representation.m in Sources */,
 				22E486D620F9F1100051A68C /* SH_AdvisoryTypeModel.m in Sources */,
 				DA1BCC4420FCB7AD00201DBC /* SH_WelfareView.m in Sources */,

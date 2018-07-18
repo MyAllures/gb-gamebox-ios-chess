@@ -36,7 +36,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TnJ-eo-M3j" userLabel="修改安全密码">
                     <rect key="frame" x="7" y="70" width="120" height="50"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                    <state key="normal" title="修改安全密码" backgroundImage="button-long">
+                    <state key="normal" title="设置安全密码" backgroundImage="button-long">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>

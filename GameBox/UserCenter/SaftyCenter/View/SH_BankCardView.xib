@@ -23,6 +23,7 @@
                         <constraint firstAttribute="width" constant="205" id="NLW-io-Ds5"/>
                     </constraints>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <textInputTraits key="textInputTraits"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
@@ -44,7 +45,7 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5q4-02-0H2">
+                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5q4-02-0H2">
                     <rect key="frame" x="98" y="73" width="205" height="30"/>
                     <color key="backgroundColor" red="0.13725490200000001" green="0.16862745100000001" blue="0.41568627450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
@@ -52,6 +53,7 @@
                         <constraint firstAttribute="height" constant="30" id="dwW-ZO-Zhm"/>
                     </constraints>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <textInputTraits key="textInputTraits"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
@@ -69,6 +71,9 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <state key="normal" title="请选择" image="bankListDown"/>
+                    <connections>
+                        <action selector="chooseBankBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="I6z-ZJ-u8W"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="银行" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oEi-UM-M0V">
                     <rect key="frame" x="61" y="79" width="29" height="17"/>
@@ -84,7 +89,8 @@
                         <constraint firstAttribute="width" constant="205" id="mX9-AT-phU"/>
                     </constraints>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -101,6 +107,7 @@
                         <constraint firstAttribute="height" constant="30" id="hqJ-V7-5jN"/>
                     </constraints>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <textInputTraits key="textInputTraits"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
@@ -136,6 +143,9 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                     <state key="normal" title="确认提交" backgroundImage="button-long-145"/>
+                    <connections>
+                        <action selector="sureBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="yLF-y4-qt4"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.3411764706" green="0.39607843139999999" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -167,7 +177,12 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="addressTF" destination="bcv-Q0-OsG" id="oSS-45-l85"/>
+                <outlet property="bankTF" destination="5q4-02-0H2" id="8qV-ix-ZZ6"/>
+                <outlet property="cardNumTF" destination="KS6-NG-6wd" id="LLh-b6-B0f"/>
                 <outlet property="chooseBankBtn" destination="LQg-sq-ztu" id="cf8-mQ-ujG"/>
+                <outlet property="realNameTF" destination="0E4-bh-MeB" id="vsi-pg-6eS"/>
+                <outlet property="sureBtn" destination="9s2-FX-4AL" id="Prh-vQ-pO0"/>
             </connections>
         </view>
     </objects>
