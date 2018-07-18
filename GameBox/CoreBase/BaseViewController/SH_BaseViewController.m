@@ -87,7 +87,11 @@
         NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
         [invocation setSelector:selector];
         [invocation setTarget:[UIDevice currentDevice]];
-        int val = UIInterfaceOrientationLandscapeLeft;
+        UIInterfaceOrientation oriention = [UIApplication sharedApplication].statusBarOrientation;
+        if (oriention != UIInterfaceOrientationLandscapeLeft && oriention != UIInterfaceOrientationLandscapeRight) {
+            oriention = UIInterfaceOrientationLandscapeLeft;
+        }
+        int val = oriention;
         [invocation setArgument:&val atIndex:2];
         [invocation invoke];
     }
