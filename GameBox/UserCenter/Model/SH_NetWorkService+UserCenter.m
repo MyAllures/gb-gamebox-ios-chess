@@ -47,13 +47,13 @@
     NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":([NetWorkLineMangaer sharedManager].currentCookie?[NetWorkLineMangaer sharedManager].currentCookie:@"")};
     [self post:url parameter:dictTmp header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
-            NSDictionary * result = ConvertToClassPointer(NSDictionary, response);
+           /* NSDictionary * result = ConvertToClassPointer(NSDictionary, response);
             if ([result boolValueForKey:@"success"]) {
                 NSError * errer;
                 SH_WelfareInfoModel * model = [[SH_WelfareInfoModel  alloc]initWithDictionary:result[@"data"] error:&errer];
                 complete(httpURLResponse, model.fundListApps);
-            }
-           
+            }*/
+            complete(httpURLResponse, response);
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         if (failed) {
@@ -93,6 +93,24 @@
     [dict setValue:[NSString stringWithFormat:@"%ld",pageSize] forKey:@"paging.pageSize"];
     [dict setValue:[NSString  stringWithFormat:@"%@",@(isShowStatistics)] forKey:@"isShowStatistics"];
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/getBettingList.html"];
+    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":([NetWorkLineMangaer sharedManager].currentCookie?[NetWorkLineMangaer sharedManager].currentCookie:@"")};
+    [self post:url parameter:dict header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (complete) {
+            complete(httpURLResponse, response);
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        if (failed) {
+            failed(httpURLResponse, err);
+        }
+    }];
+}
+#pragma mark --投注记录详情
++(void)fetchBettingDetails:(NSInteger)listId
+                  complete:(SHNetWorkComplete)complete
+                    failed:(SHNetWorkFailed)failed{
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init] ;
+    [dict setValue:@(listId) forKey:@"id"] ;
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/getBettingDetails.html"];
     NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":([NetWorkLineMangaer sharedManager].currentCookie?[NetWorkLineMangaer sharedManager].currentCookie:@"")};
     [self post:url parameter:dict header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {

@@ -83,10 +83,8 @@
             NSLog(@"str=====%@",str);
             NSLog(@"count=====%lu",(unsigned long)self.dataListArr.count);
             for (SH_MyMsgDataListModel *model in self.deleteArr) {
-                for (SH_MyMsgDataListModel *mod in self.dataListArr) {
-                    if (model.id == mod.id) {
-                        [self.dataListArr removeObject:mod];
-                    }
+                if ([self.dataListArr containsObject:model]) {
+                    [self.dataListArr removeObject:model];
                 }
             }
             NSLog(@"count1=====%lu",(unsigned long)self.dataListArr.count);
@@ -194,6 +192,7 @@
     cell.seleteBtn.tag = indexPath.row;
     cell.advisoryContentLabel.text = model.advisoryContent;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1];
     cell.advisoryTimeLabel.text = [self timeStampWithDate:model.advisoryTime];
     if (model.selectedFlag) {
         [cell.seleteBtn setBackgroundImage: [UIImage imageNamed:@"choose"] forState:UIControlStateNormal];

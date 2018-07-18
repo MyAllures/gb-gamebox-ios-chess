@@ -11,6 +11,7 @@
 #import "SH_SiteMsgViewCell.h"
 #import "SH_NetWorkService+Promo.h"
 #import "SH_SysMsgDataListModel.h"
+#import "SH_MsgDetailView.h"
 
 @interface SH_SystemMsgView () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -21,7 +22,8 @@
 //删除的数据
 @property (strong, nonatomic) NSMutableArray *deleteArr;
 @property (assign, nonatomic) BOOL isSelete;
-
+@property (strong, nonatomic) SH_MsgDetailView *detailView ;
+@property (strong, nonatomic) NSString *searchId;
 @end
 
 @implementation SH_SystemMsgView
@@ -83,10 +85,8 @@
             }
             NSLog(@"str=====%@",str);
             for (SH_SysMsgDataListModel *model in self.deleteArr) {
-                for (SH_SysMsgDataListModel *mod in self.dataListArr) {
-                    if (model.id == mod.id) {
-                        [self.dataListArr removeObject:mod];
-                    }
+                if ([self.dataListArr containsObject:model]) {
+                    [self.dataListArr removeObject:model];
                 }
             }
             [self.deleteArr removeAllObjects];
@@ -125,7 +125,7 @@
             NSDictionary *dict = (NSDictionary *)response;
             NSLog(@"dict====%@",dict);
             NSLog(@"message====%@",dict[@"message"]);
-            for (NSDictionary *dic in dict[@"data"][@"dataList"]) {
+            for (NSDictionary *dic in dict[@"data"][@"list"]) {
                 NSError *err;
                 SH_SysMsgDataListModel *model = [[SH_SysMsgDataListModel alloc] initWithDictionary:dic error:&err];
                 [self.dataListArr addObject:model];
@@ -185,9 +185,15 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"SH_SiteMsgViewCell" owner:nil options:nil] lastObject];
     }
     SH_SysMsgDataListModel *model = self.dataListArr[indexPath.row];
-    cell.advisoryContentLabel.text = model.advisoryContent;
+    cell.advisoryContentLabel.text = model.title;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.advisoryTimeLabel.text = [self timeStampWithDate:model.advisoryTime];
+    cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1];
+    if (model.read == 1) {
+        cell.mearkReadImageView.image = nil;
+    }else{
+        cell.mearkReadImageView.image = [UIImage imageNamed:@"mearkRead"];
+    }
+    cell.advisoryTimeLabel.text = [self timeStampWithDate:model.publishTime];
     NSLog(@"id=====%ld",(long)model.id);
     if (model.selectedFlag) {
         [cell.seleteBtn setBackgroundImage: [UIImage imageNamed:@"choose"] forState:UIControlStateNormal];
@@ -242,6 +248,14 @@
 #pragma mark - UITableViewDelegate M
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    SH_SysMsgDataListModel *model = self.dataListArr[indexPath.row];
+    self.detailView =[[[NSBundle mainBundle] loadNibNamed:@"SH_MsgDetailView" owner:nil options:nil] lastObject];
+    NSLog(@"id====%ld",(long)model.searchId);
+    self.searchId = [NSString stringWithFormat:@"%ld",(long)model.searchId];
+    [[UIApplication sharedApplication].keyWindow addSubview:self.detailView];
+    [self.detailView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.bottom.mas_equalTo(0);
+    }];
 }
 
 
