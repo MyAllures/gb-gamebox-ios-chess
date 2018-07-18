@@ -17,7 +17,6 @@
 #import "View+MASAdditions.h"
 #import "SH_CycleScrollView.h"
 #import "SH_PlayerCenterView.h"
-#import "SH_WelfareRecordView.h"
 #import "AlertViewController.h"
 #import "SH_LoginView.h"
 #import "SH_PromoContentView.h"
@@ -28,8 +27,6 @@
 #import "SH_RingManager.h"
 #import "SH_RingButton.h"
 #import "SH_PlayerCenterView.h"
-#import "SH_SecurityCenterView.h"
-#import "SH_CardRecordView.h"
 #import "SH_GameItemModel.h"
 #import "SH_GameItemView.h"
 #import "SH_DZGameItemView.h"
@@ -45,11 +42,7 @@
 #import "SH_ProfitModel.h"
 #import "SH_AnnouncementView.h"
 #import "YFAnimationManager.h"
-#import "SH_WelfareDetailView.h"
-#import "SH_WelfareDetailView.h"
-#import "SH_SaftyCenterView.h"
-
-#import "SH_CardRecordDetailView.h"
+#import "SH_GamesHomeViewController.h"
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate,PlayerCenterViewDelegate>
 
 
@@ -62,8 +55,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *snowBGImg;
 @property (strong, nonatomic) SH_CycleScrollView *cycleAdView;
 @property (nonatomic, strong) SH_PlayerCenterView *pcv;
-@property (nonatomic, strong) UIView *backV;
-@property (nonatomic, strong) UIView *welBackV;
+
 @property (strong, nonatomic) SH_GamesListScrollView *topGamesListScrollView;
 @property (strong, nonatomic) SH_GamesListScrollView *midGamesListScrollView;
 @property (strong, nonatomic) SH_GamesListScrollView *lastGamesListScrollView;
@@ -522,116 +514,15 @@
 //玩家中心
 - (IBAction)userCenterClick:(id)sender
 {
-    self.backV = [[UIView alloc] init];
-    self.backV.backgroundColor = [UIColor colorWithWhite:0.2f alpha:0.5];
-    [self.view addSubview:self.backV];
-
-    self.pcv = [[SH_PlayerCenterView alloc] init];
-    self.pcv.delegate = self;
-    [self.backV addSubview:self.pcv];
+    SH_GamesHomeViewController * vc = [SH_GamesHomeViewController new];
     
- 
-    [UIView animateWithDuration:3.0 animations:^{
-        [self.backV mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.bottom.left.right.equalTo(self.view);
-        }];
-
-        [self.pcv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(self.backV).mas_equalTo(0);
-            make.width.mas_equalTo(202);
-            make.bottom.equalTo(self.backV).mas_equalTo(0);
-            make.top.equalTo(self.backV.mas_top);
-        }];
+    [self presentViewController:vc addTargetViewController:self];
+    
    
-    }];
 }
 
 #pragma mark - SH_PlayerCenterViewDelegate
 
-- (void)removeView
-{
-    [UIView animateWithDuration:2.0 animations:^{
-        [self.pcv removeFromSuperview];
-        [self.backV removeFromSuperview];
-    }];
-}
-#pragma  mark ---  玩家中心
-- (void)popView:(UIButton *)btn
-{
-    [self removeView];
-    
-    if ([btn.currentTitle isEqualToString:@"福利记录"]) {
-        
-        self.welBackV = [[UIView alloc] init];
-        self.welBackV.backgroundColor = [UIColor colorWithWhite:0.2f alpha:0.5];
-        [[UIApplication sharedApplication].keyWindow addSubview:self.welBackV];
-        
-        //福利记录
-       /* self.welfareV = [[SH_WelfareView alloc] init];
-        self.welfareV.backgroundColor = [UIColor whiteColor];
-        self.welfareV.layer.cornerRadius = 4.5;*/
-        SH_WelfareRecordView   *welfare =  [SH_WelfareRecordView instanceWelfareRecordView];
-        [self.welBackV addSubview: welfare];
-        
-        
-        AlertViewController *cvc  = [[AlertViewController  alloc] initAlertView:welfare viewHeight:303 titleImageName:@"title09" alertViewType:AlertViewTypeLong];
-        
-        welfare.backToDetailViewBlock = ^(NSString *searchId,SH_FundListModel * model) {
-            SH_WelfareDetailView * detail = [SH_WelfareDetailView  instanceWelfareDetailView];
-            detail.searchId = searchId;
-            detail.infoModel = model;
-             AlertViewController *dvc  = [[AlertViewController  alloc] initAlertView:detail viewHeight:303 titleImageName:@"title09" alertViewType:AlertViewTypeLong];
-            [self presentViewController:dvc addTargetViewController:cvc];
-        };
-        
-        cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-        cvc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        [self presentViewController:cvc animated:YES completion:nil];
-    }
-    
-    else if ([btn.currentTitle isEqualToString:@"安全中心"]) {
-        
-        //安全中心
-//        UIView *securityBackV = [[UIView alloc] init];
-//        securityBackV.backgroundColor = [UIColor colorWithWhite:0.2f alpha:0.5];
-//        [self.view addSubview:securityBackV];
-//
-//        SH_SecurityCenterView *securityView = [[SH_SecurityCenterView alloc] init];
-//        securityView.backgroundColor = [UIColor whiteColor];
-//        securityView.layer.cornerRadius = 4.5;
-//        [securityBackV addSubview:securityView];
-        SH_SaftyCenterView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_SaftyCenterView" owner:self options:nil].firstObject;
-    
-      AlertViewController *avc  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-30 titleImageName:@"saftyTtile" alertViewType:AlertViewTypeLong];
-        avc.title = @"安全中心";
-        avc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-        avc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        [self presentViewController:avc animated:YES completion:nil];
-    }
-
-    else if ([btn.currentTitle isEqualToString:@"牌局记录"]) {
-        
-        //牌局记录
-        UIView *cardBackV = [[UIView alloc] init];
-        cardBackV.backgroundColor = [UIColor colorWithWhite:0.2f alpha:0.5];
-        [self.view addSubview:cardBackV];
-        
-        SH_CardRecordView *crv = [SH_CardRecordView  instanceCardRecordView];
-        crv.backgroundColor = [UIColor whiteColor];
-        crv.layer.cornerRadius = 4.5;
-        [cardBackV addSubview:crv];
-        // 投注记录详情
-        AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:crv viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title10" alertViewType:AlertViewTypeLong];
-        crv.backToDetailViewBlock = ^(NSString *info) {
-            SH_CardRecordDetailView * cardDetail = [SH_CardRecordDetailView  instanceCardRecordDetailView];
-             cardDetail.mId = info;
-             AlertViewController *dcr  = [[AlertViewController  alloc] initAlertView:cardDetail viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title10" alertViewType:AlertViewTypeLong];
-             [self presentViewController:dcr addTargetViewController:acr];
-        };
-        
-        [self presentViewController:acr addTargetViewController:self];
-    }
-}
 
 #pragma mark--
 #pragma mark--收益按钮
@@ -832,7 +723,6 @@
 - (void)welfareViewDisappear
 {
 //    [self.welfareV removeFromSuperview];
-    [self.welBackV removeFromSuperview];
 }
 
 #pragma mark - GamesListScrollViewDataSource M
