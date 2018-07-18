@@ -58,6 +58,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *dzGameMarkImg;
 @property (weak, nonatomic) IBOutlet UIImageView *runLBBGImg;
 @property (weak, nonatomic) IBOutlet UIView *searchView;
+@property (weak, nonatomic) IBOutlet UIImageView *snowBGImg;
 @property (strong, nonatomic) SH_CycleScrollView *cycleAdView;
 @property (nonatomic, strong) SH_PlayerCenterView *pcv;
 @property (nonatomic, strong) UIView *backV;
@@ -89,7 +90,7 @@
     [self refreshAnnouncement];
     [self refreshHomeInfo];
     
-    [[YFAnimationManager shareInstancetype] showAnimationInView:self.view withAnimationStyle:YFAnimationStyleOfSnow];
+    [[YFAnimationManager shareInstancetype] showAnimationInView:self.snowBGImg withAnimationStyle:YFAnimationStyleOfSnow];
 
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didRegistratedSuccessful) name:@"didRegistratedSuccessful" object:nil];
     if (iPhoneX) {
