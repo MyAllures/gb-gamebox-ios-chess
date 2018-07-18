@@ -79,13 +79,15 @@
 
 - (IBAction)tapApiName:(id)sender {
 //    _pickView.hidden = NO;
-    self.pickView.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
-    [self addSubview:self.pickView];
-    [_pickView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.mas_equalTo(0);
-        make.top.mas_equalTo(self.frame.size.height-150);
-        make.bottom.mas_equalTo(0);
-    }];
+    if (self.apiNameArr.count > 0) {
+        self.pickView.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
+        [self addSubview:self.pickView];
+        [_pickView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.mas_equalTo(0);
+            make.top.mas_equalTo(self.frame.size.height-150);
+            make.bottom.mas_equalTo(0);
+        }];
+    }
 }
 
 -(UIPickerView *)pickView {
