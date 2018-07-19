@@ -252,8 +252,6 @@
     NSUInteger lenth = endLocation - startLocation;
     NSString *cookie = [setCookie substringWithRange:NSMakeRange(startLocation, lenth)];
     [NetWorkLineMangaer sharedManager].currentCookie = cookie;
-    [[RH_UserInfoManager  shareUserManager] updateIsLogin:YES];
-    
     [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
         
         NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
@@ -261,6 +259,7 @@
             showMessage(window, @"登录成功", nil);
             RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[dict[@"data"] objectForKey:@"user"] error:nil];
             [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
+            [[RH_UserInfoManager  shareUserManager] updateIsLogin:YES];
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             [defaults setObject:self.account_textField.text forKey:@"account"];
             [defaults setObject:self.password_textField.text forKey:@"password"];
