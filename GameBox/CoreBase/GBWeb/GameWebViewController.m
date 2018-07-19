@@ -9,24 +9,7 @@
 #import "GameWebViewController.h"
 #import "SH_GameWebView.h"
 
-//#import "NetWorkLineMangaer.h"
-//#import "SH_DragableMenuView.h"
-//#import "NJKWebViewProgress.h"
-//#import <JavaScriptCore/JavaScriptCore.h>
-
-////忽略证书访问
-//@interface NSURLRequest (IgnoreSSL)
-//+(BOOL)allowsAnyHTTPSCertificateForHost:(NSString*)host;
-//@end
-//@implementation NSURLRequest (IgnoreSSL)
-//+(BOOL)allowsAnyHTTPSCertificateForHost:(NSString*)host {return YES;}
-//@end
-
 @interface GameWebViewController () <UIWebViewDelegate>
-//@property (weak, nonatomic) IBOutlet UIWebView *webview;
-//@property (nonatomic, strong) SH_DragableMenuView *dragableMenuView;
-//@property (nonatomic, strong) UIProgressView *progressView;
-//@property (nonatomic, strong) NJKWebViewProgress *progressProxy;
 
 @property (nonatomic, strong) SH_GameWebView *gameWebView;
 @property (nonatomic, copy) GameWebViewControllerClose closeBlock;
@@ -54,6 +37,9 @@
     self.gameWebView.hideMenuView = self.hideMenuView;
     [self.gameWebView close:^{
         [weakSelf.navigationController popViewControllerAnimated:NO];
+        if (weakSelf.closeBlock) {
+            weakSelf.closeBlock();
+        }
     }];
 }
 
@@ -63,7 +49,7 @@
         _gameWebView = [[[NSBundle mainBundle] loadNibNamed:@"SH_GameWebView" owner:nil options:nil] lastObject];
         [self.view addSubview:_gameWebView];
         [_gameWebView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self.view).mas_offset(0);
+            make.edges.equalTo(self.view);
         }];
     }
     return _gameWebView;

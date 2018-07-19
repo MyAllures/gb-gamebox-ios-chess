@@ -20,7 +20,7 @@
                     <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </webView>
             </subviews>
-            <color key="backgroundColor" red="1" green="0.06768973214" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="TFQ-3V-sVv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="70X-D5-b2f"/>
                 <constraint firstItem="TFQ-3V-sVv" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="DCO-E5-tdS"/>
