@@ -203,8 +203,10 @@
 #pragma mark --  登录
 -(void)login{
 //    [MBProgressHUD showHUDAddedTo:self.window animated:YES];
+    MBProgressHUD *hud =showHUDWithMyActivityIndicatorView(self, nil, @"正在登陆...");
      __weak  typeof(self) weakSelf = self;
     [SH_NetWorkService login:self.account_textField.text psw:self.password_textField.text verfyCode:self.check_textField.text complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        [hud hideAnimated:false];
         NSDictionary *result = ConvertToClassPointer(NSDictionary, response) ;
         if ([result boolValueForKey:@"success"]){
             [weakSelf  loginSucessHandleRsponse:result httpURLResponse:httpURLResponse];
@@ -227,6 +229,7 @@
         
     } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
         //
+         [hud hideAnimated:false];
     }];
 }
 

@@ -23,7 +23,6 @@ PODS:
     - PGPickerView
   - PGPickerView (1.2.6)
   - Reachability (3.2)
-  - SAMKeychain (1.5.3)
   - SDWebImage (4.4.1):
     - SDWebImage/Core (= 4.4.1)
   - SDWebImage/Core (4.4.1)
@@ -39,7 +38,6 @@ DEPENDENCIES:
   - MJRefresh
   - PGDatePicker
   - Reachability (~> 3.2)
-  - SAMKeychain (~> 1.5.3)
   - SDWebImage (~> 4.0)
   - SocketRocket
   - WebViewJavascriptBridge (~> 6.0)
@@ -55,7 +53,6 @@ SPEC REPOS:
     - PGDatePicker
     - PGPickerView
     - Reachability
-    - SAMKeychain
     - SDWebImage
     - SocketRocket
     - WebViewJavascriptBridge
@@ -70,11 +67,10 @@ SPEC CHECKSUMS:
   PGDatePicker: 37fb49a78d0dad9e0c55dc20f1d0242dbae20ade
   PGPickerView: 8fbbf63d0404065a43a495a0115d339455e0f819
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
-  SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
   SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
   WebViewJavascriptBridge: 7f5bc4d3581e672e8f32bd0f812d54bc69bb8e29
 
-PODFILE CHECKSUM: cea2c6a3323aff485f3304eea0e18a104112acbe
+PODFILE CHECKSUM: 20b0107ebf32b8d79ef3ab09c6da02886bbdd7bd
 
 COCOAPODS: 1.5.3

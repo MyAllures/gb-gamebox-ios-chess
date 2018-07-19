@@ -9,7 +9,7 @@
 #import "RH_UserInfoManager.h"
 #import "CLDocumentCachePool.h"
 #import "MacroDef.h"
-#import "SAMKeychain.h"
+
 
 #define  key_languageOption                             @"appLanguage"
 #define  key_voiceSwitchFlag                             @"key_voiceSwitchFlag"

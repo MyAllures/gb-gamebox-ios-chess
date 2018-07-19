@@ -323,6 +323,7 @@
     return @"";
 }
 - (void)buttonRegistrationHandle {
+    
     UIWindow * window = [UIApplication  sharedApplication].keyWindow;
     NSString *regCode = [self obtainContent:@"regCode"];
     for (NSString *obj in registrationInitModel.requiredJson) {
