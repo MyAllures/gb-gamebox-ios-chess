@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "RH_UserSafetyCodeModel.h"
 #import "RH_MineInfoModel.h"
-
+#import "SH_BankListModel.h"
 #import "coreLib.h"
 
 #define  RHNT_UserInfoManagerMineGroupChangedNotification         @"UserInfoManagerMineGroupChangedNotification"
@@ -25,11 +25,14 @@ typedef void(^AutoLoginCompletation)(BOOL result) ;
 @interface RH_UserInfoManager : NSObject
 +(instancetype)shareUserManager ;
 @property(nonatomic,strong,readonly) RH_UserSafetyCodeModel *userSafetyInfo ;
-@property(nonatomic,strong,readonly) RH_MineInfoModel *mineSettingInfo ;
+@property(nonatomic,strong) RH_MineInfoModel *mineSettingInfo ;
+@property(nonatomic,strong,readonly) NSArray<SH_BankListModel *> *bankList ;
 @property(nonatomic,strong,readonly) NSString *timeZone ;
 @property(nonatomic,assign,readonly) BOOL  isLogin;
 
 -(void)setMineSettingInfo:(RH_MineInfoModel *)mineSettingInfo ;
+-(void)setUserSafetyInfo:(RH_UserSafetyCodeModel *)userSafetyInfo;
+-(void)setBankList:(NSArray<SH_BankListModel *> *)bankList ;
 ///----app 层 相关开关
 
 @property (nonatomic,assign,readonly) BOOL isVoiceSwitch    ; //声音开关

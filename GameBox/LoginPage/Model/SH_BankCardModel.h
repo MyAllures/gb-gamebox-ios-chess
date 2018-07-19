@@ -10,7 +10,6 @@
 
 @protocol SH_BankCardModel;
 @interface SH_BankCardModel : JSONModel
-
 @property (nonatomic,copy) NSString <Optional>*bankDeposit ; //开户行
 @property (nonatomic,copy) NSString <Optional>*bankName; //从bankList取
 @property (nonatomic,copy) NSString <Optional>*bankNameCode;
@@ -18,4 +17,8 @@
 @property (nonatomic,copy) NSString <Optional>*bankcardNumber ;
 @property (nonatomic,copy) NSString <Optional>*bankUrl ; //开户行图片链接
 @property (nonatomic,copy) NSString <Optional>*realName ; //开户行图片链接
+//-(void)setBankDeposit:(NSString<Optional> *)bankDeposit;
+//-(void)setBankName:(NSString<Optional> *)bankName;
+//-(void)setBankcardNumber:(NSString<Optional> *)bankcardNumber;
+//-(void)setRealName:(NSString<Optional> *)realName;
 @end

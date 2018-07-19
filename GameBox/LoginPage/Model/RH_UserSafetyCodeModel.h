@@ -9,15 +9,14 @@
 #import "JSONModel.h"
 
 @interface RH_UserSafetyCodeModel : JSONModel
-@property (nonatomic,assign,readonly) BOOL hasRealName ;
-@property (nonatomic,assign,readonly) BOOL hasPersimmionPwd ;
-@property (nonatomic,assign,readonly) BOOL isOpenCaptch ;
-@property (nonatomic,assign,readonly) NSInteger remindTime ;
-@property (nonatomic,strong,readonly) NSString *lockTime ;
+@property (nonatomic,assign) BOOL hasRealName ;
+@property (nonatomic,assign) BOOL hasPermissionPwd ;
+@property (nonatomic,assign) BOOL isOpenCaptcha ;
+@property (nonatomic,assign) NSInteger remindTimes ;
+@property (nonatomic,copy) NSString *captChaUrl ;
 
 -(void)updateHasRealName:(BOOL)bFlag ;
 -(void)updateHasPersimmionPwd:(BOOL)bFlag ;
 -(void)updateOpenCaptch:(BOOL)bFlag ;
 -(void)updateRemindTime:(NSInteger)remindTime ;
--(void)updateLockTime:(NSString*)lockTime ;
 @end

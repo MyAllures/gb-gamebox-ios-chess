@@ -10,4 +10,5 @@
 
 @interface SH_ModiftSaftyPSDView : UIView
 @property(nonatomic,strong)UIViewController *targetVC;
+-(void)updateView;
 @end

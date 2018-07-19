@@ -82,7 +82,7 @@
         [self  endBtnClick];
     }else if (sender.tag==102){
         __weak typeof(self) weakSelf = self;
-        HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, sender.bounds.size.width, 140) dependView:sender textArr:self.dataArray block:^(NSString *region_name, NSInteger index) {
+        HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, sender.bounds.size.width, 140) dependView:sender textArr:self.dataArray textFont:14.0  block:^(NSString *region_name, NSInteger index) {
             self->_selectIndex = index;
             weakSelf.type_label.text = region_name;
         }];
@@ -107,7 +107,7 @@
 - (IBAction)quickSelect:(UIButton *)sender {
     NSArray *arr = @[@"今天",@"昨天",@"本周",@"最近七天"];
     __weak typeof(self) weakSelf = self;
-    HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, sender.bounds.size.width, 125) dependView:sender textArr:arr block:^(NSString *region_name, NSInteger index) {
+    HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, sender.bounds.size.width, 125) dependView:sender textArr:arr textFont:14.0 block:^(NSString *region_name, NSInteger index) {
         [weakSelf  changedSinceTimeString:index];
     }];
     
