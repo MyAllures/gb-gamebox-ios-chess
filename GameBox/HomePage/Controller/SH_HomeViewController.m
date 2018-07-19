@@ -493,6 +493,10 @@
 #pragma mark--
 #pragma mark--收益按钮
 - (IBAction)profitBtnClick:(id)sender {
+    if (![[RH_UserInfoManager shareUserManager] isLogin]) {
+        [self login];
+        return;
+    }
     SH_PrifitOutCoinView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_PrifitOutCoinView" owner:nil options:nil].lastObject;
     AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-75 titleImageName:@"profitTitle" alertViewType:AlertViewTypeLong];
     acr.title = @"牌局记录";

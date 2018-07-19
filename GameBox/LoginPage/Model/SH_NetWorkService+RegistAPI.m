@@ -213,9 +213,11 @@
                 NSError *err;
                 NSArray *arr = [SH_BankListModel arrayOfModelsFromDictionaries:response[@"data"][@"bankList"] error:&err];
                 [[RH_UserInfoManager shareUserManager] setBankList:arr];
+                RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[response[@"data"] objectForKey:@"user"] error:nil];
+                [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
                 complete(httpURLResponse, response);
             }
-           
+
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         if (failed) {
