@@ -43,6 +43,7 @@
 #import "SH_AnnouncementView.h"
 #import "YFAnimationManager.h"
 #import "SH_GamesHomeViewController.h"
+#import "SH_ShareView.h"
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate,PlayerCenterViewDelegate>
 
 
@@ -86,6 +87,7 @@
     [[YFAnimationManager shareInstancetype] showAnimationInView:self.snowBGImg withAnimationStyle:YFAnimationStyleOfSnow];
 
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didRegistratedSuccessful) name:@"didRegistratedSuccessful" object:nil];
+    [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(configUI) name:@"didLogOut" object:nil];
     if (iPhoneX) {
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(statusBarOrientationChange:)
@@ -412,44 +414,7 @@
     }
     SH_UserInformationView * inforView = [SH_UserInformationView  instanceInformationView];
     AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:inforView viewHeight:204 titleImageName:@"title04" alertViewType:AlertViewTypeShort];
-    __weak  typeof(self) weakSelf = self;
-    inforView.buttonClickBlock = ^(NSInteger tag) {
-        if (tag==100) {
-            SH_AlertView * alert = [SH_AlertView  instanceAlertView];
-             AlertViewController * vc = [[AlertViewController  alloc] initAlertView:alert viewHeight:174 titleImageName:@"title03" alertViewType:AlertViewTypeShort];
-            alert.btnClickBlock = ^(NSInteger tag) {
-                if (tag==100) {
-                    [vc close];
-                }else{
-                    
-                   MBProgressHUD * activityIndicatorView= showHUDWithMyActivityIndicatorView(self.view, nil, @"正在退出...");
-                    [SH_NetWorkService  fetchUserLoginOut:^(NSHTTPURLResponse *httpURLResponse, id response) {
-                        [activityIndicatorView hideAnimated:false];
-                        [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
-                        [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:nil];
-                      /*  [[NSUserDefaults  standardUserDefaults] setObject:@"" forKey:@"password"];
-                        [[NSUserDefaults  standardUserDefaults] synchronize];*/
-                        [weakSelf configUI];
-                        showMessage([UIApplication  sharedApplication].keyWindow, @"已成功退出", nil);
-                        if ([vc respondsToSelector:@selector(presentingViewController)]){
-                            [vc.presentingViewController.presentingViewController dismissViewControllerAnimated:NO completion:nil];
-                        }else {
-                            [vc.parentViewController.parentViewController dismissViewControllerAnimated:NO completion:nil];
-                        }
-                    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-                        [activityIndicatorView hideAnimated:false];
-                        showMessage([UIApplication  sharedApplication].keyWindow, @"退出失败", nil);
-                    }];
-                    
-                }
-            };
-            [weakSelf  presentViewController:vc addTargetViewController:cvc];
-        }else{
-            SH_SettingView * settingView = [SH_SettingView instanceSettingView];
-             AlertViewController * setVC = [[AlertViewController  alloc] initAlertView:settingView viewHeight:130 titleImageName:@"title05" alertViewType:AlertViewTypeShort];
-            [weakSelf  presentViewController:setVC addTargetViewController:cvc];
-        }
-    };
+    inforView.vc = cvc;
     [self presentViewController:cvc addTargetViewController:self];
 }
 #pragma mark --- 模态弹出viewController
@@ -530,6 +495,17 @@
 
 
 - (IBAction)shareClick:(id)sender {
+    if ([RH_UserInfoManager shareUserManager].isLogin) {
+          SH_ShareView * share = [SH_ShareView instanceShareView];
+        AlertViewController *vc  = [[AlertViewController  alloc] initAlertView:share viewHeight:260 titleImageName:@"title08" alertViewType:AlertViewTypeShort];
+        share.targetVC = vc;
+        [self presentViewController:vc addTargetViewController:self];
+    }else{
+        [self login];
+    }
+    
+  
+    
 }
 
 - (void)initAdScroll

@@ -23,8 +23,10 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="AuZ-Pm-KUw"/>
                             </constraints>
-                            <state key="normal" image="title01" backgroundImage="login_button_click">
+                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <state key="normal" title="登录" backgroundImage="login_button_click">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.72156862745098038" green="0.72156862745098038" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="btnlick:" destination="iN0-l3-epB" eventType="touchUpInside" id="QkG-jW-OfQ"/>
@@ -35,8 +37,10 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="oaA-26-Xm0"/>
                             </constraints>
-                            <state key="normal" image="title02" backgroundImage="login_button">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="注册" backgroundImage="login_button">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.72156862745098038" green="0.72156862745098038" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="btnlick:" destination="iN0-l3-epB" eventType="touchUpInside" id="sd7-2b-nCb"/>
@@ -237,7 +241,5 @@
         <image name="login_button_click" width="122" height="47"/>
         <image name="login_button_long" width="145" height="47"/>
         <image name="tick" width="13" height="13"/>
-        <image name="title01" width="60" height="22"/>
-        <image name="title02" width="60" height="22"/>
     </resources>
 </document>

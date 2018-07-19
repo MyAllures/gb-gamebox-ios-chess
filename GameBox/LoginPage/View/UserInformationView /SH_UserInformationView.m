@@ -7,6 +7,9 @@
 //
 
 #import "SH_UserInformationView.h"
+#import "SH_NetWorkService+RegistAPI.h"
+#import "SH_AlertView.h"
+#import "SH_SettingView.h"
 @interface  SH_UserInformationView()
 @property (weak, nonatomic) IBOutlet UILabel *lastLoginTime_label;
 @property (weak, nonatomic) IBOutlet UILabel *titleNum_label;
@@ -42,11 +45,24 @@
     }
 }
 - (IBAction)btnClick:(UIButton *)sender {
-    NSInteger  tag = sender.tag;
-    if (self.buttonClickBlock) {
-        self.buttonClickBlock(tag);
+
+    if (sender.tag == 100) {
+        SH_AlertView * alert = [SH_AlertView  instanceAlertView];
+        AlertViewController * vc = [[AlertViewController  alloc] initAlertView:alert viewHeight:174 titleImageName:@"title03" alertViewType:AlertViewTypeShort];
+        alert.vc = vc;
+         [self  presentViewController:vc addTargetViewController:self.vc];
+    }else{
+        SH_SettingView * settingView = [SH_SettingView instanceSettingView];
+        AlertViewController * setVC = [[AlertViewController  alloc] initAlertView:settingView viewHeight:130 titleImageName:@"title05" alertViewType:AlertViewTypeShort];
+        settingView.vc = setVC;
+        [self  presentViewController:setVC addTargetViewController:self.vc];
     }
-    
 }
 
+#pragma mark --- 模态弹出viewController
+-(void)presentViewController:(UIViewController*)viewController addTargetViewController:(UIViewController*)targetVC{
+    viewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    viewController.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
+    [targetVC presentViewController:viewController animated:YES completion:nil];
+}
 @end

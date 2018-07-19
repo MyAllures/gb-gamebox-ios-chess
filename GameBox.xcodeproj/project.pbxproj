@@ -256,6 +256,8 @@
 		DA1BCD702100AC4E00201DBC /* PGDatePickManagerHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD522100AC4E00201DBC /* PGDatePickManagerHeaderView.m */; };
 		DA1BCD712100AC4E00201DBC /* PGDatePicker+Year.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD532100AC4E00201DBC /* PGDatePicker+Year.m */; };
 		DA1BCD722100AC4E00201DBC /* PGDatePicker+DateHourMinuteSecond.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD552100AC4E00201DBC /* PGDatePicker+DateHourMinuteSecond.m */; };
+		DA1BCD762100B0F500201DBC /* SH_ShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD752100B0F500201DBC /* SH_ShareView.m */; };
+		DA1BCD782100B10300201DBC /* SH_ShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1BCD772100B10300201DBC /* SH_ShareView.xib */; };
 		DA21F37C20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F37B20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m */; };
 		DA21F37F20F58F9000D20672 /* SH_RegistView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F37E20F58F9000D20672 /* SH_RegistView.m */; };
 		DA21F38D20F590A800D20672 /* RH_RegisetInitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F38B20F590A800D20672 /* RH_RegisetInitModel.m */; };
@@ -728,6 +730,9 @@
 		DA1BCD532100AC4E00201DBC /* PGDatePicker+Year.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGDatePicker+Year.m"; sourceTree = "<group>"; };
 		DA1BCD542100AC4E00201DBC /* PGDatePickManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGDatePickManager.h; sourceTree = "<group>"; };
 		DA1BCD552100AC4E00201DBC /* PGDatePicker+DateHourMinuteSecond.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGDatePicker+DateHourMinuteSecond.m"; sourceTree = "<group>"; };
+		DA1BCD742100B0F500201DBC /* SH_ShareView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ShareView.h; sourceTree = "<group>"; };
+		DA1BCD752100B0F500201DBC /* SH_ShareView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_ShareView.m; sourceTree = "<group>"; };
+		DA1BCD772100B10300201DBC /* SH_ShareView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_ShareView.xib; sourceTree = "<group>"; };
 		DA21F37A20F4E97800D20672 /* SH_NetWorkService+RegistAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+RegistAPI.h"; sourceTree = "<group>"; };
 		DA21F37B20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+RegistAPI.m"; sourceTree = "<group>"; };
 		DA21F37D20F58F9000D20672 /* SH_RegistView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_RegistView.h; sourceTree = "<group>"; };
@@ -1676,9 +1681,10 @@
 			isa = PBXGroup;
 			children = (
 				DA1BCCAB20FF339800201DBC /* Controller */,
-				BFA068BF20FE0A8F00F5ADFE /* SaftyCenter */,
 				DA1BCC4020FCB74400201DBC /* Model */,
 				DA1BCC4120FCB74400201DBC /* View */,
+				DA1BCD732100B0BE00201DBC /* Share */,
+				BFA068BF20FE0A8F00F5ADFE /* SaftyCenter */,
 			);
 			path = UserCenter;
 			sourceTree = "<group>";
@@ -1867,6 +1873,16 @@
 				DA1BCD552100AC4E00201DBC /* PGDatePicker+DateHourMinuteSecond.m */,
 			);
 			path = PGDatePicker;
+			sourceTree = "<group>";
+		};
+		DA1BCD732100B0BE00201DBC /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				DA1BCD742100B0F500201DBC /* SH_ShareView.h */,
+				DA1BCD752100B0F500201DBC /* SH_ShareView.m */,
+				DA1BCD772100B10300201DBC /* SH_ShareView.xib */,
+			);
+			path = Share;
 			sourceTree = "<group>";
 		};
 		DA22F33E20F43AA10058A54F /* View */ = {
@@ -2088,6 +2104,7 @@
 				5401C53920ECA1100027246D /* Assets.xcassets in Resources */,
 				2248B11A20F5EF7E0077EF58 /* SH_GameBulletinTCell.xib in Resources */,
 				BFA068C520FE0AE100F5ADFE /* SH_SaftyCenterView.xib in Resources */,
+				DA1BCD782100B10300201DBC /* SH_ShareView.xib in Resources */,
 				DA6EE1BF20F8BEDA009A01C5 /* SH_UserInformationView.xib in Resources */,
 				DA1BCCA920FF288B00201DBC /* RH_BettingRecordDetailCell.xib in Resources */,
 				2209026720F053D400F8828E /* SH_PromoViewCell.xib in Resources */,
@@ -2216,6 +2233,7 @@
 				BF44ECCF20F59A5800BC6EF3 /* SH_RechargeDetailBankView.m in Sources */,
 				BF44ECC120F4B4BF00BC6EF3 /* SH_RechargeDetailHeadView.m in Sources */,
 				DA18EFBE20F0A9C3002B7E22 /* AlertViewController.m in Sources */,
+				DA1BCD762100B0F500201DBC /* SH_ShareView.m in Sources */,
 				BF44ECFA20F7475A00BC6EF3 /* SH_BitCoinSuccessView.m in Sources */,
 				54C875B920FB788D00AA0594 /* SH_NoAccessViewController.m in Sources */,
 				DA1BCC4920FCB81300201DBC /* SH_SecurityCenterView.m in Sources */,
