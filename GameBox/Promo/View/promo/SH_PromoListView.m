@@ -99,13 +99,14 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    SH_PromoListModel *discountActivityModel = self.promoListArr[indexPath.row] ;
-    if (discountActivityModel){
-        self.imageSize = discountActivityModel.showImageSize;
-        NSLog(@"==----%f",floor(discountActivityModel.showImageSize.height));
-        return floor(discountActivityModel.showImageSize.height) ;
-    }
-    return 0.0f  ;
+//    SH_PromoListModel *discountActivityModel = self.promoListArr[indexPath.row] ;
+//    if (discountActivityModel){
+//        self.imageSize = discountActivityModel.showImageSize;
+//        NSLog(@"==----%f",floor(discountActivityModel.showImageSize.height));
+//        return floor(discountActivityModel.showImageSize.height) ;
+//    }
+//    return 0.0f  ;
+    return 85.0f  ;
 }
 
 #pragma mark - UITableViewDelegate M
