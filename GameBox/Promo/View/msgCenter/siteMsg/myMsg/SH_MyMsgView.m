@@ -113,6 +113,76 @@
     [self.tableView reloadData];
 }
 
+- (IBAction)markReadAction:(id)sender {
+    if (self.isSelete) {
+        for (SH_MyMsgDataListModel *model in self.dataListArr) {
+            [self.deleteArr addObject:model];
+        }
+        NSString *str = @"";
+        for (SH_MyMsgDataListModel *siteModel in self.deleteArr) {
+            str = [str stringByAppendingString:[NSString stringWithFormat:@"%ld,",siteModel.id]];
+        }
+        if([str length] > 0){
+            str = [str substringToIndex:([str length]-1)];// 去掉最后一个","
+        }
+        [self.deleteArr removeAllObjects];
+        [self.dataListArr removeAllObjects];
+        [SH_NetWorkService_Promo startLoadMyMessageReadYesWithIds:str complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+            [MBProgressHUD showHUDAddedTo:self animated:YES];
+            [SH_NetWorkService_Promo startSiteMessageMyMessageWithpageNumber:1 pageSize:5000 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+                NSDictionary *dict = (NSDictionary *)response;
+                NSLog(@"dict===%@",dict);
+                for (NSDictionary *dic in dict[@"data"][@"dataList"]) {
+                    NSError *err;
+                    SH_MyMsgDataListModel *model = [[SH_MyMsgDataListModel alloc] initWithDictionary:dic error:&err];
+                    [self.dataListArr addObject:model];
+                    [self.tableView reloadData];
+                }
+                
+                [MBProgressHUD hideHUDForView:self animated:YES];
+            } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+                
+            }];
+        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+            
+        }];
+    }else{
+        if (self.deleteArr.count>0) {
+            NSString *str = @"";
+            for (SH_MyMsgDataListModel *siteModel in self.deleteArr) {
+                str = [str stringByAppendingString:[NSString stringWithFormat:@"%ld,",siteModel.id]];
+            }
+            if([str length] > 0){
+                str = [str substringToIndex:([str length]-1)];// 去掉最后一个","
+            }
+            NSLog(@"str=====%@",str);
+            NSLog(@"count=====%lu",(unsigned long)self.dataListArr.count);
+            [self.deleteArr removeAllObjects];
+            [self.dataListArr removeAllObjects];
+            [SH_NetWorkService_Promo startLoadMyMessageReadYesWithIds:str complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+                [MBProgressHUD showHUDAddedTo:self animated:YES];
+                [SH_NetWorkService_Promo startSiteMessageMyMessageWithpageNumber:1 pageSize:5000 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+                    NSDictionary *dict = (NSDictionary *)response;
+                    NSLog(@"dict===%@",dict);
+                    for (NSDictionary *dic in dict[@"data"][@"dataList"]) {
+                        NSError *err;
+                        SH_MyMsgDataListModel *model = [[SH_MyMsgDataListModel alloc] initWithDictionary:dic error:&err];
+                        [self.dataListArr addObject:model];
+                        [self.tableView reloadData];
+                    }
+                    
+                    [MBProgressHUD hideHUDForView:self animated:YES];
+                } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+                    
+                }];
+            } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+                
+            }];
+        }
+    }
+}
+
+
 -(void)awakeFromNib {
     [super awakeFromNib];
     
@@ -120,7 +190,7 @@
     //    self.tableView.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCell:) name:@"changedImage1" object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadMyMsgData) name:@"reloadMyMsgData" object:nil];
     self.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1];
     self.isSelete = NO;
     self.dataListArr = [NSMutableArray array];
@@ -153,6 +223,29 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"SH_MyMsgTabelViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
     [self.tableView reloadData];
+}
+
+-(void)reloadMyMsgData {
+    [self.dataListArr removeAllObjects];
+    if ([RH_UserInfoManager shareUserManager].isLogin) {
+        [MBProgressHUD showHUDAddedTo:self animated:YES];
+        [SH_NetWorkService_Promo startSiteMessageMyMessageWithpageNumber:1 pageSize:5000 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+            NSDictionary *dict = (NSDictionary *)response;
+            NSLog(@"dict===%@",dict);
+            for (NSDictionary *dic in dict[@"data"][@"dataList"]) {
+                NSError *err;
+                SH_MyMsgDataListModel *model = [[SH_MyMsgDataListModel alloc] initWithDictionary:dic error:&err];
+                [self.dataListArr addObject:model];
+                [self.tableView reloadData];
+            }
+            
+            [MBProgressHUD hideHUDForView:self animated:YES];
+        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+            
+        }];
+    }else{
+        showMessage(self, @"", @"请先登录");
+    }
 }
 
 -(void)updateCell: (NSNotification *)noti {

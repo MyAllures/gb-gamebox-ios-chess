@@ -77,4 +77,12 @@
                                     complete:(SHNetWorkComplete)complete
                                       failed:(SHNetWorkFailed)failed;
 
++(void)startLoadSystemMessageReadYesWithIds:(NSString *)ids
+                                     complete:(SHNetWorkComplete)complete
+                                       failed:(SHNetWorkFailed)failed;
+
++(void)startLoadMyMessageReadYesWithIds:(NSString *)ids
+                                 complete:(SHNetWorkComplete)complete
+                                   failed:(SHNetWorkFailed)failed;
+
 @end

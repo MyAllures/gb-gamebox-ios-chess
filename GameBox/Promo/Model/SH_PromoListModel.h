@@ -7,16 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <JSONModel/JSONModel.h>
 
 @interface SH_PromoListModel : JSONModel
 
 @property (nonatomic, assign) NSInteger id;
+@property (nonatomic, strong) NSString <Optional> *name;
+@property (nonatomic, strong) NSString <Optional> *photo;
+@property (nonatomic, strong) NSString <Optional> *url;
 
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *photo;
-@property (nonatomic, strong) NSString *url;
-
-@property(nonatomic,assign,readonly) CGSize showImageSize ;
-
--(void)updateImageSize:(CGSize)size ;
 @end
