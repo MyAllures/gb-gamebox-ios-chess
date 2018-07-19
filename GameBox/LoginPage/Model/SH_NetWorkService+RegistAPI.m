@@ -7,7 +7,7 @@
 //
 
 #import "SH_NetWorkService+RegistAPI.h"
-
+#import "SH_BankListModel.h"
 #import "RH_RegisetInitModel.h"
 @implementation SH_NetWorkService (RegistAPI)
 +(void)fetchCaptchaCodeInfo:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed{
@@ -209,6 +209,9 @@
     [self post:url parameter:nil header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse, response);
+            NSError *err;
+            NSArray *arr = [SH_BankListModel arrayOfModelsFromDictionaries:response[@"data"][@"bankList"] error:&err];
+            [[RH_UserInfoManager shareUserManager] setBankList:arr];
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         if (failed) {

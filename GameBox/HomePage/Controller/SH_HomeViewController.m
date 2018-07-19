@@ -349,24 +349,6 @@
     
 }
 
-- (IBAction)login:(id)sender {
-    [SH_NetWorkService login:@"Shin" psw:@"h123123" verfyCode:@"" complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        NSString *setCookie = [httpURLResponse.allHeaderFields objectForKey:@"Set-Cookie"];
-        NSUInteger startLocation = [setCookie rangeOfString:@"GMT, "].location +4;
-        NSUInteger endLocation = [setCookie rangeOfString:@" rememberMe=deleteMe"].location;
-        NSUInteger lenth = endLocation - startLocation;
-        NSString *cookie = [setCookie substringWithRange:NSMakeRange(startLocation, lenth)];
-        [NetWorkLineMangaer sharedManager].currentCookie = cookie;
-        
-        [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
-            //
-        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-            //
-        }];
-    } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
-        //
-    }];
-}
 
 /**
  * 获取Cookie
@@ -507,7 +489,6 @@
     acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:acr animated:YES completion:nil];
-    
     [SH_NetWorkService getBankInforComplete:^(SH_ProfitModel *model) {
         [view updateUIWithBalance:model.totalBalance BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:acr Token:model.token];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {

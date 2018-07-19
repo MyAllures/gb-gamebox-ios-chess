@@ -81,6 +81,7 @@
             
             AlertViewController *avc  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-50 titleImageName:@"saftyTtile" alertViewType:AlertViewTypeLong];
             [self presentViewController:avc addTargetViewController:self];
+            view.targetVC = avc;
             break;
         }
         case 3:{

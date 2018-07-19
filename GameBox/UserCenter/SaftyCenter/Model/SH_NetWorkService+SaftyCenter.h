@@ -29,6 +29,9 @@
                     Success:(SHNetWorkComplete)success
                        Fail:(SHNetWorkFailed)fail;
 
++(void)initUserSaftyInfoSuccess:(SHNetWorkComplete)success
+                           Fail:(SHNetWorkFailed)fail;
+
 /**
  设置安全密码
 

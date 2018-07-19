@@ -165,6 +165,9 @@
 		BFA068D420FE154000F5ADFE /* SH_BankCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA068D320FE154000F5ADFE /* SH_BankCardView.xib */; };
 		BFA068D820FEE2FA00F5ADFE /* SH_NetWorkService+SaftyCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA068D720FEE2FA00F5ADFE /* SH_NetWorkService+SaftyCenter.m */; };
 		BFA068DB20FF11E500F5ADFE /* SH_BankCardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA068DA20FF11E500F5ADFE /* SH_BankCardModel.m */; };
+		BFA068DE21002BC600F5ADFE /* SH_BankListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA068DD21002BC600F5ADFE /* SH_BankListModel.m */; };
+		BFA068E121003DAC00F5ADFE /* SH_HorizontalscreenPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA068E021003DAC00F5ADFE /* SH_HorizontalscreenPicker.m */; };
+		BFA068E321003DC800F5ADFE /* SH_HorizontalscreenPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA068E221003DC800F5ADFE /* SH_HorizontalscreenPicker.xib */; };
 		BFD6CFC120F8901500EDBC5B /* SH_NetWorkService+Bank.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFC020F8901500EDBC5B /* SH_NetWorkService+Bank.m */; };
 		BFD6CFC520F997B800EDBC5B /* SavePhotoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFC420F997B800EDBC5B /* SavePhotoTool.m */; };
 		BFD6CFCC20F9D20C00EDBC5B /* AttributeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFCB20F9D20C00EDBC5B /* AttributeModel.m */; };
@@ -523,6 +526,11 @@
 		BFA068D720FEE2FA00F5ADFE /* SH_NetWorkService+SaftyCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+SaftyCenter.m"; sourceTree = "<group>"; };
 		BFA068D920FF11E500F5ADFE /* SH_BankCardModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_BankCardModel.h; sourceTree = "<group>"; };
 		BFA068DA20FF11E500F5ADFE /* SH_BankCardModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_BankCardModel.m; sourceTree = "<group>"; };
+		BFA068DC21002BC600F5ADFE /* SH_BankListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_BankListModel.h; sourceTree = "<group>"; };
+		BFA068DD21002BC600F5ADFE /* SH_BankListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_BankListModel.m; sourceTree = "<group>"; };
+		BFA068DF21003DAC00F5ADFE /* SH_HorizontalscreenPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_HorizontalscreenPicker.h; sourceTree = "<group>"; };
+		BFA068E021003DAC00F5ADFE /* SH_HorizontalscreenPicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_HorizontalscreenPicker.m; sourceTree = "<group>"; };
+		BFA068E221003DC800F5ADFE /* SH_HorizontalscreenPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_HorizontalscreenPicker.xib; sourceTree = "<group>"; };
 		BFD6CFBF20F8901500EDBC5B /* SH_NetWorkService+Bank.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+Bank.h"; sourceTree = "<group>"; };
 		BFD6CFC020F8901500EDBC5B /* SH_NetWorkService+Bank.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+Bank.m"; sourceTree = "<group>"; };
 		BFD6CFC320F997B800EDBC5B /* SavePhotoTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SavePhotoTool.h; sourceTree = "<group>"; };
@@ -1326,8 +1334,11 @@
 		BF44ED0020F7828400BC6EF3 /* 滚轮选择器 */ = {
 			isa = PBXGroup;
 			children = (
-				BF44ED0120F7828400BC6EF3 /* THScrollChooseView.m */,
 				BF44ED0220F7828400BC6EF3 /* THScrollChooseView.h */,
+				BF44ED0120F7828400BC6EF3 /* THScrollChooseView.m */,
+				BFA068DF21003DAC00F5ADFE /* SH_HorizontalscreenPicker.h */,
+				BFA068E021003DAC00F5ADFE /* SH_HorizontalscreenPicker.m */,
+				BFA068E221003DC800F5ADFE /* SH_HorizontalscreenPicker.xib */,
 			);
 			path = "滚轮选择器";
 			sourceTree = "<group>";
@@ -1705,6 +1716,8 @@
 				DA21F37B20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m */,
 				BFA068D920FF11E500F5ADFE /* SH_BankCardModel.h */,
 				BFA068DA20FF11E500F5ADFE /* SH_BankCardModel.m */,
+				BFA068DC21002BC600F5ADFE /* SH_BankListModel.h */,
+				BFA068DD21002BC600F5ADFE /* SH_BankListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1908,6 +1921,7 @@
 				DA22F34320F43AD00058A54F /* SH_LoginView.xib in Resources */,
 				BF44ECCB20F4D6CC00BC6EF3 /* SH_RechargeDetailMainSubmitView.xib in Resources */,
 				DA1BCC8520FE06E900201DBC /* SH_CardRecordHeaderView.xib in Resources */,
+				BFA068E321003DC800F5ADFE /* SH_HorizontalscreenPicker.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2006,6 +2020,7 @@
 				BF44ECFA20F7475A00BC6EF3 /* SH_BitCoinSuccessView.m in Sources */,
 				54C875B920FB788D00AA0594 /* SH_NoAccessViewController.m in Sources */,
 				DA1BCC4920FCB81300201DBC /* SH_SecurityCenterView.m in Sources */,
+				BFA068E121003DAC00F5ADFE /* SH_HorizontalscreenPicker.m in Sources */,
 				BFFC847320F3452A008AD801 /* UIImageView+handle.m in Sources */,
 				54C8761520FE218B00AA0594 /* YFEmitterRainCell.m in Sources */,
 				BF44EC5A20F4588D00BC6EF3 /* SH_BitCoinSubView.m in Sources */,
@@ -2123,6 +2138,7 @@
 				425A90C020F8873E004B681A /* HLPopTableView.m in Sources */,
 				DA21F3AE20F6FCD000D20672 /* RH_RegistrationViewItem.m in Sources */,
 				54C875AF20FB414200AA0594 /* SH_WKGameViewController.m in Sources */,
+				BFA068DE21002BC600F5ADFE /* SH_BankListModel.m in Sources */,
 				DA22F3E520F4597E0058A54F /* RH_WebsocketManagar.m in Sources */,
 				DA22F3C520F44DA80058A54F /* CLBasicFileCachePool.m in Sources */,
 				BFA0688B20FC70AC00F5ADFE /* SH_PrifitOutCoinView.m in Sources */,
