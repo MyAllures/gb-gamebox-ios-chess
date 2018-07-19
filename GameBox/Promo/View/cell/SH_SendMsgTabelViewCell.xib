@@ -149,7 +149,7 @@
                 <outlet property="textView" destination="i6s-6y-WWk" id="vgz-4D-0EB"/>
                 <outlet property="typeBtn" destination="TEi-P0-cCj" id="rgL-oT-cTg"/>
             </connections>
-            <point key="canvasLocation" x="-2" y="163"/>
+            <point key="canvasLocation" x="-214" y="168"/>
         </tableViewCell>
     </objects>
     <resources>

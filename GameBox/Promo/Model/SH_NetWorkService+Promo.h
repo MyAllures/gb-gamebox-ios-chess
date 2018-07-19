@@ -69,6 +69,10 @@
                                          complete:(SHNetWorkComplete)complete
                                            failed:(SHNetWorkFailed)failed;
 
++(void)startSiteMessageMyMessageDetailWithID:(NSString *)mId
+                                      complete:(SHNetWorkComplete)complete
+                                        failed:(SHNetWorkFailed)failed;
+
 +(void)startLoadSystemMessageDeleteWithIds:(NSString *)ids
                                     complete:(SHNetWorkComplete)complete
                                       failed:(SHNetWorkFailed)failed;

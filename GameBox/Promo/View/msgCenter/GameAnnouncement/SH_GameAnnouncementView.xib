@@ -147,9 +147,6 @@
                 <outlet property="gameTypeBtn" destination="iXl-vk-E9V" id="YSN-Aj-fo1"/>
                 <outlet property="startTimeBtn" destination="P2J-52-bqe" id="T3k-kX-34a"/>
                 <outlet property="tableView" destination="n8Z-c5-UNM" id="Tyv-wg-KSA"/>
-                <outlet property="view1" destination="4c6-zS-CUz" id="GWy-6P-kkg"/>
-                <outlet property="view2" destination="ASB-TD-RuX" id="JdI-7C-4Wt"/>
-                <outlet property="view3" destination="Zzz-hU-odJ" id="A2Y-8o-0Fi"/>
             </connections>
             <point key="canvasLocation" x="-714" y="-45.5"/>
         </view>
