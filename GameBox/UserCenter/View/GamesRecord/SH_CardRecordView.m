@@ -146,19 +146,24 @@
             NSLog(@"%@----",context);
             self->startTime = context[@"startTime"];
             self->endTime = context[@"endTime"];
+            MBProgressHUD * hud = showHUDWithMyActivityIndicatorView(weakSelf, nil, @"正在搜索...");
             [SH_NetWorkService  fetchBettingList:context[@"startTime"] EndDate:context[@"endTime"] PageNumber:self->page PageSize:20 withIsStatistics:false complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+                [hud hideAnimated:false];
                 NSDictionary  * dic = ConvertToClassPointer(NSDictionary, response);
                 if ([dic boolValueForKey:@"success"]) {
                     SH_CardRecordModel  * model = [[SH_CardRecordModel alloc] initWithDictionary:dic[@"data"] error:nil];
                     if (model.list.count ==20) {
                         weakSelf.tableView.mj_footer.hidden = false;
                     }
-                    weakSelf.dataArray = model.list.mutableCopy;
+                    if (weakSelf.dataArray.count) {
+                        [weakSelf.dataArray removeAllObjects];
+                    }
+                    [weakSelf.dataArray  addObjectsFromArray:model.list];
                     [weakSelf.tableView  reloadData];
                 }
                 
             } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-                
+                [hud hideAnimated:false];
             }];
         };
     }
