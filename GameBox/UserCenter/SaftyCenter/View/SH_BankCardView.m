@@ -10,6 +10,7 @@
 #import "SH_NetWorkService+SaftyCenter.h"
 #import "SH_HorizontalscreenPicker.h"
 #import "SH_BankListModel.h"
+#import "SH_BankCardModel.h"
 @interface SH_BankCardView()
 @property (weak, nonatomic) IBOutlet UIButton *chooseBankBtn;
 @property (weak, nonatomic) IBOutlet UITextField *realNameTF;
@@ -52,17 +53,25 @@
     }else if (self.addressTF.text.length == 0){
         showMessage(self, @"请输入开户银行", nil);
     }else{
+          __weak typeof(self) weakSelf = self;
         [SH_NetWorkService bindBankcardRealName:self.realNameTF.text BankName:self.bankTF.text CardNum:self.cardNumTF.text BankDeposit:self.addressTF.text Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
             showMessage(self, response[@"message"], nil);
             NSString *code = [NSString stringWithFormat:@"%@",response[@"code"]];
             if ([code isEqualToString:@"0"]) {
+                SH_BankCardModel *model = [[SH_BankCardModel alloc]init];
+                model.bankcardNumber = response[@"data"][@"bankCardNumber"];
+                model.bankDeposit = response[@"data"][@"bankDeposit"];
+                model.bankName = response[@"data"][@"bankName"];
+                model.realName  = response[@"data"][@"realName"];
+                [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard = model;
                 //更新用户银行信息
-                [[RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard setBankcardNumber: response[@"data"][@"bankCardNumber"]];
-                [[RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard setBankDeposit: response[@"data"][@"bankDeposit"]];
-                [[RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard setBankName: response[@"data"][@"bankName"]];
-                [[RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard setRealName: response[@"data"][@"realName"]];
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [self.targetVC dismissViewControllerAnimated:NO completion:nil];
+                    [weakSelf.targetVC dismissViewControllerAnimated:NO completion:^{
+                        if ([weakSelf.from isEqualToString:@"profitView"]) {
+                            //从收益跳过来要通知其刷新数据
+                            [[NSNotificationCenter defaultCenter]postNotificationName:@"refreshBankNumer" object:nil];
+                        }
+                    }];
                 });
             }
            
@@ -95,4 +104,8 @@
 - (void)setTargetVC:(UIViewController *)targetVC{
     _targetVC = targetVC;
 }
+- (void)setFrom:(NSString *)from{
+    _from = from;
+}
+
 @end

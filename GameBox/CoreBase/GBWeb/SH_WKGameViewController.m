@@ -15,6 +15,7 @@
 @property (nonatomic, strong) WKWebView *wkWebView;
 @property (nonatomic, strong) SH_DragableMenuView *dragableMenuView;
 @property (nonatomic, strong) UIProgressView *progressView;
+@property (nonatomic, copy) SH_WKGameViewControllerClose closeBlock;
 
 @end
 
@@ -76,13 +77,26 @@
     }];
     
     [_dragableMenuView gobackAction:^{
-        [weakSelf.wkWebView goBack];
+        if (weakSelf.wkWebView.canGoBack) {
+            [weakSelf.wkWebView goBack];
+        }
+        else
+        {
+            if (weakSelf.closeBlock) {
+                weakSelf.closeBlock();
+            }
+        }
     }];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)close:(SH_WKGameViewControllerClose)closeBlock
+{
+    self.closeBlock = closeBlock;
 }
 
 /*

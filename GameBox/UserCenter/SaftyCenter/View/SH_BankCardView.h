@@ -10,4 +10,5 @@
 
 @interface SH_BankCardView : UIView
 @property(nonatomic,strong)UIViewController *targetVC;
+@property(nonatomic,copy)NSString *from;
 @end

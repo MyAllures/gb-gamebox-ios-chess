@@ -11,7 +11,6 @@ pod 'WebViewJavascriptBridge', '~> 6.0'
 pod 'IQKeyboardManager'
 pod 'JSONModel'
 pod 'Reachability', '~> 3.2'
-pod 'PGDatePicker'
 pod 'NJKWebViewProgress'
 
 end
