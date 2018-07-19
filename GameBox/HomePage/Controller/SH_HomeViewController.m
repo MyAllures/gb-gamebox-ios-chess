@@ -767,7 +767,7 @@
             NSString *gameMsg = [[response objectForKey:@"data"] objectForKey:@"gameMsg"];
             if (IS_EMPTY_STRING(gameMsg)) {
                 NSString *gameLink = [[response objectForKey:@"data"] objectForKey:@"gameLink"];
-                GameWebViewController *gameVC = [[GameWebViewController alloc] initWithNibName:@"GameWebViewController" bundle:nil];
+                GameWebViewController *gameVC = [[GameWebViewController alloc] initWithNibName:nil bundle:nil];
 //                SH_WKGameViewController *gameVC = [[SH_WKGameViewController alloc] init];
                 gameVC.url = gameLink;
                 [weakSelf.navigationController pushViewController:gameVC animated:NO];
