@@ -167,7 +167,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="欢迎光临！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvY-Rd-uuQ">
-                            <rect key="frame" x="51" y="56.5" width="51.5" height="12"/>
+                            <rect key="frame" x="51" y="57.5" width="51.5" height="12"/>
                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -188,7 +188,7 @@
                         <constraint firstItem="gVP-Nu-6Vz" firstAttribute="centerX" secondItem="TTc-XK-qrA" secondAttribute="centerX" constant="20" id="f4v-8O-mLe"/>
                         <constraint firstItem="o0P-ij-5pm" firstAttribute="centerY" secondItem="yx0-Ns-UZ1" secondAttribute="centerY" id="jaU-gs-KDc"/>
                         <constraint firstItem="yx0-Ns-UZ1" firstAttribute="leading" secondItem="o0P-ij-5pm" secondAttribute="trailing" id="sse-E4-fNX"/>
-                        <constraint firstItem="o0P-ij-5pm" firstAttribute="top" secondItem="lvY-Rd-uuQ" secondAttribute="bottom" constant="6" id="xAz-gy-5tT"/>
+                        <constraint firstItem="o0P-ij-5pm" firstAttribute="top" secondItem="lvY-Rd-uuQ" secondAttribute="bottom" constant="5" id="xAz-gy-5tT"/>
                         <constraint firstAttribute="bottom" secondItem="yx0-Ns-UZ1" secondAttribute="bottom" constant="4" id="yms-4p-FKg"/>
                     </constraints>
                 </view>

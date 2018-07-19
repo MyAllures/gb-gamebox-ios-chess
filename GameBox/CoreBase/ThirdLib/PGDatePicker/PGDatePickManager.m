@@ -71,7 +71,9 @@
             self.dismissView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0];
             self.contentView.frame = contentViewFrame;
         }completion:^(BOOL finished) {
+            [self.view  removeFromSuperview];
             [self dismissViewControllerAnimated:false completion:nil];
+          
         }];
     }else {
         [self dismissViewControllerAnimated:false completion:nil];
