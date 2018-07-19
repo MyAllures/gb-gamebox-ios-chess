@@ -10,4 +10,5 @@
 
 @interface SH_MsgDetailView : UIView
 @property (strong, nonatomic) NSString *searchId;
+@property (assign, nonatomic) NSInteger mId;
 @end

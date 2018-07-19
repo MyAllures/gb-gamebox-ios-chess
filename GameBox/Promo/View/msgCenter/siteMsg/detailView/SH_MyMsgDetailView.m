@@ -36,6 +36,17 @@
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
+    
+    [SH_NetWorkService_Promo startLoadMyMessageReadYesWithIds:[NSString stringWithFormat:@"%ld",(long)self.mId] complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSDictionary *dict = (NSDictionary *)response;
+        NSLog(@"dict1===%@",dict);
+        NSString *msg = dict[@"message"];
+        if ([msg containsString:@"请求成功"]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadMyMsgData" object:nil];
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        
+    }];
 }
 
 

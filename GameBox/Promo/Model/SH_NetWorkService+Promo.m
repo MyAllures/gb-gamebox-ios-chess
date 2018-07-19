@@ -15,6 +15,8 @@
 {
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/discountsOrigin/getActivityTypeList.html"];
     NSDictionary *parameter =  @{@"paging.pageNumber":@(pageNumber),@"paging.pageSize":@(pageSize),@"search.activityClassifyKey":activityClassifyKey};
+    NSLog(@"currentHttpType==%@",[NetWorkLineMangaer sharedManager].currentHttpType);
+    NSLog(@"currentHttpType==%@",[NetWorkLineMangaer sharedManager].currentHost);
     NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost};
     [SH_NetWorkService post:url parameter:parameter header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
@@ -201,6 +203,42 @@
                                   complete:(SHNetWorkComplete)complete
                                     failed:(SHNetWorkFailed)failed {
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/deleteSiteSysNotice.html"];
+    NSDictionary *parameter =  @{@"ids":ids};
+    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost, @"Cookie":[NetWorkLineMangaer sharedManager].currentCookie?:@""};
+    [SH_NetWorkService post:url parameter:parameter header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (complete) {
+            complete(httpURLResponse, response);
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
+        if (failed) {
+            failed(httpURLResponse, err);
+        }
+    }];
+}
+
+#pragma mark - 站点信息 - 系统消息标记已读
++(void)startLoadSystemMessageReadYesWithIds:(NSString *)ids
+                                     complete:(SHNetWorkComplete)complete
+                                       failed:(SHNetWorkFailed)failed {
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/setSiteSysNoticeStatus.html"];
+    NSDictionary *parameter =  @{@"ids":ids};
+    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost, @"Cookie":[NetWorkLineMangaer sharedManager].currentCookie?:@""};
+    [SH_NetWorkService post:url parameter:parameter header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (complete) {
+            complete(httpURLResponse, response);
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
+        if (failed) {
+            failed(httpURLResponse, err);
+        }
+    }];
+}
+
+#pragma mark - 站点信息 - 我的消息标记已读
++(void)startLoadMyMessageReadYesWithIds:(NSString *)ids
+                               complete:(SHNetWorkComplete)complete
+                                 failed:(SHNetWorkFailed)failed {
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/getSelectAdvisoryMessageIds.html"];
     NSDictionary *parameter =  @{@"ids":ids};
     NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost, @"Cookie":[NetWorkLineMangaer sharedManager].currentCookie?:@""};
     [SH_NetWorkService post:url parameter:parameter header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
