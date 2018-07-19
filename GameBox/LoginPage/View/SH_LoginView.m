@@ -263,7 +263,6 @@
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             [defaults setObject:self.account_textField.text forKey:@"account"];
             [defaults setObject:self.password_textField.text forKey:@"password"];
-            
             [defaults synchronize];
             if (self.dismissBlock) {
                 self.dismissBlock();

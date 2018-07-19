@@ -208,12 +208,16 @@
     NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":([NetWorkLineMangaer sharedManager].currentCookie?[NetWorkLineMangaer sharedManager].currentCookie:@"")};
     [self post:url parameter:nil header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
-            complete(httpURLResponse, response);
-            NSError *err;
-            NSArray *arr = [SH_BankListModel arrayOfModelsFromDictionaries:response[@"data"][@"bankList"] error:&err];
-            [[RH_UserInfoManager shareUserManager] setBankList:arr];
-            RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[response[@"data"] objectForKey:@"user"] error:nil];
-            [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
+            NSDictionary  * result = ConvertToClassPointer(NSDictionary, response);
+            if ([result[@"code"] isEqualToString:@"0"]) {
+                NSError *err;
+                NSArray *arr = [SH_BankListModel arrayOfModelsFromDictionaries:response[@"data"][@"bankList"] error:&err];
+                [[RH_UserInfoManager shareUserManager] setBankList:arr];
+                RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[response[@"data"] objectForKey:@"user"] error:nil];
+                [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
+                complete(httpURLResponse, response);
+            }
+
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         if (failed) {

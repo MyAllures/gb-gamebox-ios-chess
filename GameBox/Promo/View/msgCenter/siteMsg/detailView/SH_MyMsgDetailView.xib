@@ -56,7 +56,9 @@
                                         <constraint firstAttribute="width" constant="65" id="VQo-5T-IyN"/>
                                         <constraint firstAttribute="height" constant="24" id="Xnj-Ru-BtK"/>
                                     </constraints>
-                                    <state key="normal" title="确定" backgroundImage="login_button"/>
+                                    <state key="normal" title="确定" backgroundImage="login_button">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
                                     <connections>
                                         <action selector="closeView:" destination="Pn5-AY-fhT" eventType="touchUpInside" id="6Do-Cd-QEH"/>
                                     </connections>
@@ -67,7 +69,9 @@
                                         <constraint firstAttribute="width" constant="65" id="nCS-eO-VcD"/>
                                         <constraint firstAttribute="height" constant="24" id="uLu-mQ-N8n"/>
                                     </constraints>
-                                    <state key="normal" title="取消" backgroundImage="login_button"/>
+                                    <state key="normal" title="取消" backgroundImage="login_button">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
                                     <connections>
                                         <action selector="closeView:" destination="Pn5-AY-fhT" eventType="touchUpInside" id="Aeh-ib-UI8"/>
                                     </connections>

@@ -34,6 +34,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     __weak typeof(self) weakSelf = self;
+    if (iPhoneX) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(statusBarOrientationChange:)
+                                                     name:UIApplicationDidChangeStatusBarOrientationNotification
+                                                   object:nil];
+    }
 
     WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
     _wkWebView = [[WKWebView alloc]initWithFrame:CGRectZero configuration:config];
@@ -41,24 +47,26 @@
     [_wkWebView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
-    [_wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.url]]];
+    [_wkWebView loadRequest:[NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.url] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60]];
     
     // KVO，监听webView属性值得变化(estimatedProgress)
     [_wkWebView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
     _progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
     _progressView.trackTintColor = [UIColor clearColor];
-    _progressView.progressTintColor = [UIColor blueColor];
+    _progressView.progressTintColor = colorWithRGB(39, 61, 157);
     [_progressView setProgress:0.05 animated:YES];
     [self.view addSubview:_progressView];
     [_progressView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.right.mas_equalTo(0);
-        make.height.mas_equalTo(2);
+        make.height.mas_equalTo(4);
     }];
     
     _dragableMenuView = [[[NSBundle mainBundle] loadNibNamed:@"SH_DragableMenuView" owner:nil options:nil] lastObject];
     [self.view addSubview:_dragableMenuView];
+    UIInterfaceOrientation oriention = [UIApplication sharedApplication].statusBarOrientation;
+
     [_dragableMenuView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(0);
+        make.right.mas_equalTo(iPhoneX && oriention == UIInterfaceOrientationLandscapeLeft ? -30 :  0);
         make.top.mas_equalTo(HEIGHT/2.0);
         make.width.mas_equalTo(32);
         make.height.mas_equalTo(67);
@@ -113,5 +121,26 @@
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
 }
-    
+
+- (void)statusBarOrientationChange:(NSNotification *)notification
+{
+    UIInterfaceOrientation oriention = [UIApplication sharedApplication].statusBarOrientation;
+    if (oriention == UIInterfaceOrientationLandscapeLeft) {
+        [self.dragableMenuView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.right.mas_equalTo(iPhoneX && oriention == UIInterfaceOrientationLandscapeLeft ? -30 :  0);
+            make.top.mas_equalTo(HEIGHT/2.0);
+            make.width.mas_equalTo(32);
+            make.height.mas_equalTo(67);
+        }];
+    }
+    else
+    {
+        [self.dragableMenuView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.right.mas_equalTo(0);
+            make.top.mas_equalTo(HEIGHT/2.0);
+            make.width.mas_equalTo(32);
+            make.height.mas_equalTo(67);
+        }];
+    }
+}
 @end
