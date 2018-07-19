@@ -209,6 +209,7 @@
 #pragma mark --  登录
 -(void)login{
 //    [MBProgressHUD showHUDAddedTo:self.window animated:YES];
+     UIWindow  * window = [UIApplication  sharedApplication].keyWindow;
     MBProgressHUD *hud =showHUDWithMyActivityIndicatorView(self, nil, @"正在登陆...");
      __weak  typeof(self) weakSelf = self;
     [SH_NetWorkService login:self.account_textField.text psw:self.password_textField.text verfyCode:self.check_textField.text complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
@@ -236,6 +237,7 @@
     } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
         //
          [hud hideAnimated:false];
+         showMessage(window, err, nil);
     }];
 }
 
