@@ -44,7 +44,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mearkRead" translatesAutoresizingMaskIntoConstraints="NO" id="1PX-3m-4Of" customClass="mearkRead">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mearkRead" translatesAutoresizingMaskIntoConstraints="NO" id="1PX-3m-4Of">
                         <rect key="frame" x="276" y="0.0" width="44" height="44"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="44" id="FBg-Ow-DtW"/>
@@ -62,6 +62,7 @@
             <connections>
                 <outlet property="advisoryContentLabel" destination="Yz7-9F-RUE" id="YS2-Ic-93g"/>
                 <outlet property="advisoryTimeLabel" destination="QgI-L8-dTG" id="9Z9-FS-vW7"/>
+                <outlet property="mearkReadImageView" destination="1PX-3m-4Of" id="esx-3s-Yrz"/>
                 <outlet property="seleteBtn" destination="q7A-15-qvn" id="1IM-VK-HI8"/>
             </connections>
             <point key="canvasLocation" x="-418" y="284"/>

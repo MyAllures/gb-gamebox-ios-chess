@@ -49,6 +49,7 @@
 #import "SH_WelfareDetailView.h"
 #import "SH_SaftyCenterView.h"
 
+#import "SH_CardRecordDetailView.h"
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate,PlayerCenterViewDelegate>
 
 
@@ -573,13 +574,13 @@
         [self.welBackV addSubview: welfare];
         
         
-        AlertViewController *cvc  = [[AlertViewController  alloc] initAlertView:welfare viewHeight:303 titleImageName:@"title06" alertViewType:AlertViewTypeLong];
+        AlertViewController *cvc  = [[AlertViewController  alloc] initAlertView:welfare viewHeight:303 titleImageName:@"title09" alertViewType:AlertViewTypeLong];
         
         welfare.backToDetailViewBlock = ^(NSString *searchId,SH_FundListModel * model) {
             SH_WelfareDetailView * detail = [SH_WelfareDetailView  instanceWelfareDetailView];
             detail.searchId = searchId;
             detail.infoModel = model;
-             AlertViewController *dvc  = [[AlertViewController  alloc] initAlertView:detail viewHeight:303 titleImageName:@"title06" alertViewType:AlertViewTypeLong];
+             AlertViewController *dvc  = [[AlertViewController  alloc] initAlertView:detail viewHeight:303 titleImageName:@"title09" alertViewType:AlertViewTypeLong];
             [self presentViewController:dvc addTargetViewController:cvc];
         };
         
@@ -619,8 +620,15 @@
         crv.backgroundColor = [UIColor whiteColor];
         crv.layer.cornerRadius = 4.5;
         [cardBackV addSubview:crv];
+        // 投注记录详情
+        AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:crv viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title10" alertViewType:AlertViewTypeLong];
+        crv.backToDetailViewBlock = ^(NSString *info) {
+            SH_CardRecordDetailView * cardDetail = [SH_CardRecordDetailView  instanceCardRecordDetailView];
+             cardDetail.mId = info;
+             AlertViewController *dcr  = [[AlertViewController  alloc] initAlertView:cardDetail viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title10" alertViewType:AlertViewTypeLong];
+             [self presentViewController:dcr addTargetViewController:acr];
+        };
         
-        AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:crv viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"" alertViewType:AlertViewTypeLong];
         [self presentViewController:acr addTargetViewController:self];
     }
 }
@@ -796,7 +804,7 @@
 
 - (NSArray *)numberOfCycleScrollView:(SH_CycleScrollView *)bannerView
 {
-    return @[[UIImage imageNamed:@"banner"],[UIImage imageNamed:@"banner"]];//self.bannerArr;
+    return self.bannerArr;
 }
 
 - (UIViewContentMode)contentModeForImageIndex:(NSUInteger)index {

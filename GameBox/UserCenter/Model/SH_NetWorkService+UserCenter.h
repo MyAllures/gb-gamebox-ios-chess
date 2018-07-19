@@ -40,4 +40,8 @@
        withIsStatistics:(BOOL)isShowStatistics
                complete:(SHNetWorkComplete)complete
                  failed:(SHNetWorkFailed)failed;
+#pragma mark --投注记录详情
++(void)fetchBettingDetails:(NSInteger)listId
+                  complete:(SHNetWorkComplete)complete
+                    failed:(SHNetWorkFailed)failed;
 @end

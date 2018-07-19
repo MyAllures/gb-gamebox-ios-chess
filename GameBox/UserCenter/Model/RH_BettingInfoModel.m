@@ -9,6 +9,13 @@
 #import "RH_BettingInfoModel.h"
 
 @implementation RH_BettingInfoModel
++(JSONKeyMapper *)keyMapper{
+    return [[JSONKeyMapper  alloc] initWithModelToJSONDictionary:@{@"mId":@"id"}];
+}
++(BOOL)propertyIsOptional:(NSString *)propertyName
+{
+    return  YES;
+}
 
 -(NSString *)showName
 {
@@ -22,7 +29,9 @@
 -(NSString *)showBettingDate
 {
     if (!_showBettingDate){
-        _showBettingDate = dateStringWithFormatter(_bettime, @"yyyy-MM-dd \n HH:mm:ss") ;
+        NSTimeInterval interval    =[_betTime doubleValue] / 1000.0;
+        NSDate *date               = [NSDate dateWithTimeIntervalSince1970:interval];
+        _showBettingDate = dateStringWithFormatter(date, @"yyyy-MM-dd \n HH:mm:ss") ;
     }
     
     return _showBettingDate ;
@@ -64,18 +73,17 @@
 
     return _showProfitAmount ;
 }
-/*
+
 -(NSString *)showDetailUrl
 {
     if (!_showDetailUrl){
-        RH_APPDelegate *appDelegate = ConvertToClassPointer(RH_APPDelegate, [UIApplication sharedApplication].delegate) ;
-        if (_mURL.length){
-            if ([_mURL containsString:@"http"] || [_mURL containsString:@"https:"]) {
-                 _showDetailUrl = [NSString stringWithFormat:@"%@",_mURL] ;
+        if (_url.length){
+            if ([_url containsString:@"http"] || [_url containsString:@"https:"]) {
+                 _showDetailUrl = [NSString stringWithFormat:@"%@",_url] ;
             }else
             {
-                NSArray *checkTypeCom = [appDelegate.checkType componentsSeparatedByString:@"+"];
-                _showDetailUrl = [NSString stringWithFormat:@"%@://%@%@%@",checkTypeCom[0],appDelegate.headerDomain,checkTypeCom.count == 2 ? [NSString stringWithFormat:@":%@",checkTypeCom[1]] : @"",_mURL];
+                NSArray *checkTypeCom = [[NetWorkLineMangaer sharedManager].currentHttpType componentsSeparatedByString:@"+"];
+                _showDetailUrl = [NSString stringWithFormat:@"%@://%@%@%@",checkTypeCom[0],[NetWorkLineMangaer sharedManager].currentHost,checkTypeCom.count == 2 ? [NSString stringWithFormat:@":%@",checkTypeCom[1]] : @"",_url];
                 NSLog(@"");
             }
            
@@ -84,5 +92,5 @@
     return _showDetailUrl ;
     
 }
-*/
+
 @end

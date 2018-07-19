@@ -205,6 +205,14 @@
 		DA1BCC8520FE06E900201DBC /* SH_CardRecordHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1BCC8420FE06E900201DBC /* SH_CardRecordHeaderView.xib */; };
 		DA1BCC8820FE1FFE00201DBC /* RH_BettingDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCC8620FE1FFE00201DBC /* RH_BettingDetailModel.m */; };
 		DA1BCC8B20FE200700201DBC /* RH_BettingInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCC8920FE200700201DBC /* RH_BettingInfoModel.m */; };
+		DA1BCC8F20FEC91200201DBC /* SH_CardRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCC8D20FEC91200201DBC /* SH_CardRecordTableViewCell.m */; };
+		DA1BCC9020FEC91200201DBC /* SH_CardRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1BCC8E20FEC91200201DBC /* SH_CardRecordTableViewCell.xib */; };
+		DA1BCC9320FED79200201DBC /* SH_CardRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCC9220FED79200201DBC /* SH_CardRecordModel.m */; };
+		DA1BCC9820FEED2100201DBC /* SH_WelfareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1BCC9720FEED2100201DBC /* SH_WelfareView.xib */; };
+		DA1BCCA420FF27AF00201DBC /* SH_CardRecordDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCCA220FF27AF00201DBC /* SH_CardRecordDetailView.m */; };
+		DA1BCCA520FF27AF00201DBC /* SH_CardRecordDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1BCCA320FF27AF00201DBC /* SH_CardRecordDetailView.xib */; };
+		DA1BCCA920FF288B00201DBC /* RH_BettingRecordDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1BCCA720FF288A00201DBC /* RH_BettingRecordDetailCell.xib */; };
+		DA1BCCAA20FF288B00201DBC /* RH_BettingRecordDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCCA820FF288A00201DBC /* RH_BettingRecordDetailCell.m */; };
 		DA21F37C20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F37B20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m */; };
 		DA21F37F20F58F9000D20672 /* SH_RegistView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F37E20F58F9000D20672 /* SH_RegistView.m */; };
 		DA21F38D20F590A800D20672 /* RH_RegisetInitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F38B20F590A800D20672 /* RH_RegisetInitModel.m */; };
@@ -582,6 +590,18 @@
 		DA1BCC8720FE1FFE00201DBC /* RH_BettingDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RH_BettingDetailModel.h; sourceTree = "<group>"; };
 		DA1BCC8920FE200700201DBC /* RH_BettingInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RH_BettingInfoModel.m; sourceTree = "<group>"; };
 		DA1BCC8A20FE200700201DBC /* RH_BettingInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RH_BettingInfoModel.h; sourceTree = "<group>"; };
+		DA1BCC8C20FEC91200201DBC /* SH_CardRecordTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_CardRecordTableViewCell.h; sourceTree = "<group>"; };
+		DA1BCC8D20FEC91200201DBC /* SH_CardRecordTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_CardRecordTableViewCell.m; sourceTree = "<group>"; };
+		DA1BCC8E20FEC91200201DBC /* SH_CardRecordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_CardRecordTableViewCell.xib; sourceTree = "<group>"; };
+		DA1BCC9120FED79200201DBC /* SH_CardRecordModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_CardRecordModel.h; sourceTree = "<group>"; };
+		DA1BCC9220FED79200201DBC /* SH_CardRecordModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_CardRecordModel.m; sourceTree = "<group>"; };
+		DA1BCC9720FEED2100201DBC /* SH_WelfareView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_WelfareView.xib; sourceTree = "<group>"; };
+		DA1BCCA120FF27AF00201DBC /* SH_CardRecordDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_CardRecordDetailView.h; sourceTree = "<group>"; };
+		DA1BCCA220FF27AF00201DBC /* SH_CardRecordDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_CardRecordDetailView.m; sourceTree = "<group>"; };
+		DA1BCCA320FF27AF00201DBC /* SH_CardRecordDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SH_CardRecordDetailView.xib; sourceTree = "<group>"; };
+		DA1BCCA620FF288A00201DBC /* RH_BettingRecordDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RH_BettingRecordDetailCell.h; sourceTree = "<group>"; };
+		DA1BCCA720FF288A00201DBC /* RH_BettingRecordDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RH_BettingRecordDetailCell.xib; sourceTree = "<group>"; };
+		DA1BCCA820FF288A00201DBC /* RH_BettingRecordDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RH_BettingRecordDetailCell.m; sourceTree = "<group>"; };
 		DA21F37A20F4E97800D20672 /* SH_NetWorkService+RegistAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+RegistAPI.h"; sourceTree = "<group>"; };
 		DA21F37B20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+RegistAPI.m"; sourceTree = "<group>"; };
 		DA21F37D20F58F9000D20672 /* SH_RegistView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_RegistView.h; sourceTree = "<group>"; };
@@ -1518,6 +1538,8 @@
 				DA1BCC5A20FDBFCD00201DBC /* SH_FundListModel.m */,
 				DA1BCC6420FDD49E00201DBC /* SH_SearchTypeModel.h */,
 				DA1BCC6520FDD49E00201DBC /* SH_SearchTypeModel.m */,
+				DA1BCC9120FED79200201DBC /* SH_CardRecordModel.h */,
+				DA1BCC9220FED79200201DBC /* SH_CardRecordModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1527,13 +1549,14 @@
 			children = (
 				DA1BCC7B20FE050100201DBC /* GamesRecord */,
 				DA1BCC6720FDDE3600201DBC /* DetailView */,
-				DA1BCC4220FCB7AD00201DBC /* SH_WelfareView.h */,
-				DA1BCC4320FCB7AD00201DBC /* SH_WelfareView.m */,
-				DA1BCC4720FCB81300201DBC /* SH_SecurityCenterView.h */,
-				DA1BCC4520FCB81300201DBC /* SH_SecurityCenterView.m */,
 				DA1BCC4B20FCBB1800201DBC /* SH_WelfareRecordView.h */,
 				DA1BCC4C20FCBB1800201DBC /* SH_WelfareRecordView.m */,
 				DA1BCC4E20FCBB2400201DBC /* SH_WelfareRecordView.xib */,
+				DA1BCC4220FCB7AD00201DBC /* SH_WelfareView.h */,
+				DA1BCC4320FCB7AD00201DBC /* SH_WelfareView.m */,
+				DA1BCC9720FEED2100201DBC /* SH_WelfareView.xib */,
+				DA1BCC4720FCB81300201DBC /* SH_SecurityCenterView.h */,
+				DA1BCC4520FCB81300201DBC /* SH_SecurityCenterView.m */,
 				DA1BCC5C20FDC21600201DBC /* SH_WelfareTableViewCell.h */,
 				DA1BCC5D20FDC21600201DBC /* SH_WelfareTableViewCell.m */,
 				DA1BCC5E20FDC21600201DBC /* SH_WelfareTableViewCell.xib */,
@@ -1568,14 +1591,31 @@
 		DA1BCC7B20FE050100201DBC /* GamesRecord */ = {
 			isa = PBXGroup;
 			children = (
+				DA1BCCA020FF27AF00201DBC /* Detail */,
 				DA1BCC7D20FE054500201DBC /* SH_CardRecordView.h */,
 				DA1BCC7C20FE054500201DBC /* SH_CardRecordView.m */,
 				DA1BCC7F20FE055800201DBC /* SH_CardRecordView.xib */,
 				DA1BCC8120FE06D300201DBC /* SH_CardRecordHeaderView.h */,
 				DA1BCC8220FE06D300201DBC /* SH_CardRecordHeaderView.m */,
 				DA1BCC8420FE06E900201DBC /* SH_CardRecordHeaderView.xib */,
+				DA1BCC8C20FEC91200201DBC /* SH_CardRecordTableViewCell.h */,
+				DA1BCC8D20FEC91200201DBC /* SH_CardRecordTableViewCell.m */,
+				DA1BCC8E20FEC91200201DBC /* SH_CardRecordTableViewCell.xib */,
 			);
 			path = GamesRecord;
+			sourceTree = "<group>";
+		};
+		DA1BCCA020FF27AF00201DBC /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				DA1BCCA120FF27AF00201DBC /* SH_CardRecordDetailView.h */,
+				DA1BCCA220FF27AF00201DBC /* SH_CardRecordDetailView.m */,
+				DA1BCCA320FF27AF00201DBC /* SH_CardRecordDetailView.xib */,
+				DA1BCCA620FF288A00201DBC /* RH_BettingRecordDetailCell.h */,
+				DA1BCCA820FF288A00201DBC /* RH_BettingRecordDetailCell.m */,
+				DA1BCCA720FF288A00201DBC /* RH_BettingRecordDetailCell.xib */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		DA22F33E20F43AA10058A54F /* View */ = {
@@ -1747,6 +1787,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA1BCC7120FDE26C00201DBC /* SH_WelfareDetailView.xib in Resources */,
+				DA1BCCA520FF27AF00201DBC /* SH_CardRecordDetailView.xib in Resources */,
 				54C8758520F3562F00AA0594 /* SH_InfoCenterTabView.xib in Resources */,
 				BF2F916520EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.xib in Resources */,
 				DA1BCC6020FDC21600201DBC /* SH_WelfareTableViewCell.xib in Resources */,
@@ -1785,10 +1826,12 @@
 				54C8761620FE218B00AA0594 /* rain.png in Resources */,
 				22573D3A20F8C6E700D0EB0A /* SH_MyMsgView.xib in Resources */,
 				BFA068CA20FE0FFC00F5ADFE /* SH_ModifyLoginPSDView.xib in Resources */,
+				DA1BCC9020FEC91200201DBC /* SH_CardRecordTableViewCell.xib in Resources */,
 				5401C53920ECA1100027246D /* Assets.xcassets in Resources */,
 				2248B11A20F5EF7E0077EF58 /* SH_GameBulletinTCell.xib in Resources */,
 				BFA068C520FE0AE100F5ADFE /* SH_SaftyCenterView.xib in Resources */,
 				DA6EE1BF20F8BEDA009A01C5 /* SH_UserInformationView.xib in Resources */,
+				DA1BCCA920FF288B00201DBC /* RH_BettingRecordDetailCell.xib in Resources */,
 				2209026720F053D400F8828E /* SH_PromoViewCell.xib in Resources */,
 				BF2F916020EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.xib in Resources */,
 				54C8757B20F3509100AA0594 /* SH_PromoContentView.xib in Resources */,
@@ -1801,6 +1844,7 @@
 				5401C53720ECA10F0027246D /* Main.storyboard in Resources */,
 				DA6EE1C420F98B7F009A01C5 /* SH_AlertView.xib in Resources */,
 				54C8759F20F756A500AA0594 /* showAlertRing.mp3 in Resources */,
+				DA1BCC9820FEED2100201DBC /* SH_WelfareView.xib in Resources */,
 				BFA0688D20FC70C200F5ADFE /* SH_PrifitOutCoinView.xib in Resources */,
 				BF44ECF720F7399800BC6EF3 /* SH_PopSubViewTableViewCell.xib in Resources */,
 				BFA068D420FE154000F5ADFE /* SH_BankCardView.xib in Resources */,
@@ -1924,6 +1968,7 @@
 				DA1BCC4D20FCBB1800201DBC /* SH_WelfareRecordView.m in Sources */,
 				BFA068B920FDE33200F5ADFE /* SH_JiHeSubModel.m in Sources */,
 				22573D3820F8C6D900D0EB0A /* SH_MyMsgView.m in Sources */,
+				DA1BCC9320FED79200201DBC /* SH_CardRecordModel.m in Sources */,
 				54C875BD20FC4B0B00AA0594 /* SH_AnnouncementModel.m in Sources */,
 				DA22F3E020F4562B0058A54F /* UIImage+Size.m in Sources */,
 				2231283720F707F500D1BF5E /* SH_SystemNotificationModel.m in Sources */,
@@ -1961,9 +2006,10 @@
 				BFFEDCBB20F35627002E69FD /* SH_RechargeCenterAccountModel.m in Sources */,
 				DA22F40820F494C60058A54F /* ScreenAdaptation.m in Sources */,
 				22E486D220F9C9920051A68C /* SH_SendMsgTabelViewCell.m in Sources */,
+				DA1BCCAA20FF288B00201DBC /* RH_BettingRecordDetailCell.m in Sources */,
 				54C875B320FB4E1200AA0594 /* SH_DragableMenuView.m in Sources */,
+				DA1BCC8F20FEC91200201DBC /* SH_CardRecordTableViewCell.m in Sources */,
 				BFA068C820FE0FF100F5ADFE /* SH_ModifyLoginPSDView.m in Sources */,
-				DA1BCC4A20FCB81300201DBC /* SH_CardRecordView.m in Sources */,
 				DA22F3D820F455C50058A54F /* UIImage+Representation.m in Sources */,
 				22E486D620F9F1100051A68C /* SH_AdvisoryTypeModel.m in Sources */,
 				DA1BCC4420FCB7AD00201DBC /* SH_WelfareView.m in Sources */,
@@ -1981,6 +2027,7 @@
 				54C8757920F3508600AA0594 /* SH_PromoContentView.m in Sources */,
 				54C8761A20FE218B00AA0594 /* YFEmitterCustomLayer.m in Sources */,
 				5401C55620ECA2CC0027246D /* IPsCacheManager.m in Sources */,
+				DA1BCCA420FF27AF00201DBC /* SH_CardRecordDetailView.m in Sources */,
 				DA6EE1C720F99F39009A01C5 /* SH_SettingView.m in Sources */,
 				5401C53F20ECA1100027246D /* main.m in Sources */,
 				22552CDF20F494E80090EFBC /* SH_SiteMsgView.m in Sources */,
