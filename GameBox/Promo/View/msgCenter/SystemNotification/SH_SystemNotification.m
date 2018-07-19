@@ -81,7 +81,7 @@
         return;
     }
     
-    HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, sender.bounds.size.width+5, 110) dependView:sender textArr:arr block:^(NSString *region_name, NSInteger index) {
+    HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, sender.bounds.size.width+5, 110) dependView:sender textArr:arr textFont:8.0 block:^(NSString *region_name, NSInteger index) {
         NSDate *startDate = [[NSDate alloc]init];
         NSDate *endDate = [[NSDate alloc]init];
         //获取本周的日期

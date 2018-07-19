@@ -16,6 +16,6 @@
 @property (nonatomic, copy) void(^sendStrBlock)(NSString *, NSInteger);
 
 
-+ (instancetype)initWithFrame:(CGRect)frame dependView:(UIView *)view textArr:(NSArray *)textArr block:(void(^)(NSString * region_name, NSInteger index))block;
++ (instancetype)initWithFrame:(CGRect)frame dependView:(UIView *)view textArr:(NSArray *)textArr textFont:(CGFloat)font block:(void(^)(NSString * region_name, NSInteger index))block;
 
 @end
