@@ -67,9 +67,11 @@
             SH_SearchTypeModel * model = [[SH_SearchTypeModel  alloc]initWithDictionary:dic[@"data"] error:nil];
             weakSelf.dataArray = @[@"全部类型",model.deposit,model.backwater,model.withdrawals,model.recommend,model.transfers,model.favorable];
             self->_selectIdArray = @[@"",@"deposit",@"backwater",@"withdrawals",@"recommend",@"transfers",@"favorable"];
+        }else{
+            showMessage(self, dic[@"message"], nil);
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
+         showMessage(self, err, nil);
     }];
 }
 #pragma mark ---  button click method

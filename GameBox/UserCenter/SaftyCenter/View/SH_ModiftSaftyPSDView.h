@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SH_ModiftSaftyPSDView : UIView
-
+@property(nonatomic,strong)UIViewController *targetVC;
 @end

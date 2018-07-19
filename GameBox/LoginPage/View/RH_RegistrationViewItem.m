@@ -195,7 +195,7 @@
             }
             if (textField.placeholder.length >0) {
                 UIColor *color = [UIColor whiteColor];
-                textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:textField.placeholder attributes:@{NSForegroundColorAttributeName: color,NSFontAttributeName:[UIFont  systemFontOfSize:12]}];
+                textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:textField.placeholder attributes:@{NSForegroundColorAttributeName: color,NSFontAttributeName:[UIFont  systemFontOfSize:11]}];
             }
         }
         
@@ -293,7 +293,7 @@
     }
     if (textField.placeholder.length >0) {
         UIColor *color = [UIColor whiteColor];
-        textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:textField.placeholder attributes:@{NSForegroundColorAttributeName: color,NSFontAttributeName:[UIFont  systemFontOfSize:12]}];
+        textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:textField.placeholder attributes:@{NSForegroundColorAttributeName: color,NSFontAttributeName:[UIFont  systemFontOfSize:11]}];
     }
     
 }
@@ -579,17 +579,19 @@
 
 - (void)setVerifyCodeLayout {
     [textField mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(-110);
+        make.right.mas_equalTo(-56);//-110
     }];
     imageView_VerifyCode = [UIImageView new];
     [self addSubview:imageView_VerifyCode];
     [imageView_VerifyCode mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self->textField);
-        make.left.mas_equalTo(self->textField.mas_right).mas_offset(10);
+//        make.left.mas_equalTo(self->textField.mas_right).mas_offset(10);
         make.right.mas_equalTo(0);
         make.height.mas_equalTo(35);
+        make.width.mas_equalTo(48);
     }];
-
+    imageView_VerifyCode.layer.cornerRadius = 5;
+    imageView_VerifyCode.layer.masksToBounds = YES;
     imageView_VerifyCode.backgroundColor = [UIColor orangeColor];
     [self startV3RegisetCaptchaCode];
     imageView_VerifyCode.userInteractionEnabled = YES;

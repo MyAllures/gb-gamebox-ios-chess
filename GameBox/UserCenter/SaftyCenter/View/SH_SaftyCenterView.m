@@ -26,6 +26,7 @@
     self.loginView.hidden = NO;
     self.saftyView.hidden = YES;
     self.bankView.hidden = YES;
+   
 }
 #pragma mark--
 #pragma mark--lazy
@@ -51,6 +52,7 @@
     return _bankView;
 }
 - (IBAction)modifyLoginBtnClick:(id)sender {
+    
     [self setButton:self.loginBtn BackgroundImage:@"button-long-click"];
     [self setButton:self.saftyBtn BackgroundImage:@"button-long"];
     [self setButton:self.bankBtn BackgroundImage:@"button-long"];
@@ -94,5 +96,15 @@
 }
 -(void)setButton:(UIButton *)button BackgroundImage:(NSString *)image{
     [button setBackgroundImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
+}
+- (void)setTargetVC:(UIViewController *)targetVC{
+    _targetVC = targetVC;
+    self.loginView.targetVC = targetVC;
+    self.saftyView.targetVC = targetVC;
+}
+- (void)selectedWithType:(NSString *)type{
+    if ([type isEqualToString:@"bindBankcard"]) {
+        [self bankCardBtnClick:nil];
+    }
 }
 @end

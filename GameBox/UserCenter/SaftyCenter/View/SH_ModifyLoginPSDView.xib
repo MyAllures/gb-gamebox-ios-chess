@@ -23,7 +23,8 @@
                         <constraint firstAttribute="width" constant="205" id="xxO-96-s5X"/>
                     </constraints>
                     <nil key="textColor"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -40,7 +41,8 @@
                         <constraint firstAttribute="height" constant="30" id="ede-nV-aqn"/>
                     </constraints>
                     <nil key="textColor"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -49,7 +51,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </textField>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请再次输入当前密码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7C1-7v-gnx">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请再次输入新密码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7C1-7v-gnx">
                     <rect key="frame" x="98" y="130" width="205" height="30"/>
                     <color key="backgroundColor" red="0.13725490200000001" green="0.16862745100000001" blue="0.41568627450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
@@ -57,7 +59,8 @@
                         <constraint firstAttribute="height" constant="30" id="hWV-Vm-9LX"/>
                     </constraints>
                     <nil key="textColor"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -92,6 +95,9 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                     <state key="normal" title="修改" backgroundImage="button-long-145"/>
+                    <connections>
+                        <action selector="sureBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="bXA-PL-8fX"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.3411764705882353" green="0.396078431372549" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -112,6 +118,11 @@
                 <constraint firstItem="BQZ-Zo-Tc3" firstAttribute="trailing" secondItem="eaN-Wx-gfC" secondAttribute="leading" constant="-8" id="xxV-xb-Eyg"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="NewTX" destination="dyz-MG-7RK" id="L6I-un-RJ1"/>
+                <outlet property="currentTX" destination="eaN-Wx-gfC" id="K8O-Vs-Xpz"/>
+                <outlet property="sureTX" destination="7C1-7v-gnx" id="cnN-Ku-NYY"/>
+            </connections>
         </view>
     </objects>
     <resources>

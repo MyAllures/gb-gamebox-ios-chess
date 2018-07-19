@@ -312,7 +312,6 @@
                                     </constraints>
                                     <state key="normal" image="btn_income"/>
                                     <connections>
-                                        <action selector="incomeClick:" destination="-1" eventType="touchUpInside" id="ggs-hb-Uxl"/>
                                         <action selector="profitBtnClick:" destination="-1" eventType="touchUpInside" id="UFf-1L-nN9"/>
                                     </connections>
                                 </button>

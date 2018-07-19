@@ -12,6 +12,7 @@
 #import "SH_OutCoinDetailView.h"
 #import "SH_FeeModel.h"
 #import "SH_ProfitAlertView.h"
+#import "SH_SaftyCenterView.h"
 @interface SH_PrifitOutCoinView()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *numTextField;
 @property (weak, nonatomic) IBOutlet UILabel *feeLab;
@@ -19,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *bankNumLab;
 @property(nonatomic,strong)UIViewController *targetVC;
 @property(nonatomic,strong)SH_FeeModel *feeModel;//传到下面一个页面
+@property(nonatomic,copy)NSString *token;
 
 @end
 @implementation SH_PrifitOutCoinView
@@ -28,10 +30,16 @@
     self.numTextField.delegate = self;
 }
 - (IBAction)bindProfitAccountNumBtnClick:(id)sender {
-    if (self.bankNumLab.text.length > 0) {
-        showMessage(self, @"您已绑定银行卡", nil);
+    if ([self.bankNumLab.text isEqualToString:@"请绑定银行卡"]) {
+        SH_SaftyCenterView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_SaftyCenterView" owner:self options:nil].firstObject;
+        AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-50 titleImageName:@"saftyTtile" alertViewType:AlertViewTypeLong];
+        acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self.targetVC presentViewController:acr animated:YES completion:nil];
+        view.targetVC = acr;
+        [view selectedWithType:@"bindBankcard"];
     }else{
-        
+        showMessage(self, @"您已绑定银行卡", nil);
     }
 }
 - (IBAction)add50BtnClik:(id)sender {
@@ -45,7 +53,7 @@
     [self caculateWithMoney:self.numTextField.text];
 }
 - (IBAction)sureBtnClick:(id)sender {
-    if (self.numTextField.text.length == 0) {
+    if (self.numTextField.text.length == 0||[self.numTextField.text floatValue] > [self.balanceLab.text floatValue]) {
         [self popAlertView];
     }else if ([self.bankNumLab.text isEqualToString:@"请绑定银行卡"]){
          showMessage(self, @"请绑定银行卡", nil);
@@ -55,12 +63,14 @@
         acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         [self.targetVC presentViewController:acr animated:YES completion:nil];
-        [view updateUIWithDetailArray:@[self.bankNumLab.text,self.numTextField.text,self.feeModel.counterFee,self.feeModel.administrativeFee,self.feeModel.deductFavorable,self.feeModel.actualWithdraw] TargetVC:acr];
+        [view updateUIWithDetailArray:@[self.bankNumLab.text,self.numTextField.text,self.feeModel.counterFee,self.feeModel.administrativeFee,self.feeModel.deductFavorable,self.feeModel.actualWithdraw] TargetVC:acr Token:self.token];
     }
     
 }
 -(void)updateUIWithBalance:(NSString *)balance
-                   BankNum:(NSString *)bankNum TargetVC:(UIViewController *)targetVC{
+                   BankNum:(NSString *)bankNum
+                  TargetVC:(UIViewController *)targetVC
+                     Token:(NSString *)token{
     if (bankNum.length == 0) {
         self.bankNumLab.text = @"请绑定银行卡";
     }else{
@@ -68,6 +78,7 @@
     }
     self.balanceLab.text = [NSString stringWithFormat:@"%.2f",[balance floatValue]];
     self.targetVC = targetVC;
+    self.token = token;
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     [self caculateWithMoney:textField.text];

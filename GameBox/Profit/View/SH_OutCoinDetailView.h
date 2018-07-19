@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SH_OutCoinDetailView : UIView
--(void)updateUIWithDetailArray:(NSArray *)details TargetVC:(UIViewController *)targetVC;
+-(void)updateUIWithDetailArray:(NSArray *)details
+                      TargetVC:(UIViewController *)targetVC
+                         Token:(NSString *)token;
 @end

@@ -33,7 +33,7 @@
                alertViewType:(AlertViewType)type{
     if (self = [super  init]) {
         
-        self.view.backgroundColor = [[UIColor  blackColor] colorWithAlphaComponent:0.7];
+        self.view.backgroundColor = [[UIColor  blackColor] colorWithAlphaComponent:0.5];
 
         self.viewHeight = height +50;
         NSString  * img_name;

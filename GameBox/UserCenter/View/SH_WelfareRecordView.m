@@ -30,8 +30,8 @@
     [super awakeFromNib];
     [self  configUI];
     page = 0;
-    self.headerView.withdrawal_label.text = [NSString  stringWithFormat:@"取款处理中:%.3f",model.withdrawSum];
-    self.headerView.transfer_label.text = [NSString  stringWithFormat:@"转账处理中:%.3f",model.transferSum];
+    self.headerView.withdrawal_label.text = [NSString  stringWithFormat:@"取款处理中:%.2f",model.withdrawSum];
+    self.headerView.transfer_label.text = [NSString  stringWithFormat:@"转账处理中:%.2f",model.transferSum];
     
 }
 #pragma mark ---  配置UI
@@ -107,16 +107,20 @@
 #pragma mark --- getter method
 -(SH_WelfareView *)headerView{
     if (!_headerView) {
-//        _headerView = [[SH_WelfareView  alloc] init];
         _headerView = [SH_WelfareView  instanceWelfareView];
          __weak typeof(self)  weakSelf = self;
         _headerView.dataBlock = ^(NSDictionary *context) {
             self->dict = context;
+             MBProgressHUD * hud = showHUDWithMyActivityIndicatorView(weakSelf, nil, @"正在搜索...");
             [SH_NetWorkService  fetchDepositList:context[@"startTime"] EndDate:context[@"endTime"] SearchType:context[@"type"] PageNumber:1 PageSize:20 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+                [hud hideAnimated:false];
                 NSDictionary * result = ConvertToClassPointer(NSDictionary, response);
                 if ([result boolValueForKey:@"success"]) {
                     NSError * errer;
                     self->model = [[SH_WelfareInfoModel  alloc]initWithDictionary:result[@"data"] error:&errer];
+                    if (weakSelf.dataArray.count) {
+                        [weakSelf.dataArray  removeAllObjects];
+                    }
                     [weakSelf.dataArray addObjectsFromArray:self->model.fundListApps];
                     if (self->model.fundListApps.count==20) {
                         weakSelf.tableView.mj_footer.hidden = false;
@@ -125,7 +129,7 @@
                 }
                
             } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-               
+                [hud hideAnimated:false];
             }];
         };
     }
