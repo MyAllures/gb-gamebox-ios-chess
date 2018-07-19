@@ -9,8 +9,15 @@
 #import "SH_PromoListModel.h"
 
 @implementation SH_PromoListModel
--(void)updateImageSize:(CGSize)size
+
+- (void)setPhotoWithNSString:(NSString *)string
 {
-    _showImageSize = size ;
+    self.photo = [[[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:string] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
+
+- (void)setUrlWithNSString:(NSString *)string
+{
+    self.url = [NSString stringWithFormat:@"%@://%@%@",[NetWorkLineMangaer sharedManager].currentHttpType,[NetWorkLineMangaer sharedManager].currentHost,string];
+}
+
 @end
