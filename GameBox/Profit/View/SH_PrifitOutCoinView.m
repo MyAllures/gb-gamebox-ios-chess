@@ -28,6 +28,7 @@
 -(void)awakeFromNib{
     [super awakeFromNib];
     self.numTextField.delegate = self;
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateBankNum) name:@"refreshBankNumer" object:nil];
 }
 - (IBAction)bindProfitAccountNumBtnClick:(id)sender {
     if ([self.bankNumLab.text isEqualToString:@"请绑定银行卡"]) {
@@ -37,7 +38,7 @@
         acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         [self.targetVC presentViewController:acr animated:YES completion:nil];
         view.targetVC = acr;
-        [view selectedWithType:@"bindBankcard"];
+        [view selectedWithType:@"bindBankcard" From:@"profitView"];
     }else{
         showMessage(self, @"您已绑定银行卡", nil);
     }
@@ -53,10 +54,10 @@
     [self caculateWithMoney:self.numTextField.text];
 }
 - (IBAction)sureBtnClick:(id)sender {
-    if (self.numTextField.text.length == 0||[self.numTextField.text floatValue] > [self.balanceLab.text floatValue]) {
+     if ([self.bankNumLab.text isEqualToString:@"请绑定银行卡"]){
+        showMessage(self, @"请绑定银行卡", nil);
+    }else if (self.numTextField.text.length == 0||[self.numTextField.text floatValue] > [self.balanceLab.text floatValue]) {
         [self popAlertView];
-    }else if ([self.bankNumLab.text isEqualToString:@"请绑定银行卡"]){
-         showMessage(self, @"请绑定银行卡", nil);
     }else{
         SH_OutCoinDetailView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_OutCoinDetailView" owner:self options:nil].firstObject;
         AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-95 titleImageName:@"outCoinDetail" alertViewType:AlertViewTypeLong];
@@ -101,5 +102,12 @@
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self.targetVC presentViewController:acr animated:YES completion:nil];
 
+}
+-(void)updateBankNum{
+    self.bankNumLab.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard.bankcardNumber;
+}
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 @end

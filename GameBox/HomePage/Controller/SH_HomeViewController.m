@@ -493,6 +493,10 @@
 #pragma mark--
 #pragma mark--收益按钮
 - (IBAction)profitBtnClick:(id)sender {
+    if (![[RH_UserInfoManager shareUserManager] isLogin]) {
+        [self login];
+        return;
+    }
     SH_PrifitOutCoinView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_PrifitOutCoinView" owner:nil options:nil].lastObject;
     AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-75 titleImageName:@"profitTitle" alertViewType:AlertViewTypeLong];
     acr.title = @"牌局记录";
@@ -767,7 +771,7 @@
             NSString *gameMsg = [[response objectForKey:@"data"] objectForKey:@"gameMsg"];
             if (IS_EMPTY_STRING(gameMsg)) {
                 NSString *gameLink = [[response objectForKey:@"data"] objectForKey:@"gameLink"];
-                GameWebViewController *gameVC = [[GameWebViewController alloc] initWithNibName:@"GameWebViewController" bundle:nil];
+                GameWebViewController *gameVC = [[GameWebViewController alloc] initWithNibName:nil bundle:nil];
 //                SH_WKGameViewController *gameVC = [[SH_WKGameViewController alloc] init];
                 gameVC.url = gameLink;
                 [weakSelf.navigationController pushViewController:gameVC animated:NO];

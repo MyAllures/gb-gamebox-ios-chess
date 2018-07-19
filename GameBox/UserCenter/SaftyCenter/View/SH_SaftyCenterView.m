@@ -19,6 +19,7 @@
 @property(nonatomic,strong)SH_ModifyLoginPSDView *loginView;
 @property(nonatomic,strong)SH_ModiftSaftyPSDView *saftyView;
 @property(nonatomic,strong)SH_BankCardView *bankView;
+@property(nonatomic,copy)NSString *from;//从绑定银行卡跳过来要通知其刷新数据
 
 @end
 @implementation SH_SaftyCenterView
@@ -118,7 +119,9 @@
     self.saftyView.targetVC = targetVC;
     self.bankView.targetVC = targetVC;
 }
-- (void)selectedWithType:(NSString *)type{
+- (void)selectedWithType:(NSString *)type From:(NSString *)from{
+    self.from =from;
+    self.bankView.from = from;
     if ([type isEqualToString:@"bindBankcard"]) {
         [self bankCardBtnClick:nil];
     }

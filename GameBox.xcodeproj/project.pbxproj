@@ -55,7 +55,6 @@
 		5401C53C20ECA1100027246D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5401C53A20ECA1100027246D /* LaunchScreen.storyboard */; };
 		5401C53F20ECA1100027246D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C53E20ECA1100027246D /* main.m */; };
 		5401C55020ECA1B80027246D /* SH_NetWorkService+LineCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C54820ECA1B80027246D /* SH_NetWorkService+LineCheck.m */; };
-		5401C55120ECA1B80027246D /* GameWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5401C54B20ECA1B80027246D /* GameWebViewController.xib */; };
 		5401C55220ECA1B80027246D /* GameWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C54C20ECA1B80027246D /* GameWebViewController.m */; };
 		5401C55320ECA1B80027246D /* SH_NetWorkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C54E20ECA1B80027246D /* SH_NetWorkService.m */; };
 		5401C55620ECA2CC0027246D /* IPsCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C55520ECA2CC0027246D /* IPsCacheManager.m */; };
@@ -101,6 +100,8 @@
 		54C8761B20FE218B00AA0594 /* snow.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C8761220FE218B00AA0594 /* snow.png */; };
 		54C8761C20FE218B00AA0594 /* YFEmitterSnowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8761320FE218B00AA0594 /* YFEmitterSnowCell.m */; };
 		54C8761F20FE220C00AA0594 /* UIImage+EXtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8761E20FE220C00AA0594 /* UIImage+EXtension.m */; };
+		54C8763221008D3800AA0594 /* SH_GameWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8763121008D3800AA0594 /* SH_GameWebView.m */; };
+		54C8763421008D4800AA0594 /* SH_GameWebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C8763321008D4800AA0594 /* SH_GameWebView.xib */; };
 		BF2F915A20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F915820EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m */; };
 		BF2F915B20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2F915920EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib */; };
 		BF2F915F20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F915D20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m */; };
@@ -344,7 +345,6 @@
 		5401C54720ECA1B80027246D /* SH_NetWorkService+LineCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+LineCheck.h"; sourceTree = "<group>"; };
 		5401C54820ECA1B80027246D /* SH_NetWorkService+LineCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+LineCheck.m"; sourceTree = "<group>"; };
 		5401C54A20ECA1B80027246D /* GameWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameWebViewController.h; sourceTree = "<group>"; };
-		5401C54B20ECA1B80027246D /* GameWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameWebViewController.xib; sourceTree = "<group>"; };
 		5401C54C20ECA1B80027246D /* GameWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameWebViewController.m; sourceTree = "<group>"; };
 		5401C54E20ECA1B80027246D /* SH_NetWorkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_NetWorkService.m; sourceTree = "<group>"; };
 		5401C54F20ECA1B80027246D /* SH_NetWorkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_NetWorkService.h; sourceTree = "<group>"; };
@@ -422,6 +422,9 @@
 		54C8761320FE218B00AA0594 /* YFEmitterSnowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YFEmitterSnowCell.m; sourceTree = "<group>"; };
 		54C8761D20FE220B00AA0594 /* UIImage+EXtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+EXtension.h"; sourceTree = "<group>"; };
 		54C8761E20FE220C00AA0594 /* UIImage+EXtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+EXtension.m"; sourceTree = "<group>"; };
+		54C8763021008D3800AA0594 /* SH_GameWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_GameWebView.h; sourceTree = "<group>"; };
+		54C8763121008D3800AA0594 /* SH_GameWebView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_GameWebView.m; sourceTree = "<group>"; };
+		54C8763321008D4800AA0594 /* SH_GameWebView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_GameWebView.xib; sourceTree = "<group>"; };
 		BF2F915720EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_DepositeWayCollectionViewCell.h; sourceTree = "<group>"; };
 		BF2F915820EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_DepositeWayCollectionViewCell.m; sourceTree = "<group>"; };
 		BF2F915920EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_DepositeWayCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -939,7 +942,9 @@
 			children = (
 				5401C54A20ECA1B80027246D /* GameWebViewController.h */,
 				5401C54C20ECA1B80027246D /* GameWebViewController.m */,
-				5401C54B20ECA1B80027246D /* GameWebViewController.xib */,
+				54C8763021008D3800AA0594 /* SH_GameWebView.h */,
+				54C8763121008D3800AA0594 /* SH_GameWebView.m */,
+				54C8763321008D4800AA0594 /* SH_GameWebView.xib */,
 				54C875AC20FB414200AA0594 /* SH_WKGameViewController.h */,
 				54C875AD20FB414200AA0594 /* SH_WKGameViewController.m */,
 				54C875B120FB4E1200AA0594 /* SH_DragableMenuView.h */,
@@ -1893,9 +1898,9 @@
 				54C8758020F3560100AA0594 /* SH_PromoListView.xib in Resources */,
 				BFA0689220FC8C1A00F5ADFE /* SH_OutCoinDetailView.xib in Resources */,
 				DA6EE1C920F99F45009A01C5 /* SH_SettingView.xib in Resources */,
-				5401C55120ECA1B80027246D /* GameWebViewController.xib in Resources */,
 				54C875A020F756A500AA0594 /* errRing.mp3 in Resources */,
 				BFA068CF20FE135200F5ADFE /* SH_ModiftSaftyPSDView.xib in Resources */,
+				54C8763421008D4800AA0594 /* SH_GameWebView.xib in Resources */,
 				54C875C820FCBE1900AA0594 /* SH_DZGameItemView.xib in Resources */,
 				22552CE620F49DB90090EFBC /* SH_SendMsgView.xib in Resources */,
 				54C8761B20FE218B00AA0594 /* snow.png in Resources */,
@@ -2132,6 +2137,7 @@
 				54C875A820F75B7700AA0594 /* SH_RingButton.m in Sources */,
 				54C21AB120EE23B2006FCA0F /* SH_BaseViewController.m in Sources */,
 				DA22F40A20F494C60058A54F /* NSDictionary+CLCategory.m in Sources */,
+				54C8763221008D3800AA0594 /* SH_GameWebView.m in Sources */,
 				DA1BCC6620FDD49E00201DBC /* SH_SearchTypeModel.m in Sources */,
 				DA1BCC8320FE06D300201DBC /* SH_CardRecordHeaderView.m in Sources */,
 				DA21F37C20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m in Sources */,

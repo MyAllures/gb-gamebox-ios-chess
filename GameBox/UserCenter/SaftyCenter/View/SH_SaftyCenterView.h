@@ -10,5 +10,5 @@
 
 @interface SH_SaftyCenterView : UIView
 @property(nonatomic,strong)UIViewController *targetVC;
--(void)selectedWithType:(NSString *)type;
+-(void)selectedWithType:(NSString *)type From:(NSString *)from;
 @end
