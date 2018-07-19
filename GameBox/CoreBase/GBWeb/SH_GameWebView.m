@@ -105,7 +105,15 @@
     }];
     
     [_dragableMenuView gobackAction:^{
-        [weakSelf.webview goBack];
+        if (weakSelf.webview.canGoBack) {
+            [weakSelf.webview goBack];
+        }
+        else
+        {
+            if (weakSelf.closeBlock) {
+                weakSelf.closeBlock();
+            }
+        }
     }];
 
 }
