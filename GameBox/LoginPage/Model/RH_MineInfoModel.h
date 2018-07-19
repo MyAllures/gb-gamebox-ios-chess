@@ -25,5 +25,5 @@
 @property(nonatomic,assign) BOOL  isBit ;
 @property(nonatomic,assign) BOOL   isCash ;
 @property(nonatomic,assign) BOOL   isAutoPay ;
-@property(nonatomic,strong)SH_BankCardModel *bankcard;
+@property(nonatomic,strong)SH_BankCardModel <Optional>*bankcard;
 @end

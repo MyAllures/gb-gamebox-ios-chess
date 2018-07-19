@@ -16,20 +16,16 @@
 }
 -(void)updateHasPersimmionPwd:(BOOL)bFlag
 {
-    _hasPersimmionPwd = bFlag ;
+    _hasPermissionPwd = bFlag ;
 }
 
 -(void)updateOpenCaptch:(BOOL)bFlag
 {
-    _isOpenCaptch = bFlag ;
+    _isOpenCaptcha = bFlag ;
 }
 -(void)updateRemindTime:(NSInteger)remindTime
 {
-    _remindTime = remindTime ;
+    _remindTimes = remindTime ;
 }
 
--(void)updateLockTime:(NSString*)lockTime
-{
-    _lockTime = lockTime ;
-}
 @end

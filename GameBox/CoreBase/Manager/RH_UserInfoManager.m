@@ -54,7 +54,12 @@
 {
     _mineSettingInfo = mineSettingInfo ;
 }
-
+- (void)setUserSafetyInfo:(RH_UserSafetyCodeModel *)userSafetyInfo{
+    _userSafetyInfo = userSafetyInfo;
+}
+-(void)setBankList:(NSArray<SH_BankListModel *> *)bankList {
+    _bankList = bankList;
+}
 -(void)updateIsLogin:(BOOL)isLogin{
     _isLogin = isLogin;
 }
