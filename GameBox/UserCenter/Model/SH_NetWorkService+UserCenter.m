@@ -16,11 +16,7 @@
     NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":([NetWorkLineMangaer sharedManager].currentCookie?[NetWorkLineMangaer sharedManager].currentCookie:@"")};
     [self post:url parameter:nil header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
-            NSDictionary * result = ConvertToClassPointer(NSDictionary, response);
-            if ([result boolValueForKey:@"success"]) {
-                complete(httpURLResponse, result);
-            }
-            
+              complete(httpURLResponse, response);
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         if (failed) {

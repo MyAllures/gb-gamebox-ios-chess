@@ -10,6 +10,8 @@
 #import "SH_ModifyLoginPSDView.h"
 #import "SH_ModiftSaftyPSDView.h"
 #import "SH_BankCardView.h"
+#import "SH_NetWorkService+SaftyCenter.h"
+#import "RH_UserSafetyCodeModel.h"
 @interface SH_SaftyCenterView()
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 @property (weak, nonatomic) IBOutlet UIButton *saftyBtn;
@@ -68,6 +70,19 @@
     self.loginView.hidden = YES;
     self.saftyView.hidden = NO;
     self.bankView.hidden = YES;
+    //这里用户要请求有没有设置过安全密码接口
+      __weak typeof(self) weakSelf = self;
+    [SH_NetWorkService initUserSaftyInfoSuccess:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (![response[@"data"] isKindOfClass:[NSNull class]]) {
+            NSError *err;
+            RH_UserSafetyCodeModel *model = [[RH_UserSafetyCodeModel alloc]initWithDictionary:response[@"data"] error:&err];
+            //更新安全模块
+            [[RH_UserInfoManager shareUserManager] setUserSafetyInfo:model];
+            [weakSelf.saftyView updateView];
+        }
+    } Fail:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        
+    }];
 }
 - (IBAction)bankCardBtnClick:(id)sender {
     [self setButton:self.loginBtn BackgroundImage:@"button-long"];
@@ -101,6 +116,7 @@
     _targetVC = targetVC;
     self.loginView.targetVC = targetVC;
     self.saftyView.targetVC = targetVC;
+    self.bankView.targetVC = targetVC;
 }
 - (void)selectedWithType:(NSString *)type{
     if ([type isEqualToString:@"bindBankcard"]) {

@@ -78,7 +78,7 @@
         showMessage(self, @"", @"请先登录");
         return;
     }
-    HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, sender.bounds.size.width+5, 110) dependView:sender textArr:self.apiNameArr block:^(NSString *region_name, NSInteger index) {
+    HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, sender.bounds.size.width, 110) dependView:sender textArr:self.apiNameArr   textFont:8.0 block:^(NSString *region_name, NSInteger index) {
         [self.gameTypeBtn setTitle:region_name forState:UIControlStateNormal];
         SH_ApiSelectModel *model = self.apiNameModelArr[index];
         self.apiId = model.apiId;

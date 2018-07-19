@@ -51,6 +51,20 @@
         }
     }];
 }
++(void)initUserSaftyInfoSuccess:(SHNetWorkComplete)success
+                           Fail:(SHNetWorkFailed)fail{
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/initSafePassword.html"];
+    NSDictionary *header = @{@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
+    [self post:url parameter:[NSDictionary dictionary] header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (success) {
+            success(httpURLResponse,response);
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
+        if (fail) {
+            fail(httpURLResponse, err);
+        }
+    }];
+}
 
 +(void)setSaftyPasswordRealName:(NSString *)realName
                  originPassword:(NSString *)originPwd

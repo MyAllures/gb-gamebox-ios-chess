@@ -51,7 +51,7 @@
     }];
 }
 - (IBAction)seleteTypeAction:(UIButton *)sender {
-    HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, sender.bounds.size.width+5, 110) dependView:sender textArr:self.advisoryTypeArr block:^(NSString *region_name, NSInteger index) {
+    HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, sender.bounds.size.width+5, 110) dependView:sender textArr:self.advisoryTypeArr textFont:8.0 block:^(NSString *region_name, NSInteger index) {
         SH_AdvisoryTypeModel *model = self.advisoryTypeModelArr[index];
         self.advisoryType = model.advisoryType;
         [self.typeBtn setTitle:model.advisoryName forState:UIControlStateNormal];

@@ -35,7 +35,10 @@
                     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
                     [defaults setObject:self.NewTX.text forKey:@"password"];
                     [defaults synchronize];
-                    [self.targetVC dismissViewControllerAnimated:NO completion:nil];
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                          [self.targetVC dismissViewControllerAnimated:NO completion:nil];
+                    });
+                  
                 }else{
                      showMessage(self, [NSString stringWithFormat:@"%@",response[@"message"]], nil);
                 }
