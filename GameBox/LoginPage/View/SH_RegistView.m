@@ -478,12 +478,12 @@
     }
     NSString *registcode = registrationInitModel.params.registCode ?: @"";
 //    [self showProgressIndicatorViewWithAnimated:YES title:@"正在注册..."];
-    
+    MBProgressHUD *hud= showHUDWithMyActivityIndicatorView(self, nil, @"正在注册...");
     [SH_NetWorkService fetchV3RegisetSubmitWithBirthday:[NSString stringWithFormat:@"%@",birthday] sex:sex permissionPwd:permission defaultTimezone:timezone defaultLocale:defaultLocale phonecontactValue:phone realName:realname defaultCurrency:mainCurrency password:password question1:securityIssues emailValue:email qqValue:qq weixinValue:weixin userName:usernama captchaCode:verificationCode recommendRegisterCode:registcode editType:@"" recommendUserInputCode:regCode confirmPassword:password2 confirmPermissionPwd:permission2 answer1:securityIssues2 termsOfService:@"11" requiredJson:registrationInitModel.requiredJson phoneCode:phoneVerify checkPhone:@"checkPhone" complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSLog(@"----%@",response);
         NSDictionary *dict = ConvertToClassPointer(NSDictionary, response);
         NSLog(@"···%@", dict);
-        
+        [hud hideAnimated:false];
         if ([dict[@"success"] isEqual:@true]) {
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             [defaults setObject:[self obtainContent:@"username"] forKey:@"account"];
@@ -503,7 +503,8 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:@"changeImageView_VerfyCode" object:self];
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
+        [hud hideAnimated:false];
+        showMessage(window, @"提示信息",err );
     }] ;
     
 }

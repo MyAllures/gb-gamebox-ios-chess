@@ -28,8 +28,8 @@
                             <rect key="frame" x="259.5" y="8" width="120" height="44"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ue3-GE-Ozd">
-                                    <rect key="frame" x="40" y="22" width="0.0" height="0.0"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <rect key="frame" x="36" y="22" width="0.0" height="0.0"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -53,7 +53,7 @@
                                 <constraint firstItem="XYv-LR-LdV" firstAttribute="top" secondItem="MxY-z3-2YB" secondAttribute="top" id="Pjl-M7-7qk"/>
                                 <constraint firstItem="djO-hC-ovl" firstAttribute="centerY" secondItem="MxY-z3-2YB" secondAttribute="centerY" id="Teq-U2-uyW"/>
                                 <constraint firstAttribute="trailing" secondItem="XYv-LR-LdV" secondAttribute="trailing" id="YKc-uA-2OT"/>
-                                <constraint firstItem="ue3-GE-Ozd" firstAttribute="leading" secondItem="djO-hC-ovl" secondAttribute="trailing" constant="8" id="lQ8-2j-w6E"/>
+                                <constraint firstItem="ue3-GE-Ozd" firstAttribute="leading" secondItem="djO-hC-ovl" secondAttribute="trailing" constant="4" id="lQ8-2j-w6E"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YRM-Wb-OiH">
@@ -63,8 +63,8 @@
                                     <rect key="frame" x="8" y="10" width="24" height="24"/>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJc-Ve-CH9">
-                                    <rect key="frame" x="40" y="22.5" width="0.0" height="0.0"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <rect key="frame" x="36" y="22.5" width="0.0" height="0.0"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -83,7 +83,7 @@
                                 <constraint firstAttribute="width" constant="120" id="JOQ-0D-7a3"/>
                                 <constraint firstItem="BZt-32-F5I" firstAttribute="leading" secondItem="YRM-Wb-OiH" secondAttribute="leading" id="MhO-dB-aDQ"/>
                                 <constraint firstItem="BZt-32-F5I" firstAttribute="top" secondItem="YRM-Wb-OiH" secondAttribute="top" id="NHc-32-Tlb"/>
-                                <constraint firstItem="iJc-Ve-CH9" firstAttribute="leading" secondItem="1V4-xV-ovw" secondAttribute="trailing" constant="8" id="U5M-qI-gCR"/>
+                                <constraint firstItem="iJc-Ve-CH9" firstAttribute="leading" secondItem="1V4-xV-ovw" secondAttribute="trailing" constant="4" id="U5M-qI-gCR"/>
                                 <constraint firstItem="1V4-xV-ovw" firstAttribute="centerY" secondItem="YRM-Wb-OiH" secondAttribute="centerY" id="dFM-Mp-3UH"/>
                                 <constraint firstAttribute="trailing" secondItem="BZt-32-F5I" secondAttribute="trailing" id="tdd-J1-th3"/>
                             </constraints>

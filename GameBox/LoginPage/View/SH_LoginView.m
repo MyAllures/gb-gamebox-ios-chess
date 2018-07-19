@@ -35,8 +35,14 @@
 @property (nonatomic,assign) BOOL isOpenCaptcha ;
 @property (nonatomic,assign) BOOL isLogin;
 
+/**
+ stackView 注册页面的容器
+ */
 @property (weak, nonatomic) IBOutlet UIView *stackView;
 
+/**
+ registView 注册页面
+ */
 @property (nonatomic,strong)SH_RegistView  * registView;
 @end
 @implementation SH_LoginView
@@ -85,21 +91,21 @@
     
     UIButton * sender = [self viewWithTag:103];
     NSUserDefaults  * dafault = [NSUserDefaults  standardUserDefaults];
-    self.account_textField.text = [dafault objectForKey:@"account"];
+    NSString * account = [dafault objectForKey:@"account"];
+    self.account_textField.text = account;
+    if (account.length==0) {
+        [dafault setBool:YES forKey:@"isRememberPwd"];
+        [dafault synchronize];
+    }
     if ([dafault  boolForKey:@"isRememberPwd"]) {
         self.password_textField.text = [dafault objectForKey:@"password"];
         [sender setImage:[UIImage imageNamed:@"select2"] forState:UIControlStateNormal];
     }else{
         [sender setImage:[UIImage imageNamed:@"unselect2"] forState:UIControlStateNormal];
     }
-    
-    [self  configRegistViewUI];
+   
 }
-#pragma mark --  注册页面初始化
--(void)configRegistViewUI{
-    
-  
-}
+
 #pragma mark --  登录输错密码之后的验证码
 -(void)startGetVerifyCode
 {
@@ -126,7 +132,7 @@
     NSInteger tag = sender.tag -100;
    
     switch (tag) {
-        case 0:{
+        case 0:{ //登陆按钮的点击事件
             self.stackView.hidden = YES;
             [sender setBackgroundImage:[UIImage imageNamed:@"login_button_click"] forState:UIControlStateNormal];
             UIButton  * btn  = [self  viewWithTag:101];
@@ -136,7 +142,7 @@
             }
             break;
         }
-        case 1:{
+        case 1:{//注册按钮的点击事件
             self.stackView.hidden = false;
             [self.stackView addSubview:self.registView];
             [self.registView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -269,6 +275,7 @@
         
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         //
+        showMessage(window, err, nil);
     }];
     
 }

@@ -82,8 +82,8 @@
                                     <rect key="frame" x="8" y="17.5" width="24" height="24"/>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018-07-31" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2x5-Yt-Ewa">
-                                    <rect key="frame" x="40" y="23.5" width="67" height="14.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <rect key="frame" x="36" y="22" width="71.5" height="16"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -98,7 +98,7 @@
                                 <constraint firstItem="YUU-9z-J28" firstAttribute="leading" secondItem="BY5-5f-JxC" secondAttribute="leading" constant="8" id="QEN-cR-4Fq"/>
                                 <constraint firstItem="YUU-9z-J28" firstAttribute="centerY" secondItem="BY5-5f-JxC" secondAttribute="centerY" id="U9q-iL-d73"/>
                                 <constraint firstAttribute="trailing" secondItem="toj-7l-CsE" secondAttribute="trailing" id="hOP-Ya-Hrp"/>
-                                <constraint firstItem="2x5-Yt-Ewa" firstAttribute="leading" secondItem="YUU-9z-J28" secondAttribute="trailing" constant="8" id="pPy-WG-eiV"/>
+                                <constraint firstItem="2x5-Yt-Ewa" firstAttribute="leading" secondItem="YUU-9z-J28" secondAttribute="trailing" constant="4" id="pPy-WG-eiV"/>
                                 <constraint firstAttribute="bottom" secondItem="toj-7l-CsE" secondAttribute="bottom" id="tjU-ri-6If"/>
                             </constraints>
                         </view>
@@ -109,8 +109,8 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018-07-17" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zTC-Xu-lpa">
-                            <rect key="frame" x="139" y="29" width="66" height="14.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <rect key="frame" x="135" y="28.5" width="71" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -119,7 +119,7 @@
                         <constraint firstItem="PHq-wJ-XJa" firstAttribute="leading" secondItem="E87-9g-aWS" secondAttribute="leading" constant="8" id="2h7-ex-5XS"/>
                         <constraint firstItem="Emt-Hq-mM3" firstAttribute="leading" secondItem="MfO-mc-lV9" secondAttribute="trailing" constant="16" id="3OD-H8-71x"/>
                         <constraint firstItem="eCW-ta-hZ4" firstAttribute="centerY" secondItem="E87-9g-aWS" secondAttribute="centerY" id="5ys-NL-AWg"/>
-                        <constraint firstItem="zTC-Xu-lpa" firstAttribute="leading" secondItem="iJS-PG-xbl" secondAttribute="trailing" constant="8" id="92C-Yg-Epc"/>
+                        <constraint firstItem="zTC-Xu-lpa" firstAttribute="leading" secondItem="iJS-PG-xbl" secondAttribute="trailing" constant="4" id="92C-Yg-Epc"/>
                         <constraint firstItem="zTC-Xu-lpa" firstAttribute="centerY" secondItem="E87-9g-aWS" secondAttribute="centerY" constant="1" id="CRe-Yw-PeT"/>
                         <constraint firstAttribute="trailing" secondItem="eCW-ta-hZ4" secondAttribute="trailing" constant="8" id="EUl-5i-1wK"/>
                         <constraint firstItem="BY5-5f-JxC" firstAttribute="top" secondItem="E87-9g-aWS" secondAttribute="top" constant="5" id="Fyv-HP-Omv"/>

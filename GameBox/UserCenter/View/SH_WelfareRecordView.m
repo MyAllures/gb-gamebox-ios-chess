@@ -30,8 +30,8 @@
     [super awakeFromNib];
     [self  configUI];
     page = 0;
-    self.headerView.withdrawal_label.text = [NSString  stringWithFormat:@"取款处理中:%.3f",model.withdrawSum];
-    self.headerView.transfer_label.text = [NSString  stringWithFormat:@"转账处理中:%.3f",model.transferSum];
+    self.headerView.withdrawal_label.text = [NSString  stringWithFormat:@"取款处理中:%.2f",model.withdrawSum];
+    self.headerView.transfer_label.text = [NSString  stringWithFormat:@"转账处理中:%.2f",model.transferSum];
     
 }
 #pragma mark ---  配置UI
