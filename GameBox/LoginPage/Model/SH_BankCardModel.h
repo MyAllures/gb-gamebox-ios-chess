@@ -17,8 +17,4 @@
 @property (nonatomic,copy) NSString <Optional>*bankcardNumber ;
 @property (nonatomic,copy) NSString <Optional>*bankUrl ; //开户行图片链接
 @property (nonatomic,copy) NSString <Optional>*realName ; //开户行图片链接
-//-(void)setBankDeposit:(NSString<Optional> *)bankDeposit;
-//-(void)setBankName:(NSString<Optional> *)bankName;
-//-(void)setBankcardNumber:(NSString<Optional> *)bankcardNumber;
-//-(void)setRealName:(NSString<Optional> *)realName;
 @end

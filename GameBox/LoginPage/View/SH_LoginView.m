@@ -259,8 +259,6 @@
         NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
         if ([dict  boolValueForKey:@"success"]) {
             showMessage(window, @"登录成功", nil);
-            RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[dict[@"data"] objectForKey:@"user"] error:nil];
-            [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
             [[RH_UserInfoManager  shareUserManager] updateIsLogin:YES];
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             [defaults setObject:self.account_textField.text forKey:@"account"];

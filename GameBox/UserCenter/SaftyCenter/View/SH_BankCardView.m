@@ -10,6 +10,7 @@
 #import "SH_NetWorkService+SaftyCenter.h"
 #import "SH_HorizontalscreenPicker.h"
 #import "SH_BankListModel.h"
+#import "SH_BankCardModel.h"
 @interface SH_BankCardView()
 @property (weak, nonatomic) IBOutlet UIButton *chooseBankBtn;
 @property (weak, nonatomic) IBOutlet UITextField *realNameTF;
@@ -56,11 +57,13 @@
             showMessage(self, response[@"message"], nil);
             NSString *code = [NSString stringWithFormat:@"%@",response[@"code"]];
             if ([code isEqualToString:@"0"]) {
+                SH_BankCardModel *model = [[SH_BankCardModel alloc]init];
+                model.bankcardNumber = response[@"data"][@"bankCardNumber"];
+                model.bankDeposit = response[@"data"][@"bankDeposit"];
+                model.bankName = response[@"data"][@"bankName"];
+                model.realName  = response[@"data"][@"realName"];
+                [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard = model;
                 //更新用户银行信息
-                [[RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard setBankcardNumber: response[@"data"][@"bankCardNumber"]];
-                [[RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard setBankDeposit: response[@"data"][@"bankDeposit"]];
-                [[RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard setBankName: response[@"data"][@"bankName"]];
-                [[RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard setRealName: response[@"data"][@"realName"]];
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     [self.targetVC dismissViewControllerAnimated:NO completion:nil];
                 });
