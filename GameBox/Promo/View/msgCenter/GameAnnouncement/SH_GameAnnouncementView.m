@@ -15,14 +15,12 @@
 #import "RH_UserInfoManager.h"
 #import "PGDatePicker.h"
 #import "PGDatePickManager.h"
+#import "HLPopTableView.h"
 
-@interface SH_GameAnnouncementView ()<UITableViewDataSource, UITableViewDelegate,UIPickerViewDataSource, UIPickerViewDelegate,PGDatePickerDelegate>
+@interface SH_GameAnnouncementView ()<UITableViewDataSource, UITableViewDelegate,PGDatePickerDelegate>
 {
     PGDatePickManager *_datePickManager;
 }
-@property (weak, nonatomic) IBOutlet UIView *view1;
-@property (weak, nonatomic) IBOutlet UIView *view2;
-@property (weak, nonatomic) IBOutlet UIView *view3;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -31,17 +29,18 @@
 @property (weak, nonatomic) IBOutlet UIButton *endTimeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *gameTypeBtn;
 
-@property (nonatomic, strong) UIPickerView *pickView;
-@property (nonatomic, strong) NSMutableArray *apiNameArr;//保存游戏类型
+@property (nonatomic, strong) NSMutableArray *apiNameArr;//保存游戏类型名称
+@property (nonatomic, strong) NSMutableArray *apiNameModelArr;
 
 @property (strong, nonatomic) NSString *startTimeStr;
 @property (strong, nonatomic) NSString *endTimeStr;
 @property(nonatomic, strong) NSString *startAndEndDateStr;
+@property (assign, nonatomic) NSInteger apiId;//选择游戏类型的id
 @end
 
 @implementation SH_GameAnnouncementView
-@synthesize pickView = _pickView;
 
+#pragma mark 开始时间选择
 - (IBAction)startTimeAction:(id)sender {
     PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
     datePickManager.style = PGDatePickManagerStyle1;
@@ -56,8 +55,8 @@
     UIWindow  * window = [UIApplication  sharedApplication].keyWindow;
     window.backgroundColor = [UIColor  yellowColor];
     [window addSubview:_datePickManager.view];
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"seleteDate" object:nil];
 }
+#pragma mark 结束时间选择
 - (IBAction)endTimeAction:(id)sender {
     NSDictionary *dict = [[NSDictionary alloc]initWithObjectsAndKeys:@"end",@"isEnd", nil];
     self.startAndEndDateStr = dict[@"isEnd"];
@@ -72,31 +71,50 @@
     datePicker.datePickerMode = PGDatePickerModeDate;
     _datePickManager = datePickManager;
     [self.window addSubview:datePickManager.view];
-//    NSDictionary *dict = [[NSDictionary alloc]initWithObjectsAndKeys:@"end",@"isEnd", nil];
-//    NSNotification *notification = [NSNotification notificationWithName:@"seleteEndTime" object:nil userInfo:dict];
-//    [[NSNotificationCenter defaultCenter] postNotification:notification];
 }
-
-- (IBAction)tapApiName:(id)sender {
-//    _pickView.hidden = NO;
-    if (self.apiNameArr.count > 0) {
-        self.pickView.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
-        [self addSubview:self.pickView];
-        [_pickView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.mas_equalTo(0);
-            make.top.mas_equalTo(self.frame.size.height-150);
-            make.bottom.mas_equalTo(0);
-        }];
+#pragma mark 游戏类型
+- (IBAction)tapApiName:(UIButton *)sender {
+    if (![RH_UserInfoManager shareUserManager].isLogin) {
+        showMessage(self, @"", @"请先登录");
+        return;
     }
-}
-
--(UIPickerView *)pickView {
-    if (_pickView == nil) {
-        _pickView = [[UIPickerView alloc] init];
-        _pickView.delegate = self;
-        _pickView.dataSource = self;
-    }
-    return _pickView;
+    HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, sender.bounds.size.width, 110) dependView:sender textArr:self.apiNameArr block:^(NSString *region_name, NSInteger index) {
+        [self.gameTypeBtn setTitle:region_name forState:UIControlStateNormal];
+        SH_ApiSelectModel *model = self.apiNameModelArr[index];
+        self.apiId = model.apiId;
+        if (!self.endTimeStr) {
+            self.endTimeStr = [self getCurrentTimes];
+        }
+        if (!self.startTimeStr) {
+            self.startTimeStr = [self getCurrentTimes];
+        }
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+        NSDate *startDate = [dateFormatter dateFromString:self.startTimeStr];
+        NSDate *endDate = [dateFormatter dateFromString:self.endTimeStr];
+        if (startDate > endDate) {
+            showMessage(self, @"提示", @"时间选择有误,请重试选择");
+            return;
+        }
+        [self.gameAnnouncementArr removeAllObjects];
+        if ([RH_UserInfoManager shareUserManager].isLogin) {
+            [MBProgressHUD showHUDAddedTo:self animated:YES];
+            [SH_NetWorkService_Promo startLoadGameNoticeStartTime:self.startTimeStr endTime:self.endTimeStr pageNumber:1 pageSize:50000 apiId:model.apiId complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+                NSDictionary *dic = (NSDictionary *)response;
+                NSLog(@"dic===%@",dic);
+                for (NSDictionary *dict in dic[@"data"][@"list"]) {
+                    NSError *err;
+                    SH_GameBulletinModel *model = [[SH_GameBulletinModel alloc] initWithDictionary:dict error:&err];
+                    [self.gameAnnouncementArr addObject:model];
+                }
+                [self.tableView reloadData];
+                [MBProgressHUD hideHUDForView:self animated:YES];
+            } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+                
+            }];
+        }
+    }];
+    [self addSubview:popTV];
 }
 
 -(void)changedDate:(NSDictionary *)nt {
@@ -116,7 +134,7 @@
     [self.gameAnnouncementArr removeAllObjects];
     if ([RH_UserInfoManager shareUserManager].isLogin) {
         [MBProgressHUD showHUDAddedTo:self animated:YES];
-        [SH_NetWorkService_Promo startLoadGameNoticeStartTime:self.startTimeStr endTime:self.endTimeStr pageNumber:1 pageSize:50000 apiId:-1 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        [SH_NetWorkService_Promo startLoadGameNoticeStartTime:self.startTimeStr endTime:self.endTimeStr pageNumber:1 pageSize:50000 apiId:self.apiId complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *dic = (NSDictionary *)response;
             NSLog(@"dic===%@",dic);
             for (NSDictionary *dict in dic[@"data"][@"list"]) {
@@ -149,7 +167,7 @@
     [self.gameAnnouncementArr removeAllObjects];
     if ([RH_UserInfoManager shareUserManager].isLogin) {
         [MBProgressHUD showHUDAddedTo:self animated:YES];
-        [SH_NetWorkService_Promo startLoadGameNoticeStartTime:[self getCurrentTimes] endTime:self.endTimeStr pageNumber:1 pageSize:50000 apiId:-1 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        [SH_NetWorkService_Promo startLoadGameNoticeStartTime:self.startTimeStr endTime:self.endTimeStr pageNumber:1 pageSize:50000 apiId:self.apiId complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *dic = (NSDictionary *)response;
             NSLog(@"dic===%@",dic);
             for (NSDictionary *dict in dic[@"data"][@"list"]) {
@@ -195,9 +213,10 @@
     [self.endTimeBtn setTitle:[self getCurrentTimes] forState:UIControlStateNormal];
     self.gameAnnouncementArr = [NSMutableArray array];
     self.apiNameArr = [NSMutableArray array];
+    self.apiNameModelArr = [NSMutableArray array];
     if ([RH_UserInfoManager shareUserManager].isLogin) {
         [MBProgressHUD showHUDAddedTo:self animated:YES];
-        [SH_NetWorkService_Promo startLoadGameNoticeStartTime:[self getCurrentTimes] endTime:[self getCurrentTimes] pageNumber:1 pageSize:20 apiId:-1 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        [SH_NetWorkService_Promo startLoadGameNoticeStartTime:[self getCurrentTimes] endTime:[self getCurrentTimes] pageNumber:1 pageSize:20 apiId:self.apiId complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
 
             NSDictionary *dic = (NSDictionary *)response;
             NSLog(@"dic===%@",dic);
@@ -210,7 +229,8 @@
             for (NSDictionary *dict in dic[@"data"][@"apiSelect"]) {
                 NSError *err;
                 SH_ApiSelectModel *model = [[SH_ApiSelectModel alloc] initWithDictionary:dict error:&err];
-                [self.apiNameArr addObject:model];
+                [self.apiNameArr addObject:model.apiName];
+                [self.apiNameModelArr addObject:model];
             }
             [self.tableView reloadData];
             [MBProgressHUD hideHUDForView:self animated:YES];
@@ -227,16 +247,6 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"SH_GameBulletinTCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
     [self.tableView reloadData];
-    
-//    [self.view1 mas_makeConstraints:^(MASConstraintMaker *make) {
-//        
-//    }];
-//    [self.view2 mas_makeConstraints:^(MASConstraintMaker *make) {
-//        
-//    }];
-//    [self.view3 mas_makeConstraints:^(MASConstraintMaker *make) {
-//        
-//    }];
 }
 -(NSString *)timeStampWithDate: (NSInteger)timeStamp {
     // iOS 生成的时间戳是10位
@@ -281,61 +291,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
 }
-#pragma mark -UIPickerViewDataSource
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    return 1;
-}
-
-// returns the # of rows in each component..
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return self.apiNameArr.count;
-}
-
-#pragma mark -
-- (nullable NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component __TVOS_PROHIBITED {
-    
-    SH_ApiSelectModel *model = self.apiNameArr[row];
-    return model.apiName;
-}
-
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component __TVOS_PROHIBITED {
-    [_pickView removeFromSuperview];
-    NSLog(@"apiNameArr===%@",[NSString stringWithFormat:@"%@",[self.apiNameArr objectAtIndex:row]]);
-    SH_ApiSelectModel *model = self.apiNameArr[row];
-    if (!self.endTimeStr) {
-        self.endTimeStr = [self getCurrentTimes];
-    }
-    if (!self.startTimeStr) {
-        self.startTimeStr = [self getCurrentTimes];
-    }
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSDate *startDate = [dateFormatter dateFromString:self.startTimeStr];
-    NSDate *endDate = [dateFormatter dateFromString:self.endTimeStr];
-    if (startDate > endDate) {
-        showMessage(self, @"提示", @"时间选择有误,请重试选择");
-        return;
-    }
-    [self.gameTypeBtn setTitle:model.apiName forState:UIControlStateNormal];
-    [self.gameAnnouncementArr removeAllObjects];
-    if ([RH_UserInfoManager shareUserManager].isLogin) {
-        [MBProgressHUD showHUDAddedTo:self animated:YES];
-        [SH_NetWorkService_Promo startLoadGameNoticeStartTime:self.startTimeStr endTime:self.endTimeStr pageNumber:1 pageSize:50000 apiId:model.apiId complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-            NSDictionary *dic = (NSDictionary *)response;
-            NSLog(@"dic===%@",dic);
-            for (NSDictionary *dict in dic[@"data"][@"list"]) {
-                NSError *err;
-                SH_GameBulletinModel *model = [[SH_GameBulletinModel alloc] initWithDictionary:dict error:&err];
-                [self.gameAnnouncementArr addObject:model];
-            }
-            [self.tableView reloadData];
-            [MBProgressHUD hideHUDForView:self animated:YES];
-        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-            
-        }];
-    }
-    
-}
 
 -(void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"seletedDate" object:nil];
@@ -363,21 +318,12 @@
         NSString *dateStr = [NSString stringWithFormat:@"%@-%@-%@",@(dateComponents.year),month,day];
         NSDictionary *dict =[[NSDictionary alloc]initWithObjectsAndKeys:dateStr,@"date",nil];
         [self seletedEndDate:dict];
-        //        //创建通知
-        //        NSNotification *notification =[NSNotification notificationWithName:@"seletedEndDate" object:nil userInfo:dict];
-        //        //通过通知中心发送通知
-        //        [[NSNotificationCenter defaultCenter] postNotification:notification];
                 self.startAndEndDateStr = @"";
         
     } else {
         NSString *dateStr = [NSString stringWithFormat:@"%@-%@-%@",@(dateComponents.year),month,day];
         NSDictionary *dict =[[NSDictionary alloc]initWithObjectsAndKeys:dateStr,@"date",nil];
         [self changedDate:dict];
-        //创建通知
-        //        [self seletedDate:dict];
-        //        NSNotification *notification =[NSNotification notificationWithName:@"seletedDate" object:nil userInfo:dict];
-        //        //通过通知中心发送通知
-        //        [[NSNotificationCenter defaultCenter] postNotification:notification];
     }
 }
 @end

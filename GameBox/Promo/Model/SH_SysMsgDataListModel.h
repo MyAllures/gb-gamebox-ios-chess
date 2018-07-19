@@ -14,7 +14,7 @@
 @property (strong, nonatomic) NSString *link;
 @property (assign, nonatomic) NSInteger publishTime;
 @property (assign, nonatomic) NSInteger read;
-@property (assign, nonatomic) NSInteger searchId;
+@property (strong, nonatomic) NSString *searchId;
 @property (strong, nonatomic) NSString *title;
 
 

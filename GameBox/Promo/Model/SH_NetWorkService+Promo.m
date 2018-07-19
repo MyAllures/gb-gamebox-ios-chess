@@ -126,6 +126,23 @@
         }
     }];
 }
+#pragma mark - 站点信息 - 我的消息详情
++(void)startSiteMessageMyMessageDetailWithID:(NSString *)mId
+                                      complete:(SHNetWorkComplete)complete
+                                        failed:(SHNetWorkFailed)failed {
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/advisoryMessageDetail.html"];
+    NSDictionary *parameter =  @{@"id":mId};
+    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost, @"Cookie":[NetWorkLineMangaer sharedManager].currentCookie?:@""};
+    [SH_NetWorkService post:url parameter:parameter header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (complete) {
+            complete(httpURLResponse, response);
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
+        if (failed) {
+            failed(httpURLResponse, err);
+        }
+    }];
+}
 #pragma mark - 发送消息验证
 +(void)startAddApplyDiscountsVerify:(SHNetWorkComplete)complete
                              failed:(SHNetWorkFailed)failed {

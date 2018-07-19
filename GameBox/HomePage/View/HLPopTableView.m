@@ -97,7 +97,7 @@
     }
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.textLabel.text = [NSString stringWithFormat:@"%@",self.arry[indexPath.row]];
-    cell.textLabel.font = [UIFont systemFontOfSize:14];
+    cell.textLabel.font = [UIFont systemFontOfSize:8];
     return cell;
 }
 

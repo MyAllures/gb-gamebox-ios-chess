@@ -33,6 +33,9 @@
 		2274222120FE03BB003529FF /* SH_PromoListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8757D20F355F800AA0594 /* SH_PromoListView.m */; };
 		227CC6C420FF141400AEA497 /* SH_MsgDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 227CC6C320FF141400AEA497 /* SH_MsgDetailView.m */; };
 		227CC6C620FF142700AEA497 /* SH_MsgDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 227CC6C520FF142700AEA497 /* SH_MsgDetailView.xib */; };
+		22878ECA210029E3005D7652 /* SH_SysMsgDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22878EC9210029E3005D7652 /* SH_SysMsgDetailModel.m */; };
+		22878ECD21002D03005D7652 /* SH_MyMsgDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22878ECC21002D03005D7652 /* SH_MyMsgDetailView.m */; };
+		22878ECF21002D0C005D7652 /* SH_MyMsgDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22878ECE21002D0C005D7652 /* SH_MyMsgDetailView.xib */; };
 		229A219E20F3826E00F5A969 /* SH_GameAnnouncementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A219D20F3826E00F5A969 /* SH_GameAnnouncementView.m */; };
 		229A21A020F3827700F5A969 /* SH_GameAnnouncementView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229A219F20F3827700F5A969 /* SH_GameAnnouncementView.xib */; };
 		22E486D220F9C9920051A68C /* SH_SendMsgTabelViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E486D020F9C9920051A68C /* SH_SendMsgTabelViewCell.m */; };
@@ -297,6 +300,11 @@
 		227CC6C220FF141400AEA497 /* SH_MsgDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_MsgDetailView.h; sourceTree = "<group>"; };
 		227CC6C320FF141400AEA497 /* SH_MsgDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_MsgDetailView.m; sourceTree = "<group>"; };
 		227CC6C520FF142700AEA497 /* SH_MsgDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_MsgDetailView.xib; sourceTree = "<group>"; };
+		22878EC8210029E3005D7652 /* SH_SysMsgDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SysMsgDetailModel.h; sourceTree = "<group>"; };
+		22878EC9210029E3005D7652 /* SH_SysMsgDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SysMsgDetailModel.m; sourceTree = "<group>"; };
+		22878ECB21002D03005D7652 /* SH_MyMsgDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_MyMsgDetailView.h; sourceTree = "<group>"; };
+		22878ECC21002D03005D7652 /* SH_MyMsgDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_MyMsgDetailView.m; sourceTree = "<group>"; };
+		22878ECE21002D0C005D7652 /* SH_MyMsgDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_MyMsgDetailView.xib; sourceTree = "<group>"; };
 		229A219C20F3826E00F5A969 /* SH_GameAnnouncementView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_GameAnnouncementView.h; sourceTree = "<group>"; };
 		229A219D20F3826E00F5A969 /* SH_GameAnnouncementView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_GameAnnouncementView.m; sourceTree = "<group>"; };
 		229A219F20F3827700F5A969 /* SH_GameAnnouncementView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_GameAnnouncementView.xib; sourceTree = "<group>"; };
@@ -821,6 +829,9 @@
 				227CC6C220FF141400AEA497 /* SH_MsgDetailView.h */,
 				227CC6C320FF141400AEA497 /* SH_MsgDetailView.m */,
 				227CC6C520FF142700AEA497 /* SH_MsgDetailView.xib */,
+				22878ECB21002D03005D7652 /* SH_MyMsgDetailView.h */,
+				22878ECC21002D03005D7652 /* SH_MyMsgDetailView.m */,
+				22878ECE21002D0C005D7652 /* SH_MyMsgDetailView.xib */,
 			);
 			path = detailView;
 			sourceTree = "<group>";
@@ -1030,6 +1041,8 @@
 				22E486D520F9F1100051A68C /* SH_AdvisoryTypeModel.m */,
 				22E486D720F9F8AE0051A68C /* SH_SysMsgDataListModel.h */,
 				22E486D820F9F8AE0051A68C /* SH_SysMsgDataListModel.m */,
+				22878EC8210029E3005D7652 /* SH_SysMsgDetailModel.h */,
+				22878EC9210029E3005D7652 /* SH_SysMsgDetailModel.m */,
 				22E486DA20FC3F0F0051A68C /* SH_MyMsgDataListModel.h */,
 				22E486DB20FC3F0F0051A68C /* SH_MyMsgDataListModel.m */,
 			);
@@ -1912,6 +1925,7 @@
 				BFA068B320FD9C3300F5ADFE /* SH_LookJiHeTableViewCell.xib in Resources */,
 				DA22F34320F43AD00058A54F /* SH_LoginView.xib in Resources */,
 				BF44ECCB20F4D6CC00BC6EF3 /* SH_RechargeDetailMainSubmitView.xib in Resources */,
+				22878ECF21002D0C005D7652 /* SH_MyMsgDetailView.xib in Resources */,
 				DA1BCC8520FE06E900201DBC /* SH_CardRecordHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2004,6 +2018,7 @@
 				BFA0689020FC8C1000F5ADFE /* SH_OutCoinDetailView.m in Sources */,
 				DA18EFBF20F0A9C3002B7E22 /* PopTool.m in Sources */,
 				DA1BCC8B20FE200700201DBC /* RH_BettingInfoModel.m in Sources */,
+				22878ECA210029E3005D7652 /* SH_SysMsgDetailModel.m in Sources */,
 				BF44ECCF20F59A5800BC6EF3 /* SH_RechargeDetailBankView.m in Sources */,
 				BF44ECC120F4B4BF00BC6EF3 /* SH_RechargeDetailHeadView.m in Sources */,
 				DA18EFBE20F0A9C3002B7E22 /* AlertViewController.m in Sources */,
@@ -2075,6 +2090,7 @@
 				DA1BCCAF20FF33BE00201DBC /* SH_GamesHomeViewController.m in Sources */,
 				5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */,
 				DA1BCC6F20FDE25E00201DBC /* SH_WelfareDetailView.m in Sources */,
+				22878ECD21002D03005D7652 /* SH_MyMsgDetailView.m in Sources */,
 				BF44EC5020F44BB900BC6EF3 /* SH_BitCoinView.m in Sources */,
 				BFA068A020FCBEEE00F5ADFE /* SH_ProfitModel.m in Sources */,
 				BF44ECC620F4D4FB00BC6EF3 /* SH_RechargeDetailMainView.m in Sources */,
