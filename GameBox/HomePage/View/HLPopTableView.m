@@ -14,24 +14,24 @@
 #define screenHight  [UIScreen mainScreen].bounds.size.height
 
 @interface HLPopTableView() <UITableViewDelegate,UITableViewDataSource>
-
 @property(nonatomic, strong)NSArray * arry;
 @property(nonatomic, strong)UIView * backView;
 @property(nonatomic, strong)UIView * showView;
 @property(nonatomic, strong)UITableView * tableView;
 
-
+@property(nonatomic,assign)CGFloat fonts;
 @end
 
 
 @implementation HLPopTableView
 
-+ (instancetype)initWithFrame:(CGRect)frame dependView:(UIView *)view textArr:(NSArray *)textArr block:(void (^)(NSString *, NSInteger))block{
++ (instancetype)initWithFrame:(CGRect)frame dependView:(UIView *)view textArr:(NSArray *)textArr textFont:(CGFloat)font block:(void (^)(NSString *, NSInteger))block{
     HLPopTableView * popView = [[HLPopTableView alloc] initWithFrame:frame];
     popView.arry = textArr;
     popView.sendStrBlock = block;
     CGRect rect = [view convertRect:view.bounds toView:WINDOW];
     [popView frame:frame popUpFrame:rect];
+     popView.fonts= font;
     return popView;
     
 }
@@ -97,7 +97,7 @@
     }
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.textLabel.text = [NSString stringWithFormat:@"%@",self.arry[indexPath.row]];
-    cell.textLabel.font = [UIFont systemFontOfSize:8];
+    cell.textLabel.font =[UIFont systemFontOfSize:self.fonts];
     return cell;
 }
 
