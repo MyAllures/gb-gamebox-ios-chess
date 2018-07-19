@@ -91,7 +91,6 @@
             }
         }
     }];
-    self.cell.backgroundColor = [UIColor redColor];
 //    [cell.bgImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://%@%@",[NetWorkLineMangaer sharedManager].currentHost,model.photo]]];
     NSLog(@"model.photo==%@",[NSString stringWithFormat:@"https://%@%@",[NetWorkLineMangaer sharedManager].currentHost,model.photo]);
     return self.cell;
