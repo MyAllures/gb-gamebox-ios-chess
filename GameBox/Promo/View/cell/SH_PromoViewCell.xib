@@ -21,30 +21,14 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="promo_bg" translatesAutoresizingMaskIntoConstraints="NO" id="o7f-yL-qFG">
                         <rect key="frame" x="0.0" y="0.0" width="351" height="85.5"/>
                     </imageView>
-                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsH-b4-gKi">
-                        <rect key="frame" x="244" y="9" width="80" height="68"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="80" id="SIo-7y-Pou"/>
-                            <constraint firstAttribute="height" constant="68" id="nEF-da-Z4R"/>
-                        </constraints>
-                        <state key="normal" backgroundImage="blueframe-small-click"/>
-                        <connections>
-                            <action selector="promoDetailAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ZEK-xD-7dM"/>
-                        </connections>
-                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="o7f-yL-qFG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="BYt-OV-mJh"/>
-                    <constraint firstAttribute="trailing" secondItem="jsH-b4-gKi" secondAttribute="trailing" constant="27" id="COd-Y8-mqN"/>
                     <constraint firstAttribute="bottom" secondItem="o7f-yL-qFG" secondAttribute="bottom" id="QDZ-KX-fmX"/>
                     <constraint firstAttribute="trailing" secondItem="o7f-yL-qFG" secondAttribute="trailing" id="a3Q-Q6-xHo"/>
-                    <constraint firstAttribute="trailing" secondItem="jsH-b4-gKi" secondAttribute="trailing" constant="27" id="pCW-M8-ofl"/>
                     <constraint firstItem="o7f-yL-qFG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="yew-Bv-Pne"/>
                 </constraints>
             </tableViewCellContentView>
-            <constraints>
-                <constraint firstItem="jsH-b4-gKi" firstAttribute="centerY" secondItem="KGk-i7-Jjw" secondAttribute="centerY" id="83V-fE-buR"/>
-            </constraints>
             <connections>
                 <outlet property="bgImageView" destination="o7f-yL-qFG" id="59z-Gz-zzn"/>
             </connections>
@@ -52,7 +36,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="blueframe-small-click" width="40" height="34"/>
         <image name="promo_bg" width="1262" height="294"/>
     </resources>
 </document>

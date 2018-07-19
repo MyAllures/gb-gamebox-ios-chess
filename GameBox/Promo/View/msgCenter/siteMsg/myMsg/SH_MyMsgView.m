@@ -10,6 +10,7 @@
 #import "SH_MyMsgTabelViewCell.h"
 #import "SH_NetWorkService+Promo.h"
 #import "SH_MyMsgDataListModel.h"
+#import "SH_MyMsgDetailView.h"
 @interface SH_MyMsgView ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *dataListArr;
@@ -17,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *seleteAllBtn;
 @property (strong, nonatomic) NSIndexPath *indexPath1;
 
+@property (strong, nonatomic) SH_MyMsgDetailView *myMsgDetailView;
 @property (strong, nonatomic) NSMutableArray *deleteArr;
 @property (assign, nonatomic) BOOL isSelete;
 @end
@@ -219,7 +221,13 @@
 
 #pragma mark - UITableViewDelegate M
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    SH_MyMsgDataListModel *model = self.dataListArr[indexPath.row];
+    self.myMsgDetailView =[[[NSBundle mainBundle] loadNibNamed:@"SH_MyMsgDetailView" owner:nil options:nil] lastObject];
+    [[UIApplication sharedApplication].keyWindow addSubview:self.myMsgDetailView];
+    [self.myMsgDetailView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.bottom.mas_equalTo(0);
+    }];
+    self.myMsgDetailView.searchId = [NSString stringWithFormat:@"%ld",model.id];
 }
 
 /*

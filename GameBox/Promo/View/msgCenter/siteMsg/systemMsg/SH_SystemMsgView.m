@@ -23,7 +23,6 @@
 @property (strong, nonatomic) NSMutableArray *deleteArr;
 @property (assign, nonatomic) BOOL isSelete;
 @property (strong, nonatomic) SH_MsgDetailView *detailView ;
-@property (strong, nonatomic) NSString *searchId;
 @end
 
 @implementation SH_SystemMsgView
@@ -250,12 +249,11 @@
     
     SH_SysMsgDataListModel *model = self.dataListArr[indexPath.row];
     self.detailView =[[[NSBundle mainBundle] loadNibNamed:@"SH_MsgDetailView" owner:nil options:nil] lastObject];
-    NSLog(@"id====%ld",(long)model.searchId);
-    self.searchId = [NSString stringWithFormat:@"%ld",(long)model.searchId];
     [[UIApplication sharedApplication].keyWindow addSubview:self.detailView];
     [self.detailView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.bottom.mas_equalTo(0);
     }];
+    self.detailView.searchId = model.searchId;
 }
 
 

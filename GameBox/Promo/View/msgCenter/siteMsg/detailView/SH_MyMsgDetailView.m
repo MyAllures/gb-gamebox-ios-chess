@@ -1,18 +1,19 @@
 //
-//  SH_MsgDetailView.m
+//  SH_MyMsgDetailView.m
 //  GameBox
 //
-//  Created by sam on 2018/7/18.
+//  Created by sam on 2018/7/19.
 //  Copyright © 2018年 shin. All rights reserved.
 //
 
-#import "SH_MsgDetailView.h"
+#import "SH_MyMsgDetailView.h"
 #import "SH_NetWorkService+Promo.h"
-@interface SH_MsgDetailView ()
+@interface SH_MyMsgDetailView ()
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @end
 
-@implementation SH_MsgDetailView
+@implementation SH_MyMsgDetailView
+
 - (IBAction)closeView:(id)sender {
     [self removeFromSuperview];
 }
@@ -28,8 +29,7 @@
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
-     NSLog(@"searchId1===%@",self.searchId);
-    [SH_NetWorkService_Promo startLoadSystemMessageDetailWithSearchId:self.searchId complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [SH_NetWorkService_Promo startSiteMessageMyMessageDetailWithID:self.searchId complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dict = (NSDictionary *)response;
         NSLog(@"dict===%@",dict);
         self.textView.text = dict[@"data"][@"content"];

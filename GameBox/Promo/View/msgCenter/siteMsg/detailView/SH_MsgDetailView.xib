@@ -46,7 +46,7 @@
                                         <constraint firstAttribute="height" constant="103" id="BZr-HZ-8Xz"/>
                                         <constraint firstAttribute="width" constant="254" id="Wts-fg-9rh"/>
                                     </constraints>
-                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
@@ -86,16 +86,28 @@
                                 <constraint firstItem="2Fp-eI-X5X" firstAttribute="top" secondItem="xbd-gB-D3n" secondAttribute="top" constant="23" id="zdX-y3-etK"/>
                             </constraints>
                         </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提示" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfy-Ve-usT">
+                            <rect key="frame" x="127" y="60" width="46" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="46" id="2dB-Zk-2St"/>
+                                <constraint firstAttribute="height" constant="20" id="iMJ-lL-sOW"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="Ewa-FO-RGU" secondAttribute="trailing" id="1yi-c5-I4K"/>
                         <constraint firstAttribute="width" constant="320" id="AIf-I6-a7e"/>
                         <constraint firstItem="Ewa-FO-RGU" firstAttribute="top" secondItem="Loi-rl-I8s" secondAttribute="top" constant="32" id="BIy-IH-M5q"/>
+                        <constraint firstItem="lfy-Ve-usT" firstAttribute="leading" secondItem="Loi-rl-I8s" secondAttribute="leading" constant="127" id="RfO-df-Q77"/>
                         <constraint firstItem="sdY-On-PNN" firstAttribute="top" secondItem="Loi-rl-I8s" secondAttribute="top" constant="45" id="WhQ-gj-6Rk"/>
                         <constraint firstAttribute="height" constant="250" id="WoK-A5-hLV"/>
                         <constraint firstItem="sdY-On-PNN" firstAttribute="leading" secondItem="Loi-rl-I8s" secondAttribute="leading" id="atu-y8-vK4"/>
                         <constraint firstAttribute="bottom" secondItem="xbd-gB-D3n" secondAttribute="bottom" id="cOT-1l-tia"/>
+                        <constraint firstItem="lfy-Ve-usT" firstAttribute="top" secondItem="Loi-rl-I8s" secondAttribute="top" constant="60" id="rGM-gJ-k1q"/>
                         <constraint firstAttribute="trailing" secondItem="sdY-On-PNN" secondAttribute="trailing" constant="20" id="wJy-U4-NoO"/>
                         <constraint firstAttribute="trailing" secondItem="xbd-gB-D3n" secondAttribute="trailing" constant="20" id="whs-Rw-6BB"/>
                         <constraint firstItem="xbd-gB-D3n" firstAttribute="leading" secondItem="Loi-rl-I8s" secondAttribute="leading" id="yUf-2N-hfB"/>

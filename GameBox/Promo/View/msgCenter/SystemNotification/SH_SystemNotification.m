@@ -16,8 +16,9 @@
 
 #import "PGDatePicker.h"
 #import "PGDatePickManager.h"
+#import "HLPopTableView.h"
 
-@interface SH_SystemNotification () <UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate,PGDatePickerDelegate>
+@interface SH_SystemNotification () <UITableViewDataSource, UITableViewDelegate,PGDatePickerDelegate>
 {
     PGDatePickManager *_datePickManager;
 }
@@ -40,16 +41,6 @@
 @end
 
 @implementation SH_SystemNotification
-@synthesize pickView = _pickView;
-
--(UIPickerView *)pickView {
-    if (!_pickView) {
-        _pickView = [[UIPickerView alloc]init];
-        _pickView.delegate = self;
-        _pickView.dataSource = self;
-    }
-    return _pickView;
-}
 
 - (IBAction)startTimeAction:(id)sender {
     PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
@@ -83,13 +74,81 @@
 
 }
 
-- (IBAction)quickSeleteAction:(id)sender {
-    self.pickView.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
-    [self addSubview:self.pickView];
-    [_pickView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.mas_equalTo(0);
-        make.top.mas_equalTo(self.frame.size.height-150);
+- (IBAction)quickSeleteAction:(UIButton *)sender {
+    NSArray *arr = @[@"今天",@"昨天",@"本周",@"上周",@"本月"];
+    if (![RH_UserInfoManager shareUserManager].isLogin) {
+        showMessage(self, @"", @"请先登录");
+        return;
+    }
+    
+    HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, sender.bounds.size.width+5, 110) dependView:sender textArr:arr block:^(NSString *region_name, NSInteger index) {
+        NSDate *startDate = [[NSDate alloc]init];
+        NSDate *endDate = [[NSDate alloc]init];
+        //获取本周的日期
+        NSArray *currentWeekarr = [self getWeekTimeOfCurrentWeekDay];
+        NSArray *lastWeekArr = [self getWeekTimeOfLastWeekDay];
+        switch (index) {
+            case 0:
+                //今天
+                startDate= [NSDate date];
+                endDate = startDate;
+                break;
+            case 1:
+                //昨天
+                startDate = [NSDate dateWithTimeInterval:-24*60*60 sinceDate:startDate];
+                endDate = startDate;
+                break;
+            case 2:
+                //本周
+                startDate = currentWeekarr[0];
+                endDate = currentWeekarr[1];
+                break;
+            case 3:
+                //上周
+                startDate = lastWeekArr[0];
+                endDate = lastWeekArr[1];
+                break;
+            case 4:
+                //本月
+                startDate= [self dateFromDateFirstDay];
+                endDate = [self getMonthEndDate];
+                break;
+            case 5:
+                //最近7天
+                startDate= [NSDate dateWithTimeInterval:-24*60*60*6 sinceDate:startDate];
+                endDate = [NSDate dateWithTimeInterval:24*60*60*6 sinceDate:startDate];
+                break;
+            case 6:
+                //最近三十天
+                startDate= [NSDate dateWithTimeInterval:-24*60*60*29 sinceDate:startDate];
+                endDate = [NSDate dateWithTimeInterval:24*60*60*29 sinceDate:startDate];
+                break;
+                
+            default:
+                break;
+        }
+        //    _headerView.startDate = date;
+        self.startTimeStr = dateStringWithFormatter(startDate, @"yyyy-MM-dd");
+        self.endTimeStr = dateStringWithFormatter(endDate, @"yyyy-MM-dd") ;
+        if ([RH_UserInfoManager shareUserManager].isLogin) {
+            [MBProgressHUD showHUDAddedTo:self animated:YES];
+            [SH_NetWorkService_Promo startLoadSystemNoticeStartTime:self.startTimeStr endTime:self.endTimeStr pageNumber:1 pageSize:500 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+                NSDictionary *dic = (NSDictionary *)response;
+                for (NSDictionary *dict in dic[@"data"][@"list"]) {
+                    NSError *err;
+                    SH_SystemNotificationModel *model = [[SH_SystemNotificationModel alloc] initWithDictionary:dict error:&err];
+                    if (model) {
+                        [self.gameBulletinArr addObject:model];
+                    }
+                    [self.tableView reloadData];
+                }
+                [MBProgressHUD hideHUDForView:self animated:YES];
+            } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+                
+            }];
+        }
     }];
+    [self addSubview:popTV];
 }
 
 
@@ -108,9 +167,6 @@
 //    self.quickSeleteBtn.layer.cornerRadius = 5;
 //    self.quickSeleteBtn.clipsToBounds = YES;
     self.gameBulletinArr = [NSMutableArray array];
-    self.quickSeleteArr = [NSMutableArray array];
-    NSArray *arr = @[@"今天",@"昨天",@"本周",@"上周",@"本月"];
-    self.quickSeleteArr = [NSMutableArray arrayWithArray:arr];
     if ([RH_UserInfoManager shareUserManager].isLogin) {
         [MBProgressHUD showHUDAddedTo:self animated:YES];
         [SH_NetWorkService_Promo startLoadSystemNoticeStartTime:[self getCurrentTimes] endTime:[self getCurrentTimes] pageNumber:1 pageSize:500 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
@@ -268,93 +324,6 @@
 
 #pragma mark - UITableViewDelegate M
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-}
-
-#pragma mark -UIPickerViewDataSource
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    return 1;
-}
-
-// returns the # of rows in each component..
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return self.quickSeleteArr.count;
-}
-
-#pragma mark -
-- (nullable NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component __TVOS_PROHIBITED {
-    return [self.quickSeleteArr objectAtIndex:row];
-}
-
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component __TVOS_PROHIBITED {
-    
-    [_pickView removeFromSuperview];
-    
-    NSDate *startDate = [[NSDate alloc]init];
-    NSDate *endDate = [[NSDate alloc]init];
-    //获取本周的日期
-    NSArray *currentWeekarr = [self getWeekTimeOfCurrentWeekDay];
-    NSArray *lastWeekArr = [self getWeekTimeOfLastWeekDay];
-    switch (row) {
-        case 0:
-            //今天
-            startDate= [NSDate date];
-            endDate = startDate;
-            break;
-        case 1:
-            //昨天
-            startDate = [NSDate dateWithTimeInterval:-24*60*60 sinceDate:startDate];
-            endDate = startDate;
-            break;
-        case 2:
-            //本周
-            startDate = currentWeekarr[0];
-            endDate = currentWeekarr[1];
-            break;
-        case 3:
-            //上周
-            startDate = lastWeekArr[0];
-            endDate = lastWeekArr[1];
-            break;
-        case 4:
-            //本月
-            startDate= [self dateFromDateFirstDay];
-            endDate = [self getMonthEndDate];
-            break;
-        case 5:
-            //最近7天
-            startDate= [NSDate dateWithTimeInterval:-24*60*60*6 sinceDate:startDate];
-            endDate = [NSDate dateWithTimeInterval:24*60*60*6 sinceDate:startDate];
-            break;
-        case 6:
-            //最近三十天
-            startDate= [NSDate dateWithTimeInterval:-24*60*60*29 sinceDate:startDate];
-            endDate = [NSDate dateWithTimeInterval:24*60*60*29 sinceDate:startDate];
-            break;
-            
-        default:
-            break;
-    }
-    //    _headerView.startDate = date;
-    self.startTimeStr = dateStringWithFormatter(startDate, @"yyyy-MM-dd");
-    self.endTimeStr = dateStringWithFormatter(endDate, @"yyyy-MM-dd") ;
-    if ([RH_UserInfoManager shareUserManager].isLogin) {
-        [MBProgressHUD showHUDAddedTo:self animated:YES];
-        [SH_NetWorkService_Promo startLoadSystemNoticeStartTime:self.startTimeStr endTime:self.endTimeStr pageNumber:1 pageSize:500 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-            NSDictionary *dic = (NSDictionary *)response;
-            for (NSDictionary *dict in dic[@"data"][@"list"]) {
-                NSError *err;
-                SH_SystemNotificationModel *model = [[SH_SystemNotificationModel alloc] initWithDictionary:dict error:&err];
-                if (model) {
-                    [self.gameBulletinArr addObject:model];
-                }
-                [self.tableView reloadData];
-            }
-            [MBProgressHUD hideHUDForView:self animated:YES];
-        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-            
-        }];
-    }
     
 }
 

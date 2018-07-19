@@ -12,7 +12,7 @@
 #import <CommonCrypto/CommonDigest.h>
 #import <objc/runtime.h>
 #import <mach/mach.h>
-#import "SAMKeychain.h"
+//#import "SAMKeychain.h"
 #import "sys/utsname.h"
 #import "RH_UserInfoManager.h"
 
@@ -114,7 +114,7 @@ CAShapeLayer * createLineLayer(CGPoint startPoint,CGPoint endPoint,CGFloat lineW
 
     return lineLayer;
 }
-
+/*
 NSString *getDeviceID()
 {
 #define RH_DeviceID             @"RH_DeviceID"
@@ -130,7 +130,7 @@ NSString *getDeviceID()
 
     return currentDeviceUUIDStr;
 }
-
+*/
 //获得唯一标识ID
 NSString * getUniqueID()
 {
@@ -539,7 +539,7 @@ MBProgressHUD * showSuccessMessage_b(UIView *view,NSString *titleText,NSString *
 {
     return showMessageWithImage_b(view, titleText, detailText, ImageWithName(@"success_msg.png"), completedBlock);
 }
-/*
+
 MBProgressHUD * showHUDWithActivityIndicatorView(UIView * view,UIView<CLActivityIndicatorViewProtocol> * activityIndicatorView,NSString *title)
 {
     MBProgressHUD * progressHUD = showCustomMBProgressHUDView(view, title, nil, activityIndicatorView,nil);
@@ -562,7 +562,14 @@ MBProgressHUD * showHUDWithMyActivityIndicatorView(UIView * view,UIColor *color,
 
     return showHUDWithActivityIndicatorView(view, activityIndicatorView,title);
 }
-*/
+
+MBProgressHUD *progressIndicatorView(){
+    CLActivityIndicatorView *activityIndicatorView = [[CLActivityIndicatorView alloc] initWithStyle:CLActivityIndicatorViewStyleIndeterminate] ;
+    activityIndicatorView.bounds = CGRectMake(0.0f, 0.0f, 30.0f, 30.0f) ;
+    [activityIndicatorView startAnimating];
+    
+    return nil;
+}
 
 void showNetworkStatusMessage(UIView *view)
 {

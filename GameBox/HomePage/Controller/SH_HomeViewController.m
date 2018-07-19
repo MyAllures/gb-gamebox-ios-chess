@@ -114,6 +114,8 @@
                 [[RH_UserInfoManager shareUserManager] updateLoginInfoWithUserName:account
                                                                          LoginTime:dateStringWithFormatter([NSDate date], @"yyyy-MM-dd HH:mm:ss")] ;
                 [self autoLoginSuccess:httpURLResponse isRegist:isRegist];
+            }else{
+                 [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
             }
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
@@ -128,6 +130,8 @@
                 [[RH_UserInfoManager shareUserManager] updateLoginInfoWithUserName:account
                                                                          LoginTime:dateStringWithFormatter([NSDate date], @"yyyy-MM-dd HH:mm:ss")] ;
                 [self autoLoginSuccess:httpURLResponse isRegist:isRegist];
+            }else{
+                 [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
             }
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
@@ -157,6 +161,8 @@
             RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[dict[@"data"] objectForKey:@"user"] error:nil];
             [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];            
             [self  configUI];
+        }else{
+             [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
         }
         
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
@@ -371,7 +377,7 @@
 
 -(void)login{
     SH_LoginView *login = [SH_LoginView  InstanceLoginView];
-    //AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:260 viewWidth:494 titleImageName:@"title01"];
+   
     AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:260 titleImageName:@"title01" alertViewType:AlertViewTypeLong];
     login.dismissBlock = ^{
         [cvc  close];
@@ -415,7 +421,10 @@
                 if (tag==100) {
                     [vc close];
                 }else{
+                    
+                   MBProgressHUD * activityIndicatorView= showHUDWithMyActivityIndicatorView(self.view, nil, @"正在退出...");
                     [SH_NetWorkService  fetchUserLoginOut:^(NSHTTPURLResponse *httpURLResponse, id response) {
+                        [activityIndicatorView hideAnimated:false];
                         [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
                         [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:nil];
                       /*  [[NSUserDefaults  standardUserDefaults] setObject:@"" forKey:@"password"];
@@ -428,6 +437,7 @@
                             [vc.parentViewController.parentViewController dismissViewControllerAnimated:NO completion:nil];
                         }
                     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+                        [activityIndicatorView hideAnimated:false];
                         showMessage([UIApplication  sharedApplication].keyWindow, @"退出失败", nil);
                     }];
                     
@@ -496,14 +506,19 @@
     }];
 }
 
-#pragma mark - 玩家中心
+#pragma mark --- 玩家中心
 
 //玩家中心
 - (IBAction)userCenterClick:(id)sender
 {
-    SH_GamesHomeViewController * vc = [SH_GamesHomeViewController new];
-    
-    [self presentViewController:vc addTargetViewController:self];
+    if ([RH_UserInfoManager shareUserManager].isLogin) {
+        SH_GamesHomeViewController * vc = [SH_GamesHomeViewController new];
+        
+        [self presentViewController:vc addTargetViewController:self];
+    }else{
+        [self login];
+    }
+   
     
    
 }
