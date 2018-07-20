@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class SH_PromoListModel;
 @interface SH_PromoDeatilViewController : UIViewController
 
-@property (nonatomic, strong) NSString *url;
+@property (nonatomic, strong) SH_PromoListModel *model;
+
 @end

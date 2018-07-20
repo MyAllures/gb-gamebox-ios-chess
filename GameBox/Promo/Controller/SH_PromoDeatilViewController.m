@@ -8,10 +8,12 @@
 
 #import "SH_PromoDeatilViewController.h"
 #import "SH_GameWebView.h"
+#import "SH_PromoListModel.h"
 
 @interface SH_PromoDeatilViewController ()
 @property (weak, nonatomic) IBOutlet UIView *cornerView;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLB;
 @property (nonatomic, strong) SH_GameWebView *gameWebView;
 
 @end
@@ -22,9 +24,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.cornerView.layer.cornerRadius = 10;
-    
+    self.titleLB.text = self.model.name;
     _gameWebView = [[[NSBundle mainBundle] loadNibNamed:@"SH_GameWebView" owner:nil options:nil] lastObject];
-    _gameWebView.url = self.url;
+    _gameWebView.url = self.model.url;
     _gameWebView.hideMenuView = YES;
     [self.contentView addSubview:_gameWebView];
     [_gameWebView mas_makeConstraints:^(MASConstraintMaker *make) {

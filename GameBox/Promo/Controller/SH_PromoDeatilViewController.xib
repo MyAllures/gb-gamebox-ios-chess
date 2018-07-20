@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="contentView" destination="tqq-hG-FCW" id="ohz-Ta-46u"/>
                 <outlet property="cornerView" destination="2Lp-LN-rtB" id="0jX-HJ-9CO"/>
+                <outlet property="titleLB" destination="i7q-NE-03k" id="QqZ-9N-h4w"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -42,12 +43,21 @@
                                 <action selector="dismiss:" destination="-1" eventType="touchUpInside" id="8qO-9B-fmq"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7q-NE-03k">
+                            <rect key="frame" x="0.0" y="0.0" width="454" height="36"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.16470588235294117" green="0.20784313725490194" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="tqq-hG-FCW" secondAttribute="trailing" id="3s2-fA-fwn"/>
                         <constraint firstItem="NRb-Eh-5PS" firstAttribute="top" secondItem="2Lp-LN-rtB" secondAttribute="top" constant="-10" id="Fol-C3-E8y"/>
+                        <constraint firstItem="i7q-NE-03k" firstAttribute="trailing" secondItem="pKz-b2-7jm" secondAttribute="trailing" id="Kvl-sZ-ixo"/>
                         <constraint firstItem="pKz-b2-7jm" firstAttribute="leading" secondItem="2Lp-LN-rtB" secondAttribute="leading" id="PjI-AV-jUi"/>
+                        <constraint firstItem="i7q-NE-03k" firstAttribute="top" secondItem="pKz-b2-7jm" secondAttribute="top" id="Pzr-5B-ABR"/>
+                        <constraint firstItem="i7q-NE-03k" firstAttribute="leading" secondItem="pKz-b2-7jm" secondAttribute="leading" id="SWX-S7-ik7"/>
                         <constraint firstAttribute="trailing" secondItem="NRb-Eh-5PS" secondAttribute="trailing" constant="-13" id="UDm-wz-MIB"/>
                         <constraint firstItem="tqq-hG-FCW" firstAttribute="top" secondItem="pKz-b2-7jm" secondAttribute="bottom" id="cWR-kj-R8j"/>
                         <constraint firstAttribute="width" secondItem="2Lp-LN-rtB" secondAttribute="height" multiplier="930:686" id="fc2-IL-UAa"/>
@@ -55,6 +65,7 @@
                         <constraint firstItem="pKz-b2-7jm" firstAttribute="top" secondItem="2Lp-LN-rtB" secondAttribute="top" id="sdp-Ij-0Ch"/>
                         <constraint firstAttribute="trailing" secondItem="pKz-b2-7jm" secondAttribute="trailing" id="sgu-UW-T1j"/>
                         <constraint firstAttribute="bottom" secondItem="tqq-hG-FCW" secondAttribute="bottom" id="tK8-i2-wSd"/>
+                        <constraint firstItem="i7q-NE-03k" firstAttribute="bottom" secondItem="pKz-b2-7jm" secondAttribute="bottom" id="xZR-xE-DBz"/>
                     </constraints>
                 </view>
             </subviews>

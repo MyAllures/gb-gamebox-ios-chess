@@ -436,7 +436,7 @@
     [self presentViewController:cvc animated:YES completion:nil];
     [promoContentView showPromoDetail:^(SH_PromoListModel *model) {
         SH_PromoDeatilViewController *vc = [[SH_PromoDeatilViewController alloc] initWithNibName:@"SH_PromoDeatilViewController" bundle:nil];
-        vc.url = model.url;
+        vc.model = model;
         [weakSelf presentViewController:vc addTargetViewController:cvc];
     }];
 }
