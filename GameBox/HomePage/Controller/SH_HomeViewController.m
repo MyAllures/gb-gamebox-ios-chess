@@ -43,7 +43,8 @@
 #import "SH_AnnouncementView.h"
 #import "YFAnimationManager.h"
 #import "SH_GamesHomeViewController.h"
-@interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate,PlayerCenterViewDelegate>
+#import "SH_testViewController.h"
+@interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImg;

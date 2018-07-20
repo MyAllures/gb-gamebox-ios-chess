@@ -68,7 +68,7 @@
         CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
         maskLayer.frame = self.containerView.bounds;
         maskLayer.path = maskPath.CGPath;
-        self.self.containerView.layer.mask = maskLayer;
+        self.containerView.layer.mask = maskLayer;
     }
     return  self;
 }

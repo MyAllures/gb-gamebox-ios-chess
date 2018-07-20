@@ -171,6 +171,7 @@
 		BFA068DE21002BC600F5ADFE /* SH_BankListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA068DD21002BC600F5ADFE /* SH_BankListModel.m */; };
 		BFA068E121003DAC00F5ADFE /* SH_HorizontalscreenPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA068E021003DAC00F5ADFE /* SH_HorizontalscreenPicker.m */; };
 		BFA068E321003DC800F5ADFE /* SH_HorizontalscreenPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA068E221003DC800F5ADFE /* SH_HorizontalscreenPicker.xib */; };
+		BFA068E62100B1AC00F5ADFE /* SH_testViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA068E52100B1AC00F5ADFE /* SH_testViewController.m */; };
 		BFD6CFC120F8901500EDBC5B /* SH_NetWorkService+Bank.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFC020F8901500EDBC5B /* SH_NetWorkService+Bank.m */; };
 		BFD6CFC520F997B800EDBC5B /* SavePhotoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFC420F997B800EDBC5B /* SavePhotoTool.m */; };
 		BFD6CFCC20F9D20C00EDBC5B /* AttributeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFCB20F9D20C00EDBC5B /* AttributeModel.m */; };
@@ -540,6 +541,8 @@
 		BFA068DF21003DAC00F5ADFE /* SH_HorizontalscreenPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_HorizontalscreenPicker.h; sourceTree = "<group>"; };
 		BFA068E021003DAC00F5ADFE /* SH_HorizontalscreenPicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_HorizontalscreenPicker.m; sourceTree = "<group>"; };
 		BFA068E221003DC800F5ADFE /* SH_HorizontalscreenPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_HorizontalscreenPicker.xib; sourceTree = "<group>"; };
+		BFA068E42100B1AC00F5ADFE /* SH_testViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_testViewController.h; sourceTree = "<group>"; };
+		BFA068E52100B1AC00F5ADFE /* SH_testViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_testViewController.m; sourceTree = "<group>"; };
 		BFD6CFBF20F8901500EDBC5B /* SH_NetWorkService+Bank.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+Bank.h"; sourceTree = "<group>"; };
 		BFD6CFC020F8901500EDBC5B /* SH_NetWorkService+Bank.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+Bank.m"; sourceTree = "<group>"; };
 		BFD6CFC320F997B800EDBC5B /* SavePhotoTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SavePhotoTool.h; sourceTree = "<group>"; };
@@ -1215,6 +1218,8 @@
 				BFFC845120F2F252008AD801 /* SH_RechargeCenterViewController.m */,
 				BF44EC6720F4890B00BC6EF3 /* SH_RechargeBasicViewController.h */,
 				BF44EC6820F4890B00BC6EF3 /* SH_RechargeBasicViewController.m */,
+				BFA068E42100B1AC00F5ADFE /* SH_testViewController.h */,
+				BFA068E52100B1AC00F5ADFE /* SH_testViewController.m */,
 				BF44ECB820F4B32B00BC6EF3 /* RechargeDetail */,
 				BF44ECD520F5AD6500BC6EF3 /* Bank */,
 				BF44ECD920F602D500BC6EF3 /* KuaiChong */,
@@ -2117,6 +2122,7 @@
 				BFA068AE20FD8AFF00F5ADFE /* SH_FeeModel.m in Sources */,
 				54C8757920F3508600AA0594 /* SH_PromoContentView.m in Sources */,
 				54C8761A20FE218B00AA0594 /* YFEmitterCustomLayer.m in Sources */,
+				BFA068E62100B1AC00F5ADFE /* SH_testViewController.m in Sources */,
 				5401C55620ECA2CC0027246D /* IPsCacheManager.m in Sources */,
 				DA1BCCA420FF27AF00201DBC /* SH_CardRecordDetailView.m in Sources */,
 				DA6EE1C720F99F39009A01C5 /* SH_SettingView.m in Sources */,
