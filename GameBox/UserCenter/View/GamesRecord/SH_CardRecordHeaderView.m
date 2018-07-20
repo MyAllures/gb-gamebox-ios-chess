@@ -7,10 +7,7 @@
 //
 
 #import "SH_CardRecordHeaderView.h"
-
-#import "PGDatePicker.h"
-#import "PGDatePickManager.h"
-@interface  SH_CardRecordHeaderView()<PGDatePickerDelegate>
+@interface  SH_CardRecordHeaderView()
 
 @property (weak, nonatomic) IBOutlet UIView *letf_view;
 @property (weak, nonatomic) IBOutlet UIView *right_view;
@@ -46,29 +43,29 @@
 }
 - (IBAction)searchBtnClick:(UIButton *)sender {
     if (sender.tag == 100) {
-        PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
-        datePickManager.style = PGDatePickManagerStyle1;
-        datePickManager.isShadeBackgroud = true;
-        
-        PGDatePicker *datePicker = datePickManager.datePicker;
-        datePicker.isHiddenMiddleText = false;
-        datePicker.delegate = self;
-        datePicker.datePickerType = PGPickerViewType3;
-        datePicker.datePickerMode = PGDatePickerModeDate;
-        [self presentViewController:datePickManager addTargetViewController:self.alertVC];
+//        PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
+//        datePickManager.style = PGDatePickManagerStyle1;
+//        datePickManager.isShadeBackgroud = true;
+//
+//        PGDatePicker *datePicker = datePickManager.datePicker;
+//        datePicker.isHiddenMiddleText = false;
+//        datePicker.delegate = self;
+//        datePicker.datePickerType = PGPickerViewType3;
+//        datePicker.datePickerMode = PGDatePickerModeDate;
+//        [self presentViewController:datePickManager addTargetViewController:self.alertVC];
     }else if (sender.tag ==101){
         NSDictionary *dict = [[NSDictionary alloc]initWithObjectsAndKeys:@"end",@"isEnd", nil];
         self.startAndEndDateStr = dict[@"isEnd"];
-        PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
-        datePickManager.style = PGDatePickManagerStyle1;
-        datePickManager.isShadeBackgroud = true;
-        
-        PGDatePicker *datePicker = datePickManager.datePicker;
-        datePicker.isHiddenMiddleText = false;
-        datePicker.delegate = self;
-        datePicker.datePickerType = PGPickerViewType3;
-        datePicker.datePickerMode = PGDatePickerModeDate;
-        [self presentViewController:datePickManager addTargetViewController:self.alertVC];
+//        PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
+//        datePickManager.style = PGDatePickManagerStyle1;
+//        datePickManager.isShadeBackgroud = true;
+//        
+//        PGDatePicker *datePicker = datePickManager.datePicker;
+//        datePicker.isHiddenMiddleText = false;
+//        datePicker.delegate = self;
+//        datePicker.datePickerType = PGPickerViewType3;
+//        datePicker.datePickerMode = PGDatePickerModeDate;
+//        [self presentViewController:datePickManager addTargetViewController:self.alertVC];
     }else{
         if (self.searchConditionBlock) {
         self.searchConditionBlock(@{@"startTime":self.start_label.text,@"endTime":self.end_label.text});
@@ -81,36 +78,7 @@
     viewController.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
     [targetVC presentViewController:viewController animated:YES completion:nil];
 }
-#pragma mark - PGDatePickerDelegate M
-- (void)datePicker:(PGDatePicker *)datePicker didSelectDate:(NSDateComponents *)dateComponents {
-    NSLog(@"dateComponents = %@", dateComponents);
-    NSString *month ;
-    NSString *day;
-    if (dateComponents.month < 10) {
-        month = [NSString stringWithFormat:@"0%@",@(dateComponents.month)];
-    }else{
-        month = [NSString stringWithFormat:@"%@",@(dateComponents.month)];
-    }
-    
-    if (dateComponents.day < 10) {
-        day = [NSString stringWithFormat:@"0%@",@(dateComponents.day)];
-    }else{
-        day = [NSString stringWithFormat:@"%@",@(dateComponents.day)];
-    }
-    NSString *dateStr = [NSString stringWithFormat:@"%@-%@-%@",@(dateComponents.year),month,day];
-    NSLog(@"---%@",dateStr);
-    if ([self.startAndEndDateStr isEqualToString:@"end"]) {
-        NSString *dateStr = [NSString stringWithFormat:@"%@-%@-%@",@(dateComponents.year),month,day];
-        NSDictionary *dict =[[NSDictionary alloc]initWithObjectsAndKeys:dateStr,@"date",nil];
-        [self seletedEndDate:dict];
-        self.startAndEndDateStr = @"";
-        
-    } else {
-        NSString *dateStr = [NSString stringWithFormat:@"%@-%@-%@",@(dateComponents.year),month,day];
-        NSDictionary *dict =[[NSDictionary alloc]initWithObjectsAndKeys:dateStr,@"date",nil];
-        [self changedDate:dict];
-    }
-}
+
 
 #pragma mark -- 结束时间
 -(void)seletedEndDate:(NSDictionary *)nt {

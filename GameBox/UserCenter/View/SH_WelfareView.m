@@ -10,12 +10,9 @@
 #import "SH_WelfareView.h"
 
 #import "HLPopTableView.h"
-
-#import "PGDatePicker.h"
-#import "PGDatePickManager.h"
 #import "SH_NetWorkService+UserCenter.h"
 #import "SH_SearchTypeModel.h"
-@interface SH_WelfareView() <UITextFieldDelegate,PGDatePickerDelegate>
+@interface SH_WelfareView() <UITextFieldDelegate>
 {
     NSInteger  _selectIndex;
     NSArray *_selectIdArray;
@@ -76,9 +73,9 @@
 #pragma mark ---  button click method
 - (IBAction)buttonClick:(UIButton *)sender {
     if (sender.tag==100) {
-        [self  startBtnClick];
+//        [self  startBtnClick];
     }else if (sender.tag==101){
-        [self  endBtnClick];
+//        [self  endBtnClick];
     }else if (sender.tag==102){
         __weak typeof(self) weakSelf = self;
         HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, sender.bounds.size.width, 140) dependView:sender textArr:self.dataArray textFont:14.0  block:^(NSString *region_name, NSInteger index) {
@@ -130,40 +127,40 @@
     }
 }
 
-#pragma mark -- 点击选择开始时间
--(void)startBtnClick{
-    PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
-    datePickManager.style = PGDatePickManagerStyle1;
-    datePickManager.isShadeBackgroud = true;
-    
-    PGDatePicker *datePicker = datePickManager.datePicker;
-    datePicker.isHiddenMiddleText = false;
-    datePicker.delegate = self;
-    datePicker.datePickerType = PGPickerViewType3;
-    datePicker.datePickerMode = PGDatePickerModeDate;
-    [self presentViewController:datePickManager addTargetViewController:self.vc];
-}
+//#pragma mark -- 点击选择开始时间
+//-(void)startBtnClick{
+//    PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
+//    datePickManager.style = PGDatePickManagerStyle1;
+//    datePickManager.isShadeBackgroud = true;
+//
+//    PGDatePicker *datePicker = datePickManager.datePicker;
+//    datePicker.isHiddenMiddleText = false;
+//    datePicker.delegate = self;
+//    datePicker.datePickerType = PGPickerViewType3;
+//    datePicker.datePickerMode = PGDatePickerModeDate;
+//    [self presentViewController:datePickManager addTargetViewController:self.vc];
+//}
 #pragma mark --- 模态弹出viewController
 -(void)presentViewController:(UIViewController*)viewController addTargetViewController:(UIViewController*)targetVC{
     viewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     viewController.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
     [targetVC presentViewController:viewController animated:YES completion:nil];
 }
-#pragma mark -- 点击选择结束时间
--(void)endBtnClick{
-    NSDictionary *dict = [[NSDictionary alloc]initWithObjectsAndKeys:@"end",@"isEnd", nil];
-    self.startAndEndDateStr = dict[@"isEnd"];
-    PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
-    datePickManager.style = PGDatePickManagerStyle1;
-    datePickManager.isShadeBackgroud = true;
-    
-    PGDatePicker *datePicker = datePickManager.datePicker;
-    datePicker.isHiddenMiddleText = false;
-    datePicker.delegate = self;
-    datePicker.datePickerType = PGPickerViewType3;
-    datePicker.datePickerMode = PGDatePickerModeDate;
-     [self presentViewController:datePickManager addTargetViewController:self.vc];
-}
+//#pragma mark -- 点击选择结束时间
+//-(void)endBtnClick{
+//    NSDictionary *dict = [[NSDictionary alloc]initWithObjectsAndKeys:@"end",@"isEnd", nil];
+//    self.startAndEndDateStr = dict[@"isEnd"];
+//    PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
+//    datePickManager.style = PGDatePickManagerStyle1;
+//    datePickManager.isShadeBackgroud = true;
+//
+//    PGDatePicker *datePicker = datePickManager.datePicker;
+//    datePicker.isHiddenMiddleText = false;
+//    datePicker.delegate = self;
+//    datePicker.datePickerType = PGPickerViewType3;
+//    datePicker.datePickerMode = PGDatePickerModeDate;
+//     [self presentViewController:datePickManager addTargetViewController:self.vc];
+//}
 #pragma mark -- 结束时间
 -(void)seletedEndDate:(NSDictionary *)nt {
 
@@ -200,36 +197,7 @@
     self.start_label.text = nt[@"date"];
     [self search];
 }
-#pragma mark - PGDatePickerDelegate M
-- (void)datePicker:(PGDatePicker *)datePicker didSelectDate:(NSDateComponents *)dateComponents {
-    NSLog(@"dateComponents = %@", dateComponents);
-    NSString *month ;
-    NSString *day;
-    if (dateComponents.month < 10) {
-        month = [NSString stringWithFormat:@"0%@",@(dateComponents.month)];
-    }else{
-        month = [NSString stringWithFormat:@"%@",@(dateComponents.month)];
-    }
-    
-    if (dateComponents.day < 10) {
-        day = [NSString stringWithFormat:@"0%@",@(dateComponents.day)];
-    }else{
-        day = [NSString stringWithFormat:@"%@",@(dateComponents.day)];
-    }
-    NSString *dateStr = [NSString stringWithFormat:@"%@-%@-%@",@(dateComponents.year),month,day];
-    NSLog(@"---%@",dateStr);
-    if ([self.startAndEndDateStr isEqualToString:@"end"]) {
-        NSString *dateStr = [NSString stringWithFormat:@"%@-%@-%@",@(dateComponents.year),month,day];
-        NSDictionary *dict =[[NSDictionary alloc]initWithObjectsAndKeys:dateStr,@"date",nil];
-        [self seletedEndDate:dict];
-        self.startAndEndDateStr = @"";
-        
-    } else {
-        NSString *dateStr = [NSString stringWithFormat:@"%@-%@-%@",@(dateComponents.year),month,day];
-        NSDictionary *dict =[[NSDictionary alloc]initWithObjectsAndKeys:dateStr,@"date",nil];
-        [self changedDate:dict];
-    }
-}
+
 #pragma mark - UITextFieldDelegate
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
