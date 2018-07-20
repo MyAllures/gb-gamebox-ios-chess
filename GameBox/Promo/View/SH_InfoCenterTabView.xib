@@ -51,18 +51,14 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bM7-7N-JZA">
                     <rect key="frame" x="0.0" y="61" width="667" height="314"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="314" id="ibp-2K-OeH"/>
-                        <constraint firstAttribute="width" constant="667" id="ica-vn-h5n"/>
-                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="bM7-7N-JZA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="36O-gu-Zmi"/>
-                <constraint firstAttribute="bottom" secondItem="bM7-7N-JZA" secondAttribute="bottom" id="6zY-17-m85"/>
-                <constraint firstAttribute="trailing" secondItem="bM7-7N-JZA" secondAttribute="trailing" id="BkP-Ud-Kz4"/>
-                <constraint firstItem="bM7-7N-JZA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="61" id="tY8-LN-9tU"/>
+                <constraint firstAttribute="bottom" secondItem="bM7-7N-JZA" secondAttribute="bottom" id="0hr-vY-gOx"/>
+                <constraint firstAttribute="trailing" secondItem="bM7-7N-JZA" secondAttribute="trailing" id="CTu-wE-N9u"/>
+                <constraint firstItem="bM7-7N-JZA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="For-ju-8ZZ"/>
+                <constraint firstItem="bM7-7N-JZA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="61" id="gPl-76-QJr"/>
             </constraints>
             <connections>
                 <outlet property="bottomView" destination="bM7-7N-JZA" id="yJI-xN-AsT"/>

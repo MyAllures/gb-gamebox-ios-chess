@@ -15,10 +15,13 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gtv-AK-20Y">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gtv-AK-20Y">
                     <rect key="frame" x="132" y="15" width="49" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="F6c-ae-29A"/>
+                        <constraint firstAttribute="width" constant="49" id="a3l-oC-xTg"/>
+                    </constraints>
                     <state key="normal" title="删除">
                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -39,10 +42,13 @@
                         <outlet property="delegate" destination="iN0-l3-epB" id="Zil-sC-bMo"/>
                     </connections>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7be-80-2dc">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7be-80-2dc">
                     <rect key="frame" x="189" y="15" width="114" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="5kK-uy-3Hv"/>
+                        <constraint firstAttribute="width" constant="114" id="TC2-JK-fhE"/>
+                    </constraints>
                     <state key="normal" title="标注已读">
                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -73,9 +79,13 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="iRy-Ha-N2L" firstAttribute="leading" secondItem="meD-cF-FFW" secondAttribute="leading" id="4uB-sr-imA"/>
+                        <constraint firstAttribute="trailing" secondItem="iRy-Ha-N2L" secondAttribute="trailing" id="5L6-fV-F2h"/>
                         <constraint firstAttribute="height" constant="30" id="7CY-t6-v0l"/>
+                        <constraint firstAttribute="bottom" secondItem="iRy-Ha-N2L" secondAttribute="bottom" id="Bs8-Rq-jXr"/>
                         <constraint firstItem="Es4-OL-K98" firstAttribute="leading" secondItem="meD-cF-FFW" secondAttribute="leading" id="IPx-pQ-OoR"/>
                         <constraint firstAttribute="bottom" secondItem="iRy-Ha-N2L" secondAttribute="bottom" id="LfS-FK-D7g"/>
+                        <constraint firstItem="iRy-Ha-N2L" firstAttribute="top" secondItem="meD-cF-FFW" secondAttribute="top" id="Lw2-Z9-keC"/>
                         <constraint firstAttribute="trailing" secondItem="iRy-Ha-N2L" secondAttribute="trailing" id="OyB-48-6gb"/>
                         <constraint firstItem="Es4-OL-K98" firstAttribute="top" secondItem="meD-cF-FFW" secondAttribute="top" constant="5" id="TPa-GQ-WIH"/>
                         <constraint firstItem="iRy-Ha-N2L" firstAttribute="top" secondItem="meD-cF-FFW" secondAttribute="top" id="hd5-yt-fwR"/>
@@ -88,9 +98,13 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="5c4-cr-7Sj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Cdm-fy-dyP"/>
+                <constraint firstItem="Gtv-AK-20Y" firstAttribute="leading" secondItem="meD-cF-FFW" secondAttribute="trailing" constant="18" id="G2H-g0-JmB"/>
                 <constraint firstAttribute="bottom" secondItem="5c4-cr-7Sj" secondAttribute="bottom" id="IZ9-20-aTW"/>
+                <constraint firstItem="Gtv-AK-20Y" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="M4O-fq-6U1"/>
                 <constraint firstAttribute="trailing" secondItem="5c4-cr-7Sj" secondAttribute="trailing" id="Qhu-ce-b5I"/>
                 <constraint firstItem="5c4-cr-7Sj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="58" id="Sy8-gA-U4s"/>
+                <constraint firstItem="7be-80-2dc" firstAttribute="leading" secondItem="Gtv-AK-20Y" secondAttribute="trailing" constant="8" id="YtE-mD-9pH"/>
+                <constraint firstItem="7be-80-2dc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="foA-wz-vGD"/>
                 <constraint firstItem="meD-cF-FFW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="14" id="iFh-zS-shE"/>
                 <constraint firstItem="meD-cF-FFW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="23" id="tIY-Fh-M1f"/>
             </constraints>
