@@ -18,16 +18,30 @@
 
 @property (nonatomic, strong) SH_PromoListView *promoListView;
 @property (nonatomic, strong) SH_InfoCenterTabView *infoCenterTabView;
+@property (nonatomic, copy) SH_PromoContentViewShowDetail showBlock;
 
 @end
 
 @implementation SH_PromoContentView
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 -(void)awakeFromNib{
     [super awakeFromNib];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showPromoDetailView:) name:@"SH_Show_PromoDeatil" object:nil];
+
     self.rightContentView.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
     [self.promoListView reloadData];
     self.promoBT.selected = YES;
+}
+
+- (void)showPromoDetail:(SH_PromoContentViewShowDetail)showBlock
+{
+    self.showBlock = showBlock;
 }
 
 - (IBAction)btClick:(id)sender {
@@ -70,6 +84,15 @@
         }];
     }
     return _infoCenterTabView;
+}
+
+- (void)showPromoDetailView:(NSNotification *)notification
+{
+    SH_PromoListModel *model = notification.object;
+
+    if (self.showBlock) {
+        self.showBlock(model);
+    }
 }
 
 @end

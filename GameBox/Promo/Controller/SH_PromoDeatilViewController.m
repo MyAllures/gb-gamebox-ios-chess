@@ -37,4 +37,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)dismiss:(id)sender {
+    [self dismissViewControllerAnimated:NO completion:nil];
+}
+
 @end

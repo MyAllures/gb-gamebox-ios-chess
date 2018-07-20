@@ -26,7 +26,6 @@
 #import "SH_HomeBannerModel.h"
 #import "SH_RingManager.h"
 #import "SH_RingButton.h"
-#import "SH_PlayerCenterView.h"
 #import "SH_GameItemModel.h"
 #import "SH_GameItemView.h"
 #import "SH_DZGameItemView.h"
@@ -44,9 +43,10 @@
 #import "YFAnimationManager.h"
 #import "SH_GamesHomeViewController.h"
 #import "SH_PromoDeatilViewController.h"
+#import "SH_ShareView.h"
+#import "SH_PromoListModel.h"
 
-@interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate,PlayerCenterViewDelegate>
-
+@interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImg;
 @property (weak, nonatomic) IBOutlet UILabel *userAccountLB;
@@ -56,7 +56,7 @@
 @property (weak, nonatomic) IBOutlet UIView *searchView;
 @property (weak, nonatomic) IBOutlet UIImageView *snowBGImg;
 @property (strong, nonatomic) SH_CycleScrollView *cycleAdView;
-@property (nonatomic, strong) SH_PlayerCenterView *pcv;
+
 
 @property (strong, nonatomic) SH_GamesListScrollView *topGamesListScrollView;
 @property (strong, nonatomic) SH_GamesListScrollView *midGamesListScrollView;
@@ -88,6 +88,7 @@
     [[YFAnimationManager shareInstancetype] showAnimationInView:self.snowBGImg withAnimationStyle:YFAnimationStyleOfSnow];
 
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didRegistratedSuccessful) name:@"didRegistratedSuccessful" object:nil];
+    [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(configUI) name:@"didLogOut" object:nil];
     if (iPhoneX) {
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(statusBarOrientationChange:)
@@ -96,12 +97,6 @@
     }
     [self  configUI];
     [self  autoLoginIsRegist:false];
-    
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        SH_PromoDeatilViewController *vc = [[SH_PromoDeatilViewController alloc] initWithNibName:@"SH_PromoDeatilViewController" bundle:nil];
-//        vc.url = @"https://test18.ccenter.test.so/promo/promoDetail.html?searchId=42f998363e0e09e58bfec6eed7772e0e";
-//        [self presentViewController:vc addTargetViewController:self];
-//    });
 }
 
 #pragma mark - 记着密码启动自动登录
@@ -420,44 +415,7 @@
     }
     SH_UserInformationView * inforView = [SH_UserInformationView  instanceInformationView];
     AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:inforView viewHeight:204 titleImageName:@"title04" alertViewType:AlertViewTypeShort];
-    __weak  typeof(self) weakSelf = self;
-    inforView.buttonClickBlock = ^(NSInteger tag) {
-        if (tag==100) {
-            SH_AlertView * alert = [SH_AlertView  instanceAlertView];
-             AlertViewController * vc = [[AlertViewController  alloc] initAlertView:alert viewHeight:174 titleImageName:@"title03" alertViewType:AlertViewTypeShort];
-            alert.btnClickBlock = ^(NSInteger tag) {
-                if (tag==100) {
-                    [vc close];
-                }else{
-                    
-                   MBProgressHUD * activityIndicatorView= showHUDWithMyActivityIndicatorView(self.view, nil, @"正在退出...");
-                    [SH_NetWorkService  fetchUserLoginOut:^(NSHTTPURLResponse *httpURLResponse, id response) {
-                        [activityIndicatorView hideAnimated:false];
-                        [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
-                        [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:nil];
-                      /*  [[NSUserDefaults  standardUserDefaults] setObject:@"" forKey:@"password"];
-                        [[NSUserDefaults  standardUserDefaults] synchronize];*/
-                        [weakSelf configUI];
-                        showMessage([UIApplication  sharedApplication].keyWindow, @"已成功退出", nil);
-                        if ([vc respondsToSelector:@selector(presentingViewController)]){
-                            [vc.presentingViewController.presentingViewController dismissViewControllerAnimated:NO completion:nil];
-                        }else {
-                            [vc.parentViewController.parentViewController dismissViewControllerAnimated:NO completion:nil];
-                        }
-                    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-                        [activityIndicatorView hideAnimated:false];
-                        showMessage([UIApplication  sharedApplication].keyWindow, @"退出失败", nil);
-                    }];
-                    
-                }
-            };
-            [weakSelf  presentViewController:vc addTargetViewController:cvc];
-        }else{
-            SH_SettingView * settingView = [SH_SettingView instanceSettingView];
-             AlertViewController * setVC = [[AlertViewController  alloc] initAlertView:settingView viewHeight:130 titleImageName:@"title05" alertViewType:AlertViewTypeShort];
-            [weakSelf  presentViewController:setVC addTargetViewController:cvc];
-        }
-    };
+    inforView.vc = cvc;
     [self presentViewController:cvc addTargetViewController:self];
 }
 #pragma mark --- 模态弹出viewController
@@ -469,12 +427,18 @@
 
 #pragma mark - 优惠活动
 - (IBAction)activitiesClick:(id)sender {
+    __weak typeof(self) weakSelf = self;
+
     SH_PromoContentView *promoContentView = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoContentView" owner:nil options:nil] lastObject];
     AlertViewController  * cvc = [[AlertViewController  alloc] initAlertView:promoContentView viewHeight:[UIScreen mainScreen].bounds.size.height-80 titleImageName:@"title11" alertViewType:AlertViewTypeLong];
-    cvc.title = @"优惠活动";
     cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
     [self presentViewController:cvc animated:YES completion:nil];
+    [promoContentView showPromoDetail:^(SH_PromoListModel *model) {
+        SH_PromoDeatilViewController *vc = [[SH_PromoDeatilViewController alloc] initWithNibName:@"SH_PromoDeatilViewController" bundle:nil];
+        vc.url = model.url;
+        [weakSelf presentViewController:vc addTargetViewController:cvc];
+    }];
 }
 
 #pragma mark - 优惠活动详情
@@ -538,6 +502,17 @@
 
 
 - (IBAction)shareClick:(id)sender {
+    if ([RH_UserInfoManager shareUserManager].isLogin) {
+          SH_ShareView * share = [SH_ShareView instanceShareView];
+        AlertViewController *vc  = [[AlertViewController  alloc] initAlertView:share viewHeight:260 titleImageName:@"title08" alertViewType:AlertViewTypeShort];
+        share.targetVC = vc;
+        [self presentViewController:vc addTargetViewController:self];
+    }else{
+        [self login];
+    }
+    
+  
+    
 }
 
 - (void)initAdScroll
@@ -680,9 +655,11 @@
 }
 
 #pragma mark ---注册成功的通知 这里自动登录
+
 -(void)didRegistratedSuccessful{
     [self  autoLoginIsRegist:YES];
 }
+
 #pragma mark - SH_CycleScrollViewDataSource
 
 - (NSArray *)numberOfCycleScrollView:(SH_CycleScrollView *)bannerView

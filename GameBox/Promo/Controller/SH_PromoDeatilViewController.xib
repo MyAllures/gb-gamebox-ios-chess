@@ -38,6 +38,9 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NRb-Eh-5PS">
                             <rect key="frame" x="427" y="-10" width="40" height="40"/>
                             <state key="normal" image="close"/>
+                            <connections>
+                                <action selector="dismiss:" destination="-1" eventType="touchUpInside" id="8qO-9B-fmq"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.16470588235294117" green="0.20784313725490194" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

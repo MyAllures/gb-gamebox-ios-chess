@@ -106,9 +106,7 @@
     }
     
     SH_PromoListModel *model = self.promoListArr[indexPath.section];
-    SH_PromoDeatilViewController *vc = [[SH_PromoDeatilViewController alloc] initWithNibName:@"SH_PromoDeatilViewController" bundle:nil];
-    vc.url = model.url;
-    [[UIApplication sharedApplication].keyWindow addSubview:vc.view];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SH_Show_PromoDeatil" object:model];
 }
 
 @end

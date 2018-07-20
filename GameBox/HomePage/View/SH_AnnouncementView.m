@@ -70,13 +70,16 @@
                                                                self.textSize.width,
                                                                self.textSize.height) ;
                      }completion:^(BOOL finished){
-                         self.labScrollText.frame = CGRectMake(self.scrollView.frameWidth,
-                                                               floorf((self.scrollView.frameHeigh-self.textSize.height)/2.0),
-                                                               self.textSize.width,
-                                                               self.textSize.height) ;
-                         self.isAnimation = NO;
-                         [self start];//动画执行完毕后的操作
+                         
                      }];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(_dynamicTimeInterval * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.labScrollText.frame = CGRectMake(self.scrollView.frameWidth,
+                                              floorf((self.scrollView.frameHeigh-self.textSize.height)/2.0),
+                                              self.textSize.width,
+                                              self.textSize.height) ;
+        self.isAnimation = NO;
+        [self start];//动画执行完毕后的操作
+    });
 }
 
 -(UILabel *)labScrollText

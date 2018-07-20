@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "AlertViewController.h"
 @interface SH_AlertView : UIView
-@property(nonatomic,copy)void(^btnClickBlock)(NSInteger tag);
+@property(nonatomic,strong)AlertViewController  * vc;
 +(instancetype)instanceAlertView;
 @end
