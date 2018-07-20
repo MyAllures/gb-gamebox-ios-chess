@@ -23,6 +23,7 @@
 #import "SH_RechargeBankDetailViewController.h"
 #import "SH_KuaiChongViewController.h"
 #import "SH_PreferentialPopView.h"
+#import "SH_DatePickerView.h"
 @interface SH_RechargeCenterViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,RH_RechargeCenterFooterViewDelegate,SH_PreferentialPopViewDelegate>
 @property(nonatomic,strong)UICollectionView *mainCollectionView;
 @property(nonatomic,strong)NSMutableArray *dataArray;
@@ -316,6 +317,7 @@
 #pragma mark--
 #pragma mark--footerView delegate
 - (void)RH_RechargeCenterFooterViewSubmitBtnClickWithMoney:(NSString *)money{
+    
     self.number = money;
     if (self.number.length == 0) {
         showMessage(self.view, @"请输入金额", nil);
@@ -340,7 +342,7 @@
                 vc.platformModel = self.platformModel;
                 vc.money = self.number;
                 [self.navigationController pushViewController:vc animated:YES];
-                
+
             }else if ([self.channelModel.type isEqualToString:@"2"]){
                 //2表示扫码支付，要先请求一个优惠接口
                 [self requestNormalPreferential];
