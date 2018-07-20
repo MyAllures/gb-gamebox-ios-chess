@@ -95,4 +95,8 @@
     }
 }
 
+-(void)setAlertVC:(AlertViewController *)alertVC{
+    _alertVC = alertVC;
+    self.infoCenterTabView.alertVC = self.alertVC;
+}
 @end

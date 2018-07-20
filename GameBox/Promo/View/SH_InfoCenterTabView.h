@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "AlertViewController.h"
 @interface SH_InfoCenterTabView : UIView
-
+@property(nonatomic,strong)AlertViewController * alertVC;
 @end
