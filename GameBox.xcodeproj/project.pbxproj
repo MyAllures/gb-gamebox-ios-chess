@@ -55,7 +55,6 @@
 		5401C53C20ECA1100027246D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5401C53A20ECA1100027246D /* LaunchScreen.storyboard */; };
 		5401C53F20ECA1100027246D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C53E20ECA1100027246D /* main.m */; };
 		5401C55020ECA1B80027246D /* SH_NetWorkService+LineCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C54820ECA1B80027246D /* SH_NetWorkService+LineCheck.m */; };
-		5401C55120ECA1B80027246D /* GameWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5401C54B20ECA1B80027246D /* GameWebViewController.xib */; };
 		5401C55220ECA1B80027246D /* GameWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C54C20ECA1B80027246D /* GameWebViewController.m */; };
 		5401C55320ECA1B80027246D /* SH_NetWorkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C54E20ECA1B80027246D /* SH_NetWorkService.m */; };
 		5401C55620ECA2CC0027246D /* IPsCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C55520ECA2CC0027246D /* IPsCacheManager.m */; };
@@ -101,6 +100,11 @@
 		54C8761B20FE218B00AA0594 /* snow.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C8761220FE218B00AA0594 /* snow.png */; };
 		54C8761C20FE218B00AA0594 /* YFEmitterSnowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8761320FE218B00AA0594 /* YFEmitterSnowCell.m */; };
 		54C8761F20FE220C00AA0594 /* UIImage+EXtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8761E20FE220C00AA0594 /* UIImage+EXtension.m */; };
+		54C8763221008D3800AA0594 /* SH_GameWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8763121008D3800AA0594 /* SH_GameWebView.m */; };
+		54C8763421008D4800AA0594 /* SH_GameWebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C8763321008D4800AA0594 /* SH_GameWebView.xib */; };
+		54C8763B2100B04300AA0594 /* SH_HorizontalscreenPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C876372100B04300AA0594 /* SH_HorizontalscreenPicker.xib */; };
+		54C8763C2100B04300AA0594 /* THScrollChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C876382100B04300AA0594 /* THScrollChooseView.m */; };
+		54C8763D2100B04300AA0594 /* SH_HorizontalscreenPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8763A2100B04300AA0594 /* SH_HorizontalscreenPicker.m */; };
 		BF2F915A20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F915820EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m */; };
 		BF2F915B20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2F915920EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib */; };
 		BF2F915F20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F915D20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m */; };
@@ -139,7 +143,6 @@
 		BF44ECFA20F7475A00BC6EF3 /* SH_BitCoinSuccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF44ECF920F7475A00BC6EF3 /* SH_BitCoinSuccessView.m */; };
 		BF44ECFD20F7477900BC6EF3 /* SH_BitCoinSuccessPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF44ECFC20F7477900BC6EF3 /* SH_BitCoinSuccessPopView.m */; };
 		BF44ECFF20F7478600BC6EF3 /* SH_BitCoinSuccessPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF44ECFE20F7478600BC6EF3 /* SH_BitCoinSuccessPopView.xib */; };
-		BF44ED0320F7828400BC6EF3 /* THScrollChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF44ED0120F7828400BC6EF3 /* THScrollChooseView.m */; };
 		BFA0688B20FC70AC00F5ADFE /* SH_PrifitOutCoinView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA0688A20FC70AC00F5ADFE /* SH_PrifitOutCoinView.m */; };
 		BFA0688D20FC70C200F5ADFE /* SH_PrifitOutCoinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA0688C20FC70C200F5ADFE /* SH_PrifitOutCoinView.xib */; };
 		BFA0689020FC8C1000F5ADFE /* SH_OutCoinDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA0688F20FC8C1000F5ADFE /* SH_OutCoinDetailView.m */; };
@@ -227,6 +230,37 @@
 		DA1BCCAF20FF33BE00201DBC /* SH_GamesHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCCAD20FF33BE00201DBC /* SH_GamesHomeViewController.m */; };
 		DA1BCCB020FF33BE00201DBC /* SH_GamesHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1BCCAE20FF33BE00201DBC /* SH_GamesHomeViewController.xib */; };
 		DA1BCCB321003C9B00201DBC /* CLActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCCB221003C9B00201DBC /* CLActivityIndicatorView.m */; };
+		DA1BCD562100AC4E00201DBC /* PGPickerColumnCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD1A2100AC4E00201DBC /* PGPickerColumnCell.m */; };
+		DA1BCD572100AC4E00201DBC /* PGPickerColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD1B2100AC4E00201DBC /* PGPickerColumnView.m */; };
+		DA1BCD582100AC4E00201DBC /* PGPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD202100AC4E00201DBC /* PGPickerView.m */; };
+		DA1BCD592100AC4E00201DBC /* PGPickerTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD212100AC4E00201DBC /* PGPickerTableView.m */; };
+		DA1BCD5A2100AC4E00201DBC /* PGDatePicker+Date.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD242100AC4E00201DBC /* PGDatePicker+Date.m */; };
+		DA1BCD5B2100AC4E00201DBC /* PGDatePicker+MinuteAndSecond.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD262100AC4E00201DBC /* PGDatePicker+MinuteAndSecond.m */; };
+		DA1BCD5C2100AC4E00201DBC /* PGDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD272100AC4E00201DBC /* PGDatePicker.m */; };
+		DA1BCD5D2100AC4E00201DBC /* UIColor+PGHex.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD282100AC4E00201DBC /* UIColor+PGHex.m */; };
+		DA1BCD5E2100AC4E00201DBC /* PGDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD292100AC4E00201DBC /* PGDatePickerView.m */; };
+		DA1BCD5F2100AC4E00201DBC /* PGDatePicker+MonthDayHour.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD2D2100AC4E00201DBC /* PGDatePicker+MonthDayHour.m */; };
+		DA1BCD602100AC4E00201DBC /* PGDatePicker+YearAndMonth.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD2E2100AC4E00201DBC /* PGDatePicker+YearAndMonth.m */; };
+		DA1BCD612100AC4E00201DBC /* NSCalendar+PGCurrent.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD312100AC4E00201DBC /* NSCalendar+PGCurrent.m */; };
+		DA1BCD622100AC4E00201DBC /* PGDatePicker+Time.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD332100AC4E00201DBC /* PGDatePicker+Time.m */; };
+		DA1BCD632100AC4E00201DBC /* PGDatePickManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD352100AC4E00201DBC /* PGDatePickManager.m */; };
+		DA1BCD642100AC4E00201DBC /* PGDatePicker+Logic.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD392100AC4E00201DBC /* PGDatePicker+Logic.m */; };
+		DA1BCD652100AC4E00201DBC /* NSBundle+PGDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD3A2100AC4E00201DBC /* NSBundle+PGDatePicker.m */; };
+		DA1BCD662100AC4E00201DBC /* PGDatePicker+MonthDayHourMinute.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD3F2100AC4E00201DBC /* PGDatePicker+MonthDayHourMinute.m */; };
+		DA1BCD672100AC4E00201DBC /* PGDatePicker+MonthDayHourMinuteSecond.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD402100AC4E00201DBC /* PGDatePicker+MonthDayHourMinuteSecond.m */; };
+		DA1BCD682100AC4E00201DBC /* PGDatePicker+DateHourMinute.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD432100AC4E00201DBC /* PGDatePicker+DateHourMinute.m */; };
+		DA1BCD692100AC4E00201DBC /* NSDate+PGCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD442100AC4E00201DBC /* NSDate+PGCategory.m */; };
+		DA1BCD6A2100AC4E00201DBC /* PGDatePicker+DateHour.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD462100AC4E00201DBC /* PGDatePicker+DateHour.m */; };
+		DA1BCD6B2100AC4E00201DBC /* PGDatePicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DA1BCD4A2100AC4E00201DBC /* PGDatePicker.bundle */; };
+		DA1BCD6C2100AC4E00201DBC /* PGDatePicker+TimeAndSecond.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD4B2100AC4E00201DBC /* PGDatePicker+TimeAndSecond.m */; };
+		DA1BCD6D2100AC4E00201DBC /* PGDatePicker+DateAndTime.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD4C2100AC4E00201DBC /* PGDatePicker+DateAndTime.m */; };
+		DA1BCD6E2100AC4E00201DBC /* PGDatePicker+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD4E2100AC4E00201DBC /* PGDatePicker+Common.m */; };
+		DA1BCD6F2100AC4E00201DBC /* PGDatePicker+MonthDay.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD512100AC4E00201DBC /* PGDatePicker+MonthDay.m */; };
+		DA1BCD702100AC4E00201DBC /* PGDatePickManagerHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD522100AC4E00201DBC /* PGDatePickManagerHeaderView.m */; };
+		DA1BCD712100AC4E00201DBC /* PGDatePicker+Year.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD532100AC4E00201DBC /* PGDatePicker+Year.m */; };
+		DA1BCD722100AC4E00201DBC /* PGDatePicker+DateHourMinuteSecond.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD552100AC4E00201DBC /* PGDatePicker+DateHourMinuteSecond.m */; };
+		DA1BCD762100B0F500201DBC /* SH_ShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD752100B0F500201DBC /* SH_ShareView.m */; };
+		DA1BCD782100B10300201DBC /* SH_ShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1BCD772100B10300201DBC /* SH_ShareView.xib */; };
 		DA21F37C20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F37B20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m */; };
 		DA21F37F20F58F9000D20672 /* SH_RegistView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F37E20F58F9000D20672 /* SH_RegistView.m */; };
 		DA21F38D20F590A800D20672 /* RH_RegisetInitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F38B20F590A800D20672 /* RH_RegisetInitModel.m */; };
@@ -345,7 +379,6 @@
 		5401C54720ECA1B80027246D /* SH_NetWorkService+LineCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+LineCheck.h"; sourceTree = "<group>"; };
 		5401C54820ECA1B80027246D /* SH_NetWorkService+LineCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+LineCheck.m"; sourceTree = "<group>"; };
 		5401C54A20ECA1B80027246D /* GameWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameWebViewController.h; sourceTree = "<group>"; };
-		5401C54B20ECA1B80027246D /* GameWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameWebViewController.xib; sourceTree = "<group>"; };
 		5401C54C20ECA1B80027246D /* GameWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameWebViewController.m; sourceTree = "<group>"; };
 		5401C54E20ECA1B80027246D /* SH_NetWorkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_NetWorkService.m; sourceTree = "<group>"; };
 		5401C54F20ECA1B80027246D /* SH_NetWorkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_NetWorkService.h; sourceTree = "<group>"; };
@@ -423,6 +456,14 @@
 		54C8761320FE218B00AA0594 /* YFEmitterSnowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YFEmitterSnowCell.m; sourceTree = "<group>"; };
 		54C8761D20FE220B00AA0594 /* UIImage+EXtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+EXtension.h"; sourceTree = "<group>"; };
 		54C8761E20FE220C00AA0594 /* UIImage+EXtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+EXtension.m"; sourceTree = "<group>"; };
+		54C8763021008D3800AA0594 /* SH_GameWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_GameWebView.h; sourceTree = "<group>"; };
+		54C8763121008D3800AA0594 /* SH_GameWebView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_GameWebView.m; sourceTree = "<group>"; };
+		54C8763321008D4800AA0594 /* SH_GameWebView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_GameWebView.xib; sourceTree = "<group>"; };
+		54C876362100B04300AA0594 /* SH_HorizontalscreenPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_HorizontalscreenPicker.h; sourceTree = "<group>"; };
+		54C876372100B04300AA0594 /* SH_HorizontalscreenPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SH_HorizontalscreenPicker.xib; sourceTree = "<group>"; };
+		54C876382100B04300AA0594 /* THScrollChooseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THScrollChooseView.m; sourceTree = "<group>"; };
+		54C876392100B04300AA0594 /* THScrollChooseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THScrollChooseView.h; sourceTree = "<group>"; };
+		54C8763A2100B04300AA0594 /* SH_HorizontalscreenPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_HorizontalscreenPicker.m; sourceTree = "<group>"; };
 		BF2F915720EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_DepositeWayCollectionViewCell.h; sourceTree = "<group>"; };
 		BF2F915820EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_DepositeWayCollectionViewCell.m; sourceTree = "<group>"; };
 		BF2F915920EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_DepositeWayCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -488,8 +529,6 @@
 		BF44ECFB20F7477900BC6EF3 /* SH_BitCoinSuccessPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_BitCoinSuccessPopView.h; sourceTree = "<group>"; };
 		BF44ECFC20F7477900BC6EF3 /* SH_BitCoinSuccessPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_BitCoinSuccessPopView.m; sourceTree = "<group>"; };
 		BF44ECFE20F7478600BC6EF3 /* SH_BitCoinSuccessPopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_BitCoinSuccessPopView.xib; sourceTree = "<group>"; };
-		BF44ED0120F7828400BC6EF3 /* THScrollChooseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THScrollChooseView.m; sourceTree = "<group>"; };
-		BF44ED0220F7828400BC6EF3 /* THScrollChooseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THScrollChooseView.h; sourceTree = "<group>"; };
 		BFA0688920FC70AC00F5ADFE /* SH_PrifitOutCoinView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PrifitOutCoinView.h; sourceTree = "<group>"; };
 		BFA0688A20FC70AC00F5ADFE /* SH_PrifitOutCoinView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PrifitOutCoinView.m; sourceTree = "<group>"; };
 		BFA0688C20FC70C200F5ADFE /* SH_PrifitOutCoinView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PrifitOutCoinView.xib; sourceTree = "<group>"; };
@@ -640,6 +679,68 @@
 		DA1BCCAE20FF33BE00201DBC /* SH_GamesHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_GamesHomeViewController.xib; sourceTree = "<group>"; };
 		DA1BCCB121003C9B00201DBC /* CLActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLActivityIndicatorView.h; sourceTree = "<group>"; };
 		DA1BCCB221003C9B00201DBC /* CLActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLActivityIndicatorView.m; sourceTree = "<group>"; };
+		DA1BCD1A2100AC4E00201DBC /* PGPickerColumnCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGPickerColumnCell.m; sourceTree = "<group>"; };
+		DA1BCD1B2100AC4E00201DBC /* PGPickerColumnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGPickerColumnView.m; sourceTree = "<group>"; };
+		DA1BCD1C2100AC4E00201DBC /* PGPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGPickerView.h; sourceTree = "<group>"; };
+		DA1BCD1D2100AC4E00201DBC /* PGPickerTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGPickerTableView.h; sourceTree = "<group>"; };
+		DA1BCD1E2100AC4E00201DBC /* PGPickerColumnCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGPickerColumnCell.h; sourceTree = "<group>"; };
+		DA1BCD1F2100AC4E00201DBC /* PGPickerColumnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGPickerColumnView.h; sourceTree = "<group>"; };
+		DA1BCD202100AC4E00201DBC /* PGPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGPickerView.m; sourceTree = "<group>"; };
+		DA1BCD212100AC4E00201DBC /* PGPickerTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGPickerTableView.m; sourceTree = "<group>"; };
+		DA1BCD232100AC4E00201DBC /* PGDatePicker+MonthDayHourMinuteSecond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PGDatePicker+MonthDayHourMinuteSecond.h"; sourceTree = "<group>"; };
+		DA1BCD242100AC4E00201DBC /* PGDatePicker+Date.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGDatePicker+Date.m"; sourceTree = "<group>"; };
+		DA1BCD252100AC4E00201DBC /* PGDatePicker+MonthDayHourMinute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PGDatePicker+MonthDayHourMinute.h"; sourceTree = "<group>"; };
+		DA1BCD262100AC4E00201DBC /* PGDatePicker+MinuteAndSecond.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGDatePicker+MinuteAndSecond.m"; sourceTree = "<group>"; };
+		DA1BCD272100AC4E00201DBC /* PGDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGDatePicker.m; sourceTree = "<group>"; };
+		DA1BCD282100AC4E00201DBC /* UIColor+PGHex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+PGHex.m"; sourceTree = "<group>"; };
+		DA1BCD292100AC4E00201DBC /* PGDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGDatePickerView.m; sourceTree = "<group>"; };
+		DA1BCD2A2100AC4E00201DBC /* PGDatePicker+DateHour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PGDatePicker+DateHour.h"; sourceTree = "<group>"; };
+		DA1BCD2B2100AC4E00201DBC /* PGDatePicker+DateHourMinute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PGDatePicker+DateHourMinute.h"; sourceTree = "<group>"; };
+		DA1BCD2C2100AC4E00201DBC /* NSDate+PGCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+PGCategory.h"; sourceTree = "<group>"; };
+		DA1BCD2D2100AC4E00201DBC /* PGDatePicker+MonthDayHour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGDatePicker+MonthDayHour.m"; sourceTree = "<group>"; };
+		DA1BCD2E2100AC4E00201DBC /* PGDatePicker+YearAndMonth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGDatePicker+YearAndMonth.m"; sourceTree = "<group>"; };
+		DA1BCD2F2100AC4E00201DBC /* PGDatePicker+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PGDatePicker+Common.h"; sourceTree = "<group>"; };
+		DA1BCD302100AC4E00201DBC /* PGDatePicker+DateAndTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PGDatePicker+DateAndTime.h"; sourceTree = "<group>"; };
+		DA1BCD312100AC4E00201DBC /* NSCalendar+PGCurrent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendar+PGCurrent.m"; sourceTree = "<group>"; };
+		DA1BCD322100AC4E00201DBC /* PGDatePicker+TimeAndSecond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PGDatePicker+TimeAndSecond.h"; sourceTree = "<group>"; };
+		DA1BCD332100AC4E00201DBC /* PGDatePicker+Time.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGDatePicker+Time.m"; sourceTree = "<group>"; };
+		DA1BCD342100AC4E00201DBC /* PGDatePicker+DateHourMinuteSecond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PGDatePicker+DateHourMinuteSecond.h"; sourceTree = "<group>"; };
+		DA1BCD352100AC4E00201DBC /* PGDatePickManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGDatePickManager.m; sourceTree = "<group>"; };
+		DA1BCD362100AC4E00201DBC /* PGDatePicker+Year.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PGDatePicker+Year.h"; sourceTree = "<group>"; };
+		DA1BCD372100AC4E00201DBC /* PGDatePicker+MonthDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PGDatePicker+MonthDay.h"; sourceTree = "<group>"; };
+		DA1BCD382100AC4E00201DBC /* PGDatePickManagerHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGDatePickManagerHeaderView.h; sourceTree = "<group>"; };
+		DA1BCD392100AC4E00201DBC /* PGDatePicker+Logic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGDatePicker+Logic.m"; sourceTree = "<group>"; };
+		DA1BCD3A2100AC4E00201DBC /* NSBundle+PGDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+PGDatePicker.m"; sourceTree = "<group>"; };
+		DA1BCD3B2100AC4E00201DBC /* UIColor+PGHex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+PGHex.h"; sourceTree = "<group>"; };
+		DA1BCD3C2100AC4E00201DBC /* PGDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGDatePicker.h; sourceTree = "<group>"; };
+		DA1BCD3D2100AC4E00201DBC /* PGDatePicker+MinuteAndSecond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PGDatePicker+MinuteAndSecond.h"; sourceTree = "<group>"; };
+		DA1BCD3E2100AC4E00201DBC /* PGEnumeration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGEnumeration.h; sourceTree = "<group>"; };
+		DA1BCD3F2100AC4E00201DBC /* PGDatePicker+MonthDayHourMinute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGDatePicker+MonthDayHourMinute.m"; sourceTree = "<group>"; };
+		DA1BCD402100AC4E00201DBC /* PGDatePicker+MonthDayHourMinuteSecond.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGDatePicker+MonthDayHourMinuteSecond.m"; sourceTree = "<group>"; };
+		DA1BCD412100AC4E00201DBC /* PGDatePicker+Date.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PGDatePicker+Date.h"; sourceTree = "<group>"; };
+		DA1BCD422100AC4E00201DBC /* PGDatePicker+YearAndMonth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PGDatePicker+YearAndMonth.h"; sourceTree = "<group>"; };
+		DA1BCD432100AC4E00201DBC /* PGDatePicker+DateHourMinute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGDatePicker+DateHourMinute.m"; sourceTree = "<group>"; };
+		DA1BCD442100AC4E00201DBC /* NSDate+PGCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+PGCategory.m"; sourceTree = "<group>"; };
+		DA1BCD452100AC4E00201DBC /* PGDatePicker+MonthDayHour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PGDatePicker+MonthDayHour.h"; sourceTree = "<group>"; };
+		DA1BCD462100AC4E00201DBC /* PGDatePicker+DateHour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGDatePicker+DateHour.m"; sourceTree = "<group>"; };
+		DA1BCD472100AC4E00201DBC /* PGDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGDatePickerView.h; sourceTree = "<group>"; };
+		DA1BCD482100AC4E00201DBC /* PGDatePickerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGDatePickerHeader.h; sourceTree = "<group>"; };
+		DA1BCD492100AC4E00201DBC /* PGDatePicker+Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PGDatePicker+Time.h"; sourceTree = "<group>"; };
+		DA1BCD4A2100AC4E00201DBC /* PGDatePicker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PGDatePicker.bundle; sourceTree = "<group>"; };
+		DA1BCD4B2100AC4E00201DBC /* PGDatePicker+TimeAndSecond.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGDatePicker+TimeAndSecond.m"; sourceTree = "<group>"; };
+		DA1BCD4C2100AC4E00201DBC /* PGDatePicker+DateAndTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGDatePicker+DateAndTime.m"; sourceTree = "<group>"; };
+		DA1BCD4D2100AC4E00201DBC /* NSCalendar+PGCurrent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+PGCurrent.h"; sourceTree = "<group>"; };
+		DA1BCD4E2100AC4E00201DBC /* PGDatePicker+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGDatePicker+Common.m"; sourceTree = "<group>"; };
+		DA1BCD4F2100AC4E00201DBC /* NSBundle+PGDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+PGDatePicker.h"; sourceTree = "<group>"; };
+		DA1BCD502100AC4E00201DBC /* PGDatePicker+Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PGDatePicker+Logic.h"; sourceTree = "<group>"; };
+		DA1BCD512100AC4E00201DBC /* PGDatePicker+MonthDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGDatePicker+MonthDay.m"; sourceTree = "<group>"; };
+		DA1BCD522100AC4E00201DBC /* PGDatePickManagerHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGDatePickManagerHeaderView.m; sourceTree = "<group>"; };
+		DA1BCD532100AC4E00201DBC /* PGDatePicker+Year.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGDatePicker+Year.m"; sourceTree = "<group>"; };
+		DA1BCD542100AC4E00201DBC /* PGDatePickManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGDatePickManager.h; sourceTree = "<group>"; };
+		DA1BCD552100AC4E00201DBC /* PGDatePicker+DateHourMinuteSecond.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGDatePicker+DateHourMinuteSecond.m"; sourceTree = "<group>"; };
+		DA1BCD742100B0F500201DBC /* SH_ShareView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ShareView.h; sourceTree = "<group>"; };
+		DA1BCD752100B0F500201DBC /* SH_ShareView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_ShareView.m; sourceTree = "<group>"; };
+		DA1BCD772100B10300201DBC /* SH_ShareView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_ShareView.xib; sourceTree = "<group>"; };
 		DA21F37A20F4E97800D20672 /* SH_NetWorkService+RegistAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+RegistAPI.h"; sourceTree = "<group>"; };
 		DA21F37B20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+RegistAPI.m"; sourceTree = "<group>"; };
 		DA21F37D20F58F9000D20672 /* SH_RegistView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_RegistView.h; sourceTree = "<group>"; };
@@ -903,10 +1004,11 @@
 		5401C54520ECA1B80027246D /* CoreBase */ = {
 			isa = PBXGroup;
 			children = (
+				DA1BCCB42100AB9D00201DBC /* ThirdLib */,
+				54C876352100B04300AA0594 /* THScrollChoose */,
 				54C875FC20FE217C00AA0594 /* SnowAnimation */,
 				BFD6CFD020F9FAE700EDBC5B /* TTTAttributedLabel */,
 				BFD6CFC220F9974B00EDBC5B /* SavePhoto */,
-				BF44ED0020F7828400BC6EF3 /* 滚轮选择器 */,
 				54C875A520F75B6400AA0594 /* RingButton */,
 				54C875A120F7570800AA0594 /* RingManager */,
 				BF44EC5320F454E100BC6EF3 /* Macro */,
@@ -942,7 +1044,9 @@
 			children = (
 				5401C54A20ECA1B80027246D /* GameWebViewController.h */,
 				5401C54C20ECA1B80027246D /* GameWebViewController.m */,
-				5401C54B20ECA1B80027246D /* GameWebViewController.xib */,
+				54C8763021008D3800AA0594 /* SH_GameWebView.h */,
+				54C8763121008D3800AA0594 /* SH_GameWebView.m */,
+				54C8763321008D4800AA0594 /* SH_GameWebView.xib */,
 				54C875AC20FB414200AA0594 /* SH_WKGameViewController.h */,
 				54C875AD20FB414200AA0594 /* SH_WKGameViewController.m */,
 				54C875B120FB4E1200AA0594 /* SH_DragableMenuView.h */,
@@ -1193,6 +1297,18 @@
 			path = SnowCell;
 			sourceTree = "<group>";
 		};
+		54C876352100B04300AA0594 /* THScrollChoose */ = {
+			isa = PBXGroup;
+			children = (
+				54C876362100B04300AA0594 /* SH_HorizontalscreenPicker.h */,
+				54C876372100B04300AA0594 /* SH_HorizontalscreenPicker.xib */,
+				54C876382100B04300AA0594 /* THScrollChooseView.m */,
+				54C876392100B04300AA0594 /* THScrollChooseView.h */,
+				54C8763A2100B04300AA0594 /* SH_HorizontalscreenPicker.m */,
+			);
+			path = THScrollChoose;
+			sourceTree = "<group>";
+		};
 		87BD6A1D16B97D20B3D1FCB6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1350,18 +1466,6 @@
 				BF44ECE920F6FF4D00BC6EF3 /* SH_BitCoinSaleDetailModel.m */,
 			);
 			path = model;
-			sourceTree = "<group>";
-		};
-		BF44ED0020F7828400BC6EF3 /* 滚轮选择器 */ = {
-			isa = PBXGroup;
-			children = (
-				BF44ED0220F7828400BC6EF3 /* THScrollChooseView.h */,
-				BF44ED0120F7828400BC6EF3 /* THScrollChooseView.m */,
-				BFA068DF21003DAC00F5ADFE /* SH_HorizontalscreenPicker.h */,
-				BFA068E021003DAC00F5ADFE /* SH_HorizontalscreenPicker.m */,
-				BFA068E221003DC800F5ADFE /* SH_HorizontalscreenPicker.xib */,
-			);
-			path = "滚轮选择器";
 			sourceTree = "<group>";
 		};
 		BFA0688720FC6FAC00F5ADFE /* Profit */ = {
@@ -1587,9 +1691,10 @@
 			isa = PBXGroup;
 			children = (
 				DA1BCCAB20FF339800201DBC /* Controller */,
-				BFA068BF20FE0A8F00F5ADFE /* SaftyCenter */,
 				DA1BCC4020FCB74400201DBC /* Model */,
 				DA1BCC4120FCB74400201DBC /* View */,
+				DA1BCD732100B0BE00201DBC /* Share */,
+				BFA068BF20FE0A8F00F5ADFE /* SaftyCenter */,
 			);
 			path = UserCenter;
 			sourceTree = "<group>";
@@ -1696,6 +1801,98 @@
 				DA1BCCAE20FF33BE00201DBC /* SH_GamesHomeViewController.xib */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		DA1BCCB42100AB9D00201DBC /* ThirdLib */ = {
+			isa = PBXGroup;
+			children = (
+				DA1BCD222100AC4E00201DBC /* PGDatePicker */,
+				DA1BCD192100AC4E00201DBC /* PGPickerView */,
+			);
+			path = ThirdLib;
+			sourceTree = "<group>";
+		};
+		DA1BCD192100AC4E00201DBC /* PGPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				DA1BCD1A2100AC4E00201DBC /* PGPickerColumnCell.m */,
+				DA1BCD1B2100AC4E00201DBC /* PGPickerColumnView.m */,
+				DA1BCD1C2100AC4E00201DBC /* PGPickerView.h */,
+				DA1BCD1D2100AC4E00201DBC /* PGPickerTableView.h */,
+				DA1BCD1E2100AC4E00201DBC /* PGPickerColumnCell.h */,
+				DA1BCD1F2100AC4E00201DBC /* PGPickerColumnView.h */,
+				DA1BCD202100AC4E00201DBC /* PGPickerView.m */,
+				DA1BCD212100AC4E00201DBC /* PGPickerTableView.m */,
+			);
+			path = PGPickerView;
+			sourceTree = "<group>";
+		};
+		DA1BCD222100AC4E00201DBC /* PGDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				DA1BCD232100AC4E00201DBC /* PGDatePicker+MonthDayHourMinuteSecond.h */,
+				DA1BCD242100AC4E00201DBC /* PGDatePicker+Date.m */,
+				DA1BCD252100AC4E00201DBC /* PGDatePicker+MonthDayHourMinute.h */,
+				DA1BCD262100AC4E00201DBC /* PGDatePicker+MinuteAndSecond.m */,
+				DA1BCD272100AC4E00201DBC /* PGDatePicker.m */,
+				DA1BCD282100AC4E00201DBC /* UIColor+PGHex.m */,
+				DA1BCD292100AC4E00201DBC /* PGDatePickerView.m */,
+				DA1BCD2A2100AC4E00201DBC /* PGDatePicker+DateHour.h */,
+				DA1BCD2B2100AC4E00201DBC /* PGDatePicker+DateHourMinute.h */,
+				DA1BCD2C2100AC4E00201DBC /* NSDate+PGCategory.h */,
+				DA1BCD2D2100AC4E00201DBC /* PGDatePicker+MonthDayHour.m */,
+				DA1BCD2E2100AC4E00201DBC /* PGDatePicker+YearAndMonth.m */,
+				DA1BCD2F2100AC4E00201DBC /* PGDatePicker+Common.h */,
+				DA1BCD302100AC4E00201DBC /* PGDatePicker+DateAndTime.h */,
+				DA1BCD312100AC4E00201DBC /* NSCalendar+PGCurrent.m */,
+				DA1BCD322100AC4E00201DBC /* PGDatePicker+TimeAndSecond.h */,
+				DA1BCD332100AC4E00201DBC /* PGDatePicker+Time.m */,
+				DA1BCD342100AC4E00201DBC /* PGDatePicker+DateHourMinuteSecond.h */,
+				DA1BCD352100AC4E00201DBC /* PGDatePickManager.m */,
+				DA1BCD362100AC4E00201DBC /* PGDatePicker+Year.h */,
+				DA1BCD372100AC4E00201DBC /* PGDatePicker+MonthDay.h */,
+				DA1BCD382100AC4E00201DBC /* PGDatePickManagerHeaderView.h */,
+				DA1BCD392100AC4E00201DBC /* PGDatePicker+Logic.m */,
+				DA1BCD3A2100AC4E00201DBC /* NSBundle+PGDatePicker.m */,
+				DA1BCD3B2100AC4E00201DBC /* UIColor+PGHex.h */,
+				DA1BCD3C2100AC4E00201DBC /* PGDatePicker.h */,
+				DA1BCD3D2100AC4E00201DBC /* PGDatePicker+MinuteAndSecond.h */,
+				DA1BCD3E2100AC4E00201DBC /* PGEnumeration.h */,
+				DA1BCD3F2100AC4E00201DBC /* PGDatePicker+MonthDayHourMinute.m */,
+				DA1BCD402100AC4E00201DBC /* PGDatePicker+MonthDayHourMinuteSecond.m */,
+				DA1BCD412100AC4E00201DBC /* PGDatePicker+Date.h */,
+				DA1BCD422100AC4E00201DBC /* PGDatePicker+YearAndMonth.h */,
+				DA1BCD432100AC4E00201DBC /* PGDatePicker+DateHourMinute.m */,
+				DA1BCD442100AC4E00201DBC /* NSDate+PGCategory.m */,
+				DA1BCD452100AC4E00201DBC /* PGDatePicker+MonthDayHour.h */,
+				DA1BCD462100AC4E00201DBC /* PGDatePicker+DateHour.m */,
+				DA1BCD472100AC4E00201DBC /* PGDatePickerView.h */,
+				DA1BCD482100AC4E00201DBC /* PGDatePickerHeader.h */,
+				DA1BCD492100AC4E00201DBC /* PGDatePicker+Time.h */,
+				DA1BCD4A2100AC4E00201DBC /* PGDatePicker.bundle */,
+				DA1BCD4B2100AC4E00201DBC /* PGDatePicker+TimeAndSecond.m */,
+				DA1BCD4C2100AC4E00201DBC /* PGDatePicker+DateAndTime.m */,
+				DA1BCD4D2100AC4E00201DBC /* NSCalendar+PGCurrent.h */,
+				DA1BCD4E2100AC4E00201DBC /* PGDatePicker+Common.m */,
+				DA1BCD4F2100AC4E00201DBC /* NSBundle+PGDatePicker.h */,
+				DA1BCD502100AC4E00201DBC /* PGDatePicker+Logic.h */,
+				DA1BCD512100AC4E00201DBC /* PGDatePicker+MonthDay.m */,
+				DA1BCD522100AC4E00201DBC /* PGDatePickManagerHeaderView.m */,
+				DA1BCD532100AC4E00201DBC /* PGDatePicker+Year.m */,
+				DA1BCD542100AC4E00201DBC /* PGDatePickManager.h */,
+				DA1BCD552100AC4E00201DBC /* PGDatePicker+DateHourMinuteSecond.m */,
+			);
+			path = PGDatePicker;
+			sourceTree = "<group>";
+		};
+		DA1BCD732100B0BE00201DBC /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				DA1BCD742100B0F500201DBC /* SH_ShareView.h */,
+				DA1BCD752100B0F500201DBC /* SH_ShareView.m */,
+				DA1BCD772100B10300201DBC /* SH_ShareView.xib */,
+			);
+			path = Share;
 			sourceTree = "<group>";
 		};
 		DA22F33E20F43AA10058A54F /* View */ = {
@@ -1889,6 +2086,7 @@
 				BF44EC6620F4878300BC6EF3 /* SH_NavigationView.xib in Resources */,
 				5401C53C20ECA1100027246D /* LaunchScreen.storyboard in Resources */,
 				54C8759E20F756A500AA0594 /* moneyRing.mp3 in Resources */,
+				DA1BCD6B2100AC4E00201DBC /* PGDatePicker.bundle in Resources */,
 				22552CCA20F448810090EFBC /* SH_SystemNotification.xib in Resources */,
 				5401C56320ECF9EA0027246D /* SH_HomeViewController.xib in Resources */,
 				BF44EC6120F45DB500BC6EF3 /* SH_BitCoinTextView.xib in Resources */,
@@ -1898,9 +2096,9 @@
 				54C8758020F3560100AA0594 /* SH_PromoListView.xib in Resources */,
 				BFA0689220FC8C1A00F5ADFE /* SH_OutCoinDetailView.xib in Resources */,
 				DA6EE1C920F99F45009A01C5 /* SH_SettingView.xib in Resources */,
-				5401C55120ECA1B80027246D /* GameWebViewController.xib in Resources */,
 				54C875A020F756A500AA0594 /* errRing.mp3 in Resources */,
 				BFA068CF20FE135200F5ADFE /* SH_ModiftSaftyPSDView.xib in Resources */,
+				54C8763421008D4800AA0594 /* SH_GameWebView.xib in Resources */,
 				54C875C820FCBE1900AA0594 /* SH_DZGameItemView.xib in Resources */,
 				22552CE620F49DB90090EFBC /* SH_SendMsgView.xib in Resources */,
 				54C8761B20FE218B00AA0594 /* snow.png in Resources */,
@@ -1916,6 +2114,7 @@
 				5401C53920ECA1100027246D /* Assets.xcassets in Resources */,
 				2248B11A20F5EF7E0077EF58 /* SH_GameBulletinTCell.xib in Resources */,
 				BFA068C520FE0AE100F5ADFE /* SH_SaftyCenterView.xib in Resources */,
+				DA1BCD782100B10300201DBC /* SH_ShareView.xib in Resources */,
 				DA6EE1BF20F8BEDA009A01C5 /* SH_UserInformationView.xib in Resources */,
 				DA1BCCA920FF288B00201DBC /* RH_BettingRecordDetailCell.xib in Resources */,
 				2209026720F053D400F8828E /* SH_PromoViewCell.xib in Resources */,
@@ -1941,11 +2140,11 @@
 				BF44ECF220F7259300BC6EF3 /* SH_PreferentialPopSubView.xib in Resources */,
 				54C8761820FE218B00AA0594 /* leaves.png in Resources */,
 				BFA068B320FD9C3300F5ADFE /* SH_LookJiHeTableViewCell.xib in Resources */,
+				54C8763B2100B04300AA0594 /* SH_HorizontalscreenPicker.xib in Resources */,
 				DA22F34320F43AD00058A54F /* SH_LoginView.xib in Resources */,
 				BF44ECCB20F4D6CC00BC6EF3 /* SH_RechargeDetailMainSubmitView.xib in Resources */,
 				22878ECF21002D0C005D7652 /* SH_MyMsgDetailView.xib in Resources */,
 				DA1BCC8520FE06E900201DBC /* SH_CardRecordHeaderView.xib in Resources */,
-				BFA068E321003DC800F5ADFE /* SH_HorizontalscreenPicker.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1979,13 +2178,11 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-GameBox/Pods-GameBox-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
-				"${PODS_ROOT}/PGDatePicker/PGDatePicker/PGDatePicker.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PGDatePicker.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2006,6 +2203,8 @@
 				DA21F3AF20F6FCD000D20672 /* RH_RegistrationSelectView.m in Sources */,
 				DA22F3C420F44DA80058A54F /* CLPathManager.m in Sources */,
 				DA21F38D20F590A800D20672 /* RH_RegisetInitModel.m in Sources */,
+				DA1BCD642100AC4E00201DBC /* PGDatePicker+Logic.m in Sources */,
+				DA1BCD672100AC4E00201DBC /* PGDatePicker+MonthDayHourMinuteSecond.m in Sources */,
 				BFA068A320FCBF1700F5ADFE /* SH_AuditMapModel.m in Sources */,
 				BFA068A620FCC0CF00F5ADFE /* SH_NetWorkService+Profit.m in Sources */,
 				DA22F3CC20F44F610058A54F /* CLNetReachability.m in Sources */,
@@ -2021,6 +2220,7 @@
 				BFA068DB20FF11E500F5ADFE /* SH_BankCardModel.m in Sources */,
 				BFA0689520FC8D9A00F5ADFE /* SH_LookJiHeView.m in Sources */,
 				BFFC846620F3043A008AD801 /* SH_RechargeCenterPaywayModel.m in Sources */,
+				DA1BCD5A2100AC4E00201DBC /* PGDatePicker+Date.m in Sources */,
 				5401C56220ECF9EA0027246D /* SH_HomeViewController.m in Sources */,
 				BFA068B220FD9C3300F5ADFE /* SH_LookJiHeTableViewCell.m in Sources */,
 				DA1BCCB321003C9B00201DBC /* CLActivityIndicatorView.m in Sources */,
@@ -2034,17 +2234,20 @@
 				DA22F40720F494C60058A54F /* UIColor+HexString.m in Sources */,
 				DA22F34120F43ABC0058A54F /* SH_LoginView.m in Sources */,
 				54C8761F20FE220C00AA0594 /* UIImage+EXtension.m in Sources */,
+				DA1BCD5C2100AC4E00201DBC /* PGDatePicker.m in Sources */,
 				BFA0689020FC8C1000F5ADFE /* SH_OutCoinDetailView.m in Sources */,
 				DA18EFBF20F0A9C3002B7E22 /* PopTool.m in Sources */,
+				DA1BCD572100AC4E00201DBC /* PGPickerColumnView.m in Sources */,
 				DA1BCC8B20FE200700201DBC /* RH_BettingInfoModel.m in Sources */,
 				22878ECA210029E3005D7652 /* SH_SysMsgDetailModel.m in Sources */,
 				BF44ECCF20F59A5800BC6EF3 /* SH_RechargeDetailBankView.m in Sources */,
 				BF44ECC120F4B4BF00BC6EF3 /* SH_RechargeDetailHeadView.m in Sources */,
 				DA18EFBE20F0A9C3002B7E22 /* AlertViewController.m in Sources */,
+				DA1BCD762100B0F500201DBC /* SH_ShareView.m in Sources */,
 				BF44ECFA20F7475A00BC6EF3 /* SH_BitCoinSuccessView.m in Sources */,
+				54C8763D2100B04300AA0594 /* SH_HorizontalscreenPicker.m in Sources */,
 				54C875B920FB788D00AA0594 /* SH_NoAccessViewController.m in Sources */,
 				DA1BCC4920FCB81300201DBC /* SH_SecurityCenterView.m in Sources */,
-				BFA068E121003DAC00F5ADFE /* SH_HorizontalscreenPicker.m in Sources */,
 				BFFC847320F3452A008AD801 /* UIImageView+handle.m in Sources */,
 				54C8761520FE218B00AA0594 /* YFEmitterRainCell.m in Sources */,
 				BF44EC5A20F4588D00BC6EF3 /* SH_BitCoinSubView.m in Sources */,
@@ -2060,13 +2263,14 @@
 				BF44ECEA20F6FF4D00BC6EF3 /* SH_BitCoinSaleDetailModel.m in Sources */,
 				DA1BCC4D20FCBB1800201DBC /* SH_WelfareRecordView.m in Sources */,
 				BFA068B920FDE33200F5ADFE /* SH_JiHeSubModel.m in Sources */,
+				DA1BCD652100AC4E00201DBC /* NSBundle+PGDatePicker.m in Sources */,
 				22573D3820F8C6D900D0EB0A /* SH_MyMsgView.m in Sources */,
 				DA1BCC9320FED79200201DBC /* SH_CardRecordModel.m in Sources */,
 				54C875BD20FC4B0B00AA0594 /* SH_AnnouncementModel.m in Sources */,
 				DA22F3E020F4562B0058A54F /* UIImage+Size.m in Sources */,
+				DA1BCD6D2100AC4E00201DBC /* PGDatePicker+DateAndTime.m in Sources */,
 				2231283720F707F500D1BF5E /* SH_SystemNotificationModel.m in Sources */,
 				BF2F916420EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.m in Sources */,
-				BF44ED0320F7828400BC6EF3 /* THScrollChooseView.m in Sources */,
 				DA22F3BB20F44B1A0058A54F /* RH_MineInfoModel.m in Sources */,
 				BFFC846220F2F268008AD801 /* SH_RechargeCenterPlatformModel.m in Sources */,
 				BFFC845B20F2F260008AD801 /* RH_RechargeCenterFooterView.m in Sources */,
@@ -2077,6 +2281,7 @@
 				BFFC847220F3452A008AD801 /* NSLayoutConstraint+RH_IBDesignable.m in Sources */,
 				DA1BCC5F20FDC21600201DBC /* SH_WelfareTableViewCell.m in Sources */,
 				DA1BCC5220FD7C6D00201DBC /* SH_NetWorkService+UserCenter.m in Sources */,
+				DA1BCD6C2100AC4E00201DBC /* PGDatePicker+TimeAndSecond.m in Sources */,
 				BF44EC4D20F44BA300BC6EF3 /* SH_BitCoinViewController.m in Sources */,
 				54C8761720FE218B00AA0594 /* YFEmitterLeavesCell.m in Sources */,
 				DA1BCC5B20FDBFCD00201DBC /* SH_FundListModel.m in Sources */,
@@ -2087,17 +2292,20 @@
 				54C8759020F7333300AA0594 /* SH_NetWorkService+Home.m in Sources */,
 				BF44ECE720F6FECF00BC6EF3 /* SH_BitCoinSaleModel.m in Sources */,
 				DA22F3B820F44A130058A54F /* RH_UserSafetyCodeModel.m in Sources */,
+				DA1BCD582100AC4E00201DBC /* PGPickerView.m in Sources */,
 				54C8761920FE218B00AA0594 /* YFPublicParticleCell.m in Sources */,
 				BF44ECDC20F602FE00BC6EF3 /* SH_KuaiChongViewController.m in Sources */,
 				BFA068AA20FD86BF00F5ADFE /* SH_OutCoinDetailTableViewCell.m in Sources */,
 				22573D3E20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.m in Sources */,
 				BF44ECFD20F7477900BC6EF3 /* SH_BitCoinSuccessPopView.m in Sources */,
+				DA1BCD612100AC4E00201DBC /* NSCalendar+PGCurrent.m in Sources */,
 				BFFC845220F2F253008AD801 /* SH_RechargeCenterViewController.m in Sources */,
 				BF44ECDF20F6F6AA00BC6EF3 /* UILabel+handle.m in Sources */,
 				5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */,
 				BFA068D820FEE2FA00F5ADFE /* SH_NetWorkService+SaftyCenter.m in Sources */,
 				54C875AB20F84BFF00AA0594 /* SH_GameItemModel.m in Sources */,
 				BFFEDCBB20F35627002E69FD /* SH_RechargeCenterAccountModel.m in Sources */,
+				DA1BCD712100AC4E00201DBC /* PGDatePicker+Year.m in Sources */,
 				DA22F40820F494C60058A54F /* ScreenAdaptation.m in Sources */,
 				22E486D220F9C9920051A68C /* SH_SendMsgTabelViewCell.m in Sources */,
 				DA1BCCAA20FF288B00201DBC /* RH_BettingRecordDetailCell.m in Sources */,
@@ -2107,12 +2315,15 @@
 				DA22F3D820F455C50058A54F /* UIImage+Representation.m in Sources */,
 				22E486D620F9F1100051A68C /* SH_AdvisoryTypeModel.m in Sources */,
 				DA1BCC4420FCB7AD00201DBC /* SH_WelfareView.m in Sources */,
+				DA1BCD682100AC4E00201DBC /* PGDatePicker+DateHourMinute.m in Sources */,
 				DA1BCCAF20FF33BE00201DBC /* SH_GamesHomeViewController.m in Sources */,
 				5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */,
 				DA1BCC6F20FDE25E00201DBC /* SH_WelfareDetailView.m in Sources */,
 				22878ECD21002D03005D7652 /* SH_MyMsgDetailView.m in Sources */,
 				BF44EC5020F44BB900BC6EF3 /* SH_BitCoinView.m in Sources */,
 				BFA068A020FCBEEE00F5ADFE /* SH_ProfitModel.m in Sources */,
+				DA1BCD6E2100AC4E00201DBC /* PGDatePicker+Common.m in Sources */,
+				DA1BCD622100AC4E00201DBC /* PGDatePicker+Time.m in Sources */,
 				BF44ECC620F4D4FB00BC6EF3 /* SH_RechargeDetailMainView.m in Sources */,
 				22552CEE20F4CCE50090EFBC /* SH_NetWorkService+Promo.m in Sources */,
 				BF44ECF020F7253500BC6EF3 /* SH_PreferentialPopSubView.m in Sources */,
@@ -2121,6 +2332,7 @@
 				54C8758820F48CD500AA0594 /* SH_GamesListScrollView.m in Sources */,
 				BFA068AE20FD8AFF00F5ADFE /* SH_FeeModel.m in Sources */,
 				54C8757920F3508600AA0594 /* SH_PromoContentView.m in Sources */,
+				54C8763C2100B04300AA0594 /* THScrollChooseView.m in Sources */,
 				54C8761A20FE218B00AA0594 /* YFEmitterCustomLayer.m in Sources */,
 				BFA068E62100B1AC00F5ADFE /* SH_testViewController.m in Sources */,
 				5401C55620ECA2CC0027246D /* IPsCacheManager.m in Sources */,
@@ -2129,6 +2341,7 @@
 				5401C53F20ECA1100027246D /* main.m in Sources */,
 				22552CDF20F494E80090EFBC /* SH_SiteMsgView.m in Sources */,
 				5401C55A20ECA48D0027246D /* NetWorkLineMangaer.m in Sources */,
+				DA1BCD5F2100AC4E00201DBC /* PGDatePicker+MonthDayHour.m in Sources */,
 				22E486D920F9F8AE0051A68C /* SH_SysMsgDataListModel.m in Sources */,
 				BF44ECE420F6FB7000BC6EF3 /* SH_NetWorkService+BitCoin.m in Sources */,
 				BF44ECF620F7399800BC6EF3 /* SH_PopSubViewTableViewCell.m in Sources */,
@@ -2138,8 +2351,10 @@
 				54C875A820F75B7700AA0594 /* SH_RingButton.m in Sources */,
 				54C21AB120EE23B2006FCA0F /* SH_BaseViewController.m in Sources */,
 				DA22F40A20F494C60058A54F /* NSDictionary+CLCategory.m in Sources */,
+				54C8763221008D3800AA0594 /* SH_GameWebView.m in Sources */,
 				DA1BCC6620FDD49E00201DBC /* SH_SearchTypeModel.m in Sources */,
 				DA1BCC8320FE06D300201DBC /* SH_CardRecordHeaderView.m in Sources */,
+				DA1BCD5D2100AC4E00201DBC /* UIColor+PGHex.m in Sources */,
 				DA21F37C20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m in Sources */,
 				22552CC820F448740090EFBC /* SH_SystemNotification.m in Sources */,
 				DA22F40920F494C60058A54F /* UIViewController+Instance.m in Sources */,
@@ -2149,6 +2364,7 @@
 				DA21F37F20F58F9000D20672 /* SH_RegistView.m in Sources */,
 				54C8759320F7372D00AA0594 /* SH_HomeBannerModel.m in Sources */,
 				BFFEDCBE20F3792E002E69FD /* SH_RechargeCenterDataHandle.m in Sources */,
+				DA1BCD5B2100AC4E00201DBC /* PGDatePicker+MinuteAndSecond.m in Sources */,
 				BFFC845A20F2F260008AD801 /* DepositeHeadCollectionReusableView.m in Sources */,
 				54C8758B20F498C700AA0594 /* SH_GameItemView.m in Sources */,
 				5401C55320ECA1B80027246D /* SH_NetWorkService.m in Sources */,
@@ -2157,21 +2373,31 @@
 				DA6EE1C220F98B72009A01C5 /* SH_AlertView.m in Sources */,
 				DA22F3C320F44DA80058A54F /* CLDocumentCachePool.m in Sources */,
 				DA1BCC7E20FE054500201DBC /* SH_CardRecordView.m in Sources */,
+				DA1BCD692100AC4E00201DBC /* NSDate+PGCategory.m in Sources */,
 				DA1BCC8820FE1FFE00201DBC /* RH_BettingDetailModel.m in Sources */,
 				BF44ECED20F7096600BC6EF3 /* SH_PreferentialPopView.m in Sources */,
+				DA1BCD702100AC4E00201DBC /* PGDatePickManagerHeaderView.m in Sources */,
 				BF44ECBB20F4B36000BC6EF3 /* SH_RechargeDetailViewController.m in Sources */,
 				BFFC847120F3452A008AD801 /* UIButton+Category.m in Sources */,
+				DA1BCD6A2100AC4E00201DBC /* PGDatePicker+DateHour.m in Sources */,
 				425A90C020F8873E004B681A /* HLPopTableView.m in Sources */,
 				DA21F3AE20F6FCD000D20672 /* RH_RegistrationViewItem.m in Sources */,
+				DA1BCD6F2100AC4E00201DBC /* PGDatePicker+MonthDay.m in Sources */,
+				DA1BCD562100AC4E00201DBC /* PGPickerColumnCell.m in Sources */,
+				DA1BCD722100AC4E00201DBC /* PGDatePicker+DateHourMinuteSecond.m in Sources */,
+				DA1BCD662100AC4E00201DBC /* PGDatePicker+MonthDayHourMinute.m in Sources */,
 				54C875AF20FB414200AA0594 /* SH_WKGameViewController.m in Sources */,
+				DA1BCD592100AC4E00201DBC /* PGPickerTableView.m in Sources */,
 				BFA068DE21002BC600F5ADFE /* SH_BankListModel.m in Sources */,
 				DA22F3E520F4597E0058A54F /* RH_WebsocketManagar.m in Sources */,
 				DA22F3C520F44DA80058A54F /* CLBasicFileCachePool.m in Sources */,
 				BFA0688B20FC70AC00F5ADFE /* SH_PrifitOutCoinView.m in Sources */,
 				54C8758320F3562700AA0594 /* SH_InfoCenterTabView.m in Sources */,
 				BF44EC5F20F45DA700BC6EF3 /* SH_BitCoinTextView.m in Sources */,
+				DA1BCD5E2100AC4E00201DBC /* PGDatePickerView.m in Sources */,
 				5401C55020ECA1B80027246D /* SH_NetWorkService+LineCheck.m in Sources */,
 				54C875A420F7570800AA0594 /* SH_RingManager.m in Sources */,
+				DA1BCD632100AC4E00201DBC /* PGDatePickManager.m in Sources */,
 				BF44ECD820F5AE1300BC6EF3 /* SH_RechargeBankDetailView.m in Sources */,
 				42BF3E6E20F33A5D00F36B82 /* SH_PlayerCenterView.m in Sources */,
 				BFA068D220FE153000F5ADFE /* SH_BankCardView.m in Sources */,
@@ -2179,6 +2405,7 @@
 				5401C53120ECA10F0027246D /* AppDelegate.m in Sources */,
 				DA22F3D520F454840058A54F /* NSString+CLCategory.m in Sources */,
 				54C8761C20FE218B00AA0594 /* YFEmitterSnowCell.m in Sources */,
+				DA1BCD602100AC4E00201DBC /* PGDatePicker+YearAndMonth.m in Sources */,
 				22552CDA20F48DAA0090EFBC /* SH_SystemMsgView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

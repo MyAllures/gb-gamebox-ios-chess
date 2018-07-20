@@ -44,4 +44,6 @@
 +(void)fetchBettingDetails:(NSInteger)listId
                   complete:(SHNetWorkComplete)complete
                     failed:(SHNetWorkFailed)failed;
+#pragma mark --- 分享二维码
++(void)fetchShareQRCodeComplete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
 @end

@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIView *bottom_view;
 @property (weak, nonatomic) IBOutlet UILabel *account_label;
 @property (weak, nonatomic) IBOutlet UILabel *money_label;
+@property (weak, nonatomic) IBOutlet UIButton *avatar_button;
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatar_imgView;
 @end
@@ -43,9 +44,11 @@
     self.money_label.text = [NSString  stringWithFormat:@"%.2f",[RH_UserInfoManager shareUserManager].mineSettingInfo.walletBalance];
     if ([RH_UserInfoManager  shareUserManager].isLogin) {
         self.avatar_imgView.image = [UIImage  imageNamed:@"photo_male"];
+        [self.avatar_button setImage:[UIImage  imageNamed:@"photo_male"] forState:UIControlStateNormal];
         //刷新随身福利
     }else{
         self.avatar_imgView.image = [UIImage  imageNamed:@"avatar"];
+        [self.avatar_button setImage:[UIImage  imageNamed:@"avatar"] forState:UIControlStateNormal];
     }
     if (iPhoneX) {
         self.constraintWidth.constant = 200;

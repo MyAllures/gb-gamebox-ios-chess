@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "AlertViewController.h"
 @interface SH_SettingView : UIView
+@property(nonatomic,strong)AlertViewController  * vc;
 +(instancetype)instanceSettingView;
 @end

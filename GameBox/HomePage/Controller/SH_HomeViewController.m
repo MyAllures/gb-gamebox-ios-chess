@@ -26,7 +26,6 @@
 #import "SH_HomeBannerModel.h"
 #import "SH_RingManager.h"
 #import "SH_RingButton.h"
-#import "SH_PlayerCenterView.h"
 #import "SH_GameItemModel.h"
 #import "SH_GameItemView.h"
 #import "SH_DZGameItemView.h"
@@ -43,9 +42,8 @@
 #import "SH_AnnouncementView.h"
 #import "YFAnimationManager.h"
 #import "SH_GamesHomeViewController.h"
-#import "SH_testViewController.h"
+#import "SH_ShareView.h"
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate>
-
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImg;
 @property (weak, nonatomic) IBOutlet UILabel *userAccountLB;
@@ -55,7 +53,7 @@
 @property (weak, nonatomic) IBOutlet UIView *searchView;
 @property (weak, nonatomic) IBOutlet UIImageView *snowBGImg;
 @property (strong, nonatomic) SH_CycleScrollView *cycleAdView;
-@property (nonatomic, strong) SH_PlayerCenterView *pcv;
+
 
 @property (strong, nonatomic) SH_GamesListScrollView *topGamesListScrollView;
 @property (strong, nonatomic) SH_GamesListScrollView *midGamesListScrollView;
@@ -87,6 +85,7 @@
     [[YFAnimationManager shareInstancetype] showAnimationInView:self.snowBGImg withAnimationStyle:YFAnimationStyleOfSnow];
 
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didRegistratedSuccessful) name:@"didRegistratedSuccessful" object:nil];
+    [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(configUI) name:@"didLogOut" object:nil];
     if (iPhoneX) {
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(statusBarOrientationChange:)
@@ -413,44 +412,7 @@
     }
     SH_UserInformationView * inforView = [SH_UserInformationView  instanceInformationView];
     AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:inforView viewHeight:204 titleImageName:@"title04" alertViewType:AlertViewTypeShort];
-    __weak  typeof(self) weakSelf = self;
-    inforView.buttonClickBlock = ^(NSInteger tag) {
-        if (tag==100) {
-            SH_AlertView * alert = [SH_AlertView  instanceAlertView];
-             AlertViewController * vc = [[AlertViewController  alloc] initAlertView:alert viewHeight:174 titleImageName:@"title03" alertViewType:AlertViewTypeShort];
-            alert.btnClickBlock = ^(NSInteger tag) {
-                if (tag==100) {
-                    [vc close];
-                }else{
-                    
-                   MBProgressHUD * activityIndicatorView= showHUDWithMyActivityIndicatorView(self.view, nil, @"正在退出...");
-                    [SH_NetWorkService  fetchUserLoginOut:^(NSHTTPURLResponse *httpURLResponse, id response) {
-                        [activityIndicatorView hideAnimated:false];
-                        [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
-                        [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:nil];
-                      /*  [[NSUserDefaults  standardUserDefaults] setObject:@"" forKey:@"password"];
-                        [[NSUserDefaults  standardUserDefaults] synchronize];*/
-                        [weakSelf configUI];
-                        showMessage([UIApplication  sharedApplication].keyWindow, @"已成功退出", nil);
-                        if ([vc respondsToSelector:@selector(presentingViewController)]){
-                            [vc.presentingViewController.presentingViewController dismissViewControllerAnimated:NO completion:nil];
-                        }else {
-                            [vc.parentViewController.parentViewController dismissViewControllerAnimated:NO completion:nil];
-                        }
-                    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-                        [activityIndicatorView hideAnimated:false];
-                        showMessage([UIApplication  sharedApplication].keyWindow, @"退出失败", nil);
-                    }];
-                    
-                }
-            };
-            [weakSelf  presentViewController:vc addTargetViewController:cvc];
-        }else{
-            SH_SettingView * settingView = [SH_SettingView instanceSettingView];
-             AlertViewController * setVC = [[AlertViewController  alloc] initAlertView:settingView viewHeight:130 titleImageName:@"title05" alertViewType:AlertViewTypeShort];
-            [weakSelf  presentViewController:setVC addTargetViewController:cvc];
-        }
-    };
+    inforView.vc = cvc;
     [self presentViewController:cvc addTargetViewController:self];
 }
 #pragma mark --- 模态弹出viewController
@@ -463,8 +425,7 @@
 #pragma mark - 优惠活动
 - (IBAction)activitiesClick:(id)sender {
     SH_PromoContentView *promoContentView = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoContentView" owner:nil options:nil] lastObject];
-    AlertViewController  * cvc = [[AlertViewController  alloc] initAlertView:promoContentView viewHeight:[UIScreen mainScreen].bounds.size.height-80 titleImageName:@"progress_bar_icon" alertViewType:AlertViewTypeLong];
-    //    cvc.imageName = @"progress_bar_icon";
+    AlertViewController  * cvc = [[AlertViewController  alloc] initAlertView:promoContentView viewHeight:[UIScreen mainScreen].bounds.size.height-80 titleImageName:@"title11" alertViewType:AlertViewTypeLong];
     cvc.title = @"优惠活动";
     cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
@@ -532,6 +493,17 @@
 
 
 - (IBAction)shareClick:(id)sender {
+    if ([RH_UserInfoManager shareUserManager].isLogin) {
+          SH_ShareView * share = [SH_ShareView instanceShareView];
+        AlertViewController *vc  = [[AlertViewController  alloc] initAlertView:share viewHeight:260 titleImageName:@"title08" alertViewType:AlertViewTypeShort];
+        share.targetVC = vc;
+        [self presentViewController:vc addTargetViewController:self];
+    }else{
+        [self login];
+    }
+    
+  
+    
 }
 
 - (void)initAdScroll
@@ -772,8 +744,8 @@
             NSString *gameMsg = [[response objectForKey:@"data"] objectForKey:@"gameMsg"];
             if (IS_EMPTY_STRING(gameMsg)) {
                 NSString *gameLink = [[response objectForKey:@"data"] objectForKey:@"gameLink"];
-                GameWebViewController *gameVC = [[GameWebViewController alloc] initWithNibName:@"GameWebViewController" bundle:nil];
-//                SH_WKGameViewController *gameVC = [[SH_WKGameViewController alloc] init];
+//                GameWebViewController *gameVC = [[GameWebViewController alloc] init];
+                SH_WKGameViewController *gameVC = [[SH_WKGameViewController alloc] init];
                 gameVC.url = gameLink;
                 [weakSelf.navigationController pushViewController:gameVC animated:NO];
             }
