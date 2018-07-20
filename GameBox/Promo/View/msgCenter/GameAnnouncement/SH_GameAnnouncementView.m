@@ -13,11 +13,10 @@
 #import "SH_GameBulletinModel.h"
 #import "SH_ApiSelectModel.h"
 #import "RH_UserInfoManager.h"
-#import "PGDatePicker.h"
-#import "PGDatePickManager.h"
 #import "HLPopTableView.h"
+#import "SH_NiceDatePickerView.h"
 
-@interface SH_GameAnnouncementView ()<UITableViewDataSource, UITableViewDelegate,PGDatePickerDelegate>
+@interface SH_GameAnnouncementView ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -39,31 +38,29 @@
 
 #pragma mark 开始时间选择
 - (IBAction)startTimeAction:(id)sender {
-    PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
-    datePickManager.style = PGDatePickManagerStyle1;
-    datePickManager.isShadeBackgroud = true;
-    
-    PGDatePicker *datePicker = datePickManager.datePicker;
-    datePicker.isHiddenMiddleText = false;
-    datePicker.delegate = self;
-    datePicker.datePickerType = PGPickerViewType3;
-    datePicker.datePickerMode = PGDatePickerModeDate;
-    [self presentViewController:datePickManager addTargetViewController:self.alertVC];
+    SH_NiceDatePickerView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_NiceDatePickerView" owner:self options:nil].firstObject;
+    [view setDateStyle:DateStyleShowYearMonthDay CompleteBlock:^(NSDate *date) {
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd"];
+        NSString *dateString = [dateFormat stringFromDate:date];
+        NSLog(@"dateString==%@",dateString);
+        NSDictionary *dict =[[NSDictionary alloc]initWithObjectsAndKeys:dateString,@"date",nil];
+        [self changedDate:dict];
+    }];
+    [view showPickerView];
 }
 #pragma mark 结束时间选择
 - (IBAction)endTimeAction:(id)sender {
-    NSDictionary *dict = [[NSDictionary alloc]initWithObjectsAndKeys:@"end",@"isEnd", nil];
-    self.startAndEndDateStr = dict[@"isEnd"];
-    PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
-    datePickManager.style = PGDatePickManagerStyle1;
-    datePickManager.isShadeBackgroud = true;
-    
-    PGDatePicker *datePicker = datePickManager.datePicker;
-    datePicker.isHiddenMiddleText = false;
-    datePicker.delegate = self;
-    datePicker.datePickerType = PGPickerViewType3;
-    datePicker.datePickerMode = PGDatePickerModeDate;
-    [self presentViewController:datePickManager addTargetViewController:self.alertVC];
+    SH_NiceDatePickerView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_NiceDatePickerView" owner:self options:nil].firstObject;
+    [view setDateStyle:DateStyleShowYearMonthDay CompleteBlock:^(NSDate *date) {
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd"];
+        NSString *dateString = [dateFormat stringFromDate:date];
+        NSLog(@"dateString==%@",dateString);
+        NSDictionary *dict =[[NSDictionary alloc]initWithObjectsAndKeys:dateString,@"date",nil];
+        [self changedDate:dict];
+    }];
+    [view showPickerView];
 }
 #pragma mark --- 模态弹出viewController
 -(void)presentViewController:(UIViewController*)viewController addTargetViewController:(UIViewController*)targetVC{
@@ -204,8 +201,6 @@
 
 -(void)awakeFromNib {
     [super awakeFromNib];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changedDate:) name:@"seletedDate" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(seletedEndDate:) name:@"seletedEndDate" object:nil];
     self.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1];
 //    self.tableView.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
     [self.startTimeBtn setTitle:[self getCurrentTimes] forState:UIControlStateNormal];
@@ -293,37 +288,5 @@
 }
 
 -(void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"seletedDate" object:nil];
-}
-
-#pragma mark - PGDatePickerDelegate M
-- (void)datePicker:(PGDatePicker *)datePicker didSelectDate:(NSDateComponents *)dateComponents {
-    NSLog(@"dateComponents = %@", dateComponents);
-    NSString *month ;
-    NSString *day;
-    if (dateComponents.month < 10) {
-        month = [NSString stringWithFormat:@"0%@",@(dateComponents.month)];
-    }else{
-        month = [NSString stringWithFormat:@"%@",@(dateComponents.month)];
-    }
-    
-    if (dateComponents.day < 10) {
-        day = [NSString stringWithFormat:@"0%@",@(dateComponents.day)];
-    }else{
-        day = [NSString stringWithFormat:@"%@",@(dateComponents.day)];
-    }
-    NSString *dateStr = [NSString stringWithFormat:@"%@-%@-%@",@(dateComponents.year),month,day];
-    NSLog(@"---%@",dateStr);
-    if ([self.startAndEndDateStr isEqualToString:@"end"]) {
-        NSString *dateStr = [NSString stringWithFormat:@"%@-%@-%@",@(dateComponents.year),month,day];
-        NSDictionary *dict =[[NSDictionary alloc]initWithObjectsAndKeys:dateStr,@"date",nil];
-        [self seletedEndDate:dict];
-                self.startAndEndDateStr = @"";
-        
-    } else {
-        NSString *dateStr = [NSString stringWithFormat:@"%@-%@-%@",@(dateComponents.year),month,day];
-        NSDictionary *dict =[[NSDictionary alloc]initWithObjectsAndKeys:dateStr,@"date",nil];
-        [self changedDate:dict];
-    }
 }
 @end

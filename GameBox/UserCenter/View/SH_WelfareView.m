@@ -76,9 +76,9 @@
 #pragma mark ---  button click method
 - (IBAction)buttonClick:(UIButton *)sender {
     if (sender.tag==100) {
-        [self  startBtnClick];
+//        [self  startBtnClick];
     }else if (sender.tag==101){
-        [self  endBtnClick];
+//        [self  endBtnClick];
     }else if (sender.tag==102){
         __weak typeof(self) weakSelf = self;
         HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, sender.bounds.size.width, 140) dependView:sender textArr:self.dataArray textFont:14.0  block:^(NSString *region_name, NSInteger index) {
