@@ -23,7 +23,6 @@
 #import "SH_RechargeBankDetailViewController.h"
 #import "SH_KuaiChongViewController.h"
 #import "SH_PreferentialPopView.h"
-#import "SH_DatePickerView.h"
 @interface SH_RechargeCenterViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,RH_RechargeCenterFooterViewDelegate,SH_PreferentialPopViewDelegate>
 @property(nonatomic,strong)UICollectionView *mainCollectionView;
 @property(nonatomic,strong)NSMutableArray *dataArray;

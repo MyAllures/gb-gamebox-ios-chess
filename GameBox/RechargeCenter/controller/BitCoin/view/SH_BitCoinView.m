@@ -9,7 +9,7 @@
 #import "SH_BitCoinView.h"
 #import "SH_BitCoinSubView.h"
 #import "SH_BitCoinTextView.h"
-#import "SH_DatePickerView.h"
+#import "SH_NiceDatePickerView.h"
 #import "SavePhotoTool.h"
 #import "TTTAttributedLabel.h"
 @interface SH_BitCoinView()<SH_BitCoinTextViewDelegate,TTTAttributedLabelDelegate>
@@ -137,7 +137,7 @@
 #pragma mark-- SH_BitCoinTextView代理
 -(void)SH_BitCoinTextViewChooseDateBtnClick{
       __weak typeof(self) weakSelf = self;
-    SH_DatePickerView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_DatePickerView" owner:self options:nil].firstObject;
+    SH_NiceDatePickerView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_NiceDatePickerView" owner:self options:nil].firstObject;
     [view setDateStyle:DateStyleShowYearMonthDayHourMinute CompleteBlock:^(NSDate *date) {
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
         [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];

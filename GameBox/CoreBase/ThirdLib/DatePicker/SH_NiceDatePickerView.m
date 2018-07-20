@@ -6,7 +6,7 @@
 //  Copyright © 2018年 jun. All rights reserved.
 //
 
-#import "SH_DatePickerView.h"
+#import "SH_NiceDatePickerView.h"
 
 #define kPickerSize self.pickerView.frame.size
 #define RGBA(r, g, b, a) ([UIColor colorWithRed:(r / 255.0) green:(g / 255.0) blue:(b / 255.0) alpha:a])
@@ -21,7 +21,7 @@
 #define MINYEAR 1000
 
 typedef void(^doneBlock)(NSDate *);
-@interface SH_DatePickerView()<UIPickerViewDelegate,UIPickerViewDataSource,UIGestureRecognizerDelegate>
+@interface SH_NiceDatePickerView()<UIPickerViewDelegate,UIPickerViewDataSource,UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
 @property (weak, nonatomic) IBOutlet UILabel *yearLab;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
@@ -45,7 +45,7 @@ typedef void(^doneBlock)(NSDate *);
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 
 @end
-@implementation SH_DatePickerView
+@implementation SH_NiceDatePickerView
 
 - (void)awakeFromNib{
     [super awakeFromNib];

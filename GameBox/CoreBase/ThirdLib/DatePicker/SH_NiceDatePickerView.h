@@ -16,7 +16,7 @@ typedef enum{
     DateStyleShowYearMonthDay,//年月日
 }DateStyle;
 
-@interface SH_DatePickerView : UIView
+@interface SH_NiceDatePickerView : UIView
 /**
  *  年-月-日-时-分 文字颜色(默认橙色)
  */

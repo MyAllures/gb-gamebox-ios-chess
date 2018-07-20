@@ -45,7 +45,6 @@
 #import "SH_PromoDeatilViewController.h"
 #import "SH_ShareView.h"
 #import "SH_PromoListModel.h"
-
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImg;
