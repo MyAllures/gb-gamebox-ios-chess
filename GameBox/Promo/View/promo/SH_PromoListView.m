@@ -15,6 +15,7 @@
 #import "SH_PromoListModel.h"
 #import "SH_NetWorkService+Promo.h"
 #import <SDWebImage/SDWebImageFrame.h>
+#import "SH_PromoDeatilViewController.h"
 
 @interface SH_PromoListView () <UITableViewDelegate, UITableViewDataSource>
 
@@ -98,7 +99,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    ifRespondsSelector(self.delegate, @selector(promoListView:didSelect:))
+    {
+        SH_PromoListModel *model = self.promoListArr[indexPath.section];
+        [self.delegate promoListView:self didSelect:model];
+    }
     
+    SH_PromoListModel *model = self.promoListArr[indexPath.section];
+    SH_PromoDeatilViewController *vc = [[SH_PromoDeatilViewController alloc] initWithNibName:@"SH_PromoDeatilViewController" bundle:nil];
+    vc.url = model.url;
+    [[UIApplication sharedApplication].keyWindow addSubview:vc.view];
 }
 
 @end

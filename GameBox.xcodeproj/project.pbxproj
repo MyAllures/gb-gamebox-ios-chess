@@ -105,6 +105,8 @@
 		54C8763B2100B04300AA0594 /* SH_HorizontalscreenPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C876372100B04300AA0594 /* SH_HorizontalscreenPicker.xib */; };
 		54C8763C2100B04300AA0594 /* THScrollChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C876382100B04300AA0594 /* THScrollChooseView.m */; };
 		54C8763D2100B04300AA0594 /* SH_HorizontalscreenPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8763A2100B04300AA0594 /* SH_HorizontalscreenPicker.m */; };
+		54C876422100BFA000AA0594 /* SH_PromoDeatilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C876402100BFA000AA0594 /* SH_PromoDeatilViewController.m */; };
+		54C876432100BFA000AA0594 /* SH_PromoDeatilViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C876412100BFA000AA0594 /* SH_PromoDeatilViewController.xib */; };
 		BF2F915A20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F915820EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m */; };
 		BF2F915B20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2F915920EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib */; };
 		BF2F915F20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F915D20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m */; };
@@ -459,6 +461,9 @@
 		54C876382100B04300AA0594 /* THScrollChooseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THScrollChooseView.m; sourceTree = "<group>"; };
 		54C876392100B04300AA0594 /* THScrollChooseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THScrollChooseView.h; sourceTree = "<group>"; };
 		54C8763A2100B04300AA0594 /* SH_HorizontalscreenPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_HorizontalscreenPicker.m; sourceTree = "<group>"; };
+		54C8763F2100BFA000AA0594 /* SH_PromoDeatilViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoDeatilViewController.h; sourceTree = "<group>"; };
+		54C876402100BFA000AA0594 /* SH_PromoDeatilViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoDeatilViewController.m; sourceTree = "<group>"; };
+		54C876412100BFA000AA0594 /* SH_PromoDeatilViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PromoDeatilViewController.xib; sourceTree = "<group>"; };
 		BF2F915720EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_DepositeWayCollectionViewCell.h; sourceTree = "<group>"; };
 		BF2F915820EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_DepositeWayCollectionViewCell.m; sourceTree = "<group>"; };
 		BF2F915920EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_DepositeWayCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -809,6 +814,7 @@
 		2224CB6D20EF8C3100E6872B /* Promo */ = {
 			isa = PBXGroup;
 			children = (
+				54C8763E2100BF8000AA0594 /* Controller */,
 				54C8757520F3502000AA0594 /* Model */,
 				54C8757620F3502000AA0594 /* View */,
 			);
@@ -1294,6 +1300,16 @@
 				54C8763A2100B04300AA0594 /* SH_HorizontalscreenPicker.m */,
 			);
 			path = THScrollChoose;
+			sourceTree = "<group>";
+		};
+		54C8763E2100BF8000AA0594 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				54C8763F2100BFA000AA0594 /* SH_PromoDeatilViewController.h */,
+				54C876402100BFA000AA0594 /* SH_PromoDeatilViewController.m */,
+				54C876412100BFA000AA0594 /* SH_PromoDeatilViewController.xib */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		87BD6A1D16B97D20B3D1FCB6 /* Frameworks */ = {
@@ -2071,6 +2087,7 @@
 				BFA0689220FC8C1A00F5ADFE /* SH_OutCoinDetailView.xib in Resources */,
 				DA6EE1C920F99F45009A01C5 /* SH_SettingView.xib in Resources */,
 				54C875A020F756A500AA0594 /* errRing.mp3 in Resources */,
+				54C876432100BFA000AA0594 /* SH_PromoDeatilViewController.xib in Resources */,
 				BFA068CF20FE135200F5ADFE /* SH_ModiftSaftyPSDView.xib in Resources */,
 				54C8763421008D4800AA0594 /* SH_GameWebView.xib in Resources */,
 				54C875C820FCBE1900AA0594 /* SH_DZGameItemView.xib in Resources */,
@@ -2257,6 +2274,7 @@
 				BF44EC4D20F44BA300BC6EF3 /* SH_BitCoinViewController.m in Sources */,
 				54C8761720FE218B00AA0594 /* YFEmitterLeavesCell.m in Sources */,
 				DA1BCC5B20FDBFCD00201DBC /* SH_FundListModel.m in Sources */,
+				54C876422100BFA000AA0594 /* SH_PromoDeatilViewController.m in Sources */,
 				DA21F3B220F742B700D20672 /* NSDate+CLCategory.m in Sources */,
 				DA21F39020F6069600D20672 /* UIView+FrameSize.m in Sources */,
 				DA1BCC7A20FDEE1E00201DBC /* RH_CapitalRecordDetailsCell.m in Sources */,

@@ -43,6 +43,8 @@
 #import "SH_AnnouncementView.h"
 #import "YFAnimationManager.h"
 #import "SH_GamesHomeViewController.h"
+#import "SH_PromoDeatilViewController.h"
+
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate,PlayerCenterViewDelegate>
 
 
@@ -94,6 +96,12 @@
     }
     [self  configUI];
     [self  autoLoginIsRegist:false];
+    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        SH_PromoDeatilViewController *vc = [[SH_PromoDeatilViewController alloc] initWithNibName:@"SH_PromoDeatilViewController" bundle:nil];
+//        vc.url = @"https://test18.ccenter.test.so/promo/promoDetail.html?searchId=42f998363e0e09e58bfec6eed7772e0e";
+//        [self presentViewController:vc addTargetViewController:self];
+//    });
 }
 
 #pragma mark - 记着密码启动自动登录
