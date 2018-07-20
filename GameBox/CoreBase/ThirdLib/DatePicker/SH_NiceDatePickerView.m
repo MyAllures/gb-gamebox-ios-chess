@@ -24,8 +24,6 @@ typedef void(^doneBlock)(NSDate *);
 @interface SH_NiceDatePickerView()<UIPickerViewDelegate,UIPickerViewDataSource,UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
 @property (weak, nonatomic) IBOutlet UILabel *yearLab;
-@property (weak, nonatomic) IBOutlet UIView *bottomView;
-
 @property(nonatomic,strong)NSMutableArray *yearArray;
 @property(nonatomic,strong)NSMutableArray *monthArray;
 @property(nonatomic,strong)NSMutableArray *dayArray;
@@ -42,8 +40,6 @@ typedef void(^doneBlock)(NSDate *);
 @property (nonatomic, retain) NSDate *scrollToDate;//滚到指定日期
 @property (nonatomic,strong)doneBlock doneBlock;
 @property (nonatomic,assign)DateStyle datePickerStyle;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
-
 @end
 @implementation SH_NiceDatePickerView
 
@@ -53,7 +49,6 @@ typedef void(^doneBlock)(NSDate *);
 
 }
 -(void)configUI{
-    self.bottomConstraint.constant = bottom_height;
     self.pickerView.showsSelectionIndicator = YES;
     self.pickerView.delegate = self;
     self.pickerView.dataSource = self;
@@ -382,6 +377,9 @@ typedef void(^doneBlock)(NSDate *);
     
     self.startDate = [self.scrollToDate dateWithFormatter:self.dateFormatter];
     self.doneBlock(self.startDate);
+    [self dismiss];
+}
+- (IBAction)cancelBtnClick:(id)sender {
     [self dismiss];
 }
 
