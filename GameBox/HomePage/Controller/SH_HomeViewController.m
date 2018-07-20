@@ -26,7 +26,6 @@
 #import "SH_HomeBannerModel.h"
 #import "SH_RingManager.h"
 #import "SH_RingButton.h"
-#import "SH_PlayerCenterView.h"
 #import "SH_GameItemModel.h"
 #import "SH_GameItemView.h"
 #import "SH_DZGameItemView.h"
@@ -43,9 +42,11 @@
 #import "SH_AnnouncementView.h"
 #import "YFAnimationManager.h"
 #import "SH_GamesHomeViewController.h"
+#import "SH_PromoDeatilViewController.h"
 #import "SH_ShareView.h"
-@interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate,PlayerCenterViewDelegate>
+#import "SH_PromoListModel.h"
 
+@interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImg;
 @property (weak, nonatomic) IBOutlet UILabel *userAccountLB;
@@ -55,7 +56,7 @@
 @property (weak, nonatomic) IBOutlet UIView *searchView;
 @property (weak, nonatomic) IBOutlet UIImageView *snowBGImg;
 @property (strong, nonatomic) SH_CycleScrollView *cycleAdView;
-@property (nonatomic, strong) SH_PlayerCenterView *pcv;
+
 
 @property (strong, nonatomic) SH_GamesListScrollView *topGamesListScrollView;
 @property (strong, nonatomic) SH_GamesListScrollView *midGamesListScrollView;
@@ -426,12 +427,18 @@
 
 #pragma mark - 优惠活动
 - (IBAction)activitiesClick:(id)sender {
+    __weak typeof(self) weakSelf = self;
+
     SH_PromoContentView *promoContentView = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoContentView" owner:nil options:nil] lastObject];
     AlertViewController  * cvc = [[AlertViewController  alloc] initAlertView:promoContentView viewHeight:[UIScreen mainScreen].bounds.size.height-80 titleImageName:@"title11" alertViewType:AlertViewTypeLong];
-    cvc.title = @"优惠活动";
     cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
     [self presentViewController:cvc animated:YES completion:nil];
+    [promoContentView showPromoDetail:^(SH_PromoListModel *model) {
+        SH_PromoDeatilViewController *vc = [[SH_PromoDeatilViewController alloc] initWithNibName:@"SH_PromoDeatilViewController" bundle:nil];
+        vc.model = model;
+        [weakSelf presentViewController:vc addTargetViewController:cvc];
+    }];
 }
 
 #pragma mark - 优惠活动详情
@@ -648,9 +655,11 @@
 }
 
 #pragma mark ---注册成功的通知 这里自动登录
+
 -(void)didRegistratedSuccessful{
     [self  autoLoginIsRegist:YES];
 }
+
 #pragma mark - SH_CycleScrollViewDataSource
 
 - (NSArray *)numberOfCycleScrollView:(SH_CycleScrollView *)bannerView

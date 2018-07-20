@@ -191,7 +191,7 @@
 
 - (void)starsAnimation
 {
-    NSArray *images=[NSArray arrayWithObjects:[UIImage imageNamed:@"effects_star0"],[UIImage imageNamed:@"effects_star1"],[UIImage imageNamed:@"effects_star2"], nil];
+    NSArray *images=[NSArray arrayWithObjects:[UIImage imageNamed:@"effects_star"],[UIImage imageNamed:@"effects_star2"],[UIImage imageNamed:@"effects_star3"], nil];
     self.animationStartImg.animationImages = images;
     self.animationStartImg.contentMode = UIViewContentModeScaleAspectFit;
     self.animationStartImg.animationDuration = 0.9;

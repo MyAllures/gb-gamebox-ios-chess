@@ -8,7 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class SH_PromoListView;
+@class SH_PromoListModel;
+@protocol SH_PromoListViewDelegate
+
+@optional
+- (void)promoListView:(SH_PromoListView *)view didSelect:(SH_PromoListModel *)model;
+@end
+
 @interface SH_PromoListView : UIView
+
+@property (nonatomic, weak) id <SH_PromoListViewDelegate> delegate;
 
 - (void)reloadData;
 
