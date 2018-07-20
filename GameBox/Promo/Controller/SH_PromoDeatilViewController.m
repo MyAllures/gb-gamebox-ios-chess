@@ -30,7 +30,10 @@
     _gameWebView.hideMenuView = YES;
     [self.contentView addSubview:_gameWebView];
     [_gameWebView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.contentView).offset(8);
+        make.left.mas_equalTo(8);
+        make.right.mas_equalTo(-8);
+        make.top.mas_equalTo(8);
+        make.bottom.mas_equalTo(-8);
     }];
 }
 

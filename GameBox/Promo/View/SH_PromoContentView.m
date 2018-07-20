@@ -37,6 +37,8 @@
     self.rightContentView.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
     [self.promoListView reloadData];
     self.promoBT.selected = YES;
+    self.promoListView.hidden = NO;
+    self.infoCenterTabView.hidden = YES;
 }
 
 - (void)showPromoDetail:(SH_PromoContentViewShowDetail)showBlock
