@@ -99,6 +99,11 @@
 @implementation RH_CapitalRecordDetailsCell
 +(CGFloat)heightForCellWithInfo:(NSDictionary *)info tableView:(UITableView *)tableView context:(id)context
 {
+    RH_CapitalDetailModel *detailModel = ConvertToClassPointer(RH_CapitalDetailModel, context);
+    SH_FundListModel *infoModel = ConvertToClassPointer(SH_FundListModel, [info objectForKey:@"RH_CapitalInfoModel"]);
+    if([detailModel.bankCodeName containsString:@"银行"]||[infoModel.transaction_typeName isEqualToString:@"取款"]){
+        return  500;
+    }
     return MainScreenH-NavigationBarHeight;
 }
 -(instancetype)initWithCoder:(NSCoder *)aDecoder
@@ -233,7 +238,7 @@
             self.inMyAccountMoney.text = detailModel.rechargeTotalAmount ;
             self.isSuccState.text = detailModel.statusName ;
 //             _BottomView2.whc_TopSpaceToView(36, self.thirdView).whc_LeftSpace(15).whc_RightSpace(15).whc_HeightAuto();
-            [_BottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+            [_BottomView2 mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.mas_equalTo(self.thirdView.mas_bottom).mas_offset(36);
                 make.leading.mas_equalTo(15);
                 make.trailing.mas_equalTo(-15);

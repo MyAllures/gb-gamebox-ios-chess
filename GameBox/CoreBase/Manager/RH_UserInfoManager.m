@@ -7,7 +7,6 @@
 //
 
 #import "RH_UserInfoManager.h"
-#import "CLDocumentCachePool.h"
 #import "MacroDef.h"
 
 
@@ -62,18 +61,6 @@
 }
 -(void)updateIsLogin:(BOOL)isLogin{
     _isLogin = isLogin;
-}
--(BOOL)isVoiceSwitch
-{
-    NSString *bFlag = [[CLDocumentCachePool shareTempCachePool] cacheKeyedUnArchiverRootObjectForKey:key_voiceSwitchFlag expectType:[NSString class]] ;
-    return [bFlag boolValue] ;
-}
-
--(void)updateVoickSwitchFlag:(BOOL)bSwitch
-{
-        [[CLDocumentCachePool shareTempCachePool] cacheKeyedArchiverDataWithRootObject:bSwitch?@"1":@"0"
-                                                                                forKey:key_voiceSwitchFlag
-                                                                                 async:YES] ;
 }
 
 #pragma mark -

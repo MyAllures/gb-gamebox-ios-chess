@@ -21,6 +21,7 @@
     [super awakeFromNib];
     [self fetchShareQRCode];
 }
+#pragma mark --- 保存二维码到相册
 - (IBAction)saveQRImageViewButton:(UIButton *)sender {
     
     UIAlertController  * alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否需要保存图片到相册" preferredStyle:UIAlertControllerStyleAlert] ;
@@ -35,7 +36,7 @@
     [self.targetVC  presentViewController:alert animated:YES completion:nil];
     
 }
-- (BOOL)saveImageToPhotosAlbum
+- (void)saveImageToPhotosAlbum
 {
         
         UIImage * displayingImage = self.QRCode_imageView.image;
@@ -45,10 +46,10 @@
             MBProgressHUD * activityIndicatorView = showHUDWithMyActivityIndicatorView(self.window, nil, @"保存中...");
             UIImageWriteToSavedPhotosAlbum(displayingImage, self, @selector(image:didFinishSavingWithError:contextInfo:), ((__bridge void *)activityIndicatorView));
             
-            return YES;
+        }else{
+            showMessage(self, nil, @"没有需要保存的图片");
         }
     
-    return NO;
 }
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {
@@ -62,6 +63,7 @@
     };
     [activityIndicatorView hideAnimated:YES];
 }
+#pragma mark --- 获取分享二维码图片
 -(void)fetchShareQRCode{
     __weak  typeof(self) weakSelf = self;
     [SH_NetWorkService  fetchShareQRCodeComplete:^(NSHTTPURLResponse *httpURLResponse, id response) {

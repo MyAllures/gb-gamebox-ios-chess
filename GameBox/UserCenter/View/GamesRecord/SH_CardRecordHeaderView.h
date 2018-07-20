@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "AlertViewController.h"
 @interface SH_CardRecordHeaderView : UIView
+@property(nonatomic,strong)AlertViewController * alertVC;
 @property(nonatomic,copy)void (^searchConditionBlock)(NSDictionary * context);
 +(instancetype)instanceCardRecordHeaderView;
 @end

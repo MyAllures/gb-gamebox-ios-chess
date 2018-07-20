@@ -120,7 +120,7 @@
 }
 #pragma mark --- 分享二维码
 +(void)fetchShareQRCodeComplete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed{
-    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/chess/getShareQRCode.htmll"];
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/chess/getShareQRCode.html"];
     NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":([NetWorkLineMangaer sharedManager].currentCookie?[NetWorkLineMangaer sharedManager].currentCookie:@"")};
     [self post:url parameter:nil header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {

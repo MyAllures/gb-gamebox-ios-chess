@@ -17,7 +17,6 @@
 #import "SH_SearchTypeModel.h"
 @interface SH_WelfareView() <UITextFieldDelegate,PGDatePickerDelegate>
 {
-    PGDatePickManager *_datePickManager;
     NSInteger  _selectIndex;
     NSArray *_selectIdArray;
 }
@@ -142,10 +141,13 @@
     datePicker.delegate = self;
     datePicker.datePickerType = PGPickerViewType3;
     datePicker.datePickerMode = PGDatePickerModeDate;
-    _datePickManager = datePickManager;
-    UIWindow  * window = [UIApplication  sharedApplication].keyWindow;
-    window.backgroundColor = [UIColor  yellowColor];
-    [window addSubview:_datePickManager.view];
+    [self presentViewController:datePickManager addTargetViewController:self.vc];
+}
+#pragma mark --- 模态弹出viewController
+-(void)presentViewController:(UIViewController*)viewController addTargetViewController:(UIViewController*)targetVC{
+    viewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    viewController.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
+    [targetVC presentViewController:viewController animated:YES completion:nil];
 }
 #pragma mark -- 点击选择结束时间
 -(void)endBtnClick{
@@ -160,8 +162,7 @@
     datePicker.delegate = self;
     datePicker.datePickerType = PGPickerViewType3;
     datePicker.datePickerMode = PGDatePickerModeDate;
-    _datePickManager = datePickManager;
-    [self.window addSubview:datePickManager.view];
+     [self presentViewController:datePickManager addTargetViewController:self.vc];
 }
 #pragma mark -- 结束时间
 -(void)seletedEndDate:(NSDictionary *)nt {
@@ -179,6 +180,7 @@
         return;
     }
       self.end_label.text = nt[@"date"];
+    [self search];
 }
 #pragma mark -- 开始时间
 -(void)changedDate:(NSDictionary *)nt {
@@ -196,6 +198,7 @@
         return;
     }
     self.start_label.text = nt[@"date"];
+    [self search];
 }
 #pragma mark - PGDatePickerDelegate M
 - (void)datePicker:(PGDatePicker *)datePicker didSelectDate:(NSDateComponents *)dateComponents {

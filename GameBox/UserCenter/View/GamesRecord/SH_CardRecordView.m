@@ -11,6 +11,7 @@
 #import "SH_NetWorkService+UserCenter.h"
 #import "SH_CardRecordTableViewCell.h"
 #import "SH_CardRecordModel.h"
+#import "SH_CardRecordDetailView.h"
 @interface  SH_CardRecordView()<UITableViewDelegate,UITableViewDataSource>
 {
     NSInteger page;
@@ -133,9 +134,16 @@
     [tableView  deselectRowAtIndexPath:indexPath animated:YES];
     RH_BettingInfoModel * info = ConvertToClassPointer(RH_BettingInfoModel, self.dataArray[indexPath.row]);
     NSLog(@"----%@",info.mId);
-    if (self.backToDetailViewBlock) {
-        self.backToDetailViewBlock(info.mId);
-    }
+    SH_CardRecordDetailView * cardDetail = [SH_CardRecordDetailView  instanceCardRecordDetailView];
+    cardDetail.mId = info.mId;
+    AlertViewController *dcr  = [[AlertViewController  alloc] initAlertView:cardDetail viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title10" alertViewType:AlertViewTypeLong];
+    [self presentViewController:dcr addTargetViewController:self.alertVC];
+}
+#pragma mark --- 模态弹出viewController
+-(void)presentViewController:(UIViewController*)viewController addTargetViewController:(UIViewController*)targetVC{
+    viewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    viewController.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
+    [targetVC presentViewController:viewController animated:YES completion:nil];
 }
 #pragma  amark --- getter method
 -(SH_CardRecordHeaderView *)headerView{
@@ -154,6 +162,8 @@
                     SH_CardRecordModel  * model = [[SH_CardRecordModel alloc] initWithDictionary:dic[@"data"] error:nil];
                     if (model.list.count ==20) {
                         weakSelf.tableView.mj_footer.hidden = false;
+                    }else{
+                        weakSelf.tableView.mj_footer.hidden = YES;
                     }
                     if (weakSelf.dataArray.count) {
                         [weakSelf.dataArray removeAllObjects];
@@ -169,11 +179,16 @@
     }
     return  _headerView;
 }
-#pragma mark -- getter  method
+#pragma mark --- getter  method
 -(NSMutableArray *)dataArray{
     if (!_dataArray) {
         _dataArray = [NSMutableArray  array];
     }
     return  _dataArray;
+}
+#pragma mark --- setter method
+-(void)setAlertVC:(AlertViewController *)alertVC{
+    _alertVC = alertVC;
+    self.headerView.alertVC = alertVC;
 }
 @end

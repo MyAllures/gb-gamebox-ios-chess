@@ -12,6 +12,8 @@
 #import "SH_NetWorkService+UserCenter.h"
 #import "SH_FundListModel.h"
 #import "SH_WelfareInfoModel.h"
+#import "SH_CardRecordDetailView.h"
+#import "SH_WelfareDetailView.h"
 @interface  SH_WelfareRecordView()<UITableViewDelegate,UITableViewDataSource>
 {
     NSDictionary *dict;
@@ -124,6 +126,8 @@
                     [weakSelf.dataArray addObjectsFromArray:self->model.fundListApps];
                     if (self->model.fundListApps.count==20) {
                         weakSelf.tableView.mj_footer.hidden = false;
+                    }else{
+                       weakSelf.tableView.mj_footer.hidden = YES;
                     }
                     [weakSelf.tableView  reloadData];
                 }
@@ -162,9 +166,17 @@
     [tableView  deselectRowAtIndexPath:indexPath animated:YES];
     SH_FundListModel * model = self.dataArray[indexPath.row];
     NSString * searchId = [NSString  stringWithFormat:@"%ld",model.mId];
-    if (self.backToDetailViewBlock) {
-        self.backToDetailViewBlock(searchId,model);
-    }
+    SH_WelfareDetailView * detail = [SH_WelfareDetailView  instanceWelfareDetailView];
+    detail.searchId = searchId;
+    detail.infoModel = model;
+    AlertViewController *dvc  = [[AlertViewController  alloc] initAlertView:detail viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title09" alertViewType:AlertViewTypeLong];
+    [self presentViewController:dvc addTargetViewController:self.vc];
+}
+#pragma mark --- 模态弹出viewController
+-(void)presentViewController:(UIViewController*)viewController addTargetViewController:(UIViewController*)targetVC{
+    viewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    viewController.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
+    [targetVC presentViewController:viewController animated:YES completion:nil];
 }
 #pragma mark --- getter method
 -(NSMutableArray *)dataArray{
@@ -173,7 +185,11 @@
     }
     return _dataArray;
 }
-
+#pragma mark -- setter method
+-(void)setVc:(AlertViewController *)vc{
+    _vc = vc;
+    self.headerView.vc = vc;
+}
 //cell分割线与屏幕等宽，两个方法同时添加iOS 10有效
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {

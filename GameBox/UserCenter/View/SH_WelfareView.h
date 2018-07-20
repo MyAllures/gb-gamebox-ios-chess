@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "AlertViewController.h"
 @interface SH_WelfareView : UIView
+@property (nonatomic,strong)AlertViewController * vc;
 @property (weak, nonatomic) IBOutlet UILabel *withdrawal_label;
 @property (weak, nonatomic) IBOutlet UILabel *transfer_label;
 @property(nonatomic,copy)void (^dataBlock)(NSDictionary * context);

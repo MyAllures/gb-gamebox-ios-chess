@@ -9,10 +9,8 @@
 #import "SH_GamesHomeViewController.h"
 #import "SH_WelfareRecordView.h"
 #import "AlertViewController.h"
-#import "SH_WelfareDetailView.h"
 #import "SH_SaftyCenterView.h"
 #import "SH_CardRecordView.h"
-#import "SH_CardRecordDetailView.h"
 #import "SH_NetWorkService+RegistAPI.h"
 @interface SH_GamesHomeViewController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintWidth;
@@ -60,7 +58,7 @@
     __weak  typeof(self)  weakSelf = self;
     [SH_NetWorkService  fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
-        if ([dict  boolValueForKey:@"success"]) {
+        if ([dict[@"code"] isEqualToString:@"0"]) {
             RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[dict[@"data"] objectForKey:@"user"] error:nil];
             [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
             [weakSelf  configUI];
@@ -77,14 +75,7 @@
             //福利记录
             SH_WelfareRecordView   *welfare =  [SH_WelfareRecordView instanceWelfareRecordView];
             AlertViewController *cvc  = [[AlertViewController  alloc] initAlertView:welfare viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title09" alertViewType:AlertViewTypeLong];
-            
-            welfare.backToDetailViewBlock = ^(NSString *searchId,SH_FundListModel * model) {
-                SH_WelfareDetailView * detail = [SH_WelfareDetailView  instanceWelfareDetailView];
-                detail.searchId = searchId;
-                detail.infoModel = model;
-                AlertViewController *dvc  = [[AlertViewController  alloc] initAlertView:detail viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title09" alertViewType:AlertViewTypeLong];
-                [self presentViewController:dvc addTargetViewController:cvc];
-            };
+             welfare.vc = cvc;
             [self presentViewController:cvc addTargetViewController:self];
             break;
         }
@@ -93,13 +84,7 @@
             SH_CardRecordView *crv = [SH_CardRecordView  instanceCardRecordView];
             // 投注记录详情
             AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:crv viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title10" alertViewType:AlertViewTypeLong];
-            crv.backToDetailViewBlock = ^(NSString *info) {
-                SH_CardRecordDetailView * cardDetail = [SH_CardRecordDetailView  instanceCardRecordDetailView];
-                cardDetail.mId = info;
-                AlertViewController *dcr  = [[AlertViewController  alloc] initAlertView:cardDetail viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title10" alertViewType:AlertViewTypeLong];
-                [self presentViewController:dcr addTargetViewController:acr];
-            };
-            
+            crv.alertVC = acr;
             [self presentViewController:acr addTargetViewController:self];
             break;
         }

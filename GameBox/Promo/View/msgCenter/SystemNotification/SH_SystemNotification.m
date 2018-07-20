@@ -19,9 +19,6 @@
 #import "HLPopTableView.h"
 
 @interface SH_SystemNotification () <UITableViewDataSource, UITableViewDelegate,PGDatePickerDelegate>
-{
-    PGDatePickManager *_datePickManager;
-}
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *view1;
 @property (weak, nonatomic) IBOutlet UIView *view2;
@@ -52,10 +49,7 @@
     datePicker.delegate = self;
     datePicker.datePickerType = PGPickerViewType3;
     datePicker.datePickerMode = PGDatePickerModeDate;
-    _datePickManager = datePickManager;
-     UIWindow  * window = [UIApplication  sharedApplication].keyWindow;
-     window.backgroundColor = [UIColor  yellowColor];
-     [window addSubview:_datePickManager.view];
+    [self presentViewController:datePickManager addTargetViewController:self.alertVC];
 }
 - (IBAction)endTimeAction:(id)sender {
     NSDictionary *dict = [[NSDictionary alloc]initWithObjectsAndKeys:@"end",@"isEnd", nil];
@@ -69,11 +63,15 @@
     datePicker.delegate = self;
     datePicker.datePickerType = PGPickerViewType3;
     datePicker.datePickerMode = PGDatePickerModeDate;
-     _datePickManager = datePickManager;
-    [self.window addSubview:datePickManager.view];
+    [self presentViewController:datePickManager addTargetViewController:self.alertVC];
 
 }
-
+#pragma mark --- 模态弹出viewController
+-(void)presentViewController:(UIViewController*)viewController addTargetViewController:(UIViewController*)targetVC{
+    viewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    viewController.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
+    [targetVC presentViewController:viewController animated:YES completion:nil];
+}
 - (IBAction)quickSeleteAction:(UIButton *)sender {
     NSArray *arr = @[@"今天",@"昨天",@"本周",@"上周",@"本月"];
     if (![RH_UserInfoManager shareUserManager].isLogin) {

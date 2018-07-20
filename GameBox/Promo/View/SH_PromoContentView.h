@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AlertViewController.h"
+@class SH_PromoListModel;
+typedef void(^SH_PromoContentViewShowDetail)(SH_PromoListModel *model);
 
 @interface SH_PromoContentView : UIView
+@property(nonatomic,strong)AlertViewController * alertVC;
+- (void)showPromoDetail:(SH_PromoContentViewShowDetail)showBlock;
 
 @end

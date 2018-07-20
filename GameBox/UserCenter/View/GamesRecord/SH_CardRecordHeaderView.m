@@ -11,9 +11,7 @@
 #import "PGDatePicker.h"
 #import "PGDatePickManager.h"
 @interface  SH_CardRecordHeaderView()<PGDatePickerDelegate>
-{
-  PGDatePickManager *_datePickManager;
-}
+
 @property (weak, nonatomic) IBOutlet UIView *letf_view;
 @property (weak, nonatomic) IBOutlet UIView *right_view;
 @property (weak, nonatomic) IBOutlet UILabel *start_label;
@@ -57,10 +55,7 @@
         datePicker.delegate = self;
         datePicker.datePickerType = PGPickerViewType3;
         datePicker.datePickerMode = PGDatePickerModeDate;
-        _datePickManager = datePickManager;
-        UIWindow  * window = [UIApplication  sharedApplication].keyWindow;
-        window.backgroundColor = [UIColor  yellowColor];
-        [window addSubview:_datePickManager.view];
+        [self presentViewController:datePickManager addTargetViewController:self.alertVC];
     }else if (sender.tag ==101){
         NSDictionary *dict = [[NSDictionary alloc]initWithObjectsAndKeys:@"end",@"isEnd", nil];
         self.startAndEndDateStr = dict[@"isEnd"];
@@ -73,13 +68,18 @@
         datePicker.delegate = self;
         datePicker.datePickerType = PGPickerViewType3;
         datePicker.datePickerMode = PGDatePickerModeDate;
-        _datePickManager = datePickManager;
-        [self.window addSubview:datePickManager.view];
+        [self presentViewController:datePickManager addTargetViewController:self.alertVC];
     }else{
         if (self.searchConditionBlock) {
-            self.searchConditionBlock(@{@"startTime":self.start_label.text,@"endTime":self.end_label.text});
+        self.searchConditionBlock(@{@"startTime":self.start_label.text,@"endTime":self.end_label.text});
         }
     }
+}
+#pragma mark --- 模态弹出viewController
+-(void)presentViewController:(UIViewController*)viewController addTargetViewController:(UIViewController*)targetVC{
+    viewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    viewController.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
+    [targetVC presentViewController:viewController animated:YES completion:nil];
 }
 #pragma mark - PGDatePickerDelegate M
 - (void)datePicker:(PGDatePicker *)datePicker didSelectDate:(NSDateComponents *)dateComponents {
@@ -128,6 +128,9 @@
         return;
     }
     self.end_label.text = nt[@"date"];
+    if (self.searchConditionBlock) {
+        self.searchConditionBlock(@{@"startTime":self.start_label.text,@"endTime":self.end_label.text});
+    }
 }
 #pragma mark -- 开始时间
 -(void)changedDate:(NSDictionary *)nt {
@@ -145,7 +148,9 @@
         return;
     }
     self.start_label.text = nt[@"date"];
-    
+    if (self.searchConditionBlock) {
+        self.searchConditionBlock(@{@"startTime":self.start_label.text,@"endTime":self.end_label.text});
+    }
 }
 -(NSString*)getCurrentTimes{
     
