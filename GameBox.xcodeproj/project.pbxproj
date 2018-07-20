@@ -145,6 +145,8 @@
 		BF44ECFA20F7475A00BC6EF3 /* SH_BitCoinSuccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF44ECF920F7475A00BC6EF3 /* SH_BitCoinSuccessView.m */; };
 		BF44ECFD20F7477900BC6EF3 /* SH_BitCoinSuccessPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF44ECFC20F7477900BC6EF3 /* SH_BitCoinSuccessPopView.m */; };
 		BF44ECFF20F7478600BC6EF3 /* SH_BitCoinSuccessPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF44ECFE20F7478600BC6EF3 /* SH_BitCoinSuccessPopView.xib */; };
+		BF7B08BE2101936B008256FE /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B08B72101936A008256FE /* NSDate+Extension.m */; };
+		BF7B08BF2101936B008256FE /* SH_DatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B08B82101936A008256FE /* SH_DatePickerView.m */; };
 		BFA0688B20FC70AC00F5ADFE /* SH_PrifitOutCoinView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA0688A20FC70AC00F5ADFE /* SH_PrifitOutCoinView.m */; };
 		BFA0688D20FC70C200F5ADFE /* SH_PrifitOutCoinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA0688C20FC70C200F5ADFE /* SH_PrifitOutCoinView.xib */; };
 		BFA0689020FC8C1000F5ADFE /* SH_OutCoinDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA0688F20FC8C1000F5ADFE /* SH_OutCoinDetailView.m */; };
@@ -174,7 +176,6 @@
 		BFA068D820FEE2FA00F5ADFE /* SH_NetWorkService+SaftyCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA068D720FEE2FA00F5ADFE /* SH_NetWorkService+SaftyCenter.m */; };
 		BFA068DB20FF11E500F5ADFE /* SH_BankCardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA068DA20FF11E500F5ADFE /* SH_BankCardModel.m */; };
 		BFA068DE21002BC600F5ADFE /* SH_BankListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA068DD21002BC600F5ADFE /* SH_BankListModel.m */; };
-		BFA068E62100B1AC00F5ADFE /* SH_testViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA068E52100B1AC00F5ADFE /* SH_testViewController.m */; };
 		BFD6CFC120F8901500EDBC5B /* SH_NetWorkService+Bank.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFC020F8901500EDBC5B /* SH_NetWorkService+Bank.m */; };
 		BFD6CFC520F997B800EDBC5B /* SavePhotoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFC420F997B800EDBC5B /* SavePhotoTool.m */; };
 		BFD6CFCC20F9D20C00EDBC5B /* AttributeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFCB20F9D20C00EDBC5B /* AttributeModel.m */; };
@@ -261,8 +262,6 @@
 		DA1BCD722100AC4E00201DBC /* PGDatePicker+DateHourMinuteSecond.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD552100AC4E00201DBC /* PGDatePicker+DateHourMinuteSecond.m */; };
 		DA1BCD762100B0F500201DBC /* SH_ShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD752100B0F500201DBC /* SH_ShareView.m */; };
 		DA1BCD782100B10300201DBC /* SH_ShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1BCD772100B10300201DBC /* SH_ShareView.xib */; };
-		DA1BCD7B210177AA00201DBC /* SH_DatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD7A210177AA00201DBC /* SH_DatePickerView.m */; };
-		DA1BCD7D210177B900201DBC /* SH_DatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1BCD7C210177B900201DBC /* SH_DatePickerView.xib */; };
 		DA21F37C20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F37B20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m */; };
 		DA21F37F20F58F9000D20672 /* SH_RegistView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F37E20F58F9000D20672 /* SH_RegistView.m */; };
 		DA21F38D20F590A800D20672 /* RH_RegisetInitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F38B20F590A800D20672 /* RH_RegisetInitModel.m */; };
@@ -531,6 +530,11 @@
 		BF44ECFB20F7477900BC6EF3 /* SH_BitCoinSuccessPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_BitCoinSuccessPopView.h; sourceTree = "<group>"; };
 		BF44ECFC20F7477900BC6EF3 /* SH_BitCoinSuccessPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_BitCoinSuccessPopView.m; sourceTree = "<group>"; };
 		BF44ECFE20F7478600BC6EF3 /* SH_BitCoinSuccessPopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_BitCoinSuccessPopView.xib; sourceTree = "<group>"; };
+		BF7B08B72101936A008256FE /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
+		BF7B08B82101936A008256FE /* SH_DatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_DatePickerView.m; sourceTree = "<group>"; };
+		BF7B08BA2101936B008256FE /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
+		BF7B08BB2101936B008256FE /* SH_DatePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SH_DatePickerView.xib; sourceTree = "<group>"; };
+		BF7B08BC2101936B008256FE /* SH_DatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_DatePickerView.h; sourceTree = "<group>"; };
 		BFA0688920FC70AC00F5ADFE /* SH_PrifitOutCoinView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PrifitOutCoinView.h; sourceTree = "<group>"; };
 		BFA0688A20FC70AC00F5ADFE /* SH_PrifitOutCoinView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PrifitOutCoinView.m; sourceTree = "<group>"; };
 		BFA0688C20FC70C200F5ADFE /* SH_PrifitOutCoinView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PrifitOutCoinView.xib; sourceTree = "<group>"; };
@@ -579,8 +583,6 @@
 		BFA068DA20FF11E500F5ADFE /* SH_BankCardModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_BankCardModel.m; sourceTree = "<group>"; };
 		BFA068DC21002BC600F5ADFE /* SH_BankListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_BankListModel.h; sourceTree = "<group>"; };
 		BFA068DD21002BC600F5ADFE /* SH_BankListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_BankListModel.m; sourceTree = "<group>"; };
-		BFA068E42100B1AC00F5ADFE /* SH_testViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_testViewController.h; sourceTree = "<group>"; };
-		BFA068E52100B1AC00F5ADFE /* SH_testViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_testViewController.m; sourceTree = "<group>"; };
 		BFD6CFBF20F8901500EDBC5B /* SH_NetWorkService+Bank.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+Bank.h"; sourceTree = "<group>"; };
 		BFD6CFC020F8901500EDBC5B /* SH_NetWorkService+Bank.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+Bank.m"; sourceTree = "<group>"; };
 		BFD6CFC320F997B800EDBC5B /* SavePhotoTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SavePhotoTool.h; sourceTree = "<group>"; };
@@ -740,9 +742,6 @@
 		DA1BCD742100B0F500201DBC /* SH_ShareView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ShareView.h; sourceTree = "<group>"; };
 		DA1BCD752100B0F500201DBC /* SH_ShareView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_ShareView.m; sourceTree = "<group>"; };
 		DA1BCD772100B10300201DBC /* SH_ShareView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_ShareView.xib; sourceTree = "<group>"; };
-		DA1BCD79210177AA00201DBC /* SH_DatePickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_DatePickerView.h; sourceTree = "<group>"; };
-		DA1BCD7A210177AA00201DBC /* SH_DatePickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_DatePickerView.m; sourceTree = "<group>"; };
-		DA1BCD7C210177B900201DBC /* SH_DatePickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_DatePickerView.xib; sourceTree = "<group>"; };
 		DA21F37A20F4E97800D20672 /* SH_NetWorkService+RegistAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+RegistAPI.h"; sourceTree = "<group>"; };
 		DA21F37B20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+RegistAPI.m"; sourceTree = "<group>"; };
 		DA21F37D20F58F9000D20672 /* SH_RegistView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_RegistView.h; sourceTree = "<group>"; };
@@ -1340,8 +1339,6 @@
 				BFFC845120F2F252008AD801 /* SH_RechargeCenterViewController.m */,
 				BF44EC6720F4890B00BC6EF3 /* SH_RechargeBasicViewController.h */,
 				BF44EC6820F4890B00BC6EF3 /* SH_RechargeBasicViewController.m */,
-				BFA068E42100B1AC00F5ADFE /* SH_testViewController.h */,
-				BFA068E52100B1AC00F5ADFE /* SH_testViewController.m */,
 				BF44ECB820F4B32B00BC6EF3 /* RechargeDetail */,
 				BF44ECD520F5AD6500BC6EF3 /* Bank */,
 				BF44ECD920F602D500BC6EF3 /* KuaiChong */,
@@ -1472,6 +1469,18 @@
 				BF44ECE920F6FF4D00BC6EF3 /* SH_BitCoinSaleDetailModel.m */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		BF7B08B621019346008256FE /* DatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				BF7B08BA2101936B008256FE /* NSDate+Extension.h */,
+				BF7B08B72101936A008256FE /* NSDate+Extension.m */,
+				BF7B08BC2101936B008256FE /* SH_DatePickerView.h */,
+				BF7B08B82101936A008256FE /* SH_DatePickerView.m */,
+				BF7B08BB2101936B008256FE /* SH_DatePickerView.xib */,
+			);
+			path = DatePicker;
 			sourceTree = "<group>";
 		};
 		BFA0688720FC6FAC00F5ADFE /* Profit */ = {
@@ -1741,9 +1750,6 @@
 				DA1BCC5C20FDC21600201DBC /* SH_WelfareTableViewCell.h */,
 				DA1BCC5D20FDC21600201DBC /* SH_WelfareTableViewCell.m */,
 				DA1BCC5E20FDC21600201DBC /* SH_WelfareTableViewCell.xib */,
-				DA1BCD79210177AA00201DBC /* SH_DatePickerView.h */,
-				DA1BCD7A210177AA00201DBC /* SH_DatePickerView.m */,
-				DA1BCD7C210177B900201DBC /* SH_DatePickerView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1815,6 +1821,7 @@
 		DA1BCCB42100AB9D00201DBC /* ThirdLib */ = {
 			isa = PBXGroup;
 			children = (
+				BF7B08B621019346008256FE /* DatePicker */,
 				DA1BCD222100AC4E00201DBC /* PGDatePicker */,
 				DA1BCD192100AC4E00201DBC /* PGPickerView */,
 			);
@@ -2072,7 +2079,6 @@
 				DA1BCC6020FDC21600201DBC /* SH_WelfareTableViewCell.xib in Resources */,
 				22552CEB20F4B7720090EFBC /* SH_SiteMsgViewCell.xib in Resources */,
 				BFA0689720FC8DB300F5ADFE /* SH_LookJiHeView.xib in Resources */,
-				DA1BCD7D210177B900201DBC /* SH_DatePickerView.xib in Resources */,
 				22573D3F20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.xib in Resources */,
 				54C875B520FB4E2D00AA0594 /* SH_DragableMenuView.xib in Resources */,
 				54C8758D20F498E200AA0594 /* SH_GameItemView.xib in Resources */,
@@ -2245,6 +2251,7 @@
 				54C8763D2100B04300AA0594 /* SH_HorizontalscreenPicker.m in Sources */,
 				54C875B920FB788D00AA0594 /* SH_NoAccessViewController.m in Sources */,
 				DA1BCC4920FCB81300201DBC /* SH_SecurityCenterView.m in Sources */,
+				BF7B08BE2101936B008256FE /* NSDate+Extension.m in Sources */,
 				BFFC847320F3452A008AD801 /* UIImageView+handle.m in Sources */,
 				54C8761520FE218B00AA0594 /* YFEmitterRainCell.m in Sources */,
 				BF44EC5A20F4588D00BC6EF3 /* SH_BitCoinSubView.m in Sources */,
@@ -2328,11 +2335,11 @@
 				5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */,
 				BF44ECD420F5AD5C00BC6EF3 /* SH_RechargeBankDetailViewController.m in Sources */,
 				54C8758820F48CD500AA0594 /* SH_GamesListScrollView.m in Sources */,
+				BF7B08BF2101936B008256FE /* SH_DatePickerView.m in Sources */,
 				BFA068AE20FD8AFF00F5ADFE /* SH_FeeModel.m in Sources */,
 				54C8757920F3508600AA0594 /* SH_PromoContentView.m in Sources */,
 				54C8763C2100B04300AA0594 /* THScrollChooseView.m in Sources */,
 				54C8761A20FE218B00AA0594 /* YFEmitterCustomLayer.m in Sources */,
-				BFA068E62100B1AC00F5ADFE /* SH_testViewController.m in Sources */,
 				5401C55620ECA2CC0027246D /* IPsCacheManager.m in Sources */,
 				DA1BCCA420FF27AF00201DBC /* SH_CardRecordDetailView.m in Sources */,
 				DA6EE1C720F99F39009A01C5 /* SH_SettingView.m in Sources */,
@@ -2363,7 +2370,6 @@
 				54C8759320F7372D00AA0594 /* SH_HomeBannerModel.m in Sources */,
 				BFFEDCBE20F3792E002E69FD /* SH_RechargeCenterDataHandle.m in Sources */,
 				DA1BCD5B2100AC4E00201DBC /* PGDatePicker+MinuteAndSecond.m in Sources */,
-				DA1BCD7B210177AA00201DBC /* SH_DatePickerView.m in Sources */,
 				BFFC845A20F2F260008AD801 /* DepositeHeadCollectionReusableView.m in Sources */,
 				54C8758B20F498C700AA0594 /* SH_GameItemView.m in Sources */,
 				5401C55320ECA1B80027246D /* SH_NetWorkService.m in Sources */,

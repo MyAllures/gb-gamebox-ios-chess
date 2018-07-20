@@ -44,7 +44,6 @@
     self.txid = txid;
     self.num = num;
     self.date = date;
-      __weak typeof(self) weakSelf = self;
     //输入的地址 txid等
     //请求优惠接口
     [SH_NetWorkService getSaleWithCoinNum:num Payway:self.channelModel.depositWay Txid:txid PayAccountId:self.channelModel.searchId Complete:^(SH_BitCoinSaleModel *model) {

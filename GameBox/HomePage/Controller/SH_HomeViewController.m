@@ -461,6 +461,7 @@
         return;
     }
     [self.navigationController pushViewController:[[SH_RechargeCenterViewController alloc]init] animated:YES];
+    
 }
 #pragma mark--
 #pragma mark--收益按钮

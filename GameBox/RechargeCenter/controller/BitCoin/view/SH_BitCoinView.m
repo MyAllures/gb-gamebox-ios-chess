@@ -9,10 +9,10 @@
 #import "SH_BitCoinView.h"
 #import "SH_BitCoinSubView.h"
 #import "SH_BitCoinTextView.h"
-#import "PGDatePickManager.h"
+#import "SH_DatePickerView.h"
 #import "SavePhotoTool.h"
 #import "TTTAttributedLabel.h"
-@interface SH_BitCoinView()<SH_BitCoinTextViewDelegate,PGDatePickerDelegate,TTTAttributedLabelDelegate>
+@interface SH_BitCoinView()<SH_BitCoinTextViewDelegate,TTTAttributedLabelDelegate>
 @property(nonatomic,strong)UIImageView *QRImageView;
 @property(nonatomic,strong)SH_BitCoinTextView *bitCoinView;
 @property(nonatomic,strong)UILabel *massegeLab;
@@ -136,26 +136,20 @@
 #pragma mark--
 #pragma mark-- SH_BitCoinTextView代理
 -(void)SH_BitCoinTextViewChooseDateBtnClick{
-    PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
-    datePickManager.isShadeBackgroud = true;
-    PGDatePicker *datePicker = datePickManager.datePicker;
-    datePicker.delegate = self;
-    datePicker.datePickerType = PGPickerViewType2;
-    datePicker.datePickerMode = PGDatePickerModeDateHourMinute;
-    [self.targetVC presentViewController:datePickManager animated:false completion:nil];
+      __weak typeof(self) weakSelf = self;
+    SH_DatePickerView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_DatePickerView" owner:self options:nil].firstObject;
+    [view setDateStyle:DateStyleShowYearMonthDayHourMinute CompleteBlock:^(NSDate *date) {
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        NSString *dateString = [dateFormat stringFromDate:date];
+        [weakSelf.bitCoinView updateDateLabWithDataString:dateString];
+    }];
+    [view showPickerView];
 }
 - (void)SH_BitCoinTextViewSubmitBtnClickWithAdress:(NSString *)address Txid:(NSString *)txid BitCoinNum:(NSString *)num date:(NSString *)date{
     [self.delegate SH_BitCoinViewAdress:address Txid:txid BitCoinNum:num date:date];
 }
-#pragma mark - PGDatePickerDelegate
-- (void)datePicker:(PGDatePicker *)datePicker didSelectDate:(NSDateComponents *)dateComponents {
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDate *date = [gregorian dateFromComponents:dateComponents];
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSString *dateString = [dateFormat stringFromDate:date];
-    [self.bitCoinView updateDateLabWithDataString:dateString];
-}
+
 - (void)updateUIWithChannelModel:(SH_RechargeCenterChannelModel *)model{
     [self.QRImageView setImageWithType:1 ImageName:model.qrCodeUrl];
     [self.bitConnHeadView updateUIWithChannelModel:model];
