@@ -18,7 +18,6 @@
 
 @property (strong, nonatomic) NSString *startTimeStr;
 @property (strong, nonatomic) NSString *endTimeStr;
-@property(nonatomic,strong)SH_NiceDatePickerView * datePickerView;
 @end
 @implementation SH_CardRecordHeaderView
 +(instancetype)instanceCardRecordHeaderView{
@@ -46,16 +45,15 @@
 - (IBAction)searchBtnClick:(UIButton *)sender {
     if (sender.tag == 100) {
         __weak  typeof(self) weakSelf = self;
-        [self.datePickerView setDateStyle:DateStyleShowYearMonthDay CompleteBlock:^(NSDate * date) {
+        SH_NiceDatePickerView * datePickerView =[[NSBundle  mainBundle] loadNibNamed:@"SH_NiceDatePickerView" owner:nil options:nil].lastObject;
+        [datePickerView setDateStyle:DateStyleShowYearMonthDay CompleteBlock:^(NSDate * date) {
             weakSelf.startTimeStr = dateString(date, @"yyyy-MM-dd");
-            if (!weakSelf.endTimeStr) {
-                weakSelf.endTimeStr = [weakSelf getCurrentTimes];
-            }
+    
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
             [dateFormatter setDateFormat:@"yyyy-MM-dd"];
             NSDate *startDate = [dateFormatter dateFromString:weakSelf.startTimeStr];
-            NSDate *endDate = [dateFormatter dateFromString:weakSelf.endTimeStr];
-            if (startDate > endDate) {
+            
+            if ( [self compareOneDay:startDate withAnotherDay:[NSDate date]] == 1) {
                 showAlertView(@"提示", @"时间选择有误,请重试选择");
                 return;
             }
@@ -64,11 +62,12 @@
                 weakSelf.searchConditionBlock(@{@"startTime":weakSelf.start_label.text,@"endTime":weakSelf.end_label.text});
             }
         }];
-        [self.datePickerView  showPickerView];
+        [datePickerView  showPickerView];
     }else if (sender.tag ==101){
 
         __weak  typeof(self) weakSelf = self;
-        [self.datePickerView setDateStyle:DateStyleShowYearMonthDay CompleteBlock:^(NSDate * date) {
+        SH_NiceDatePickerView * datePickerView =[[NSBundle  mainBundle] loadNibNamed:@"SH_NiceDatePickerView" owner:nil options:nil].lastObject;
+        [datePickerView setDateStyle:DateStyleShowYearMonthDay CompleteBlock:^(NSDate * date) {
             weakSelf.endTimeStr = dateString(date, @"yyyy-MM-dd");
             if (!weakSelf.startTimeStr) {
                 weakSelf.startTimeStr = [weakSelf getCurrentTimes];
@@ -86,12 +85,40 @@
                 weakSelf.searchConditionBlock(@{@"startTime":weakSelf.start_label.text,@"endTime":weakSelf.end_label.text});
             }
         }];
-        [self.datePickerView  showPickerView];
+        [datePickerView  showPickerView];
     }else{
         if (self.searchConditionBlock) {
         self.searchConditionBlock(@{@"startTime":self.start_label.text,@"endTime":self.end_label.text});
         }
     }
+}
+#pragma mark -- 时间比较
+-(int)compareOneDay:(NSDate *)oneDay withAnotherDay:(NSDate *)anotherDay
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    
+    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+    
+    NSString *oneDayStr = [dateFormatter stringFromDate:oneDay];
+    
+    NSString *anotherDayStr = [dateFormatter stringFromDate:anotherDay];
+    
+    NSDate *dateA = [dateFormatter dateFromString:oneDayStr];
+    
+    NSDate *dateB = [dateFormatter dateFromString:anotherDayStr];
+    
+    NSComparisonResult result = [dateA compare:dateB];
+    
+    if (result == NSOrderedDescending) {
+        //NSLog(@"oneDay比 anotherDay时间晚");
+        return 1;
+    }
+    else if (result == NSOrderedAscending){
+        //NSLog(@"oneDay比 anotherDay时间早");
+        return -1;
+    }
+    //NSLog(@"两者时间是同一个时间");
+    return 0;
 }
 -(NSString*)getCurrentTimes{
     
@@ -112,11 +139,5 @@
     return currentTimeString;
     
 }
-#pragma mark ---getter  method
--(SH_NiceDatePickerView *)datePickerView{
-    if (!_datePickerView) {
-        _datePickerView = [[NSBundle  mainBundle] loadNibNamed:@"" owner:nil options:nil].lastObject;
-    }
-    return _datePickerView;
-}
+
 @end
