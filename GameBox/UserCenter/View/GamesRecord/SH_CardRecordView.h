@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AlertViewController.h"
 @class RH_BettingInfoModel;
 @interface SH_CardRecordView : UIView
-@property(nonatomic,copy)void (^backToDetailViewBlock)(NSString * info);
+@property(nonatomic,strong)AlertViewController  * alertVC;
 +(instancetype)instanceCardRecordView;
 @end

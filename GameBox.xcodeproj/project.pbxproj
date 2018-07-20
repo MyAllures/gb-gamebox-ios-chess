@@ -105,6 +105,8 @@
 		54C8763B2100B04300AA0594 /* SH_HorizontalscreenPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C876372100B04300AA0594 /* SH_HorizontalscreenPicker.xib */; };
 		54C8763C2100B04300AA0594 /* THScrollChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C876382100B04300AA0594 /* THScrollChooseView.m */; };
 		54C8763D2100B04300AA0594 /* SH_HorizontalscreenPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8763A2100B04300AA0594 /* SH_HorizontalscreenPicker.m */; };
+		54C876422100BFA000AA0594 /* SH_PromoDeatilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C876402100BFA000AA0594 /* SH_PromoDeatilViewController.m */; };
+		54C876432100BFA000AA0594 /* SH_PromoDeatilViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C876412100BFA000AA0594 /* SH_PromoDeatilViewController.xib */; };
 		BF2F915A20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F915820EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m */; };
 		BF2F915B20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2F915920EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib */; };
 		BF2F915F20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F915D20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m */; };
@@ -261,6 +263,8 @@
 		DA1BCD722100AC4E00201DBC /* PGDatePicker+DateHourMinuteSecond.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD552100AC4E00201DBC /* PGDatePicker+DateHourMinuteSecond.m */; };
 		DA1BCD762100B0F500201DBC /* SH_ShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD752100B0F500201DBC /* SH_ShareView.m */; };
 		DA1BCD782100B10300201DBC /* SH_ShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1BCD772100B10300201DBC /* SH_ShareView.xib */; };
+		DA1BCD7B210177AA00201DBC /* SH_DatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCD7A210177AA00201DBC /* SH_DatePickerView.m */; };
+		DA1BCD7D210177B900201DBC /* SH_DatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1BCD7C210177B900201DBC /* SH_DatePickerView.xib */; };
 		DA21F37C20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F37B20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m */; };
 		DA21F37F20F58F9000D20672 /* SH_RegistView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F37E20F58F9000D20672 /* SH_RegistView.m */; };
 		DA21F38D20F590A800D20672 /* RH_RegisetInitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F38B20F590A800D20672 /* RH_RegisetInitModel.m */; };
@@ -464,6 +468,9 @@
 		54C876382100B04300AA0594 /* THScrollChooseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THScrollChooseView.m; sourceTree = "<group>"; };
 		54C876392100B04300AA0594 /* THScrollChooseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THScrollChooseView.h; sourceTree = "<group>"; };
 		54C8763A2100B04300AA0594 /* SH_HorizontalscreenPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_HorizontalscreenPicker.m; sourceTree = "<group>"; };
+		54C8763F2100BFA000AA0594 /* SH_PromoDeatilViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoDeatilViewController.h; sourceTree = "<group>"; };
+		54C876402100BFA000AA0594 /* SH_PromoDeatilViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoDeatilViewController.m; sourceTree = "<group>"; };
+		54C876412100BFA000AA0594 /* SH_PromoDeatilViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PromoDeatilViewController.xib; sourceTree = "<group>"; };
 		BF2F915720EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_DepositeWayCollectionViewCell.h; sourceTree = "<group>"; };
 		BF2F915820EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_DepositeWayCollectionViewCell.m; sourceTree = "<group>"; };
 		BF2F915920EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_DepositeWayCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -741,6 +748,9 @@
 		DA1BCD742100B0F500201DBC /* SH_ShareView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ShareView.h; sourceTree = "<group>"; };
 		DA1BCD752100B0F500201DBC /* SH_ShareView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_ShareView.m; sourceTree = "<group>"; };
 		DA1BCD772100B10300201DBC /* SH_ShareView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_ShareView.xib; sourceTree = "<group>"; };
+		DA1BCD79210177AA00201DBC /* SH_DatePickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_DatePickerView.h; sourceTree = "<group>"; };
+		DA1BCD7A210177AA00201DBC /* SH_DatePickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_DatePickerView.m; sourceTree = "<group>"; };
+		DA1BCD7C210177B900201DBC /* SH_DatePickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_DatePickerView.xib; sourceTree = "<group>"; };
 		DA21F37A20F4E97800D20672 /* SH_NetWorkService+RegistAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+RegistAPI.h"; sourceTree = "<group>"; };
 		DA21F37B20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+RegistAPI.m"; sourceTree = "<group>"; };
 		DA21F37D20F58F9000D20672 /* SH_RegistView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_RegistView.h; sourceTree = "<group>"; };
@@ -822,6 +832,7 @@
 		2224CB6D20EF8C3100E6872B /* Promo */ = {
 			isa = PBXGroup;
 			children = (
+				54C8763E2100BF8000AA0594 /* Controller */,
 				54C8757520F3502000AA0594 /* Model */,
 				54C8757620F3502000AA0594 /* View */,
 			);
@@ -1309,6 +1320,16 @@
 			path = THScrollChoose;
 			sourceTree = "<group>";
 		};
+		54C8763E2100BF8000AA0594 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				54C8763F2100BFA000AA0594 /* SH_PromoDeatilViewController.h */,
+				54C876402100BFA000AA0594 /* SH_PromoDeatilViewController.m */,
+				54C876412100BFA000AA0594 /* SH_PromoDeatilViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		87BD6A1D16B97D20B3D1FCB6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1745,6 +1766,9 @@
 				DA1BCC5C20FDC21600201DBC /* SH_WelfareTableViewCell.h */,
 				DA1BCC5D20FDC21600201DBC /* SH_WelfareTableViewCell.m */,
 				DA1BCC5E20FDC21600201DBC /* SH_WelfareTableViewCell.xib */,
+				DA1BCD79210177AA00201DBC /* SH_DatePickerView.h */,
+				DA1BCD7A210177AA00201DBC /* SH_DatePickerView.m */,
+				DA1BCD7C210177B900201DBC /* SH_DatePickerView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2087,7 +2111,7 @@
 				DA1BCC6020FDC21600201DBC /* SH_WelfareTableViewCell.xib in Resources */,
 				22552CEB20F4B7720090EFBC /* SH_SiteMsgViewCell.xib in Resources */,
 				BFA0689720FC8DB300F5ADFE /* SH_LookJiHeView.xib in Resources */,
-				BF7B08C12101936B008256FE /* SH_DatePickerView.xib in Resources */,
+				DA1BCD7D210177B900201DBC /* SH_DatePickerView.xib in Resources */,
 				22573D3F20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.xib in Resources */,
 				54C875B520FB4E2D00AA0594 /* SH_DragableMenuView.xib in Resources */,
 				54C8758D20F498E200AA0594 /* SH_GameItemView.xib in Resources */,
@@ -2109,6 +2133,7 @@
 				BFA0689220FC8C1A00F5ADFE /* SH_OutCoinDetailView.xib in Resources */,
 				DA6EE1C920F99F45009A01C5 /* SH_SettingView.xib in Resources */,
 				54C875A020F756A500AA0594 /* errRing.mp3 in Resources */,
+				54C876432100BFA000AA0594 /* SH_PromoDeatilViewController.xib in Resources */,
 				BFA068CF20FE135200F5ADFE /* SH_ModiftSaftyPSDView.xib in Resources */,
 				54C8763421008D4800AA0594 /* SH_GameWebView.xib in Resources */,
 				54C875C820FCBE1900AA0594 /* SH_DZGameItemView.xib in Resources */,
@@ -2298,6 +2323,7 @@
 				BF44EC4D20F44BA300BC6EF3 /* SH_BitCoinViewController.m in Sources */,
 				54C8761720FE218B00AA0594 /* YFEmitterLeavesCell.m in Sources */,
 				DA1BCC5B20FDBFCD00201DBC /* SH_FundListModel.m in Sources */,
+				54C876422100BFA000AA0594 /* SH_PromoDeatilViewController.m in Sources */,
 				DA21F3B220F742B700D20672 /* NSDate+CLCategory.m in Sources */,
 				DA21F39020F6069600D20672 /* UIView+FrameSize.m in Sources */,
 				DA1BCC7A20FDEE1E00201DBC /* RH_CapitalRecordDetailsCell.m in Sources */,
@@ -2378,6 +2404,7 @@
 				54C8759320F7372D00AA0594 /* SH_HomeBannerModel.m in Sources */,
 				BFFEDCBE20F3792E002E69FD /* SH_RechargeCenterDataHandle.m in Sources */,
 				DA1BCD5B2100AC4E00201DBC /* PGDatePicker+MinuteAndSecond.m in Sources */,
+				DA1BCD7B210177AA00201DBC /* SH_DatePickerView.m in Sources */,
 				BFFC845A20F2F260008AD801 /* DepositeHeadCollectionReusableView.m in Sources */,
 				54C8758B20F498C700AA0594 /* SH_GameItemView.m in Sources */,
 				5401C55320ECA1B80027246D /* SH_NetWorkService.m in Sources */,

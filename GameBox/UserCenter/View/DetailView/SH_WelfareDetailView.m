@@ -39,7 +39,7 @@
     [self.tableView.mj_header beginRefreshing];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.rowHeight = 303;
+    self.tableView.rowHeight = 500;
     [self.tableView registerNib:[UINib nibWithNibName:@"RH_CapitalRecordDetailsCell" bundle:nil] forCellReuseIdentifier:@"RH_CapitalRecordDetailsCell"];
 }
 -(void)getHttpData{
@@ -64,6 +64,7 @@
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     RH_CapitalRecordDetailsCell * cell = [tableView  dequeueReusableCellWithIdentifier:@"RH_CapitalRecordDetailsCell" forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell updateCellWithInfo:@{@"RH_CapitalInfoModel":self.infoModel?:@""} context:model];
     return  cell;
 }

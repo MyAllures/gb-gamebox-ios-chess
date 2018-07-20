@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class SH_PromoListModel;
+typedef void(^SH_PromoContentViewShowDetail)(SH_PromoListModel *model);
 
 @interface SH_PromoContentView : UIView
+
+- (void)showPromoDetail:(SH_PromoContentViewShowDetail)showBlock;
 
 @end
