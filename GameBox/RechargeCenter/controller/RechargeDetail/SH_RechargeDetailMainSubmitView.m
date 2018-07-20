@@ -83,23 +83,24 @@
          }else{
              [self.delegate submitRealName:self.realNameTextfield.text AccountNum:self.accountNum.text OrderNum:self.orderTextfield.text];
          }
+    }else if ([self.channelModel.bankCode isEqualToString:@"onecodepay"]){
+        [self.delegate submitRealName:self.realNameTextfield.text AccountNum:self.accountNum.text OrderNum:self.orderTextfield.text];
     }else{
-        if (self.accountNum.text.length == 0 ){
-            NSString *tipString;
-            if ([self.channelModel.bankCode isEqualToString:@"qqwallet"]) {
-                tipString = @"请填写QQ号";
-            }else if ([self.channelModel.bankCode isEqualToString:@"bdwallet"]) {
-                tipString = @"请填写百度账号";
-            }else if ([self.channelModel.bankCode isEqualToString:@"other"]) {
-                tipString = @"请填写其他方式的账号";
-            }else if ([self.channelModel.bankCode isEqualToString:@"jdwallet"]) {
-                tipString = @"请填写京东账号";
-            }else if ([self.channelModel.bankCode isEqualToString:@"wechatpay"]) {
-                tipString = @"请填写微信昵称";
-            }
-            showMessage(self.superview.superview, tipString, nil);
+            if (self.accountNum.text.length == 0 ){
+                NSString *tipString;
+                if ([self.channelModel.bankCode isEqualToString:@"qqwallet"]) {
+                    tipString = @"请填写QQ号";
+                }else if ([self.channelModel.bankCode isEqualToString:@"bdwallet"]) {
+                    tipString = @"请填写百度账号";
+                }else if ([self.channelModel.bankCode isEqualToString:@"other"]) {
+                    tipString = @"请填写其他方式的账号";
+                }else if ([self.channelModel.bankCode isEqualToString:@"jdwallet"]) {
+                    tipString = @"请填写京东账号";
+                }else if ([self.channelModel.bankCode isEqualToString:@"wechatpay"]) {
+                    tipString = @"请填写微信昵称";
+                }
+                showMessage(self.superview.superview, tipString, nil);
         }else{
-            //
             [self.delegate submitRealName:self.realNameTextfield.text AccountNum:self.accountNum.text OrderNum:self.orderTextfield.text];
         }
     }

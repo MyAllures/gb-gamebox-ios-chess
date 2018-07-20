@@ -21,6 +21,7 @@
 @property(nonatomic,strong)SH_RechargeCenterChannelModel *channelModel;
 @property(nonatomic,strong)TTTAttributedLabel *tttLab;
 @property (weak, nonatomic) IBOutlet UIButton *submitBtn;
+@property (weak, nonatomic) IBOutlet UIButton *randomBtn;
 
 @end
 @implementation RH_RechargeCenterFooterView
@@ -90,6 +91,13 @@
     [self setBottomLabWithMessage:content];
     self.textField.placeholder = [NSString stringWithFormat:@"%@~%@",channelModel.singleDepositMin,channelModel.singleDepositMax];
     self.textField.text = number;
+    
+    if ([channelModel.randomAmount isEqualToString:@"0"]) {
+        self.randomBtn.hidden = YES;
+    }else{
+        self.randomBtn.hidden = NO;
+        [self.randomBtn setTitle:[NSString stringWithFormat:@"%0.2f",(float)(1+arc4random()%99)/100] forState:UIControlStateNormal];
+    }
 }
 - (IBAction)submitBtnClick:(id)sender {
     if ([self.code isEqualToString:@"online"]) {
@@ -103,8 +111,8 @@
         showMessage(self.superview.superview, nil, [NSString stringWithFormat:@"请输入%@~%@",self.channelModel.singleDepositMin,self.channelModel.singleDepositMax]);
         return;
     }
-    
-    [self.delegate RH_RechargeCenterFooterViewSubmitBtnClickWithMoney:self.textField.text];
+    float money = [self.textField.text floatValue] + [self.randomBtn.titleLabel.text floatValue];
+    [self.delegate RH_RechargeCenterFooterViewSubmitBtnClickWithMoney:[NSString stringWithFormat:@"%.2f",money]];
 }
 - (IBAction)chooseBKBtnXClick:(id)sender {
     NSMutableArray *bankNameArray = [NSMutableArray array];
@@ -148,6 +156,9 @@
     NSRange boldRange1 = [message rangeOfString:@"点击联系在线客服" options:NSCaseInsensitiveSearch];
     [self.tttLab addLinkToURL:[NSURL URLWithString:@""]
                     withRange:boldRange1];
+}
+- (IBAction)randomBtnClick:(id)sender {
+    [self.randomBtn setTitle:[NSString stringWithFormat:@"%0.2f",(float)(1+arc4random()%99)/100] forState:UIControlStateNormal];
 }
 #pragma mark - TTTAttributedLabelDelegate
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url

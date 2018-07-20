@@ -9,14 +9,6 @@
 #import "SH_NiceDatePickerView.h"
 
 #define kPickerSize self.pickerView.frame.size
-#define RGBA(r, g, b, a) ([UIColor colorWithRed:(r / 255.0) green:(g / 255.0) blue:(b / 255.0) alpha:a])
-#define RGB(r, g, b) RGBA(r,g,b,1)
-// 判断是否是iPhone X
-#define isiPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
-// home indicator
-#define bottom_height (isiPhoneX ? 34.f : 10.f)
-
-
 #define MAXYEAR 2099
 #define MINYEAR 1000
 
@@ -131,7 +123,7 @@ typedef void(^doneBlock)(NSDate *);
     }
 
     if (!self.dateLabelColor) {
-        self.dateLabelColor =  RGB(247, 133, 51);
+        self.dateLabelColor =  colorWithRGB(247, 133, 51);
     }
 
     for (int i=0; i<nameArr.count; i++) {
@@ -438,7 +430,6 @@ typedef void(^doneBlock)(NSDate *);
     self.dayIndex = date.day-1;
     self.hourIndex = date.hour;
     self.minuteIndex = date.minute;
-    
     //循环滚动时需要用到
     self.preRow = (self.scrollToDate.year-MINYEAR)*12+self.scrollToDate.month-1;
     
@@ -457,8 +448,6 @@ typedef void(^doneBlock)(NSDate *);
         
     }
 }
-
-
 -(void)setMinLimitDate:(NSDate *)minLimitDate {
     _minLimitDate = minLimitDate;
     if ([self.scrollToDate compare:self.minLimitDate] == NSOrderedAscending) {
@@ -469,6 +458,4 @@ typedef void(^doneBlock)(NSDate *);
 -(void)setHideBackgroundYearLabel:(BOOL)hideBackgroundYearLabel {
     self.yearLab.textColor = [UIColor clearColor];
 }
-
-
 @end

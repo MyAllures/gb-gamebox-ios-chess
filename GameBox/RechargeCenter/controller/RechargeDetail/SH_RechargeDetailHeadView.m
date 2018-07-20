@@ -89,7 +89,12 @@
     }
 }
 - (IBAction)saveToPhoneBtnClick:(id)sender {
-    [[SavePhotoTool shared]saveImageToPhoneImage:self.qrImageView.image];
+    if (self.qrImageView.image) {
+        [[SavePhotoTool shared]saveImageToPhoneImage:self.qrImageView.image];
+    }else{
+        showMessage(self.superview, @"没有需要保存的图片", nil);
+    }
+    
 }
 - (IBAction)copyBankBtnClick:(id)sender {
     [self copyWithString:self.bankLab.text];
