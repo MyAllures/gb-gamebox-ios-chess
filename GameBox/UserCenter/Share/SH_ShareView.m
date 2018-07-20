@@ -36,6 +36,7 @@
     [self.targetVC  presentViewController:alert animated:YES completion:nil];
     
 }
+#pragma mark --- 保存图片到相册
 - (void)saveImageToPhotosAlbum
 {
         

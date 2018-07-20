@@ -20,7 +20,6 @@
 #import "AlertViewController.h"
 #import "SH_LoginView.h"
 #import "SH_PromoContentView.h"
-#import "PopTool.h"
 #import "SH_GamesListScrollView.h"
 #import "SH_NetWorkService+Home.h"
 #import "SH_HomeBannerModel.h"
@@ -30,8 +29,6 @@
 #import "SH_GameItemView.h"
 #import "SH_DZGameItemView.h"
 #import "SH_UserInformationView.h"
-#import "SH_AlertView.h"
-#import "SH_SettingView.h"
 #import "SH_NetWorkService+RegistAPI.h"
 #import "SH_WKGameViewController.h"
 #import "SH_NoAccessViewController.h"
@@ -112,7 +109,7 @@
     if (isRegist) {
         [SH_NetWorkService  fetchAutoLoginWithUserName:account Password:password complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *result = ConvertToClassPointer(NSDictionary, response) ;
-            if ([result boolValueForKey:@"success"]){
+            if ([result[@"code"] isEqualToString:@"0"]){
                 [[RH_UserInfoManager shareUserManager] updateLoginInfoWithUserName:account
                                                                          LoginTime:dateStringWithFormatter([NSDate date], @"yyyy-MM-dd HH:mm:ss")] ;
                 [self autoLoginSuccess:httpURLResponse isRegist:isRegist];
