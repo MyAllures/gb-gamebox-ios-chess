@@ -130,17 +130,17 @@
         self.endTimeStr = dateStringWithFormatter(endDate, @"yyyy-MM-dd") ;
         if ([RH_UserInfoManager shareUserManager].isLogin) {
             [MBProgressHUD showHUDAddedTo:self animated:YES];
+            [self.gameBulletinArr removeAllObjects];
             [SH_NetWorkService_Promo startLoadSystemNoticeStartTime:self.startTimeStr endTime:self.endTimeStr pageNumber:1 pageSize:500 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
                 NSDictionary *dic = (NSDictionary *)response;
+                NSLog(@"dic====%@",dic);
                 for (NSDictionary *dict in dic[@"data"][@"list"]) {
                     NSError *err;
                     SH_SystemNotificationModel *model = [[SH_SystemNotificationModel alloc] initWithDictionary:dict error:&err];
-                    if (model) {
-                        [self.gameBulletinArr addObject:model];
-                    }
-                    [self.tableView reloadData];
+                    [self.gameBulletinArr addObject:model];
                 }
                 [MBProgressHUD hideHUDForView:self animated:YES];
+                [self.tableView reloadData];
             } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
                 
             }];
@@ -312,6 +312,7 @@
     }
     SH_SystemNotificationModel *model = self.gameBulletinArr[indexPath.row];
     cell.contentLabel.text = model.content;
+    cell.gameNameLabel.hidden = YES;
     cell.publishTimeLabel.text = [self timeStampWithDate:model.publishTime];
 //    cell.gameNameLabel.text = model.title;
     return cell;

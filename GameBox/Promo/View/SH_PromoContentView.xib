@@ -72,11 +72,15 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="jyl-DD-t7D" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="9Fp-m9-EYt"/>
+                <constraint firstItem="BKc-gC-f6Q" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="9zf-e5-E5T"/>
+                <constraint firstAttribute="trailing" secondItem="BKc-gC-f6Q" secondAttribute="trailing" id="Cft-Ge-UIe"/>
+                <constraint firstItem="BKc-gC-f6Q" firstAttribute="leading" secondItem="jyl-DD-t7D" secondAttribute="trailing" id="IcQ-mU-50o"/>
                 <constraint firstItem="jyl-DD-t7D" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Jvp-YL-mNp"/>
                 <constraint firstItem="BKc-gC-f6Q" firstAttribute="leading" secondItem="jyl-DD-t7D" secondAttribute="trailing" id="OSS-HE-opm"/>
                 <constraint firstAttribute="trailing" secondItem="BKc-gC-f6Q" secondAttribute="trailing" id="UIA-vV-4Wl"/>
                 <constraint firstItem="BKc-gC-f6Q" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="WQ4-hQ-kjN"/>
                 <constraint firstAttribute="bottom" secondItem="jyl-DD-t7D" secondAttribute="bottom" id="ZOd-j5-PrJ"/>
+                <constraint firstAttribute="bottom" secondItem="BKc-gC-f6Q" secondAttribute="bottom" id="ahk-fv-oIG"/>
                 <constraint firstAttribute="bottom" secondItem="BKc-gC-f6Q" secondAttribute="bottom" id="uYm-qs-PRU"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
