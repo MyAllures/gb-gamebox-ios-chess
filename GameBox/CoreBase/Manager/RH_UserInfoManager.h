@@ -12,7 +12,6 @@
 #import "SH_BankListModel.h"
 #import "coreLib.h"
 
-#define  RHNT_UserInfoManagerMineGroupChangedNotification         @"UserInfoManagerMineGroupChangedNotification"
 
 #define HasLogin                    [[RH_UserInfoManager shareUserManager] hasLogin]
 #define UserSafetyInfo              [RH_UserInfoManager shareUserManager].userSafetyInfo
@@ -35,7 +34,6 @@ typedef void(^AutoLoginCompletation)(BOOL result) ;
 -(void)setBankList:(NSArray<SH_BankListModel *> *)bankList ;
 ///----app 层 相关开关
 
-@property (nonatomic,assign,readonly) BOOL isVoiceSwitch    ; //声音开关
 
 //记录最后一次登录的用户名，及时间
 @property(nonatomic,strong,readonly) NSString *loginUserName    ;

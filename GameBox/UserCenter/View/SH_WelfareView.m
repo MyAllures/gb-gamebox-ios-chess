@@ -180,6 +180,7 @@
         return;
     }
       self.end_label.text = nt[@"date"];
+    [self search];
 }
 #pragma mark -- 开始时间
 -(void)changedDate:(NSDictionary *)nt {
@@ -197,6 +198,7 @@
         return;
     }
     self.start_label.text = nt[@"date"];
+    [self search];
 }
 #pragma mark - PGDatePickerDelegate M
 - (void)datePicker:(PGDatePicker *)datePicker didSelectDate:(NSDateComponents *)dateComponents {

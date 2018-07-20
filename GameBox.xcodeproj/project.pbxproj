@@ -174,8 +174,6 @@
 		BFA068D820FEE2FA00F5ADFE /* SH_NetWorkService+SaftyCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA068D720FEE2FA00F5ADFE /* SH_NetWorkService+SaftyCenter.m */; };
 		BFA068DB20FF11E500F5ADFE /* SH_BankCardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA068DA20FF11E500F5ADFE /* SH_BankCardModel.m */; };
 		BFA068DE21002BC600F5ADFE /* SH_BankListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA068DD21002BC600F5ADFE /* SH_BankListModel.m */; };
-		BFA068E121003DAC00F5ADFE /* SH_HorizontalscreenPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA068E021003DAC00F5ADFE /* SH_HorizontalscreenPicker.m */; };
-		BFA068E321003DC800F5ADFE /* SH_HorizontalscreenPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA068E221003DC800F5ADFE /* SH_HorizontalscreenPicker.xib */; };
 		BFA068E62100B1AC00F5ADFE /* SH_testViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA068E52100B1AC00F5ADFE /* SH_testViewController.m */; };
 		BFD6CFC120F8901500EDBC5B /* SH_NetWorkService+Bank.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFC020F8901500EDBC5B /* SH_NetWorkService+Bank.m */; };
 		BFD6CFC520F997B800EDBC5B /* SavePhotoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFC420F997B800EDBC5B /* SavePhotoTool.m */; };
@@ -277,9 +275,6 @@
 		DA22F3B420F448ED0058A54F /* RH_UserInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA22F3B220F448ED0058A54F /* RH_UserInfoManager.m */; };
 		DA22F3B820F44A130058A54F /* RH_UserSafetyCodeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA22F3B720F44A130058A54F /* RH_UserSafetyCodeModel.m */; };
 		DA22F3BB20F44B1A0058A54F /* RH_MineInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA22F3BA20F44B1A0058A54F /* RH_MineInfoModel.m */; };
-		DA22F3C320F44DA80058A54F /* CLDocumentCachePool.m in Sources */ = {isa = PBXBuildFile; fileRef = DA22F3C020F44DA80058A54F /* CLDocumentCachePool.m */; };
-		DA22F3C420F44DA80058A54F /* CLPathManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA22F3C120F44DA80058A54F /* CLPathManager.m */; };
-		DA22F3C520F44DA80058A54F /* CLBasicFileCachePool.m in Sources */ = {isa = PBXBuildFile; fileRef = DA22F3C220F44DA80058A54F /* CLBasicFileCachePool.m */; };
 		DA22F3C920F44E470058A54F /* help.m in Sources */ = {isa = PBXBuildFile; fileRef = DA22F3C820F44E460058A54F /* help.m */; };
 		DA22F3CC20F44F610058A54F /* CLNetReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = DA22F3CB20F44F600058A54F /* CLNetReachability.m */; };
 		DA22F3D520F454840058A54F /* NSString+CLCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = DA22F3D320F454840058A54F /* NSString+CLCategory.m */; };
@@ -584,9 +579,6 @@
 		BFA068DA20FF11E500F5ADFE /* SH_BankCardModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_BankCardModel.m; sourceTree = "<group>"; };
 		BFA068DC21002BC600F5ADFE /* SH_BankListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_BankListModel.h; sourceTree = "<group>"; };
 		BFA068DD21002BC600F5ADFE /* SH_BankListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_BankListModel.m; sourceTree = "<group>"; };
-		BFA068DF21003DAC00F5ADFE /* SH_HorizontalscreenPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_HorizontalscreenPicker.h; sourceTree = "<group>"; };
-		BFA068E021003DAC00F5ADFE /* SH_HorizontalscreenPicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_HorizontalscreenPicker.m; sourceTree = "<group>"; };
-		BFA068E221003DC800F5ADFE /* SH_HorizontalscreenPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_HorizontalscreenPicker.xib; sourceTree = "<group>"; };
 		BFA068E42100B1AC00F5ADFE /* SH_testViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_testViewController.h; sourceTree = "<group>"; };
 		BFA068E52100B1AC00F5ADFE /* SH_testViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_testViewController.m; sourceTree = "<group>"; };
 		BFD6CFBF20F8901500EDBC5B /* SH_NetWorkService+Bank.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+Bank.h"; sourceTree = "<group>"; };
@@ -774,12 +766,6 @@
 		DA22F3B720F44A130058A54F /* RH_UserSafetyCodeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RH_UserSafetyCodeModel.m; sourceTree = "<group>"; };
 		DA22F3B920F44B1A0058A54F /* RH_MineInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RH_MineInfoModel.h; sourceTree = "<group>"; };
 		DA22F3BA20F44B1A0058A54F /* RH_MineInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RH_MineInfoModel.m; sourceTree = "<group>"; };
-		DA22F3BD20F44DA80058A54F /* CLDocumentCachePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLDocumentCachePool.h; sourceTree = "<group>"; };
-		DA22F3BE20F44DA80058A54F /* CLBasicFileCachePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLBasicFileCachePool.h; sourceTree = "<group>"; };
-		DA22F3BF20F44DA80058A54F /* CLPathManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPathManager.h; sourceTree = "<group>"; };
-		DA22F3C020F44DA80058A54F /* CLDocumentCachePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLDocumentCachePool.m; sourceTree = "<group>"; };
-		DA22F3C120F44DA80058A54F /* CLPathManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPathManager.m; sourceTree = "<group>"; };
-		DA22F3C220F44DA80058A54F /* CLBasicFileCachePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLBasicFileCachePool.m; sourceTree = "<group>"; };
 		DA22F3C720F44E460058A54F /* help.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = help.h; sourceTree = "<group>"; };
 		DA22F3C820F44E460058A54F /* help.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = help.m; sourceTree = "<group>"; };
 		DA22F3CA20F44F600058A54F /* CLNetReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLNetReachability.h; sourceTree = "<group>"; };
@@ -1025,7 +1011,6 @@
 				BF44EC5320F454E100BC6EF3 /* Macro */,
 				DA22F3CD20F450470058A54F /* Macros */,
 				DA22F3C620F44E460058A54F /* Helper */,
-				DA22F3BC20F44DA80058A54F /* CacheFile */,
 				DA22F3B120F448ED0058A54F /* Manager */,
 				BFFC846A20F344C8008AD801 /* Category */,
 				DA18EFB720F0A9C3002B7E22 /* PopTools */,
@@ -1964,19 +1949,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		DA22F3BC20F44DA80058A54F /* CacheFile */ = {
-			isa = PBXGroup;
-			children = (
-				DA22F3BF20F44DA80058A54F /* CLPathManager.h */,
-				DA22F3C120F44DA80058A54F /* CLPathManager.m */,
-				DA22F3BE20F44DA80058A54F /* CLBasicFileCachePool.h */,
-				DA22F3C220F44DA80058A54F /* CLBasicFileCachePool.m */,
-				DA22F3BD20F44DA80058A54F /* CLDocumentCachePool.h */,
-				DA22F3C020F44DA80058A54F /* CLDocumentCachePool.m */,
-			);
-			path = CacheFile;
-			sourceTree = "<group>";
-		};
 		DA22F3C620F44E460058A54F /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -2227,7 +2199,6 @@
 				2274222120FE03BB003529FF /* SH_PromoListView.m in Sources */,
 				425A90C320F88746004B681A /* UIView+HLExtension.m in Sources */,
 				DA21F3AF20F6FCD000D20672 /* RH_RegistrationSelectView.m in Sources */,
-				DA22F3C420F44DA80058A54F /* CLPathManager.m in Sources */,
 				DA21F38D20F590A800D20672 /* RH_RegisetInitModel.m in Sources */,
 				DA1BCD642100AC4E00201DBC /* PGDatePicker+Logic.m in Sources */,
 				DA1BCD672100AC4E00201DBC /* PGDatePicker+MonthDayHourMinuteSecond.m in Sources */,
@@ -2399,7 +2370,6 @@
 				DA6EE1BD20F8BECD009A01C5 /* SH_UserInformationView.m in Sources */,
 				DA22F3E120F4562B0058A54F /* UIImage+Alpha.m in Sources */,
 				DA6EE1C220F98B72009A01C5 /* SH_AlertView.m in Sources */,
-				DA22F3C320F44DA80058A54F /* CLDocumentCachePool.m in Sources */,
 				DA1BCC7E20FE054500201DBC /* SH_CardRecordView.m in Sources */,
 				DA1BCD692100AC4E00201DBC /* NSDate+PGCategory.m in Sources */,
 				DA1BCC8820FE1FFE00201DBC /* RH_BettingDetailModel.m in Sources */,
@@ -2418,7 +2388,6 @@
 				DA1BCD592100AC4E00201DBC /* PGPickerTableView.m in Sources */,
 				BFA068DE21002BC600F5ADFE /* SH_BankListModel.m in Sources */,
 				DA22F3E520F4597E0058A54F /* RH_WebsocketManagar.m in Sources */,
-				DA22F3C520F44DA80058A54F /* CLBasicFileCachePool.m in Sources */,
 				BFA0688B20FC70AC00F5ADFE /* SH_PrifitOutCoinView.m in Sources */,
 				54C8758320F3562700AA0594 /* SH_InfoCenterTabView.m in Sources */,
 				BF44EC5F20F45DA700BC6EF3 /* SH_BitCoinTextView.m in Sources */,

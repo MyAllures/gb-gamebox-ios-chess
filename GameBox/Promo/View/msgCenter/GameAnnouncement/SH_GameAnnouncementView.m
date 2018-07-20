@@ -18,9 +18,6 @@
 #import "HLPopTableView.h"
 
 @interface SH_GameAnnouncementView ()<UITableViewDataSource, UITableViewDelegate,PGDatePickerDelegate>
-{
-    PGDatePickManager *_datePickManager;
-}
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -51,10 +48,7 @@
     datePicker.delegate = self;
     datePicker.datePickerType = PGPickerViewType3;
     datePicker.datePickerMode = PGDatePickerModeDate;
-    _datePickManager = datePickManager;
-    UIWindow  * window = [UIApplication  sharedApplication].keyWindow;
-    window.backgroundColor = [UIColor  yellowColor];
-    [window addSubview:_datePickManager.view];
+    [self presentViewController:datePickManager addTargetViewController:self.alertVC];
 }
 #pragma mark 结束时间选择
 - (IBAction)endTimeAction:(id)sender {
@@ -69,8 +63,13 @@
     datePicker.delegate = self;
     datePicker.datePickerType = PGPickerViewType3;
     datePicker.datePickerMode = PGDatePickerModeDate;
-    _datePickManager = datePickManager;
-    [self.window addSubview:datePickManager.view];
+    [self presentViewController:datePickManager addTargetViewController:self.alertVC];
+}
+#pragma mark --- 模态弹出viewController
+-(void)presentViewController:(UIViewController*)viewController addTargetViewController:(UIViewController*)targetVC{
+    viewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    viewController.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
+    [targetVC presentViewController:viewController animated:YES completion:nil];
 }
 #pragma mark 游戏类型
 - (IBAction)tapApiName:(UIButton *)sender {

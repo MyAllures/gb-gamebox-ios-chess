@@ -129,5 +129,9 @@
     }
     return _siteMsgView;
 }
-
+-(void)setAlertVC:(AlertViewController *)alertVC{
+    _alertVC = alertVC;
+    self.systemNotification.alertVC = alertVC;
+    self.gameAnnouncementView.alertVC = alertVC;
+}
 @end

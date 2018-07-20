@@ -179,11 +179,16 @@
     }
     return  _headerView;
 }
-#pragma mark -- getter  method
+#pragma mark --- getter  method
 -(NSMutableArray *)dataArray{
     if (!_dataArray) {
         _dataArray = [NSMutableArray  array];
     }
     return  _dataArray;
+}
+#pragma mark --- setter method
+-(void)setAlertVC:(AlertViewController *)alertVC{
+    _alertVC = alertVC;
+    self.headerView.alertVC = alertVC;
 }
 @end
