@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AlertViewController.h"
 @class SH_FundListModel;
 @interface SH_WelfareRecordView : UIView
-@property(nonatomic,copy)void (^backToDetailViewBlock)(NSString * searchId,SH_FundListModel * model);
+@property(nonatomic,strong)AlertViewController * vc;
+
 +(instancetype)instanceWelfareRecordView;
 @end
