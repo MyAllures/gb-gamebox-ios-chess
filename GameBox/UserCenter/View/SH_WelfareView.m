@@ -10,8 +10,10 @@
 #import "SH_WelfareView.h"
 
 #import "HLPopTableView.h"
+
 #import "SH_NetWorkService+UserCenter.h"
 #import "SH_SearchTypeModel.h"
+#import "SH_NiceDatePickerView.h"
 @interface SH_WelfareView() <UITextFieldDelegate>
 {
     NSInteger  _selectIndex;
@@ -30,6 +32,7 @@
 @property(nonatomic, strong) NSString *startAndEndDateStr;
 
 @property(nonatomic,strong)NSArray * dataArray;
+
 @end
 
 @implementation SH_WelfareView
@@ -127,81 +130,47 @@
     }
 }
 
-//#pragma mark -- 点击选择开始时间
-//-(void)startBtnClick{
-//    PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
-//    datePickManager.style = PGDatePickManagerStyle1;
-//    datePickManager.isShadeBackgroud = true;
-//
-//    PGDatePicker *datePicker = datePickManager.datePicker;
-//    datePicker.isHiddenMiddleText = false;
-//    datePicker.delegate = self;
-//    datePicker.datePickerType = PGPickerViewType3;
-//    datePicker.datePickerMode = PGDatePickerModeDate;
-//    [self presentViewController:datePickManager addTargetViewController:self.vc];
-//}
-#pragma mark --- 模态弹出viewController
--(void)presentViewController:(UIViewController*)viewController addTargetViewController:(UIViewController*)targetVC{
-    viewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    viewController.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
-    [targetVC presentViewController:viewController animated:YES completion:nil];
-}
-//#pragma mark -- 点击选择结束时间
-//-(void)endBtnClick{
-//    NSDictionary *dict = [[NSDictionary alloc]initWithObjectsAndKeys:@"end",@"isEnd", nil];
-//    self.startAndEndDateStr = dict[@"isEnd"];
-//    PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
-//    datePickManager.style = PGDatePickManagerStyle1;
-//    datePickManager.isShadeBackgroud = true;
-//
-//    PGDatePicker *datePicker = datePickManager.datePicker;
-//    datePicker.isHiddenMiddleText = false;
-//    datePicker.delegate = self;
-//    datePicker.datePickerType = PGPickerViewType3;
-//    datePicker.datePickerMode = PGDatePickerModeDate;
-//     [self presentViewController:datePickManager addTargetViewController:self.vc];
-//}
-#pragma mark -- 结束时间
--(void)seletedEndDate:(NSDictionary *)nt {
-
-    self.endTimeStr = nt[@"date"];
-    if (!self.startTimeStr) {
-        self.startTimeStr = [self getCurrentTimes];
-    }
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSDate *startDate = [dateFormatter dateFromString:self.startTimeStr];
-    NSDate *endDate = [dateFormatter dateFromString:self.endTimeStr];
-    if (startDate > endDate) {
-        showAlertView(@"提示", @"时间选择有误,请重试选择");
-        return;
-    }
-      self.end_label.text = nt[@"date"];
-    [self search];
-}
-#pragma mark -- 开始时间
--(void)changedDate:(NSDictionary *)nt {
+#pragma mark -- 点击选择开始时间
+-(void)startBtnClick{
+     __weak  typeof(self) weakSelf = self;
+    SH_NiceDatePickerView * datePickerView =[[NSBundle  mainBundle] loadNibNamed:@"SH_NiceDatePickerView" owner:nil options:nil].lastObject;
+    [datePickerView setDateStyle:DateStyleShowYearMonthDay CompleteBlock:^(NSDate * date) {
+        weakSelf.startTimeStr = dateString(date, @"yyyy-MM-dd");
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+        NSDate *startDate = [dateFormatter dateFromString:weakSelf.startTimeStr];
+        if ( [self compareOneDay:startDate withAnotherDay:[NSDate date]] == 1) {
+            showAlertView(@"提示", @"时间选择有误,请重试选择");
+            return;
+        }
+        weakSelf.start_label.text = dateString(date, @"yyyy-MM-dd");
+        [weakSelf search];
+    }];
+    [datePickerView  showPickerView];
     
-    self.startTimeStr = nt[@"date"];
-    if (!self.endTimeStr) {
-        self.endTimeStr = [self getCurrentTimes];
-    }
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSDate *startDate = [dateFormatter dateFromString:self.startTimeStr];
-    NSDate *endDate = [dateFormatter dateFromString:self.endTimeStr];
-    if (startDate > endDate) {
-        showAlertView(@"提示", @"时间选择有误,请重试选择");
-        return;
-    }
-    self.start_label.text = nt[@"date"];
-    [self search];
 }
 
-#pragma mark - UITextFieldDelegate
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
-    return NO;
+#pragma mark -- 点击选择结束时间
+-(void)endBtnClick{
+    __weak  typeof(self) weakSelf = self;
+    SH_NiceDatePickerView * datePickerView =[[NSBundle  mainBundle] loadNibNamed:@"SH_NiceDatePickerView" owner:nil options:nil].lastObject;
+    [datePickerView setDateStyle:DateStyleShowYearMonthDay CompleteBlock:^(NSDate * date) {
+        weakSelf.endTimeStr = dateString(date, @"yyyy-MM-dd");
+        if (!weakSelf.startTimeStr) {
+            weakSelf.startTimeStr = [weakSelf getCurrentTimes];
+        }
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+        NSDate *startDate = [dateFormatter dateFromString:weakSelf.startTimeStr];
+        NSDate *endDate = [dateFormatter dateFromString:weakSelf.endTimeStr];
+        if (startDate > endDate) {
+            showAlertView(@"提示", @"时间选择有误,请重试选择");
+            return;
+        }
+        weakSelf.end_label.text = dateString(date, @"yyyy-MM-dd");
+        [weakSelf search];
+    }];
+    [datePickerView  showPickerView];
 }
 #pragma  mark --- getter method
 
@@ -386,4 +355,5 @@
     }
     return _dataArray;
 }
+
 @end
