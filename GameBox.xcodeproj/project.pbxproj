@@ -147,7 +147,7 @@
 		BF44ECFF20F7478600BC6EF3 /* SH_BitCoinSuccessPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF44ECFE20F7478600BC6EF3 /* SH_BitCoinSuccessPopView.xib */; };
 		BF7B08BE2101936B008256FE /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B08B72101936A008256FE /* NSDate+Extension.m */; };
 		BF7B08BF2101936B008256FE /* SH_NiceDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B08B82101936A008256FE /* SH_NiceDatePickerView.m */; };
-		BF7B08C42101C639008256FE /* SH_NiceDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7B08C32101C628008256FE /* SH_NiceDatePickerView.xib */; };
+		BF7B08C62101CF33008256FE /* SH_NiceDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7B08C52101CF33008256FE /* SH_NiceDatePickerView.xib */; };
 		BFA0688B20FC70AC00F5ADFE /* SH_PrifitOutCoinView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA0688A20FC70AC00F5ADFE /* SH_PrifitOutCoinView.m */; };
 		BFA0688D20FC70C200F5ADFE /* SH_PrifitOutCoinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA0688C20FC70C200F5ADFE /* SH_PrifitOutCoinView.xib */; };
 		BFA0689020FC8C1000F5ADFE /* SH_OutCoinDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA0688F20FC8C1000F5ADFE /* SH_OutCoinDetailView.m */; };
@@ -535,7 +535,7 @@
 		BF7B08B82101936A008256FE /* SH_NiceDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_NiceDatePickerView.m; sourceTree = "<group>"; };
 		BF7B08BA2101936B008256FE /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
 		BF7B08BC2101936B008256FE /* SH_NiceDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_NiceDatePickerView.h; sourceTree = "<group>"; };
-		BF7B08C22101C628008256FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SH_NiceDatePickerView.xib; sourceTree = "<group>"; };
+		BF7B08C52101CF33008256FE /* SH_NiceDatePickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_NiceDatePickerView.xib; sourceTree = "<group>"; };
 		BFA0688920FC70AC00F5ADFE /* SH_PrifitOutCoinView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PrifitOutCoinView.h; sourceTree = "<group>"; };
 		BFA0688A20FC70AC00F5ADFE /* SH_PrifitOutCoinView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PrifitOutCoinView.m; sourceTree = "<group>"; };
 		BFA0688C20FC70C200F5ADFE /* SH_PrifitOutCoinView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PrifitOutCoinView.xib; sourceTree = "<group>"; };
@@ -1479,7 +1479,7 @@
 				BF7B08B72101936A008256FE /* NSDate+Extension.m */,
 				BF7B08BC2101936B008256FE /* SH_NiceDatePickerView.h */,
 				BF7B08B82101936A008256FE /* SH_NiceDatePickerView.m */,
-				BF7B08C32101C628008256FE /* SH_NiceDatePickerView.xib */,
+				BF7B08C52101CF33008256FE /* SH_NiceDatePickerView.xib */,
 			);
 			path = DatePicker;
 			sourceTree = "<group>";
@@ -2121,7 +2121,7 @@
 				BFA068C520FE0AE100F5ADFE /* SH_SaftyCenterView.xib in Resources */,
 				DA1BCD782100B10300201DBC /* SH_ShareView.xib in Resources */,
 				DA6EE1BF20F8BEDA009A01C5 /* SH_UserInformationView.xib in Resources */,
-				BF7B08C42101C639008256FE /* SH_NiceDatePickerView.xib in Resources */,
+				BF7B08C62101CF33008256FE /* SH_NiceDatePickerView.xib in Resources */,
 				DA1BCCA920FF288B00201DBC /* RH_BettingRecordDetailCell.xib in Resources */,
 				2209026720F053D400F8828E /* SH_PromoViewCell.xib in Resources */,
 				BF2F916020EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.xib in Resources */,
@@ -2432,14 +2432,6 @@
 				5401C53B20ECA1100027246D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		BF7B08C32101C628008256FE /* SH_NiceDatePickerView.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BF7B08C22101C628008256FE /* Base */,
-			);
-			name = SH_NiceDatePickerView.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
