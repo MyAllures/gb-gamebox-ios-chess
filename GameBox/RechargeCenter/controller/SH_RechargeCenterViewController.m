@@ -111,7 +111,11 @@
                 }
                 NSMutableArray *sectionTwoArray = [NSMutableArray array];
                 for (int i = 0; i < payways.count; i++) {
-                    [sectionTwoArray addObject:@"unSelected"];
+                    if (i == 0) {
+                        [sectionTwoArray addObject:@"selected"];
+                    }else{
+                        [sectionTwoArray addObject:@"unSelected"];
+                    }
                 }
                 NSMutableArray *sectionThreeArray = [NSMutableArray array];
                 NSMutableArray *chooseMoneyArray =  [NSMutableArray array];

@@ -155,7 +155,11 @@
     [self.bitConnHeadView updateUIWithChannelModel:model];
 }
 -(void)saveToPhoneBtnClick{
-    [[SavePhotoTool shared]saveImageToPhoneImage:self.QRImageView.image];
+    if (self.QRImageView.image) {
+        [[SavePhotoTool shared]saveImageToPhoneImage:self.QRImageView.image];
+    }else{
+        showMessage(self.superview, @"没有需要保存的图片", nil);
+    }
 }
 -(void)setBottomLabWithMessage:(NSString *)message{
     [ self.tttLab  setText:message afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {

@@ -33,7 +33,11 @@
                 [channelArray addObjectsFromArray:payways];
             }
             for (int i = 0; i < payways.count; i++) {
-                [sectionTwoArray addObject:@"unSelected"];
+                if (i == 0) {
+                    [sectionTwoArray addObject:@"selected"];
+                }else{
+                    [sectionTwoArray addObject:@"unSelected"];
+                }
             }
             NSMutableArray *chooseMoneyArray =  [NSMutableArray array];
             for (int i = 0; i < moneys.count; i++) {
