@@ -12,6 +12,7 @@
 #import "SH_CardRecordTableViewCell.h"
 #import "SH_CardRecordModel.h"
 #import "SH_CardRecordDetailView.h"
+#import "GameWebViewController.h"
 @interface  SH_CardRecordView()<UITableViewDelegate,UITableViewDataSource>
 {
     NSInteger page;
@@ -130,10 +131,14 @@
     [cell updateCellWithInfo:nil context:self.dataArray[indexPath.row]];
     return  cell;
 }
+#pragma 牌局详情 webview 展示 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView  deselectRowAtIndexPath:indexPath animated:YES];
     RH_BettingInfoModel * info = ConvertToClassPointer(RH_BettingInfoModel, self.dataArray[indexPath.row]);
     NSLog(@"----%@",info.mId);
+   /* GameWebViewController * webDetail = [[GameWebViewController  alloc] init];
+    webDetail.url = info.url;
+    [self.alertVC  presentViewController:webDetail animated:YES completion:nil];*/
     SH_CardRecordDetailView * cardDetail = [SH_CardRecordDetailView  instanceCardRecordDetailView];
     cardDetail.mId = info.mId;
     AlertViewController *dcr  = [[AlertViewController  alloc] initAlertView:cardDetail viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title10" alertViewType:AlertViewTypeLong];

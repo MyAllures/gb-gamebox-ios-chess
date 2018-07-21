@@ -109,7 +109,7 @@
     if (isRegist) {
         [SH_NetWorkService  fetchAutoLoginWithUserName:account Password:password complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *result = ConvertToClassPointer(NSDictionary, response) ;
-            if ([result[@"code"] isEqualToString:@"0"]){
+            if ([result boolValueForKey:@"success"]){
                 [[RH_UserInfoManager shareUserManager] updateLoginInfoWithUserName:account
                                                                          LoginTime:dateStringWithFormatter([NSDate date], @"yyyy-MM-dd HH:mm:ss")] ;
                 [self autoLoginSuccess:httpURLResponse isRegist:isRegist];
@@ -156,7 +156,7 @@
     [[RH_UserInfoManager  shareUserManager] updateIsLogin:YES];
     [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
-        if ([dict  boolValueForKey:@"success"]) {
+        if ([dict[@"code"] isEqualToString:@"0"]) {
             RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[dict[@"data"] objectForKey:@"user"] error:nil];
             [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];            
             [self  configUI];
