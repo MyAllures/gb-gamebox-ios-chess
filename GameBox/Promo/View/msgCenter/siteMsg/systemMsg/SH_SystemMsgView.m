@@ -32,7 +32,7 @@
     if (self.dataListArr.count > 0) {
         sender.selected = !sender.selected;
         if (sender.selected) {
-            self.seleteAllImageView.image = [UIImage imageNamed:@"choose"];
+            self.seleteAllImageView.imageName = @"choose";
             [self.seleteAllBtn setTitle:@"取消全选" forState:UIControlStateNormal];
             for (SH_SysMsgDataListModel *model in self.dataListArr) {
                 [model updateSelectedFlag:YES];
@@ -40,7 +40,7 @@
             self.isSelete = YES;
             [self.tableView reloadData];
         }else{
-            self.seleteAllImageView.image = [UIImage imageNamed:@"not-choose"];
+            self.seleteAllImageView.imageName = @"not-choose";
             [self.seleteAllBtn setTitle:@"全选" forState:UIControlStateNormal];
             for (SH_SysMsgDataListModel *model in self.dataListArr) {
                 [model updateSelectedFlag:NO];
@@ -302,9 +302,9 @@
     cell.advisoryTimeLabel.text = [self timeStampWithDate:model.publishTime];
     NSLog(@"id=====%ld",(long)model.id);
     if (model.selectedFlag) {
-        [cell.seleteBtn setBackgroundImage: [UIImage imageNamed:@"choose"] forState:UIControlStateNormal];
+        [cell.seleteBtn setWebpImage:@"choose" forState:UIControlStateNormal];
     }else{
-        [cell.seleteBtn setBackgroundImage: [UIImage imageNamed:@"not-choose"] forState:UIControlStateNormal];
+        [cell.seleteBtn setWebpImage:@"not-choose" forState:UIControlStateNormal];
     }
     
     return cell;
