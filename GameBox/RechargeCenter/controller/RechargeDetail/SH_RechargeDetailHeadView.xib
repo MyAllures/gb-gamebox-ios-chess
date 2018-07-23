@@ -217,7 +217,7 @@
                 <outlet property="qrImageView" destination="Jug-YB-hlP" id="KMA-5l-VAb"/>
                 <outlet property="saveBtnCenterX" destination="VuV-vv-1tY" id="pFr-4u-QbO"/>
             </connections>
-            <point key="canvasLocation" x="-259" y="10"/>
+            <point key="canvasLocation" x="-185" y="-25"/>
         </view>
     </objects>
 </document>

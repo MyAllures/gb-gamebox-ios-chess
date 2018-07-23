@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="SH_ModifyLoginPSDView">
+        <view tag="11" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="SH_ModifyLoginPSDView">
             <rect key="frame" x="0.0" y="0.0" width="333" height="284"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -87,14 +87,17 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iit-eR-jHS">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iit-eR-jHS" customClass="SH_WebPButton">
                     <rect key="frame" x="93.5" y="175" width="145" height="45"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="145" id="8lt-8x-oax"/>
                         <constraint firstAttribute="height" constant="45" id="McB-2Y-ufD"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                    <state key="normal" title="修改" backgroundImage="button-long-145"/>
+                    <state key="normal" title="修改"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long-145"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="sureBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="bXA-PL-8fX"/>
                     </connections>
@@ -123,9 +126,7 @@
                 <outlet property="currentTX" destination="eaN-Wx-gfC" id="K8O-Vs-Xpz"/>
                 <outlet property="sureTX" destination="7C1-7v-gnx" id="cnN-Ku-NYY"/>
             </connections>
+            <point key="canvasLocation" x="75" y="19"/>
         </view>
     </objects>
-    <resources>
-        <image name="button-long-145" width="145" height="45"/>
-    </resources>
 </document>

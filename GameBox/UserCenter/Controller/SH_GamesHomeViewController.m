@@ -13,6 +13,7 @@
 #import "SH_CardRecordView.h"
 #import "SH_NetWorkService+RegistAPI.h"
 #import "UIImage+SH_WebPImage.h"
+#import "SH_WebPButton.h"
 
 @interface SH_GamesHomeViewController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintWidth;
@@ -20,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIView *bottom_view;
 @property (weak, nonatomic) IBOutlet UILabel *account_label;
 @property (weak, nonatomic) IBOutlet UILabel *money_label;
-@property (weak, nonatomic) IBOutlet UIButton *avatar_button;
+@property (weak, nonatomic) IBOutlet SH_WebPButton *avatar_button;
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatar_imgView;
 @end
@@ -36,19 +37,21 @@
 #pragma mark --- 配置UI
 -(void)configUI{
     self.view.backgroundColor = [[UIColor  blackColor] colorWithAlphaComponent:0.5];
-    UIImage * img = [UIImage imageNamed:@"top-bg"];
-    UIImage * imgs = [UIImage imageNamed:@"menu-bg"];
+//    UIImage * img = [UIImage imageNamed:@"top-bg"];
+    UIImage *img = [UIImage imageWithWebPImageName:@"top-bg"];
+//    UIImage * imgs = [UIImage imageNamed:@"menu-bg"];
+    UIImage *imgs = [UIImage imageWithWebPImageName:@"menu-bg"];
     self.top_view.layer.contents = (__bridge id _Nullable)(img.CGImage);
     self.bottom_view.layer.contents = (__bridge id _Nullable)(imgs.CGImage);
     self.account_label.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.username;
     self.money_label.text = [NSString  stringWithFormat:@"%.2f",[RH_UserInfoManager shareUserManager].mineSettingInfo.walletBalance];
     if ([RH_UserInfoManager  shareUserManager].isLogin) {
         self.avatar_imgView.image = [UIImage imageWithWebPImageName:@"photo_male"];
-        [self.avatar_button setImage:[UIImage imageWithWebPImageName:@"photo_male"] forState:UIControlStateNormal];
+        [self.avatar_button setWebpImage:@"photo_male" forState:UIControlStateNormal];
         //刷新随身福利
     }else{
         self.avatar_imgView.image = [UIImage imageWithWebPImageName:@"avatar"];
-        [self.avatar_button setImage:[UIImage imageWithWebPImageName:@"avatar"] forState:UIControlStateNormal];
+          [self.avatar_button setWebpImage:@"avatar" forState:UIControlStateNormal];
     }
     if (iPhoneX) {
         self.constraintWidth.constant = 200;

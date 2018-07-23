@@ -225,5 +225,17 @@
         }
     }];
 }
-
+#pragma mark - 注册条款
++(void)fetchRegisetTerm:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed{
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/origin/terms.html"];
+    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost};
+    [self post:url parameter:nil header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (complete) {
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        if (failed) {
+            failed(httpURLResponse, err);
+        }
+    }];
+}
 @end

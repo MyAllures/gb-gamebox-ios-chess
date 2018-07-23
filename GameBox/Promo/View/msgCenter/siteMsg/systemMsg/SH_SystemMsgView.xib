@@ -59,12 +59,15 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="meD-cF-FFW">
                     <rect key="frame" x="23" y="14" width="91" height="30"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="not-choose" translatesAutoresizingMaskIntoConstraints="NO" id="Es4-OL-K98">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Es4-OL-K98" customClass="SH_WebPImageView">
                             <rect key="frame" x="0.0" y="5" width="20" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="mdh-eP-wXg"/>
                                 <constraint firstAttribute="width" constant="20" id="n3w-cB-Uyf"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="not-choose"/>
+                            </userDefinedRuntimeAttributes>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRy-Ha-N2L">
                             <rect key="frame" x="0.0" y="0.0" width="91" height="30"/>
@@ -116,7 +119,4 @@
             <point key="canvasLocation" x="-104" y="138"/>
         </view>
     </objects>
-    <resources>
-        <image name="not-choose" width="15" height="15"/>
-    </resources>
 </document>

@@ -11,10 +11,11 @@
 #import "SH_NetWorkService+Promo.h"
 #import "SH_MyMsgDataListModel.h"
 #import "SH_MyMsgDetailView.h"
+#import "SH_WebPImageView.h"
 @interface SH_MyMsgView ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *dataListArr;
-@property (weak, nonatomic) IBOutlet UIImageView *seleteAllImageView;
+@property (weak, nonatomic) IBOutlet SH_WebPImageView *seleteAllImageView;
 @property (weak, nonatomic) IBOutlet UIButton *seleteAllBtn;
 @property (strong, nonatomic) NSIndexPath *indexPath1;
 

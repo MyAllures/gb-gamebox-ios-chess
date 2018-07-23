@@ -29,13 +29,19 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zfo-JZ-3Li">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zfo-JZ-3Li" customClass="SH_WebPButton">
                     <rect key="frame" x="115" y="138" width="145" height="45"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="0Ms-Uy-6ga"/>
                         <constraint firstAttribute="width" constant="145" id="76G-cz-jgx"/>
                     </constraints>
-                    <state key="normal" title="确认" backgroundImage="button-long-145"/>
+                    <state key="normal" title="确认"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="ringType">
+                            <integer key="value" value="0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long-145"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="sureBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="TGs-wv-e9e"/>
                     </connections>
@@ -55,7 +61,4 @@
             </connections>
         </view>
     </objects>
-    <resources>
-        <image name="button-long-145" width="145" height="45"/>
-    </resources>
 </document>

@@ -11,14 +11,15 @@
 #import "SH_GameAnnouncementView.h"
 #import "SH_SystemNotification.h"
 #import "SH_SiteMsgView.h"
+#import "SH_WebPButton.h"
 
 #define screenH [UIScreen mainScreen].bounds.size.height
 #define screenW [UIScreen mainScreen].bounds.size.width
 
 @interface SH_InfoCenterTabView()
-@property (weak, nonatomic) IBOutlet UIButton *btn1;
-@property (weak, nonatomic) IBOutlet UIButton *btn2;
-@property (weak, nonatomic) IBOutlet UIButton *btn3;
+@property (weak, nonatomic) IBOutlet SH_WebPButton *btn1;
+@property (weak, nonatomic) IBOutlet SH_WebPButton *btn2;
+@property (weak, nonatomic) IBOutlet SH_WebPButton *btn3;
 
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 
@@ -35,6 +36,9 @@
         self.btn1.selected = YES;
         self.btn2.selected = NO;
         self.btn3.selected = NO;
+        [self.btn1 setWebpBGImage:@"button-long-click" forState:UIControlStateNormal];
+        [self.btn2 setWebpBGImage:@"button-long" forState:UIControlStateNormal];
+        [self.btn3 setWebpBGImage:@"button-long" forState:UIControlStateNormal];
         self.gameAnnouncementView.hidden = NO;
         self.systemNotification.hidden = YES;
         self.siteMsgView.hidden = YES;
@@ -42,6 +46,9 @@
         self.btn1.selected = NO;
         self.btn2.selected = YES;
         self.btn3.selected = NO;
+        [self.btn1 setWebpBGImage:@"button-long" forState:UIControlStateNormal];
+        [self.btn2 setWebpBGImage:@"button-long-click" forState:UIControlStateNormal];
+        [self.btn3 setWebpBGImage:@"button-long" forState:UIControlStateNormal];
         self.gameAnnouncementView.hidden = YES;
         self.systemNotification.hidden = NO;
         self.siteMsgView.hidden = YES;
@@ -49,6 +56,9 @@
         self.btn1.selected = NO;
         self.btn2.selected = NO;
         self.btn3.selected = YES;
+        [self.btn1 setWebpBGImage:@"button-long" forState:UIControlStateNormal];
+        [self.btn2 setWebpBGImage:@"button-long" forState:UIControlStateNormal];
+        [self.btn3 setWebpBGImage:@"button-long-click" forState:UIControlStateNormal];
         self.gameAnnouncementView.hidden = YES;
         self.systemNotification.hidden = YES;
         self.siteMsgView.hidden = NO;

@@ -42,13 +42,16 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4c6-zS-CUz">
                     <rect key="frame" x="10" y="13" width="84" height="35"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2J-52-bqe">
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2J-52-bqe" customClass="SH_WebPButton">
                             <rect key="frame" x="0.0" y="0.0" width="84" height="35"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
                             <state key="normal" title="2017-02-03" image="betRec_calendar_icon">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="betRec_calendar_icon"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="startTimeAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="DK3-fU-iNk"/>
                             </connections>
@@ -73,13 +76,16 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ASB-TD-RuX">
                     <rect key="frame" x="115" y="13" width="84" height="35"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZeW-Et-V6H">
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZeW-Et-V6H" customClass="SH_WebPButton">
                             <rect key="frame" x="0.0" y="0.0" width="84" height="35"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
                             <state key="normal" title="2017-02-03" image="betRec_calendar_icon">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="betRec_calendar_icon"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="endTimeAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="3AX-7p-Wcs"/>
                             </connections>
@@ -104,12 +110,15 @@
                                 <action selector="tapApiName:" destination="iN0-l3-epB" eventType="touchUpInside" id="3V6-47-u3q"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down" translatesAutoresizingMaskIntoConstraints="NO" id="0YB-6c-kW8">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0YB-6c-kW8" customClass="SH_WebPImageView">
                             <rect key="frame" x="62" y="11" width="12" height="12"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="12" id="IUp-lN-bBe"/>
                                 <constraint firstAttribute="width" constant="12" id="amj-M6-s5l"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="down"/>
+                            </userDefinedRuntimeAttributes>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -153,6 +162,5 @@
     </objects>
     <resources>
         <image name="betRec_calendar_icon" width="24" height="24"/>
-        <image name="down" width="24" height="24"/>
     </resources>
 </document>

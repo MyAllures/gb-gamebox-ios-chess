@@ -12,12 +12,13 @@
 #import "SH_NetWorkService+Promo.h"
 #import "SH_SysMsgDataListModel.h"
 #import "SH_MsgDetailView.h"
+#import "SH_WebPImageView.h"
 
 @interface SH_SystemMsgView () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *dataListArr;
 @property (strong, nonatomic) NSIndexPath *indexPath1;
-@property (weak, nonatomic) IBOutlet UIImageView *seleteAllImageView;
+@property (weak, nonatomic) IBOutlet SH_WebPImageView *seleteAllImageView;
 @property (weak, nonatomic) IBOutlet UIButton *seleteAllBtn;
 //删除的数据
 @property (strong, nonatomic) NSMutableArray *deleteArr;
