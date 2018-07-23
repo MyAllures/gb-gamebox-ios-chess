@@ -14,18 +14,41 @@
 - (void)setWebpImage:(NSString *)webpImage
 {
     _webpImage = webpImage;
-    
+    UIImage *img = [self webpToUIImage:_webpImage];
+    [self setImage:img forState:UIControlStateNormal];
+}
+
+- (void)setWebpBGImage:(NSString *)webpBGImage
+{
+    _webpBGImage = webpBGImage;
+    UIImage *img = [self webpToUIImage:_webpBGImage];
+    [self setBackgroundImage:img forState:UIControlStateNormal];
+}
+
+- (UIImage *)webpToUIImage:(NSString *)name
+{
     NSBundle *bundle;
 #if TARGET_INTERFACE_BUILDER
     bundle = [NSBundle bundleForClass:[self class]];
 #else
     bundle = [NSBundle mainBundle];
 #endif
-    NSString *path = [bundle pathForResource:_webpImage ofType:@"webp"];
+    NSString *path = [bundle pathForResource:name ofType:@"webp"];
     NSData *data = [[NSData alloc] initWithContentsOfFile:path];
     UIImage *img = [UIImage sd_imageWithWebPData:data];
-    
-    [self setImage:img forState:UIControlStateNormal];
+    return img;
+}
+
+- (void)setWebpImage:(NSString *)webpImage forState:(UIControlState)state
+{
+    UIImage *img = [self webpToUIImage:webpImage];
+    [self setImage:img forState:state];
+}
+
+- (void)setWebpBGImage:(NSString *)webpBGImage forState:(UIControlState)state
+{
+    UIImage *img = [self webpToUIImage:webpBGImage];
+    [self setBackgroundImage:img forState:state];
 }
 
 @end
