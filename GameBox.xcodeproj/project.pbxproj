@@ -263,6 +263,7 @@
 		BF5C0BD12105B9E60035B754 /* refresh.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5C0BD02105B9E60035B754 /* refresh.webp */; };
 		BF5C0BD52105D3530035B754 /* SH_ProfitExchangeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5C0BD32105D3530035B754 /* SH_ProfitExchangeTableViewCell.m */; };
 		BF5C0BD62105D3530035B754 /* SH_ProfitExchangeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF5C0BD42105D3530035B754 /* SH_ProfitExchangeTableViewCell.xib */; };
+		BF5C0BD92105D7DB0035B754 /* SH_FillRealNameView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5C0BD82105D7DB0035B754 /* SH_FillRealNameView.m */; };
 		BF7B08BE2101936B008256FE /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B08B72101936A008256FE /* NSDate+Extension.m */; };
 		BF7B08BF2101936B008256FE /* SH_NiceDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B08B82101936A008256FE /* SH_NiceDatePickerView.m */; };
 		BF7B08C62101CF33008256FE /* SH_NiceDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7B08C52101CF33008256FE /* SH_NiceDatePickerView.xib */; };
@@ -745,6 +746,8 @@
 		BF5C0BD22105D3530035B754 /* SH_ProfitExchangeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ProfitExchangeTableViewCell.h; sourceTree = "<group>"; };
 		BF5C0BD32105D3530035B754 /* SH_ProfitExchangeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_ProfitExchangeTableViewCell.m; sourceTree = "<group>"; };
 		BF5C0BD42105D3530035B754 /* SH_ProfitExchangeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_ProfitExchangeTableViewCell.xib; sourceTree = "<group>"; };
+		BF5C0BD72105D7DB0035B754 /* SH_FillRealNameView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_FillRealNameView.h; sourceTree = "<group>"; };
+		BF5C0BD82105D7DB0035B754 /* SH_FillRealNameView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_FillRealNameView.m; sourceTree = "<group>"; };
 		BF7B08B72101936A008256FE /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
 		BF7B08B82101936A008256FE /* SH_NiceDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_NiceDatePickerView.m; sourceTree = "<group>"; };
 		BF7B08BA2101936B008256FE /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
@@ -1864,6 +1867,8 @@
 				BF5C0BD22105D3530035B754 /* SH_ProfitExchangeTableViewCell.h */,
 				BF5C0BD32105D3530035B754 /* SH_ProfitExchangeTableViewCell.m */,
 				BF5C0BD42105D3530035B754 /* SH_ProfitExchangeTableViewCell.xib */,
+				BF5C0BD72105D7DB0035B754 /* SH_FillRealNameView.h */,
+				BF5C0BD82105D7DB0035B754 /* SH_FillRealNameView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2588,6 +2593,7 @@
 				BFA068B220FD9C3300F5ADFE /* SH_LookJiHeTableViewCell.m in Sources */,
 				DA1BCCB321003C9B00201DBC /* CLActivityIndicatorView.m in Sources */,
 				54C21AB920F1B981006FCA0F /* SH_CycleScrollView.m in Sources */,
+				BF5C0BD92105D7DB0035B754 /* SH_FillRealNameView.m in Sources */,
 				BFFC846320F2F268008AD801 /* SH_NetWorkService+RechargeCenter.m in Sources */,
 				BF2F915F20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m in Sources */,
 				22E486E020FC48D10051A68C /* SH_PromoDetailView.m in Sources */,

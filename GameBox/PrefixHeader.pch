@@ -49,10 +49,8 @@
 #import "coreLib.h"
 #import <MJRefresh.h>
 #import <UIImage+WebP.h>
-<<<<<<< HEAD
-=======
+
 #import "SH_WebPImageView.h"
->>>>>>> 42559e629786cba2ea74b21f82dd508d2f33d141
 #import "SH_WebPButton.h"
 
 #endif /* PrefixHeader_pch */
