@@ -15,71 +15,109 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left_bgImage" translatesAutoresizingMaskIntoConstraints="NO" id="bqT-M8-Xjp">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bqT-M8-Xjp" customClass="SH_WebPImageView">
                     <rect key="frame" x="0.0" y="0.0" width="135" height="300"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="135" id="tpu-Sk-N7o"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="left_bgImage"/>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yY-sY-Tt6">
-                    <rect key="frame" x="7" y="10" width="120" height="50"/>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yY-sY-Tt6" customClass="SH_WebPButton">
+                    <rect key="frame" x="7" y="10" width="120" height="47"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="120" id="Emm-SS-2h2"/>
-                        <constraint firstAttribute="height" constant="50" id="Pzg-eq-zeJ"/>
+                        <constraint firstAttribute="height" constant="47" id="Pzg-eq-zeJ"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                    <state key="normal" title="修改登录密码" backgroundImage="button-long-click"/>
+                    <state key="normal" title="修改登录密码"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long-click"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="modifyLoginBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="VCn-It-1yr"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TnJ-eo-M3j" userLabel="修改安全密码">
-                    <rect key="frame" x="7" y="70" width="120" height="50"/>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TnJ-eo-M3j" userLabel="修改安全密码" customClass="SH_WebPButton">
+                    <rect key="frame" x="7" y="67" width="120" height="47"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                    <state key="normal" title="设置安全密码" backgroundImage="button-long">
+                    <state key="normal" title="设置安全密码">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="saftyBtnclick:" destination="iN0-l3-epB" eventType="touchUpInside" id="3PU-0e-1a3"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2G-pc-F39">
-                    <rect key="frame" x="7" y="130" width="120" height="50"/>
+                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2G-pc-F39" customClass="SH_WebPButton">
+                    <rect key="frame" x="7" y="124" width="120" height="47"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                    <state key="normal" title="银行卡" backgroundImage="button-long"/>
+                    <state key="normal" title="银行卡"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="bankCardBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="bdJ-qg-e19"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KhX-Aj-sqP" customClass="SH_WebPButton">
+                    <rect key="frame" x="7" y="181" width="120" height="47"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="福利转换"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="profitExchangeBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="rte-Lz-oyo"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ev-Y9-032" customClass="SH_WebPButton">
+                    <rect key="frame" x="7" y="238" width="120" height="47"/>
+                    <state key="normal" title="绑定手机"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="bindPhoneBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="WPL-qa-hUf"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.1647058824" green="0.20784313730000001" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="e2G-pc-F39" firstAttribute="height" secondItem="TnJ-eo-M3j" secondAttribute="height" id="0n6-gV-sJh"/>
+                <constraint firstItem="1Ev-Y9-032" firstAttribute="centerX" secondItem="KhX-Aj-sqP" secondAttribute="centerX" id="1gL-bN-l5v"/>
                 <constraint firstItem="e2G-pc-F39" firstAttribute="top" secondItem="TnJ-eo-M3j" secondAttribute="bottom" constant="10" id="2aC-ve-QFh"/>
                 <constraint firstItem="9yY-sY-Tt6" firstAttribute="centerX" secondItem="bqT-M8-Xjp" secondAttribute="centerX" id="2om-Nu-dxa"/>
                 <constraint firstItem="TnJ-eo-M3j" firstAttribute="top" secondItem="9yY-sY-Tt6" secondAttribute="bottom" constant="10" id="5sG-Fc-XH4"/>
                 <constraint firstItem="TnJ-eo-M3j" firstAttribute="width" secondItem="9yY-sY-Tt6" secondAttribute="width" id="IRV-hL-fwZ"/>
+                <constraint firstItem="1Ev-Y9-032" firstAttribute="height" secondItem="KhX-Aj-sqP" secondAttribute="height" id="PGN-Ox-f8i"/>
                 <constraint firstItem="bqT-M8-Xjp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Rdc-jI-bXI"/>
                 <constraint firstItem="e2G-pc-F39" firstAttribute="width" secondItem="TnJ-eo-M3j" secondAttribute="width" id="XIE-A6-koJ"/>
                 <constraint firstItem="TnJ-eo-M3j" firstAttribute="centerX" secondItem="9yY-sY-Tt6" secondAttribute="centerX" id="YJE-tD-3HL"/>
+                <constraint firstItem="KhX-Aj-sqP" firstAttribute="width" secondItem="e2G-pc-F39" secondAttribute="width" id="aZC-7f-n3r"/>
                 <constraint firstAttribute="bottom" secondItem="bqT-M8-Xjp" secondAttribute="bottom" id="abC-gH-YPa"/>
                 <constraint firstItem="9yY-sY-Tt6" firstAttribute="top" secondItem="bqT-M8-Xjp" secondAttribute="top" constant="10" id="e1j-JZ-CSq"/>
+                <constraint firstItem="KhX-Aj-sqP" firstAttribute="height" secondItem="e2G-pc-F39" secondAttribute="height" id="gqf-Tn-4ci"/>
                 <constraint firstItem="bqT-M8-Xjp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nNQ-a7-6S3"/>
+                <constraint firstItem="1Ev-Y9-032" firstAttribute="width" secondItem="KhX-Aj-sqP" secondAttribute="width" id="p2D-HA-Zk6"/>
                 <constraint firstItem="e2G-pc-F39" firstAttribute="centerX" secondItem="TnJ-eo-M3j" secondAttribute="centerX" id="qpB-6n-4wJ"/>
+                <constraint firstItem="KhX-Aj-sqP" firstAttribute="centerX" secondItem="e2G-pc-F39" secondAttribute="centerX" id="tmh-Rc-acV"/>
                 <constraint firstItem="TnJ-eo-M3j" firstAttribute="height" secondItem="9yY-sY-Tt6" secondAttribute="height" id="ugn-0X-RjB"/>
+                <constraint firstItem="KhX-Aj-sqP" firstAttribute="top" secondItem="e2G-pc-F39" secondAttribute="bottom" constant="10" id="yRw-gI-zhT"/>
+                <constraint firstItem="1Ev-Y9-032" firstAttribute="top" secondItem="KhX-Aj-sqP" secondAttribute="bottom" constant="10" id="zh6-QL-kkf"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="bankBtn" destination="e2G-pc-F39" id="Ukx-eD-uKS"/>
-                <outlet property="loginBtn" destination="9yY-sY-Tt6" id="N06-5b-3w2"/>
+                <outlet property="bindPhoneBtn" destination="1Ev-Y9-032" id="s7M-zS-j92"/>
+                <outlet property="loginBtn" destination="9yY-sY-Tt6" id="zg8-qK-npR"/>
+                <outlet property="profitExchangeBtn" destination="KhX-Aj-sqP" id="lGa-Yd-Rig"/>
                 <outlet property="saftyBtn" destination="TnJ-eo-M3j" id="fc1-Il-8dS"/>
             </connections>
             <point key="canvasLocation" x="5" y="30"/>
         </view>
     </objects>
-    <resources>
-        <image name="button-long" width="121" height="47"/>
-        <image name="button-long-click" width="121" height="47"/>
-        <image name="left_bgImage" width="135" height="302"/>
-    </resources>
 </document>

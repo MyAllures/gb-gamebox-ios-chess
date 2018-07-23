@@ -26,11 +26,14 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Lp-LN-rtB">
                     <rect key="frame" x="106.5" y="20" width="454" height="335"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="title-bg2" translatesAutoresizingMaskIntoConstraints="NO" id="pKz-b2-7jm">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pKz-b2-7jm" customClass="SH_WebPImageView">
                             <rect key="frame" x="0.0" y="0.0" width="454" height="36"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="pKz-b2-7jm" secondAttribute="height" multiplier="970:77" id="xvl-Fr-mI7"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="title-bg2"/>
+                            </userDefinedRuntimeAttributes>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tqq-hG-FCW">
                             <rect key="frame" x="0.0" y="36" width="454" height="299"/>
@@ -80,6 +83,5 @@
     </objects>
     <resources>
         <image name="close" width="40" height="40"/>
-        <image name="title-bg2" width="485" height="38"/>
     </resources>
 </document>

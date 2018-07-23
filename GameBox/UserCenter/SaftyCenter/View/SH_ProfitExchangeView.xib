@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view tag="15" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="SH_ProfitExchangeView">
+            <rect key="frame" x="0.0" y="0.0" width="333" height="284"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azb-3E-1Ox" customClass="SH_WebPButton">
+                    <rect key="frame" x="12" y="7" width="131" height="33"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="33" id="DcS-HL-5RU"/>
+                        <constraint firstAttribute="width" constant="131" id="Rj4-Bl-pwd"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                    <state key="normal" title="一键刷新"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_blue_long_action"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="refresh"/>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SnL-dA-g8x" customClass="SH_WebPButton">
+                    <rect key="frame" x="190" y="7" width="131" height="33"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="33" id="atA-9B-LeH"/>
+                        <constraint firstAttribute="width" constant="131" id="mEG-wO-obe"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                    <state key="normal" title="一键回收"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_blue_long_action"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="refresh"/>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vqe-Q8-5ly">
+                    <rect key="frame" x="12" y="40" width="309" height="244"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="0.3411764705882353" green="0.396078431372549" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="SnL-dA-g8x" secondAttribute="trailing" constant="12" id="FZZ-Yj-Pzt"/>
+                <constraint firstItem="SnL-dA-g8x" firstAttribute="centerY" secondItem="azb-3E-1Ox" secondAttribute="centerY" id="LS6-6n-SBK"/>
+                <constraint firstItem="Vqe-Q8-5ly" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="MIn-bs-aW4"/>
+                <constraint firstItem="azb-3E-1Ox" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="bHo-os-69c"/>
+                <constraint firstItem="Vqe-Q8-5ly" firstAttribute="top" secondItem="azb-3E-1Ox" secondAttribute="bottom" id="jd2-Hw-c2Q"/>
+                <constraint firstAttribute="bottom" secondItem="Vqe-Q8-5ly" secondAttribute="bottom" id="kCM-bO-fke"/>
+                <constraint firstItem="azb-3E-1Ox" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="7" id="pGC-G5-8Jg"/>
+                <constraint firstAttribute="trailing" secondItem="Vqe-Q8-5ly" secondAttribute="trailing" constant="12" id="yZl-te-SXr"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+</document>

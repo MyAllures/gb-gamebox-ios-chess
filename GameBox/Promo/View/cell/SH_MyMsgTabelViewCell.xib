@@ -19,10 +19,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fz0-On-i2Q">
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fz0-On-i2Q" customClass="SH_WebPButton">
                         <rect key="frame" x="9" y="6" width="20" height="15"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" backgroundImage="not-choose"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="not-choose"/>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <action selector="seleteAction:" destination="QN6-Yw-dme" eventType="touchUpInside" id="Oem-in-8bV"/>
                         </connections>
@@ -44,12 +46,15 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mearkRead" translatesAutoresizingMaskIntoConstraints="NO" id="RC1-OF-31M" customClass="mearkRead">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RC1-OF-31M" customClass="SH_WebPImageView">
                         <rect key="frame" x="287" y="0.0" width="33" height="33"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="33" id="Dg5-se-CYd"/>
                             <constraint firstAttribute="width" constant="33" id="vve-Lp-Tj7"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="mearkRead"/>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                 </subviews>
                 <constraints>
@@ -67,8 +72,4 @@
             <point key="canvasLocation" x="-204" y="177"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="mearkRead" width="41" height="41"/>
-        <image name="not-choose" width="15" height="15"/>
-    </resources>
 </document>

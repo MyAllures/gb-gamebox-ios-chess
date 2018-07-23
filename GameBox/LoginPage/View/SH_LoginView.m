@@ -128,15 +128,15 @@
 }
 */
 #pragma mark --  button click method
-- (IBAction)btnlick:(UIButton *)sender {
+- (IBAction)btnlick:(SH_WebPButton *)sender {
     NSInteger tag = sender.tag -100;
    
     switch (tag) {
         case 0:{ //登陆按钮的点击事件
             self.stackView.hidden = YES;
-            [sender setBackgroundImage:[UIImage imageNamed:@"login_button_click"] forState:UIControlStateNormal];
-            UIButton  * btn  = [self  viewWithTag:101];
-            [btn setBackgroundImage:[UIImage imageNamed:@"login_button"] forState:UIControlStateNormal];
+            [sender setWebpBGImage:@"login_button_click" forState:UIControlStateNormal];
+            SH_WebPButton  * btn  = [self  viewWithTag:101];
+            [btn setWebpBGImage:@"login_button" forState:UIControlStateNormal];
             if (self.changeChannelBlock) {
                 self.changeChannelBlock(@"title01");
             }
@@ -148,9 +148,9 @@
             [self.registView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.edges.mas_equalTo(0);
             }];
-            [sender setBackgroundImage:[UIImage imageNamed:@"login_button_click"] forState:UIControlStateNormal];
-            UIButton  * btn  = [self  viewWithTag:100];
-            [btn setBackgroundImage:[UIImage imageNamed:@"login_button"] forState:UIControlStateNormal];
+            [sender setWebpBGImage:@"login_button_click" forState:UIControlStateNormal];
+            SH_WebPButton  * btn  = [self  viewWithTag:100];
+            [btn setWebpBGImage:@"login_button" forState:UIControlStateNormal];
             if (self.changeChannelBlock) {
                 self.changeChannelBlock(@"title02");
             }

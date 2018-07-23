@@ -18,10 +18,13 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jyl-DD-t7D">
                     <rect key="frame" x="0.0" y="0.0" width="135" height="322"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left-bg" translatesAutoresizingMaskIntoConstraints="NO" id="gCq-aE-n58">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gCq-aE-n58" customClass="SH_WebPImageView">
                             <rect key="frame" x="0.0" y="0.0" width="135" height="322"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="left-bg"/>
+                            </userDefinedRuntimeAttributes>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o10-uu-SpZ">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o10-uu-SpZ" customClass="SH_WebPButton">
                             <rect key="frame" x="6.5" y="10" width="122" height="47"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="47" id="0r9-vn-V4x"/>
@@ -30,22 +33,26 @@
                             <state key="normal" title="优惠活动" backgroundImage="button-long">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
-                            <state key="selected" backgroundImage="button-long-click"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long-click"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="btClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="Asn-Ji-BwE"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6oj-f7-WAj">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6oj-f7-WAj" customClass="SH_WebPButton">
                             <rect key="frame" x="6.5" y="67" width="122" height="47"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="47" id="9VJ-xQ-amB"/>
                                 <constraint firstAttribute="width" constant="122" id="hTc-96-4sK"/>
                             </constraints>
                             <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
-                            <state key="normal" title="消息中心" backgroundImage="button-long">
+                            <state key="normal" title="消息中心">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
-                            <state key="selected" backgroundImage="button-long-click"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="btClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="r8u-Tt-aro"/>
                             </connections>
@@ -94,7 +101,5 @@
     </objects>
     <resources>
         <image name="button-long" width="121" height="47"/>
-        <image name="button-long-click" width="121" height="47"/>
-        <image name="left-bg" width="135" height="299"/>
     </resources>
 </document>

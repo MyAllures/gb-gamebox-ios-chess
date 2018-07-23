@@ -13,24 +13,27 @@
 #import "SH_NetWorkService+SaftyCenter.h"
 #import "RH_UserSafetyCodeModel.h"
 #import "SH_WebPButton.h"
-
+#import "SH_BindPhoneNumView.h"
+#import "SH_ProfitExchangeView.h"
 @interface SH_SaftyCenterView()
-@property (weak, nonatomic) IBOutlet UIButton *loginBtn;
-@property (weak, nonatomic) IBOutlet UIButton *saftyBtn;
-@property (weak, nonatomic) IBOutlet UIButton *bankBtn;
+@property (weak, nonatomic) IBOutlet SH_WebPButton *loginBtn;
+@property (weak, nonatomic) IBOutlet SH_WebPButton *saftyBtn;
+@property (weak, nonatomic) IBOutlet SH_WebPButton *bankBtn;
 @property(nonatomic,strong)SH_ModifyLoginPSDView *loginView;
 @property(nonatomic,strong)SH_ModiftSaftyPSDView *saftyView;
 @property(nonatomic,strong)SH_BankCardView *bankView;
 @property(nonatomic,copy)NSString *from;//从绑定银行卡跳过来要通知其刷新数据
+@property (weak, nonatomic) IBOutlet SH_WebPButton *profitExchangeBtn;
+@property (weak, nonatomic) IBOutlet SH_WebPButton *bindPhoneBtn;
+@property(nonatomic,strong)SH_BindPhoneNumView *bindPhoneView;
+@property(nonatomic,strong)SH_ProfitExchangeView *profitExView;
 
 @end
 @implementation SH_SaftyCenterView
 - (void)awakeFromNib{
     [super awakeFromNib];
     [self configUI];
-    self.loginView.hidden = NO;
-    self.saftyView.hidden = YES;
-    self.bankView.hidden = YES;
+    [self setUIWithSelecteBtn:self.loginBtn SelectedView:self.loginView];
    
 }
 #pragma mark--
@@ -56,23 +59,41 @@
     }
     return _bankView;
 }
+
+- (SH_BindPhoneNumView *)bindPhoneView{
+    if (!_bindPhoneView) {
+        _bindPhoneView = [[NSBundle mainBundle]loadNibNamed:@"SH_BindPhoneNumView" owner:self options:nil].firstObject;
+        [self addSubview:_bindPhoneView];
+    }
+    return _bindPhoneView;
+}
+
+- (SH_ProfitExchangeView *)profitExView{
+    if (!_profitExView) {
+        _profitExView = [[NSBundle mainBundle]loadNibNamed:@"SH_ProfitExchangeView" owner:self options:nil].firstObject;
+        [self addSubview:_profitExView];
+    }
+    return _profitExView;
+}
+
 - (IBAction)modifyLoginBtnClick:(id)sender {
-    
-    [self setButton:self.loginBtn BackgroundImage:@"button-long-click"];
-    [self setButton:self.saftyBtn BackgroundImage:@"button-long"];
-    [self setButton:self.bankBtn BackgroundImage:@"button-long"];
-    self.loginView.hidden = NO;
-    self.saftyView.hidden = YES;
-    self.bankView.hidden = YES;
+     [self setUIWithSelecteBtn:self.loginBtn SelectedView:self.loginView];
+//    [self setButton:self.loginBtn BackgroundImage:@"button-long-click"];
+//    [self setButton:self.saftyBtn BackgroundImage:@"button-long"];
+//    [self setButton:self.bankBtn BackgroundImage:@"button-long"];
+//    self.loginView.hidden = NO;
+//    self.saftyView.hidden = YES;
+//    self.bankView.hidden = YES;
 }
 
 - (IBAction)saftyBtnclick:(id)sender {
-    [self setButton:self.loginBtn BackgroundImage:@"button-long"];
-    [self setButton:self.saftyBtn BackgroundImage:@"button-long-click"];
-    [self setButton:self.bankBtn BackgroundImage:@"button-long"];
-    self.loginView.hidden = YES;
-    self.saftyView.hidden = NO;
-    self.bankView.hidden = YES;
+//    [self setButton:self.loginBtn BackgroundImage:@"button-long"];
+//    [self setButton:self.saftyBtn BackgroundImage:@"button-long-click"];
+//    [self setButton:self.bankBtn BackgroundImage:@"button-long"];
+//    self.loginView.hidden = YES;
+//    self.saftyView.hidden = NO;
+//    self.bankView.hidden = YES;
+     [self setUIWithSelecteBtn:self.saftyBtn SelectedView:self.saftyView];
     //这里用户要请求有没有设置过安全密码接口
       __weak typeof(self) weakSelf = self;
     [SH_NetWorkService initUserSaftyInfoSuccess:^(NSHTTPURLResponse *httpURLResponse, id response) {
@@ -88,12 +109,14 @@
     }];
 }
 - (IBAction)bankCardBtnClick:(id)sender {
-    [self setButton:self.loginBtn BackgroundImage:@"button-long"];
-    [self setButton:self.saftyBtn BackgroundImage:@"button-long"];
-    [self setButton:self.bankBtn BackgroundImage:@"button-long-click"];
-    self.loginView.hidden = YES;
-    self.saftyView.hidden = YES;
-    self.bankView.hidden = NO;
+    
+//    [self setButton:self.loginBtn BackgroundImage:@"button-long"];
+//    [self setButton:self.saftyBtn BackgroundImage:@"button-long"];
+//    [self setButton:self.bankBtn BackgroundImage:@"button-long-click"];
+//    self.loginView.hidden = YES;
+//    self.saftyView.hidden = YES;
+//    self.bankView.hidden = NO;
+       [self setUIWithSelecteBtn:self.bankBtn SelectedView:self.bankView];
 }
 -(void)configUI{
     [self.loginView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -111,9 +134,20 @@
         make.left.equalTo(self).offset(145);
         make.bottom.right.equalTo(self).offset(-10);
     }];
+    
+    [self.bindPhoneView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.right.equalTo(self);
+        make.left.equalTo(self).offset(135);
+    }];
+    [self.profitExView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self).offset(10);
+        make.left.equalTo(self).offset(145);
+        make.bottom.right.equalTo(self).offset(-10);
+    }];
+    
 }
--(void)setButton:(UIButton *)button BackgroundImage:(NSString *)image{
-    [button setBackgroundImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
+-(void)setButton:(SH_WebPButton *)button BackgroundImage:(NSString *)image{
+    [button setWebpBGImage:image forState:UIControlStateNormal];
 }
 - (void)setTargetVC:(UIViewController *)targetVC{
     _targetVC = targetVC;
@@ -127,5 +161,26 @@
     if ([type isEqualToString:@"bindBankcard"]) {
         [self bankCardBtnClick:nil];
     }
+}
+- (IBAction)bindPhoneBtnClick:(id)sender {
+    [self setUIWithSelecteBtn:self.bindPhoneBtn SelectedView:self.bindPhoneView];
+}
+
+- (IBAction)profitExchangeBtnClick:(id)sender {
+     [self setUIWithSelecteBtn:self.profitExchangeBtn SelectedView:self.profitExView];
+}
+
+-(void)setUIWithSelecteBtn:(SH_WebPButton *)btn SelectedView:(UIView *)selectedView{
+    for (int i = 1; i < 6; i++) {
+        SH_WebPButton *unseletedBtn = [self viewWithTag:i];
+        [unseletedBtn setWebpBGImage:@"button-long" forState:UIControlStateNormal];
+    }
+    [btn setWebpBGImage:@"button-long-click" forState:UIControlStateNormal];
+    
+    for (int i = 11; i < 16; i++) {
+        UIView *view = [self viewWithTag:i];
+        view.hidden = YES;
+    }
+    selectedView.hidden = NO;
 }
 @end

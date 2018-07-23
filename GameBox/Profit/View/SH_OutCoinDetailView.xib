@@ -23,26 +23,32 @@
                             <rect key="frame" x="0.0" y="5" width="310" height="205"/>
                             <color key="backgroundColor" red="0.18823529411764706" green="0.23529411764705882" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </tableView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Jx-pb-qEM">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Jx-pb-qEM" customClass="SH_WebPButton">
                             <rect key="frame" x="22.5" y="216" width="130" height="47"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="47" id="3f8-jA-Dpp"/>
                                 <constraint firstAttribute="width" constant="130" id="wOz-AC-CId"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                            <state key="normal" title="查看稽核" backgroundImage="button-large-1"/>
+                            <state key="normal" title="查看稽核"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-large-1"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="lookJiHeBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="FeS-8Q-smb"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svl-rE-TNT">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svl-rE-TNT" customClass="SH_WebPButton">
                             <rect key="frame" x="157.5" y="216" width="130" height="47"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="130" id="Nca-sw-3fC"/>
                                 <constraint firstAttribute="height" constant="47" id="Wnt-UW-JB3"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                            <state key="normal" title="确定出币" backgroundImage="button-large-1"/>
+                            <state key="normal" title="确定出币"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-large-1"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="sureOutCoinBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="puj-8P-5hE"/>
                             </connections>
@@ -85,7 +91,4 @@
             <point key="canvasLocation" x="-12" y="-4"/>
         </view>
     </objects>
-    <resources>
-        <image name="button-large-1" width="120" height="45"/>
-    </resources>
 </document>

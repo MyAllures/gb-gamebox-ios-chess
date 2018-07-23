@@ -209,7 +209,7 @@
         case 1:{
             // 昨天
             date = [NSDate dateWithTimeInterval:-24*60*60 sinceDate:date];
-            self.end_label.text = dateString([NSDate  date], @"yyyy-MM-dd");
+            self.end_label.text = dateString(date, @"yyyy-MM-dd");
             break;
         }
         case 2:{

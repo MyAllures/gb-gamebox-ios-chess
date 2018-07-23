@@ -14,7 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - IQKeyboardManager (6.0.3)
+  - IQKeyboardManager (6.1.1)
   - JSONModel (1.7.0)
   - libwebp (0.6.1):
     - libwebp/core (= 0.6.1)
@@ -49,10 +49,10 @@ PODS:
   - NJKWebViewProgress/Core (0.2.3)
   - NJKWebViewProgress/ProgressView (0.2.3)
   - Reachability (3.2)
-  - SDWebImage (4.4.1):
-    - SDWebImage/Core (= 4.4.1)
-  - SDWebImage/Core (4.4.1)
-  - SDWebImage/WebP (4.4.1):
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
+  - SDWebImage/WebP (4.4.2):
     - libwebp (~> 0.5)
     - SDWebImage/Core
   - SocketRocket (0.5.1)
@@ -72,24 +72,9 @@ DEPENDENCIES:
   - SocketRocket
   - WebViewJavascriptBridge (~> 6.0)
 
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - AFNetworking
-    - IQKeyboardManager
-    - JSONModel
-    - libwebp
-    - Masonry
-    - MBProgressHUD
-    - MJRefresh
-    - NJKWebViewProgress
-    - Reachability
-    - SDWebImage
-    - SocketRocket
-    - WebViewJavascriptBridge
-
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  IQKeyboardManager: c390e612f4b98c8fd748016470138537dc163ead
+  IQKeyboardManager: 79c57795f5c2408d259d37b9da2ed07efcbb5225
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
   libwebp: 0f01098c6c17175391af621b2f14150f3ca16e16
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
@@ -97,10 +82,10 @@ SPEC CHECKSUMS:
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
   NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
-  SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
   WebViewJavascriptBridge: 7f5bc4d3581e672e8f32bd0f812d54bc69bb8e29
 
 PODFILE CHECKSUM: 2dab334f196671960936d387cd6fec51c0d3819b
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.0.1
