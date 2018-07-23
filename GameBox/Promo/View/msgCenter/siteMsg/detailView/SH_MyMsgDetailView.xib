@@ -127,7 +127,7 @@
             <connections>
                 <outlet property="textView" destination="Q0r-Qp-THf" id="wXG-zW-p55"/>
             </connections>
-            <point key="canvasLocation" x="-770" y="154"/>
+            <point key="canvasLocation" x="-127" y="47"/>
         </view>
     </objects>
     <resources>

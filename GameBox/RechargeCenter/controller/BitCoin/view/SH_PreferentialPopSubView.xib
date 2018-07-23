@@ -113,6 +113,7 @@
                 <outlet property="moneyLab" destination="Aso-j4-B1l" id="0Gq-dY-rGt"/>
                 <outlet property="msgLab" destination="7Oj-Mv-qmd" id="7Oe-gR-Ex2"/>
             </connections>
+            <point key="canvasLocation" x="11" y="-8"/>
         </view>
     </objects>
 </document>

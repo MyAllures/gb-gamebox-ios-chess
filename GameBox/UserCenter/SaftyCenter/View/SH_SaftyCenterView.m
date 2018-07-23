@@ -12,6 +12,8 @@
 #import "SH_BankCardView.h"
 #import "SH_NetWorkService+SaftyCenter.h"
 #import "RH_UserSafetyCodeModel.h"
+#import "SH_WebPButton.h"
+
 @interface SH_SaftyCenterView()
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 @property (weak, nonatomic) IBOutlet UIButton *saftyBtn;

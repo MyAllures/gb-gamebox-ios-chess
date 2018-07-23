@@ -272,6 +272,7 @@ j5bmlrnlvI/vvIzmj5Dlj5bmlLblj5YyJeeahOaJi+e7rei0ue+8jOS4lOWPquiDveaYrzUw55qE5YCN
                 <outlet property="feeLab" destination="ZL9-rA-b0O" id="4Fj-BO-zfB"/>
                 <outlet property="numTextField" destination="E25-4K-mCq" id="BaA-oi-Bw9"/>
             </connections>
+            <point key="canvasLocation" x="-127" y="-10"/>
         </view>
     </objects>
     <resources>

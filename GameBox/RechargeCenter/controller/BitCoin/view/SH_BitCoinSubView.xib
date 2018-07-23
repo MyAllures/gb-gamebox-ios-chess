@@ -75,7 +75,7 @@
                 <outlet property="iconImageView" destination="m91-aT-ubJ" id="OxV-Kc-ZAc"/>
                 <outlet property="personLab" destination="apm-LJ-5ra" id="tdW-Tt-V69"/>
             </connections>
-            <point key="canvasLocation" x="19.5" y="146"/>
+            <point key="canvasLocation" x="-9" y="9"/>
         </view>
     </objects>
 </document>

@@ -123,6 +123,7 @@
                 <outlet property="currentTX" destination="eaN-Wx-gfC" id="K8O-Vs-Xpz"/>
                 <outlet property="sureTX" destination="7C1-7v-gnx" id="cnN-Ku-NYY"/>
             </connections>
+            <point key="canvasLocation" x="-57" y="18"/>
         </view>
     </objects>
     <resources>

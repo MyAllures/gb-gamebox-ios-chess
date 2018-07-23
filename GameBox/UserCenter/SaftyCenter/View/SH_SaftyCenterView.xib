@@ -74,7 +74,7 @@
                 <outlet property="loginBtn" destination="9yY-sY-Tt6" id="N06-5b-3w2"/>
                 <outlet property="saftyBtn" destination="TnJ-eo-M3j" id="fc1-Il-8dS"/>
             </connections>
-            <point key="canvasLocation" x="56.5" y="71"/>
+            <point key="canvasLocation" x="5" y="30"/>
         </view>
     </objects>
     <resources>
