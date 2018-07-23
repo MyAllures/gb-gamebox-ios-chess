@@ -19,15 +19,11 @@
 		22552CDC20F48DBA0090EFBC /* SH_SystemMsgView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22552CDB20F48DBA0090EFBC /* SH_SystemMsgView.xib */; };
 		22552CDF20F494E80090EFBC /* SH_SiteMsgView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22552CDE20F494E80090EFBC /* SH_SiteMsgView.m */; };
 		22552CE120F494F00090EFBC /* SH_SiteMsgView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22552CE020F494F00090EFBC /* SH_SiteMsgView.xib */; };
-		22552CE420F49DB20090EFBC /* SH_SendMsgView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22552CE320F49DB20090EFBC /* SH_SendMsgView.m */; };
-		22552CE620F49DB90090EFBC /* SH_SendMsgView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22552CE520F49DB90090EFBC /* SH_SendMsgView.xib */; };
 		22552CEA20F4B7720090EFBC /* SH_SiteMsgViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22552CE820F4B7720090EFBC /* SH_SiteMsgViewCell.m */; };
 		22552CEB20F4B7720090EFBC /* SH_SiteMsgViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22552CE920F4B7720090EFBC /* SH_SiteMsgViewCell.xib */; };
 		22552CEE20F4CCE50090EFBC /* SH_NetWorkService+Promo.m in Sources */ = {isa = PBXBuildFile; fileRef = 22552CED20F4CCE50090EFBC /* SH_NetWorkService+Promo.m */; };
 		22552CF120F4E0BB0090EFBC /* SH_PromoListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22552CF020F4E0BB0090EFBC /* SH_PromoListModel.m */; };
 		22573D3420F8999800D0EB0A /* SH_ApiSelectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22573D3320F8999800D0EB0A /* SH_ApiSelectModel.m */; };
-		22573D3820F8C6D900D0EB0A /* SH_MyMsgView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22573D3720F8C6D900D0EB0A /* SH_MyMsgView.m */; };
-		22573D3A20F8C6E700D0EB0A /* SH_MyMsgView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22573D3920F8C6E700D0EB0A /* SH_MyMsgView.xib */; };
 		22573D3E20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22573D3C20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.m */; };
 		22573D3F20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22573D3D20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.xib */; };
 		2274222120FE03BB003529FF /* SH_PromoListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8757D20F355F800AA0594 /* SH_PromoListView.m */; };
@@ -404,9 +400,6 @@
 		22552CDD20F494E80090EFBC /* SH_SiteMsgView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SiteMsgView.h; sourceTree = "<group>"; };
 		22552CDE20F494E80090EFBC /* SH_SiteMsgView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SiteMsgView.m; sourceTree = "<group>"; };
 		22552CE020F494F00090EFBC /* SH_SiteMsgView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_SiteMsgView.xib; sourceTree = "<group>"; };
-		22552CE220F49DB20090EFBC /* SH_SendMsgView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SendMsgView.h; sourceTree = "<group>"; };
-		22552CE320F49DB20090EFBC /* SH_SendMsgView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SendMsgView.m; sourceTree = "<group>"; };
-		22552CE520F49DB90090EFBC /* SH_SendMsgView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_SendMsgView.xib; sourceTree = "<group>"; };
 		22552CE720F4B7720090EFBC /* SH_SiteMsgViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SiteMsgViewCell.h; sourceTree = "<group>"; };
 		22552CE820F4B7720090EFBC /* SH_SiteMsgViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SiteMsgViewCell.m; sourceTree = "<group>"; };
 		22552CE920F4B7720090EFBC /* SH_SiteMsgViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_SiteMsgViewCell.xib; sourceTree = "<group>"; };
@@ -416,9 +409,6 @@
 		22552CF020F4E0BB0090EFBC /* SH_PromoListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoListModel.m; sourceTree = "<group>"; };
 		22573D3220F8999800D0EB0A /* SH_ApiSelectModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ApiSelectModel.h; sourceTree = "<group>"; };
 		22573D3320F8999800D0EB0A /* SH_ApiSelectModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_ApiSelectModel.m; sourceTree = "<group>"; };
-		22573D3620F8C6D900D0EB0A /* SH_MyMsgView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_MyMsgView.h; sourceTree = "<group>"; };
-		22573D3720F8C6D900D0EB0A /* SH_MyMsgView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_MyMsgView.m; sourceTree = "<group>"; };
-		22573D3920F8C6E700D0EB0A /* SH_MyMsgView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_MyMsgView.xib; sourceTree = "<group>"; };
 		22573D3B20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_MyMsgTabelViewCell.h; sourceTree = "<group>"; };
 		22573D3C20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_MyMsgTabelViewCell.m; sourceTree = "<group>"; };
 		22573D3D20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_MyMsgTabelViewCell.xib; sourceTree = "<group>"; };
@@ -1046,8 +1036,6 @@
 			children = (
 				227CC6C120FF13E900AEA497 /* detailView */,
 				22552CD620F48D5F0090EFBC /* systemMsg */,
-				22573D3520F8C69700D0EB0A /* myMsg */,
-				22552CD720F48D780090EFBC /* sendMsg */,
 				22552CDD20F494E80090EFBC /* SH_SiteMsgView.h */,
 				22552CDE20F494E80090EFBC /* SH_SiteMsgView.m */,
 				22552CE020F494F00090EFBC /* SH_SiteMsgView.xib */,
@@ -1063,26 +1051,6 @@
 				22552CDB20F48DBA0090EFBC /* SH_SystemMsgView.xib */,
 			);
 			path = systemMsg;
-			sourceTree = "<group>";
-		};
-		22552CD720F48D780090EFBC /* sendMsg */ = {
-			isa = PBXGroup;
-			children = (
-				22552CE220F49DB20090EFBC /* SH_SendMsgView.h */,
-				22552CE320F49DB20090EFBC /* SH_SendMsgView.m */,
-				22552CE520F49DB90090EFBC /* SH_SendMsgView.xib */,
-			);
-			path = sendMsg;
-			sourceTree = "<group>";
-		};
-		22573D3520F8C69700D0EB0A /* myMsg */ = {
-			isa = PBXGroup;
-			children = (
-				22573D3620F8C6D900D0EB0A /* SH_MyMsgView.h */,
-				22573D3720F8C6D900D0EB0A /* SH_MyMsgView.m */,
-				22573D3920F8C6E700D0EB0A /* SH_MyMsgView.xib */,
-			);
-			path = myMsg;
 			sourceTree = "<group>";
 		};
 		227CC6C120FF13E900AEA497 /* detailView */ = {
@@ -2399,7 +2367,6 @@
 				54C8763421008D4800AA0594 /* SH_GameWebView.xib in Resources */,
 				543970C3210462BB0091C719 /* icon_promo.webp in Resources */,
 				54C875C820FCBE1900AA0594 /* SH_DZGameItemView.xib in Resources */,
-				22552CE620F49DB90090EFBC /* SH_SendMsgView.xib in Resources */,
 				543970B2210462BB0091C719 /* unselect2.webp in Resources */,
 				54C8761B20FE218B00AA0594 /* snow.png in Resources */,
 				543970AF210462BB0091C719 /* title01.webp in Resources */,
@@ -2413,7 +2380,6 @@
 				BF5C0BC321057E2E0035B754 /* bankListDown.webp in Resources */,
 				5439708B210462BB0091C719 /* btn-welfare.webp in Resources */,
 				543970B0210462BB0091C719 /* photo_female.webp in Resources */,
-				22573D3A20F8C6E700D0EB0A /* SH_MyMsgView.xib in Resources */,
 				BFA068CA20FE0FFC00F5ADFE /* SH_ModifyLoginPSDView.xib in Resources */,
 				BF5C0BC82105AF0C0035B754 /* SH_BindPhoneNumView.xib in Resources */,
 				543970B5210462BB0091C719 /* Rounded-bg.webp in Resources */,
@@ -2623,11 +2589,9 @@
 				DA1BCC7520FDE6D500201DBC /* RH_CapitalDetailModel.m in Sources */,
 				BFD6CFCC20F9D20C00EDBC5B /* AttributeModel.m in Sources */,
 				BFD6CFC520F997B800EDBC5B /* SavePhotoTool.m in Sources */,
-				22552CE420F49DB20090EFBC /* SH_SendMsgView.m in Sources */,
 				BFD6CFD320F9FAE700EDBC5B /* TTTAttributedLabel.m in Sources */,
 				BF44ECEA20F6FF4D00BC6EF3 /* SH_BitCoinSaleDetailModel.m in Sources */,
 				BFA068B920FDE33200F5ADFE /* SH_JiHeSubModel.m in Sources */,
-				22573D3820F8C6D900D0EB0A /* SH_MyMsgView.m in Sources */,
 				DA1BCC9320FED79200201DBC /* SH_CardRecordModel.m in Sources */,
 				54C875BD20FC4B0B00AA0594 /* SH_AnnouncementModel.m in Sources */,
 				DA22F3E020F4562B0058A54F /* UIImage+Size.m in Sources */,

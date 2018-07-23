@@ -12,7 +12,7 @@
 #import "UIImage+SH_WebPImage.h"
 
 @interface AlertViewController ()<UIGestureRecognizerDelegate>
-@property (weak, nonatomic) IBOutlet UIImageView *title_imageView;
+@property (weak, nonatomic) IBOutlet SH_WebPImageView *title_imageView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintWidth;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintHeight;
 @property (weak, nonatomic) IBOutlet UIImageView *headImage;
@@ -55,8 +55,9 @@
         self.presentView = view;
         dispatch_async(dispatch_get_main_queue(), ^{
             self.headImage.image = [UIImage  imageNamed:imageName];
+            self.title_imageView.imageName = img_name;
 //            self.headImage.image = [UIImage imageWithWebPImageName:imageName];
-            self.title_imageView.image = [UIImage  imageNamed:img_name];
+//            self.title_imageView.image = [UIImage  imageNamed:img_name];
 //            self.title_imageView.image = [UIImage imageWithWebPImageName:img_name];
         });
         
