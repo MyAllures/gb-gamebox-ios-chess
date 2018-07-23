@@ -72,21 +72,6 @@ DEPENDENCIES:
   - SocketRocket
   - WebViewJavascriptBridge (~> 6.0)
 
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - AFNetworking
-    - IQKeyboardManager
-    - JSONModel
-    - libwebp
-    - Masonry
-    - MBProgressHUD
-    - MJRefresh
-    - NJKWebViewProgress
-    - Reachability
-    - SDWebImage
-    - SocketRocket
-    - WebViewJavascriptBridge
-
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   IQKeyboardManager: c390e612f4b98c8fd748016470138537dc163ead
@@ -103,4 +88,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 2dab334f196671960936d387cd6fec51c0d3819b
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.0.1
