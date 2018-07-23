@@ -10,10 +10,11 @@
 #import "SH_PromoListView.h"
 #import "SH_InfoCenterTabView.h"
 #import <Masonry/Masonry.h>
+#import "SH_WebPButton.h"
 
 @interface SH_PromoContentView ()
-@property (weak, nonatomic) IBOutlet UIButton *promoBT;
-@property (weak, nonatomic) IBOutlet UIButton *infoCenterBT;
+@property (weak, nonatomic) IBOutlet SH_WebPButton *promoBT;
+@property (weak, nonatomic) IBOutlet SH_WebPButton *infoCenterBT;
 @property (weak, nonatomic) IBOutlet UIView *rightContentView;
 
 @property (nonatomic, strong) SH_PromoListView *promoListView;
@@ -50,6 +51,8 @@
     UIButton *bt = (UIButton *)sender;
     if (bt == self.promoBT) {
         self.promoBT.selected = YES;
+        [self.promoBT setWebpBGImage:@"button-long-click" forState:UIControlStateNormal];
+        [self.infoCenterBT setWebpBGImage:@"button-long" forState:UIControlStateNormal];
         self.infoCenterBT.selected = NO;
         self.promoListView.hidden = NO;
         self.infoCenterTabView.hidden = YES;
@@ -58,6 +61,8 @@
     {
         self.promoBT.selected = NO;
         self.infoCenterBT.selected = YES;
+        [self.promoBT setWebpBGImage:@"button-long" forState:UIControlStateNormal];
+        [self.infoCenterBT setWebpBGImage:@"button-long-click" forState:UIControlStateNormal];
         self.promoListView.hidden = YES;
         self.infoCenterTabView.hidden = NO;
     }

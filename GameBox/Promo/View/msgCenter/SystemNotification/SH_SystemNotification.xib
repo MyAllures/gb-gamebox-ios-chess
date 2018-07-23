@@ -97,15 +97,18 @@
                         <constraint firstItem="Kve-pE-bhJ" firstAttribute="top" secondItem="ME2-kX-MUM" secondAttribute="top" id="pjq-Av-f9N"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Oy-Z2-evD">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Oy-Z2-evD" customClass="SH_WebPButton">
                     <rect key="frame" x="217" y="13" width="53" height="35"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="53" id="3fX-yP-q8y"/>
                         <constraint firstAttribute="height" constant="35" id="hjL-DM-mcT"/>
                     </constraints>
-                    <state key="normal" title="快选" backgroundImage="login_button">
+                    <state key="normal" title="快选">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="login_button"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="quickSeleteAction:" destination="tIW-ZM-OaV" eventType="touchUpInside" id="v9t-lp-fbY"/>
                     </connections>
@@ -140,6 +143,5 @@
     </objects>
     <resources>
         <image name="betRec_calendar_icon" width="24" height="24"/>
-        <image name="login_button" width="122" height="47"/>
     </resources>
 </document>

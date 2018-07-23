@@ -30,12 +30,15 @@
                                     <action selector="seleteTypeAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="aZr-kM-99Y"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down" translatesAutoresizingMaskIntoConstraints="NO" id="3hl-pc-gWy">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3hl-pc-gWy" customClass="SH_WebPImageView">
                                 <rect key="frame" x="99" y="0.0" width="15" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="15" id="593-jE-Ioz"/>
                                     <constraint firstAttribute="height" constant="28" id="YbF-no-4yd"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="down"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -87,15 +90,18 @@
                             <constraint firstAttribute="width" constant="304" id="PDc-Dg-xo8"/>
                         </constraints>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j7h-hX-0rM">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j7h-hX-0rM" customClass="SH_WebPButton">
                         <rect key="frame" x="74" y="198" width="172" height="39"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="39" id="EnT-Wu-Veg"/>
                             <constraint firstAttribute="width" constant="172" id="iU0-Qq-1vL"/>
                         </constraints>
-                        <state key="normal" title="提交" backgroundImage="login_button">
+                        <state key="normal" title="提交">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="login_button"/>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <action selector="confirmAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="WEh-gh-uw2"/>
                         </connections>
@@ -152,8 +158,4 @@
             <point key="canvasLocation" x="-214" y="168"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="down" width="24" height="24"/>
-        <image name="login_button" width="122" height="47"/>
-    </resources>
 </document>
