@@ -14,5 +14,9 @@ IB_DESIGNABLE
 @interface SH_WebPButton : SH_RingButton
 
 @property (nonatomic, strong) IBInspectable NSString *webpImage;
+@property (nonatomic, strong) IBInspectable NSString *webpBGImage;
+
+- (void)setWebpImage:(NSString *)webpImage forState:(UIControlState)state;
+- (void)setWebpBGImage:(NSString *)webpImage forState:(UIControlState)state;
 
 @end
