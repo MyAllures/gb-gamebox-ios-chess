@@ -127,7 +127,7 @@
             <connections>
                 <outlet property="textView" destination="2Fp-eI-X5X" id="TME-XM-iVv"/>
             </connections>
-            <point key="canvasLocation" x="-770" y="154"/>
+            <point key="canvasLocation" x="-288" y="86"/>
         </view>
     </objects>
     <resources>

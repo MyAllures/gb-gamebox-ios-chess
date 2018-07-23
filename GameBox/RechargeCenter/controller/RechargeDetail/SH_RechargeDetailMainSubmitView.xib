@@ -133,7 +133,7 @@
                 <outlet property="topDistance" destination="LY5-Wa-flx" id="P2B-lt-i1Z"/>
                 <outlet property="topLineView" destination="0vc-tA-ghO" id="g28-7O-S7T"/>
             </connections>
-            <point key="canvasLocation" x="24.5" y="51.5"/>
+            <point key="canvasLocation" x="-32" y="-11"/>
         </view>
     </objects>
 </document>

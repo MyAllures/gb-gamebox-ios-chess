@@ -63,7 +63,7 @@
                                 <constraint firstItem="k8V-nF-s7S" firstAttribute="top" secondItem="W8q-tW-WAo" secondAttribute="top" id="rS5-8J-wGb"/>
                             </constraints>
                         </view>
-                        <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="ODB-xJ-e5g">
+                        <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ODB-xJ-e5g" customClass="SH_WebPImageView">
                             <rect key="frame" x="16.5" y="5" width="40" height="40"/>
                             <gestureRecognizers/>
                             <constraints>
@@ -75,6 +75,7 @@
                                     <integer key="value" value="20"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="avatar"/>
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Rm-T9-KIw" customClass="SH_RingButton">
@@ -518,7 +519,6 @@
         </view>
     </objects>
     <resources>
-        <image name="avatar" width="40" height="41"/>
         <image name="footer-bg" width="660" height="38"/>
         <image name="user_info_bg" width="28" height="28"/>
     </resources>

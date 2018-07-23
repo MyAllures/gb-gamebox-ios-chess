@@ -9,6 +9,7 @@
 #import "AlertViewController.h"
 #import <Masonry.h>
 #import "AppDelegate.h"
+#import "UIImage+SH_WebPImage.h"
 
 @interface AlertViewController ()<UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *title_imageView;
@@ -54,7 +55,9 @@
         self.presentView = view;
         dispatch_async(dispatch_get_main_queue(), ^{
             self.headImage.image = [UIImage  imageNamed:imageName];
+//            self.headImage.image = [UIImage imageWithWebPImageName:imageName];
             self.title_imageView.image = [UIImage  imageNamed:img_name];
+//            self.title_imageView.image = [UIImage imageWithWebPImageName:img_name];
         });
         
         
@@ -114,8 +117,10 @@
 
 -(void)setImageName:(NSString *)imageName{
     self.headImage.image = [UIImage imageNamed:imageName];
+//    self.headImage.image = [UIImage imageWithWebPImageName:imageName];
 
 }
+
 -(void)dealloc{
     NSLog(@"clean .......");
   
