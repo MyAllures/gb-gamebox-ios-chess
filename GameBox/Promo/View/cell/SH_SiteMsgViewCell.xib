@@ -23,7 +23,7 @@
                         <rect key="frame" x="9" y="6" width="20" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="not-choose"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="not-choose"/>
                         </userDefinedRuntimeAttributes>
                         <connections>
                             <action selector="seleteAction:" destination="2Ny-ag-3c5" eventType="touchUpInside" id="nud-Jd-fTG"/>

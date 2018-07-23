@@ -19,19 +19,24 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fz0-On-i2Q" customClass="SH_WebPButton">
-                        <rect key="frame" x="9" y="6" width="20" height="15"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fz0-On-i2Q" customClass="SH_WebPButton">
+                        <rect key="frame" x="9" y="6" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="0MV-Ub-HfX"/>
+                            <constraint firstAttribute="width" constant="20" id="xCw-1W-yaj"/>
+                        </constraints>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="not-choose"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="not-choose"/>
                         </userDefinedRuntimeAttributes>
                         <connections>
                             <action selector="seleteAction:" destination="QN6-Yw-dme" eventType="touchUpInside" id="Oem-in-8bV"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Labelalsjdfhsfah;sdfj" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cX-o2-dqy">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labelalsjdfhsfah;sdfj" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cX-o2-dqy">
                         <rect key="frame" x="63" y="11" width="166" height="41"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="41" id="IjG-uN-ODw"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -61,7 +66,12 @@
                     <constraint firstItem="RC1-OF-31M" firstAttribute="top" secondItem="Hir-2u-viy" secondAttribute="top" id="2fD-ZK-2MC"/>
                     <constraint firstItem="MbQ-xg-5gW" firstAttribute="bottom" secondItem="Hir-2u-viy" secondAttribute="bottomMargin" id="9eP-SW-wPb"/>
                     <constraint firstAttribute="trailing" secondItem="RC1-OF-31M" secondAttribute="trailing" id="BCU-fk-ED4"/>
+                    <constraint firstItem="fz0-On-i2Q" firstAttribute="top" secondItem="Hir-2u-viy" secondAttribute="top" constant="6" id="N1Y-Gp-OtP"/>
+                    <constraint firstItem="fz0-On-i2Q" firstAttribute="leading" secondItem="Hir-2u-viy" secondAttribute="leading" constant="9" id="Oa0-Dv-cWY"/>
+                    <constraint firstItem="1cX-o2-dqy" firstAttribute="leading" secondItem="fz0-On-i2Q" secondAttribute="trailing" constant="34" id="XfG-ap-bMR"/>
+                    <constraint firstItem="RC1-OF-31M" firstAttribute="leading" secondItem="1cX-o2-dqy" secondAttribute="trailing" constant="58" id="b8V-sh-W8a"/>
                     <constraint firstItem="MbQ-xg-5gW" firstAttribute="trailing" secondItem="Hir-2u-viy" secondAttribute="trailingMargin" id="g3a-5g-oYm"/>
+                    <constraint firstItem="1cX-o2-dqy" firstAttribute="top" secondItem="Hir-2u-viy" secondAttribute="topMargin" id="oiV-BT-6Vb"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
