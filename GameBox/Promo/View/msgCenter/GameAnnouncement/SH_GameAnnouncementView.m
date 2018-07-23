@@ -271,6 +271,7 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"SH_GameBulletinTCell" owner:nil options:nil] lastObject];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (self.gameAnnouncementArr.count > 0) {
         SH_GameBulletinModel *model = self.gameAnnouncementArr[indexPath.row];
         
