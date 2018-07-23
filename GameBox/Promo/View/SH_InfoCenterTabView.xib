@@ -15,35 +15,41 @@
             <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="liJ-hd-K5X">
-                    <rect key="frame" x="97" y="12" width="121" height="47"/>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="liJ-hd-K5X" customClass="SH_WebPButton">
+                    <rect key="frame" x="121" y="19" width="74" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="游戏公告" backgroundImage="button-long">
+                    <state key="normal" title="游戏公告">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
-                    <state key="selected" backgroundImage="button-long-click"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long-click"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="tabBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="Ot9-NB-sAR"/>
                     </connections>
                 </button>
-                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hat-e5-tl0">
-                    <rect key="frame" x="286" y="12" width="121" height="47"/>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hat-e5-tl0" customClass="SH_WebPButton">
+                    <rect key="frame" x="310" y="19" width="74" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="系统公告" backgroundImage="button-long">
+                    <state key="normal" title="系统公告">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
-                    <state key="selected" backgroundImage="button-long-click"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="tabBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="VEp-DN-i2m"/>
                     </connections>
                 </button>
-                <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7x-cJ-HSZ">
-                    <rect key="frame" x="445" y="12" width="121" height="47"/>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7x-cJ-HSZ" customClass="SH_WebPButton">
+                    <rect key="frame" x="469" y="19" width="74" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="站点消息" backgroundImage="button-long">
+                    <state key="normal" title="站点消息">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
-                    <state key="selected" backgroundImage="button-long-click"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="tabBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="JBC-WF-cEq"/>
                     </connections>
@@ -69,8 +75,4 @@
             <point key="canvasLocation" x="33.5" y="73.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="button-long" width="121" height="47"/>
-        <image name="button-long-click" width="121" height="47"/>
-    </resources>
 </document>
