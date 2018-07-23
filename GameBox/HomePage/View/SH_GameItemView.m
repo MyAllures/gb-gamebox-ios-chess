@@ -8,6 +8,7 @@
 
 #import "SH_GameItemView.h"
 #import "SH_GameItemModel.h"
+#import "UIImage+SH_WebPImage.h"
 
 @interface SH_GameItemView ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImg;
@@ -27,7 +28,7 @@
 - (void)setGameItemModel:(SH_GameItemModel *)gameItemModel
 {
     _gameItemModel = gameItemModel;
-    [self.iconImg sd_setImageWithURL:[NSURL URLWithString:_gameItemModel.cover] placeholderImage:[UIImage imageNamed:@"game_chess_34_870"] options:SDWebImageAllowInvalidSSLCertificates];
+    [self.iconImg sd_setImageWithURL:[NSURL URLWithString:_gameItemModel.cover] placeholderImage:[UIImage imageWithWebPImageName:@"game_chess_34_870"] options:SDWebImageAllowInvalidSSLCertificates];
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

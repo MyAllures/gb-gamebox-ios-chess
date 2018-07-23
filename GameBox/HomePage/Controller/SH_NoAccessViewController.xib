@@ -20,11 +20,14 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noaccess" translatesAutoresizingMaskIntoConstraints="NO" id="Lrd-iE-hOb">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lrd-iE-hOb" customClass="SH_WebPImageView">
                     <rect key="frame" x="0.0" y="100" width="375" height="225"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Lrd-iE-hOb" secondAttribute="height" multiplier="5:3" id="diF-k5-Ch7"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="noaccess"/>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NO ACCESS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHS-Oa-eWQ">
                     <rect key="frame" x="127" y="325" width="121" height="27"/>
@@ -71,7 +74,4 @@
             </constraints>
         </view>
     </objects>
-    <resources>
-        <image name="noaccess" width="375" height="225"/>
-    </resources>
 </document>

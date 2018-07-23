@@ -11,6 +11,8 @@
 #import "SH_HomeViewController.h"
 #import "NetWorkLineMangaer.h"
 #import "IPsCacheManager.h"
+#import "SH_WebPImageView.h"
+#import "UIImage+SH_WebPImage.h"
 
 @interface LineCheckViewController ()
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
@@ -19,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *progressNumLB;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *progressMarkLeading;
 @property (weak, nonatomic) IBOutlet UIImageView *animationStartImg;
-
+    
 @property (nonatomic, assign) CGFloat progress;//线路检测进度
 @property (nonatomic, strong) NSString *lineCheckStatus;//线路检测提示语
 
@@ -32,7 +34,6 @@
     // Do any additional setup after loading the view, typically from a nib.
     __weak typeof(self) weakSelf = self;
     [self starsAnimation];
-    
     //先检查缓存的ips是否还有效
     BOOL isIPsValid = [[IPsCacheManager sharedManager] isIPsValid];
     if (isIPsValid) {
@@ -167,7 +168,7 @@
                 [NetWorkLineMangaer sharedManager].currentHttpType = checkTypeComp[0];
                 [NetWorkLineMangaer sharedManager].currentPort = checkTypeComp.count == 2 ? checkTypeComp[1] : @"";
                 [NetWorkLineMangaer sharedManager].currentPreUrl = [NSString stringWithFormat:@"%@://%@%@",[NetWorkLineMangaer sharedManager].currentHttpType,[NetWorkLineMangaer sharedManager].currentIP,[[NetWorkLineMangaer sharedManager].currentPort isEqualToString:@""] ? @"" : [NSString stringWithFormat:@":%@",[NetWorkLineMangaer sharedManager].currentPort]];
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     SH_HomeViewController *homeVC =[[SH_HomeViewController alloc] initWithNibName:@"SH_HomeViewController" bundle:nil];
                     [weakSelf.navigationController pushViewController:homeVC animated:NO];
                 });
@@ -191,7 +192,7 @@
 
 - (void)starsAnimation
 {
-    NSArray *images=[NSArray arrayWithObjects:[UIImage imageNamed:@"effects_star"],[UIImage imageNamed:@"effects_star2"],[UIImage imageNamed:@"effects_star3"], nil];
+    NSArray *images=[NSArray arrayWithObjects:[UIImage imageWithWebPImageName:@"effects_star"],[UIImage imageWithWebPImageName:@"effects_star2"],[UIImage imageWithWebPImageName:@"effects_star3"], nil];
     self.animationStartImg.animationImages = images;
     self.animationStartImg.contentMode = UIViewContentModeScaleAspectFit;
     self.animationStartImg.animationDuration = 0.9;

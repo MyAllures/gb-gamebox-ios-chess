@@ -16,6 +16,30 @@ PODS:
     - AFNetworking/NSURLSession
   - IQKeyboardManager (6.0.3)
   - JSONModel (1.7.0)
+  - libwebp (0.6.1):
+    - libwebp/core (= 0.6.1)
+    - libwebp/dec (= 0.6.1)
+    - libwebp/demux (= 0.6.1)
+    - libwebp/dsp (= 0.6.1)
+    - libwebp/enc (= 0.6.1)
+    - libwebp/mux (= 0.6.1)
+    - libwebp/utils (= 0.6.1)
+    - libwebp/webp (= 0.6.1)
+  - libwebp/core (0.6.1):
+    - libwebp/webp
+  - libwebp/dec (0.6.1):
+    - libwebp/core
+  - libwebp/demux (0.6.1):
+    - libwebp/core
+  - libwebp/dsp (0.6.1):
+    - libwebp/core
+  - libwebp/enc (0.6.1):
+    - libwebp/core
+  - libwebp/mux (0.6.1):
+    - libwebp/core
+  - libwebp/utils (0.6.1):
+    - libwebp/core
+  - libwebp/webp (0.6.1)
   - Masonry (1.1.0)
   - MBProgressHUD (1.1.0)
   - MJRefresh (3.1.15.3)
@@ -28,6 +52,9 @@ PODS:
   - SDWebImage (4.4.1):
     - SDWebImage/Core (= 4.4.1)
   - SDWebImage/Core (4.4.1)
+  - SDWebImage/WebP (4.4.1):
+    - libwebp (~> 0.5)
+    - SDWebImage/Core
   - SocketRocket (0.5.1)
   - WebViewJavascriptBridge (6.0.3)
 
@@ -41,6 +68,7 @@ DEPENDENCIES:
   - NJKWebViewProgress
   - Reachability (~> 3.2)
   - SDWebImage (~> 4.0)
+  - SDWebImage/WebP
   - SocketRocket
   - WebViewJavascriptBridge (~> 6.0)
 
@@ -49,6 +77,7 @@ SPEC REPOS:
     - AFNetworking
     - IQKeyboardManager
     - JSONModel
+    - libwebp
     - Masonry
     - MBProgressHUD
     - MJRefresh
@@ -62,6 +91,7 @@ SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   IQKeyboardManager: c390e612f4b98c8fd748016470138537dc163ead
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
+  libwebp: 0f01098c6c17175391af621b2f14150f3ca16e16
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
@@ -71,6 +101,6 @@ SPEC CHECKSUMS:
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
   WebViewJavascriptBridge: 7f5bc4d3581e672e8f32bd0f812d54bc69bb8e29
 
-PODFILE CHECKSUM: a227e1aa2ed8f794c5b817ddcf79c96eec5d3faa
+PODFILE CHECKSUM: 2dab334f196671960936d387cd6fec51c0d3819b
 
 COCOAPODS: 1.5.3
