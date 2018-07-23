@@ -247,6 +247,14 @@
 		BF44ECFF20F7478600BC6EF3 /* SH_BitCoinSuccessPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF44ECFE20F7478600BC6EF3 /* SH_BitCoinSuccessPopView.xib */; };
 		BF5C0BBF21057C780035B754 /* button-long-145.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5C0BBE21057C780035B754 /* button-long-145.webp */; };
 		BF5C0BC321057E2E0035B754 /* bankListDown.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5C0BC221057E2D0035B754 /* bankListDown.webp */; };
+		BF5C0BC62105AF020035B754 /* SH_BindPhoneNumView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5C0BC52105AF020035B754 /* SH_BindPhoneNumView.m */; };
+		BF5C0BC82105AF0C0035B754 /* SH_BindPhoneNumView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF5C0BC72105AF0C0035B754 /* SH_BindPhoneNumView.xib */; };
+		BF5C0BCB2105B82B0035B754 /* SH_ProfitExchangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5C0BCA2105B82B0035B754 /* SH_ProfitExchangeView.m */; };
+		BF5C0BCD2105B8330035B754 /* SH_ProfitExchangeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF5C0BCC2105B8330035B754 /* SH_ProfitExchangeView.xib */; };
+		BF5C0BCF2105B9AE0035B754 /* recovery.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5C0BCE2105B9AD0035B754 /* recovery.webp */; };
+		BF5C0BD12105B9E60035B754 /* refresh.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5C0BD02105B9E60035B754 /* refresh.webp */; };
+		BF5C0BD52105D3530035B754 /* SH_ProfitExchangeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5C0BD32105D3530035B754 /* SH_ProfitExchangeTableViewCell.m */; };
+		BF5C0BD62105D3530035B754 /* SH_ProfitExchangeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF5C0BD42105D3530035B754 /* SH_ProfitExchangeTableViewCell.xib */; };
 		BF7B08BE2101936B008256FE /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B08B72101936A008256FE /* NSDate+Extension.m */; };
 		BF7B08BF2101936B008256FE /* SH_NiceDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B08B82101936A008256FE /* SH_NiceDatePickerView.m */; };
 		BF7B08C62101CF33008256FE /* SH_NiceDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7B08C52101CF33008256FE /* SH_NiceDatePickerView.xib */; };
@@ -708,6 +716,17 @@
 		BF44ECFE20F7478600BC6EF3 /* SH_BitCoinSuccessPopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_BitCoinSuccessPopView.xib; sourceTree = "<group>"; };
 		BF5C0BBE21057C780035B754 /* button-long-145.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "button-long-145.webp"; sourceTree = "<group>"; };
 		BF5C0BC221057E2D0035B754 /* bankListDown.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = bankListDown.webp; sourceTree = "<group>"; };
+		BF5C0BC42105AF020035B754 /* SH_BindPhoneNumView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_BindPhoneNumView.h; sourceTree = "<group>"; };
+		BF5C0BC52105AF020035B754 /* SH_BindPhoneNumView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_BindPhoneNumView.m; sourceTree = "<group>"; };
+		BF5C0BC72105AF0C0035B754 /* SH_BindPhoneNumView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_BindPhoneNumView.xib; sourceTree = "<group>"; };
+		BF5C0BC92105B82B0035B754 /* SH_ProfitExchangeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ProfitExchangeView.h; sourceTree = "<group>"; };
+		BF5C0BCA2105B82B0035B754 /* SH_ProfitExchangeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_ProfitExchangeView.m; sourceTree = "<group>"; };
+		BF5C0BCC2105B8330035B754 /* SH_ProfitExchangeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_ProfitExchangeView.xib; sourceTree = "<group>"; };
+		BF5C0BCE2105B9AD0035B754 /* recovery.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = recovery.webp; sourceTree = "<group>"; };
+		BF5C0BD02105B9E60035B754 /* refresh.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = refresh.webp; sourceTree = "<group>"; };
+		BF5C0BD22105D3530035B754 /* SH_ProfitExchangeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ProfitExchangeTableViewCell.h; sourceTree = "<group>"; };
+		BF5C0BD32105D3530035B754 /* SH_ProfitExchangeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_ProfitExchangeTableViewCell.m; sourceTree = "<group>"; };
+		BF5C0BD42105D3530035B754 /* SH_ProfitExchangeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_ProfitExchangeTableViewCell.xib; sourceTree = "<group>"; };
 		BF7B08B72101936A008256FE /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
 		BF7B08B82101936A008256FE /* SH_NiceDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_NiceDatePickerView.m; sourceTree = "<group>"; };
 		BF7B08BA2101936B008256FE /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
@@ -1249,12 +1268,14 @@
 			children = (
 				543970ED21046E200091C719 /* noaccess.webp */,
 				543970EB21046AF50091C719 /* btn_refresh.webp */,
+				BF5C0BD02105B9E60035B754 /* refresh.webp */,
 				543970E6210467F90091C719 /* index_bg.webp */,
 				5439705F210462B20091C719 /* arrow_next.webp */,
 				5439703F210462A80091C719 /* arrow_prev.webp */,
 				5439702A210462A40091C719 /* arrow.webp */,
 				54397079210462B90091C719 /* avatar.webp */,
 				54397059210462AF0091C719 /* banner.webp */,
+				BF5C0BCE2105B9AD0035B754 /* recovery.webp */,
 				54397068210462B40091C719 /* black.webp */,
 				54397040210462A80091C719 /* blueframe-click-1.webp */,
 				54397061210462B20091C719 /* blueframe-small-click.webp */,
@@ -1798,6 +1819,15 @@
 				BFA068D020FE153000F5ADFE /* SH_BankCardView.h */,
 				BFA068D120FE153000F5ADFE /* SH_BankCardView.m */,
 				BFA068D320FE154000F5ADFE /* SH_BankCardView.xib */,
+				BF5C0BC42105AF020035B754 /* SH_BindPhoneNumView.h */,
+				BF5C0BC52105AF020035B754 /* SH_BindPhoneNumView.m */,
+				BF5C0BC72105AF0C0035B754 /* SH_BindPhoneNumView.xib */,
+				BF5C0BC92105B82B0035B754 /* SH_ProfitExchangeView.h */,
+				BF5C0BCA2105B82B0035B754 /* SH_ProfitExchangeView.m */,
+				BF5C0BCC2105B8330035B754 /* SH_ProfitExchangeView.xib */,
+				BF5C0BD22105D3530035B754 /* SH_ProfitExchangeTableViewCell.h */,
+				BF5C0BD32105D3530035B754 /* SH_ProfitExchangeTableViewCell.m */,
+				BF5C0BD42105D3530035B754 /* SH_ProfitExchangeTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2193,6 +2223,7 @@
 				5401C52920ECA10F0027246D /* Frameworks */,
 				5401C52A20ECA10F0027246D /* Resources */,
 				E597E229E073DE61BA35EBD9 /* [CP] Copy Pods Resources */,
+				473C4B0B8D8E4C830DF4C154 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2251,6 +2282,7 @@
 				543970CB210462BB0091C719 /* game_deco.webp in Resources */,
 				543970A6210462BB0091C719 /* progress_bar_icon.webp in Resources */,
 				543970A4210462BB0091C719 /* menu-bg.webp in Resources */,
+				BF5C0BCD2105B8330035B754 /* SH_ProfitExchangeView.xib in Resources */,
 				543970C1210462BB0091C719 /* login_button_click.webp in Resources */,
 				543970D0210462BB0091C719 /* logo01.webp in Resources */,
 				543970C0210462BB0091C719 /* blueframe-small-click.webp in Resources */,
@@ -2292,6 +2324,7 @@
 				543970D1210462BB0091C719 /* unselect.webp in Resources */,
 				543970A1210462BB0091C719 /* font_welfare.webp in Resources */,
 				543970B4210462BB0091C719 /* btn_return.webp in Resources */,
+				BF5C0BCF2105B9AE0035B754 /* recovery.webp in Resources */,
 				5439708D210462BB0091C719 /* logo05.webp in Resources */,
 				5401C56320ECF9EA0027246D /* SH_HomeViewController.xib in Resources */,
 				54397093210462BB0091C719 /* logo11.webp in Resources */,
@@ -2303,9 +2336,11 @@
 				543970E7210467F90091C719 /* index_bg.webp in Resources */,
 				BF44ECD120F59A6300BC6EF3 /* SH_RechargeDetailBankView.xib in Resources */,
 				543970DD210462BB0091C719 /* title12.webp in Resources */,
+				BF5C0BD62105D3530035B754 /* SH_ProfitExchangeTableViewCell.xib in Resources */,
 				54C875BA20FB788D00AA0594 /* SH_NoAccessViewController.xib in Resources */,
 				543970D2210462BB0091C719 /* user_info_bg.webp in Resources */,
 				543970A7210462BB0091C719 /* title10.webp in Resources */,
+				BF5C0BD12105B9E60035B754 /* refresh.webp in Resources */,
 				543970AC210462BB0091C719 /* select.webp in Resources */,
 				54397091210462BB0091C719 /* left-bg.webp in Resources */,
 				543970DE210462BB0091C719 /* title02.webp in Resources */,
@@ -2339,6 +2374,7 @@
 				543970B0210462BB0091C719 /* photo_female.webp in Resources */,
 				22573D3A20F8C6E700D0EB0A /* SH_MyMsgView.xib in Resources */,
 				BFA068CA20FE0FFC00F5ADFE /* SH_ModifyLoginPSDView.xib in Resources */,
+				BF5C0BC82105AF0C0035B754 /* SH_BindPhoneNumView.xib in Resources */,
 				543970B5210462BB0091C719 /* Rounded-bg.webp in Resources */,
 				5439709D210462BB0091C719 /* light.webp in Resources */,
 				54397097210462BB0091C719 /* icon_coin.webp in Resources */,
@@ -2423,6 +2459,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		473C4B0B8D8E4C830DF4C154 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameBox/Pods-GameBox-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BBE1A7EF60A82CD6004C70C2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2438,7 +2489,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E597E229E073DE61BA35EBD9 /* [CP] Copy Pods Resources */ = {
@@ -2517,6 +2568,7 @@
 				DA1BCDB32102D27C00201DBC /* SH_WelfareView.m in Sources */,
 				BF7B08BE2101936B008256FE /* NSDate+Extension.m in Sources */,
 				BFFC847320F3452A008AD801 /* UIImageView+handle.m in Sources */,
+				BF5C0BC62105AF020035B754 /* SH_BindPhoneNumView.m in Sources */,
 				54C8761520FE218B00AA0594 /* YFEmitterRainCell.m in Sources */,
 				BF44EC5A20F4588D00BC6EF3 /* SH_BitCoinSubView.m in Sources */,
 				54C875C620FCBE0E00AA0594 /* SH_DZGameItemView.m in Sources */,
@@ -2590,6 +2642,7 @@
 				54C8758820F48CD500AA0594 /* SH_GamesListScrollView.m in Sources */,
 				BF7B08BF2101936B008256FE /* SH_NiceDatePickerView.m in Sources */,
 				BFA068AE20FD8AFF00F5ADFE /* SH_FeeModel.m in Sources */,
+				BF5C0BD52105D3530035B754 /* SH_ProfitExchangeTableViewCell.m in Sources */,
 				54C8757920F3508600AA0594 /* SH_PromoContentView.m in Sources */,
 				54C8763C2100B04300AA0594 /* THScrollChooseView.m in Sources */,
 				54C8761A20FE218B00AA0594 /* YFEmitterCustomLayer.m in Sources */,
@@ -2631,6 +2684,7 @@
 				DA1BCC7E20FE054500201DBC /* SH_CardRecordView.m in Sources */,
 				DA1BCC8820FE1FFE00201DBC /* RH_BettingDetailModel.m in Sources */,
 				BF44ECED20F7096600BC6EF3 /* SH_PreferentialPopView.m in Sources */,
+				BF5C0BCB2105B82B0035B754 /* SH_ProfitExchangeView.m in Sources */,
 				BF44ECBB20F4B36000BC6EF3 /* SH_RechargeDetailViewController.m in Sources */,
 				BFFC847120F3452A008AD801 /* UIButton+Category.m in Sources */,
 				425A90C020F8873E004B681A /* HLPopTableView.m in Sources */,
