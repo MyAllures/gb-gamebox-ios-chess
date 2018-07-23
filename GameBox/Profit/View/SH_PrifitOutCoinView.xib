@@ -15,32 +15,44 @@
             <rect key="frame" x="0.0" y="0.0" width="465" height="390"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profitUpper_bg" translatesAutoresizingMaskIntoConstraints="NO" id="02T-Hg-xQ1">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="02T-Hg-xQ1" customClass="SH_WebPImageView">
                     <rect key="frame" x="0.0" y="0.0" width="465" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="Ztc-jg-ual"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="profitUpper_bg"/>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="font_welfare" translatesAutoresizingMaskIntoConstraints="NO" id="rdp-rv-nXY">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rdp-rv-nXY" customClass="SH_WebPImageView">
                     <rect key="frame" x="18" y="19" width="61" height="13"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="13" id="p2R-nE-G1F"/>
                         <constraint firstAttribute="width" constant="61" id="p8z-Rh-YBa"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="font_welfare"/>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle_bg-3" translatesAutoresizingMaskIntoConstraints="NO" id="3pE-Od-FPa">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3pE-Od-FPa" customClass="SH_WebPImageView">
                     <rect key="frame" x="99" y="10" width="123" height="31"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="123" id="ZQP-hl-ycl"/>
                         <constraint firstAttribute="height" constant="31" id="fRl-IU-yJn"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="rectangle_bg-3"/>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_gift" translatesAutoresizingMaskIntoConstraints="NO" id="ZSh-Yb-pIJ">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZSh-Yb-pIJ" customClass="SH_WebPImageView">
                     <rect key="frame" x="79" y="5" width="43" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="KtJ-2J-WB6"/>
                         <constraint firstAttribute="width" constant="43" id="ppG-AG-lKP"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="icon_gift"/>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95P-5W-htK">
                     <rect key="frame" x="202.5" y="17" width="9.5" height="17"/>
@@ -48,26 +60,35 @@
                     <color key="textColor" red="1" green="0.94901960784313721" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="font_fee" translatesAutoresizingMaskIntoConstraints="NO" id="Q2c-Mb-pm9">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q2c-Mb-pm9" customClass="SH_WebPImageView">
                     <rect key="frame" x="247" y="19" width="45" height="13"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="45" id="KK4-3Y-ClA"/>
                         <constraint firstAttribute="height" constant="13" id="Tmc-wD-g9d"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="font_fee"/>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle_bg-3" translatesAutoresizingMaskIntoConstraints="NO" id="Yg1-Fd-rMb">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yg1-Fd-rMb" customClass="SH_WebPImageView">
                     <rect key="frame" x="308" y="10" width="123" height="31"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="123" id="2Ha-Dy-SUL"/>
                         <constraint firstAttribute="height" constant="31" id="jOP-mC-fcY"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="rectangle_bg-3"/>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_coin" translatesAutoresizingMaskIntoConstraints="NO" id="tic-xz-RjW">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tic-xz-RjW" customClass="SH_WebPImageView">
                     <rect key="frame" x="292" y="5" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="Fvz-Ov-CPs"/>
                         <constraint firstAttribute="height" constant="40" id="okb-iR-wHa"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="icon_coin"/>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZL9-rA-b0O">
                     <rect key="frame" x="411.5" y="17" width="9.5" height="17"/>
@@ -75,11 +96,14 @@
                     <color key="textColor" red="1" green="0.94901960780000005" blue="0.1137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="middle-bg" translatesAutoresizingMaskIntoConstraints="NO" id="m7K-TU-09U">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m7K-TU-09U" customClass="SH_WebPImageView">
                     <rect key="frame" x="10" y="55" width="445" height="120"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="120" id="1sU-3K-8jb"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="middle-bg"/>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wEC-kL-uk3">
                     <rect key="frame" x="20" y="64" width="421" height="47"/>
@@ -101,14 +125,20 @@
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xau-X1-eQZ">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xau-X1-eQZ" customClass="SH_WebPButton">
                             <rect key="frame" x="265" y="4" width="135" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="Jl0-cL-OzM"/>
                                 <constraint firstAttribute="width" constant="135" id="bhT-Sa-IC5"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
-                            <state key="normal" title="绑定福利账号" backgroundImage="btn_blue_long_action"/>
+                            <state key="normal" title="绑定福利账号"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="ringType">
+                                    <integer key="value" value="0"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_blue_long_action"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="bindProfitAccountNumBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="Xmf-9d-BaG"/>
                             </connections>
@@ -150,26 +180,32 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0IP-nq-dCH">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0IP-nq-dCH" customClass="SH_WebPButton">
                             <rect key="frame" x="278" y="6" width="40" height="35"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="35" id="T9H-Vf-UfF"/>
                                 <constraint firstAttribute="width" constant="40" id="iBS-DH-LQX"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <state key="normal" title="+50" backgroundImage="blueframe-click-1"/>
+                            <state key="normal" title="+50"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="blueframe-click-1"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="add50BtnClik:" destination="iN0-l3-epB" eventType="touchUpInside" id="zpz-GK-Iuj"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6NB-um-8aF">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6NB-um-8aF" customClass="SH_WebPButton">
                             <rect key="frame" x="348" y="6" width="40" height="35"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="40" id="3ei-xA-WdP"/>
                                 <constraint firstAttribute="height" constant="35" id="hqf-zH-WOd"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <state key="normal" title="+100" backgroundImage="blueframe-click-1"/>
+                            <state key="normal" title="+100"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="blueframe-click-1"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="add100BtnClik:" destination="iN0-l3-epB" eventType="touchUpInside" id="DK1-oA-Ii2"/>
                             </connections>
@@ -192,14 +228,17 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgy-oS-Fai">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgy-oS-Fai" customClass="SH_WebPButton">
                     <rect key="frame" x="173" y="183" width="120" height="45"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="Ih2-Ym-tKr"/>
                         <constraint firstAttribute="width" constant="120" id="aOg-P1-Rv8"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                    <state key="normal" title="确定出币" backgroundImage="button-large-1"/>
+                    <state key="normal" title="确定出币"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-large-1"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="sureBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="oHJ-WD-9bm"/>
                     </connections>
@@ -275,17 +314,7 @@ j5bmlrnlvI/vvIzmj5Dlj5bmlLblj5YyJeeahOaJi+e7rei0ue+8jOS4lOWPquiDveaYrzUw55qE5YCN
         </view>
     </objects>
     <resources>
-        <image name="blueframe-click-1" width="40" height="34"/>
-        <image name="btn_blue_long_action" width="130" height="33"/>
-        <image name="button-large-1" width="120" height="45"/>
         <image name="font_account" width="60" height="14"/>
-        <image name="font_fee" width="45" height="13"/>
         <image name="font_money" width="60" height="14"/>
-        <image name="font_welfare" width="60" height="13"/>
-        <image name="icon_coin" width="42" height="40"/>
-        <image name="icon_gift" width="42" height="40"/>
-        <image name="middle-bg" width="448" height="120"/>
-        <image name="profitUpper_bg" width="464" height="49"/>
-        <image name="rectangle_bg-3" width="123" height="30"/>
     </resources>
 </document>

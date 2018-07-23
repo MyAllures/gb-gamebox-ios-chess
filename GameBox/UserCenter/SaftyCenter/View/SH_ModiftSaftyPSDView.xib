@@ -111,14 +111,17 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGm-iR-Deh">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGm-iR-Deh" customClass="SH_WebPButton">
                     <rect key="frame" x="94" y="195" width="145" height="45"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="inA-tp-sD4"/>
                         <constraint firstAttribute="width" constant="145" id="xIH-Ux-hwb"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                    <state key="normal" title="设置" backgroundImage="button-long-145"/>
+                    <state key="normal" title="设置"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long-145"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="sureBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="sMn-CU-3Ek"/>
                     </connections>
@@ -156,7 +159,4 @@
             </connections>
         </view>
     </objects>
-    <resources>
-        <image name="button-long-145" width="145" height="45"/>
-    </resources>
 </document>

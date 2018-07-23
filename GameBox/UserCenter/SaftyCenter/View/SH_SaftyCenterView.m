@@ -13,9 +13,9 @@
 #import "SH_NetWorkService+SaftyCenter.h"
 #import "RH_UserSafetyCodeModel.h"
 @interface SH_SaftyCenterView()
-@property (weak, nonatomic) IBOutlet UIButton *loginBtn;
-@property (weak, nonatomic) IBOutlet UIButton *saftyBtn;
-@property (weak, nonatomic) IBOutlet UIButton *bankBtn;
+@property (weak, nonatomic) IBOutlet SH_WebPButton *loginBtn;
+@property (weak, nonatomic) IBOutlet SH_WebPButton *saftyBtn;
+@property (weak, nonatomic) IBOutlet SH_WebPButton *bankBtn;
 @property(nonatomic,strong)SH_ModifyLoginPSDView *loginView;
 @property(nonatomic,strong)SH_ModiftSaftyPSDView *saftyView;
 @property(nonatomic,strong)SH_BankCardView *bankView;
@@ -110,8 +110,8 @@
         make.bottom.right.equalTo(self).offset(-10);
     }];
 }
--(void)setButton:(UIButton *)button BackgroundImage:(NSString *)image{
-    [button setBackgroundImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
+-(void)setButton:(SH_WebPButton *)button BackgroundImage:(NSString *)image{
+    [button setWebpBGImage:image forState:UIControlStateNormal];
 }
 - (void)setTargetVC:(UIViewController *)targetVC{
     _targetVC = targetVC;

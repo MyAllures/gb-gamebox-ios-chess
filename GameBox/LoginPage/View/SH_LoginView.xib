@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,30 +18,36 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ZP-Dx-Gh2">
                     <rect key="frame" x="0.0" y="0.0" width="135" height="300"/>
                     <subviews>
-                        <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hzc-wN-B7s">
+                        <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hzc-wN-B7s" customClass="SH_WebPButton">
                             <rect key="frame" x="8" y="8" width="119" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="AuZ-Pm-KUw"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                            <state key="normal" title="登录" backgroundImage="login_button_click">
+                            <state key="normal" title="登录">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="titleShadowColor" red="0.72156862745098038" green="0.72156862745098038" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="login_button_click"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="btnlick:" destination="iN0-l3-epB" eventType="touchUpInside" id="QkG-jW-OfQ"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vn4-9U-mLf">
+                        <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vn4-9U-mLf" customClass="SH_WebPButton">
                             <rect key="frame" x="8" y="66" width="119" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="oaA-26-Xm0"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <state key="normal" title="注册" backgroundImage="login_button">
+                            <state key="normal" title="注册">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="titleShadowColor" red="0.72156862745098038" green="0.72156862745098038" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="login_button"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="btnlick:" destination="iN0-l3-epB" eventType="touchUpInside" id="sd7-2b-nCb"/>
                             </connections>
@@ -237,8 +243,6 @@
         </view>
     </objects>
     <resources>
-        <image name="login_button" width="122" height="47"/>
-        <image name="login_button_click" width="122" height="47"/>
         <image name="login_button_long" width="145" height="47"/>
         <image name="tick" width="13" height="13"/>
     </resources>

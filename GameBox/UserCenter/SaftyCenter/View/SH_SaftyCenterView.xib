@@ -15,38 +15,50 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left_bgImage" translatesAutoresizingMaskIntoConstraints="NO" id="bqT-M8-Xjp">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bqT-M8-Xjp" customClass="SH_WebPImageView">
                     <rect key="frame" x="0.0" y="0.0" width="135" height="300"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="135" id="tpu-Sk-N7o"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="left_bgImage"/>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yY-sY-Tt6">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yY-sY-Tt6" customClass="SH_WebPButton">
                     <rect key="frame" x="7" y="10" width="120" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="120" id="Emm-SS-2h2"/>
                         <constraint firstAttribute="height" constant="50" id="Pzg-eq-zeJ"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                    <state key="normal" title="修改登录密码" backgroundImage="button-long-click"/>
+                    <state key="normal" title="修改登录密码"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long-click"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="modifyLoginBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="VCn-It-1yr"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TnJ-eo-M3j" userLabel="修改安全密码">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TnJ-eo-M3j" userLabel="修改安全密码" customClass="SH_WebPButton">
                     <rect key="frame" x="7" y="70" width="120" height="50"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                    <state key="normal" title="设置安全密码" backgroundImage="button-long">
+                    <state key="normal" title="设置安全密码">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="saftyBtnclick:" destination="iN0-l3-epB" eventType="touchUpInside" id="3PU-0e-1a3"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2G-pc-F39">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2G-pc-F39" customClass="SH_WebPButton">
                     <rect key="frame" x="7" y="130" width="120" height="50"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                    <state key="normal" title="银行卡" backgroundImage="button-long"/>
+                    <state key="normal" title="银行卡"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="bankCardBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="bdJ-qg-e19"/>
                     </connections>
@@ -71,15 +83,10 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="bankBtn" destination="e2G-pc-F39" id="Ukx-eD-uKS"/>
-                <outlet property="loginBtn" destination="9yY-sY-Tt6" id="N06-5b-3w2"/>
+                <outlet property="loginBtn" destination="9yY-sY-Tt6" id="zg8-qK-npR"/>
                 <outlet property="saftyBtn" destination="TnJ-eo-M3j" id="fc1-Il-8dS"/>
             </connections>
             <point key="canvasLocation" x="56.5" y="71"/>
         </view>
     </objects>
-    <resources>
-        <image name="button-long" width="121" height="47"/>
-        <image name="button-long-click" width="121" height="47"/>
-        <image name="left_bgImage" width="135" height="302"/>
-    </resources>
 </document>

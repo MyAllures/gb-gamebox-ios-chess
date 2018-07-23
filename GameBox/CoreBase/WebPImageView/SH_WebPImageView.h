@@ -13,5 +13,4 @@ IB_DESIGNABLE
 @interface SH_WebPImageView : UIImageView
 
 @property (nonatomic, strong) IBInspectable NSString *imageName;
-
 @end
