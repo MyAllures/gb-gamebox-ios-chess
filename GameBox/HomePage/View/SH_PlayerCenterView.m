@@ -8,6 +8,7 @@
 
 #import "SH_PlayerCenterView.h"
 #import "Masonry.h"
+#import "UIImage+SH_WebPImage.h"
 
 @interface SH_PlayerCenterView ()
 //用户信息视图
@@ -68,7 +69,7 @@
     
     //用户头像
     self.headImage = [[UIImageView alloc] init];
-    self.headImage.image = [UIImage imageNamed:@"avatar"];
+    self.headImage.image = [UIImage imageWithWebPImageName:@"avatar"];
     self.headImage.contentMode = UIViewContentModeCenter;
     [self.informationV addSubview:self.headImage];
     

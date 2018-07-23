@@ -12,6 +12,8 @@
 #import "SH_SaftyCenterView.h"
 #import "SH_CardRecordView.h"
 #import "SH_NetWorkService+RegistAPI.h"
+#import "UIImage+SH_WebPImage.h"
+
 @interface SH_GamesHomeViewController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintWidth;
 @property (weak, nonatomic) IBOutlet UIView *top_view;
@@ -41,12 +43,12 @@
     self.account_label.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.username;
     self.money_label.text = [NSString  stringWithFormat:@"%.2f",[RH_UserInfoManager shareUserManager].mineSettingInfo.walletBalance];
     if ([RH_UserInfoManager  shareUserManager].isLogin) {
-        self.avatar_imgView.image = [UIImage  imageNamed:@"photo_male"];
-        [self.avatar_button setImage:[UIImage  imageNamed:@"photo_male"] forState:UIControlStateNormal];
+        self.avatar_imgView.image = [UIImage imageWithWebPImageName:@"photo_male"];
+        [self.avatar_button setImage:[UIImage imageWithWebPImageName:@"photo_male"] forState:UIControlStateNormal];
         //刷新随身福利
     }else{
-        self.avatar_imgView.image = [UIImage  imageNamed:@"avatar"];
-        [self.avatar_button setImage:[UIImage  imageNamed:@"avatar"] forState:UIControlStateNormal];
+        self.avatar_imgView.image = [UIImage imageWithWebPImageName:@"avatar"];
+        [self.avatar_button setImage:[UIImage imageWithWebPImageName:@"avatar"] forState:UIControlStateNormal];
     }
     if (iPhoneX) {
         self.constraintWidth.constant = 200;

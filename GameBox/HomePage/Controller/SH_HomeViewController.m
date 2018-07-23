@@ -42,6 +42,7 @@
 #import "SH_PromoDeatilViewController.h"
 #import "SH_ShareView.h"
 #import "SH_PromoListModel.h"
+#import "UIImage+SH_WebPImage.h"
 
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate>
 
@@ -81,7 +82,7 @@
     [self initAdScroll];
     [self refreshAnnouncement];
     [self refreshHomeInfo];
-    
+        
     [[YFAnimationManager shareInstancetype] showAnimationInView:self.snowBGImg withAnimationStyle:YFAnimationStyleOfSnow];
 
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didRegistratedSuccessful) name:@"didRegistratedSuccessful" object:nil];
@@ -177,11 +178,11 @@
     self.userAccountLB.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.username?:@"登录/注册";
     
     if ([RH_UserInfoManager  shareUserManager].isLogin) {
-        self.avatarImg.image = [UIImage  imageNamed:@"photo_male"];
+        self.avatarImg.image = [UIImage imageWithWebPImageName:@"photo_male"];
         //刷新随身福利
         self.suishenFuLiLab.text = [NSString stringWithFormat:@"%.2f",[RH_UserInfoManager shareUserManager].mineSettingInfo.walletBalance];        
     }else{
-        self.avatarImg.image = [UIImage  imageNamed:@"avatar"];
+        self.avatarImg.image = [UIImage imageWithWebPImageName:@"avatar"];
         self.suishenFuLiLab.text = @"0";
     }
 }
@@ -672,11 +673,11 @@
 
 - (UIImage *)placeHolderImageOfBannerView:(SH_CycleScrollView *)bannerView atIndex:(NSUInteger)index
 {
-    return [UIImage imageNamed:@"banner"];
+    return [UIImage imageWithWebPImageName:@"banner"];
 }
 
 - (UIImage *)placeHolderImageOfZeroBannerView {
-    return [UIImage imageNamed:@"banner"];
+    return [UIImage imageWithWebPImageName:@"banner"];
 }
 
 #pragma mark - SH_CycleScrollViewDelegate
