@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="SH_FillRealNameView">
             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -85,6 +85,9 @@
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="login_button"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="sureBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="fdc-jk-yGe"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.1647058824" green="0.20784313730000001" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -96,6 +99,10 @@
                 <constraint firstAttribute="bottom" secondItem="k8V-vt-RTO" secondAttribute="bottom" constant="18" id="vjp-at-QTp"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="messageLab" destination="aRN-38-Fpd" id="gUn-Ep-vIE"/>
+                <outlet property="realNameTF" destination="7Cb-d3-Y80" id="cvF-tf-xAW"/>
+            </connections>
         </view>
     </objects>
 </document>

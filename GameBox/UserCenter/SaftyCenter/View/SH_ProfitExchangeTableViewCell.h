@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "SH_ApiModel.h"
+
+@protocol SH_ProfitExchangeTableViewCellDelegate<NSObject>
+-(void)recoveryBtnWithApiId:(NSString *)apiId;
+@end
 @interface SH_ProfitExchangeTableViewCell : UITableViewCell
+@property(nonatomic,weak)id<SH_ProfitExchangeTableViewCellDelegate>delegate;
 -(void)updateUIWithApiModel:(SH_ApiModel *)model;
 @end
+

@@ -141,7 +141,7 @@
     }
 }
 - (IBAction)bindPhoneBtnClick:(id)sender {
-
+    self.bindPhoneView.targetVC = self.targetVC;
     [self setUIWithSelecteBtn:self.bindPhoneBtn SelectedView:self.bindPhoneView];
     [self.bindPhoneView selectBindPhoneNumView];
 }

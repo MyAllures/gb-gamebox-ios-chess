@@ -44,20 +44,30 @@
                         <color key="textColor" red="0.82352941180000006" green="0.84313725490000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BXq-Fi-pHS">
-                        <rect key="frame" x="258" y="7" width="46" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" title="Button"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BXq-Fi-pHS" customClass="SH_WebPButton">
+                        <rect key="frame" x="265" y="2" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="aQp-zn-EdE"/>
+                            <constraint firstAttribute="width" constant="40" id="zDo-Pi-77h"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="refresh"/>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="refreshBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="nCL-1d-jq6"/>
+                        </connections>
                     </button>
                 </subviews>
                 <color key="backgroundColor" red="0.1647058824" green="0.20784313730000001" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="5us-wu-0xq" secondAttribute="bottom" id="AFW-5r-P2a"/>
+                    <constraint firstAttribute="trailing" secondItem="BXq-Fi-pHS" secondAttribute="trailing" constant="15" id="Bf4-em-gdd"/>
                     <constraint firstItem="5us-wu-0xq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="115" id="CCf-ul-vpV"/>
                     <constraint firstItem="c2j-70-WPB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="JEJ-fK-byu"/>
                     <constraint firstItem="CcO-lm-dq8" firstAttribute="centerX" secondItem="5us-wu-0xq" secondAttribute="centerX" constant="-57.5" id="JnU-Cg-ya0"/>
                     <constraint firstItem="fN0-5W-VZa" firstAttribute="leading" secondItem="5us-wu-0xq" secondAttribute="trailing" constant="25" id="Jq6-WB-oQq"/>
                     <constraint firstItem="fN0-5W-VZa" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="UVE-XM-bdY"/>
+                    <constraint firstItem="BXq-Fi-pHS" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ef7-vf-i1l"/>
                     <constraint firstItem="5us-wu-0xq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="efa-51-HO3"/>
                     <constraint firstItem="c2j-70-WPB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="gLZ-DC-W3w"/>
                     <constraint firstItem="CcO-lm-dq8" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qII-Eo-JnB"/>
