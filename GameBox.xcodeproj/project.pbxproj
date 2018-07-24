@@ -300,6 +300,7 @@
 		BFA7DEBC2106C2CB00DD731F /* chip_yellow.webp in Resources */ = {isa = PBXBuildFile; fileRef = BFA7DEB72106C2CB00DD731F /* chip_yellow.webp */; };
 		BFA7DEBD2106C2CB00DD731F /* chip_blue.webp in Resources */ = {isa = PBXBuildFile; fileRef = BFA7DEB82106C2CB00DD731F /* chip_blue.webp */; };
 		BFA7DEBE2106C2CB00DD731F /* chip_red.webp in Resources */ = {isa = PBXBuildFile; fileRef = BFA7DEB92106C2CB00DD731F /* chip_red.webp */; };
+		BFA7DEC02106C66800DD731F /* backImage.webp in Resources */ = {isa = PBXBuildFile; fileRef = BFA7DEBF2106C66800DD731F /* backImage.webp */; };
 		BFD6CFC120F8901500EDBC5B /* SH_NetWorkService+Bank.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFC020F8901500EDBC5B /* SH_NetWorkService+Bank.m */; };
 		BFD6CFC520F997B800EDBC5B /* SavePhotoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFC420F997B800EDBC5B /* SavePhotoTool.m */; };
 		BFD6CFCC20F9D20C00EDBC5B /* AttributeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFCB20F9D20C00EDBC5B /* AttributeModel.m */; };
@@ -808,6 +809,7 @@
 		BFA7DEB72106C2CB00DD731F /* chip_yellow.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = chip_yellow.webp; sourceTree = "<group>"; };
 		BFA7DEB82106C2CB00DD731F /* chip_blue.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = chip_blue.webp; sourceTree = "<group>"; };
 		BFA7DEB92106C2CB00DD731F /* chip_red.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = chip_red.webp; sourceTree = "<group>"; };
+		BFA7DEBF2106C66800DD731F /* backImage.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = backImage.webp; sourceTree = "<group>"; };
 		BFD6CFBF20F8901500EDBC5B /* SH_NetWorkService+Bank.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+Bank.h"; sourceTree = "<group>"; };
 		BFD6CFC020F8901500EDBC5B /* SH_NetWorkService+Bank.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+Bank.m"; sourceTree = "<group>"; };
 		BFD6CFC320F997B800EDBC5B /* SavePhotoTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SavePhotoTool.h; sourceTree = "<group>"; };
@@ -1404,6 +1406,7 @@
 				BFA7DEB82106C2CB00DD731F /* chip_blue.webp */,
 				BFA7DEB52106C2CA00DD731F /* chip_green.webp */,
 				BFA7DEB92106C2CB00DD731F /* chip_red.webp */,
+				BFA7DEBF2106C66800DD731F /* backImage.webp */,
 				BFA7DEB72106C2CB00DD731F /* chip_yellow.webp */,
 			);
 			path = webpRes;
@@ -2385,6 +2388,7 @@
 				54397096210462BB0091C719 /* title_bg_long.webp in Resources */,
 				BF44EC6120F45DB500BC6EF3 /* SH_BitCoinTextView.xib in Resources */,
 				22552CE120F494F00090EFBC /* SH_SiteMsgView.xib in Resources */,
+				BFA7DEC02106C66800DD731F /* backImage.webp in Resources */,
 				543970EE21046E200091C719 /* noaccess.webp in Resources */,
 				543970E7210467F90091C719 /* index_bg.webp in Resources */,
 				BF44ECD120F59A6300BC6EF3 /* SH_RechargeDetailBankView.xib in Resources */,
