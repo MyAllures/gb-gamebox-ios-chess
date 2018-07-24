@@ -80,7 +80,6 @@
             if (imageData) {
                 image = [UIImage imageWithData:imageData];
             }
-            //回到主线程更新UI
             dispatch_async(dispatch_get_main_queue(), ^{
                 [weakSelf.verificationBtn setImage:image forState:UIControlStateNormal];
             });
