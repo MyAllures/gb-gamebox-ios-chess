@@ -108,12 +108,15 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wEC-kL-uk3">
                     <rect key="frame" x="20" y="64" width="421" height="47"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="font_account" translatesAutoresizingMaskIntoConstraints="NO" id="Q7y-fZ-gFl">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q7y-fZ-gFl" customClass="SH_WebPImageView">
                             <rect key="frame" x="10" y="16" width="60" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="60" id="30e-G2-aHT"/>
                                 <constraint firstAttribute="height" constant="15" id="3iC-gf-ho4"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="font_account"/>
+                            </userDefinedRuntimeAttributes>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7E-T3-NgX">
                             <rect key="frame" x="80" y="9" width="180" height="30"/>
@@ -162,12 +165,15 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aai-XB-8wJ">
                     <rect key="frame" x="20" y="118" width="423" height="47"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="font_money" translatesAutoresizingMaskIntoConstraints="NO" id="mCf-Oc-gEf">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mCf-Oc-gEf" customClass="SH_WebPImageView">
                             <rect key="frame" x="10" y="16" width="60" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="15" id="KEP-Nb-HCV"/>
                                 <constraint firstAttribute="width" constant="60" id="Qp8-kE-p6C"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="font_money"/>
+                            </userDefinedRuntimeAttributes>
                         </imageView>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E25-4K-mCq">
                             <rect key="frame" x="80" y="8" width="180" height="30"/>
@@ -314,8 +320,4 @@ j5bmlrnlvI/vvIzmj5Dlj5bmlLblj5YyJeeahOaJi+e7rei0ue+8jOS4lOWPquiDveaYrzUw55qE5YCN
             <point key="canvasLocation" x="-127" y="-10"/>
         </view>
     </objects>
-    <resources>
-        <image name="font_account" width="60" height="14"/>
-        <image name="font_money" width="60" height="14"/>
-    </resources>
 </document>
