@@ -59,14 +59,14 @@
     }else if (self.numTextField.text.length == 0||[self.numTextField.text floatValue] > [self.balanceLab.text floatValue]) {
         [self popAlertView];
     }
-//    else if ([self.numTextField.text intValue]%50 != 0 || [self.numTextField.text intValue] == 0) {
-//        self.numTextField.text = @"";
-//        [self popAlertView];
-//        return;
-//    }
+    else if ([self.numTextField.text intValue]%50 != 0 || [self.numTextField.text intValue] == 0) {
+        self.numTextField.text = @"";
+        [self popAlertView];
+        return;
+    }
     else{
         SH_OutCoinDetailView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_OutCoinDetailView" owner:self options:nil].firstObject;
-        AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-95 titleImageName:@"outCoinDetail" alertViewType:AlertViewTypeLong];
+        AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-95 titleImageName:@"title14" alertViewType:AlertViewTypeLong];
         acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         [self.targetVC presentViewController:acr animated:YES completion:nil];
