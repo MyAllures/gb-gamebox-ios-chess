@@ -39,9 +39,14 @@
                             <rect key="frame" x="0.0" y="36" width="454" height="299"/>
                             <color key="backgroundColor" red="0.16470588235294117" green="0.20784313725490194" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NRb-Eh-5PS">
-                            <rect key="frame" x="427" y="-10" width="40" height="40"/>
-                            <state key="normal" image="close"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NRb-Eh-5PS" customClass="SH_WebPButton">
+                            <rect key="frame" x="431" y="-10" width="36" height="36"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="NRb-Eh-5PS" secondAttribute="height" multiplier="1:1" id="6E6-cJ-t2p"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="close"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="dismiss:" destination="-1" eventType="touchUpInside" id="8qO-9B-fmq"/>
                             </connections>
@@ -58,6 +63,7 @@
                         <constraint firstAttribute="trailing" secondItem="tqq-hG-FCW" secondAttribute="trailing" id="3s2-fA-fwn"/>
                         <constraint firstItem="NRb-Eh-5PS" firstAttribute="top" secondItem="2Lp-LN-rtB" secondAttribute="top" constant="-10" id="Fol-C3-E8y"/>
                         <constraint firstItem="i7q-NE-03k" firstAttribute="trailing" secondItem="pKz-b2-7jm" secondAttribute="trailing" id="Kvl-sZ-ixo"/>
+                        <constraint firstItem="NRb-Eh-5PS" firstAttribute="height" secondItem="i7q-NE-03k" secondAttribute="height" id="O9F-Rj-Hht"/>
                         <constraint firstItem="pKz-b2-7jm" firstAttribute="leading" secondItem="2Lp-LN-rtB" secondAttribute="leading" id="PjI-AV-jUi"/>
                         <constraint firstItem="i7q-NE-03k" firstAttribute="top" secondItem="pKz-b2-7jm" secondAttribute="top" id="Pzr-5B-ABR"/>
                         <constraint firstItem="i7q-NE-03k" firstAttribute="leading" secondItem="pKz-b2-7jm" secondAttribute="leading" id="SWX-S7-ik7"/>
@@ -81,7 +87,4 @@
             <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="close" width="40" height="40"/>
-    </resources>
 </document>
