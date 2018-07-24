@@ -55,4 +55,8 @@
 +(void)getSaftyVericationCodeSuccess:(SHNetWorkComplete)success
                                 Fail:(SHNetWorkFailed)fail;
 
+//获取用户手机号状态，是否绑定过手机号码
++(void)getUserPhoneInfoSuccess:(SHNetWorkComplete)success
+                          Fail:(SHNetWorkFailed)fail;
+
 @end

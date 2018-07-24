@@ -295,6 +295,11 @@
 		BFA068DE21002BC600F5ADFE /* SH_BankListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA068DD21002BC600F5ADFE /* SH_BankListModel.m */; };
 		BFA7DEB12105E58900DD731F /* mark.webp in Resources */ = {isa = PBXBuildFile; fileRef = BFA7DEB02105E58900DD731F /* mark.webp */; };
 		BFA7DEB42106077300DD731F /* SH_ApiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA7DEB32106077300DD731F /* SH_ApiModel.m */; };
+		BFA7DEBA2106C2CB00DD731F /* chip_green.webp in Resources */ = {isa = PBXBuildFile; fileRef = BFA7DEB52106C2CA00DD731F /* chip_green.webp */; };
+		BFA7DEBB2106C2CB00DD731F /* chip_black.webp in Resources */ = {isa = PBXBuildFile; fileRef = BFA7DEB62106C2CB00DD731F /* chip_black.webp */; };
+		BFA7DEBC2106C2CB00DD731F /* chip_yellow.webp in Resources */ = {isa = PBXBuildFile; fileRef = BFA7DEB72106C2CB00DD731F /* chip_yellow.webp */; };
+		BFA7DEBD2106C2CB00DD731F /* chip_blue.webp in Resources */ = {isa = PBXBuildFile; fileRef = BFA7DEB82106C2CB00DD731F /* chip_blue.webp */; };
+		BFA7DEBE2106C2CB00DD731F /* chip_red.webp in Resources */ = {isa = PBXBuildFile; fileRef = BFA7DEB92106C2CB00DD731F /* chip_red.webp */; };
 		BFD6CFC120F8901500EDBC5B /* SH_NetWorkService+Bank.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFC020F8901500EDBC5B /* SH_NetWorkService+Bank.m */; };
 		BFD6CFC520F997B800EDBC5B /* SavePhotoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFC420F997B800EDBC5B /* SavePhotoTool.m */; };
 		BFD6CFCC20F9D20C00EDBC5B /* AttributeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFCB20F9D20C00EDBC5B /* AttributeModel.m */; };
@@ -798,6 +803,11 @@
 		BFA7DEB02105E58900DD731F /* mark.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = mark.webp; sourceTree = "<group>"; };
 		BFA7DEB22106077300DD731F /* SH_ApiModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ApiModel.h; sourceTree = "<group>"; };
 		BFA7DEB32106077300DD731F /* SH_ApiModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_ApiModel.m; sourceTree = "<group>"; };
+		BFA7DEB52106C2CA00DD731F /* chip_green.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = chip_green.webp; sourceTree = "<group>"; };
+		BFA7DEB62106C2CB00DD731F /* chip_black.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = chip_black.webp; sourceTree = "<group>"; };
+		BFA7DEB72106C2CB00DD731F /* chip_yellow.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = chip_yellow.webp; sourceTree = "<group>"; };
+		BFA7DEB82106C2CB00DD731F /* chip_blue.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = chip_blue.webp; sourceTree = "<group>"; };
+		BFA7DEB92106C2CB00DD731F /* chip_red.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = chip_red.webp; sourceTree = "<group>"; };
 		BFD6CFBF20F8901500EDBC5B /* SH_NetWorkService+Bank.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+Bank.h"; sourceTree = "<group>"; };
 		BFD6CFC020F8901500EDBC5B /* SH_NetWorkService+Bank.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+Bank.m"; sourceTree = "<group>"; };
 		BFD6CFC320F997B800EDBC5B /* SavePhotoTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SavePhotoTool.h; sourceTree = "<group>"; };
@@ -1390,6 +1400,11 @@
 				54397073210462B70091C719 /* user_info_bg.webp */,
 				BF5C0BBE21057C780035B754 /* button-long-145.webp */,
 				54397052210462AD0091C719 /* yellow.webp */,
+				BFA7DEB62106C2CB00DD731F /* chip_black.webp */,
+				BFA7DEB82106C2CB00DD731F /* chip_blue.webp */,
+				BFA7DEB52106C2CA00DD731F /* chip_green.webp */,
+				BFA7DEB92106C2CB00DD731F /* chip_red.webp */,
+				BFA7DEB72106C2CB00DD731F /* chip_yellow.webp */,
 			);
 			path = webpRes;
 			sourceTree = "<group>";
@@ -2323,6 +2338,7 @@
 				BF2F916520EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.xib in Resources */,
 				DA1BCDAE2102D27C00201DBC /* SH_WelfareTableViewCell.xib in Resources */,
 				22D11692210581BE00589EB9 /* betRec_calendar_icon.webp in Resources */,
+				BFA7DEBE2106C2CB00DD731F /* chip_red.webp in Resources */,
 				22552CEB20F4B7720090EFBC /* SH_SiteMsgViewCell.xib in Resources */,
 				543970A0210462BB0091C719 /* logo10.webp in Resources */,
 				BFA0689720FC8DB300F5ADFE /* SH_LookJiHeView.xib in Resources */,
@@ -2333,6 +2349,7 @@
 				22573D3F20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.xib in Resources */,
 				543970CA210462BB0091C719 /* title06.webp in Resources */,
 				54C875B520FB4E2D00AA0594 /* SH_DragableMenuView.xib in Resources */,
+				BFA7DEBB2106C2CB00DD731F /* chip_black.webp in Resources */,
 				22D116A52105B91D00589EB9 /* mearkRead.webp in Resources */,
 				54C8758D20F498E200AA0594 /* SH_GameItemView.xib in Resources */,
 				BFA068AB20FD86BF00F5ADFE /* SH_OutCoinDetailTableViewCell.xib in Resources */,
@@ -2374,6 +2391,7 @@
 				543970DD210462BB0091C719 /* title12.webp in Resources */,
 				BF5C0BD62105D3530035B754 /* SH_ProfitExchangeTableViewCell.xib in Resources */,
 				54C875BA20FB788D00AA0594 /* SH_NoAccessViewController.xib in Resources */,
+				BFA7DEBC2106C2CB00DD731F /* chip_yellow.webp in Resources */,
 				543970D2210462BB0091C719 /* user_info_bg.webp in Resources */,
 				543970A7210462BB0091C719 /* title10.webp in Resources */,
 				BF5C0BD12105B9E60035B754 /* refresh.webp in Resources */,
@@ -2387,6 +2405,7 @@
 				BFA0689220FC8C1A00F5ADFE /* SH_OutCoinDetailView.xib in Resources */,
 				DA6EE1C920F99F45009A01C5 /* SH_SettingView.xib in Resources */,
 				54C875A020F756A500AA0594 /* errRing.mp3 in Resources */,
+				BFA7DEBD2106C2CB00DD731F /* chip_blue.webp in Resources */,
 				54397090210462BB0091C719 /* logo04.webp in Resources */,
 				54C876432100BFA000AA0594 /* SH_PromoDeatilViewController.xib in Resources */,
 				BFA068CF20FE135200F5ADFE /* SH_ModiftSaftyPSDView.xib in Resources */,
@@ -2439,6 +2458,7 @@
 				543970D7210462BB0091C719 /* title05.webp in Resources */,
 				BF2F915B20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib in Resources */,
 				BF44ECFF20F7478600BC6EF3 /* SH_BitCoinSuccessPopView.xib in Resources */,
+				BFA7DEBA2106C2CB00DD731F /* chip_green.webp in Resources */,
 				543970BD210462BB0091C719 /* title11.webp in Resources */,
 				227CC6C620FF142700AEA497 /* SH_MsgDetailView.xib in Resources */,
 				543970C4210462BB0091C719 /* effects_star3.webp in Resources */,

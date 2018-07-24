@@ -48,7 +48,9 @@
         NSDictionary  * result = ConvertToClassPointer(NSDictionary, response);
           NSString *code = [NSString stringWithFormat:@"%@",result[@"code"]];
         if ([code isEqualToString:@"0"]) {
-            self.dataArray = [SH_ApiModel arrayOfModelsFromDictionaries:result[@"data"][@"user"][@"apis"] error:nil];
+            NSError *err;
+            self.dataArray = [SH_ApiModel arrayOfModelsFromDictionaries:result[@"data"][@"user"][@"apis"] error:&err];
+            
         }
         [self.mainTableView reloadData];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {

@@ -143,6 +143,7 @@
 - (IBAction)bindPhoneBtnClick:(id)sender {
 
     [self setUIWithSelecteBtn:self.bindPhoneBtn SelectedView:self.bindPhoneView];
+    [self.bindPhoneView selectBindPhoneNumView];
 }
 
 - (IBAction)profitExchangeBtnClick:(id)sender {

@@ -7,15 +7,40 @@
 //
 
 #import "SH_BindPhoneNumView.h"
+#import "SH_NetWorkService+SaftyCenter.h"
+@interface SH_BindPhoneNumView()
+@property (weak, nonatomic) IBOutlet UILabel *oldPhoneNumLab; //旧手机号码lable
+@property (weak, nonatomic) IBOutlet UITextField *oldPhoneNumTF;//旧手机号码textfield
+@property (weak, nonatomic) IBOutlet UILabel *NewPhoneNumLab;//新手机号码lable
+@property (weak, nonatomic) IBOutlet UITextField *NewPhoneNumTF;//新手机号码textfield
+@property (weak, nonatomic) IBOutlet UIButton *VerificationBtn;//验证码按钮
+@property (weak, nonatomic) IBOutlet UILabel *InputVerificationCodeLab;//验证码lable
+@property (weak, nonatomic) IBOutlet UITextField *InputCodeTF;//验证码textfield
 
+@end
 @implementation SH_BindPhoneNumView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)awakeFromNib{
+    [super awakeFromNib];
 }
-*/
 
+- (IBAction)sureBtnClick:(id)sender {
+}
+-(void)selectBindPhoneNumView{
+    [SH_NetWorkService getUserPhoneInfoSuccess:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSDictionary *dataDic = ConvertToClassPointer(NSDictionary, response);
+        NSString *data = [dataDic objectForKey:@"data"];
+        if (data == nil || [data isEqualToString:@""]) {
+            //没有绑定过手机
+
+        }
+        else
+        {
+         //绑定过手机
+        }
+        
+    } Fail:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        
+    }];
+}
 @end
