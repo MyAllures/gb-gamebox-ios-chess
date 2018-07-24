@@ -80,6 +80,9 @@
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long-145"/>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="sureBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="yPu-AN-F5m"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ula-a8-vQL">
                             <rect key="frame" x="235" y="58.5" width="67" height="28"/>
@@ -142,6 +145,15 @@
                 <constraint firstAttribute="trailing" secondItem="PHK-AA-NMh" secondAttribute="trailing" constant="10" id="x4J-sF-0RW"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="InputCodeTF" destination="kUB-Cf-MZh" id="5H6-Qc-oPg"/>
+                <outlet property="InputVerificationCodeLab" destination="qxL-Fa-b7X" id="zug-Vd-5Jx"/>
+                <outlet property="NewPhoneNumLab" destination="OiY-R3-8xh" id="MQ0-Aj-0dL"/>
+                <outlet property="NewPhoneNumTF" destination="MWe-jF-7oz" id="jDS-2d-rrz"/>
+                <outlet property="VerificationBtn" destination="Ula-a8-vQL" id="VOp-25-5lj"/>
+                <outlet property="oldPhoneNumLab" destination="3lj-5u-nPC" id="aZ5-5V-hi8"/>
+                <outlet property="oldPhoneNumTF" destination="7L4-0o-smw" id="Ev4-4U-7My"/>
+            </connections>
         </view>
     </objects>
 </document>

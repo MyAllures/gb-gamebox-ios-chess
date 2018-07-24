@@ -27,7 +27,7 @@
 }
 - (void)updateUIWithApiModel:(SH_ApiModel *)model{
     self.titleLab.text = model.apiName;
-    if (model.status) {
+    if (model.status.length > 0) {
         self.moneyLab.text = model.status;
     }else{
         self.moneyLab.text = [NSString stringWithFormat:@"%.2f",[model.balance floatValue]];
