@@ -44,17 +44,19 @@
    
 }
 - (IBAction)sureBtnClick:(id)sender {
+    NSLog(@"self.bankTF.text==%@",self.bankTF.text);
     if (self.realNameTF.text.length == 0) {
         showMessage(self, @"请输入真实姓名", nil);
     }else if (self.bankTF.text.length == 0 ){
          showMessage(self, @"请选择银行", nil);
     }else if (self.cardNumTF.text.length == 0){
         showMessage(self, @"请输入银行卡号", nil);
-    }else if (self.addressTF.text.length == 0){
+    }else if ([self.bankTF.text isEqualToString:@" 其它银行"]){
         showMessage(self, @"请输入开户银行", nil);
+        return;
     }else{
           __weak typeof(self) weakSelf = self;
-        [SH_NetWorkService bindBankcardRealName:self.realNameTF.text BankName:self.bankTF.text CardNum:self.cardNumTF.text BankDeposit:self.addressTF.text Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        [SH_NetWorkService bindBankcardRealName:self.realNameTF.text BankName:self.bankTF.text CardNum:self.cardNumTF.text BankDeposit:self.addressTF.text?:@"" Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
             showMessage(self, response[@"message"], nil);
             NSString *code = [NSString stringWithFormat:@"%@",response[@"code"]];
             if ([code isEqualToString:@"0"]) {

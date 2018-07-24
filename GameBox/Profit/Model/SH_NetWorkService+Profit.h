@@ -31,7 +31,7 @@ typedef void (^jiHeBlock)(SH_JiHeModel *model);
  @param money 金额
  @param saftyPWD 安全密码
  @param token token
- @param way 选择方式
+ @param way 选择方式 //（1：银行卡，2：比特币）
  */
 +(void)sureOutCoinMoney:(NSString *)money
                SaftyPWD:(NSString *)saftyPWD
