@@ -11,7 +11,7 @@
 @protocol SH_ApiModel;
 
 @interface SH_ApiModel : JSONModel
-@property (nonatomic,copy) NSString *apiID      ;
+@property (nonatomic,copy) NSString *apiId      ;
 @property (nonatomic,copy) NSString *apiName    ;
 @property (nonatomic,copy) NSString *balance    ;
 @property (nonatomic,copy) NSString *status     ;
