@@ -10,7 +10,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 
-#define SH_DEFAULT_NETWORK_TIMEOUT 4.0f //默认的超时秒数
+#define SH_DEFAULT_NETWORK_TIMEOUT 15.0f //默认的超时秒数
 #define SH_MAX_NETWORK_CONCURRENT 10 //最大http并发数
 #define GB_CURRENT_APPVERSION [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
 #define GB_CURRENT_APPBUILD [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]
