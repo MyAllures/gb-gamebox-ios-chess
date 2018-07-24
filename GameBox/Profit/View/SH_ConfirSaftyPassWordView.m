@@ -22,13 +22,18 @@
     }else{
         [SH_NetWorkService sureOutCoinMoney:self.money SaftyPWD:self.pswTF.text Token:self.token Way:@"1" Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
             showMessage(self, [NSString stringWithFormat:@"%@",response[@"message"]], nil);
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                UIViewController *vc = self.targetVC;
-                while (vc.presentingViewController) {
-                    vc = vc.presentingViewController;
-                }
-                [vc dismissViewControllerAnimated:NO completion:nil];
-            });
+            NSDictionary *dic = ConvertToClassPointer(NSDictionary, response);
+            NSString *code = [NSString stringWithFormat:@"%@",dic[@"code"]];
+            if ([code isEqualToString:@"0"]) {
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    UIViewController *vc = self.targetVC;
+                    while (vc.presentingViewController) {
+                        vc = vc.presentingViewController;
+                    }
+                    [vc dismissViewControllerAnimated:NO completion:nil];
+                });
+            }
+       
         } Failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             
         }];
