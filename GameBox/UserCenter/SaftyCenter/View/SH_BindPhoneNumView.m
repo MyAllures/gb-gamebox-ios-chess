@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *VerificationBtn;//验证码按钮
 @property (weak, nonatomic) IBOutlet UILabel *InputVerificationCodeLab;//验证码lable
 @property (weak, nonatomic) IBOutlet UITextField *InputCodeTF;//验证码textfield
+@property (weak, nonatomic) IBOutlet SH_WebPButton *sureBtn;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *NewPhoneLabTopDistance;
 
 @end
 @implementation SH_BindPhoneNumView
@@ -25,6 +27,16 @@
 }
 
 - (IBAction)sureBtnClick:(id)sender {
+    UIButton *btn = sender;
+    if ([btn.titleLabel.text isEqualToString:@"立即绑定"]) {
+        //未绑定过手机号码
+        
+    }else if ([btn.titleLabel.text isEqualToString:@"更换绑定号码"]){
+       //更换手机号码
+    }else if ([btn.titleLabel.text isEqualToString:@"确认"]){
+        //更换手机号码
+    }
+    
 }
 -(void)selectBindPhoneNumView{
     [SH_NetWorkService getUserPhoneInfoSuccess:^(NSHTTPURLResponse *httpURLResponse, id response) {
@@ -49,12 +61,41 @@
     self.oldPhoneNumLab.hidden = YES;
     self.oldPhoneNumTF.hidden = YES;
     self.NewPhoneNumLab.text = @"手机号码";
-    self.oldPhoneNumTF.text = phoneNum;
-    self.oldPhoneNumTF.enabled = NO;
-
+    self.NewPhoneNumTF.text = phoneNum;
+    self.NewPhoneNumTF.enabled = NO;
+    self.VerificationBtn.hidden = YES;
+    self.InputVerificationCodeLab.hidden = YES;
+    self.InputCodeTF.hidden = YES;
+    [self.sureBtn setTitle:@"更换绑定号码" forState:UIControlStateNormal];
+    self.NewPhoneLabTopDistance.constant = 20;
+    [self layoutIfNeeded];
 }
 //未绑定过手机号码
 -(void)notBindPhoneNum{
-    
+    self.oldPhoneNumLab.hidden = YES;
+    self.oldPhoneNumTF.hidden = YES;
+    self.NewPhoneNumLab.text = @"手机号码";
+    self.VerificationBtn.hidden = NO;
+    self.InputVerificationCodeLab.hidden = NO;
+    self.InputCodeTF.hidden = NO;
+    [self.sureBtn setTitle:@"立即绑定" forState:UIControlStateNormal];
+    self.NewPhoneLabTopDistance.constant = 40;
+    [self layoutIfNeeded];
+}
+//更换手机号码
+-(void)changedBindedPhoneNum{
+    self.oldPhoneNumLab.hidden = NO;
+    self.oldPhoneNumLab.text = @"旧手机号码";
+    self.oldPhoneNumTF.hidden = NO;
+    self.NewPhoneNumLab.text = @"新手机号码";
+    self.VerificationBtn.hidden = NO;
+    self.InputVerificationCodeLab.hidden = NO;
+    self.InputCodeTF.hidden = NO;
+    [self.sureBtn setTitle:@"确认" forState:UIControlStateNormal];
+    self.NewPhoneLabTopDistance.constant = 55;
+    [self layoutIfNeeded];
+}
+- (IBAction)sendVerificationBtn:(id)sender {
+    //发送验证码按钮点击事件
 }
 @end
