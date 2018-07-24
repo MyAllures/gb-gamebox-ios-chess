@@ -235,7 +235,7 @@
         case 28:
         {
             //GG捕鱼
-            self.dzGameMarkImg.image = [UIImage imageWithWebPImageName:@""];
+            self.dzGameMarkImg.image = [UIImage imageWithWebPImageName:@"logo12"];
         }
             break;
         case 35:
@@ -301,7 +301,7 @@
         case 44:
         {
             //NT电子
-            self.dzGameMarkImg.image = [UIImage imageWithWebPImageName:@""];
+            self.dzGameMarkImg.image = [UIImage imageWithWebPImageName:@"logo13"];
         }
             break;
         case 38:
@@ -313,13 +313,13 @@
         case 45:
         {
             //PG老虎机
-            self.dzGameMarkImg.image = [UIImage imageWithWebPImageName:@""];
+            self.dzGameMarkImg.image = [UIImage imageWithWebPImageName:@"logo14"];
         }
             break;
         case 14:
         {
             //NYX电子
-            self.dzGameMarkImg.image = [UIImage imageWithWebPImageName:@""];
+            self.dzGameMarkImg.image = nil;//[UIImage imageWithWebPImageName:@""];
         }
             break;
         case 32:
