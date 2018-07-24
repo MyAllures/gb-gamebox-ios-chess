@@ -88,7 +88,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iit-eR-jHS" customClass="SH_WebPButton">
-                    <rect key="frame" x="93.5" y="175" width="145" height="45"/>
+                    <rect key="frame" x="93.5" y="215" width="145" height="45"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="145" id="8lt-8x-oax"/>
                         <constraint firstAttribute="height" constant="45" id="McB-2Y-ufD"/>
@@ -102,29 +102,73 @@
                         <action selector="sureBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="bXA-PL-8fX"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="验证码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FyI-DG-seg">
+                    <rect key="frame" x="47" y="178" width="43" height="17"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mwz-mR-0ic">
+                    <rect key="frame" x="98" y="171.5" width="119" height="30"/>
+                    <color key="backgroundColor" red="0.13725490200000001" green="0.16862745100000001" blue="0.41568627450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="119" id="kmz-hc-PTA"/>
+                        <constraint firstAttribute="height" constant="30" id="w2V-uO-vLO"/>
+                    </constraints>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                            <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DvF-he-Vxs">
+                    <rect key="frame" x="227" y="170" width="78" height="33"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="33" id="oel-2r-byc"/>
+                        <constraint firstAttribute="width" constant="78" id="uRJ-Vb-Gvt"/>
+                    </constraints>
+                    <connections>
+                        <action selector="verificationBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="PRi-hR-wys"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.3411764705882353" green="0.396078431372549" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="dyz-MG-7RK" firstAttribute="trailing" secondItem="eaN-Wx-gfC" secondAttribute="trailing" id="9gN-VS-DFQ"/>
                 <constraint firstItem="7C1-7v-gnx" firstAttribute="trailing" secondItem="dyz-MG-7RK" secondAttribute="trailing" id="DHX-88-oa1"/>
                 <constraint firstAttribute="trailing" secondItem="eaN-Wx-gfC" secondAttribute="trailing" constant="30" id="Ff4-be-RF0"/>
+                <constraint firstItem="FyI-DG-seg" firstAttribute="trailing" secondItem="M6X-z0-24c" secondAttribute="trailing" id="G4U-T2-iAr"/>
                 <constraint firstItem="nxb-79-ocw" firstAttribute="centerY" secondItem="dyz-MG-7RK" secondAttribute="centerY" id="My1-UX-auU"/>
                 <constraint firstItem="7C1-7v-gnx" firstAttribute="top" secondItem="dyz-MG-7RK" secondAttribute="bottom" constant="10" id="Nn8-dn-8kh"/>
-                <constraint firstItem="iit-eR-jHS" firstAttribute="top" secondItem="7C1-7v-gnx" secondAttribute="bottom" constant="15" id="QBr-yT-wKC"/>
+                <constraint firstItem="iit-eR-jHS" firstAttribute="top" secondItem="7C1-7v-gnx" secondAttribute="bottom" constant="55" id="QBr-yT-wKC"/>
                 <constraint firstItem="dyz-MG-7RK" firstAttribute="top" secondItem="eaN-Wx-gfC" secondAttribute="bottom" constant="10" id="Vfj-gB-D7Y"/>
                 <constraint firstItem="BQZ-Zo-Tc3" firstAttribute="centerY" secondItem="eaN-Wx-gfC" secondAttribute="centerY" id="WyT-TP-QRx"/>
+                <constraint firstItem="Mwz-mR-0ic" firstAttribute="leading" secondItem="7C1-7v-gnx" secondAttribute="leading" id="cLL-Dj-ksa"/>
+                <constraint firstItem="Mwz-mR-0ic" firstAttribute="centerY" secondItem="FyI-DG-seg" secondAttribute="centerY" id="dC2-dR-Bkf"/>
+                <constraint firstItem="DvF-he-Vxs" firstAttribute="leading" secondItem="Mwz-mR-0ic" secondAttribute="trailing" constant="10" id="e3o-M3-J1I"/>
                 <constraint firstItem="M6X-z0-24c" firstAttribute="centerY" secondItem="7C1-7v-gnx" secondAttribute="centerY" id="eJP-Ba-EHu"/>
+                <constraint firstItem="DvF-he-Vxs" firstAttribute="centerY" secondItem="Mwz-mR-0ic" secondAttribute="centerY" id="g2i-hJ-QVd"/>
                 <constraint firstItem="M6X-z0-24c" firstAttribute="trailing" secondItem="nxb-79-ocw" secondAttribute="trailing" id="gwi-d9-H4F"/>
                 <constraint firstItem="nxb-79-ocw" firstAttribute="trailing" secondItem="BQZ-Zo-Tc3" secondAttribute="trailing" id="pwD-zU-EeW"/>
                 <constraint firstItem="eaN-Wx-gfC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="50" id="q42-tQ-IyL"/>
                 <constraint firstItem="iit-eR-jHS" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="rae-k8-nG9"/>
+                <constraint firstItem="FyI-DG-seg" firstAttribute="top" secondItem="M6X-z0-24c" secondAttribute="bottom" constant="25" id="rfm-Dp-qjC"/>
                 <constraint firstItem="BQZ-Zo-Tc3" firstAttribute="trailing" secondItem="eaN-Wx-gfC" secondAttribute="leading" constant="-8" id="xxV-xb-Eyg"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="NewTX" destination="dyz-MG-7RK" id="L6I-un-RJ1"/>
                 <outlet property="currentTX" destination="eaN-Wx-gfC" id="K8O-Vs-Xpz"/>
+                <outlet property="sureBtnTopDistance" destination="QBr-yT-wKC" id="Peb-Oh-jOl"/>
                 <outlet property="sureTX" destination="7C1-7v-gnx" id="cnN-Ku-NYY"/>
+                <outlet property="verificationBtn" destination="DvF-he-Vxs" id="u7e-T9-41G"/>
+                <outlet property="verificationLab" destination="FyI-DG-seg" id="0Fl-w3-BHd"/>
+                <outlet property="verificationTF" destination="Mwz-mR-0ic" id="FKY-aS-XoY"/>
             </connections>
             <point key="canvasLocation" x="75" y="19"/>
         </view>

@@ -11,6 +11,7 @@
 @interface SH_NetWorkService (SaftyCenter)
 +(void)updatePassword:(NSString *)password
           NewPassword:(NSString *)newPassword
+     VerificationCode:(NSString *)code
               Success:(SHNetWorkComplete)success
                  Fail:(SHNetWorkFailed)fail;
 
@@ -50,4 +51,8 @@
                      verifyCode:(NSString *)code
                         Success:(SHNetWorkComplete)success
                            Fail:(SHNetWorkFailed)fail;
+//获取安全密码验证码接口
++(void)getSaftyVericationCodeSuccess:(SHNetWorkComplete)success
+                                Fail:(SHNetWorkFailed)fail;
+
 @end

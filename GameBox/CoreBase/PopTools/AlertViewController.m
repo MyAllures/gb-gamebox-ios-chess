@@ -56,12 +56,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             self.headImage.image = [UIImage  imageNamed:imageName];
             self.title_imageView.imageName = img_name;
-//            self.headImage.image = [UIImage imageWithWebPImageName:imageName];
-//            self.title_imageView.image = [UIImage  imageNamed:img_name];
-//            self.title_imageView.image = [UIImage imageWithWebPImageName:img_name];
         });
-        
-        
         [self.containerView addSubview:self.presentView];
         [self.presentView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.mas_equalTo(self.containerView);

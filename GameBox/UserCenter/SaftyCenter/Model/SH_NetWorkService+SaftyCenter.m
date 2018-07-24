@@ -11,6 +11,7 @@
 @implementation SH_NetWorkService (SaftyCenter)
 +(void)updatePassword:(NSString *)password
           NewPassword:(NSString *)newPassword
+     VerificationCode:(NSString *)code
               Success:(SHNetWorkComplete)success
                  Fail:(SHNetWorkFailed)fail{
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/updateLoginPassword.html"];
@@ -18,6 +19,7 @@
     NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
     [param setValue:password forKey:@"password"];
     [param setValue:newPassword forKey:@"newPassword"];
+     [param setValue:code forKey:@"code"];
     [self post:url parameter:param header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (success) {
             success(httpURLResponse,response);
@@ -93,4 +95,21 @@
     }];
     
 }
++(void)getSaftyVericationCodeSuccess:(SHNetWorkComplete)success
+                                Fail:(SHNetWorkFailed)fail{
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/captcha/securityPwd.html"];
+    NSDictionary *header = @{@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
+    NSTimeInterval timeInterval = [[NSDate date] timeIntervalSince1970] ;
+    NSString *timeStr = [NSString stringWithFormat:@"%.0f",timeInterval*1000] ;
+    [self post:url parameter:@{@"_t":timeStr} header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (success) {
+            success(httpURLResponse,response);
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
+        if (fail) {
+            fail(httpURLResponse, err);
+        }
+    }];
+}
+
 @end

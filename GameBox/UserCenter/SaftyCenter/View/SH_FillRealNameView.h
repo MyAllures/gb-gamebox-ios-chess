@@ -1,5 +1,5 @@
 //
-//  SH_ProfitExchangeView.h
+//  SH_FillRealNameView.h
 //  GameBox
 //
 //  Created by jun on 2018/7/23.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SH_ProfitExchangeView : UIView
--(void)selectProfitExchangeView;
+@interface SH_FillRealNameView : UIView
+
 @end

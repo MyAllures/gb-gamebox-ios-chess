@@ -209,7 +209,8 @@
     [self post:url parameter:nil header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             NSDictionary  * result = ConvertToClassPointer(NSDictionary, response);
-            if ([result[@"code"] isEqualToString:@"0"]) {
+            NSString *code = [NSString stringWithFormat:@"%@",result[@"code"]];
+            if ([code isEqualToString:@"0"]) {
                 NSError *err;
                 NSArray *arr = [SH_BankListModel arrayOfModelsFromDictionaries:response[@"data"][@"bankList"] error:&err];
                 [[RH_UserInfoManager shareUserManager] setBankList:arr];
