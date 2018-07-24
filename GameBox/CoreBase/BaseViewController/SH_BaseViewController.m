@@ -81,21 +81,24 @@
  *  强制横屏
  */
 -(void)forceOrientationLandscape{
-    //这种方法，只能旋转屏幕不能达到强制横屏的效果
+    UIInterfaceOrientation oriention = [UIApplication sharedApplication].statusBarOrientation;
+    if (oriention != UIInterfaceOrientationLandscapeLeft && oriention != UIInterfaceOrientationLandscapeRight) {
+        oriention = UIInterfaceOrientationLandscapeLeft;
+    }
+
     if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
         SEL selector = NSSelectorFromString(@"setOrientation:");
         NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
         [invocation setSelector:selector];
         [invocation setTarget:[UIDevice currentDevice]];
-        UIInterfaceOrientation oriention = [UIApplication sharedApplication].statusBarOrientation;
-        if (oriention != UIInterfaceOrientationLandscapeLeft && oriention != UIInterfaceOrientationLandscapeRight) {
-            oriention = UIInterfaceOrientationLandscapeLeft;
-        }
         int val = oriention;
         [invocation setArgument:&val atIndex:2];
         [invocation invoke];
     }
-    //加上代理类里的方法，旋转屏幕可以达到强制横屏的效果
+    
+    NSNumber *orientationNumber = [NSNumber numberWithInt:oriention];
+    [[UIDevice currentDevice] setValue:orientationNumber forKey:@"orientation"];
+
     AppDelegate *appdelegate=(AppDelegate *)[UIApplication sharedApplication].delegate;
     appdelegate.forcePortrait = NO;
     appdelegate.forceLandscape = YES;
@@ -106,11 +109,13 @@
  *  强制竖屏
  */
 -(void)forceOrientationPortrait{
-    //加上代理类里的方法，旋转屏幕可以达到强制竖屏的效果
     AppDelegate *appdelegate=(AppDelegate *)[UIApplication sharedApplication].delegate;
     appdelegate.forcePortrait = YES;
     appdelegate.forceLandscape = NO;
     [appdelegate application:[UIApplication sharedApplication] supportedInterfaceOrientationsForWindow:self.view.window];
+
+    NSNumber *orientationNumber = [NSNumber numberWithInt:UIInterfaceOrientationPortrait];
+    [[UIDevice currentDevice] setValue:orientationNumber forKey:@"orientation"];
     
     if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
         SEL selector = NSSelectorFromString(@"setOrientation:");
@@ -139,12 +144,13 @@
         [invocation invoke];
     }
 
+    NSNumber *orientationNumber = [NSNumber numberWithInt:UIInterfaceOrientationMaskAll];
+    [[UIDevice currentDevice] setValue:orientationNumber forKey:@"orientation"];
+
     AppDelegate *appdelegate=(AppDelegate *)[UIApplication sharedApplication].delegate;
     appdelegate.forceLandscape = NO;
     appdelegate.forcePortrait = NO;
     [appdelegate application:[UIApplication sharedApplication] supportedInterfaceOrientationsForWindow:self.view.window];
 }
-
-
 
 @end
