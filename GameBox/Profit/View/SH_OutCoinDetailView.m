@@ -62,7 +62,7 @@
     view.money = self.details[1];
     view.token = self.token;
     view.targetVC = self.targetVC;
-    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-175 titleImageName:@"title17" alertViewType:AlertViewTypeLong];
+    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-175 titleImageName:@"title17" alertViewType:AlertViewTypeShort];
     acr.title = @"牌局记录";
     acr.modalPresentationStyle = UIModalPresentationCurrentContext;
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
