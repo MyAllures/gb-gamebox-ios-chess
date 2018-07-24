@@ -378,8 +378,8 @@
 
 -(void)login{
     SH_LoginView *login = [SH_LoginView  InstanceLoginView];
-   
     AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:260 titleImageName:@"title01" alertViewType:AlertViewTypeLong];
+    login.targetVC = cvc;
     login.dismissBlock = ^{
         [cvc  close];
         [self  configUI];
@@ -748,26 +748,31 @@
         }
         //进入游戏
         //先获取游戏的url
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        [SH_NetWorkService fetchGameLink:model.gameLink complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-            //
-            NSString *gameMsg = [[response objectForKey:@"data"] objectForKey:@"gameMsg"];
-            if (IS_EMPTY_STRING(gameMsg)) {
-                NSString *gameLink = [[response objectForKey:@"data"] objectForKey:@"gameLink"];
-//                GameWebViewController *gameVC = [[GameWebViewController alloc] init];
-                SH_WKGameViewController *gameVC = [[SH_WKGameViewController alloc] init];
-                gameVC.url = gameLink;
-                [weakSelf.navigationController pushViewController:gameVC animated:NO];
-            }
-            else
-            {
-                showErrorMessage([UIApplication sharedApplication].keyWindow, nil, gameMsg);
-            }
-            [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
-        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-            showErrorMessage([UIApplication sharedApplication].keyWindow, nil, @"连接游戏失败");
-            [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
-        }];
+        if ([[RH_UserInfoManager shareUserManager] isLogin]) {
+            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            [SH_NetWorkService fetchGameLink:model.gameLink complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+                //
+                NSString *gameMsg = [[response objectForKey:@"data"] objectForKey:@"gameMsg"];
+                if (IS_EMPTY_STRING(gameMsg)) {
+                    NSString *gameLink = [[response objectForKey:@"data"] objectForKey:@"gameLink"];
+                    //                GameWebViewController *gameVC = [[GameWebViewController alloc] init];
+                    SH_WKGameViewController *gameVC = [[SH_WKGameViewController alloc] init];
+                    gameVC.url = gameLink;
+                    [weakSelf.navigationController pushViewController:gameVC animated:NO];
+                }
+                else
+                {
+                    showErrorMessage([UIApplication sharedApplication].keyWindow, nil, gameMsg);
+                }
+                [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+            } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+                showErrorMessage([UIApplication sharedApplication].keyWindow, nil, @"连接游戏失败");
+                [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+            }];
+        }else{
+            [self login];
+        }
+        
     }
     else
     {

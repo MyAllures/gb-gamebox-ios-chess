@@ -21,6 +21,9 @@
 #import "SH_BankCardModel.h"
 #import "UIImage+SH_WebPImage.h"
 
+#import "AlertViewController.h"
+#import "SH_OutCoinDetailView.h"
+
 @interface SH_LoginView(){
      RH_RegisetInitModel *registrationInitModel;
 }
@@ -35,6 +38,8 @@
 
 @property (nonatomic,assign) BOOL isOpenCaptcha ;
 @property (nonatomic,assign) BOOL isLogin;
+
+
 
 /**
  stackView 注册页面的容器
@@ -176,6 +181,15 @@
             
             break;
         }
+        case 4:{
+            SH_OutCoinDetailView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_OutCoinDetailView" owner:self options:nil].firstObject;
+            AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-95 titleImageName:@"outCoinDetail" alertViewType:AlertViewTypeLong];
+            acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+            acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+            [self.targetVC presentViewController:acr animated:YES completion:nil];
+//            [view updateUIWithDetailArray:@[@"123",@"34",@"453"] TargetVC:acr Token:nil];
+            break;
+        }
         default:
             break;
     }
@@ -315,5 +329,8 @@
         };
     }
     return  _registView;
+}
+- (void)setTargetVC:(UIViewController *)targetVC{
+    _targetVC = targetVC;
 }
 @end
