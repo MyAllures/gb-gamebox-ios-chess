@@ -1827,6 +1827,9 @@
 				BFA068BA20FE052E00F5ADFE /* SH_ProfitAlertView.h */,
 				BFA068BB20FE052E00F5ADFE /* SH_ProfitAlertView.m */,
 				BFA068BD20FE053A00F5ADFE /* SH_ProfitAlertView.xib */,
+				BF66089F2107174A0029C4A6 /* SH_ConfirSaftyPassWordView.h */,
+				BF6608A02107174A0029C4A6 /* SH_ConfirSaftyPassWordView.m */,
+				BF6608A22107175E0029C4A6 /* SH_ConfirSaftyPassWordView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1886,9 +1889,6 @@
 				BF5C0BD72105D7DB0035B754 /* SH_FillRealNameView.h */,
 				BF5C0BD82105D7DB0035B754 /* SH_FillRealNameView.m */,
 				BF5C0BDA2105D9190035B754 /* SH_FillRealNameView.xib */,
-				BF66089F2107174A0029C4A6 /* SH_ConfirSaftyPassWordView.h */,
-				BF6608A02107174A0029C4A6 /* SH_ConfirSaftyPassWordView.m */,
-				BF6608A22107175E0029C4A6 /* SH_ConfirSaftyPassWordView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";

@@ -11,6 +11,7 @@
 #import "AlertViewController.h"
 #import "SH_LookJiHeView.h"
 #import "SH_NetWorkService+Profit.h"
+#import "SH_ConfirSaftyPassWordView.h"
 @interface SH_OutCoinDetailView()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
@@ -57,12 +58,16 @@
     view.targetVC = acr;
 }
 - (IBAction)sureOutCoinBtnClick:(id)sender {
-#warning 这里要传安全密码
-    [SH_NetWorkService sureOutCoinMoney:self.details[1] SaftyPWD:@"123123" Token:self.token Way:@"1" Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
-            showMessage(self, [NSString stringWithFormat:@"%@",response[@"message"]], nil);
-    } Failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
-    }];
+    SH_ConfirSaftyPassWordView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_ConfirSaftyPassWordView" owner:self options:nil].firstObject;
+    view.money = self.details[1];
+    view.token = self.token;
+    view.targetVC = self.targetVC;
+    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-175 titleImageName:@"confirmSaftyPsw" alertViewType:AlertViewTypeLong];
+    acr.title = @"牌局记录";
+    acr.modalPresentationStyle = UIModalPresentationCurrentContext;
+    acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self.targetVC presentViewController:acr animated:YES completion:nil];
+
 }
 - (void)updateUIWithDetailArray:(NSArray *)details
                        TargetVC:(UIViewController *)targetVC
