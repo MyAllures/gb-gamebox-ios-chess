@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -28,17 +28,20 @@
                     <color key="textColor" red="0.80000000000000004" green="0.85882352941176465" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zO-Py-iVn">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zO-Py-iVn" customClass="SH_WebPButton">
                     <rect key="frame" x="126.5" y="198" width="121" height="46"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="46" id="3hM-Db-ocA"/>
                         <constraint firstAttribute="width" constant="121" id="RqO-jm-iyu"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                    <state key="normal" title="保存照片" backgroundImage="button-long">
+                    <state key="normal" title="保存照片">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="titleShadowColor" red="0.72156862745098038" green="0.72156862745098038" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="saveQRImageViewButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="Oom-zp-meQ"/>
                     </connections>
@@ -58,9 +61,7 @@
                 <outlet property="QRCode_imageView" destination="NUt-v8-IUO" id="bJf-Vp-Jte"/>
                 <outlet property="shareTitle_label" destination="Fon-bZ-qem" id="Fd3-SN-byA"/>
             </connections>
+            <point key="canvasLocation" x="-16" y="-14"/>
         </view>
     </objects>
-    <resources>
-        <image name="button-long" width="121" height="47"/>
-    </resources>
 </document>

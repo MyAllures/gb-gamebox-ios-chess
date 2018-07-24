@@ -64,6 +64,10 @@
                     <constraint firstAttribute="trailing" secondItem="c2j-70-WPB" secondAttribute="trailing" id="woa-j4-48H"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="moneyLab" destination="fN0-5W-VZa" id="y7w-YC-326"/>
+                <outlet property="titleLab" destination="CcO-lm-dq8" id="tj8-gD-JZj"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

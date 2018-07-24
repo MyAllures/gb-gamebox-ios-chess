@@ -22,58 +22,74 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="501" height="375"/>
+            <rect key="frame" x="0.0" y="0.0" width="501" height="395"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aPi-Ty-8pe">
-                    <rect key="frame" x="347" y="90" width="154" height="285"/>
+                    <rect key="frame" x="347" y="90" width="154" height="305"/>
                     <subviews>
-                        <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZkB-PM-ahV">
-                            <rect key="frame" x="16" y="16" width="122" height="40"/>
+                        <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZkB-PM-ahV" customClass="SH_WebPButton">
+                            <rect key="frame" x="16" y="16" width="122" height="47"/>
                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                            <state key="normal" title="福利记录" backgroundImage="login_button">
+                            <state key="normal" title="福利记录">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="titleShadowColor" red="0.72156862745098038" green="0.72156862745098038" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="ringType">
+                                    <integer key="value" value="-1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="login_button"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="buttonClick:" destination="-1" eventType="touchUpInside" id="f0D-kQ-QNc"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kxo-2w-AHI">
-                            <rect key="frame" x="16" y="72" width="122" height="40"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                            <state key="normal" title="牌局记录" backgroundImage="login_button">
+                        <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kxo-2w-AHI" customClass="SH_WebPButton">
+                            <rect key="frame" x="16" y="79" width="122" height="47"/>
+                            <state key="normal" title="牌局记录">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="titleShadowColor" red="0.72156862749999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="login_button"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="buttonClick:" destination="-1" eventType="touchUpInside" id="gdf-hk-1tP"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4aA-Or-FnV">
-                            <rect key="frame" x="16" y="128" width="122" height="40"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                            <state key="normal" title="安全中心" backgroundImage="login_button">
+                        <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4aA-Or-FnV" customClass="SH_WebPButton">
+                            <rect key="frame" x="16" y="142" width="122" height="47"/>
+                            <state key="normal" title="安全中心">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="titleShadowColor" red="0.72156862749999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="login_button"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="buttonClick:" destination="-1" eventType="touchUpInside" id="vXO-Bt-6Kh"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CAV-oz-uGP">
-                            <rect key="frame" x="16" y="184" width="122" height="40"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                            <state key="normal" title="联系客服" backgroundImage="login_button">
+                        <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CAV-oz-uGP" customClass="SH_WebPButton">
+                            <rect key="frame" x="16" y="205" width="122" height="47"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="47" id="eVV-RW-hwP"/>
+                                <constraint firstAttribute="width" constant="122" id="nNb-uO-vGJ"/>
+                            </constraints>
+                            <state key="normal" title="联系客服">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="titleShadowColor" red="0.72156862749999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="login_button"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="buttonClick:" destination="-1" eventType="touchUpInside" id="eZl-GF-PuC"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="em4-O2-3Qt">
-                            <rect key="frame" x="38.5" y="240" width="77" height="29"/>
+                        <button opaque="NO" tag="104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="em4-O2-3Qt" customClass="SH_WebPButton">
+                            <rect key="frame" x="38.5" y="268" width="77" height="29"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="29" id="3YI-b9-Qam">
                                     <userDefinedRuntimeAttributes>
@@ -82,7 +98,9 @@
                                 </constraint>
                                 <constraint firstAttribute="width" constant="77" id="m5m-MP-klh"/>
                             </constraints>
-                            <state key="normal" backgroundImage="return"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="return"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="buttonClick:" destination="-1" eventType="touchUpInside" id="3em-Sv-RY1"/>
                             </connections>
@@ -116,7 +134,6 @@
                             </userDefinedRuntimeAttributes>
                         </constraint>
                         <constraint firstItem="Kxo-2w-AHI" firstAttribute="centerX" secondItem="aPi-Ty-8pe" secondAttribute="centerX" id="ZL2-9a-V6O"/>
-                        <constraint firstAttribute="bottom" secondItem="em4-O2-3Qt" secondAttribute="bottom" constant="16" id="bqi-fL-JaE"/>
                         <constraint firstItem="4aA-Or-FnV" firstAttribute="top" secondItem="Kxo-2w-AHI" secondAttribute="bottom" constant="16" id="eMQ-SQ-CJ4">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
@@ -230,7 +247,7 @@
                 <constraint firstItem="TTc-XK-qrA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="mQS-Ku-bc1"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="135.5" y="52.5"/>
+            <point key="canvasLocation" x="-137.5" y="-23.5"/>
         </view>
     </objects>
     <resources>
@@ -448,7 +465,5 @@ kACSAJQAnQCiAK0ArwCxALMAuAC7AL0AvwDBAMMAyADfAOEA4x2JHY4dmR2iHbUduR3EHc0d0h3aHd0d
 FTAYMCUwKjAyMDUwOjBCMEUwVzBaMF8AAAAAAAACAQAAAAAAAABZAAAAAAAAAAAAAAAAAAAwYQ
 </mutableData>
         </image>
-        <image name="login_button" width="122" height="47"/>
-        <image name="return" width="76" height="28"/>
     </resources>
 </document>

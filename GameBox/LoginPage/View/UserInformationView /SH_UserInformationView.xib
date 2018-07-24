@@ -236,7 +236,7 @@
                 <outlet property="userWelfare_label" destination="5RL-Xf-brI" id="c30-wx-XPa"/>
                 <outlet property="warehouseWelfare_label" destination="2x5-3U-LmE" id="pXx-BA-tfg"/>
             </connections>
-            <point key="canvasLocation" x="-12" y="-57"/>
+            <point key="canvasLocation" x="-377" y="-100"/>
         </view>
     </objects>
     <resources>

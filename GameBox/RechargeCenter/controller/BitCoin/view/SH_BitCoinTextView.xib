@@ -183,6 +183,7 @@
                 <outlet property="numTextfield" destination="Iya-yG-Dg4" id="cX6-IE-D6g"/>
                 <outlet property="txidTextfield" destination="QJD-hE-bTE" id="4RT-qP-0PH"/>
             </connections>
+            <point key="canvasLocation" x="18" y="28"/>
         </view>
     </objects>
 </document>

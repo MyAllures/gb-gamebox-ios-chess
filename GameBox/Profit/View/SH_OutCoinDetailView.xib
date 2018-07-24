@@ -88,6 +88,7 @@
                 <outlet property="bgView" destination="66a-UP-S79" id="T8G-XS-0qD"/>
                 <outlet property="mainTableView" destination="QI9-Ws-ha7" id="50Q-su-rhA"/>
             </connections>
+            <point key="canvasLocation" x="-12" y="-4"/>
         </view>
     </objects>
 </document>

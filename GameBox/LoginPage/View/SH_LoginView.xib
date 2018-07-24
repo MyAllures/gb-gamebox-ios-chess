@@ -239,7 +239,7 @@
                 <outlet property="rightContrainerView" destination="dJ0-VR-dqr" id="aDQ-01-Ea5"/>
                 <outlet property="stackView" destination="RHZ-se-umN" id="32a-KF-pY4"/>
             </connections>
-            <point key="canvasLocation" x="30.5" y="-137"/>
+            <point key="canvasLocation" x="95" y="-85"/>
         </view>
     </objects>
     <resources>

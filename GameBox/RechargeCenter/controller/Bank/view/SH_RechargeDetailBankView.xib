@@ -297,6 +297,7 @@
                 <outlet property="personTextField" destination="pTY-4u-rH9" id="c8w-zp-gtN"/>
                 <outlet property="titleLab" destination="txQ-vW-7jq" id="imO-b0-k2b"/>
             </connections>
+            <point key="canvasLocation" x="-95" y="-11"/>
         </view>
     </objects>
 </document>

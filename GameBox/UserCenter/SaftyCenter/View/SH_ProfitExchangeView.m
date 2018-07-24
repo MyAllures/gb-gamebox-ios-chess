@@ -8,8 +8,11 @@
 
 #import "SH_ProfitExchangeView.h"
 #import "SH_ProfitExchangeTableViewCell.h"
+#import "SH_NetWorkService+RegistAPI.h"
+#import "SH_ApiModel.h"
 @interface SH_ProfitExchangeView()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
+@property(nonatomic,strong)NSArray *dataArray;
 
 @end
 @implementation SH_ProfitExchangeView
@@ -31,12 +34,26 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     SH_ProfitExchangeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SH_ProfitExchangeTableViewCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [cell updateUIWithApiModel:self.dataArray[indexPath.row]];
     return cell;
 }
 - (IBAction)oneKeyRefresh:(id)sender {
 }
 - (IBAction)oneKeyRecovery:(id)sender {
 }
-
+//选中了额度转换的View
+-(void)selectProfitExchangeView{
+    [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        
+        NSDictionary  * result = ConvertToClassPointer(NSDictionary, response);
+          NSString *code = [NSString stringWithFormat:@"%@",result[@"code"]];
+        if ([code isEqualToString:@"0"]) {
+            self.dataArray = [SH_ApiModel arrayOfModelsFromDictionaries:result[@"data"][@"user"][@"apis"] error:nil];
+        }
+        [self.mainTableView reloadData];
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        
+    }];
+}
 
 @end

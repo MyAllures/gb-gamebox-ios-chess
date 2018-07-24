@@ -81,7 +81,7 @@
             <connections>
                 <outlet property="content_label" destination="gEY-yZ-lHs" id="GBZ-87-dZZ"/>
             </connections>
-            <point key="canvasLocation" x="384" y="-9"/>
+            <point key="canvasLocation" x="105" y="-47"/>
         </view>
     </objects>
 </document>

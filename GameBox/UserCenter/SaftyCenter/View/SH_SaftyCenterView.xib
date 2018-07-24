@@ -117,7 +117,7 @@
                 <outlet property="profitExchangeBtn" destination="KhX-Aj-sqP" id="lGa-Yd-Rig"/>
                 <outlet property="saftyBtn" destination="TnJ-eo-M3j" id="fc1-Il-8dS"/>
             </connections>
-            <point key="canvasLocation" x="56.5" y="71"/>
+            <point key="canvasLocation" x="5" y="30"/>
         </view>
     </objects>
 </document>

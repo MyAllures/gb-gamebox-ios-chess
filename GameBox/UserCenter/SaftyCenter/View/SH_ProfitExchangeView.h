@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SH_ProfitExchangeView : UIView
-
+-(void)selectProfitExchangeView;
 @end

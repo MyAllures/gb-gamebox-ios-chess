@@ -10,6 +10,8 @@
 #import "SH_NetWorkService+RegistAPI.h"
 #import "SH_AlertView.h"
 #import "SH_SettingView.h"
+#import "UIImage+SH_WebPImage.h"
+
 @interface  SH_UserInformationView()
 @property (weak, nonatomic) IBOutlet UILabel *lastLoginTime_label;
 @property (weak, nonatomic) IBOutlet UILabel *titleNum_label;
@@ -39,9 +41,9 @@
     self.userWelfare_label.text = [NSString  stringWithFormat:@"%.2f",[RH_UserInfoManager  shareUserManager].mineSettingInfo.walletBalance?:0.0];
      self.warehouseWelfare_label.text = [NSString  stringWithFormat:@"%.2f",[RH_UserInfoManager  shareUserManager].mineSettingInfo.walletBalance?:0.0];
     if ([RH_UserInfoManager  shareUserManager].isLogin) {
-        self.userAvatar.image = [UIImage  imageNamed:@"photo_male"];
+        self.userAvatar.image = [UIImage  imageWithWebPImageName:@"photo_male"];
     }else{
-        self.userAvatar.image = [UIImage  imageNamed:@"avatar"];
+        self.userAvatar.image = [UIImage  imageWithWebPImageName:@"avatar"];
     }
 }
 - (IBAction)btnClick:(UIButton *)sender {
