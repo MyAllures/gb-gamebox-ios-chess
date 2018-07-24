@@ -264,6 +264,8 @@
 		BF5C0BDB2105D9190035B754 /* SH_FillRealNameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF5C0BDA2105D9190035B754 /* SH_FillRealNameView.xib */; };
 		BF66089C21070B800029C4A6 /* recovery.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF66089B21070B800029C4A6 /* recovery.webp */; };
 		BF66089E21070BC50029C4A6 /* refresh.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF66089D21070BC40029C4A6 /* refresh.webp */; };
+		BF6608A12107174A0029C4A6 /* SH_ConfirSaftyPassWordView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6608A02107174A0029C4A6 /* SH_ConfirSaftyPassWordView.m */; };
+		BF6608A32107175E0029C4A6 /* SH_ConfirSaftyPassWordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF6608A22107175E0029C4A6 /* SH_ConfirSaftyPassWordView.xib */; };
 		BF7B08BE2101936B008256FE /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B08B72101936A008256FE /* NSDate+Extension.m */; };
 		BF7B08BF2101936B008256FE /* SH_NiceDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B08B82101936A008256FE /* SH_NiceDatePickerView.m */; };
 		BF7B08C62101CF33008256FE /* SH_NiceDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7B08C52101CF33008256FE /* SH_NiceDatePickerView.xib */; };
@@ -754,6 +756,9 @@
 		BF5C0BDA2105D9190035B754 /* SH_FillRealNameView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_FillRealNameView.xib; sourceTree = "<group>"; };
 		BF66089B21070B800029C4A6 /* recovery.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = recovery.webp; sourceTree = "<group>"; };
 		BF66089D21070BC40029C4A6 /* refresh.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = refresh.webp; sourceTree = "<group>"; };
+		BF66089F2107174A0029C4A6 /* SH_ConfirSaftyPassWordView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ConfirSaftyPassWordView.h; sourceTree = "<group>"; };
+		BF6608A02107174A0029C4A6 /* SH_ConfirSaftyPassWordView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_ConfirSaftyPassWordView.m; sourceTree = "<group>"; };
+		BF6608A22107175E0029C4A6 /* SH_ConfirSaftyPassWordView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_ConfirSaftyPassWordView.xib; sourceTree = "<group>"; };
 		BF7B08B72101936A008256FE /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
 		BF7B08B82101936A008256FE /* SH_NiceDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_NiceDatePickerView.m; sourceTree = "<group>"; };
 		BF7B08BA2101936B008256FE /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
@@ -1881,6 +1886,9 @@
 				BF5C0BD72105D7DB0035B754 /* SH_FillRealNameView.h */,
 				BF5C0BD82105D7DB0035B754 /* SH_FillRealNameView.m */,
 				BF5C0BDA2105D9190035B754 /* SH_FillRealNameView.xib */,
+				BF66089F2107174A0029C4A6 /* SH_ConfirSaftyPassWordView.h */,
+				BF6608A02107174A0029C4A6 /* SH_ConfirSaftyPassWordView.m */,
+				BF6608A22107175E0029C4A6 /* SH_ConfirSaftyPassWordView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2453,6 +2461,7 @@
 				BF5C0BBF21057C780035B754 /* button-long-145.webp in Resources */,
 				DA1BCDAB2102D27C00201DBC /* SH_WelfareDetailView.xib in Resources */,
 				BFA068C520FE0AE100F5ADFE /* SH_SaftyCenterView.xib in Resources */,
+				BF6608A32107175E0029C4A6 /* SH_ConfirSaftyPassWordView.xib in Resources */,
 				543970A5210462BB0091C719 /* photo_male.webp in Resources */,
 				54397098210462BB0091C719 /* title09.webp in Resources */,
 				543970B8210462BB0091C719 /* banner.webp in Resources */,
@@ -2666,6 +2675,7 @@
 				BFFC845B20F2F260008AD801 /* RH_RechargeCenterFooterView.m in Sources */,
 				2209026620F053D400F8828E /* SH_PromoViewCell.m in Sources */,
 				54C8761420FE218B00AA0594 /* YFAnimationManager.m in Sources */,
+				BF6608A12107174A0029C4A6 /* SH_ConfirSaftyPassWordView.m in Sources */,
 				22552CEA20F4B7720090EFBC /* SH_SiteMsgViewCell.m in Sources */,
 				DA22F3C920F44E470058A54F /* help.m in Sources */,
 				BFFC847220F3452A008AD801 /* NSLayoutConstraint+RH_IBDesignable.m in Sources */,
