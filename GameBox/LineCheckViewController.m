@@ -68,7 +68,9 @@
             }];
         }
         else if ([SID isEqualToString:@"18"]) {
-            [SH_NetWorkService fetchIPSFromBossAPIGroup:@[@"http://192.168.0.92/boss-api"] host:@"" oneTurn:^(NSString *bossapi, BOOL success) {
+            //@"http://192.168.0.92/boss-api"
+            //@"https://172.100.20.87:8989/boss-api"
+            [SH_NetWorkService fetchIPSFromBossAPIGroup:@[@"https://172.100.20.87:8989/boss-api"] host:@"" oneTurn:^(NSString *bossapi, BOOL success) {
                 NSLog(@">>>%@检测结果:%i",bossapi,success);
                 weakSelf.progress += 0.1;
                 weakSelf.lineCheckStatus = @"正在匹配服务器，请稍后...";
