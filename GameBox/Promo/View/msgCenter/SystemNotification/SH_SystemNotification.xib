@@ -42,12 +42,15 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rg0-eZ-wyW">
                     <rect key="frame" x="10" y="13" width="84" height="35"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MC-96-XPQ">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MC-96-XPQ" customClass="SH_WebPButton">
                             <rect key="frame" x="0.0" y="0.0" width="84" height="35"/>
                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                            <state key="normal" title="2017-02-03" image="betRec_calendar_icon">
+                            <state key="normal" title="2017-02-03">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="betRec_calendar_icon"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="startTimeAction:" destination="tIW-ZM-OaV" eventType="touchUpInside" id="1wP-PS-1JN"/>
                             </connections>
@@ -76,12 +79,15 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ME2-kX-MUM">
                     <rect key="frame" x="115" y="13" width="84" height="35"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kve-pE-bhJ">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kve-pE-bhJ" customClass="SH_WebPButton">
                             <rect key="frame" x="0.0" y="0.0" width="84" height="35"/>
                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                            <state key="normal" title="2017-02-03" image="betRec_calendar_icon">
+                            <state key="normal" title="2017-02-03">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="betRec_calendar_icon"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="endTimeAction:" destination="tIW-ZM-OaV" eventType="touchUpInside" id="Vkb-lG-iAw"/>
                             </connections>
@@ -141,7 +147,4 @@
             <point key="canvasLocation" x="98" y="-80.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="betRec_calendar_icon" width="24" height="24"/>
-    </resources>
 </document>

@@ -28,7 +28,7 @@
 - (void)setGameItemModel:(SH_GameItemModel *)gameItemModel
 {
     _gameItemModel = gameItemModel;
-    [self.iconImg sd_setImageWithURL:[NSURL URLWithString:_gameItemModel.cover] placeholderImage:[UIImage imageWithWebPImageName:@"game_chess_34_870"] options:SDWebImageAllowInvalidSSLCertificates];
+    [self.iconImg sd_setImageWithURL:[NSURL URLWithString:_gameItemModel.cover] placeholderImage:nil options:SDWebImageAllowInvalidSSLCertificates];
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

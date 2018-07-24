@@ -46,7 +46,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kxo-2w-AHI" customClass="SH_WebPButton">
-                            <rect key="frame" x="16" y="79" width="122" height="47"/>
+                            <rect key="frame" x="16" y="73" width="122" height="47"/>
                             <state key="normal" title="牌局记录">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="titleShadowColor" red="0.72156862749999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -59,7 +59,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4aA-Or-FnV" customClass="SH_WebPButton">
-                            <rect key="frame" x="16" y="142" width="122" height="47"/>
+                            <rect key="frame" x="16" y="130" width="122" height="47"/>
                             <state key="normal" title="安全中心">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="titleShadowColor" red="0.72156862749999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -72,7 +72,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CAV-oz-uGP" customClass="SH_WebPButton">
-                            <rect key="frame" x="16" y="205" width="122" height="47"/>
+                            <rect key="frame" x="16" y="187" width="122" height="47"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="47" id="eVV-RW-hwP"/>
                                 <constraint firstAttribute="width" constant="122" id="nNb-uO-vGJ"/>
@@ -89,7 +89,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="em4-O2-3Qt" customClass="SH_WebPButton">
-                            <rect key="frame" x="38.5" y="268" width="77" height="29"/>
+                            <rect key="frame" x="38.5" y="250" width="77" height="29"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="29" id="3YI-b9-Qam">
                                     <userDefinedRuntimeAttributes>
@@ -123,7 +123,7 @@
                         <constraint firstItem="ZkB-PM-ahV" firstAttribute="centerX" secondItem="aPi-Ty-8pe" secondAttribute="centerX" id="KAL-DN-6kZ"/>
                         <constraint firstItem="Kxo-2w-AHI" firstAttribute="width" secondItem="ZkB-PM-ahV" secondAttribute="width" id="KHY-8J-gV1"/>
                         <constraint firstItem="CAV-oz-uGP" firstAttribute="centerX" secondItem="aPi-Ty-8pe" secondAttribute="centerX" id="RUb-rR-Yft"/>
-                        <constraint firstItem="CAV-oz-uGP" firstAttribute="top" secondItem="4aA-Or-FnV" secondAttribute="bottom" constant="16" id="VB5-Oa-4kO">
+                        <constraint firstItem="CAV-oz-uGP" firstAttribute="top" secondItem="4aA-Or-FnV" secondAttribute="bottom" constant="10" id="VB5-Oa-4kO">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                             </userDefinedRuntimeAttributes>
@@ -134,13 +134,13 @@
                             </userDefinedRuntimeAttributes>
                         </constraint>
                         <constraint firstItem="Kxo-2w-AHI" firstAttribute="centerX" secondItem="aPi-Ty-8pe" secondAttribute="centerX" id="ZL2-9a-V6O"/>
-                        <constraint firstItem="4aA-Or-FnV" firstAttribute="top" secondItem="Kxo-2w-AHI" secondAttribute="bottom" constant="16" id="eMQ-SQ-CJ4">
+                        <constraint firstItem="4aA-Or-FnV" firstAttribute="top" secondItem="Kxo-2w-AHI" secondAttribute="bottom" constant="10" id="eMQ-SQ-CJ4">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </constraint>
                         <constraint firstItem="em4-O2-3Qt" firstAttribute="centerX" secondItem="aPi-Ty-8pe" secondAttribute="centerX" id="fNU-fl-Nay"/>
-                        <constraint firstItem="Kxo-2w-AHI" firstAttribute="top" secondItem="ZkB-PM-ahV" secondAttribute="bottom" constant="16" id="ijG-PK-cqc">
+                        <constraint firstItem="Kxo-2w-AHI" firstAttribute="top" secondItem="ZkB-PM-ahV" secondAttribute="bottom" constant="10" id="ijG-PK-cqc">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                             </userDefinedRuntimeAttributes>

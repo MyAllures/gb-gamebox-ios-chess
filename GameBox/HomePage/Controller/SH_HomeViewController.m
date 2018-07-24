@@ -235,97 +235,97 @@
         case 28:
         {
             //GG捕鱼
-            self.dzGameMarkImg.image = [UIImage imageNamed:@""];
+            self.dzGameMarkImg.image = [UIImage imageWithWebPImageName:@""];
         }
             break;
         case 35:
         {
             //MW电子
-            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo11"];
+            self.dzGameMarkImg.image = [UIImage imageWithWebPImageName:@"logo11"];
         }
             break;
         case 15:
         {
             //HB电子
-            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo07"];
+            self.dzGameMarkImg.image = [UIImage imageWithWebPImageName:@"logo07"];
         }
             break;
         case 26:
         {
             //PNG电子
-            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo06"];
+            self.dzGameMarkImg.image = [UIImage imageWithWebPImageName:@"logo06"];
         }
             break;
         case 20:
         {
             //BSG电子
-            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo03"];
+            self.dzGameMarkImg.image = [UIImage imageWithWebPImageName:@"logo03"];
         }
             break;
         case 27:
         {
             //DT电子
-            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo10"];
+            self.dzGameMarkImg.image = [UIImage imageWithWebPImageName:@"logo10"];
         }
             break;
         case 6:
         {
             //PT电子
-            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo04"];
+            self.dzGameMarkImg.image = [UIImage imageWithWebPImageName:@"logo04"];
         }
             break;
         case 25:
         {
             //新霸电子
-            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo05"];
+            self.dzGameMarkImg.image = [UIImage imageWithWebPImageName:@"logo05"];
         }
             break;
         case 3:
         {
             //MG电子
-            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo01"];
+            self.dzGameMarkImg.image = [UIImage imageWithWebPImageName:@"logo01"];
         }
             break;
         case 9:
         {
             //AG电子
-            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo08"];
+            self.dzGameMarkImg.image = [UIImage imageWithWebPImageName:@"logo08"];
         }
             break;
         case 10:
         {
             //BB电子
-            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo09"];
+            self.dzGameMarkImg.image = [UIImage imageWithWebPImageName:@"logo09"];
         }
             break;
         case 44:
         {
             //NT电子
-            self.dzGameMarkImg.image = [UIImage imageNamed:@""];
+            self.dzGameMarkImg.image = [UIImage imageWithWebPImageName:@""];
         }
             break;
         case 38:
         {
             //新PP电子
-            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo02"];
+            self.dzGameMarkImg.image = [UIImage imageWithWebPImageName:@"logo02"];
         }
             break;
         case 45:
         {
             //PG老虎机
-            self.dzGameMarkImg.image = [UIImage imageNamed:@""];
+            self.dzGameMarkImg.image = [UIImage imageWithWebPImageName:@""];
         }
             break;
         case 14:
         {
             //NYX电子
-            self.dzGameMarkImg.image = [UIImage imageNamed:@""];
+            self.dzGameMarkImg.image = [UIImage imageWithWebPImageName:@""];
         }
             break;
         case 32:
         {
             //PP电子
-            self.dzGameMarkImg.image = [UIImage imageNamed:@"logo02"];
+            self.dzGameMarkImg.image = [UIImage imageWithWebPImageName:@"logo02"];
         }
             break;
         default:
@@ -469,8 +469,7 @@
         return;
     }
     SH_PrifitOutCoinView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_PrifitOutCoinView" owner:nil options:nil].lastObject;
-    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-75 titleImageName:@"profitTitle" alertViewType:AlertViewTypeLong];
-    acr.title = @"牌局记录";
+    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-75 titleImageName:@"title07" alertViewType:AlertViewTypeLong];
     acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:acr animated:YES completion:nil];

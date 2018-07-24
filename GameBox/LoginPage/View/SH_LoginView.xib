@@ -120,21 +120,25 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </textField>
-                        <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gfy-cV-HV0">
-                            <rect key="frame" x="80" y="122" width="83" height="13"/>
+                        <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gfy-cV-HV0" customClass="SH_WebPButton">
+                            <rect key="frame" x="80" y="122" width="90" height="13"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="13" id="am5-Rx-ScW"/>
+                                <constraint firstAttribute="width" constant="90" id="cgq-8x-5HQ"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <state key="normal" title="  记住密码" image="tick">
+                            <state key="normal" title="  记住密码">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="select2"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="btnlick:" destination="iN0-l3-epB" eventType="touchUpInside" id="aAf-f0-Yzk"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sdl-2t-jXD">
-                            <rect key="frame" x="179" y="122" width="62" height="13"/>
+                            <rect key="frame" x="186" y="122" width="62" height="13"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="13" id="oS4-4q-ruW"/>
                             </constraints>
@@ -145,16 +149,20 @@
                                 <action selector="btnlick:" destination="iN0-l3-epB" eventType="touchUpInside" id="lAc-Wu-5cQ"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tss-Nc-pu5">
-                            <rect key="frame" x="80" y="151" width="145" height="50"/>
+                        <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tss-Nc-pu5" customClass="SH_WebPButton">
+                            <rect key="frame" x="80" y="151" width="140" height="50"/>
                             <constraints>
+                                <constraint firstAttribute="width" constant="140" id="Wjv-Vt-F1F"/>
                                 <constraint firstAttribute="height" constant="50" id="bTM-7N-aF5"/>
                             </constraints>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                            <state key="normal" title="立即登录" backgroundImage="login_button_long">
+                            <state key="normal" title="立即登录">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="titleShadowColor" red="0.72156862749999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="login_button_long"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="btnlick:" destination="iN0-l3-epB" eventType="touchUpInside" id="oX2-Dk-6K8"/>
                             </connections>
@@ -242,8 +250,4 @@
             <point key="canvasLocation" x="95" y="-85"/>
         </view>
     </objects>
-    <resources>
-        <image name="login_button_long" width="145" height="47"/>
-        <image name="tick" width="13" height="13"/>
-    </resources>
 </document>
