@@ -258,12 +258,12 @@
 		BF5C0BC82105AF0C0035B754 /* SH_BindPhoneNumView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF5C0BC72105AF0C0035B754 /* SH_BindPhoneNumView.xib */; };
 		BF5C0BCB2105B82B0035B754 /* SH_ProfitExchangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5C0BCA2105B82B0035B754 /* SH_ProfitExchangeView.m */; };
 		BF5C0BCD2105B8330035B754 /* SH_ProfitExchangeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF5C0BCC2105B8330035B754 /* SH_ProfitExchangeView.xib */; };
-		BF5C0BCF2105B9AE0035B754 /* recovery.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5C0BCE2105B9AD0035B754 /* recovery.webp */; };
-		BF5C0BD12105B9E60035B754 /* refresh.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5C0BD02105B9E60035B754 /* refresh.webp */; };
 		BF5C0BD52105D3530035B754 /* SH_ProfitExchangeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5C0BD32105D3530035B754 /* SH_ProfitExchangeTableViewCell.m */; };
 		BF5C0BD62105D3530035B754 /* SH_ProfitExchangeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF5C0BD42105D3530035B754 /* SH_ProfitExchangeTableViewCell.xib */; };
 		BF5C0BD92105D7DB0035B754 /* SH_FillRealNameView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5C0BD82105D7DB0035B754 /* SH_FillRealNameView.m */; };
 		BF5C0BDB2105D9190035B754 /* SH_FillRealNameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF5C0BDA2105D9190035B754 /* SH_FillRealNameView.xib */; };
+		BF66089C21070B800029C4A6 /* recovery.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF66089B21070B800029C4A6 /* recovery.webp */; };
+		BF66089E21070BC50029C4A6 /* refresh.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF66089D21070BC40029C4A6 /* refresh.webp */; };
 		BF7B08BE2101936B008256FE /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B08B72101936A008256FE /* NSDate+Extension.m */; };
 		BF7B08BF2101936B008256FE /* SH_NiceDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B08B82101936A008256FE /* SH_NiceDatePickerView.m */; };
 		BF7B08C62101CF33008256FE /* SH_NiceDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7B08C52101CF33008256FE /* SH_NiceDatePickerView.xib */; };
@@ -746,14 +746,14 @@
 		BF5C0BC92105B82B0035B754 /* SH_ProfitExchangeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ProfitExchangeView.h; sourceTree = "<group>"; };
 		BF5C0BCA2105B82B0035B754 /* SH_ProfitExchangeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_ProfitExchangeView.m; sourceTree = "<group>"; };
 		BF5C0BCC2105B8330035B754 /* SH_ProfitExchangeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_ProfitExchangeView.xib; sourceTree = "<group>"; };
-		BF5C0BCE2105B9AD0035B754 /* recovery.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = recovery.webp; sourceTree = "<group>"; };
-		BF5C0BD02105B9E60035B754 /* refresh.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = refresh.webp; sourceTree = "<group>"; };
 		BF5C0BD22105D3530035B754 /* SH_ProfitExchangeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ProfitExchangeTableViewCell.h; sourceTree = "<group>"; };
 		BF5C0BD32105D3530035B754 /* SH_ProfitExchangeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_ProfitExchangeTableViewCell.m; sourceTree = "<group>"; };
 		BF5C0BD42105D3530035B754 /* SH_ProfitExchangeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_ProfitExchangeTableViewCell.xib; sourceTree = "<group>"; };
 		BF5C0BD72105D7DB0035B754 /* SH_FillRealNameView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_FillRealNameView.h; sourceTree = "<group>"; };
 		BF5C0BD82105D7DB0035B754 /* SH_FillRealNameView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_FillRealNameView.m; sourceTree = "<group>"; };
 		BF5C0BDA2105D9190035B754 /* SH_FillRealNameView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_FillRealNameView.xib; sourceTree = "<group>"; };
+		BF66089B21070B800029C4A6 /* recovery.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = recovery.webp; sourceTree = "<group>"; };
+		BF66089D21070BC40029C4A6 /* refresh.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = refresh.webp; sourceTree = "<group>"; };
 		BF7B08B72101936A008256FE /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
 		BF7B08B82101936A008256FE /* SH_NiceDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_NiceDatePickerView.m; sourceTree = "<group>"; };
 		BF7B08BA2101936B008256FE /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
@@ -1311,14 +1311,14 @@
 				22D116992105865100589EB9 /* promo */,
 				543970ED21046E200091C719 /* noaccess.webp */,
 				543970EB21046AF50091C719 /* btn_refresh.webp */,
-				BF5C0BD02105B9E60035B754 /* refresh.webp */,
+				BF66089D21070BC40029C4A6 /* refresh.webp */,
 				543970E6210467F90091C719 /* index_bg.webp */,
 				5439705F210462B20091C719 /* arrow_next.webp */,
 				5439703F210462A80091C719 /* arrow_prev.webp */,
 				5439702A210462A40091C719 /* arrow.webp */,
 				54397079210462B90091C719 /* avatar.webp */,
 				54397059210462AF0091C719 /* banner.webp */,
-				BF5C0BCE2105B9AD0035B754 /* recovery.webp */,
+				BF66089B21070B800029C4A6 /* recovery.webp */,
 				54397068210462B40091C719 /* black.webp */,
 				54397040210462A80091C719 /* blueframe-click-1.webp */,
 				BFA7DEB02105E58900DD731F /* mark.webp */,
@@ -2391,7 +2391,6 @@
 				543970D1210462BB0091C719 /* unselect.webp in Resources */,
 				543970A1210462BB0091C719 /* font_welfare.webp in Resources */,
 				543970B4210462BB0091C719 /* btn_return.webp in Resources */,
-				BF5C0BCF2105B9AE0035B754 /* recovery.webp in Resources */,
 				5439708D210462BB0091C719 /* logo05.webp in Resources */,
 				5401C56320ECF9EA0027246D /* SH_HomeViewController.xib in Resources */,
 				54397093210462BB0091C719 /* logo11.webp in Resources */,
@@ -2408,7 +2407,6 @@
 				BFA7DEBC2106C2CB00DD731F /* chip_yellow.webp in Resources */,
 				543970D2210462BB0091C719 /* user_info_bg.webp in Resources */,
 				543970A7210462BB0091C719 /* title10.webp in Resources */,
-				BF5C0BD12105B9E60035B754 /* refresh.webp in Resources */,
 				543970AC210462BB0091C719 /* select.webp in Resources */,
 				54397091210462BB0091C719 /* left-bg.webp in Resources */,
 				543970DE210462BB0091C719 /* title02.webp in Resources */,
@@ -2424,6 +2422,7 @@
 				54C876432100BFA000AA0594 /* SH_PromoDeatilViewController.xib in Resources */,
 				BFA068CF20FE135200F5ADFE /* SH_ModiftSaftyPSDView.xib in Resources */,
 				543970D5210462BB0091C719 /* effects_star.webp in Resources */,
+				BF66089C21070B800029C4A6 /* recovery.webp in Resources */,
 				54C8763421008D4800AA0594 /* SH_GameWebView.xib in Resources */,
 				543970C3210462BB0091C719 /* icon_promo.webp in Resources */,
 				54C875C820FCBE1900AA0594 /* SH_DZGameItemView.xib in Resources */,
@@ -2521,6 +2520,7 @@
 				543970A8210462BB0091C719 /* rounded_bg.webp in Resources */,
 				DA22F34320F43AD00058A54F /* SH_LoginView.xib in Resources */,
 				BF44ECCB20F4D6CC00BC6EF3 /* SH_RechargeDetailMainSubmitView.xib in Resources */,
+				BF66089E21070BC50029C4A6 /* refresh.webp in Resources */,
 				543970F42106C38E0091C719 /* logo13.webp in Resources */,
 				543970B7210462BB0091C719 /* login_button.webp in Resources */,
 				DA1BCC8520FE06E900201DBC /* SH_CardRecordHeaderView.xib in Resources */,

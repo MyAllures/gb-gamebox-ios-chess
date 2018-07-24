@@ -8,14 +8,18 @@
 
 #import "SH_FillRealNameView.h"
 
+@interface SH_FillRealNameView()
+@property (weak, nonatomic) IBOutlet UITextField *realNameTF;
+@property (weak, nonatomic) IBOutlet UILabel *messageLab;
+
+
+@end
 @implementation SH_FillRealNameView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)awakeFromNib{
+    [super awakeFromNib];
 }
-*/
+- (IBAction)sureBtnClick:(id)sender {
+}
 
 @end

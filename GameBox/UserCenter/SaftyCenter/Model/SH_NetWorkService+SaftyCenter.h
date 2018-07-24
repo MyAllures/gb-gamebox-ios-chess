@@ -59,4 +59,23 @@
 +(void)getUserPhoneInfoSuccess:(SHNetWorkComplete)success
                           Fail:(SHNetWorkFailed)fail;
 
+//绑定手机发送验证码
++(void)sendVerificationCodePhoneNum:(NSString *)phoneNum
+                    Success:(SHNetWorkComplete)success
+                       Fail:(SHNetWorkFailed)fail;
+//绑定手机号码
++(void)bindPhoneNum:(NSString *)phoneNum
+   OriginalPhoneNum:(NSString *)originalPhoneNum
+   VerificationCode:(NSString *)code
+            Success:(SHNetWorkComplete)success
+               Fail:(SHNetWorkFailed)fail;
+//额度转换一键刷新
++(void)oneKeyRefreshSuccess:(SHNetWorkComplete)success
+                       Fail:(SHNetWorkFailed)fail;
+//一键回收&单个回收
++(void)oneKeyRecoverySearchId:(NSString *)searchId
+                      Success:(SHNetWorkComplete)success
+                         Fail:(SHNetWorkFailed)fail;
+
+
 @end

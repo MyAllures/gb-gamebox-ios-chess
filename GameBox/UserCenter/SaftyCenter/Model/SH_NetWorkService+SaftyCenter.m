@@ -125,4 +125,76 @@
         }
     }];
 }
++(void)sendVerificationCodePhoneNum:(NSString *)phoneNum
+                    Success:(SHNetWorkComplete)success
+                       Fail:(SHNetWorkFailed)fail{
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/origin/sendPhoneCode.html"];
+    NSDictionary *header = @{@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
+    NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
+    [param setValue:phoneNum forKey:@"phone"];
+    [self post:url parameter:param header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (success) {
+            success(httpURLResponse,response);
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
+        if (fail) {
+            fail(httpURLResponse, err);
+        }
+    }];
+}
+
++(void)bindPhoneNum:(NSString *)phoneNum
+   OriginalPhoneNum:(NSString *)originalPhoneNum
+   VerificationCode:(NSString *)code
+            Success:(SHNetWorkComplete)success
+               Fail:(SHNetWorkFailed)fail{
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/updateUserPhone.html"];
+    NSDictionary *header = @{@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
+    NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
+    [param setValue:phoneNum forKey:@"search.contactValue"];
+    [param setValue:originalPhoneNum forKey:@"oldPhone"];
+    [param setValue:code forKey:@"code"];
+    [self post:url parameter:param header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (success) {
+            success(httpURLResponse,response);
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
+        if (fail) {
+            fail(httpURLResponse, err);
+        }
+    }];
+    
+}
++(void)oneKeyRefreshSuccess:(SHNetWorkComplete)success
+                       Fail:(SHNetWorkFailed)fail{
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/userInfoOrigin/refresh.html"];
+    NSDictionary *header = @{@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost};
+    [self post:url parameter:[NSDictionary dictionary] header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (success) {
+            success(httpURLResponse,response);
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
+        if (fail) {
+            fail(httpURLResponse, err);
+        }
+    }];
+}
++(void)oneKeyRecoverySearchId:(NSString *)searchId
+                      Success:(SHNetWorkComplete)success
+                         Fail:(SHNetWorkFailed)fail{
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/recovery.html"];
+    NSDictionary *header = @{@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
+    NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
+    [param setValue:searchId forKey:@"search.apiId"];
+    [self post:url parameter:param header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (success) {
+            success(httpURLResponse,response);
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
+        if (fail) {
+            fail(httpURLResponse, err);
+        }
+    }];
+    
+}
 @end
