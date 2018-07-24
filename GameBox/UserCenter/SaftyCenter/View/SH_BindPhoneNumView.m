@@ -32,9 +32,10 @@
         //未绑定过手机号码
         
     }else if ([btn.titleLabel.text isEqualToString:@"更换绑定号码"]){
-       //更换手机号码
+       //去更换手机号码
+        [self changedBindedPhoneNum];
     }else if ([btn.titleLabel.text isEqualToString:@"确认"]){
-        //更换手机号码
+        //确认更换手机号码
     }
     
 }
@@ -97,5 +98,6 @@
 }
 - (IBAction)sendVerificationBtn:(id)sender {
     //发送验证码按钮点击事件
+    
 }
 @end

@@ -60,6 +60,9 @@
 #warning 这里要传安全密码
     [SH_NetWorkService sureOutCoinMoney:self.details[1] SaftyPWD:@"123123" Token:self.token Way:@"1" Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
             showMessage(self, [NSString stringWithFormat:@"%@",response[@"message"]], nil);
+        NSDictionary *dict = (NSDictionary *)response;
+        NSString *strToken = dict[@"data"][@"token"];
+        self.token = strToken;
     } Failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
