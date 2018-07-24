@@ -50,7 +50,6 @@
             }
             [self.tableView.mj_header endRefreshing];
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-            
         }];
     }];
     [MBProgressHUD showHUDAddedTo:self animated:YES];

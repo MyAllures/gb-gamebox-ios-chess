@@ -10,7 +10,7 @@
 
 @interface SH_SiteMsgViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *advisoryContentLabel;
-@property (weak, nonatomic) IBOutlet UIButton *seleteBtn;
+@property (weak, nonatomic) IBOutlet SH_WebPButton *seleteBtn;
 @property (weak, nonatomic) IBOutlet UILabel *advisoryTimeLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *mearkReadImageView;
 

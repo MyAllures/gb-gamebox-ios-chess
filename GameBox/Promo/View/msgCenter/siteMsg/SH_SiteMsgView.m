@@ -9,16 +9,12 @@
 #import "SH_SiteMsgView.h"
 
 #import "SH_SystemMsgView.h"
-#import "SH_SendMsgView.h"
-#import "SH_MyMsgView.h"
 #import "SH_NetWorkService+Promo.h"
 
 @interface SH_SiteMsgView ()
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @property (strong, nonatomic) SH_SystemMsgView *systemMsgView;
-@property (strong, nonatomic) SH_SendMsgView *sendMsgView;
-@property (strong, nonatomic) SH_MyMsgView *myMsgView;
 @end
 
 @implementation SH_SiteMsgView
@@ -31,29 +27,6 @@
     
 }
 
-- (IBAction)touchMe:(id)sender {
-    int index = (int)[sender selectedSegmentIndex];
-    switch (index) {
-        case 0:
-            self.systemMsgView.hidden = NO;
-            self.sendMsgView.hidden = YES;
-            self.myMsgView.hidden = YES;
-            break;
-        case 1:
-            self.systemMsgView.hidden = YES;
-            self.myMsgView.hidden = NO;
-            self.sendMsgView.hidden = YES;
-            break;
-        case 2:
-            self.systemMsgView.hidden = YES;
-            self.myMsgView.hidden = YES;
-            self.sendMsgView.hidden = NO;
-            break;
-        default:
-            break;
-    }
-}
-
 -(SH_SystemMsgView *)systemMsgView {
     if (!_systemMsgView) {
         _systemMsgView = [[[NSBundle mainBundle] loadNibNamed:@"SH_SystemMsgView" owner:nil options:nil] lastObject];
@@ -63,28 +36,6 @@
         }];
     }
     return _systemMsgView;
-}
-
--(SH_SendMsgView *)sendMsgView {
-    if (!_sendMsgView) {
-        _sendMsgView = [[[NSBundle mainBundle] loadNibNamed:@"SH_SendMsgView" owner:nil options:nil] lastObject];
-        [self.contentView addSubview:_sendMsgView];
-        [_sendMsgView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.top.bottom.mas_equalTo(0);
-        }];
-    }
-    return _sendMsgView;
-}
-
--(SH_MyMsgView *)myMsgView {
-    if (!_myMsgView) {
-        _myMsgView = [[[NSBundle mainBundle] loadNibNamed:@"SH_MyMsgView" owner:nil options:nil] lastObject];
-        [self.contentView addSubview:_myMsgView];
-        [_myMsgView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.top.bottom.mas_equalTo(0);
-        }];
-    }
-    return _myMsgView;
 }
 /*
 // Only override drawRect: if you perform custom drawing.

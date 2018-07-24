@@ -57,8 +57,6 @@
             self.headImage.image = [UIImage  imageNamed:imageName];
             self.title_imageView.imageName = img_name;
         });
-        
-        
         [self.containerView addSubview:self.presentView];
         [self.presentView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.mas_equalTo(self.containerView);

@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14113"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,48 +15,22 @@
             <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="o0R-HK-k9Q">
-                    <rect key="frame" x="10" y="10" width="240" height="29"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="28" id="12B-Qm-7e2"/>
-                        <constraint firstAttribute="width" constant="240" id="xpo-mU-Yde"/>
-                    </constraints>
-                    <segments>
-                        <segment title="系统消息"/>
-                        <segment title="我的消息"/>
-                        <segment title="发送消息"/>
-                    </segments>
-                    <connections>
-                        <action selector="touchMe:" destination="iN0-l3-epB" eventType="valueChanged" id="AuB-Sd-kt8"/>
-                    </connections>
-                </segmentedControl>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0O4-OL-KpK">
-                    <rect key="frame" x="0.0" y="46" width="568" height="274"/>
+                    <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1TU-ha-5nc">
-                    <rect key="frame" x="0.0" y="39" width="568" height="2"/>
-                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="2" id="rLH-HU-cgi"/>
-                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="0O4-OL-KpK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="522-1D-CXP"/>
-                <constraint firstItem="1TU-ha-5nc" firstAttribute="top" secondItem="o0R-HK-k9Q" secondAttribute="bottom" constant="1" id="FlU-K3-Yvn"/>
-                <constraint firstItem="0O4-OL-KpK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="46" id="QQI-Ae-715"/>
-                <constraint firstAttribute="trailing" secondItem="1TU-ha-5nc" secondAttribute="trailing" id="S2f-j5-dv9"/>
-                <constraint firstAttribute="bottom" secondItem="0O4-OL-KpK" secondAttribute="bottom" id="SRo-SH-L09"/>
-                <constraint firstItem="o0R-HK-k9Q" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="Ton-yk-NfP"/>
-                <constraint firstItem="o0R-HK-k9Q" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="VtV-na-nIf"/>
-                <constraint firstItem="1TU-ha-5nc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="awi-sE-0CZ"/>
-                <constraint firstAttribute="trailing" secondItem="0O4-OL-KpK" secondAttribute="trailing" id="jhZ-y0-QV8"/>
+                <constraint firstAttribute="trailing" secondItem="0O4-OL-KpK" secondAttribute="trailing" id="916-M4-0Id"/>
+                <constraint firstItem="0O4-OL-KpK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="BHY-UU-Gm9"/>
+                <constraint firstItem="0O4-OL-KpK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="boC-gn-AjH"/>
+                <constraint firstAttribute="bottom" secondItem="0O4-OL-KpK" secondAttribute="bottom" id="xsH-1N-tWp"/>
             </constraints>
             <connections>
                 <outlet property="contentView" destination="0O4-OL-KpK" id="tAN-Qa-W39"/>
             </connections>
+            <point key="canvasLocation" x="-187" y="179"/>
         </view>
     </objects>
 </document>

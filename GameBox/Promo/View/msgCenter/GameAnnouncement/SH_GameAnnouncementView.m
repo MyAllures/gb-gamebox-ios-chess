@@ -15,6 +15,7 @@
 #import "RH_UserInfoManager.h"
 #import "HLPopTableView.h"
 #import "SH_NiceDatePickerView.h"
+#import "SH_BulletinDetailView.h"
 
 @interface SH_GameAnnouncementView ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -32,6 +33,9 @@
 @property (strong, nonatomic) NSString *endTimeStr;
 @property(nonatomic, strong) NSString *startAndEndDateStr;
 @property (assign, nonatomic) NSInteger apiId;//选择游戏类型的id
+
+@property (strong, nonatomic) SH_BulletinDetailView *detailView;
+
 @end
 
 @implementation SH_GameAnnouncementView
@@ -267,6 +271,7 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"SH_GameBulletinTCell" owner:nil options:nil] lastObject];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (self.gameAnnouncementArr.count > 0) {
         SH_GameBulletinModel *model = self.gameAnnouncementArr[indexPath.row];
         
@@ -284,7 +289,13 @@
 
 #pragma mark - UITableViewDelegate M
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    SH_GameBulletinModel *model = self.gameAnnouncementArr[indexPath.row];
+    self.detailView =[[[NSBundle mainBundle] loadNibNamed:@"SH_BulletinDetailView" owner:nil options:nil] lastObject];
+    [[UIApplication sharedApplication].keyWindow addSubview:self.detailView];
+    [self.detailView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.bottom.mas_equalTo(0);
+    }];
+    self.detailView.context = model.context;
 }
 
 -(void)dealloc {
