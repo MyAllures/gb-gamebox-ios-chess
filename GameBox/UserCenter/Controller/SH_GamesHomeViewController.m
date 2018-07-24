@@ -97,7 +97,7 @@
             // 安全中心
             SH_SaftyCenterView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_SaftyCenterView" owner:self options:nil].firstObject;
             
-            AlertViewController *avc  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-50 titleImageName:@"saftyTtile" alertViewType:AlertViewTypeLong];
+            AlertViewController *avc  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-50 titleImageName:@"title12" alertViewType:AlertViewTypeLong];
             [self presentViewController:avc addTargetViewController:self];
             view.targetVC = avc;
             break;

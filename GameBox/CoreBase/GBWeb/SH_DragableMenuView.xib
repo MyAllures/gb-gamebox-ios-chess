@@ -15,20 +15,29 @@
             <rect key="frame" x="0.0" y="0.0" width="32" height="67"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="game_menu_bg" translatesAutoresizingMaskIntoConstraints="NO" id="X8G-wt-8Um">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X8G-wt-8Um" customClass="SH_WebPImageView">
                     <rect key="frame" x="0.0" y="0.0" width="32" height="67"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="game_menu_bg"/>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
-                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="game_icon_home" translatesAutoresizingMaskIntoConstraints="NO" id="eiZ-ba-JRm">
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eiZ-ba-JRm" customClass="SH_WebPImageView">
                     <rect key="frame" x="0.0" y="0.0" width="32" height="33.5"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="33.5" id="7qh-vb-Ulz"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="game_icon_home"/>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
-                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="game_icon_back" translatesAutoresizingMaskIntoConstraints="NO" id="tIt-56-7oX">
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tIt-56-7oX" customClass="SH_WebPImageView">
                     <rect key="frame" x="0.0" y="33.5" width="32" height="33.5"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="33.5" id="9EL-rF-T63"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="game_icon_back"/>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -52,9 +61,4 @@
             <point key="canvasLocation" x="-107" y="-198.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="game_icon_back" width="32" height="32"/>
-        <image name="game_icon_home" width="32" height="32"/>
-        <image name="game_menu_bg" width="32" height="67"/>
-    </resources>
 </document>
