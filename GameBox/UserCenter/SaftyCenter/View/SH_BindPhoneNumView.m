@@ -32,15 +32,29 @@
         NSString *data = [dataDic objectForKey:@"data"];
         if (data == nil || [data isEqualToString:@""]) {
             //没有绑定过手机
+            [self notBindPhoneNum];
 
-        }
-        else
+        }else
         {
          //绑定过手机
+            [self bindedPhoneNumber:nil];
         }
         
     } Fail:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
+}
+//绑定过手机号码
+-(void)bindedPhoneNumber:(NSString *)phoneNum{
+    self.oldPhoneNumLab.hidden = YES;
+    self.oldPhoneNumTF.hidden = YES;
+    self.NewPhoneNumLab.text = @"手机号码";
+    self.oldPhoneNumTF.text = phoneNum;
+    self.oldPhoneNumTF.enabled = NO;
+
+}
+//未绑定过手机号码
+-(void)notBindPhoneNum{
+    
 }
 @end

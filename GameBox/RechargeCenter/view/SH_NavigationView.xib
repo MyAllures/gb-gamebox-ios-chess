@@ -15,14 +15,16 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FvJ-23-g7U">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FvJ-23-g7U" customClass="SH_WebPButton">
                     <rect key="frame" x="15" y="16" width="60" height="40"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="EyD-0C-mqT"/>
                         <constraint firstAttribute="width" constant="60" id="jMY-w5-14l"/>
                     </constraints>
-                    <state key="normal" image="backImage"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="backImage"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="backBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="5Hc-i3-otW"/>
                     </connections>
@@ -58,7 +60,4 @@
             </connections>
         </view>
     </objects>
-    <resources>
-        <image name="backImage" width="16" height="16"/>
-    </resources>
 </document>
