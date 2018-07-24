@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SH_BindPhoneNumView : UIView
+@property(nonatomic,strong)UIViewController *targetVC;
 -(void)selectBindPhoneNumView;//在安全中心点击绑定手机按钮走这个方法
 @end

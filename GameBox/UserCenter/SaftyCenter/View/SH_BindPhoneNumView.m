@@ -30,12 +30,28 @@
     UIButton *btn = sender;
     if ([btn.titleLabel.text isEqualToString:@"立即绑定"]) {
         //未绑定过手机号码
+        if (self.NewPhoneNumTF.text.length == 0) {
+            showMessage(self, @"请输入手机号码", nil);
+        }else if (self.InputCodeTF.text.length == 0){
+            showMessage(self, @"请输入验证码", nil);
+        }else{
+            [self bindPhoneNum];
+        }
         
     }else if ([btn.titleLabel.text isEqualToString:@"更换绑定号码"]){
-       //去更换手机号码
+       //更换手机号码
         [self changedBindedPhoneNum];
     }else if ([btn.titleLabel.text isEqualToString:@"确认"]){
-        //确认更换手机号码
+        //更换手机号码
+        if (self.NewPhoneNumTF.text.length == 0) {
+            showMessage(self, @"请输入手机号码", nil);
+        }else if (self.oldPhoneNumTF.text.length == 0){
+            showMessage(self, @"请输入新的手机号码", nil);
+        }else if (self.InputCodeTF.text.length == 0){
+            showMessage(self, @"请输入验证码", nil);
+        }else{
+            [self bindPhoneNum];
+        }
     }
     
 }
@@ -97,7 +113,40 @@
     [self layoutIfNeeded];
 }
 - (IBAction)sendVerificationBtn:(id)sender {
-    //发送验证码按钮点击事件
-    
+    if (self.NewPhoneNumTF.text.length == 0) {
+        showMessage(self, @"请输入手机号", nil);
+    }else{
+    [self.VerificationBtn startCountDownTime:60 withCountDownBlock:^{
+        [SH_NetWorkService sendVerificationCodePhoneNum:self.NewPhoneNumTF.text Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
+            NSDictionary *dataDic = ConvertToClassPointer(NSDictionary, response);
+            int code = [[dataDic objectForKey:@"code"] intValue];
+            if (code == 0) {
+                showMessage(self, @"发送成功", nil);
+            }
+        } Fail:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+            
+        }];
+    }];
+    }
+}
+//绑定手机接口
+-(void)bindPhoneNum{
+    __weak typeof(self) weakSelf = self;
+    [SH_NetWorkService bindPhoneNum:self.NewPhoneNumTF.text OriginalPhoneNum:self.oldPhoneNumTF.text VerificationCode:self.InputCodeTF.text Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSDictionary *dataDic = ConvertToClassPointer(NSDictionary, response);
+        NSString * code = [NSString stringWithFormat:@"%@",[dataDic objectForKey:@"code"]];
+        if ([code isEqualToString:@"0"]) {
+            showMessage(self, @"绑定手机成功", nil);
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [weakSelf.targetVC dismissViewControllerAnimated:NO completion:nil];
+            });
+        }
+    } Fail:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        
+    }];
+}
+
+- (void)setTargetVC:(UIViewController *)targetVC{
+    _targetVC = targetVC;
 }
 @end

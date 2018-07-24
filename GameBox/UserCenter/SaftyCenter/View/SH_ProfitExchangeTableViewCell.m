@@ -11,6 +11,7 @@
 @interface SH_ProfitExchangeTableViewCell()
 @property (weak, nonatomic) IBOutlet UILabel *titleLab;
 @property (weak, nonatomic) IBOutlet UILabel *moneyLab;
+@property(nonatomic,copy)NSString *apiId;
 
 @end
 @implementation SH_ProfitExchangeTableViewCell
@@ -32,6 +33,11 @@
     }else{
         self.moneyLab.text = [NSString stringWithFormat:@"%.2f",[model.balance floatValue]];
     }
-    
+    self.apiId = model.apiID;
 }
+- (IBAction)refreshBtnClick:(id)sender {
+    [self.delegate recoveryBtnWithApiId:self.apiId];
+}
+
+
 @end

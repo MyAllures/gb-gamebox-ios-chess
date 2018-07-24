@@ -20,4 +20,6 @@ typedef enum :NSUInteger{
 @interface UIButton (Category)
 - (void)ButtonPositionStyle:(ButtonPositionStyle)imagePositionStyle
                     spacing:(CGFloat)spacing;
+
+- (void)startCountDownTime:(int)time withCountDownBlock:(void(^)(void))countDownBlock;
 @end
