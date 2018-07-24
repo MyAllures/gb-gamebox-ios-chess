@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "SH_ApiModel.h"
 @interface SH_ProfitExchangeTableViewCell : UITableViewCell
-
+-(void)updateUIWithApiModel:(SH_ApiModel *)model;
 @end

@@ -22,7 +22,6 @@
 @property(nonatomic,strong)SH_ModifyLoginPSDView *loginView;
 @property(nonatomic,strong)SH_ModiftSaftyPSDView *saftyView;
 @property(nonatomic,strong)SH_BankCardView *bankView;
-@property(nonatomic,copy)NSString *from;//从绑定银行卡跳过来要通知其刷新数据
 @property (weak, nonatomic) IBOutlet SH_WebPButton *profitExchangeBtn;
 @property (weak, nonatomic) IBOutlet SH_WebPButton *bindPhoneBtn;
 @property(nonatomic,strong)SH_BindPhoneNumView *bindPhoneView;
@@ -49,6 +48,11 @@
     if (!_saftyView) {
         _saftyView = [[NSBundle mainBundle]loadNibNamed:@"SH_ModiftSaftyPSDView" owner:self options:nil].firstObject;
         [self addSubview:_saftyView];
+        [_saftyView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self).offset(10);
+            make.left.equalTo(self).offset(145);
+            make.bottom.right.equalTo(self).offset(-10);
+        }];
     }
     return _saftyView;
 }
@@ -56,6 +60,11 @@
     if (!_bankView) {
         _bankView = [[NSBundle mainBundle]loadNibNamed:@"SH_BankCardView" owner:self options:nil].firstObject;
         [self addSubview:_bankView];
+        [_bankView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self).offset(10);
+            make.left.equalTo(self).offset(145);
+            make.bottom.right.equalTo(self).offset(-10);
+        }];
     }
     return _bankView;
 }
@@ -64,6 +73,10 @@
     if (!_bindPhoneView) {
         _bindPhoneView = [[NSBundle mainBundle]loadNibNamed:@"SH_BindPhoneNumView" owner:self options:nil].firstObject;
         [self addSubview:_bindPhoneView];
+        [_bindPhoneView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.bottom.right.equalTo(self);
+            make.left.equalTo(self).offset(135);
+        }];
     }
     return _bindPhoneView;
 }
@@ -72,27 +85,22 @@
     if (!_profitExView) {
         _profitExView = [[NSBundle mainBundle]loadNibNamed:@"SH_ProfitExchangeView" owner:self options:nil].firstObject;
         [self addSubview:_profitExView];
+        [_profitExView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self).offset(10);
+            make.left.equalTo(self).offset(145);
+            make.bottom.right.equalTo(self).offset(-10);
+        }];
     }
     return _profitExView;
 }
 
 - (IBAction)modifyLoginBtnClick:(id)sender {
+     self.loginView.targetVC = self.targetVC;
      [self setUIWithSelecteBtn:self.loginBtn SelectedView:self.loginView];
-//    [self setButton:self.loginBtn BackgroundImage:@"button-long-click"];
-//    [self setButton:self.saftyBtn BackgroundImage:@"button-long"];
-//    [self setButton:self.bankBtn BackgroundImage:@"button-long"];
-//    self.loginView.hidden = NO;
-//    self.saftyView.hidden = YES;
-//    self.bankView.hidden = YES;
 }
 
 - (IBAction)saftyBtnclick:(id)sender {
-//    [self setButton:self.loginBtn BackgroundImage:@"button-long"];
-//    [self setButton:self.saftyBtn BackgroundImage:@"button-long-click"];
-//    [self setButton:self.bankBtn BackgroundImage:@"button-long"];
-//    self.loginView.hidden = YES;
-//    self.saftyView.hidden = NO;
-//    self.bankView.hidden = YES;
+    self.saftyView.targetVC = self.targetVC;
      [self setUIWithSelecteBtn:self.saftyBtn SelectedView:self.saftyView];
     //这里用户要请求有没有设置过安全密码接口
       __weak typeof(self) weakSelf = self;
@@ -109,37 +117,11 @@
     }];
 }
 - (IBAction)bankCardBtnClick:(id)sender {
-    
-//    [self setButton:self.loginBtn BackgroundImage:@"button-long"];
-//    [self setButton:self.saftyBtn BackgroundImage:@"button-long"];
-//    [self setButton:self.bankBtn BackgroundImage:@"button-long-click"];
-//    self.loginView.hidden = YES;
-//    self.saftyView.hidden = YES;
-//    self.bankView.hidden = NO;
-       [self setUIWithSelecteBtn:self.bankBtn SelectedView:self.bankView];
+    self.bankView.targetVC = self.targetVC;
+    [self setUIWithSelecteBtn:self.bankBtn SelectedView:self.bankView];
 }
 -(void)configUI{
     [self.loginView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(10);
-        make.left.equalTo(self).offset(145);
-        make.bottom.right.equalTo(self).offset(-10);
-    }];
-    [self.saftyView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(10);
-        make.left.equalTo(self).offset(145);
-        make.bottom.right.equalTo(self).offset(-10);
-    }];
-    [self.bankView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(10);
-        make.left.equalTo(self).offset(145);
-        make.bottom.right.equalTo(self).offset(-10);
-    }];
-    
-    [self.bindPhoneView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.right.equalTo(self);
-        make.left.equalTo(self).offset(135);
-    }];
-    [self.profitExView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self).offset(10);
         make.left.equalTo(self).offset(145);
         make.bottom.right.equalTo(self).offset(-10);
@@ -151,23 +133,22 @@
 }
 - (void)setTargetVC:(UIViewController *)targetVC{
     _targetVC = targetVC;
-    self.loginView.targetVC = targetVC;
-    self.saftyView.targetVC = targetVC;
-    self.bankView.targetVC = targetVC;
 }
 - (void)selectedWithType:(NSString *)type From:(NSString *)from{
-    self.from =from;
     self.bankView.from = from;
     if ([type isEqualToString:@"bindBankcard"]) {
         [self bankCardBtnClick:nil];
     }
 }
 - (IBAction)bindPhoneBtnClick:(id)sender {
+
     [self setUIWithSelecteBtn:self.bindPhoneBtn SelectedView:self.bindPhoneView];
 }
 
 - (IBAction)profitExchangeBtnClick:(id)sender {
+
      [self setUIWithSelecteBtn:self.profitExchangeBtn SelectedView:self.profitExView];
+     [self.profitExView selectProfitExchangeView];//选中了额度转换
 }
 
 -(void)setUIWithSelecteBtn:(SH_WebPButton *)btn SelectedView:(UIView *)selectedView{

@@ -8,6 +8,11 @@
 
 #import "SH_ProfitExchangeTableViewCell.h"
 
+@interface SH_ProfitExchangeTableViewCell()
+@property (weak, nonatomic) IBOutlet UILabel *titleLab;
+@property (weak, nonatomic) IBOutlet UILabel *moneyLab;
+
+@end
 @implementation SH_ProfitExchangeTableViewCell
 
 - (void)awakeFromNib {
@@ -20,5 +25,13 @@
 
     // Configure the view for the selected state
 }
-
+- (void)updateUIWithApiModel:(SH_ApiModel *)model{
+    self.titleLab.text = model.apiName;
+    if (model.status) {
+        self.moneyLab.text = model.status;
+    }else{
+        self.moneyLab.text = [NSString stringWithFormat:@"%.2f",[model.balance floatValue]];
+    }
+    
+}
 @end
