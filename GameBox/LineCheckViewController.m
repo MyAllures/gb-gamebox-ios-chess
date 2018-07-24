@@ -36,7 +36,7 @@
     [self starsAnimation];
     //先检查缓存的ips是否还有效
     BOOL isIPsValid = [[IPsCacheManager sharedManager] isIPsValid];
-    if (isIPsValid) {
+    if (NO) {
         //有效直接check
         NSDictionary *cacheIPSInfo = [[IPsCacheManager sharedManager] ips];
         NSDictionary *ips = [cacheIPSInfo objectForKey:@"ips"];
@@ -70,23 +70,34 @@
         else if ([SID isEqualToString:@"18"]) {
             //@"http://192.168.0.92/boss-api"
             //@"https://172.100.20.87:8989/boss-api"
-            [SH_NetWorkService fetchIPSFromBossAPIGroup:@[@"https://172.100.20.87:8989/boss-api"] host:@"" oneTurn:^(NSString *bossapi, BOOL success) {
-                NSLog(@">>>%@检测结果:%i",bossapi,success);
-                weakSelf.progress += 0.1;
-                weakSelf.lineCheckStatus = @"正在匹配服务器，请稍后...";
-            } complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-                NSLog(@"检测完毕:%@",response);
-                
-                NSLog(@"第三步：check-ip");
-                [weakSelf checkIPS:response complete:^(NSDictionary *ips) {
-                    //check成功 更新缓存
-                    [[IPsCacheManager sharedManager] updateIPsList:ips];
-                } failed:^{
-                    //
-                }];
-            } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
-                NSLog(@"检测失败:%@",err);
-            }];
+//            [SH_NetWorkService fetchIPSFromBossAPIGroup:@[@"https://172.100.20.87:8989/boss-api"] host:@"" oneTurn:^(NSString *bossapi, BOOL success) {
+//                NSLog(@">>>%@检测结果:%i",bossapi,success);
+//                weakSelf.progress += 0.1;
+//                weakSelf.lineCheckStatus = @"正在匹配服务器，请稍后...";
+//            } complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+//                NSLog(@"检测完毕:%@",response);
+//
+//                NSLog(@"第三步：check-ip");
+//                [weakSelf checkIPS:response complete:^(NSDictionary *ips) {
+//                    //check成功 更新缓存
+//                    [[IPsCacheManager sharedManager] updateIPsList:ips];
+//                } failed:^{
+//                    //
+//                }];
+//            } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
+//                NSLog(@"检测失败:%@",err);
+//            }];
+            
+            [NetWorkLineMangaer sharedManager].currentHost = @"test18.ampinplayopt0matrix.com";
+            [NetWorkLineMangaer sharedManager].currentIP = @"172.100.20.87";
+            [NetWorkLineMangaer sharedManager].currentHttpType = @"https";
+            [NetWorkLineMangaer sharedManager].currentPort = @"8989";
+            [NetWorkLineMangaer sharedManager].currentPreUrl = @"https://172.100.20.87:8989";
+            [[IPsCacheManager sharedManager] updateIPsList:@{@"ips":@[@"172.100.20.87"],@"domain":@"test18.ampinplayopt0matrix.com"}];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                SH_HomeViewController *homeVC =[[SH_HomeViewController alloc] initWithNibName:@"SH_HomeViewController" bundle:nil];
+                [weakSelf.navigationController pushViewController:homeVC animated:NO];
+            });
         }
         else
         {
