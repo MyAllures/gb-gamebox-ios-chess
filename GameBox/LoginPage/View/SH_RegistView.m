@@ -11,8 +11,9 @@
 #import "RH_RegisetInitModel.h"
 #import "RH_RegistrationViewItem.h"
 #import "UIColor+HexString.h"
-
 #import "AppDelegate.h"
+#import "UIImage+SH_WebPImage.h"
+
 @interface SH_RegistView()
 {
     RH_RegisetInitModel *registrationInitModel;
@@ -260,12 +261,12 @@
     [self.scrollview addSubview:button_Check];
     [button_Check mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.stackView.mas_bottom).mas_offset(8);
-        make.leading.mas_equalTo(130);//128
-        make.width.height.mas_equalTo(25);
+        make.leading.mas_equalTo(130);
+        make.width.height.mas_equalTo(14);
     }];
     
     [button_Check setSelected:YES];
-    [button_Check setImage:ImageWithName(@"select") forState:UIControlStateNormal];
+    [button_Check setImage:[UIImage imageWithWebPImageName:@"select"] forState:UIControlStateNormal];
     [button_Check addTarget:self action:@selector(button_CheckHandle:) forControlEvents:UIControlEventTouchUpInside];
     UIButton *label = [UIButton new];
     [self.scrollview addSubview:label];
@@ -293,7 +294,7 @@
     button.clipsToBounds = YES;
     [button setTitle:@"立即注册" forState:UIControlStateNormal];
 //    [button setBackgroundColor:colorWithRGB(20, 90, 180)];
-    [button setBackgroundImage:[UIImage imageNamed:@"login_button_long"] forState:UIControlStateNormal];
+    [button setBackgroundImage:[UIImage imageWithWebPImageName:@"login_button_long"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(buttonRegistrationHandle) forControlEvents:UIControlEventTouchUpInside];
 }
 
@@ -301,11 +302,11 @@
     
     if ([button isSelected]) {
         [button setSelected:NO];
-        [button setImage:ImageWithName(@"unselect") forState:UIControlStateNormal];
+        [button setImage:[UIImage imageWithWebPImageName:@"unselect"] forState:UIControlStateNormal];
         isAgreedServiceTerm = NO;
     }else {
         [button setSelected:YES];
-        [button setImage:ImageWithName(@"select") forState:UIControlStateNormal];
+        [button setImage:[UIImage imageWithWebPImageName:@"select"] forState:UIControlStateNormal];
         isAgreedServiceTerm = YES;
     }
 }

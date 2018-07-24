@@ -14,12 +14,13 @@
 #import "RH_WebsocketManagar.h"
 #import "SH_NetWorkService+RegistAPI.h"
 #import "UIColor+HexString.h"
-
 #import "RH_MineInfoModel.h"
 #import "RH_RegisetInitModel.h"
 #import "RH_RegistrationViewItem.h"
 #import "SH_RegistView.h"
 #import "SH_BankCardModel.h"
+#import "UIImage+SH_WebPImage.h"
+
 @interface SH_LoginView(){
      RH_RegisetInitModel *registrationInitModel;
 }
@@ -81,7 +82,7 @@
     self.captcha_label.hidden = YES;
     self.check_textField.hidden = YES;
     
-    UIImage  * img = [UIImage  imageNamed:@"left_bg"];
+    UIImage  * img = [UIImage imageWithWebPImageName:@"left_bg"];
     self.leftView.layer.contents = (__bridge id _Nullable)(img.CGImage);
    
     self.check_image.userInteractionEnabled = YES;
@@ -99,9 +100,9 @@
     }
     if ([dafault  boolForKey:@"isRememberPwd"]) {
         self.password_textField.text = [dafault objectForKey:@"password"];
-        [sender setImage:[UIImage imageNamed:@"select2"] forState:UIControlStateNormal];
+        [sender setImage:[UIImage imageWithWebPImageName:@"select2"] forState:UIControlStateNormal];
     }else{
-        [sender setImage:[UIImage imageNamed:@"unselect2"] forState:UIControlStateNormal];
+        [sender setImage:[UIImage imageWithWebPImageName:@"unselect2"] forState:UIControlStateNormal];
     }
    
 }
@@ -168,9 +169,9 @@
             [dafault  synchronize];
           
             if ([dafault boolForKey:@"isRememberPwd"]) {
-                 [sender setImage:[UIImage imageNamed:@"select2"] forState:UIControlStateNormal];
+                 [sender setImage:[UIImage imageWithWebPImageName:@"select2"] forState:UIControlStateNormal];
             }else{
-                 [sender setImage:[UIImage imageNamed:@"unselect2"] forState:UIControlStateNormal];
+                 [sender setImage:[UIImage imageWithWebPImageName:@"unselect2"] forState:UIControlStateNormal];
             }
             
             break;

@@ -13,6 +13,7 @@
 #import "SH_SysMsgDataListModel.h"
 #import "SH_MsgDetailView.h"
 #import "SH_WebPImageView.h"
+#import "UIImage+SH_WebPImage.h"
 
 @interface SH_SystemMsgView () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -297,7 +298,7 @@
     if (model.read == 1) {
         cell.mearkReadImageView.image = nil;
     }else{
-        cell.mearkReadImageView.image = [UIImage imageNamed:@"mearkRead"];
+        cell.mearkReadImageView.image = [UIImage imageWithWebPImageName:@"mearkRead"];
     }
     cell.advisoryTimeLabel.text = [self timeStampWithDate:model.publishTime];
     NSLog(@"id=====%ld",(long)model.id);

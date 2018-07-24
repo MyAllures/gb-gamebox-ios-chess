@@ -10,6 +10,7 @@
 #import <Masonry/Masonry.h>
 #import "SH_GameItemView.h"
 #import "SH_DZGameItemView.h"
+#import "UIImage+SH_WebPImage.h"
 
 #define SH_GAMELIST_ITEM_WIDTH self.frame.size.height/2.0*(128/107.5) //128
 #define SH_GAMELIST_ITEM_HEIGHT self.frame.size.height/2.0 //107.5
@@ -104,7 +105,7 @@
     if (_nextBT == nil) {
         _nextBT = [UIButton buttonWithType:UIButtonTypeCustom];
         _nextBT.hidden = YES;
-        [_nextBT setImage:[UIImage imageNamed:@"arrow_next"] forState:UIControlStateNormal];
+        [_nextBT setImage:[UIImage imageWithWebPImageName:@"arrow_next"] forState:UIControlStateNormal];
         [_nextBT addTarget:self action:@selector(nextBTClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_nextBT];
         [_nextBT mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -122,7 +123,7 @@
     if (_preBT == nil) {
         _preBT = [UIButton buttonWithType:UIButtonTypeCustom];
         _preBT.hidden = YES;
-        [_preBT setImage:[UIImage imageNamed:@"arrow_prev"] forState:UIControlStateNormal];
+        [_preBT setImage:[UIImage imageWithWebPImageName:@"arrow_prev"] forState:UIControlStateNormal];
         [_preBT addTarget:self action:@selector(preBTClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_preBT];
         [_preBT mas_makeConstraints:^(MASConstraintMaker *make) {
