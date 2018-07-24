@@ -113,7 +113,6 @@
     [self layoutIfNeeded];
 }
 - (IBAction)sendVerificationBtn:(id)sender {
-    //发送验证码按钮点击事件
     if (self.NewPhoneNumTF.text.length == 0) {
         showMessage(self, @"请输入手机号", nil);
     }else{
