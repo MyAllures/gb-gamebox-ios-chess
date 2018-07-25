@@ -186,7 +186,7 @@
                 NSDictionary *dict = (NSDictionary *)response;
                 NSLog(@"dict===%@",dict);
                 NSString *dataStr = dict[@"data"];
-                if (![dataStr isEqualToString:@"0"]) {
+                if ([dataStr intValue] == 0) {
                     SH_FindPSWView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_FindPSWView" owner:self options:nil].firstObject;
                     AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:200 titleImageName:@"outCoinDetail" alertViewType:AlertViewTypeShort];
                     view.targetVC1 = acr;

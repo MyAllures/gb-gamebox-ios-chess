@@ -14,11 +14,8 @@
 
 @implementation SH_FindPSWSureView
 - (IBAction)sureAction:(id)sender {
-    if (self.textField1.text.length == 0 || self.textField2.text.length == 0) {
+    if (self.textField2.text.length == 0) {
         showMessage(self, @"", @"密码不能为空");
-    }
-    if (![self.textField1.text isEqualToString:self.textField2.text]) {
-        showMessage(self, @"", @"两次的密码不一致");
     }
     [SH_NetWorkService_FindPsw finbackLoginPsw:self.textField1.text psw:self.textField2.text complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dict = (NSDictionary *)response;
