@@ -45,6 +45,7 @@
 		22FC6E862107526E001FA492 /* SH_FindPSWSendCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FC6E852107526E001FA492 /* SH_FindPSWSendCodeView.xib */; };
 		22FC6E892107549A001FA492 /* SH_FindPSWSureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC6E882107549A001FA492 /* SH_FindPSWSureView.m */; };
 		22FC6E8B210754A2001FA492 /* SH_FindPSWSureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FC6E8A210754A2001FA492 /* SH_FindPSWSureView.xib */; };
+		22FC6E8F210824EB001FA492 /* SH_NetWorkService_FindPsw.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC6E8E210824EB001FA492 /* SH_NetWorkService_FindPsw.m */; };
 		425A90C020F8873E004B681A /* HLPopTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 425A90BF20F8873E004B681A /* HLPopTableView.m */; };
 		425A90C320F88746004B681A /* UIView+HLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 425A90C220F88746004B681A /* UIView+HLExtension.m */; };
 		42BF3E6E20F33A5D00F36B82 /* SH_PlayerCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BF3E6D20F33A5D00F36B82 /* SH_PlayerCenterView.m */; };
@@ -449,6 +450,8 @@
 		22FC6E872107549A001FA492 /* SH_FindPSWSureView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_FindPSWSureView.h; sourceTree = "<group>"; };
 		22FC6E882107549A001FA492 /* SH_FindPSWSureView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_FindPSWSureView.m; sourceTree = "<group>"; };
 		22FC6E8A210754A2001FA492 /* SH_FindPSWSureView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_FindPSWSureView.xib; sourceTree = "<group>"; };
+		22FC6E8D210824EB001FA492 /* SH_NetWorkService_FindPsw.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_NetWorkService_FindPsw.h; sourceTree = "<group>"; };
+		22FC6E8E210824EB001FA492 /* SH_NetWorkService_FindPsw.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_NetWorkService_FindPsw.m; sourceTree = "<group>"; };
 		3BBE090F9B091E073F4BB10C /* Pods-GameBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameBox/Pods-GameBox.release.xcconfig"; sourceTree = "<group>"; };
 		425A90BE20F8873D004B681A /* HLPopTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLPopTableView.h; sourceTree = "<group>"; };
 		425A90BF20F8873E004B681A /* HLPopTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLPopTableView.m; sourceTree = "<group>"; };
@@ -1104,6 +1107,15 @@
 			path = promoDetail;
 			sourceTree = "<group>";
 		};
+		22FC6E8C21082487001FA492 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				22FC6E8D210824EB001FA492 /* SH_NetWorkService_FindPsw.h */,
+				22FC6E8E210824EB001FA492 /* SH_NetWorkService_FindPsw.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		5401C52320ECA10F0027246D = {
 			isa = PBXGroup;
 			children = (
@@ -1752,6 +1764,7 @@
 		BF45748221074BE2006246B4 /* FindPSW */ = {
 			isa = PBXGroup;
 			children = (
+				22FC6E8C21082487001FA492 /* model */,
 				BF45748321074C01006246B4 /* SH_FindPSWView.h */,
 				BF45748421074C01006246B4 /* SH_FindPSWView.m */,
 				BF45748621074C0E006246B4 /* SH_FindPSWView.xib */,
@@ -2672,6 +2685,7 @@
 				BF44ECDF20F6F6AA00BC6EF3 /* UILabel+handle.m in Sources */,
 				5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */,
 				543970E5210464010091C719 /* UIImage+SH_WebPImage.m in Sources */,
+				22FC6E8F210824EB001FA492 /* SH_NetWorkService_FindPsw.m in Sources */,
 				BFA068D820FEE2FA00F5ADFE /* SH_NetWorkService+SaftyCenter.m in Sources */,
 				54C875AB20F84BFF00AA0594 /* SH_GameItemModel.m in Sources */,
 				BFFEDCBB20F35627002E69FD /* SH_RechargeCenterAccountModel.m in Sources */,

@@ -70,6 +70,9 @@
                     <state key="normal" title="获取验证码">
                         <color key="titleColor" red="0.1764705882" green="0.90196078430000004" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <connections>
+                        <action selector="sendVerification:" destination="iN0-l3-epB" eventType="touchUpInside" id="0kg-MN-cDK"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rwH-e7-bRc" customClass="SH_WebPButton">
                     <rect key="frame" x="114.5" y="137" width="146" height="47"/>
@@ -82,6 +85,9 @@
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="login_button"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="nextAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="BML-bZ-n96"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.1647058824" green="0.20784313730000001" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -97,6 +103,12 @@
                 <constraint firstItem="fbS-gl-h8c" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="xyn-4g-tT6"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="codeTV" destination="zz5-dT-5bS" id="TLg-UI-Dy2"/>
+                <outlet property="phoneLabel" destination="6rU-IZ-sAA" id="sHz-o4-8Un"/>
+                <outlet property="verificationBtn" destination="2v2-kR-bZb" id="Yd9-Bo-hOe"/>
+            </connections>
+            <point key="canvasLocation" x="-671" y="122"/>
         </view>
     </objects>
 </document>
