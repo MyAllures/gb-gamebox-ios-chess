@@ -21,18 +21,18 @@
             NSDictionary *dict = (NSDictionary *)response;
             NSLog(@"dict===%@",dict);
             NSString *code = dict[@"code"];
-            if ([code isEqualToString:@"0"]) {
+            if ([code intValue] == 0) {
 
                 [SH_NetWorkService_FindPsw forgetPswSendCode:dict[@"data"][@"encryptedId"] complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
                     NSDictionary *dict1 = (NSDictionary *)response;
                     NSLog(@"dict1===%@",dict1);
                     NSString *code = dict1[@"code"];
-                    if ([code isEqualToString:@"0"]) {
+                    if ([code intValue] == 0) {
                         SH_FindPSWSendCodeView *view = [[[NSBundle mainBundle]loadNibNamed:@"SH_FindPSWSendCodeView" owner:nil options:nil] lastObject];
                         AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:200 titleImageName:@"outCoinDetail" alertViewType:AlertViewTypeShort];
                         view.targetVC2 = acr;
                         view.encryptedId = dict[@"data"][@"encryptedId"];
-                        view.phoneStr = dict1[@"data"];
+                        view.phoneStr = dict[@"data"][@"phone"];
                         acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
                         acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
                         [self.targetVC1 presentViewController:acr animated:YES completion:nil];
