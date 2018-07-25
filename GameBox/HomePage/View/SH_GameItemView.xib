@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="250" height="240"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="game_chess_34_870" translatesAutoresizingMaskIntoConstraints="NO" id="IFV-zN-oFQ">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IFV-zN-oFQ">
                     <rect key="frame" x="0.0" y="0.0" width="250" height="240"/>
                 </imageView>
             </subviews>
@@ -33,7 +33,4 @@
             <point key="canvasLocation" x="-29" y="-160"/>
         </view>
     </objects>
-    <resources>
-        <image name="game_chess_34_870" width="126" height="107"/>
-    </resources>
 </document>
