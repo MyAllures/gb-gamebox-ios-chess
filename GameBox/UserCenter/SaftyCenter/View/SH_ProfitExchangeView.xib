@@ -48,7 +48,7 @@
                     </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vqe-Q8-5ly">
-                    <rect key="frame" x="12" y="40" width="309" height="244"/>
+                    <rect key="frame" x="12" y="40" width="309" height="242"/>
                     <color key="backgroundColor" red="0.3411764706" green="0.39607843139999999" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </tableView>
             </subviews>
@@ -59,11 +59,19 @@
                 <constraint firstItem="Vqe-Q8-5ly" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="MIn-bs-aW4"/>
                 <constraint firstItem="azb-3E-1Ox" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="bHo-os-69c"/>
                 <constraint firstItem="Vqe-Q8-5ly" firstAttribute="top" secondItem="azb-3E-1Ox" secondAttribute="bottom" id="jd2-Hw-c2Q"/>
-                <constraint firstAttribute="bottom" secondItem="Vqe-Q8-5ly" secondAttribute="bottom" id="kCM-bO-fke"/>
+                <constraint firstAttribute="bottom" secondItem="Vqe-Q8-5ly" secondAttribute="bottom" constant="2" id="kCM-bO-fke"/>
                 <constraint firstItem="azb-3E-1Ox" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="7" id="pGC-G5-8Jg"/>
                 <constraint firstAttribute="trailing" secondItem="Vqe-Q8-5ly" secondAttribute="trailing" constant="12" id="yZl-te-SXr"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                    <color key="value" red="1" green="1" blue="1" alpha="0.25" colorSpace="calibratedRGB"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                    <real key="value" value="2"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="mainTableView" destination="Vqe-Q8-5ly" id="2sM-Oh-f3z"/>
                 <outlet property="recoveryBtn" destination="SnL-dA-g8x" id="AwX-Yc-tEK"/>

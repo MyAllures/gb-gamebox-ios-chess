@@ -37,7 +37,7 @@
     return self.dataArray.count;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 30;
+    return 32;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     SH_LookJiHeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SH_LookJiHeTableViewCell"];

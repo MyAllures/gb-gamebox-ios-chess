@@ -50,25 +50,25 @@
 }
 - (IBAction)lookJiHeBtnClick:(id)sender {
     SH_LookJiHeView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_LookJiHeView" owner:self options:nil].firstObject;
-    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-77 titleImageName:@"lookProfit" alertViewType:AlertViewTypeLong];
+    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-77 titleImageName:@"title15" alertViewType:AlertViewTypeLong];
     acr.title = @"牌局记录";
     acr.modalPresentationStyle = UIModalPresentationCurrentContext;
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self.targetVC presentViewController:acr animated:YES completion:nil];
     view.targetVC = acr;
 }
+
 - (IBAction)sureOutCoinBtnClick:(id)sender {
     SH_ConfirSaftyPassWordView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_ConfirSaftyPassWordView" owner:self options:nil].firstObject;
     view.money = self.details[1];
     view.token = self.token;
     view.targetVC = self.targetVC;
-    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-175 titleImageName:@"title17" alertViewType:AlertViewTypeShort];
-    acr.title = @"牌局记录";
+    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:210 titleImageName:@"title17" alertViewType:AlertViewTypeShort];
     acr.modalPresentationStyle = UIModalPresentationCurrentContext;
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self.targetVC presentViewController:acr animated:YES completion:nil];
-
 }
+
 - (void)updateUIWithDetailArray:(NSArray *)details
                        TargetVC:(UIViewController *)targetVC
                           Token:(NSString *)token{

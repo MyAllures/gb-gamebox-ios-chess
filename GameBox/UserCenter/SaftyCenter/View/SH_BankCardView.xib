@@ -16,7 +16,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入真实姓名" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0E4-bh-MeB">
-                    <rect key="frame" x="98" y="20" width="205" height="30"/>
+                    <rect key="frame" x="98" y="30" width="205" height="30"/>
                     <color key="backgroundColor" red="0.13725490200000001" green="0.16862745100000001" blue="0.41568627450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="DNT-Fp-hCY"/>
@@ -34,19 +34,19 @@
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="银行卡户名和真实姓名一致才能取款成功" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ZC-Ac-Zqy">
-                    <rect key="frame" x="117.5" y="52" width="166" height="11"/>
+                    <rect key="frame" x="117.5" y="62" width="166" height="11"/>
                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="真实姓名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1u-3x-fEA">
-                    <rect key="frame" x="32" y="26.5" width="58" height="17"/>
+                    <rect key="frame" x="32" y="36.5" width="58" height="17"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5q4-02-0H2">
-                    <rect key="frame" x="98" y="73" width="205" height="30"/>
+                    <rect key="frame" x="98" y="83" width="205" height="30"/>
                     <color key="backgroundColor" red="0.13725490200000001" green="0.16862745100000001" blue="0.41568627450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="205" id="TfO-My-Kjt"/>
@@ -64,7 +64,7 @@
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQg-sq-ztu" customClass="SH_WebPButton">
-                    <rect key="frame" x="161" y="73.5" width="80" height="30"/>
+                    <rect key="frame" x="161" y="83.5" width="80" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="6Gc-ql-AkP"/>
                         <constraint firstAttribute="width" constant="80" id="c4J-9H-voD"/>
@@ -79,13 +79,13 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="银行" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oEi-UM-M0V">
-                    <rect key="frame" x="61" y="79" width="29" height="17"/>
+                    <rect key="frame" x="61" y="89" width="29" height="17"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入卡号" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KS6-NG-6wd">
-                    <rect key="frame" x="98" y="113" width="205" height="30"/>
+                    <rect key="frame" x="98" y="123" width="205" height="30"/>
                     <color key="backgroundColor" red="0.13725490200000001" green="0.16862745100000001" blue="0.41568627450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="boc-cP-rme"/>
@@ -103,7 +103,7 @@
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="如:河北唐山建设银行" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bcv-Q0-OsG">
-                    <rect key="frame" x="98" y="153" width="205" height="30"/>
+                    <rect key="frame" x="98" y="163" width="205" height="30"/>
                     <color key="backgroundColor" red="0.13725490200000001" green="0.16862745100000001" blue="0.41568627450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="205" id="8oa-Pn-jfu"/>
@@ -121,25 +121,25 @@
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="卡号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8y-Ig-hIU">
-                    <rect key="frame" x="61" y="119" width="29" height="17"/>
+                    <rect key="frame" x="61" y="129" width="29" height="17"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开户银行" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDa-Xs-WL9">
-                    <rect key="frame" x="32" y="160" width="58" height="17"/>
+                    <rect key="frame" x="32" y="170" width="58" height="17"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择“其他”银行必填" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFe-Zw-dN8">
-                    <rect key="frame" x="159" y="186" width="83" height="11"/>
+                    <rect key="frame" x="159" y="196" width="83" height="11"/>
                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9s2-FX-4AL" customClass="SH_WebPButton">
-                    <rect key="frame" x="94" y="212" width="145" height="45"/>
+                    <rect key="frame" x="94" y="222" width="145" height="45"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="21v-xG-GkE"/>
                         <constraint firstAttribute="width" constant="145" id="NWb-Sy-Hpo"/>
@@ -175,13 +175,21 @@
                 <constraint firstItem="CFe-Zw-dN8" firstAttribute="top" secondItem="bcv-Q0-OsG" secondAttribute="bottom" constant="3" id="gpJ-Zo-Eyv"/>
                 <constraint firstItem="oEi-UM-M0V" firstAttribute="centerY" secondItem="5q4-02-0H2" secondAttribute="centerY" id="hL7-Oa-P6i"/>
                 <constraint firstItem="f8y-Ig-hIU" firstAttribute="centerY" secondItem="KS6-NG-6wd" secondAttribute="centerY" id="kjR-eH-d0i"/>
-                <constraint firstItem="0E4-bh-MeB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="miQ-Ek-Qzs"/>
+                <constraint firstItem="0E4-bh-MeB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="miQ-Ek-Qzs"/>
                 <constraint firstItem="9s2-FX-4AL" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="oB4-9c-8e0"/>
                 <constraint firstItem="5q4-02-0H2" firstAttribute="centerX" secondItem="0E4-bh-MeB" secondAttribute="centerX" id="te0-Xf-PWg"/>
                 <constraint firstItem="LQg-sq-ztu" firstAttribute="centerY" secondItem="5q4-02-0H2" secondAttribute="centerY" id="zMH-JX-fRp"/>
                 <constraint firstItem="8ZC-Ac-Zqy" firstAttribute="top" secondItem="0E4-bh-MeB" secondAttribute="bottom" constant="2" id="zjA-ql-YgX"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                    <color key="value" red="1" green="1" blue="1" alpha="0.25" colorSpace="calibratedRGB"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                    <real key="value" value="2"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="addressTF" destination="bcv-Q0-OsG" id="oSS-45-l85"/>
                 <outlet property="bankTF" destination="5q4-02-0H2" id="8qV-ix-ZZ6"/>

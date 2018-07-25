@@ -87,7 +87,7 @@
     self.captcha_label.hidden = YES;
     self.check_textField.hidden = YES;
     
-    UIImage  * img = [UIImage imageWithWebPImageName:@"left_bg"];
+    UIImage  * img = [UIImage imageWithWebPImageName:@"left_bgImage"];
     self.leftView.layer.contents = (__bridge id _Nullable)(img.CGImage);
    
     self.check_image.userInteractionEnabled = YES;
@@ -182,26 +182,23 @@
             break;
         }
         case 4:{
-            
             [SH_NetWorkService_FindPsw checkForgetPswStatusComplete:^(NSHTTPURLResponse *httpURLResponse, id response) {
                 NSDictionary *dict = (NSDictionary *)response;
                 NSLog(@"dict===%@",dict);
                 NSString *dataStr = dict[@"data"];
-//                if (![dataStr isEqualToString:@"0"]) {
+                if (![dataStr isEqualToString:@"0"]) {
                     SH_FindPSWView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_FindPSWView" owner:self options:nil].firstObject;
                     AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:200 titleImageName:@"outCoinDetail" alertViewType:AlertViewTypeShort];
                     view.targetVC1 = acr;
                     acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
                     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
                     [self.targetVC presentViewController:acr animated:YES completion:nil];
-//                } else{
-//                    showMessage(self, @"", @"未开启找回密码功能，请联系客服");
-//                }
+                } else{
+                    showMessage(self, @"", @"未开启找回密码功能，请联系客服");
+                }
             } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
                 
             }];
-            
-            
             break;
         }
         default:

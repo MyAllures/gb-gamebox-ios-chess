@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SH_XibView.h"
 
-@interface SH_ModifyLoginPSDView : UIView
+@interface SH_ModifyLoginPSDView : SH_XibView
 @property(nonatomic,strong)UIViewController *targetVC;
 @end

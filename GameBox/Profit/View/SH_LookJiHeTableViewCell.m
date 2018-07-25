@@ -9,10 +9,12 @@
 #import "SH_LookJiHeTableViewCell.h"
 
 @interface SH_LookJiHeTableViewCell()
-@property (weak, nonatomic) IBOutlet UILabel *timeLab;
-@property (weak, nonatomic) IBOutlet UILabel *moneyLab;
-@property (weak, nonatomic) IBOutlet UILabel *pointLab;
-@property (weak, nonatomic) IBOutlet UILabel *feeLab;
+@property (weak, nonatomic) IBOutlet UILabel *createTimeLB;//存款时间
+@property (weak, nonatomic) IBOutlet UILabel *rechargeAmountLB;//存款金额
+@property (weak, nonatomic) IBOutlet UILabel *rechargeAuditLB;//存款稽核点
+@property (weak, nonatomic) IBOutlet UILabel *favorableAmountLB;//优惠金额
+@property (weak, nonatomic) IBOutlet UILabel *favorableAuditLB;//优惠稽核点
+@property (weak, nonatomic) IBOutlet UILabel *favorableFeeLB;//优惠扣除
 
 @end
 @implementation SH_LookJiHeTableViewCell
@@ -30,14 +32,11 @@
 - (void)updaetUIWithModel:(SH_JiHeSubModel *)model{
     
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[model.createTime longLongValue]/1000.0];
-    self.timeLab.text = dateStringWithFormatter(date, @"yyyy-MM-dd");
-    self.moneyLab.text = model.rechargeAmount;
-    self.pointLab.text = model.rechargeAudit;
-    if ([model.rechargeFee isEqualToString:@"0"]) {
-        self.feeLab.text = model.rechargeFee;
-    }else{
-        self.feeLab.text = @"未通过";
-    }
-    
+    self.createTimeLB.text = dateStringWithFormatter(date, @"yyyy-MM-dd HH:MM:ss");
+    self.rechargeAmountLB.text = model.rechargeAmount;
+    self.rechargeAuditLB.text = [NSString stringWithFormat:@"%@/%@",model.rechargeRemindAudit,model.rechargeAudit];
+    self.favorableAmountLB.text = model.favorableAmount;
+    self.favorableAuditLB.text = [NSString stringWithFormat:@"%@/%@",model.favorableRemindAudit,model.favorableAudit];
+    self.favorableFeeLB.text = model.favorableFee;
 }
 @end

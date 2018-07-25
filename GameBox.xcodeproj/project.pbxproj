@@ -199,6 +199,8 @@
 		54C8763D2100B04300AA0594 /* SH_HorizontalscreenPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8763A2100B04300AA0594 /* SH_HorizontalscreenPicker.m */; };
 		54C876422100BFA000AA0594 /* SH_PromoDeatilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C876402100BFA000AA0594 /* SH_PromoDeatilViewController.m */; };
 		54C876432100BFA000AA0594 /* SH_PromoDeatilViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C876412100BFA000AA0594 /* SH_PromoDeatilViewController.xib */; };
+		54D5F574210816AA00439A94 /* column_bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54D5F573210816A900439A94 /* column_bg.webp */; };
+		54D5F57821081C5300439A94 /* SH_XibView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D5F57721081C5300439A94 /* SH_XibView.m */; };
 		54E7D2CF210724FF0069F2CE /* game_icon_back.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54E7D2CC210724FE0069F2CE /* game_icon_back.webp */; };
 		54E7D2D0210724FF0069F2CE /* game_menu_bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54E7D2CD210724FF0069F2CE /* game_menu_bg.webp */; };
 		54E7D2D1210724FF0069F2CE /* game_icon_home.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54E7D2CE210724FF0069F2CE /* game_icon_home.webp */; };
@@ -655,6 +657,9 @@
 		54C8763F2100BFA000AA0594 /* SH_PromoDeatilViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoDeatilViewController.h; sourceTree = "<group>"; };
 		54C876402100BFA000AA0594 /* SH_PromoDeatilViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoDeatilViewController.m; sourceTree = "<group>"; };
 		54C876412100BFA000AA0594 /* SH_PromoDeatilViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PromoDeatilViewController.xib; sourceTree = "<group>"; };
+		54D5F573210816A900439A94 /* column_bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = column_bg.webp; sourceTree = "<group>"; };
+		54D5F57621081C5300439A94 /* SH_XibView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_XibView.h; sourceTree = "<group>"; };
+		54D5F57721081C5300439A94 /* SH_XibView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_XibView.m; sourceTree = "<group>"; };
 		54E7D2CC210724FE0069F2CE /* game_icon_back.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = game_icon_back.webp; sourceTree = "<group>"; };
 		54E7D2CD210724FF0069F2CE /* game_menu_bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = game_menu_bg.webp; sourceTree = "<group>"; };
 		54E7D2CE210724FF0069F2CE /* game_icon_home.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = game_icon_home.webp; sourceTree = "<group>"; };
@@ -1163,6 +1168,7 @@
 		5401C54520ECA1B80027246D /* CoreBase */ = {
 			isa = PBXGroup;
 			children = (
+				54D5F57521081C3F00439A94 /* XibView */,
 				5435E7C62104380300DB809F /* WebPImageView */,
 				DA1BCCB42100AB9D00201DBC /* ThirdLib */,
 				54C876352100B04300AA0594 /* THScrollChoose */,
@@ -1292,6 +1298,7 @@
 		5435E7C32104349B00DB809F /* webpRes */ = {
 			isa = PBXGroup;
 			children = (
+				54D5F573210816A900439A94 /* column_bg.webp */,
 				54E7D2EC210726A20069F2CE /* betRec_calendar_icon.webp */,
 				54E7D2EA210726710069F2CE /* choose.webp */,
 				54E7D2E8210726580069F2CE /* down.webp */,
@@ -1602,6 +1609,15 @@
 				54C876412100BFA000AA0594 /* SH_PromoDeatilViewController.xib */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		54D5F57521081C3F00439A94 /* XibView */ = {
+			isa = PBXGroup;
+			children = (
+				54D5F57621081C5300439A94 /* SH_XibView.h */,
+				54D5F57721081C5300439A94 /* SH_XibView.m */,
+			);
+			path = XibView;
 			sourceTree = "<group>";
 		};
 		87BD6A1D16B97D20B3D1FCB6 /* Frameworks */ = {
@@ -2511,6 +2527,7 @@
 				543970BC210462BB0091C719 /* green.webp in Resources */,
 				54C8763B2100B04300AA0594 /* SH_HorizontalscreenPicker.xib in Resources */,
 				543970A8210462BB0091C719 /* rounded_bg.webp in Resources */,
+				54D5F574210816AA00439A94 /* column_bg.webp in Resources */,
 				DA22F34320F43AD00058A54F /* SH_LoginView.xib in Resources */,
 				BF44ECCB20F4D6CC00BC6EF3 /* SH_RechargeDetailMainSubmitView.xib in Resources */,
 				BF66089E21070BC50029C4A6 /* refresh.webp in Resources */,
@@ -2719,6 +2736,7 @@
 				DA6EE1C720F99F39009A01C5 /* SH_SettingView.m in Sources */,
 				5401C53F20ECA1100027246D /* main.m in Sources */,
 				22552CDF20F494E80090EFBC /* SH_SiteMsgView.m in Sources */,
+				54D5F57821081C5300439A94 /* SH_XibView.m in Sources */,
 				5401C55A20ECA48D0027246D /* NetWorkLineMangaer.m in Sources */,
 				22FC6E8421075262001FA492 /* SH_FindPSWSendCodeView.m in Sources */,
 				22E486D920F9F8AE0051A68C /* SH_SysMsgDataListModel.m in Sources */,

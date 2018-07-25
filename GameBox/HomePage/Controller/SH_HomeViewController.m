@@ -377,7 +377,7 @@
 #pragma mark - 用户登录
 
 -(void)login{
-    SH_LoginView *login = [SH_LoginView  InstanceLoginView];
+    SH_LoginView *login = [SH_LoginView InstanceLoginView];
     AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:260 titleImageName:@"title01" alertViewType:AlertViewTypeLong];
     login.targetVC = cvc;
     login.dismissBlock = ^{
