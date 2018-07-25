@@ -70,6 +70,7 @@
         acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         [self.targetVC presentViewController:acr animated:YES completion:nil];
+        self.feeModel.actualWithdraw = [NSString stringWithFormat:@"%.2f",[self.feeModel.actualWithdraw floatValue]];
         [view updateUIWithDetailArray:@[self.bankNumLab.text,self.numTextField.text,self.feeModel.counterFee,self.feeModel.administrativeFee,self.feeModel.deductFavorable,self.feeModel.actualWithdraw] TargetVC:acr Token:self.token];
     }
     
