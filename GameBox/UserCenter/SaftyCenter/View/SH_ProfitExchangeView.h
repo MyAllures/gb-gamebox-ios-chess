@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SH_XibView.h"
 
-@interface SH_ProfitExchangeView : UIView
+@interface SH_ProfitExchangeView : SH_XibView
 -(void)selectProfitExchangeView;
 @end

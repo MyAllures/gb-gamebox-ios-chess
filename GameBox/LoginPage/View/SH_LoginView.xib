@@ -64,7 +64,7 @@
                         <constraint firstItem="Vn4-9U-mLf" firstAttribute="trailing" secondItem="hzc-wN-B7s" secondAttribute="trailing" id="ouc-sS-uhy"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJ0-VR-dqr">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJ0-VR-dqr" customClass="SH_XibView">
                     <rect key="frame" x="143" y="8" width="256" height="284"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入账号" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ue5-ax-zvL">
@@ -223,6 +223,17 @@
                         <constraint firstItem="NH3-tB-QIO" firstAttribute="trailing" secondItem="aoe-eq-j4I" secondAttribute="trailing" id="vCq-Sb-eXx"/>
                         <constraint firstAttribute="bottom" secondItem="RHZ-se-umN" secondAttribute="bottom" id="zVa-5T-X74"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" white="1" alpha="0.25" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.16470588235294117" green="0.20784313725490194" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="333" height="284"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PHK-AA-NMh">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PHK-AA-NMh" customClass="SH_XibView">
                     <rect key="frame" x="10" y="8" width="313" height="200"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="旧手机号码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lj-5u-nPC">
@@ -130,16 +130,27 @@
                         <constraint firstItem="OiY-R3-8xh" firstAttribute="top" secondItem="PHK-AA-NMh" secondAttribute="top" constant="64" id="trF-3N-WYl"/>
                         <constraint firstItem="3lj-5u-nPC" firstAttribute="top" secondItem="PHK-AA-NMh" secondAttribute="top" constant="23" id="yFa-lT-OnQ"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="1" green="1" blue="1" alpha="0.25" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QLz-oQ-9JM" userLabel="lineView">
-                    <rect key="frame" x="10" y="213" width="313" height="1"/>
+                    <rect key="frame" x="10" y="220" width="313" height="1"/>
                     <color key="backgroundColor" red="0.25882352941176467" green="0.29411764705882354" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="lnc-gm-fTy"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jz-Wo-dGv" userLabel="温馨提示： ●忘记密码时可以通过手机号码找回。 ●短信送达可能存在延迟，请耐心等待。 ●若规定时间内仍未收到短信，请您重新获取或联系在线客服。">
-                    <rect key="frame" x="10" y="216" width="323" height="58"/>
+                    <rect key="frame" x="10" y="229" width="323" height="53"/>
                     <string key="text">温馨提示：
 ●忘记密码时可以通过手机号码找回。
 ●短信送达可能存在延迟，请耐心等待。
@@ -151,12 +162,11 @@
             </subviews>
             <color key="backgroundColor" red="0.1647058824" green="0.20784313730000001" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="QLz-oQ-9JM" firstAttribute="top" secondItem="PHK-AA-NMh" secondAttribute="bottom" constant="5" id="4Jb-Jf-Ke9"/>
+                <constraint firstItem="QLz-oQ-9JM" firstAttribute="top" secondItem="PHK-AA-NMh" secondAttribute="bottom" constant="12" id="4Jb-Jf-Ke9"/>
                 <constraint firstItem="QLz-oQ-9JM" firstAttribute="leading" secondItem="PHK-AA-NMh" secondAttribute="leading" id="FpE-ea-bKY"/>
-                <constraint firstItem="8jz-Wo-dGv" firstAttribute="top" secondItem="QLz-oQ-9JM" secondAttribute="bottom" constant="2" id="QaI-v3-T1K"/>
+                <constraint firstItem="8jz-Wo-dGv" firstAttribute="top" secondItem="QLz-oQ-9JM" secondAttribute="bottom" constant="8" id="QaI-v3-T1K"/>
                 <constraint firstItem="8jz-Wo-dGv" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="bK6-we-bBG"/>
                 <constraint firstItem="PHK-AA-NMh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="eNR-1X-yAM"/>
-                <constraint firstItem="8jz-Wo-dGv" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="bottom" constant="-10" id="jgQ-ge-zpa"/>
                 <constraint firstItem="8jz-Wo-dGv" firstAttribute="leading" secondItem="QLz-oQ-9JM" secondAttribute="leading" id="m8j-oM-HbF"/>
                 <constraint firstItem="PHK-AA-NMh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="o0h-dc-luM"/>
                 <constraint firstItem="QLz-oQ-9JM" firstAttribute="trailing" secondItem="PHK-AA-NMh" secondAttribute="trailing" id="rP0-oO-otr"/>

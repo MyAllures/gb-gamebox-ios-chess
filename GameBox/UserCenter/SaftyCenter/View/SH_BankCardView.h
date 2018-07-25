@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SH_XibView.h"
 
-@interface SH_BankCardView : UIView
+@interface SH_BankCardView : SH_XibView
 @property(nonatomic,strong)UIViewController *targetVC;
 @property(nonatomic,copy)NSString *from;
 @end

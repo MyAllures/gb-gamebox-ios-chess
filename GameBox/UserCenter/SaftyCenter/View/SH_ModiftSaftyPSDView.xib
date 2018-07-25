@@ -189,6 +189,14 @@
                 <constraint firstItem="5f3-aV-gNR" firstAttribute="top" secondItem="QFQ-yV-bV8" secondAttribute="bottom" constant="10" id="v9V-gm-mco"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                    <color key="value" red="1" green="1" blue="1" alpha="0.25" colorSpace="calibratedRGB"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                    <real key="value" value="2"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="NewTF" destination="QFQ-yV-bV8" id="quG-qv-fqm"/>
                 <outlet property="currentLab" destination="K8n-Qx-tST" id="Fn9-9g-oSj"/>

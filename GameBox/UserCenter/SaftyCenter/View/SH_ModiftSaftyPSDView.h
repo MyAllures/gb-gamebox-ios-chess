@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SH_XibView.h"
 
-@interface SH_ModiftSaftyPSDView : UIView
+@interface SH_ModiftSaftyPSDView : SH_XibView
 @property(nonatomic,strong)UIViewController *targetVC;
 -(void)updateView;
 @end
