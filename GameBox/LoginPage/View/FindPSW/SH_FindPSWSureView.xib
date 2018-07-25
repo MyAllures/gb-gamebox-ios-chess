@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lDf-YQ-2kE">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lDf-YQ-2kE" customClass="SH_XibView">
                     <rect key="frame" x="10" y="13" width="355" height="116"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请输入账号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnz-NV-7Bd">
@@ -51,7 +51,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                     </subviews>
-                    <color key="backgroundColor" red="0.18039215689999999" green="0.23529411759999999" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.19215686274509802" green="0.24705882352941178" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="7qi-V7-2sU" firstAttribute="centerY" secondItem="yFH-hf-dUM" secondAttribute="centerY" id="0PY-qx-Ueh"/>
                         <constraint firstItem="HY6-tE-33b" firstAttribute="leading" secondItem="hnz-NV-7Bd" secondAttribute="trailing" constant="8" id="D8v-iC-k6D"/>
@@ -66,6 +66,17 @@
                         <constraint firstItem="yFH-hf-dUM" firstAttribute="trailing" secondItem="hnz-NV-7Bd" secondAttribute="trailing" id="ngD-KD-3cs"/>
                         <constraint firstAttribute="trailing" secondItem="7qi-V7-2sU" secondAttribute="trailing" constant="10" id="oSz-W2-nJ0"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OaW-4Q-4bF" customClass="SH_WebPButton">
                     <rect key="frame" x="114.5" y="136" width="146" height="46"/>

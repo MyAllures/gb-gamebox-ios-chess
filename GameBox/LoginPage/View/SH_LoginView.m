@@ -188,7 +188,7 @@
                 NSString *dataStr = dict[@"data"];
                 if ([dataStr intValue] == 0) {
                     SH_FindPSWView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_FindPSWView" owner:self options:nil].firstObject;
-                    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:200 titleImageName:@"outCoinDetail" alertViewType:AlertViewTypeShort];
+                    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:200 titleImageName:@"title19" alertViewType:AlertViewTypeShort];
                     view.targetVC1 = acr;
                     acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
                     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;

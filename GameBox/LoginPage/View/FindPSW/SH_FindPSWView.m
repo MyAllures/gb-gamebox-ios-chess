@@ -29,7 +29,7 @@
                     NSString *code = dict1[@"code"];
                     if ([code intValue] == 0) {
                         SH_FindPSWSendCodeView *view = [[[NSBundle mainBundle]loadNibNamed:@"SH_FindPSWSendCodeView" owner:nil options:nil] lastObject];
-                        AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:200 titleImageName:@"outCoinDetail" alertViewType:AlertViewTypeShort];
+                        AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:200 titleImageName:@"title19" alertViewType:AlertViewTypeShort];
                         view.targetVC2 = acr;
                         view.encryptedId = dict[@"data"][@"encryptedId"];
                         view.phoneStr = dict[@"data"][@"phone"];
