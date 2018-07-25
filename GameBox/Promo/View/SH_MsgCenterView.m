@@ -1,23 +1,14 @@
 //
-//  SH_PromoDetailView.m
+//  SH_MsgCenterView.m
 //  GameBox
 //
-//  Created by sam on 2018/7/16.
+//  Created by shin on 2018/7/25.
 //  Copyright © 2018年 shin. All rights reserved.
 //
 
-#import "SH_PromoDetailView.h"
+#import "SH_MsgCenterView.h"
 
-@interface SH_PromoDetailView()
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
-@end
-
-@implementation SH_PromoDetailView
-
--(void)awakeFromNib {
-    [super awakeFromNib];
-    
-}
+@implementation SH_MsgCenterView
 
 /*
 // Only override drawRect: if you perform custom drawing.

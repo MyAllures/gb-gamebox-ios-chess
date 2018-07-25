@@ -43,6 +43,7 @@
 #import "SH_ShareView.h"
 #import "SH_PromoListModel.h"
 #import "UIImage+SH_WebPImage.h"
+#import "SH_PromoWindowViewController.h"
 
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate>
 
@@ -427,17 +428,19 @@
 - (IBAction)activitiesClick:(id)sender {
     __weak typeof(self) weakSelf = self;
 
-    SH_PromoContentView *promoContentView = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoContentView" owner:nil options:nil] lastObject];
-    AlertViewController  * cvc = [[AlertViewController  alloc] initAlertView:promoContentView viewHeight:[UIScreen mainScreen].bounds.size.height-80 titleImageName:@"title11" alertViewType:AlertViewTypeLong];
-    promoContentView.alertVC = cvc;
-    cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:cvc animated:YES completion:nil];
-    [promoContentView showPromoDetail:^(SH_PromoListModel *model) {
-        SH_PromoDeatilViewController *vc = [[SH_PromoDeatilViewController alloc] initWithNibName:@"SH_PromoDeatilViewController" bundle:nil];
-        vc.model = model;
-        [weakSelf presentViewController:vc addTargetViewController:cvc];
-    }];
+    SH_PromoWindowViewController *vc = [[SH_PromoWindowViewController alloc] initWithNibName:@"SH_PromoWindowViewController" bundle:nil];
+    [self presentViewController:vc addTargetViewController:self];
+//    SH_PromoContentView *promoContentView = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoContentView" owner:nil options:nil] lastObject];
+//    AlertViewController  * cvc = [[AlertViewController  alloc] initAlertView:promoContentView viewHeight:[UIScreen mainScreen].bounds.size.height-80 titleImageName:@"title11" alertViewType:AlertViewTypeLong];
+//    promoContentView.alertVC = cvc;
+//    cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+//    cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
+//    [self presentViewController:cvc animated:YES completion:nil];
+//    [promoContentView showPromoDetail:^(SH_PromoListModel *model) {
+//        SH_PromoDeatilViewController *vc = [[SH_PromoDeatilViewController alloc] initWithNibName:@"SH_PromoDeatilViewController" bundle:nil];
+//        vc.model = model;
+//        [weakSelf presentViewController:vc addTargetViewController:cvc];
+//    }];
 }
 
 #pragma mark - 优惠活动详情

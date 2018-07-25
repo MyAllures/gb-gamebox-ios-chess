@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="351" height="85.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="promo_bg" translatesAutoresizingMaskIntoConstraints="NO" id="o7f-yL-qFG">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o7f-yL-qFG">
                         <rect key="frame" x="0.0" y="0.0" width="351" height="85.5"/>
                     </imageView>
                 </subviews>
@@ -35,7 +35,4 @@
             <point key="canvasLocation" x="-18.5" y="66"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="promo_bg" width="1262" height="294"/>
-    </resources>
 </document>

@@ -7,11 +7,15 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SH_PromoWindowViewController">
             <connections>
+                <outlet property="contentView" destination="KX6-7I-vXl" id="Gua-a6-oRB"/>
+                <outlet property="msgTypeBt" destination="f5w-bE-1UN" id="kgX-ce-rZX"/>
+                <outlet property="promoTypeBt" destination="cIn-4J-cee" id="ldz-F8-ppy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -36,9 +40,43 @@
                             <rect key="frame" x="0.0" y="49" width="482" height="306"/>
                             <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2gI-tF-P4y">
+                            <rect key="frame" x="132" y="12" width="218" height="25.5"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIn-4J-cee">
+                                    <rect key="frame" x="0.0" y="0.0" width="109" height="25.5"/>
+                                    <state key="normal" title="优惠活动"/>
+                                    <connections>
+                                        <action selector="promoTypeSelected:" destination="-1" eventType="touchUpInside" id="Fue-Wp-6jt"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5w-bE-1UN">
+                                    <rect key="frame" x="109" y="0.0" width="109" height="25.5"/>
+                                    <state key="normal" title="消息中心"/>
+                                    <connections>
+                                        <action selector="msgTypeSelect:" destination="-1" eventType="touchUpInside" id="EL4-yK-HC5"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="f5w-bE-1UN" firstAttribute="height" secondItem="cIn-4J-cee" secondAttribute="height" id="Aoq-bE-fy0"/>
+                                <constraint firstAttribute="width" secondItem="2gI-tF-P4y" secondAttribute="height" multiplier="220.5:26" id="Chc-ZR-mOT"/>
+                                <constraint firstItem="cIn-4J-cee" firstAttribute="top" secondItem="2gI-tF-P4y" secondAttribute="top" id="Iye-30-9UM"/>
+                                <constraint firstAttribute="bottom" secondItem="f5w-bE-1UN" secondAttribute="bottom" id="N5K-KU-jWo"/>
+                                <constraint firstItem="f5w-bE-1UN" firstAttribute="width" secondItem="cIn-4J-cee" secondAttribute="width" id="Qke-G9-PTz"/>
+                                <constraint firstItem="f5w-bE-1UN" firstAttribute="top" secondItem="2gI-tF-P4y" secondAttribute="top" id="TVI-Rm-ora"/>
+                                <constraint firstAttribute="trailing" secondItem="f5w-bE-1UN" secondAttribute="trailing" id="U9J-Wf-U4m"/>
+                                <constraint firstAttribute="bottom" secondItem="cIn-4J-cee" secondAttribute="bottom" id="ezK-Xh-9f7"/>
+                                <constraint firstItem="cIn-4J-cee" firstAttribute="leading" secondItem="2gI-tF-P4y" secondAttribute="leading" id="fV4-Kv-Xms"/>
+                                <constraint firstItem="f5w-bE-1UN" firstAttribute="leading" secondItem="cIn-4J-cee" secondAttribute="trailing" id="hak-Kk-c67"/>
+                                <constraint firstItem="f5w-bE-1UN" firstAttribute="leading" secondItem="cIn-4J-cee" secondAttribute="trailing" id="pao-ca-fYG"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="2gI-tF-P4y" firstAttribute="centerY" secondItem="S3b-eD-5pP" secondAttribute="centerY" id="0pa-2N-ygf"/>
                         <constraint firstItem="KX6-7I-vXl" firstAttribute="top" secondItem="S3b-eD-5pP" secondAttribute="bottom" id="3sk-jo-eF1"/>
                         <constraint firstItem="S3b-eD-5pP" firstAttribute="top" secondItem="ayr-MP-PFx" secondAttribute="top" id="DQE-aH-6Xo"/>
                         <constraint firstItem="S3b-eD-5pP" firstAttribute="leading" secondItem="ayr-MP-PFx" secondAttribute="leading" id="DRY-nK-T0v"/>
@@ -46,6 +84,8 @@
                         <constraint firstAttribute="trailing" secondItem="S3b-eD-5pP" secondAttribute="trailing" id="K26-EU-1oS"/>
                         <constraint firstAttribute="trailing" secondItem="KX6-7I-vXl" secondAttribute="trailing" id="UOv-cc-IeN"/>
                         <constraint firstAttribute="width" secondItem="ayr-MP-PFx" secondAttribute="height" multiplier="930:686" id="aHK-Xf-von"/>
+                        <constraint firstItem="2gI-tF-P4y" firstAttribute="height" secondItem="S3b-eD-5pP" secondAttribute="height" multiplier="0.52" id="bMe-PJ-529"/>
+                        <constraint firstItem="2gI-tF-P4y" firstAttribute="centerX" secondItem="ayr-MP-PFx" secondAttribute="centerX" id="cJq-O5-oHP"/>
                         <constraint firstAttribute="bottom" secondItem="KX6-7I-vXl" secondAttribute="bottom" id="yh0-Kl-TCQ"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
@@ -55,25 +95,29 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bDO-Mz-DwN" customClass="SH_WebPButton">
-                    <rect key="frame" x="545.5" y="0.0" width="49" height="49"/>
+                    <rect key="frame" x="550" y="5" width="39.5" height="39.5"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="bDO-Mz-DwN" secondAttribute="height" multiplier="1:1" id="i9o-hf-L9w"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="close"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="close:" destination="-1" eventType="touchUpInside" id="Bla-JE-omh"/>
+                    </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="bDO-Mz-DwN" firstAttribute="height" secondItem="S3b-eD-5pP" secondAttribute="height" id="224-Rh-XxQ"/>
+                <constraint firstItem="bDO-Mz-DwN" firstAttribute="height" secondItem="S3b-eD-5pP" secondAttribute="height" multiplier="0.8" id="224-Rh-XxQ"/>
                 <constraint firstItem="ayr-MP-PFx" firstAttribute="width" secondItem="ayr-MP-PFx" secondAttribute="height" multiplier="930:686" id="8zg-j4-F1g"/>
                 <constraint firstAttribute="bottom" secondItem="ayr-MP-PFx" secondAttribute="bottom" constant="10" id="Rkh-li-v0F"/>
                 <constraint firstItem="ayr-MP-PFx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="g7n-EQ-OMn"/>
-                <constraint firstItem="bDO-Mz-DwN" firstAttribute="trailing" secondItem="ayr-MP-PFx" secondAttribute="trailing" constant="20" id="gGP-BH-J3X"/>
-                <constraint firstItem="bDO-Mz-DwN" firstAttribute="top" secondItem="ayr-MP-PFx" secondAttribute="top" constant="-10" id="lmq-HF-9Se"/>
+                <constraint firstItem="bDO-Mz-DwN" firstAttribute="trailing" secondItem="ayr-MP-PFx" secondAttribute="trailing" constant="15" id="gGP-BH-J3X"/>
+                <constraint firstItem="bDO-Mz-DwN" firstAttribute="top" secondItem="ayr-MP-PFx" secondAttribute="top" constant="-5" id="lmq-HF-9Se"/>
                 <constraint firstItem="ayr-MP-PFx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="vFv-aU-ltZ"/>
             </constraints>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
 </document>

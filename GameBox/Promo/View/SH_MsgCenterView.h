@@ -1,13 +1,13 @@
 //
-//  SH_PromoDetailView.h
+//  SH_MsgCenterView.h
 //  GameBox
 //
-//  Created by sam on 2018/7/16.
+//  Created by shin on 2018/7/25.
 //  Copyright © 2018年 shin. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface SH_PromoDetailView : UIView
+@interface SH_MsgCenterView : UIView
 
 @end

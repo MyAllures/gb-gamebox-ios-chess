@@ -35,12 +35,15 @@
     self.tableView.backgroundColor = [UIColor colorWithRed:0.15 green:0.19 blue:0.44 alpha:1];
     [self.tableView registerNib:[UINib nibWithNibName:@"SH_PromoViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.tableView.mj_header beginRefreshing];
+//    if (!self.tableView.mj_header.isRefreshing) {
+//        [self.tableView.mj_header beginRefreshing];
+//    }
     // 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         // 进入刷新状态后会自动调用这个block
         [weakSelf.promoListArr removeAllObjects];
         [SH_NetWorkService_Promo getPromoList:1 pageSize:5000 activityClassifyKey:@"" complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+//            [weakSelf.tableView.mj_header endRefreshing];
             weakSelf.promoListArr = [NSMutableArray array];
             NSDictionary *dic = (NSDictionary *)response;
             for (NSDictionary *dict in dic[@"data"][@"list"]) {
@@ -48,7 +51,6 @@
                 [weakSelf.promoListArr addObject:model];
                 [weakSelf.tableView reloadData];
             }
-            [self.tableView.mj_header endRefreshing];
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         }];
     }];
