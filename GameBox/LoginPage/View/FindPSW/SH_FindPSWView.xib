@@ -18,21 +18,21 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xHK-ia-faU">
                     <rect key="frame" x="10" y="13" width="355" height="116"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请输入账号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6m-MV-1Pc">
-                            <rect key="frame" x="10" y="49.5" width="71.5" height="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请输入账号:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6m-MV-1Pc">
+                            <rect key="frame" x="10" y="49.5" width="75.5" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C8V-mM-hkg">
-                            <rect key="frame" x="91.5" y="41" width="253.5" height="33"/>
+                            <rect key="frame" x="95.5" y="41" width="249.5" height="33"/>
                             <color key="backgroundColor" red="0.13725490200000001" green="0.16862745100000001" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="33" id="UUU-rO-dnM"/>
                             </constraints>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            <textInputTraits key="textInputTraits"/>
                         </textField>
                     </subviews>
                     <color key="backgroundColor" red="0.18039215689999999" green="0.23529411759999999" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -55,6 +55,9 @@
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="login_button"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="nextAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Fn8-nE-gcR"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.1647058824" green="0.20784313730000001" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -67,7 +70,10 @@
                 <constraint firstAttribute="trailing" secondItem="ZLC-Y9-whI" secondAttribute="trailing" constant="115" id="guw-vD-osX"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="69.5" y="-71"/>
+            <connections>
+                <outlet property="realNameTV" destination="C8V-mM-hkg" id="LVf-3D-d8d"/>
+            </connections>
+            <point key="canvasLocation" x="-325" y="-60"/>
         </view>
     </objects>
 </document>

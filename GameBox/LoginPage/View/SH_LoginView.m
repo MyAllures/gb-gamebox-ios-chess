@@ -21,8 +21,8 @@
 #import "SH_BankCardModel.h"
 #import "UIImage+SH_WebPImage.h"
 
+#import "SH_FindPSWView.h"
 #import "AlertViewController.h"
-#import "SH_OutCoinDetailView.h"
 
 @interface SH_LoginView(){
      RH_RegisetInitModel *registrationInitModel;
@@ -182,12 +182,23 @@
             break;
         }
         case 4:{
-            SH_OutCoinDetailView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_OutCoinDetailView" owner:self options:nil].firstObject;
-            AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-95 titleImageName:@"title14" alertViewType:AlertViewTypeLong];
-            acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-            acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-            [self.targetVC presentViewController:acr animated:YES completion:nil];
-//            [view updateUIWithDetailArray:@[@"123",@"34",@"453"] TargetVC:acr Token:nil];
+            [SH_NetWorkService_FindPsw checkForgetPswStatusComplete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+                NSDictionary *dict = (NSDictionary *)response;
+                NSLog(@"dict===%@",dict);
+                NSString *dataStr = dict[@"data"];
+                if (![dataStr isEqualToString:@"0"]) {
+                    SH_FindPSWView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_FindPSWView" owner:self options:nil].firstObject;
+                    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:200 titleImageName:@"outCoinDetail" alertViewType:AlertViewTypeShort];
+                    view.targetVC1 = acr;
+                    acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+                    acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+                    [self.targetVC presentViewController:acr animated:YES completion:nil];
+                } else{
+                    showMessage(self, @"", @"未开启找回密码功能，请联系客服");
+                }
+            } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+                
+            }];
             break;
         }
         default:
