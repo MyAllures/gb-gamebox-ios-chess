@@ -41,6 +41,10 @@
 		22E486DC20FC3F0F0051A68C /* SH_MyMsgDataListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E486DB20FC3F0F0051A68C /* SH_MyMsgDataListModel.m */; };
 		22E486E020FC48D10051A68C /* SH_PromoDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E486DF20FC48D10051A68C /* SH_PromoDetailView.m */; };
 		22E486E220FC48F00051A68C /* SH_PromoDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22E486E120FC48F00051A68C /* SH_PromoDetailView.xib */; };
+		22FC6E8421075262001FA492 /* SH_FindPSWSendCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC6E8321075262001FA492 /* SH_FindPSWSendCodeView.m */; };
+		22FC6E862107526E001FA492 /* SH_FindPSWSendCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FC6E852107526E001FA492 /* SH_FindPSWSendCodeView.xib */; };
+		22FC6E892107549A001FA492 /* SH_FindPSWSureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC6E882107549A001FA492 /* SH_FindPSWSureView.m */; };
+		22FC6E8B210754A2001FA492 /* SH_FindPSWSureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FC6E8A210754A2001FA492 /* SH_FindPSWSureView.xib */; };
 		425A90C020F8873E004B681A /* HLPopTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 425A90BF20F8873E004B681A /* HLPopTableView.m */; };
 		425A90C320F88746004B681A /* UIView+HLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 425A90C220F88746004B681A /* UIView+HLExtension.m */; };
 		42BF3E6E20F33A5D00F36B82 /* SH_PlayerCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BF3E6D20F33A5D00F36B82 /* SH_PlayerCenterView.m */; };
@@ -441,6 +445,12 @@
 		22E486DE20FC48D10051A68C /* SH_PromoDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoDetailView.h; sourceTree = "<group>"; };
 		22E486DF20FC48D10051A68C /* SH_PromoDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoDetailView.m; sourceTree = "<group>"; };
 		22E486E120FC48F00051A68C /* SH_PromoDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PromoDetailView.xib; sourceTree = "<group>"; };
+		22FC6E8221075262001FA492 /* SH_FindPSWSendCodeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_FindPSWSendCodeView.h; sourceTree = "<group>"; };
+		22FC6E8321075262001FA492 /* SH_FindPSWSendCodeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_FindPSWSendCodeView.m; sourceTree = "<group>"; };
+		22FC6E852107526E001FA492 /* SH_FindPSWSendCodeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_FindPSWSendCodeView.xib; sourceTree = "<group>"; };
+		22FC6E872107549A001FA492 /* SH_FindPSWSureView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_FindPSWSureView.h; sourceTree = "<group>"; };
+		22FC6E882107549A001FA492 /* SH_FindPSWSureView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_FindPSWSureView.m; sourceTree = "<group>"; };
+		22FC6E8A210754A2001FA492 /* SH_FindPSWSureView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_FindPSWSureView.xib; sourceTree = "<group>"; };
 		3BBE090F9B091E073F4BB10C /* Pods-GameBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameBox/Pods-GameBox.release.xcconfig"; sourceTree = "<group>"; };
 		425A90BE20F8873D004B681A /* HLPopTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLPopTableView.h; sourceTree = "<group>"; };
 		425A90BF20F8873E004B681A /* HLPopTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLPopTableView.m; sourceTree = "<group>"; };
@@ -1761,6 +1771,12 @@
 				BF45748321074C01006246B4 /* SH_FindPSWView.h */,
 				BF45748421074C01006246B4 /* SH_FindPSWView.m */,
 				BF45748621074C0E006246B4 /* SH_FindPSWView.xib */,
+				22FC6E8221075262001FA492 /* SH_FindPSWSendCodeView.h */,
+				22FC6E8321075262001FA492 /* SH_FindPSWSendCodeView.m */,
+				22FC6E852107526E001FA492 /* SH_FindPSWSendCodeView.xib */,
+				22FC6E872107549A001FA492 /* SH_FindPSWSureView.h */,
+				22FC6E882107549A001FA492 /* SH_FindPSWSureView.m */,
+				22FC6E8A210754A2001FA492 /* SH_FindPSWSureView.xib */,
 			);
 			path = FindPSW;
 			sourceTree = "<group>";
@@ -2376,6 +2392,7 @@
 				22552CCA20F448810090EFBC /* SH_SystemNotification.xib in Resources */,
 				543970D1210462BB0091C719 /* unselect.webp in Resources */,
 				543970A1210462BB0091C719 /* font_welfare.webp in Resources */,
+				22FC6E862107526E001FA492 /* SH_FindPSWSendCodeView.xib in Resources */,
 				543970B4210462BB0091C719 /* btn_return.webp in Resources */,
 				5439708D210462BB0091C719 /* logo05.webp in Resources */,
 				5401C56320ECF9EA0027246D /* SH_HomeViewController.xib in Resources */,
@@ -2454,6 +2471,7 @@
 				54C8757B20F3509100AA0594 /* SH_PromoContentView.xib in Resources */,
 				BF2F915B20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib in Resources */,
 				BF44ECFF20F7478600BC6EF3 /* SH_BitCoinSuccessPopView.xib in Resources */,
+				22FC6E8B210754A2001FA492 /* SH_FindPSWSureView.xib in Resources */,
 				BFA7DEBA2106C2CB00DD731F /* chip_green.webp in Resources */,
 				227CC6C620FF142700AEA497 /* SH_MsgDetailView.xib in Resources */,
 				543970C4210462BB0091C719 /* effects_star3.webp in Resources */,
@@ -2606,6 +2624,7 @@
 				DA22F34120F43ABC0058A54F /* SH_LoginView.m in Sources */,
 				54C8761F20FE220C00AA0594 /* UIImage+EXtension.m in Sources */,
 				BFA0689020FC8C1000F5ADFE /* SH_OutCoinDetailView.m in Sources */,
+				22FC6E892107549A001FA492 /* SH_FindPSWSureView.m in Sources */,
 				DA1BCDB12102D27C00201DBC /* SH_WelfareTableViewCell.m in Sources */,
 				DA18EFBF20F0A9C3002B7E22 /* PopTool.m in Sources */,
 				DA1BCC8B20FE200700201DBC /* RH_BettingInfoModel.m in Sources */,
@@ -2705,6 +2724,7 @@
 				22552CDF20F494E80090EFBC /* SH_SiteMsgView.m in Sources */,
 				54D5F57821081C5300439A94 /* SH_XibView.m in Sources */,
 				5401C55A20ECA48D0027246D /* NetWorkLineMangaer.m in Sources */,
+				22FC6E8421075262001FA492 /* SH_FindPSWSendCodeView.m in Sources */,
 				22E486D920F9F8AE0051A68C /* SH_SysMsgDataListModel.m in Sources */,
 				BF44ECE420F6FB7000BC6EF3 /* SH_NetWorkService+BitCoin.m in Sources */,
 				BF44ECF620F7399800BC6EF3 /* SH_PopSubViewTableViewCell.m in Sources */,
