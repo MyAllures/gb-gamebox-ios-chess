@@ -33,7 +33,6 @@
 #import "SH_WKGameViewController.h"
 #import "SH_NoAccessViewController.h"
 #import "SH_PrifitOutCoinView.h"
-#import "SH_PromoDetailView.h"
 #import "SH_NetWorkService+Profit.h"
 #import "SH_ProfitModel.h"
 #import "SH_AnnouncementView.h"
@@ -443,16 +442,6 @@
 //    }];
 }
 
-#pragma mark - 优惠活动详情
--(void)gotoPromoDetail {
-    SH_PromoDetailView *promoDetailView = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoDetailView" owner:nil options:nil] lastObject];
-  
-    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:promoDetailView viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"" alertViewType:AlertViewTypeLong];
-    cvc.title = @"优惠活动";
-    cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:cvc animated:YES completion:nil];
-}
 #pragma mark--
 #pragma mark--充值中心
 
