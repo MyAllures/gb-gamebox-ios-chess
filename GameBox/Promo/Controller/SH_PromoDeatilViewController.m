@@ -23,7 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.cornerView.layer.cornerRadius = 10;
     self.titleLB.text = self.model.name;
     _gameWebView = [[[NSBundle mainBundle] loadNibNamed:@"SH_GameWebView" owner:nil options:nil] lastObject];
     _gameWebView.url = self.model.url;
