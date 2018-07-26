@@ -9,18 +9,15 @@
 #import <Foundation/Foundation.h>
 
 @interface SH_SysMsgDataListModel : JSONModel
-@property (strong, readonly,nonatomic) NSString *content;
+
+@property (strong, nonatomic) NSString <Optional> *content;
 @property (assign, nonatomic) NSInteger id;
-@property (strong, nonatomic) NSString *link;
+@property (strong, nonatomic) NSString <Optional> *link;
 @property (assign, nonatomic) NSInteger publishTime;
-@property (assign, nonatomic) NSInteger read;
-@property (strong, nonatomic) NSString *searchId;
-@property (strong, nonatomic) NSString *title;
+@property (assign, nonatomic) BOOL read;
+@property (strong, nonatomic) NSString <Optional> *searchId;
+@property (strong, nonatomic) NSString <Optional> *title;
 
+@property (assign, nonatomic) BOOL selected;
 
-
-@property(nonatomic,readonly,assign)  BOOL selectedFlag ;
--(void)updateSelectedFlag:(BOOL)bFlag ; //更新是否勾选状态
-//@property (assign, nonatomic) NSInteger read;
-//@property (strong, nonatomic) NSString *replyTitle;
 @end

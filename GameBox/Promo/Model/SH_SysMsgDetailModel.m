@@ -10,4 +10,9 @@
 
 @implementation SH_SysMsgDetailModel
 
++ (BOOL)propertyIsOptional:(NSString*)propertyName
+{
+    return YES;
+}
+
 @end

@@ -10,4 +10,9 @@
 
 @implementation SH_ProfitModel
 
++ (BOOL)propertyIsOptional:(NSString*)propertyName
+{
+    return YES;
+}
+
 @end

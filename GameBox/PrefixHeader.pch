@@ -28,7 +28,6 @@
 //#define S       @"f0581a9da25c2476d18f7675362f596c"
 //#define SID     @"21"
 
-
 #ifdef _7wt3
 
 #define CODE    @"7wt3"

@@ -9,4 +9,10 @@
 #import "SH_RechargeCenterPlatformModel.h"
 
 @implementation SH_RechargeCenterPlatformModel
+
++ (BOOL)propertyIsOptional:(NSString*)propertyName
+{
+    return YES;
+}
+
 @end

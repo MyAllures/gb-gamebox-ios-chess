@@ -9,7 +9,14 @@
 #import "SH_BitCoinSaleDetailModel.h"
 
 @implementation SH_BitCoinSaleDetailModel
+
++ (BOOL)propertyIsOptional:(NSString*)propertyName
+{
+    return YES;
+}
+
 + (JSONKeyMapper *)keyMapper{
     return [[JSONKeyMapper alloc]initWithModelToJSONDictionary:@{@"ID":@"id"}];
 }
+
 @end

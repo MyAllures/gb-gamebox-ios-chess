@@ -25,6 +25,20 @@
     [self setBackgroundImage:img forState:UIControlStateNormal];
 }
 
+- (void)setSelectedImage:(NSString *)selectedImage
+{
+    _selectedImage = selectedImage;
+    UIImage *img = [self webpToUIImage:_selectedImage];
+    [self setImage:img forState:UIControlStateSelected];
+}
+
+- (void)setSelectedBGImage:(NSString *)selectedBGImage
+{
+    _selectedBGImage = selectedBGImage;
+    UIImage *img = [self webpToUIImage:_selectedBGImage];
+    [self setBackgroundImage:img forState:UIControlStateSelected];
+}
+
 - (UIImage *)webpToUIImage:(NSString *)name
 {
     NSBundle *bundle;

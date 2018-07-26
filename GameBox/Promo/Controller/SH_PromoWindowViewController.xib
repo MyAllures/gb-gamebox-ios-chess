@@ -41,36 +41,52 @@
                             <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2gI-tF-P4y">
-                            <rect key="frame" x="132" y="12" width="218" height="25.5"/>
+                            <rect key="frame" x="150" y="12" width="182" height="25.5"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIn-4J-cee">
-                                    <rect key="frame" x="0.0" y="0.0" width="109" height="25.5"/>
-                                    <state key="normal" title="优惠活动"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nwV-pk-hdc" customClass="SH_WebPImageView">
+                                    <rect key="frame" x="0.0" y="0.0" width="182" height="25.5"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="classify-main"/>
+                                    </userDefinedRuntimeAttributes>
+                                </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIn-4J-cee" customClass="SH_WebPButton">
+                                    <rect key="frame" x="0.0" y="0.0" width="91" height="25.5"/>
+                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal">
+                                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
                                     <connections>
                                         <action selector="promoTypeSelected:" destination="-1" eventType="touchUpInside" id="Fue-Wp-6jt"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5w-bE-1UN">
-                                    <rect key="frame" x="109" y="0.0" width="109" height="25.5"/>
-                                    <state key="normal" title="消息中心"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5w-bE-1UN" customClass="SH_WebPButton">
+                                    <rect key="frame" x="91" y="0.0" width="91" height="25.5"/>
+                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal">
+                                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
                                     <connections>
                                         <action selector="msgTypeSelect:" destination="-1" eventType="touchUpInside" id="EL4-yK-HC5"/>
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
+                                <constraint firstAttribute="bottom" secondItem="nwV-pk-hdc" secondAttribute="bottom" id="686-l5-03H"/>
                                 <constraint firstItem="f5w-bE-1UN" firstAttribute="height" secondItem="cIn-4J-cee" secondAttribute="height" id="Aoq-bE-fy0"/>
-                                <constraint firstAttribute="width" secondItem="2gI-tF-P4y" secondAttribute="height" multiplier="220.5:26" id="Chc-ZR-mOT"/>
+                                <constraint firstAttribute="width" secondItem="2gI-tF-P4y" secondAttribute="height" multiplier="659:93" id="Chc-ZR-mOT"/>
                                 <constraint firstItem="cIn-4J-cee" firstAttribute="top" secondItem="2gI-tF-P4y" secondAttribute="top" id="Iye-30-9UM"/>
                                 <constraint firstAttribute="bottom" secondItem="f5w-bE-1UN" secondAttribute="bottom" id="N5K-KU-jWo"/>
                                 <constraint firstItem="f5w-bE-1UN" firstAttribute="width" secondItem="cIn-4J-cee" secondAttribute="width" id="Qke-G9-PTz"/>
                                 <constraint firstItem="f5w-bE-1UN" firstAttribute="top" secondItem="2gI-tF-P4y" secondAttribute="top" id="TVI-Rm-ora"/>
                                 <constraint firstAttribute="trailing" secondItem="f5w-bE-1UN" secondAttribute="trailing" id="U9J-Wf-U4m"/>
+                                <constraint firstItem="nwV-pk-hdc" firstAttribute="top" secondItem="2gI-tF-P4y" secondAttribute="top" id="aiT-cs-KIc"/>
                                 <constraint firstAttribute="bottom" secondItem="cIn-4J-cee" secondAttribute="bottom" id="ezK-Xh-9f7"/>
                                 <constraint firstItem="cIn-4J-cee" firstAttribute="leading" secondItem="2gI-tF-P4y" secondAttribute="leading" id="fV4-Kv-Xms"/>
                                 <constraint firstItem="f5w-bE-1UN" firstAttribute="leading" secondItem="cIn-4J-cee" secondAttribute="trailing" id="hak-Kk-c67"/>
                                 <constraint firstItem="f5w-bE-1UN" firstAttribute="leading" secondItem="cIn-4J-cee" secondAttribute="trailing" id="pao-ca-fYG"/>
+                                <constraint firstAttribute="trailing" secondItem="nwV-pk-hdc" secondAttribute="trailing" id="pz3-gH-cGw"/>
+                                <constraint firstItem="nwV-pk-hdc" firstAttribute="leading" secondItem="2gI-tF-P4y" secondAttribute="leading" id="zv0-7Z-0Zi"/>
                             </constraints>
                         </view>
                     </subviews>

@@ -86,6 +86,16 @@
             } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
                 NSLog(@"检测失败:%@",err);
             }];
+            
+//            [NetWorkLineMangaer sharedManager].currentHost = @"test18.ccenter.test.so";
+//            [NetWorkLineMangaer sharedManager].currentIP = @"192.168.0.92";
+//            [NetWorkLineMangaer sharedManager].currentHttpType = @"https";
+//            [NetWorkLineMangaer sharedManager].currentPort = @"8989";
+//            [NetWorkLineMangaer sharedManager].currentPreUrl = @"https://192.168.0.92:8989";
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                SH_HomeViewController *homeVC =[[SH_HomeViewController alloc] initWithNibName:@"SH_HomeViewController" bundle:nil];
+//                [weakSelf.navigationController pushViewController:homeVC animated:NO];
+//            });
         }
         else
         {

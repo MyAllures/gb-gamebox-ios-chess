@@ -7,9 +7,12 @@
 //
 
 #import "SH_SysMsgDataListModel.h"
+
 @implementation SH_SysMsgDataListModel
--(void)updateSelectedFlag:(BOOL)bFlag
+
++ (BOOL)propertyIsOptional:(NSString*)propertyName
 {
-    _selectedFlag = bFlag ;
+    return YES;
 }
+
 @end

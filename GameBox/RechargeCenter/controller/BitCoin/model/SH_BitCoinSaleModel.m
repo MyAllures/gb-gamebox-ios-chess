@@ -10,4 +10,9 @@
 
 @implementation SH_BitCoinSaleModel
 
++ (BOOL)propertyIsOptional:(NSString*)propertyName
+{
+    return YES;
+}
+
 @end

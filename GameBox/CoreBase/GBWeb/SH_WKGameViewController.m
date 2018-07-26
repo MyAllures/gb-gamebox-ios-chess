@@ -69,8 +69,8 @@
     [_dragableMenuView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(iPhoneX && oriention == UIInterfaceOrientationLandscapeLeft ? -30 :  0);
         make.top.mas_equalTo(HEIGHT/2.0);
-        make.width.mas_equalTo(32);
-        make.height.mas_equalTo(67);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(95);
     }];
     [_dragableMenuView closeAction:^{
         [weakSelf.navigationController popViewControllerAnimated:NO];
@@ -143,8 +143,8 @@
         [self.dragableMenuView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.right.mas_equalTo(iPhoneX && oriention == UIInterfaceOrientationLandscapeLeft ? -30 :  0);
             make.top.mas_equalTo(HEIGHT/2.0);
-            make.width.mas_equalTo(32);
-            make.height.mas_equalTo(67);
+            make.width.mas_equalTo(50);
+            make.height.mas_equalTo(95);
         }];
     }
     else
@@ -152,8 +152,8 @@
         [self.dragableMenuView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.right.mas_equalTo(0);
             make.top.mas_equalTo(HEIGHT/2.0);
-            make.width.mas_equalTo(32);
-            make.height.mas_equalTo(67);
+            make.width.mas_equalTo(50);
+            make.height.mas_equalTo(95);
         }];
     }
 }

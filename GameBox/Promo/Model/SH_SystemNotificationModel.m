@@ -10,4 +10,9 @@
 
 @implementation SH_SystemNotificationModel
 
++ (BOOL)propertyIsOptional:(NSString*)propertyName
+{
+    return YES;
+}
+
 @end

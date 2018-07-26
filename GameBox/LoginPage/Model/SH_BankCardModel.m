@@ -9,4 +9,10 @@
 #import "SH_BankCardModel.h"
 
 @implementation SH_BankCardModel
+
++ (BOOL)propertyIsOptional:(NSString*)propertyName
+{
+    return YES;
+}
+
 @end

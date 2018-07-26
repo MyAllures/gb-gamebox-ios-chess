@@ -10,4 +10,9 @@
 
 @implementation SH_ApiModel
 
++ (BOOL)propertyIsOptional:(NSString*)propertyName
+{
+    return YES;
+}
+
 @end

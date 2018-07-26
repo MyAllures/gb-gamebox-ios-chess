@@ -19,7 +19,6 @@
 #import "SH_PlayerCenterView.h"
 #import "AlertViewController.h"
 #import "SH_LoginView.h"
-#import "SH_PromoContentView.h"
 #import "SH_GamesListScrollView.h"
 #import "SH_NetWorkService+Home.h"
 #import "SH_HomeBannerModel.h"

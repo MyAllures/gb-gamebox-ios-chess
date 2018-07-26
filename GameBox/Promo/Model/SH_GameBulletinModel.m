@@ -10,4 +10,9 @@
 
 @implementation SH_GameBulletinModel
 
++ (BOOL)propertyIsOptional:(NSString*)propertyName
+{
+    return YES;
+}
+
 @end

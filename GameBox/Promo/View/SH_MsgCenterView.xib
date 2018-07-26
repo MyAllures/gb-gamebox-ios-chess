@@ -14,8 +14,186 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SH_MsgCenterView">
             <rect key="frame" x="0.0" y="0.0" width="535" height="306"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Eo-VD-BeG">
+                    <rect key="frame" x="0.0" y="0.0" width="135" height="306"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MdN-Tw-rms" customClass="SH_WebPImageView">
+                            <rect key="frame" x="0.0" y="0.0" width="135" height="306"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="left_bgImage"/>
+                            </userDefinedRuntimeAttributes>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EoG-PJ-hxP" customClass="SH_WebPButton">
+                            <rect key="frame" x="7.5" y="58.5" width="120" height="45.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="120" id="PCf-JQ-p6Q"/>
+                                <constraint firstAttribute="height" constant="45.5" id="gda-2b-G5y"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="系统公告">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="selectedBGImage" value="button-long-click"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="systemNoticeClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="MpG-6Z-Nan"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzt-hg-G8v" customClass="SH_WebPButton">
+                            <rect key="frame" x="7.5" y="10" width="120" height="45.5"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45.5" id="4hE-y5-PCI"/>
+                                <constraint firstAttribute="width" constant="120" id="f0K-mW-sHl"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="游戏公告">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <state key="selected" title="游戏公告"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="selectedBGImage" value="button-long-click"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="gameNoticeClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="uSg-93-leH"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r97-Ox-5W1" customClass="SH_WebPButton">
+                            <rect key="frame" x="7.5" y="107" width="120" height="45.5"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45.5" id="Bua-QT-tm4"/>
+                                <constraint firstAttribute="width" constant="120" id="pbW-7g-AsG"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="收件箱">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="selectedBGImage" value="button-long-click"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="InboxClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="mrN-KH-ZQD"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Bzt-hg-G8v" firstAttribute="centerX" secondItem="5Eo-VD-BeG" secondAttribute="centerX" id="0wZ-EM-nUp"/>
+                        <constraint firstItem="r97-Ox-5W1" firstAttribute="top" secondItem="EoG-PJ-hxP" secondAttribute="bottom" constant="3" id="8vd-ON-AmN"/>
+                        <constraint firstItem="MdN-Tw-rms" firstAttribute="leading" secondItem="5Eo-VD-BeG" secondAttribute="leading" id="9Zx-he-FfJ"/>
+                        <constraint firstAttribute="bottom" secondItem="MdN-Tw-rms" secondAttribute="bottom" id="AWY-AY-6jD"/>
+                        <constraint firstAttribute="trailing" secondItem="MdN-Tw-rms" secondAttribute="trailing" id="J7L-z2-zLB"/>
+                        <constraint firstItem="EoG-PJ-hxP" firstAttribute="top" secondItem="Bzt-hg-G8v" secondAttribute="bottom" constant="3" id="QgN-mD-m9h"/>
+                        <constraint firstItem="r97-Ox-5W1" firstAttribute="centerX" secondItem="Bzt-hg-G8v" secondAttribute="centerX" id="ccn-dS-X4y"/>
+                        <constraint firstItem="Bzt-hg-G8v" firstAttribute="top" secondItem="5Eo-VD-BeG" secondAttribute="top" constant="10" id="iyH-8X-Oj5"/>
+                        <constraint firstItem="MdN-Tw-rms" firstAttribute="top" secondItem="5Eo-VD-BeG" secondAttribute="top" id="ojB-2J-YVY"/>
+                        <constraint firstAttribute="width" constant="135" id="vEo-Cd-43B"/>
+                        <constraint firstItem="EoG-PJ-hxP" firstAttribute="centerX" secondItem="Bzt-hg-G8v" secondAttribute="centerX" id="yyx-VU-EaW"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ovy-TN-Yre">
+                    <rect key="frame" x="135" y="0.0" width="400" height="263.5"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WJJ-xw-Lzd">
+                    <rect key="frame" x="135" y="263.5" width="400" height="42.5"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rlv-j7-oa4" customClass="SH_WebPButton">
+                            <rect key="frame" x="160" y="5" width="80.5" height="33"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="33" id="Bzr-bt-3yK"/>
+                                <constraint firstAttribute="width" constant="80.5" id="CXI-Mk-cc0"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="标记已读">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_blue"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="markReadedAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="5CQ-AC-cCc"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6o5-Yb-fyl" customClass="SH_WebPButton">
+                            <rect key="frame" x="250.5" y="5" width="80.5" height="33"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="33" id="WZG-s4-Hu7"/>
+                                <constraint firstAttribute="width" constant="80.5" id="u5d-vA-ycE"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="删除已读">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_blue"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="deleteReadedAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="OIe-K7-LCn"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6W-VX-sHV" customClass="SH_WebPButton">
+                            <rect key="frame" x="69.5" y="5" width="80.5" height="33"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="33" id="VDu-qL-pHv"/>
+                                <constraint firstAttribute="width" constant="80.5" id="tdP-n6-HrW"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="全选">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <state key="selected" title="取消全选"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_blue"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="allSelectAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Ieh-dO-hfi"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="rlv-j7-oa4" firstAttribute="centerX" secondItem="WJJ-xw-Lzd" secondAttribute="centerX" id="A5y-Qv-hHr"/>
+                        <constraint firstItem="6o5-Yb-fyl" firstAttribute="leading" secondItem="rlv-j7-oa4" secondAttribute="trailing" constant="10" id="DB3-8h-kwt"/>
+                        <constraint firstItem="6o5-Yb-fyl" firstAttribute="centerY" secondItem="M6W-VX-sHV" secondAttribute="centerY" id="Pxg-zS-hcs"/>
+                        <constraint firstItem="rlv-j7-oa4" firstAttribute="leading" secondItem="M6W-VX-sHV" secondAttribute="trailing" constant="10" id="RLP-DV-cGh"/>
+                        <constraint firstAttribute="height" constant="42.5" id="nRk-bI-a5c"/>
+                        <constraint firstItem="rlv-j7-oa4" firstAttribute="centerY" secondItem="M6W-VX-sHV" secondAttribute="centerY" id="rqd-3z-ARh"/>
+                        <constraint firstItem="rlv-j7-oa4" firstAttribute="centerY" secondItem="WJJ-xw-Lzd" secondAttribute="centerY" id="y6W-4z-emQ"/>
+                    </constraints>
+                </view>
+            </subviews>
             <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="WJJ-xw-Lzd" firstAttribute="top" secondItem="Ovy-TN-Yre" secondAttribute="bottom" id="0EI-1l-yRC"/>
+                <constraint firstAttribute="trailing" secondItem="Ovy-TN-Yre" secondAttribute="trailing" id="6Db-EC-ZAU"/>
+                <constraint firstAttribute="trailing" secondItem="WJJ-xw-Lzd" secondAttribute="trailing" id="8Le-ab-x90"/>
+                <constraint firstItem="Ovy-TN-Yre" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="GUE-Q5-BDb"/>
+                <constraint firstAttribute="bottom" secondItem="5Eo-VD-BeG" secondAttribute="bottom" id="Gem-aF-m1c"/>
+                <constraint firstItem="WJJ-xw-Lzd" firstAttribute="leading" secondItem="5Eo-VD-BeG" secondAttribute="trailing" id="Tqt-Z6-5Jp"/>
+                <constraint firstItem="Ovy-TN-Yre" firstAttribute="leading" secondItem="5Eo-VD-BeG" secondAttribute="trailing" id="kDI-TV-unN"/>
+                <constraint firstItem="5Eo-VD-BeG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="kN2-MY-6mt"/>
+                <constraint firstItem="5Eo-VD-BeG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xSP-He-pl9"/>
+                <constraint firstAttribute="bottom" secondItem="WJJ-xw-Lzd" secondAttribute="bottom" id="xpX-yd-Dwu"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="gameNoticeBt" destination="Bzt-hg-G8v" id="EhY-yX-IbJ"/>
+                <outlet property="inboxBt" destination="r97-Ox-5W1" id="vT3-7X-KVj"/>
+                <outlet property="operationBarConstraint" destination="nRk-bI-a5c" id="uVf-6V-1d9"/>
+                <outlet property="systemNoticeBt" destination="EoG-PJ-hxP" id="bCT-AE-FLV"/>
+                <outlet property="tableView" destination="Ovy-TN-Yre" id="kHt-if-EKI"/>
+            </connections>
             <point key="canvasLocation" x="113.5" y="-127"/>
         </view>
     </objects>
