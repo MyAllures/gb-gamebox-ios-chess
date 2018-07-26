@@ -45,7 +45,7 @@
 		5435E7C92104381C00DB809F /* SH_WebPImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5435E7C82104381C00DB809F /* SH_WebPImageView.m */; };
 		54397081210462BB0091C719 /* top-bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397022210462A30091C719 /* top-bg.webp */; };
 		54397082210462BB0091C719 /* logo09.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397023210462A30091C719 /* logo09.webp */; };
-		54397083210462BB0091C719 /* effects_man.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397024210462A30091C719 /* effects_man.webp */; };
+		54397083210462BB0091C719 /* effects_man._defaultwebp in Resources */ = {isa = PBXBuildFile; fileRef = 54397024210462A30091C719 /* effects_man._defaultwebp */; };
 		54397084210462BB0091C719 /* logo03.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397025210462A30091C719 /* logo03.webp */; };
 		54397085210462BB0091C719 /* logo07.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397026210462A30091C719 /* logo07.webp */; };
 		54397086210462BB0091C719 /* btn_top_recharge.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397027210462A40091C719 /* btn_top_recharge.webp */; };
@@ -196,6 +196,7 @@
 		54DD035D2109D03F00CE9199 /* game-back.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54DD035A2109D03F00CE9199 /* game-back.webp */; };
 		54DD035E2109D03F00CE9199 /* game-bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54DD035B2109D03F00CE9199 /* game-bg.webp */; };
 		54DD035F2109D03F00CE9199 /* game-home.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54DD035C2109D03F00CE9199 /* game-home.webp */; };
+		54DD03612109FC1D00CE9199 /* effects_man.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54DD03602109FC1C00CE9199 /* effects_man.webp */; };
 		54E7D2E7210726390069F2CE /* mearkRead.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54E7D2E6210726390069F2CE /* mearkRead.webp */; };
 		54E7D2E9210726580069F2CE /* down.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54E7D2E8210726580069F2CE /* down.webp */; };
 		54E7D2EB210726710069F2CE /* choose.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54E7D2EA210726710069F2CE /* choose.webp */; };
@@ -451,7 +452,7 @@
 		5435E7C82104381C00DB809F /* SH_WebPImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_WebPImageView.m; sourceTree = "<group>"; };
 		54397022210462A30091C719 /* top-bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "top-bg.webp"; sourceTree = "<group>"; };
 		54397023210462A30091C719 /* logo09.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo09.webp; sourceTree = "<group>"; };
-		54397024210462A30091C719 /* effects_man.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = effects_man.webp; sourceTree = "<group>"; };
+		54397024210462A30091C719 /* effects_man._defaultwebp */ = {isa = PBXFileReference; lastKnownFileType = file; path = effects_man._defaultwebp; sourceTree = "<group>"; };
 		54397025210462A30091C719 /* logo03.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo03.webp; sourceTree = "<group>"; };
 		54397026210462A30091C719 /* logo07.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo07.webp; sourceTree = "<group>"; };
 		54397027210462A40091C719 /* btn_top_recharge.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = btn_top_recharge.webp; sourceTree = "<group>"; };
@@ -637,6 +638,7 @@
 		54DD035A2109D03F00CE9199 /* game-back.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "game-back.webp"; sourceTree = "<group>"; };
 		54DD035B2109D03F00CE9199 /* game-bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "game-bg.webp"; sourceTree = "<group>"; };
 		54DD035C2109D03F00CE9199 /* game-home.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "game-home.webp"; sourceTree = "<group>"; };
+		54DD03602109FC1C00CE9199 /* effects_man.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = effects_man.webp; sourceTree = "<group>"; };
 		54E7D2E6210726390069F2CE /* mearkRead.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = mearkRead.webp; sourceTree = "<group>"; };
 		54E7D2E8210726580069F2CE /* down.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = down.webp; sourceTree = "<group>"; };
 		54E7D2EA210726710069F2CE /* choose.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = choose.webp; sourceTree = "<group>"; };
@@ -1171,6 +1173,7 @@
 		5435E7C32104349B00DB809F /* webpRes */ = {
 			isa = PBXGroup;
 			children = (
+				54DD03602109FC1C00CE9199 /* effects_man.webp */,
 				54DD035A2109D03F00CE9199 /* game-back.webp */,
 				54DD035B2109D03F00CE9199 /* game-bg.webp */,
 				54DD035C2109D03F00CE9199 /* game-home.webp */,
@@ -1218,7 +1221,7 @@
 				5439704F210462AD0091C719 /* button-long.webp */,
 				54397043210462A90091C719 /* circular.webp */,
 				5439707A210462B90091C719 /* close.webp */,
-				54397024210462A30091C719 /* effects_man.webp */,
+				54397024210462A30091C719 /* effects_man._defaultwebp */,
 				54397076210462B80091C719 /* effects_star.webp */,
 				54397069210462B40091C719 /* effects_star2.webp */,
 				54397065210462B30091C719 /* effects_star3.webp */,
@@ -2337,6 +2340,7 @@
 				543970D9210462BB0091C719 /* close.webp in Resources */,
 				54C8761620FE218B00AA0594 /* rain.png in Resources */,
 				BF5C0BC321057E2E0035B754 /* bankListDown.webp in Resources */,
+				54DD03612109FC1D00CE9199 /* effects_man.webp in Resources */,
 				54DD03562109C7BB00CE9199 /* bg.webp in Resources */,
 				5439708B210462BB0091C719 /* btn-welfare.webp in Resources */,
 				543970B0210462BB0091C719 /* photo_female.webp in Resources */,
@@ -2401,7 +2405,7 @@
 				543970C7210462BB0091C719 /* black.webp in Resources */,
 				DA18EFBD20F0A9C3002B7E22 /* AlertViewController.xib in Resources */,
 				BF44EC5C20F4589D00BC6EF3 /* SH_BitCoinSubView.xib in Resources */,
-				54397083210462BB0091C719 /* effects_man.webp in Resources */,
+				54397083210462BB0091C719 /* effects_man._defaultwebp in Resources */,
 				BF44ECF220F7259300BC6EF3 /* SH_PreferentialPopSubView.xib in Resources */,
 				543970EC21046AF50091C719 /* btn_refresh.webp in Resources */,
 				54C8761820FE218B00AA0594 /* leaves.png in Resources */,
