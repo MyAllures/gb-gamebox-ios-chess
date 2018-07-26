@@ -26,6 +26,10 @@
 		22573D3420F8999800D0EB0A /* SH_ApiSelectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22573D3320F8999800D0EB0A /* SH_ApiSelectModel.m */; };
 		22573D3E20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22573D3C20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.m */; };
 		22573D3F20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22573D3D20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.xib */; };
+		22618C62210963F700E4A6F6 /* SH_WelfareNotesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22618C61210963F700E4A6F6 /* SH_WelfareNotesView.m */; };
+		22618C642109640100E4A6F6 /* SH_WelfareNotesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22618C632109640100E4A6F6 /* SH_WelfareNotesView.xib */; };
+		22618C682109755100E4A6F6 /* SH_WelfareNotesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22618C662109755100E4A6F6 /* SH_WelfareNotesTableViewCell.m */; };
+		22618C692109755100E4A6F6 /* SH_WelfareNotesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22618C672109755100E4A6F6 /* SH_WelfareNotesTableViewCell.xib */; };
 		2274222120FE03BB003529FF /* SH_PromoListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8757D20F355F800AA0594 /* SH_PromoListView.m */; };
 		227CC6C420FF141400AEA497 /* SH_MsgDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 227CC6C320FF141400AEA497 /* SH_MsgDetailView.m */; };
 		227CC6C620FF142700AEA497 /* SH_MsgDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 227CC6C520FF142700AEA497 /* SH_MsgDetailView.xib */; };
@@ -426,6 +430,12 @@
 		22573D3B20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_MyMsgTabelViewCell.h; sourceTree = "<group>"; };
 		22573D3C20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_MyMsgTabelViewCell.m; sourceTree = "<group>"; };
 		22573D3D20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_MyMsgTabelViewCell.xib; sourceTree = "<group>"; };
+		22618C60210963F700E4A6F6 /* SH_WelfareNotesView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_WelfareNotesView.h; sourceTree = "<group>"; };
+		22618C61210963F700E4A6F6 /* SH_WelfareNotesView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_WelfareNotesView.m; sourceTree = "<group>"; };
+		22618C632109640100E4A6F6 /* SH_WelfareNotesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_WelfareNotesView.xib; sourceTree = "<group>"; };
+		22618C652109755100E4A6F6 /* SH_WelfareNotesTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_WelfareNotesTableViewCell.h; sourceTree = "<group>"; };
+		22618C662109755100E4A6F6 /* SH_WelfareNotesTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_WelfareNotesTableViewCell.m; sourceTree = "<group>"; };
+		22618C672109755100E4A6F6 /* SH_WelfareNotesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_WelfareNotesTableViewCell.xib; sourceTree = "<group>"; };
 		227CC6C220FF141400AEA497 /* SH_MsgDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_MsgDetailView.h; sourceTree = "<group>"; };
 		227CC6C320FF141400AEA497 /* SH_MsgDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_MsgDetailView.m; sourceTree = "<group>"; };
 		227CC6C520FF142700AEA497 /* SH_MsgDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_MsgDetailView.xib; sourceTree = "<group>"; };
@@ -1086,6 +1096,19 @@
 				22552CDB20F48DBA0090EFBC /* SH_SystemMsgView.xib */,
 			);
 			path = systemMsg;
+			sourceTree = "<group>";
+		};
+		22618C5F210963C400E4A6F6 /* WelfareNotes */ = {
+			isa = PBXGroup;
+			children = (
+				22618C60210963F700E4A6F6 /* SH_WelfareNotesView.h */,
+				22618C61210963F700E4A6F6 /* SH_WelfareNotesView.m */,
+				22618C632109640100E4A6F6 /* SH_WelfareNotesView.xib */,
+				22618C652109755100E4A6F6 /* SH_WelfareNotesTableViewCell.h */,
+				22618C662109755100E4A6F6 /* SH_WelfareNotesTableViewCell.m */,
+				22618C672109755100E4A6F6 /* SH_WelfareNotesTableViewCell.xib */,
+			);
+			path = WelfareNotes;
 			sourceTree = "<group>";
 		};
 		227CC6C120FF13E900AEA497 /* detailView */ = {
@@ -2080,6 +2103,7 @@
 		DA1BCC4120FCB74400201DBC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				22618C5F210963C400E4A6F6 /* WelfareNotes */,
 				DA1BCD992102D27C00201DBC /* WelfareRecord */,
 				DA1BCC7B20FE050100201DBC /* GamesRecord */,
 			);
@@ -2474,6 +2498,7 @@
 				BF6608A32107175E0029C4A6 /* SH_ConfirSaftyPassWordView.xib in Resources */,
 				543970A5210462BB0091C719 /* photo_male.webp in Resources */,
 				543970B8210462BB0091C719 /* banner.webp in Resources */,
+				22618C642109640100E4A6F6 /* SH_WelfareNotesView.xib in Resources */,
 				543970AB210462BB0091C719 /* left_bgImage.webp in Resources */,
 				543970C5210462BB0091C719 /* promo_bg.webp in Resources */,
 				54397085210462BB0091C719 /* logo07.webp in Resources */,
@@ -2483,6 +2508,7 @@
 				543970C8210462BB0091C719 /* effects_star2.webp in Resources */,
 				DA6EE1BF20F8BEDA009A01C5 /* SH_UserInformationView.xib in Resources */,
 				BF7B08C62101CF33008256FE /* SH_NiceDatePickerView.xib in Resources */,
+				22618C692109755100E4A6F6 /* SH_WelfareNotesTableViewCell.xib in Resources */,
 				DA1BCCA920FF288B00201DBC /* RH_BettingRecordDetailCell.xib in Resources */,
 				2209026720F053D400F8828E /* SH_PromoViewCell.xib in Resources */,
 				543970B1210462BB0091C719 /* yellow.webp in Resources */,
@@ -2615,6 +2641,7 @@
 				BFA068A320FCBF1700F5ADFE /* SH_AuditMapModel.m in Sources */,
 				BFA068A620FCC0CF00F5ADFE /* SH_NetWorkService+Profit.m in Sources */,
 				DA22F3CC20F44F610058A54F /* CLNetReachability.m in Sources */,
+				22618C62210963F700E4A6F6 /* SH_WelfareNotesView.m in Sources */,
 				54C875C320FC846200AA0594 /* SH_AnnouncementView.m in Sources */,
 				BF44ECC920F4D6BE00BC6EF3 /* SH_RechargeDetailMainSubmitView.m in Sources */,
 				22552CF120F4E0BB0090EFBC /* SH_PromoListModel.m in Sources */,
@@ -2642,6 +2669,7 @@
 				DA22F34120F43ABC0058A54F /* SH_LoginView.m in Sources */,
 				54C8761F20FE220C00AA0594 /* UIImage+EXtension.m in Sources */,
 				BFA0689020FC8C1000F5ADFE /* SH_OutCoinDetailView.m in Sources */,
+				22618C682109755100E4A6F6 /* SH_WelfareNotesTableViewCell.m in Sources */,
 				22FC6E892107549A001FA492 /* SH_FindPSWSureView.m in Sources */,
 				DA1BCDB12102D27C00201DBC /* SH_WelfareTableViewCell.m in Sources */,
 				DA18EFBF20F0A9C3002B7E22 /* PopTool.m in Sources */,
