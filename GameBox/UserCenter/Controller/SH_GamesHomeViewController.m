@@ -16,6 +16,7 @@
 #import "SH_WebPButton.h"
 
 #import "SH_WelfareNotesView.h"
+#import "SH_HandRecordView.h"
 
 @interface SH_GamesHomeViewController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintWidth;
@@ -92,12 +93,18 @@
             break;
         }
         case 1:{
+//            //牌局记录
+//            SH_CardRecordView *crv = [SH_CardRecordView  instanceCardRecordView];
+//            // 投注记录详情
+//            AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:crv viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title10" alertViewType:AlertViewTypeLong];
+//            crv.alertVC = acr;
+//            [self presentViewController:acr addTargetViewController:self];
             //牌局记录
-            SH_CardRecordView *crv = [SH_CardRecordView  instanceCardRecordView];
+            SH_HandRecordView *crv = [SH_HandRecordView  instanceCardRecordView];
             // 投注记录详情
             AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:crv viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title10" alertViewType:AlertViewTypeLong];
-            crv.alertVC = acr;
             [self presentViewController:acr addTargetViewController:self];
+            
             break;
         }
         case 2:{

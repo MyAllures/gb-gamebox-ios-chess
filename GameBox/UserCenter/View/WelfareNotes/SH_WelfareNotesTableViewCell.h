@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface SH_WelfareNotesTableViewCell : UITableViewCell
-
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *statuLabel;
+@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 @end

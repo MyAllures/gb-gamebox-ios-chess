@@ -24,7 +24,7 @@
 -(void)updateCellWithInfo:(NSDictionary *)info context:(id)context{
     SH_FundListModel * model =  ConvertToClassPointer(SH_FundListModel, context);
    
-    NSTimeInterval interval    =[model.createTime doubleValue] / 1000.0;
+    NSTimeInterval interval    =model.createTime / 1000.0;
     NSDate *date               = [NSDate dateWithTimeIntervalSince1970:interval];
     self.one_label.text =  dateStringWithFormatter(date, @"yyyy-MM-dd");
     self.two_label.text = model.transactionMoney;

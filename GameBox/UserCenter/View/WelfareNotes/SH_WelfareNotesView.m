@@ -10,12 +10,21 @@
 #import "SH_WelfareNotesTableViewCell.h"
 #import "HLPopTableView.h"
 #import "SH_NetWorkService+UserCenter.h"
+
+#import "SH_FundListModel.h"
 @interface SH_WelfareNotesView() <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (weak, nonatomic) IBOutlet UIButton *timeBtn;
+@property (weak, nonatomic) IBOutlet UIButton *typeBtn;
 
 @property (strong, nonatomic) NSMutableArray *dataArr;
 @property (strong, nonatomic) NSString *startTimeStr;
 @property (strong, nonatomic) NSString *endTimeStr;
+
+@property (weak, nonatomic) IBOutlet UILabel *totalRechargeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalDiscountlabel;
+
 @end
 
 @implementation SH_WelfareNotesView
@@ -25,6 +34,8 @@
     __weak typeof(self) weakSelf = self;
     HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, sender.bounds.size.width, 125) dependView:sender textArr:arr textFont:14.0 block:^(NSString *region_name, NSInteger index) {
         [weakSelf  changedSinceTimeString:index];
+        [self.timeBtn setTitle:region_name forState:UIControlStateNormal];
+        [self requestData];
     }];
     [self addSubview:popTV];
 }
@@ -123,7 +134,6 @@
     if (self.startTimeStr == nil || self.endTimeStr == nil) {
         [self changedSinceTimeString:3];
     }
-    
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerNib:[UINib nibWithNibName:@"SH_WelfareNotesTableViewCell" bundle:nil] forCellReuseIdentifier:@"SH_WelfareNotesTableViewCell"];
@@ -132,16 +142,50 @@
 }
 
 -(void)requestData {
-    
+    [self.dataArr removeAllObjects];
     NSLog(@"startTimeStr===%@",self.startTimeStr);
     NSLog(@" endTimeStr===%@",self.endTimeStr);
+    [MBProgressHUD showHUDAddedTo:self animated:YES];
     [SH_NetWorkService  fetchDepositList:self.startTimeStr EndDate:self.endTimeStr SearchType:@"" PageNumber:1 PageSize:5000 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dict = (NSDictionary *)response;
         NSLog(@"dict===%@",dict);
+        NSString *code = dict[@"code"];
+        if ([code intValue] == 0) {
+            self.totalRechargeLabel.text = [NSString stringWithFormat:@"优惠合计：%@",dict[@"data"][@"sumPlayerMap"][@"favorable"]];
+            self.totalDiscountlabel.text = [NSString stringWithFormat:@"充值合计：%@",dict[@"data"][@"sumPlayerMap"][@"recharge"]];
+            NSArray *arr = dict[@"data"][@"fundListApps"];
+            if (arr.count > 0) {
+                for (NSDictionary *dict1 in arr) {
+                    SH_FundListModel *model = [[SH_FundListModel alloc]initWithDictionary:dict1 error:nil];
+                    [self.dataArr addObject:model];
+                    [self.tableView reloadData];
+                    [MBProgressHUD hideHUDForView:self animated:YES];
+                }
+            } else {
+                [self.tableView reloadData];
+                [MBProgressHUD hideHUDForView:self animated:YES];
+            }
+            
+        } else {
+            showMessage(self, @"", dict[@"message"]);
+            [MBProgressHUD hideHUDForView:self animated:YES];
+        }
         
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
+        showMessage(self, @"", err);
+        [MBProgressHUD hideHUDForView:self animated:YES];
     }];
+}
+
+-(NSString *)timeStampWithDate: (NSInteger)timeStamp {
+    // iOS 生成的时间戳是10位
+    NSTimeInterval interval    =timeStamp / 1000.0;
+    NSDate *date               = [NSDate dateWithTimeIntervalSince1970:interval];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *dateString       = [formatter stringFromDate: date];
+    return dateString;
 }
 
 /*
@@ -153,7 +197,7 @@
 */
 #pragma mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.dataArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -162,12 +206,21 @@
         cell = [[[NSBundle mainBundle]loadNibNamed:@"SH_WelfareNotesTableViewCell" owner:nil options:nil] lastObject];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    SH_FundListModel *model = self.dataArr[indexPath.row];
+    cell.timeLabel.text = [self timeStampWithDate:model.createTime];
+    cell.moneyLabel.text = model.transactionMoney;
+    cell.statuLabel.text = model.statusName;
+    cell.typeLabel.text = model.transaction_typeName;
     return cell;
 }
 
 #pragma mark UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 29;
 }
 
 @end
