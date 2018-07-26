@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *operationBarConstraint;
 @property (nonatomic, strong) NSMutableArray *msgArr;
+@property (nonatomic, copy) SH_MsgCenterViewShowDetail showDetailBlock;
 
 @end
 
@@ -29,6 +30,11 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
+}
+
+- (void)showDetail:(SH_MsgCenterViewShowDetail)showDetailBlock
+{
+    self.showDetailBlock = showDetailBlock;
 }
 
 - (NSMutableArray *)msgArr
@@ -249,7 +255,9 @@
         [MBProgressHUD showHUDAddedTo:self animated:YES];
         [SH_NetWorkService_Promo startLoadSystemMessageDetailWithSearchId:tModel.searchId complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSString *content = response[@"data"][@"content"];
-            NSLog(@"");
+            if (weakSelf.showDetailBlock) {
+                weakSelf.showDetailBlock(content);
+            }
             [MBProgressHUD hideHUDForView:weakSelf animated:YES];
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             [MBProgressHUD hideHUDForView:weakSelf animated:YES];
