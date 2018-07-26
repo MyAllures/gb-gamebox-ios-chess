@@ -10,7 +10,7 @@
 @protocol  SH_FundListModel;
 @interface SH_FundListModel : JSONModel
 @property(nonatomic,assign)NSInteger mId;
-@property(nonatomic,strong)NSString *createTime;
+@property(nonatomic,assign)NSInteger createTime;
 @property(nonatomic,strong)NSString *transactionMoney;
 @property(nonatomic,strong)NSString *transactionType;
 @property(nonatomic,strong)NSString *transaction_typeName;
