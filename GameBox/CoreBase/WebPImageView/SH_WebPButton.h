@@ -15,6 +15,8 @@ IB_DESIGNABLE
 
 @property (nonatomic, strong) IBInspectable NSString *webpImage;
 @property (nonatomic, strong) IBInspectable NSString *webpBGImage;
+@property (nonatomic, strong) IBInspectable NSString *selectedImage;
+@property (nonatomic, strong) IBInspectable NSString *selectedBGImage;
 
 - (void)setWebpImage:(NSString *)webpImage forState:(UIControlState)state;
 - (void)setWebpBGImage:(NSString *)webpImage forState:(UIControlState)state;

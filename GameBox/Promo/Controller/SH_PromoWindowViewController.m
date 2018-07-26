@@ -10,11 +10,12 @@
 #import "SH_PromoListView.h"
 #import "SH_MsgCenterView.h"
 #import "SH_PromoDeatilViewController.h"
+#import "SH_WebPButton.h"
 
 @interface SH_PromoWindowViewController () <SH_PromoListViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *contentView;
-@property (weak, nonatomic) IBOutlet UIButton *promoTypeBt;
-@property (weak, nonatomic) IBOutlet UIButton *msgTypeBt;
+@property (weak, nonatomic) IBOutlet SH_WebPButton *promoTypeBt;
+@property (weak, nonatomic) IBOutlet SH_WebPButton *msgTypeBt;
 
 @property (strong, nonatomic) SH_PromoListView *promoListView;
 @property (strong, nonatomic) SH_MsgCenterView *msgCenterView;
@@ -26,6 +27,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self.promoTypeBt setWebpBGImage:@"title15nw" forState:UIControlStateNormal];
+    [self.promoTypeBt setWebpBGImage:@"btn-activity" forState:UIControlStateSelected];
+    [self.msgTypeBt setWebpBGImage:@"title16nw" forState:UIControlStateNormal];
+    [self.msgTypeBt setWebpBGImage:@"btn-news" forState:UIControlStateSelected];
+    self.promoTypeBt.selected = YES;
+    
     [self promoTypeSelected:nil];
 }
 
@@ -76,6 +83,7 @@
     self.msgTypeBt.selected = YES;
     self.promoListView.hidden = YES;
     self.msgCenterView.hidden = NO;
+    [self.msgCenterView reloadData];
 }
 
 #pragma mark - SH_PromoListViewDelegate M

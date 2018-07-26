@@ -1,5 +1,5 @@
 //
-//  SH_MsgCenterView.h
+//  SH_MsgCenterCell.h
 //  GameBox
 //
 //  Created by shin on 2018/7/25.
@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SH_MsgCenterView : UIView
+@interface SH_MsgCenterCell : UITableViewCell
 
-- (void)reloadData;
+@property (nonatomic, assign) id model;
+
+- (void)updateSelectedStatus;
 
 @end
