@@ -11,6 +11,11 @@
 
 @implementation SH_HomeBannerModel
 
++ (BOOL)propertyIsOptional:(NSString*)propertyName
+{
+    return YES;
+}
+
 - (void)setCoverWithNSString:(NSString *)string
 {
     self.cover = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:string];

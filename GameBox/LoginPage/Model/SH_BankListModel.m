@@ -9,6 +9,12 @@
 #import "SH_BankListModel.h"
 
 @implementation SH_BankListModel
+
++ (BOOL)propertyIsOptional:(NSString*)propertyName
+{
+    return YES;
+}
+
 + (JSONKeyMapper *)keyMapper{
     return [[JSONKeyMapper alloc]initWithModelToJSONDictionary:@{@"bankCode":@"value",@"bankName":@"text"}];
 }

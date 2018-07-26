@@ -11,6 +11,11 @@
 
 @implementation SH_GameItemModel
 
++ (BOOL)propertyIsOptional:(NSString*)propertyName
+{
+    return YES;
+}
+
 - (void)setCoverWithNSString:(NSString *)string
 {
     self.cover = [[[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:string] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];

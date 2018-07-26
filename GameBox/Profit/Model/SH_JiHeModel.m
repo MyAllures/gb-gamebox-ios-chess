@@ -10,4 +10,9 @@
 
 @implementation SH_JiHeModel
 
++ (BOOL)propertyIsOptional:(NSString*)propertyName
+{
+    return YES;
+}
+
 @end

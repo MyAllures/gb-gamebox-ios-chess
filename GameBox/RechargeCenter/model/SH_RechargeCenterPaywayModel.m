@@ -8,6 +8,11 @@
 
 #import "SH_RechargeCenterPaywayModel.h"
 @implementation SH_RechargeCenterPaywayModel
++ (BOOL)propertyIsOptional:(NSString*)propertyName
+{
+    return YES;
+}
+
 + (JSONKeyMapper *)keyMapper{
     return [[JSONKeyMapper alloc]initWithModelToJSONDictionary:@{@"mNewActivity":@"newActivity"}];
 }

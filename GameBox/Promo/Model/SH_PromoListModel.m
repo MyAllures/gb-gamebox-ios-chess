@@ -10,6 +10,11 @@
 
 @implementation SH_PromoListModel
 
++ (BOOL)propertyIsOptional:(NSString*)propertyName
+{
+    return YES;
+}
+
 - (void)setPhotoWithNSString:(NSString *)string
 {
     self.photo = [[[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:string] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];

@@ -10,6 +10,11 @@
 
 @implementation RH_UserSafetyCodeModel
 
++ (BOOL)propertyIsOptional:(NSString*)propertyName
+{
+    return YES;
+}
+
 -(void)updateHasRealName:(BOOL)bFlag
 {
     _hasRealName = bFlag ;

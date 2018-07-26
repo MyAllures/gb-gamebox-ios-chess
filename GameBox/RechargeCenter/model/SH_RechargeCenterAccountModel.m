@@ -10,4 +10,9 @@
 
 @implementation SH_RechargeCenterAccountModel
 
++ (BOOL)propertyIsOptional:(NSString*)propertyName
+{
+    return YES;
+}
+
 @end

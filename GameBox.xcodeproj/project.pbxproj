@@ -13,9 +13,6 @@
 		2231283720F707F500D1BF5E /* SH_SystemNotificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2231283620F707F500D1BF5E /* SH_SystemNotificationModel.m */; };
 		22552CEE20F4CCE50090EFBC /* SH_NetWorkService+Promo.m in Sources */ = {isa = PBXBuildFile; fileRef = 22552CED20F4CCE50090EFBC /* SH_NetWorkService+Promo.m */; };
 		22552CF120F4E0BB0090EFBC /* SH_PromoListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22552CF020F4E0BB0090EFBC /* SH_PromoListModel.m */; };
-		22573D3420F8999800D0EB0A /* SH_ApiSelectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22573D3320F8999800D0EB0A /* SH_ApiSelectModel.m */; };
-		22573D3E20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22573D3C20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.m */; };
-		22573D3F20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22573D3D20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.xib */; };
 		22618C62210963F700E4A6F6 /* SH_WelfareNotesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22618C61210963F700E4A6F6 /* SH_WelfareNotesView.m */; };
 		22618C642109640100E4A6F6 /* SH_WelfareNotesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22618C632109640100E4A6F6 /* SH_WelfareNotesView.xib */; };
 		22618C682109755100E4A6F6 /* SH_WelfareNotesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22618C662109755100E4A6F6 /* SH_WelfareNotesTableViewCell.m */; };
@@ -193,6 +190,9 @@
 		54DD034F21096C1400CE9199 /* title16nw.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54DD034A21096C1400CE9199 /* title16nw.webp */; };
 		54DD035021096C1400CE9199 /* btn-activity.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54DD034B21096C1400CE9199 /* btn-activity.webp */; };
 		54DD03522109B47E00CE9199 /* btn_blue.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54DD03512109B47E00CE9199 /* btn_blue.webp */; };
+		54DD03552109C7BB00CE9199 /* deco.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54DD03532109C7BA00CE9199 /* deco.webp */; };
+		54DD03562109C7BB00CE9199 /* bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54DD03542109C7BA00CE9199 /* bg.webp */; };
+		54DD03592109C84F00CE9199 /* SH_SplashNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DD03582109C84F00CE9199 /* SH_SplashNoticeViewController.m */; };
 		54E7D2CF210724FF0069F2CE /* game_icon_back.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54E7D2CC210724FE0069F2CE /* game_icon_back.webp */; };
 		54E7D2D0210724FF0069F2CE /* game_menu_bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54E7D2CD210724FF0069F2CE /* game_menu_bg.webp */; };
 		54E7D2D1210724FF0069F2CE /* game_icon_home.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54E7D2CE210724FF0069F2CE /* game_icon_home.webp */; };
@@ -395,20 +395,12 @@
 		22552CED20F4CCE50090EFBC /* SH_NetWorkService+Promo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+Promo.m"; sourceTree = "<group>"; };
 		22552CEF20F4E0BB0090EFBC /* SH_PromoListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoListModel.h; sourceTree = "<group>"; };
 		22552CF020F4E0BB0090EFBC /* SH_PromoListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoListModel.m; sourceTree = "<group>"; };
-		22573D3220F8999800D0EB0A /* SH_ApiSelectModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ApiSelectModel.h; sourceTree = "<group>"; };
-		22573D3320F8999800D0EB0A /* SH_ApiSelectModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_ApiSelectModel.m; sourceTree = "<group>"; };
-		22573D3B20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_MyMsgTabelViewCell.h; sourceTree = "<group>"; };
-		22573D3C20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_MyMsgTabelViewCell.m; sourceTree = "<group>"; };
-		22573D3D20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_MyMsgTabelViewCell.xib; sourceTree = "<group>"; };
 		22618C60210963F700E4A6F6 /* SH_WelfareNotesView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_WelfareNotesView.h; sourceTree = "<group>"; };
 		22618C61210963F700E4A6F6 /* SH_WelfareNotesView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_WelfareNotesView.m; sourceTree = "<group>"; };
 		22618C632109640100E4A6F6 /* SH_WelfareNotesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_WelfareNotesView.xib; sourceTree = "<group>"; };
 		22618C652109755100E4A6F6 /* SH_WelfareNotesTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_WelfareNotesTableViewCell.h; sourceTree = "<group>"; };
 		22618C662109755100E4A6F6 /* SH_WelfareNotesTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_WelfareNotesTableViewCell.m; sourceTree = "<group>"; };
 		22618C672109755100E4A6F6 /* SH_WelfareNotesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_WelfareNotesTableViewCell.xib; sourceTree = "<group>"; };
-		227CC6C220FF141400AEA497 /* SH_MsgDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_MsgDetailView.h; sourceTree = "<group>"; };
-		227CC6C320FF141400AEA497 /* SH_MsgDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_MsgDetailView.m; sourceTree = "<group>"; };
-		227CC6C520FF142700AEA497 /* SH_MsgDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_MsgDetailView.xib; sourceTree = "<group>"; };
 		22878EC8210029E3005D7652 /* SH_SysMsgDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SysMsgDetailModel.h; sourceTree = "<group>"; };
 		22878EC9210029E3005D7652 /* SH_SysMsgDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SysMsgDetailModel.m; sourceTree = "<group>"; };
 		22E486D720F9F8AE0051A68C /* SH_SysMsgDataListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SysMsgDataListModel.h; sourceTree = "<group>"; };
@@ -638,6 +630,10 @@
 		54DD034A21096C1400CE9199 /* title16nw.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = title16nw.webp; sourceTree = "<group>"; };
 		54DD034B21096C1400CE9199 /* btn-activity.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "btn-activity.webp"; sourceTree = "<group>"; };
 		54DD03512109B47E00CE9199 /* btn_blue.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = btn_blue.webp; sourceTree = "<group>"; };
+		54DD03532109C7BA00CE9199 /* deco.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = deco.webp; sourceTree = "<group>"; };
+		54DD03542109C7BA00CE9199 /* bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = bg.webp; sourceTree = "<group>"; };
+		54DD03572109C84F00CE9199 /* SH_SplashNoticeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SplashNoticeViewController.h; sourceTree = "<group>"; };
+		54DD03582109C84F00CE9199 /* SH_SplashNoticeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SplashNoticeViewController.m; sourceTree = "<group>"; };
 		54E7D2CC210724FE0069F2CE /* game_icon_back.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = game_icon_back.webp; sourceTree = "<group>"; };
 		54E7D2CD210724FF0069F2CE /* game_menu_bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = game_menu_bg.webp; sourceTree = "<group>"; };
 		54E7D2CE210724FF0069F2CE /* game_icon_home.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = game_icon_home.webp; sourceTree = "<group>"; };
@@ -974,91 +970,6 @@
 			path = Promo;
 			sourceTree = "<group>";
 		};
-		22552CC520F43F1F0090EFBC /* cell */ = {
-			isa = PBXGroup;
-			children = (
-				2209026320F053D400F8828E /* SH_PromoViewCell.h */,
-				2209026420F053D400F8828E /* SH_PromoViewCell.m */,
-				2209026520F053D400F8828E /* SH_PromoViewCell.xib */,
-				22552CE720F4B7720090EFBC /* SH_SiteMsgViewCell.h */,
-				22552CE820F4B7720090EFBC /* SH_SiteMsgViewCell.m */,
-				22552CE920F4B7720090EFBC /* SH_SiteMsgViewCell.xib */,
-				2248B11620F5EF7E0077EF58 /* SH_GameBulletinTCell.h */,
-				2248B11720F5EF7E0077EF58 /* SH_GameBulletinTCell.m */,
-				2248B11820F5EF7E0077EF58 /* SH_GameBulletinTCell.xib */,
-				22573D3B20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.h */,
-				22573D3C20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.m */,
-				22573D3D20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.xib */,
-				22E486CF20F9C9920051A68C /* SH_SendMsgTabelViewCell.h */,
-				22E486D020F9C9920051A68C /* SH_SendMsgTabelViewCell.m */,
-				22E486D120F9C9920051A68C /* SH_SendMsgTabelViewCell.xib */,
-			);
-			path = cell;
-			sourceTree = "<group>";
-		};
-		22552CD120F48B670090EFBC /* promo */ = {
-			isa = PBXGroup;
-			children = (
-				54C8757C20F355F800AA0594 /* SH_PromoListView.h */,
-				54C8757D20F355F800AA0594 /* SH_PromoListView.m */,
-				54C8757F20F3560100AA0594 /* SH_PromoListView.xib */,
-			);
-			path = promo;
-			sourceTree = "<group>";
-		};
-		22552CD220F48BA20090EFBC /* msgCenter */ = {
-			isa = PBXGroup;
-			children = (
-				22552CD520F48C4A0090EFBC /* siteMsg */,
-				22552CD420F48C190090EFBC /* SystemNotification */,
-				22552CD320F48BE20090EFBC /* GameAnnouncement */,
-			);
-			path = msgCenter;
-			sourceTree = "<group>";
-		};
-		22552CD320F48BE20090EFBC /* GameAnnouncement */ = {
-			isa = PBXGroup;
-			children = (
-				22D116AC2105FBAB00589EB9 /* bulletinDetail */,
-				229A219C20F3826E00F5A969 /* SH_GameAnnouncementView.h */,
-				229A219D20F3826E00F5A969 /* SH_GameAnnouncementView.m */,
-				229A219F20F3827700F5A969 /* SH_GameAnnouncementView.xib */,
-			);
-			path = GameAnnouncement;
-			sourceTree = "<group>";
-		};
-		22552CD420F48C190090EFBC /* SystemNotification */ = {
-			isa = PBXGroup;
-			children = (
-				22552CC620F448740090EFBC /* SH_SystemNotification.h */,
-				22552CC720F448740090EFBC /* SH_SystemNotification.m */,
-				22552CC920F448810090EFBC /* SH_SystemNotification.xib */,
-			);
-			path = SystemNotification;
-			sourceTree = "<group>";
-		};
-		22552CD520F48C4A0090EFBC /* siteMsg */ = {
-			isa = PBXGroup;
-			children = (
-				22552CD620F48D5F0090EFBC /* systemMsg */,
-				22552CDD20F494E80090EFBC /* SH_SiteMsgView.h */,
-				22552CDE20F494E80090EFBC /* SH_SiteMsgView.m */,
-				22552CE020F494F00090EFBC /* SH_SiteMsgView.xib */,
-			);
-			path = siteMsg;
-			sourceTree = "<group>";
-		};
-		22552CD620F48D5F0090EFBC /* systemMsg */ = {
-			isa = PBXGroup;
-			children = (
-				227CC6C120FF13E900AEA497 /* detailView */,
-				22552CD820F48DAA0090EFBC /* SH_SystemMsgView.h */,
-				22552CD920F48DAA0090EFBC /* SH_SystemMsgView.m */,
-				22552CDB20F48DBA0090EFBC /* SH_SystemMsgView.xib */,
-			);
-			path = systemMsg;
-			sourceTree = "<group>";
-		};
 		22618C5F210963C400E4A6F6 /* WelfareNotes */ = {
 			isa = PBXGroup;
 			children = (
@@ -1070,26 +981,6 @@
 				22618C672109755100E4A6F6 /* SH_WelfareNotesTableViewCell.xib */,
 			);
 			path = WelfareNotes;
-			sourceTree = "<group>";
-		};
-		227CC6C120FF13E900AEA497 /* detailView */ = {
-			isa = PBXGroup;
-			children = (
-				227CC6C220FF141400AEA497 /* SH_MsgDetailView.h */,
-				227CC6C320FF141400AEA497 /* SH_MsgDetailView.m */,
-				227CC6C520FF142700AEA497 /* SH_MsgDetailView.xib */,
-			);
-			path = detailView;
-			sourceTree = "<group>";
-		};
-		22D116AC2105FBAB00589EB9 /* bulletinDetail */ = {
-			isa = PBXGroup;
-			children = (
-				22D116AD2105FBCE00589EB9 /* SH_BulletinDetailView.h */,
-				22D116AE2105FBCE00589EB9 /* SH_BulletinDetailView.m */,
-				22D116B02105FBDC00589EB9 /* SH_BulletinDetailView.xib */,
-			);
-			path = bulletinDetail;
 			sourceTree = "<group>";
 		};
 		22FC6E8C21082487001FA492 /* model */ = {
@@ -1135,6 +1026,8 @@
 				5401C53020ECA10F0027246D /* AppDelegate.m */,
 				5401C53220ECA10F0027246D /* LineCheckViewController.h */,
 				5401C53320ECA10F0027246D /* LineCheckViewController.m */,
+				54DD03572109C84F00CE9199 /* SH_SplashNoticeViewController.h */,
+				54DD03582109C84F00CE9199 /* SH_SplashNoticeViewController.m */,
 				5401C53520ECA10F0027246D /* Main.storyboard */,
 				5401C53820ECA1100027246D /* Assets.xcassets */,
 				5401C53A20ECA1100027246D /* LaunchScreen.storyboard */,
@@ -1278,6 +1171,8 @@
 		5435E7C32104349B00DB809F /* webpRes */ = {
 			isa = PBXGroup;
 			children = (
+				54DD03542109C7BA00CE9199 /* bg.webp */,
+				54DD03532109C7BA00CE9199 /* deco.webp */,
 				54DD03512109B47E00CE9199 /* btn_blue.webp */,
 				54DD034B21096C1400CE9199 /* btn-activity.webp */,
 				54DD034821096C1400CE9199 /* btn-news.webp */,
@@ -2391,6 +2286,7 @@
 				54E7D2E7210726390069F2CE /* mearkRead.webp in Resources */,
 				543970D1210462BB0091C719 /* unselect.webp in Resources */,
 				543970A1210462BB0091C719 /* font_welfare.webp in Resources */,
+				54DD03552109C7BB00CE9199 /* deco.webp in Resources */,
 				54DD034C21096C1400CE9199 /* classify-main.webp in Resources */,
 				22FC6E862107526E001FA492 /* SH_FindPSWSendCodeView.xib in Resources */,
 				543970B4210462BB0091C719 /* btn_return.webp in Resources */,
@@ -2441,6 +2337,7 @@
 				543970D9210462BB0091C719 /* close.webp in Resources */,
 				54C8761620FE218B00AA0594 /* rain.png in Resources */,
 				BF5C0BC321057E2E0035B754 /* bankListDown.webp in Resources */,
+				54DD03562109C7BB00CE9199 /* bg.webp in Resources */,
 				5439708B210462BB0091C719 /* btn-welfare.webp in Resources */,
 				543970B0210462BB0091C719 /* photo_female.webp in Resources */,
 				BFA068CA20FE0FFC00F5ADFE /* SH_ModifyLoginPSDView.xib in Resources */,
@@ -2683,6 +2580,7 @@
 				BF44ECDC20F602FE00BC6EF3 /* SH_KuaiChongViewController.m in Sources */,
 				BFA068AA20FD86BF00F5ADFE /* SH_OutCoinDetailTableViewCell.m in Sources */,
 				BF44ECFD20F7477900BC6EF3 /* SH_BitCoinSuccessPopView.m in Sources */,
+				54DD03592109C84F00CE9199 /* SH_SplashNoticeViewController.m in Sources */,
 				BFFC845220F2F253008AD801 /* SH_RechargeCenterViewController.m in Sources */,
 				BF44ECDF20F6F6AA00BC6EF3 /* UILabel+handle.m in Sources */,
 				5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */,

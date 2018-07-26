@@ -9,6 +9,11 @@
 #import "SH_RechargeCenterChannelModel.h"
 
 @implementation SH_RechargeCenterChannelModel
++ (BOOL)propertyIsOptional:(NSString*)propertyName
+{
+    return YES;
+}
+
 + (JSONKeyMapper *)keyMapper{
     return [[JSONKeyMapper alloc]initWithModelToJSONDictionary:@{@"ID":@"id"}];
 }
