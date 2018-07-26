@@ -25,7 +25,7 @@
         NSString *code = dict1[@"code"];
         if ([code isEqualToString:@"0"]) {
             SH_FindPSWSureView *view = [[[NSBundle mainBundle]loadNibNamed:@"SH_FindPSWSureView" owner:nil options:nil] lastObject];
-            AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:200 titleImageName:@"outCoinDetail" alertViewType:AlertViewTypeShort];
+            AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:200 titleImageName:@"title19" alertViewType:AlertViewTypeShort];
             view.targetVC3 = acr;
             acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
             acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;

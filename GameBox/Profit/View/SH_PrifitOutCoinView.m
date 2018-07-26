@@ -59,17 +59,18 @@
     }else if (self.numTextField.text.length == 0||[self.numTextField.text floatValue] > [self.balanceLab.text floatValue]) {
         [self popAlertView];
     }
-//    else if ([self.numTextField.text intValue]%50 != 0 || [self.numTextField.text intValue] == 0) {
-//        self.numTextField.text = @"";
-//        [self popAlertView];
-//        return;
-//    }
+    else if ([self.numTextField.text intValue]%50 != 0 || [self.numTextField.text intValue] == 0) {
+        self.numTextField.text = @"";
+        [self popAlertView];
+        return;
+    }
     else{
         SH_OutCoinDetailView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_OutCoinDetailView" owner:self options:nil].firstObject;
         AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-95 titleImageName:@"title14" alertViewType:AlertViewTypeShort];
         acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         [self.targetVC presentViewController:acr animated:YES completion:nil];
+        self.feeModel.actualWithdraw = [NSString stringWithFormat:@"%.2f",[self.feeModel.actualWithdraw floatValue]];
         [view updateUIWithDetailArray:@[self.bankNumLab.text,self.numTextField.text,self.feeModel.counterFee,self.feeModel.administrativeFee,self.feeModel.deductFavorable,self.feeModel.actualWithdraw] TargetVC:acr Token:self.token];
     }
     

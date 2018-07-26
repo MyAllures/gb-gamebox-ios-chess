@@ -15,6 +15,8 @@
 #import "UIImage+SH_WebPImage.h"
 #import "SH_WebPButton.h"
 
+#import "SH_WelfareNotesView.h"
+
 @interface SH_GamesHomeViewController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintWidth;
 @property (weak, nonatomic) IBOutlet UIView *top_view;
@@ -77,10 +79,15 @@
     NSInteger  tag = sender.tag-100;
     switch (tag) {
         case 0:{
+//            //福利记录
+//            SH_WelfareRecordView   *welfare =  [SH_WelfareRecordView instanceWelfareRecordView];
+//            AlertViewController *cvc  = [[AlertViewController  alloc] initAlertView:welfare viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title09" alertViewType:AlertViewTypeLong];
+//             welfare.vc = cvc;
+//            [self presentViewController:cvc addTargetViewController:self];
             //福利记录
-            SH_WelfareRecordView   *welfare =  [SH_WelfareRecordView instanceWelfareRecordView];
+            SH_WelfareNotesView   *welfare =  [SH_WelfareNotesView instanceWelfareRecordView];
             AlertViewController *cvc  = [[AlertViewController  alloc] initAlertView:welfare viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title09" alertViewType:AlertViewTypeLong];
-             welfare.vc = cvc;
+            //             welfare.vc = cvc;
             [self presentViewController:cvc addTargetViewController:self];
             break;
         }

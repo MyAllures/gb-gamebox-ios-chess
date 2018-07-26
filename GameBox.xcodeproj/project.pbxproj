@@ -13,6 +13,13 @@
 		2231283720F707F500D1BF5E /* SH_SystemNotificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2231283620F707F500D1BF5E /* SH_SystemNotificationModel.m */; };
 		22552CEE20F4CCE50090EFBC /* SH_NetWorkService+Promo.m in Sources */ = {isa = PBXBuildFile; fileRef = 22552CED20F4CCE50090EFBC /* SH_NetWorkService+Promo.m */; };
 		22552CF120F4E0BB0090EFBC /* SH_PromoListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22552CF020F4E0BB0090EFBC /* SH_PromoListModel.m */; };
+		22573D3420F8999800D0EB0A /* SH_ApiSelectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22573D3320F8999800D0EB0A /* SH_ApiSelectModel.m */; };
+		22573D3E20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22573D3C20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.m */; };
+		22573D3F20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22573D3D20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.xib */; };
+		22618C62210963F700E4A6F6 /* SH_WelfareNotesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22618C61210963F700E4A6F6 /* SH_WelfareNotesView.m */; };
+		22618C642109640100E4A6F6 /* SH_WelfareNotesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22618C632109640100E4A6F6 /* SH_WelfareNotesView.xib */; };
+		22618C682109755100E4A6F6 /* SH_WelfareNotesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22618C662109755100E4A6F6 /* SH_WelfareNotesTableViewCell.m */; };
+		22618C692109755100E4A6F6 /* SH_WelfareNotesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22618C672109755100E4A6F6 /* SH_WelfareNotesTableViewCell.xib */; };
 		2274222120FE03BB003529FF /* SH_PromoListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8757D20F355F800AA0594 /* SH_PromoListView.m */; };
 		22878ECA210029E3005D7652 /* SH_SysMsgDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22878EC9210029E3005D7652 /* SH_SysMsgDetailModel.m */; };
 		22E486D920F9F8AE0051A68C /* SH_SysMsgDataListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E486D820F9F8AE0051A68C /* SH_SysMsgDataListModel.m */; };
@@ -388,6 +395,20 @@
 		22552CED20F4CCE50090EFBC /* SH_NetWorkService+Promo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+Promo.m"; sourceTree = "<group>"; };
 		22552CEF20F4E0BB0090EFBC /* SH_PromoListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoListModel.h; sourceTree = "<group>"; };
 		22552CF020F4E0BB0090EFBC /* SH_PromoListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoListModel.m; sourceTree = "<group>"; };
+		22573D3220F8999800D0EB0A /* SH_ApiSelectModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ApiSelectModel.h; sourceTree = "<group>"; };
+		22573D3320F8999800D0EB0A /* SH_ApiSelectModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_ApiSelectModel.m; sourceTree = "<group>"; };
+		22573D3B20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_MyMsgTabelViewCell.h; sourceTree = "<group>"; };
+		22573D3C20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_MyMsgTabelViewCell.m; sourceTree = "<group>"; };
+		22573D3D20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_MyMsgTabelViewCell.xib; sourceTree = "<group>"; };
+		22618C60210963F700E4A6F6 /* SH_WelfareNotesView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_WelfareNotesView.h; sourceTree = "<group>"; };
+		22618C61210963F700E4A6F6 /* SH_WelfareNotesView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_WelfareNotesView.m; sourceTree = "<group>"; };
+		22618C632109640100E4A6F6 /* SH_WelfareNotesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_WelfareNotesView.xib; sourceTree = "<group>"; };
+		22618C652109755100E4A6F6 /* SH_WelfareNotesTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_WelfareNotesTableViewCell.h; sourceTree = "<group>"; };
+		22618C662109755100E4A6F6 /* SH_WelfareNotesTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_WelfareNotesTableViewCell.m; sourceTree = "<group>"; };
+		22618C672109755100E4A6F6 /* SH_WelfareNotesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_WelfareNotesTableViewCell.xib; sourceTree = "<group>"; };
+		227CC6C220FF141400AEA497 /* SH_MsgDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_MsgDetailView.h; sourceTree = "<group>"; };
+		227CC6C320FF141400AEA497 /* SH_MsgDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_MsgDetailView.m; sourceTree = "<group>"; };
+		227CC6C520FF142700AEA497 /* SH_MsgDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_MsgDetailView.xib; sourceTree = "<group>"; };
 		22878EC8210029E3005D7652 /* SH_SysMsgDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SysMsgDetailModel.h; sourceTree = "<group>"; };
 		22878EC9210029E3005D7652 /* SH_SysMsgDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SysMsgDetailModel.m; sourceTree = "<group>"; };
 		22E486D720F9F8AE0051A68C /* SH_SysMsgDataListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SysMsgDataListModel.h; sourceTree = "<group>"; };
@@ -951,6 +972,124 @@
 				54C8757620F3502000AA0594 /* View */,
 			);
 			path = Promo;
+			sourceTree = "<group>";
+		};
+		22552CC520F43F1F0090EFBC /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				2209026320F053D400F8828E /* SH_PromoViewCell.h */,
+				2209026420F053D400F8828E /* SH_PromoViewCell.m */,
+				2209026520F053D400F8828E /* SH_PromoViewCell.xib */,
+				22552CE720F4B7720090EFBC /* SH_SiteMsgViewCell.h */,
+				22552CE820F4B7720090EFBC /* SH_SiteMsgViewCell.m */,
+				22552CE920F4B7720090EFBC /* SH_SiteMsgViewCell.xib */,
+				2248B11620F5EF7E0077EF58 /* SH_GameBulletinTCell.h */,
+				2248B11720F5EF7E0077EF58 /* SH_GameBulletinTCell.m */,
+				2248B11820F5EF7E0077EF58 /* SH_GameBulletinTCell.xib */,
+				22573D3B20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.h */,
+				22573D3C20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.m */,
+				22573D3D20F8C7F100D0EB0A /* SH_MyMsgTabelViewCell.xib */,
+				22E486CF20F9C9920051A68C /* SH_SendMsgTabelViewCell.h */,
+				22E486D020F9C9920051A68C /* SH_SendMsgTabelViewCell.m */,
+				22E486D120F9C9920051A68C /* SH_SendMsgTabelViewCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		22552CD120F48B670090EFBC /* promo */ = {
+			isa = PBXGroup;
+			children = (
+				54C8757C20F355F800AA0594 /* SH_PromoListView.h */,
+				54C8757D20F355F800AA0594 /* SH_PromoListView.m */,
+				54C8757F20F3560100AA0594 /* SH_PromoListView.xib */,
+			);
+			path = promo;
+			sourceTree = "<group>";
+		};
+		22552CD220F48BA20090EFBC /* msgCenter */ = {
+			isa = PBXGroup;
+			children = (
+				22552CD520F48C4A0090EFBC /* siteMsg */,
+				22552CD420F48C190090EFBC /* SystemNotification */,
+				22552CD320F48BE20090EFBC /* GameAnnouncement */,
+			);
+			path = msgCenter;
+			sourceTree = "<group>";
+		};
+		22552CD320F48BE20090EFBC /* GameAnnouncement */ = {
+			isa = PBXGroup;
+			children = (
+				22D116AC2105FBAB00589EB9 /* bulletinDetail */,
+				229A219C20F3826E00F5A969 /* SH_GameAnnouncementView.h */,
+				229A219D20F3826E00F5A969 /* SH_GameAnnouncementView.m */,
+				229A219F20F3827700F5A969 /* SH_GameAnnouncementView.xib */,
+			);
+			path = GameAnnouncement;
+			sourceTree = "<group>";
+		};
+		22552CD420F48C190090EFBC /* SystemNotification */ = {
+			isa = PBXGroup;
+			children = (
+				22552CC620F448740090EFBC /* SH_SystemNotification.h */,
+				22552CC720F448740090EFBC /* SH_SystemNotification.m */,
+				22552CC920F448810090EFBC /* SH_SystemNotification.xib */,
+			);
+			path = SystemNotification;
+			sourceTree = "<group>";
+		};
+		22552CD520F48C4A0090EFBC /* siteMsg */ = {
+			isa = PBXGroup;
+			children = (
+				22552CD620F48D5F0090EFBC /* systemMsg */,
+				22552CDD20F494E80090EFBC /* SH_SiteMsgView.h */,
+				22552CDE20F494E80090EFBC /* SH_SiteMsgView.m */,
+				22552CE020F494F00090EFBC /* SH_SiteMsgView.xib */,
+			);
+			path = siteMsg;
+			sourceTree = "<group>";
+		};
+		22552CD620F48D5F0090EFBC /* systemMsg */ = {
+			isa = PBXGroup;
+			children = (
+				227CC6C120FF13E900AEA497 /* detailView */,
+				22552CD820F48DAA0090EFBC /* SH_SystemMsgView.h */,
+				22552CD920F48DAA0090EFBC /* SH_SystemMsgView.m */,
+				22552CDB20F48DBA0090EFBC /* SH_SystemMsgView.xib */,
+			);
+			path = systemMsg;
+			sourceTree = "<group>";
+		};
+		22618C5F210963C400E4A6F6 /* WelfareNotes */ = {
+			isa = PBXGroup;
+			children = (
+				22618C60210963F700E4A6F6 /* SH_WelfareNotesView.h */,
+				22618C61210963F700E4A6F6 /* SH_WelfareNotesView.m */,
+				22618C632109640100E4A6F6 /* SH_WelfareNotesView.xib */,
+				22618C652109755100E4A6F6 /* SH_WelfareNotesTableViewCell.h */,
+				22618C662109755100E4A6F6 /* SH_WelfareNotesTableViewCell.m */,
+				22618C672109755100E4A6F6 /* SH_WelfareNotesTableViewCell.xib */,
+			);
+			path = WelfareNotes;
+			sourceTree = "<group>";
+		};
+		227CC6C120FF13E900AEA497 /* detailView */ = {
+			isa = PBXGroup;
+			children = (
+				227CC6C220FF141400AEA497 /* SH_MsgDetailView.h */,
+				227CC6C320FF141400AEA497 /* SH_MsgDetailView.m */,
+				227CC6C520FF142700AEA497 /* SH_MsgDetailView.xib */,
+			);
+			path = detailView;
+			sourceTree = "<group>";
+		};
+		22D116AC2105FBAB00589EB9 /* bulletinDetail */ = {
+			isa = PBXGroup;
+			children = (
+				22D116AD2105FBCE00589EB9 /* SH_BulletinDetailView.h */,
+				22D116AE2105FBCE00589EB9 /* SH_BulletinDetailView.m */,
+				22D116B02105FBDC00589EB9 /* SH_BulletinDetailView.xib */,
+			);
+			path = bulletinDetail;
 			sourceTree = "<group>";
 		};
 		22FC6E8C21082487001FA492 /* model */ = {
@@ -1926,6 +2065,7 @@
 		DA1BCC4120FCB74400201DBC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				22618C5F210963C400E4A6F6 /* WelfareNotes */,
 				DA1BCD992102D27C00201DBC /* WelfareRecord */,
 				DA1BCC7B20FE050100201DBC /* GamesRecord */,
 			);
@@ -2317,6 +2457,7 @@
 				BF6608A32107175E0029C4A6 /* SH_ConfirSaftyPassWordView.xib in Resources */,
 				543970A5210462BB0091C719 /* photo_male.webp in Resources */,
 				543970B8210462BB0091C719 /* banner.webp in Resources */,
+				22618C642109640100E4A6F6 /* SH_WelfareNotesView.xib in Resources */,
 				543970AB210462BB0091C719 /* left_bgImage.webp in Resources */,
 				543970C5210462BB0091C719 /* promo_bg.webp in Resources */,
 				54397085210462BB0091C719 /* logo07.webp in Resources */,
@@ -2326,6 +2467,7 @@
 				543970C8210462BB0091C719 /* effects_star2.webp in Resources */,
 				DA6EE1BF20F8BEDA009A01C5 /* SH_UserInformationView.xib in Resources */,
 				BF7B08C62101CF33008256FE /* SH_NiceDatePickerView.xib in Resources */,
+				22618C692109755100E4A6F6 /* SH_WelfareNotesTableViewCell.xib in Resources */,
 				DA1BCCA920FF288B00201DBC /* RH_BettingRecordDetailCell.xib in Resources */,
 				2209026720F053D400F8828E /* SH_PromoViewCell.xib in Resources */,
 				543970B1210462BB0091C719 /* yellow.webp in Resources */,
@@ -2457,6 +2599,7 @@
 				BFA068A320FCBF1700F5ADFE /* SH_AuditMapModel.m in Sources */,
 				BFA068A620FCC0CF00F5ADFE /* SH_NetWorkService+Profit.m in Sources */,
 				DA22F3CC20F44F610058A54F /* CLNetReachability.m in Sources */,
+				22618C62210963F700E4A6F6 /* SH_WelfareNotesView.m in Sources */,
 				54C875C320FC846200AA0594 /* SH_AnnouncementView.m in Sources */,
 				BF44ECC920F4D6BE00BC6EF3 /* SH_RechargeDetailMainSubmitView.m in Sources */,
 				22552CF120F4E0BB0090EFBC /* SH_PromoListModel.m in Sources */,
@@ -2481,6 +2624,7 @@
 				DA22F34120F43ABC0058A54F /* SH_LoginView.m in Sources */,
 				54C8761F20FE220C00AA0594 /* UIImage+EXtension.m in Sources */,
 				BFA0689020FC8C1000F5ADFE /* SH_OutCoinDetailView.m in Sources */,
+				22618C682109755100E4A6F6 /* SH_WelfareNotesTableViewCell.m in Sources */,
 				22FC6E892107549A001FA492 /* SH_FindPSWSureView.m in Sources */,
 				DA1BCDB12102D27C00201DBC /* SH_WelfareTableViewCell.m in Sources */,
 				DA18EFBF20F0A9C3002B7E22 /* PopTool.m in Sources */,

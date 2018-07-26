@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbS-gl-h8c">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbS-gl-h8c" customClass="SH_XibView">
                     <rect key="frame" x="10" y="13" width="355" height="116"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="验证码已发送至您的手机:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOw-C6-sKN">
@@ -37,7 +37,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.18039215689999999" green="0.23529411759999999" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.19215686274509802" green="0.24705882352941178" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="116" id="1EV-Za-erg"/>
                         <constraint firstItem="bNk-18-bBF" firstAttribute="leading" secondItem="kOw-C6-sKN" secondAttribute="leading" id="Mcf-L9-ttK"/>
@@ -47,6 +47,17 @@
                         <constraint firstItem="bNk-18-bBF" firstAttribute="top" secondItem="kOw-C6-sKN" secondAttribute="bottom" constant="26" id="miC-qT-GVE"/>
                         <constraint firstItem="kOw-C6-sKN" firstAttribute="leading" secondItem="fbS-gl-h8c" secondAttribute="leading" constant="25" id="pRE-BC-FrA"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zz5-dT-5bS">
                     <rect key="frame" x="155" y="79" width="63" height="27"/>
