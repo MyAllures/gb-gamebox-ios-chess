@@ -12,8 +12,8 @@
 {
     CGPoint startLocation;
 }
-@property (weak, nonatomic) IBOutlet UIImageView *closeGameBT;
-@property (weak, nonatomic) IBOutlet UIImageView *goBackBT;
+@property (weak, nonatomic) IBOutlet SH_WebPImageView *closeGameBT;
+@property (weak, nonatomic) IBOutlet SH_WebPImageView *goBackBT;
 @property (nonatomic, copy) SHDragableMenuViewClose closeBlock;
 @property (nonatomic, copy) SHDragableMenuViewGoBack gobackBlock;
 

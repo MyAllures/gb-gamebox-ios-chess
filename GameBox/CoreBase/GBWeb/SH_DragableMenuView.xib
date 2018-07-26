@@ -12,46 +12,70 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SH_DragableMenuView">
-            <rect key="frame" x="0.0" y="0.0" width="32" height="67"/>
+            <rect key="frame" x="0.0" y="0.0" width="50" height="95"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X8G-wt-8Um" customClass="SH_WebPImageView">
-                    <rect key="frame" x="0.0" y="0.0" width="32" height="67"/>
+                    <rect key="frame" x="0.0" y="0.0" width="50" height="95"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="game_menu_bg"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="game-bg"/>
                     </userDefinedRuntimeAttributes>
                 </imageView>
-                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eiZ-ba-JRm" customClass="SH_WebPImageView">
-                    <rect key="frame" x="0.0" y="0.0" width="32" height="33.5"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K9Q-Fg-jZ2">
+                    <rect key="frame" x="0.0" y="0.0" width="50" height="47.5"/>
+                    <subviews>
+                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eiZ-ba-JRm" customClass="SH_WebPImageView">
+                            <rect key="frame" x="8" y="5" width="34" height="37.5"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="37.5" id="5vP-Ww-xRX"/>
+                                <constraint firstAttribute="width" constant="34" id="6an-c6-Hqb"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="game-home"/>
+                            </userDefinedRuntimeAttributes>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="33.5" id="7qh-vb-Ulz"/>
+                        <constraint firstItem="eiZ-ba-JRm" firstAttribute="centerX" secondItem="K9Q-Fg-jZ2" secondAttribute="centerX" id="TQZ-KO-Wx0"/>
+                        <constraint firstItem="eiZ-ba-JRm" firstAttribute="centerY" secondItem="K9Q-Fg-jZ2" secondAttribute="centerY" id="dND-Pv-jzd"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="game_icon_home"/>
-                    </userDefinedRuntimeAttributes>
-                </imageView>
-                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tIt-56-7oX" customClass="SH_WebPImageView">
-                    <rect key="frame" x="0.0" y="33.5" width="32" height="33.5"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hjk-i9-Tog">
+                    <rect key="frame" x="0.0" y="47.5" width="50" height="47.5"/>
+                    <subviews>
+                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tIt-56-7oX" customClass="SH_WebPImageView">
+                            <rect key="frame" x="8" y="5.5" width="34" height="37.5"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="37.5" id="Adr-dV-KfD"/>
+                                <constraint firstAttribute="width" constant="34" id="Mzs-g9-SGZ"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="game-back"/>
+                            </userDefinedRuntimeAttributes>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="33.5" id="9EL-rF-T63"/>
+                        <constraint firstItem="tIt-56-7oX" firstAttribute="centerX" secondItem="Hjk-i9-Tog" secondAttribute="centerX" id="5Rr-7h-lTr"/>
+                        <constraint firstItem="tIt-56-7oX" firstAttribute="centerY" secondItem="Hjk-i9-Tog" secondAttribute="centerY" id="mXE-D8-sY4"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="game_icon_back"/>
-                    </userDefinedRuntimeAttributes>
-                </imageView>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="X8G-wt-8Um" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="8kV-Pb-obd"/>
-                <constraint firstItem="eiZ-ba-JRm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Plm-Y2-O49"/>
+                <constraint firstAttribute="bottom" secondItem="Hjk-i9-Tog" secondAttribute="bottom" id="Asl-pe-lMu"/>
+                <constraint firstAttribute="trailing" secondItem="K9Q-Fg-jZ2" secondAttribute="trailing" id="QK4-oB-Ds9"/>
                 <constraint firstAttribute="trailing" secondItem="X8G-wt-8Um" secondAttribute="trailing" id="Vmz-mC-4tL"/>
                 <constraint firstItem="X8G-wt-8Um" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Y6l-Up-bs2"/>
-                <constraint firstItem="tIt-56-7oX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="hbz-p1-3rL"/>
-                <constraint firstItem="eiZ-ba-JRm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="stB-u9-NR8"/>
-                <constraint firstAttribute="trailing" secondItem="eiZ-ba-JRm" secondAttribute="trailing" id="upz-a7-M2u"/>
-                <constraint firstAttribute="trailing" secondItem="tIt-56-7oX" secondAttribute="trailing" id="vC8-gG-XZr"/>
+                <constraint firstItem="K9Q-Fg-jZ2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="c8x-bh-1W3"/>
+                <constraint firstItem="K9Q-Fg-jZ2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="gi3-1f-hhO"/>
+                <constraint firstAttribute="trailing" secondItem="Hjk-i9-Tog" secondAttribute="trailing" id="gvA-0F-R55"/>
+                <constraint firstItem="Hjk-i9-Tog" firstAttribute="top" secondItem="K9Q-Fg-jZ2" secondAttribute="bottom" id="n5p-En-zt4"/>
+                <constraint firstItem="Hjk-i9-Tog" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nBL-qr-Nqn"/>
+                <constraint firstItem="Hjk-i9-Tog" firstAttribute="height" secondItem="K9Q-Fg-jZ2" secondAttribute="height" id="qjY-M6-rnf"/>
                 <constraint firstAttribute="bottom" secondItem="X8G-wt-8Um" secondAttribute="bottom" id="zO0-gp-yK5"/>
-                <constraint firstAttribute="bottom" secondItem="tIt-56-7oX" secondAttribute="bottom" id="zVc-jw-CSb"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

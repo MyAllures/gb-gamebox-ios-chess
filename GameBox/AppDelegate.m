@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import <IQKeyboardManager.h>
+#import <IQKeyboardManager/IQKeyboardManager.h>
 #import "coreLib.h"
 #import "SH_RingManager.h"
 
