@@ -11,6 +11,8 @@
 #import "SH_HorizontalscreenPicker.h"
 #import "SH_BankListModel.h"
 #import "SH_BankCardModel.h"
+#import "SH_ModiftSaftyPSDView.h"
+
 @interface SH_BankCardView()
 @property (weak, nonatomic) IBOutlet UIButton *chooseBankBtn;
 @property (weak, nonatomic) IBOutlet UITextField *realNameTF;
@@ -44,9 +46,13 @@
    
 }
 - (IBAction)sureBtnClick:(id)sender {
+    SH_ModiftSaftyPSDView *msp = [[SH_ModiftSaftyPSDView alloc] init];
+    
     NSLog(@"self.bankTF.text==%@",self.bankTF.text);
     if (self.realNameTF.text.length == 0) {
         showMessage(self, @"请输入真实姓名", nil);
+    }else if (self.realNameTF.text != msp.realNameTF.text){
+        showMessage(self, @"请保持和安全密码时的姓名一致", nil);
     }else if (self.bankTF.text.length == 0 ){
          showMessage(self, @"请选择银行", nil);
     }else if (self.cardNumTF.text.length == 0){

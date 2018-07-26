@@ -11,5 +11,6 @@
 
 @interface SH_ModiftSaftyPSDView : SH_XibView
 @property(nonatomic,strong)UIViewController *targetVC;
+@property (weak, nonatomic) IBOutlet UITextField *realNameTF;
 -(void)updateView;
 @end
