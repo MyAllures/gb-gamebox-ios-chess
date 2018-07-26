@@ -10,7 +10,7 @@
 #import "SH_NetWorkService+SaftyCenter.h"
 #import "RH_UserSafetyCodeModel.h"
 @interface SH_ModiftSaftyPSDView()
-@property (weak, nonatomic) IBOutlet UITextField *realNameTF;
+//@property (weak, nonatomic) IBOutlet UITextField *realNameTF;
 @property (weak, nonatomic) IBOutlet UITextField *currentTF;
 @property (weak, nonatomic) IBOutlet UITextField *NewTF;
 @property (weak, nonatomic) IBOutlet UITextField *sureTF;
