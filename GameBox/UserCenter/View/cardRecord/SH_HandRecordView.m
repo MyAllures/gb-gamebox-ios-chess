@@ -21,6 +21,9 @@
 @property (strong, nonatomic) NSString *endTimeStr;
 
 @property (assign, nonatomic) NSInteger seleteIndex;
+@property (weak, nonatomic) IBOutlet UILabel *effectiveLabel;
+@property (weak, nonatomic) IBOutlet UILabel *profitLabel;
+
 @end
 
 @implementation SH_HandRecordView
@@ -59,6 +62,8 @@
     [SH_NetWorkService fetchBettingList:self.startTimeStr EndDate:self.endTimeStr PageNumber:1 PageSize:500 withIsStatistics:YES complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dict = (NSDictionary *)response;
         NSLog(@"dict == %@",dict);
+        self.effectiveLabel.text = [NSString stringWithFormat:@"福利投注合计:%@",dict[@"data"][@"statisticsData"][@"effective"]];
+        self.profitLabel.text = [NSString stringWithFormat:@"赛果合计:%@",dict[@"data"][@"statisticsData"][@"profit"]];
         for (NSDictionary *dict1 in dict[@"data"][@"list"]) {
             RH_BettingInfoModel *model = [[RH_BettingInfoModel alloc] initWithDictionary:dict1 error:nil];
             [self.bettingArr addObject:model];
