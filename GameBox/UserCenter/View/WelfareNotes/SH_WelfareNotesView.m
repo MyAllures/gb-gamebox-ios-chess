@@ -177,8 +177,6 @@
         
         [weakSelf.selectTypeIdArr addObject:@""];
         [weakSelf.selectTypeIdArr addObjectsFromArray:[dataDic allKeys]];
-
-        NSLog(@"");
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
