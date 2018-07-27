@@ -238,6 +238,8 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="effectiveLabel" destination="F9X-mm-4WE" id="SCQ-qN-ljn"/>
+                <outlet property="profitLabel" destination="y32-Iw-aMu" id="SYq-Rj-Odr"/>
                 <outlet property="tableView" destination="sZu-AP-xnB" id="7tm-OX-16X"/>
                 <outlet property="timeBtn" destination="YfY-eG-EeI" id="vMm-v4-jgc"/>
             </connections>
