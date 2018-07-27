@@ -110,8 +110,8 @@
         [self addSubview:_nextBT];
         [_nextBT mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self.mas_centerY);
-            make.width.mas_equalTo(38);
-            make.height.mas_equalTo(46);
+            make.width.mas_equalTo(26.5);
+            make.height.mas_equalTo(36);
             make.right.equalTo(self.mas_right).mas_equalTo(-12);
         }];
     }
@@ -128,8 +128,8 @@
         [self addSubview:_preBT];
         [_preBT mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self.mas_centerY);
-            make.width.mas_equalTo(38);
-            make.height.mas_equalTo(46);
+            make.width.mas_equalTo(26.5);
+            make.height.mas_equalTo(36);
             make.left.mas_equalTo(12);
         }];
     }
