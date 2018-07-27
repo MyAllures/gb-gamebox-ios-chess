@@ -10,12 +10,6 @@
 
 @implementation SH_HandRecordTableViewCell
 
--(void)setFrame:(CGRect)frame {
-    frame.origin.y += 3;
-    frame.size.height -= 3;
-    [super setFrame:frame];
-}
-
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code

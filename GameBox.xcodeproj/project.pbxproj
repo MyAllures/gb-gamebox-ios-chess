@@ -19,8 +19,6 @@
 		22618C692109755100E4A6F6 /* SH_WelfareNotesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22618C672109755100E4A6F6 /* SH_WelfareNotesTableViewCell.xib */; };
 		22618C6D2109E7C000E4A6F6 /* SH_HandRecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22618C6C2109E7C000E4A6F6 /* SH_HandRecordView.m */; };
 		22618C6F2109E7C900E4A6F6 /* SH_HandRecordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22618C6E2109E7C900E4A6F6 /* SH_HandRecordView.xib */; };
-		22618C722109E86200E4A6F6 /* SH_HandRecordHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22618C712109E86200E4A6F6 /* SH_HandRecordHeaderView.m */; };
-		22618C742109E86B00E4A6F6 /* SH_HandRecordHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22618C732109E86B00E4A6F6 /* SH_HandRecordHeaderView.xib */; };
 		22618C782109F27A00E4A6F6 /* SH_HandRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22618C762109F27A00E4A6F6 /* SH_HandRecordTableViewCell.m */; };
 		22618C792109F27A00E4A6F6 /* SH_HandRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22618C772109F27A00E4A6F6 /* SH_HandRecordTableViewCell.xib */; };
 		2274222120FE03BB003529FF /* SH_PromoListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8757D20F355F800AA0594 /* SH_PromoListView.m */; };
@@ -417,9 +415,6 @@
 		22618C6B2109E7C000E4A6F6 /* SH_HandRecordView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_HandRecordView.h; sourceTree = "<group>"; };
 		22618C6C2109E7C000E4A6F6 /* SH_HandRecordView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_HandRecordView.m; sourceTree = "<group>"; };
 		22618C6E2109E7C900E4A6F6 /* SH_HandRecordView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_HandRecordView.xib; sourceTree = "<group>"; };
-		22618C702109E86200E4A6F6 /* SH_HandRecordHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_HandRecordHeaderView.h; sourceTree = "<group>"; };
-		22618C712109E86200E4A6F6 /* SH_HandRecordHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_HandRecordHeaderView.m; sourceTree = "<group>"; };
-		22618C732109E86B00E4A6F6 /* SH_HandRecordHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_HandRecordHeaderView.xib; sourceTree = "<group>"; };
 		22618C752109F27A00E4A6F6 /* SH_HandRecordTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_HandRecordTableViewCell.h; sourceTree = "<group>"; };
 		22618C762109F27A00E4A6F6 /* SH_HandRecordTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_HandRecordTableViewCell.m; sourceTree = "<group>"; };
 		22618C772109F27A00E4A6F6 /* SH_HandRecordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_HandRecordTableViewCell.xib; sourceTree = "<group>"; };
@@ -1019,9 +1014,6 @@
 				22618C6B2109E7C000E4A6F6 /* SH_HandRecordView.h */,
 				22618C6C2109E7C000E4A6F6 /* SH_HandRecordView.m */,
 				22618C6E2109E7C900E4A6F6 /* SH_HandRecordView.xib */,
-				22618C702109E86200E4A6F6 /* SH_HandRecordHeaderView.h */,
-				22618C712109E86200E4A6F6 /* SH_HandRecordHeaderView.m */,
-				22618C732109E86B00E4A6F6 /* SH_HandRecordHeaderView.xib */,
 				22618C752109F27A00E4A6F6 /* SH_HandRecordTableViewCell.h */,
 				22618C762109F27A00E4A6F6 /* SH_HandRecordTableViewCell.m */,
 				22618C772109F27A00E4A6F6 /* SH_HandRecordTableViewCell.xib */,
@@ -2363,7 +2355,6 @@
 				BFA7DEBC2106C2CB00DD731F /* chip_yellow.webp in Resources */,
 				543970D2210462BB0091C719 /* user_info_bg.webp in Resources */,
 				543970AC210462BB0091C719 /* select.webp in Resources */,
-				22618C742109E86B00E4A6F6 /* SH_HandRecordHeaderView.xib in Resources */,
 				54397091210462BB0091C719 /* left-bg.webp in Resources */,
 				54397081210462BB0091C719 /* top-bg.webp in Resources */,
 				5439708F210462BB0091C719 /* icon_search.webp in Resources */,
@@ -2580,7 +2571,6 @@
 				BFFC846320F2F268008AD801 /* SH_NetWorkService+RechargeCenter.m in Sources */,
 				BF2F915F20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.m in Sources */,
 				54DD033721085A9100CE9199 /* SH_PromoWindowViewController.m in Sources */,
-				22618C722109E86200E4A6F6 /* SH_HandRecordHeaderView.m in Sources */,
 				DA1BCC6320FDC4B100201DBC /* UITableViewCell+ShowContent.m in Sources */,
 				DA22F3B420F448ED0058A54F /* RH_UserInfoManager.m in Sources */,
 				DA22F40720F494C60058A54F /* UIColor+HexString.m in Sources */,
