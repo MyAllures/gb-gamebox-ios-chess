@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SH_HandRecordHeaderView : UIView
-
+@property (copy, nonatomic) void (^seleteTimeActionBlock)(NSDictionary *context);
 @end

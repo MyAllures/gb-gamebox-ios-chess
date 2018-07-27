@@ -57,7 +57,7 @@
         }
     }];
 }
-#pragma  mark --- 福利记录
+#pragma  mark --- 福利记录详情
 +(void)fetchDepositListDetail:(NSString*)Id
                      complete:(SHNetWorkComplete)complete
                        failed:(SHNetWorkFailed)failed{
