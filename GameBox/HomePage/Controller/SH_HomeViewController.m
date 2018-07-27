@@ -377,7 +377,7 @@
 
 -(void)login{
     SH_LoginView *login = [SH_LoginView InstanceLoginView];
-    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:260 titleImageName:@"title01" alertViewType:AlertViewTypeLong];
+    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title01" alertViewType:AlertViewTypeLong];
     login.targetVC = cvc;
     login.dismissBlock = ^{
         [cvc  close];
