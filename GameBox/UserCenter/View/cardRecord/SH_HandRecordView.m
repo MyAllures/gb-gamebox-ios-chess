@@ -9,17 +9,18 @@
 
 #import "SH_HandRecordView.h"
 #import "SH_HandRecordTableViewCell.h"
-#import "SH_HandRecordHeaderView.h"
 #import "SH_NetWorkService+UserCenter.h"
 #import "SH_CardRecordModel.h"
 #import "RH_BettingInfoModel.h"
+#import "HLPopTableView.h"
 @interface SH_HandRecordView() <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) SH_HandRecordHeaderView *headerView;
-
+@property (weak, nonatomic) IBOutlet UIButton *timeBtn;
 @property (strong, nonatomic) NSMutableArray *bettingArr;
 @property (strong, nonatomic) NSString *startTimeStr;
 @property (strong, nonatomic) NSString *endTimeStr;
+
+@property (assign, nonatomic) NSInteger seleteIndex;
 @end
 
 @implementation SH_HandRecordView
@@ -27,17 +28,9 @@
     return  [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil] lastObject];
 }
 
-
-
 -(void)awakeFromNib {
     [super awakeFromNib];
     self.tableView.backgroundColor = [UIColor clearColor];
-    UIView *v = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, 95)];
-    [v addSubview:self.headerView];
-    [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.top.bottom.mas_equalTo(0);
-    }];
-    self.tableView.tableHeaderView = v;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerNib:[UINib nibWithNibName:@"SH_HandRecordTableViewCell" bundle:nil] forCellReuseIdentifier:@"SH_HandRecordTableViewCell"];
     self.bettingArr = [NSMutableArray array];
@@ -45,8 +38,24 @@
     [self requestData];
 }
 
+- (IBAction)searchAction:(id)sender {
+    [self changedSinceTimeString:self.seleteIndex];
+    [self requestData];
+}
+
+
+- (IBAction)seleteTimeAction:(UIButton *)sender {
+    NSArray *searchTypeArr = @[@"今天",@"昨天",@"本周",@"近七天"];
+    HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, sender.bounds.size.width, 125) dependView:sender textArr:searchTypeArr textFont:14.0 block:^(NSString *region_name, NSInteger index) {
+        [self.timeBtn setTitle:region_name forState:UIControlStateNormal];
+        self.seleteIndex = index;
+    }];
+    [self addSubview:popTV];
+}
+
 -(void)requestData {
     [self.bettingArr removeAllObjects];
+    [MBProgressHUD showHUDAddedTo:self animated:YES];
     [SH_NetWorkService fetchBettingList:self.startTimeStr EndDate:self.endTimeStr PageNumber:1 PageSize:500 withIsStatistics:YES complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dict = (NSDictionary *)response;
         NSLog(@"dict == %@",dict);
@@ -54,27 +63,12 @@
             RH_BettingInfoModel *model = [[RH_BettingInfoModel alloc] initWithDictionary:dict1 error:nil];
             [self.bettingArr addObject:model];
             [self.tableView reloadData];
+            [MBProgressHUD hideHUDForView:self animated:YES];
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
 }
-
--(SH_HandRecordHeaderView *)headerView {
-    if (!_headerView) {
-        _headerView = [[[NSBundle mainBundle] loadNibNamed:@"SH_HandRecordHeaderView" owner:nil options:nil] lastObject];
-    }
-    __weak  typeof(self) weakSelf = self;
-    _headerView.seleteTimeActionBlock = ^(NSDictionary *context) {
-        NSLog(@"context==%@",context[@"index"]);
-        NSString *index = context[@"index"];
-        NSLog(@"index==%@",index);
-        [weakSelf changedSinceTimeString:[index intValue]];
-        [weakSelf requestData];
-    };
-    return _headerView;
-}
-
 #pragma mark -  获取当前周的周一周日的时间
 - (NSArray *)getWeekTimeOfCurrentWeekDay
 {
@@ -181,7 +175,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 29;
+    return 32;
 }
 
 /*
