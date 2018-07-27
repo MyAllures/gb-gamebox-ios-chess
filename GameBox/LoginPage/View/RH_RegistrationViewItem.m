@@ -113,56 +113,56 @@
     for (NSString *obj in requiredJson) {
         if ([obj isEqualToString:fieldModel.name]) {
             if ([obj isEqualToString:@"username"]) {
-                label_Title.text = @"请输入用户名⭐️";
-                textField.placeholder = @"请输入用户名"; break ;
+                label_Title.text = @"用户名⭐️";
+                textField.placeholder = @"用户名"; break ;
             }
             if ([obj isEqualToString:@"password"]) {
-                label_Title.text = @"请输入密码⭐️";
-                textField.placeholder = @"请输入6-20个字母数字或字符"; break ;
+                label_Title.text = @"密码⭐️";
+                textField.placeholder = @"6-20个字母数字或字符"; break ;
             }
             if ([obj isEqualToString:@"password2"]) {
-                label_Title.text = @"请再次输入密码⭐️";
-                textField.placeholder = @"请再次输入登录密码"; break ;
+                label_Title.text = @"验证密码⭐️";
+                textField.placeholder = @"验证登录密码"; break ;
             }
             if ([obj isEqualToString:@"verificationCode"]) {
-                label_Title.text = @"请输入验证码⭐️";
-                textField.placeholder = @"请输入验证码"; break ;
+                label_Title.text = @"验证码⭐️";
+                textField.placeholder = @"验证码"; break ;
             }
             if ([obj isEqualToString:@"regCode"]) {
-                label_Title.text = @"请输入推荐码⭐️";
-                textField.placeholder = @"请输入推荐码"; break ;
+                label_Title.text = @"推荐码⭐️";
+                textField.placeholder = @"推荐码"; break ;
             }
             if ([obj isEqualToString:@"304"]) {
-                label_Title.text = @"请输入微信⭐️";
-                textField.placeholder = @"请输入微信"; break ;
+                label_Title.text = @"微信⭐️";
+                textField.placeholder = @"微信"; break ;
             }
             if ([obj isEqualToString:@"110"]) {
-                label_Title.text = @"请输入手机号⭐️";
-                textField.placeholder = @"请输入手机号"; break ;
+                label_Title.text = @"手机号⭐️";
+                textField.placeholder = @"手机号"; break ;
             }
             if ([obj isEqualToString:@"110verify"]) {
-                label_Title.text = @"请输入手机验证码⭐️";
-                textField.placeholder = @"请输入手机验证码"; break ;
+                label_Title.text = @"手机验证码⭐️";
+                textField.placeholder = @"手机验证码"; break ;
             }
             if ([obj isEqualToString:@"201"]) {
                 label_Title.text = @"邮箱⭐️";
-                textField.placeholder = @"请输入邮箱地址"; break ;
+                textField.placeholder = @"邮箱地址"; break ;
             }
             if ([obj isEqualToString:@"realName"]) {
-                label_Title.text = @"请输入真实姓名⭐️";
-                textField.placeholder = @"请输入真实姓名"; break ;
+                label_Title.text = @"真实姓名⭐️";
+                textField.placeholder = @"真实姓名"; break ;
             }
             if ([obj isEqualToString:@"301"]) {
-                label_Title.text = @"请输入QQ号码⭐️";
-                textField.placeholder = @"请输入QQ号码"; break ;
+                label_Title.text = @"QQ号码⭐️";
+                textField.placeholder = @"QQ号码"; break ;
             }
             if ([obj isEqualToString:@"paymentPassword"]) {
-                label_Title.text = @"请输入6位数字安全密码⭐️";
-                textField.placeholder = @"请输入6位数字安全密码"; break ;
+                label_Title.text = @"6位数字安全密码⭐️";
+                textField.placeholder = @"6位数字安全密码"; break ;
             }
             if ([obj isEqualToString:@"paymentPassword2"]) {
-                label_Title.text = @"请再次输入6位数字安全密码";
-                textField.placeholder = @"请再次输入6位数字安全密码"; break ;
+                label_Title.text = @"验证6位数字安全密码";
+                textField.placeholder = @"验证6位数字安全密码"; break ;
             }
             if ([obj isEqualToString:@"defaultTimezone"]) {
                 label_Title.text = @"时区⭐️";
@@ -191,7 +191,7 @@
             }
             if ([obj isEqualToString:@"securityIssues2"]) {
                 label_Title.text = @"回答安全问题⭐️";
-                textField.placeholder = @"请输入回答";break ;
+                textField.placeholder = @"回答";break ;
             }
             if (textField.placeholder.length >0) {
                 UIColor *color = [UIColor whiteColor];
@@ -205,61 +205,61 @@
 - (void)setFieldModel:(FieldModel *)model {
     fieldModel = model;
     if ([model.name isEqualToString:@"username"]) {
-        label_Title.text = @"请输入用户名";
-        textField.placeholder = @"请输入用户名";
+        label_Title.text = @"用户名";
+        textField.placeholder = @"用户名";
     }
     if ([model.name isEqualToString:@"password"]) {
-        label_Title.text = @"请输入密码";
-        textField.placeholder = @"请输入6-20个字母数字或字符";
+        label_Title.text = @"密码";
+        textField.placeholder = @"6-20个字母数字或字符";
         [self setPasswordLayout];
     }
     if ([model.name isEqualToString:@"password2"]) {
-        label_Title.text = @"请再次输入密码⭐️";
-        textField.placeholder = @"请再次输入登录密码";
+        label_Title.text = @"验证密码⭐️";
+        textField.placeholder = @"验证登录密码";
         [self setPasswordLayout];
     }
     if ([model.name isEqualToString:@"verificationCode"]) {
-        label_Title.text = @"请输入验证码";
-        textField.placeholder = @"请输入验证码";
+        label_Title.text = @"验证码";
+        textField.placeholder = @"验证码";
         [self setVerifyCodeLayout];
     }
     if ([model.name isEqualToString:@"regCode"]) {
-        label_Title.text = @"请输入推荐码";
-        textField.placeholder = @"请输入推荐码";
+        label_Title.text = @"推荐码";
+        textField.placeholder = @"推荐码";
     }
     if ([model.name isEqualToString:@"304"]) {
-        label_Title.text = @"请输入微信";
-        textField.placeholder = @"请输入微信";
+        label_Title.text = @"微信";
+        textField.placeholder = @"微信";
     }
     if ([model.name isEqualToString:@"110"]) {
-        label_Title.text = @"请输入手机号";
-        textField.placeholder = @"请输入手机号";
+        label_Title.text = @"手机号";
+        textField.placeholder = @"手机号";
     }
     if ([model.name isEqualToString:@"110verify"]) {
-        label_Title.text = @"请输入手机验证码";
-        textField.placeholder = @"请输入手机验证码";
+        label_Title.text = @"手机验证码";
+        textField.placeholder = @"手机验证码";
         [self setPhoneVerifyCodeLayout];
     }
     
     if ([model.name isEqualToString:@"201"]) {
         label_Title.text = @"邮箱";
-        textField.placeholder = @"请输入邮箱地址";
+        textField.placeholder = @"邮箱地址";
     }
     if ([model.name isEqualToString:@"realName"]) {
-        label_Title.text = @"请输入真实姓名";
-        textField.placeholder = @"请输入真实姓名";
+        label_Title.text = @"真实姓名";
+        textField.placeholder = @"真实姓名";
     }
     if ([model.name isEqualToString:@"301"]) {
-        label_Title.text = @"请输入QQ号码";
-        textField.placeholder = @"请输入QQ号码";
+        label_Title.text = @"QQ号码";
+        textField.placeholder = @"QQ号码";
     }
     if ([model.name isEqualToString:@"paymentPassword"]) {
-        label_Title.text = @"请输入6位数字安全密码";
-        textField.placeholder = @"请输入6位数字安全密码";
+        label_Title.text = @"6位数字安全密码";
+        textField.placeholder = @"6位数字安全密码";
     }
     if ([model.name isEqualToString:@"paymentPassword2"]) {
-        label_Title.text = @"请再次输入6位数字安全密码";
-        textField.placeholder = @"请再次输入6位数字安全密码";
+        label_Title.text = @"验证6位数字安全密码";
+        textField.placeholder = @"验证6位数字安全密码";
     }
     if ([model.name isEqualToString:@"defaultTimezone"]) {
         label_Title.text = @"时区";
@@ -289,7 +289,7 @@
     }
     if ([model.name isEqualToString:@"securityIssues2"]) {
         label_Title.text = @"回答安全问题";
-        textField.placeholder = @"请输入回答";
+        textField.placeholder = @"回答";
     }
     if (textField.placeholder.length >0) {
         UIColor *color = [UIColor whiteColor];
