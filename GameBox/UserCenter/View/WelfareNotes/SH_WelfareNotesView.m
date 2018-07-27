@@ -12,6 +12,7 @@
 #import "SH_NetWorkService+UserCenter.h"
 
 #import "SH_FundListModel.h"
+#import "SH_SearchTypeModel.h"
 @interface SH_WelfareNotesView() <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -19,8 +20,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *typeBtn;
 
 @property (strong, nonatomic) NSMutableArray *dataArr;
+@property (strong, nonatomic) NSArray *searchTypeArr;
+@property (strong, nonatomic) NSArray *selectTypeIdArray;
 @property (strong, nonatomic) NSString *startTimeStr;
 @property (strong, nonatomic) NSString *endTimeStr;
+
+@property (assign, nonatomic) NSInteger seleteTypeIndex;
 
 @property (weak, nonatomic) IBOutlet UILabel *totalRechargeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalDiscountlabel;
@@ -41,8 +46,13 @@
 }
 
 #pragma mark 类型选择
-- (IBAction)seleteTypeAction:(id)sender {
-    
+- (IBAction)seleteTypeAction:(UIButton *)sender {
+    HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, sender.bounds.size.width, 125) dependView:sender textArr:self.searchTypeArr textFont:14.0 block:^(NSString *region_name, NSInteger index) {
+        [self.typeBtn setTitle:region_name forState:UIControlStateNormal];
+        self.seleteTypeIndex = index;
+        [self requestData];
+    }];
+    [self addSubview:popTV];
 }
 #pragma mark 搜索
 - (IBAction)searchAction:(id)sender {
@@ -119,9 +129,6 @@
     return date;
 }
 
-
-
-
 +(instancetype)instanceWelfareRecordView{
     return [[[NSBundle  mainBundle] loadNibNamed:NSStringFromClass([self  class]) owner:nil options:nil] lastObject];
 }
@@ -139,6 +146,19 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"SH_WelfareNotesTableViewCell" bundle:nil] forCellReuseIdentifier:@"SH_WelfareNotesTableViewCell"];
     self.dataArr = [NSMutableArray array];
     [self requestData];
+    [self searchTypeRequest];
+}
+
+-(void)searchTypeRequest {
+    [SH_NetWorkService fetchDepositPulldownListComplete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSDictionary *dict = (NSDictionary *)response;
+        NSLog(@"dict===%@",dict);
+        SH_SearchTypeModel *model = [[SH_SearchTypeModel alloc] initWithDictionary:dict[@"data"] error:nil];
+        self.searchTypeArr = @[@"全部类型",model.deposit,model.backwater,model.withdrawals,model.recommend,model.transfers,model.favorable];
+        self.selectTypeIdArray = @[@"",@"deposit",@"backwater",@"withdrawals",@"recommend",@"transfers",@"favorable"];
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        
+    }];
 }
 
 -(void)requestData {
@@ -146,7 +166,7 @@
     NSLog(@"startTimeStr===%@",self.startTimeStr);
     NSLog(@" endTimeStr===%@",self.endTimeStr);
     [MBProgressHUD showHUDAddedTo:self animated:YES];
-    [SH_NetWorkService  fetchDepositList:self.startTimeStr EndDate:self.endTimeStr SearchType:@"" PageNumber:1 PageSize:5000 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [SH_NetWorkService  fetchDepositList:self.startTimeStr EndDate:self.endTimeStr SearchType:self.selectTypeIdArray[self.seleteTypeIndex] PageNumber:1 PageSize:5000 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dict = (NSDictionary *)response;
         NSLog(@"dict===%@",dict);
         NSString *code = dict[@"code"];

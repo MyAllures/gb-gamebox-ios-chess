@@ -22,7 +22,11 @@
                             <rect key="frame" x="0.0" y="6" width="451" height="246"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <color key="sectionIndexBackgroundColor" red="0.20392156859999999" green="0.2156862745" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <outlet property="dataSource" destination="iN0-l3-epB" id="CwA-tn-513"/>
+                                <outlet property="delegate" destination="iN0-l3-epB" id="9Nd-24-Btr"/>
+                            </connections>
                         </tableView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ed-DW-9c6">
                             <rect key="frame" x="0.0" y="252" width="451" height="1"/>
@@ -31,23 +35,23 @@
                                 <constraint firstAttribute="height" constant="1" id="xJo-mX-Rxy"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="福利投注合计：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9X-mm-4WE">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="福利投注合计:0.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9X-mm-4WE">
                             <rect key="frame" x="42" y="258" width="149" height="12"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="12" id="rTb-xv-1JH"/>
                                 <constraint firstAttribute="width" constant="149" id="tU4-Bg-m44"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="福利投注合计：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y32-Iw-aMu">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="赛果合计:0,00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y32-Iw-aMu">
                             <rect key="frame" x="42" y="273" width="149" height="12"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="149" id="h8i-UC-Y9U"/>
                                 <constraint firstAttribute="height" constant="12" id="xZj-6g-ugP"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
