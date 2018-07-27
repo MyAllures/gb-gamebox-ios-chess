@@ -14,6 +14,7 @@
                 <outlet property="avatarImg" destination="ODB-xJ-e5g" id="Xv8-r5-H5z"/>
                 <outlet property="dzGameMarkImg" destination="lo0-ep-RC7" id="goR-vs-8Bn"/>
                 <outlet property="runLBBGImg" destination="hn2-KE-0LR" id="fPY-of-f4g"/>
+                <outlet property="searchTF" destination="MfC-d5-E4L" id="5PC-9u-OkS"/>
                 <outlet property="searchView" destination="tQ1-dV-GAz" id="7ii-yP-qq5"/>
                 <outlet property="snowBGImg" destination="M7k-mA-Vza" id="m86-fM-5lV"/>
                 <outlet property="suishenFuLiLab" destination="SqL-w0-8Nr" id="b24-si-bnp"/>
@@ -126,7 +127,7 @@
                                                         <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="rounded"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SqL-w0-8Nr">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SqL-w0-8Nr">
                                                     <rect key="frame" x="96" y="4" width="50" height="15"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="Me7-bY-eRK"/>
@@ -169,7 +170,7 @@
                                                         <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="rounded"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEk-Ka-RAf">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEk-Ka-RAf">
                                                     <rect key="frame" x="96" y="4" width="50" height="15"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="15" id="NwJ-xP-L5J"/>
@@ -357,6 +358,9 @@
                                             <integer key="value" value="1"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="welfareClick:" destination="-1" eventType="touchUpInside" id="ul0-a9-lPh"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBQ-EQ-jrJ" customClass="SH_WebPButton">
                                     <rect key="frame" x="149" y="0.0" width="106" height="54"/>
@@ -461,42 +465,59 @@
                     </constraints>
                 </imageView>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tQ1-dV-GAz">
-                    <rect key="frame" x="505" y="50" width="162" height="37.5"/>
+                    <rect key="frame" x="510" y="50" width="157" height="37.5"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Nn-yK-UoN" customClass="SH_WebPImageView">
-                            <rect key="frame" x="5" y="6.5" width="145" height="28.5"/>
+                            <rect key="frame" x="0.0" y="8" width="145" height="22"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="28.5" id="dVT-kD-YSr"/>
+                                <constraint firstAttribute="height" constant="22" id="dVT-kD-YSr"/>
                                 <constraint firstAttribute="width" constant="145" id="qOW-DE-LRJ"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="user_info_bg"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="search-bg"/>
                             </userDefinedRuntimeAttributes>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JDG-OQ-RAg" customClass="SH_WebPImageView">
-                            <rect key="frame" x="120.5" y="6" width="26.5" height="26.5"/>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MfC-d5-E4L">
+                            <rect key="frame" x="5" y="0.0" width="112" height="37.5"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGz-m4-piy" customClass="SH_WebPButton">
+                            <rect key="frame" x="120" y="5.5" width="27" height="27"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="26.5" id="XCg-aC-LZu"/>
-                                <constraint firstAttribute="height" constant="26.5" id="qbk-GZ-e26"/>
+                                <constraint firstAttribute="height" constant="27" id="AfC-ot-IRU"/>
+                                <constraint firstAttribute="width" constant="27" id="jWU-rA-kIm"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="icon_search"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="icon_search"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="ringType">
+                                    <integer key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
-                        </imageView>
+                            <connections>
+                                <action selector="oneKeyReciveBtnClick:" destination="-1" eventType="touchUpInside" id="a8w-wh-GCE"/>
+                                <action selector="searchAction:" destination="-1" eventType="touchUpInside" id="8fx-87-QzW"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="7Nn-yK-UoN" firstAttribute="leading" secondItem="tQ1-dV-GAz" secondAttribute="leading" id="7W4-BD-EP4"/>
                         <constraint firstAttribute="trailing" secondItem="7Nn-yK-UoN" secondAttribute="trailing" constant="12" id="8pF-mo-9ak"/>
+                        <constraint firstItem="EGz-m4-piy" firstAttribute="centerY" secondItem="tQ1-dV-GAz" secondAttribute="centerY" id="9Jv-n9-mbh"/>
                         <constraint firstAttribute="height" constant="37.5" id="AZg-Xf-EOf"/>
-                        <constraint firstItem="JDG-OQ-RAg" firstAttribute="centerY" secondItem="tQ1-dV-GAz" secondAttribute="centerY" id="H2M-4h-fYd"/>
-                        <constraint firstAttribute="trailing" secondItem="JDG-OQ-RAg" secondAttribute="trailing" constant="15" id="WgI-yw-8uJ"/>
-                        <constraint firstItem="7Nn-yK-UoN" firstAttribute="centerY" secondItem="tQ1-dV-GAz" secondAttribute="centerY" constant="2" id="rtt-GW-PgV"/>
+                        <constraint firstAttribute="bottom" secondItem="MfC-d5-E4L" secondAttribute="bottom" id="H58-v9-iSn"/>
+                        <constraint firstItem="MfC-d5-E4L" firstAttribute="leading" secondItem="tQ1-dV-GAz" secondAttribute="leading" constant="5" id="WUm-fM-FX2"/>
+                        <constraint firstItem="MfC-d5-E4L" firstAttribute="top" secondItem="tQ1-dV-GAz" secondAttribute="top" id="oTu-Ci-8va"/>
+                        <constraint firstItem="7Nn-yK-UoN" firstAttribute="centerY" secondItem="tQ1-dV-GAz" secondAttribute="centerY" id="rtt-GW-PgV"/>
+                        <constraint firstAttribute="trailing" secondItem="MfC-d5-E4L" secondAttribute="trailing" constant="40" id="ryI-2P-ozf"/>
+                        <constraint firstAttribute="trailing" secondItem="EGz-m4-piy" secondAttribute="trailing" constant="10" id="whR-tz-Axo"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="tQ1-dV-GAz" firstAttribute="leading" secondItem="5xu-Rj-Dcf" secondAttribute="trailing" constant="8.5" id="0ad-Ex-x2J"/>
                 <constraint firstAttribute="trailing" secondItem="MK8-wC-CXH" secondAttribute="trailing" id="2Hj-iH-K9a"/>
                 <constraint firstItem="lo0-ep-RC7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5Nu-Sx-Mbj"/>
                 <constraint firstItem="T5H-Wr-I5l" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="8Up-xS-fED"/>

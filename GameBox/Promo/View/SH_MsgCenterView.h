@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^SH_MsgCenterViewShowDetail)(NSString *content);
+
 @interface SH_MsgCenterView : UIView
 
 - (void)reloadData;
+- (void)showDetail:(SH_MsgCenterViewShowDetail)showDetailBlock;
 
 @end

@@ -72,7 +72,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <state key="normal" title="请选择"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="bankListDown"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="drop_down"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="chooseBankBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="I6z-ZJ-u8W"/>

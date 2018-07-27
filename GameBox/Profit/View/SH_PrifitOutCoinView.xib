@@ -124,7 +124,7 @@
                                 <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="font_account"/>
                             </userDefinedRuntimeAttributes>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7E-T3-NgX">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7E-T3-NgX">
                             <rect key="frame" x="80" y="9" width="180" height="30"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
@@ -132,6 +132,7 @@
                                 <constraint firstAttribute="height" constant="30" id="LtP-ff-xCP"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                            <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xau-X1-eQZ" customClass="SH_WebPButton">
@@ -191,14 +192,14 @@
                                 <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="font_money"/>
                             </userDefinedRuntimeAttributes>
                         </imageView>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E25-4K-mCq">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E25-4K-mCq">
                             <rect key="frame" x="80" y="8" width="180" height="30"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="TnW-t2-3O9"/>
                                 <constraint firstAttribute="width" constant="180" id="fHY-1g-q1L"/>
                             </constraints>
-                            <nil key="textColor"/>
+                            <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
@@ -278,13 +279,9 @@
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owW-J2-wzf">
                     <rect key="frame" x="10" y="249" width="445" height="39.5"/>
-                    <string key="text" base64-UTF8="YES">
-MS7npo/liKkzLTXliIbpkp/liLDotKbvvIzlpoLmnKrliLDotKbnmoTnjqnlrrbor7flj4rml7bkuI7l
-rqLmnI3ogZTns7vjgIIKMi7mlK/lj5bnpo/liKnliY3or7fnoa7orqTnpo/liKnluJDlj7fnmoTnnJ/l
-rp7lp5PlkI3lh4bnoa7ml6Dor6/jgIIKMy7nu5Hlrprnpo/liKnluJDlj7fvvIzljbPku6Pooajmj5Dl
-j5bmlrnlvI/vvIzmj5Dlj5bmlLblj5YyJeeahOaJi+e7rei0ue+8jOS4lOWPquiDveaYrzUw55qE5YCN
-5pWw44CCAw
-</string>
+                    <string key="text">1、福利到账一般需3-5分钟，受银行维护等问题可能出现延迟到账。
+2、出币前请确认福利账号和真实姓名准确无误。
+3、出币必须绑定银行卡号，若需修改绑定卡号，请联系客服。</string>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <color key="textColor" red="0.80000000000000004" green="0.85882352941176465" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>

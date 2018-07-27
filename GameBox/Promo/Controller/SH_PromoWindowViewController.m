@@ -11,6 +11,8 @@
 #import "SH_MsgCenterView.h"
 #import "SH_PromoDeatilViewController.h"
 #import "SH_WebPButton.h"
+#import "SH_MsgCenterDetailView.h"
+#import "AlertViewController.h"
 
 @interface SH_PromoWindowViewController () <SH_PromoListViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *contentView;
@@ -56,11 +58,24 @@
 
 - (SH_MsgCenterView *)msgCenterView
 {
+    __weak typeof(self) weakSelf = self;
+
     if (_msgCenterView == nil) {
         _msgCenterView = [[[NSBundle mainBundle] loadNibNamed:@"SH_MsgCenterView" owner:nil options:nil] lastObject];
         [self.contentView addSubview:_msgCenterView];
         [_msgCenterView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.mas_equalTo(0);
+        }];
+        [_msgCenterView showDetail:^(NSString *content) {
+            SH_MsgCenterDetailView *view = [[[NSBundle mainBundle]loadNibNamed:@"SH_MsgCenterDetailView" owner:nil options:nil] lastObject];
+            view.content = content;
+            AlertViewController *acr  = [[AlertViewController alloc] initAlertView:view viewHeight:200 titleImageName:@"" alertViewType:AlertViewTypeShort];
+            acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+            acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+            [weakSelf presentViewController:acr animated:YES completion:nil];
+            [view dismiss:^{
+                [acr dismissViewControllerAnimated:NO completion:nil];
+            }];
         }];
     }
     return _msgCenterView;

@@ -52,9 +52,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *runLBBGImg;
 @property (weak, nonatomic) IBOutlet UIView *searchView;
 @property (weak, nonatomic) IBOutlet UIImageView *snowBGImg;
+@property (weak, nonatomic) IBOutlet UITextField *searchTF;
+@property (weak, nonatomic) IBOutlet UILabel *suishenFuLiLab;
+
 @property (strong, nonatomic) SH_CycleScrollView *cycleAdView;
-
-
 @property (strong, nonatomic) SH_GamesListScrollView *topGamesListScrollView;
 @property (strong, nonatomic) SH_GamesListScrollView *midGamesListScrollView;
 @property (strong, nonatomic) SH_GamesListScrollView *lastGamesListScrollView;
@@ -65,9 +66,8 @@
 @property (nonatomic, strong) NSString *currentDZGameTypeId;
 @property (nonatomic, assign) BOOL enterDZGameLevel;
 @property (nonatomic, strong) SH_AnnouncementView *announcementView;
-@property (weak, nonatomic) IBOutlet UILabel *suishenFuLiLab;
-
-
+@property (nonatomic, strong) NSMutableArray *searchResultArr;
+@property (nonatomic, assign) BOOL isSearchStatus;
 
 @end
 
@@ -76,6 +76,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self.searchTF addTarget:self action:@selector(searchingTextChange:) forControlEvents:UIControlEventEditingChanged];
 
     [self fetchCookie];
     [self initAdScroll];
@@ -94,6 +95,18 @@
     }
     [self  configUI];
     [self  autoLoginIsRegist:false];
+}
+
+- (void)searchingTextChange:(UITextField *)textField
+{
+    if ([textField.text isEqualToString:@""]) {
+        self.isSearchStatus = NO;
+        [self.lastGamesListScrollView reloaData];
+    }
+    else
+    {
+        self.isSearchStatus = YES;
+    }
 }
 
 #pragma mark - 记着密码启动自动登录
@@ -184,6 +197,14 @@
         self.avatarImg.image = [UIImage imageWithWebPImageName:@"avatar"];
         self.suishenFuLiLab.text = @"0";
     }
+}
+
+- (NSMutableArray *)searchResultArr
+{
+    if (_searchResultArr == nil) {
+        _searchResultArr = [NSMutableArray array];
+    }
+    return _searchResultArr;
 }
 
 - (NSMutableArray *)bannerArr
@@ -339,6 +360,8 @@
     }
     self.dzGameMarkImg.image = nil;
     self.searchView.hidden = YES;
+    self.isSearchStatus = NO;
+    self.searchTF.text = @"";
     if (self.currentLevel == 1) {
         self.cycleAdView.hidden = YES;
         self.topGamesListScrollView.hidden = YES;
@@ -377,7 +400,7 @@
 
 -(void)login{
     SH_LoginView *login = [SH_LoginView InstanceLoginView];
-    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:260 titleImageName:@"title01" alertViewType:AlertViewTypeLong];
+    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title01" alertViewType:AlertViewTypeLong];
     login.targetVC = cvc;
     login.dismissBlock = ^{
         [cvc  close];
@@ -389,6 +412,27 @@
     };
     [self presentViewController:cvc addTargetViewController:self];
 }
+
+- (IBAction)welfareClick:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"尚未开放，敬请期待" message:@"" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    [alert show];
+}
+
+- (IBAction)searchAction:(id)sender {
+    [self.searchResultArr removeAllObjects];
+    if ([[self.searchTF.text stringByReplacingOccurrencesOfString:@" " withString:@""] isEqualToString:@""]) {
+        return;
+    }
+    
+    for (SH_GameItemModel *gameItemModel in self.currentGameItemModel.relation) {
+        if ([gameItemModel.name containsString:self.searchTF.text]) {
+            [self.searchResultArr addObject:gameItemModel];
+        }
+    }
+    
+    [self.lastGamesListScrollView reloaData];
+}
+
 #pragma mark--
 #pragma mark--一键回收按钮
 - (IBAction)oneKeyReciveBtnClick:(id)sender {
@@ -424,21 +468,8 @@
 
 #pragma mark - 优惠活动
 - (IBAction)activitiesClick:(id)sender {
-    __weak typeof(self) weakSelf = self;
-
     SH_PromoWindowViewController *vc = [[SH_PromoWindowViewController alloc] initWithNibName:@"SH_PromoWindowViewController" bundle:nil];
     [self presentViewController:vc addTargetViewController:self];
-//    SH_PromoContentView *promoContentView = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoContentView" owner:nil options:nil] lastObject];
-//    AlertViewController  * cvc = [[AlertViewController  alloc] initAlertView:promoContentView viewHeight:[UIScreen mainScreen].bounds.size.height-80 titleImageName:@"title11" alertViewType:AlertViewTypeLong];
-//    promoContentView.alertVC = cvc;
-//    cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-//    cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
-//    [self presentViewController:cvc animated:YES completion:nil];
-//    [promoContentView showPromoDetail:^(SH_PromoListModel *model) {
-//        SH_PromoDeatilViewController *vc = [[SH_PromoDeatilViewController alloc] initWithNibName:@"SH_PromoDeatilViewController" bundle:nil];
-//        vc.model = model;
-//        [weakSelf presentViewController:vc addTargetViewController:cvc];
-//    }];
 }
 
 #pragma mark--
@@ -534,7 +565,7 @@
         UIInterfaceOrientation oriention = [UIApplication sharedApplication].statusBarOrientation;
 
         [_topGamesListScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(self.cycleAdView.mas_right);
+            make.left.mas_equalTo(self.cycleAdView.mas_right).mas_offset(10);
             make.top.mas_equalTo(80);
             make.bottom.mas_equalTo(-53.5);
             make.right.mas_equalTo(oriention == UIInterfaceOrientationLandscapeLeft ? (iPhoneX ? -30 : 0) : 0);
@@ -693,7 +724,13 @@
     }
     else
     {
-        return self.currentGameItemModel.relation.count;
+        if (self.isSearchStatus) {
+            return self.searchResultArr.count;
+        }
+        else
+        {
+            return self.currentGameItemModel.relation.count;
+        }
     }
 }
 
@@ -705,7 +742,13 @@
     }
     else
     {
-        dataArr = [NSMutableArray arrayWithArray:self.currentGameItemModel.relation];
+        if (self.isSearchStatus) {
+            dataArr = self.searchResultArr;
+        }
+        else
+        {
+            dataArr = [NSMutableArray arrayWithArray:self.currentGameItemModel.relation];
+        }
     }
 
     if (self.enterDZGameLevel && self.currentLevel == 2) {
@@ -817,7 +860,7 @@
         }];
 
         [self.topGamesListScrollView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(self.cycleAdView.mas_right);
+            make.left.mas_equalTo(self.cycleAdView.mas_right).mas_offset(10);
             make.top.mas_equalTo(80);
             make.bottom.mas_equalTo(-53.5);
             make.right.mas_equalTo(iPhoneX ? -30 : 0);
@@ -853,7 +896,7 @@
             }
             else
             {
-                make.left.mas_equalTo(self.cycleAdView.mas_right);
+                make.left.mas_equalTo(self.cycleAdView.mas_right).offset(10);
             }
             make.top.mas_equalTo(80);
             make.bottom.mas_equalTo(-53.5);

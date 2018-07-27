@@ -29,17 +29,17 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wz2-x6-9Jf">
-                                <rect key="frame" x="195" y="336.5" width="277" height="3"/>
+                                <rect key="frame" x="195" y="335.5" width="277" height="4"/>
                                 <color key="backgroundColor" red="0.29019607843137252" green="0.0" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="0.14117647058823529" green="0.0" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.80000000000000004" green="0.58431372549019611" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="3" id="323-Dg-8eX"/>
+                                    <constraint firstAttribute="height" constant="4" id="323-Dg-8eX"/>
                                     <constraint firstAttribute="width" constant="277" id="Tdj-To-rzo"/>
                                 </constraints>
                                 <color key="trackTintColor" red="0.29019607843137252" green="0.0" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正在匹配服务器,请稍后..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k54-Re-HF4">
-                                <rect key="frame" x="260" y="295" width="148" height="16"/>
+                                <rect key="frame" x="260" y="294" width="148" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="148" id="w4v-wZ-YJQ"/>
                                     <constraint firstAttribute="height" constant="16" id="wDX-8M-4XV"/>
@@ -49,7 +49,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOX-s5-mV8">
-                                <rect key="frame" x="161" y="309" width="68" height="58"/>
+                                <rect key="frame" x="161" y="308.5" width="68" height="58"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sK7-IS-sRc" customClass="SH_WebPImageView">
                                         <rect key="frame" x="20.5" y="19" width="27" height="20.5"/>
