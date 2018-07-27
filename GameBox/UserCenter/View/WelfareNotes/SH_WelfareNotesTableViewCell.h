@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class SH_FundListModel;
+
 @interface SH_WelfareNotesTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
-@property (weak, nonatomic) IBOutlet UILabel *statuLabel;
-@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
+
+@property (nonatomic, strong) SH_FundListModel *model;
+
 @end

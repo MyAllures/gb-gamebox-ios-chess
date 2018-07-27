@@ -153,7 +153,7 @@
                     <rect key="frame" x="347" y="0.0" width="154" height="90"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FYI-uD-i3L">
-                            <rect key="frame" x="11" y="4" width="133" height="40"/>
+                            <rect key="frame" x="4.5" y="4" width="146" height="40"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageView:CZv-Sc-E3o:image" translatesAutoresizingMaskIntoConstraints="NO" id="CZv-Sc-E3o">
                                     <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -169,8 +169,8 @@
                                     </userDefinedRuntimeAttributes>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID:1826540092" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVP-Nu-6Vz">
-                                    <rect key="frame" x="44" y="0.0" width="89" height="40"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <rect key="frame" x="44" y="0.0" width="102" height="40"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" red="1" green="0.85098039215686272" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -187,23 +187,23 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="欢迎光临!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvY-Rd-uuQ">
-                            <rect key="frame" x="55" y="51.5" width="44.5" height="12"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <rect key="frame" x="51" y="48.5" width="53" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZuL-QK-sPI">
-                            <rect key="frame" x="13.5" y="67.5" width="127.5" height="14.5"/>
+                            <rect key="frame" x="3.5" y="65" width="147" height="17"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="234149676G" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yx0-Ns-UZ1">
-                                    <rect key="frame" x="53" y="0.0" width="74.5" height="14.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <rect key="frame" x="61.5" y="0.0" width="85.5" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" red="1" green="0.85098039215686272" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="随身福利:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o0P-ij-5pm">
-                                    <rect key="frame" x="0.0" y="0.0" width="53" height="14.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="61.5" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -224,7 +224,7 @@
                     <constraints>
                         <constraint firstItem="FYI-uD-i3L" firstAttribute="top" secondItem="TTc-XK-qrA" secondAttribute="top" constant="4" id="K0Z-ad-aAT"/>
                         <constraint firstAttribute="width" constant="154" id="TXc-mb-Og2"/>
-                        <constraint firstItem="ZuL-QK-sPI" firstAttribute="top" secondItem="lvY-Rd-uuQ" secondAttribute="bottom" constant="4" id="aYP-JU-e07"/>
+                        <constraint firstItem="ZuL-QK-sPI" firstAttribute="top" secondItem="lvY-Rd-uuQ" secondAttribute="bottom" constant="2" id="aYP-JU-e07"/>
                         <constraint firstItem="lvY-Rd-uuQ" firstAttribute="centerX" secondItem="TTc-XK-qrA" secondAttribute="centerX" id="adc-6z-EYd"/>
                         <constraint firstAttribute="height" constant="90" id="daO-Vl-i7C">
                             <userDefinedRuntimeAttributes>

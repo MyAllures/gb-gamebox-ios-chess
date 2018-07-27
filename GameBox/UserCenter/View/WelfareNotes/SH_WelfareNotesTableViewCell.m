@@ -8,16 +8,18 @@
 //
 
 #import "SH_WelfareNotesTableViewCell.h"
+#import "SH_FundListModel.h"
+
 @interface SH_WelfareNotesTableViewCell()
+
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *statuLabel;
+@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
+
 @end
 
 @implementation SH_WelfareNotesTableViewCell
-
--(void)setFrame:(CGRect)frame {
-    frame.origin.y += 3;
-    frame.size.height -= 3;
-    [super setFrame:frame];
-}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -28,6 +30,26 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)setModel:(SH_FundListModel *)model
+{
+    _model = model;
+    self.timeLabel.text = [self timeStampWithDate:model.createTime];
+    self.moneyLabel.text = _model.transactionMoney;
+    self.statuLabel.text = _model.statusName;
+    self.typeLabel.text = _model.transaction_typeName;
+}
+
+-(NSString *)timeStampWithDate: (NSInteger)timeStamp {
+    // iOS 生成的时间戳是10位
+    NSTimeInterval interval    =timeStamp / 1000.0;
+    NSDate *date               = [NSDate dateWithTimeIntervalSince1970:interval];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *dateString       = [formatter stringFromDate: date];
+    return dateString;
 }
 
 @end

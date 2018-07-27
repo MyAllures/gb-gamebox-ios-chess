@@ -10,9 +10,8 @@
 #import "SH_WelfareNotesTableViewCell.h"
 #import "HLPopTableView.h"
 #import "SH_NetWorkService+UserCenter.h"
-
 #import "SH_FundListModel.h"
-#import "SH_SearchTypeModel.h"
+
 @interface SH_WelfareNotesView() <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -20,8 +19,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *typeBtn;
 
 @property (strong, nonatomic) NSMutableArray *dataArr;
-@property (strong, nonatomic) NSArray *searchTypeArr;
-@property (strong, nonatomic) NSArray *selectTypeIdArray;
 @property (strong, nonatomic) NSString *startTimeStr;
 @property (strong, nonatomic) NSString *endTimeStr;
 
@@ -30,33 +27,54 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalRechargeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalDiscountlabel;
 
+@property (nonatomic, strong) NSMutableArray *selectTypeNameArr;
+@property (nonatomic, strong) NSMutableArray *selectTypeIdArr;
+
 @end
 
 @implementation SH_WelfareNotesView
+
+- (NSMutableArray *)selectTypeNameArr
+{
+    if (_selectTypeNameArr == nil) {
+        _selectTypeNameArr = [NSMutableArray array];
+    }
+    return _selectTypeNameArr;
+}
+
+- (NSMutableArray *)selectTypeIdArr
+{
+    if (_selectTypeIdArr == nil) {
+        _selectTypeIdArr = [NSMutableArray array];
+    }
+    return _selectTypeIdArr;
+}
+
 #pragma mark 时间选择
 - (IBAction)seleteTimeAction:(UIButton *)sender {
     NSArray *arr = @[@"今天",@"昨天",@"本周",@"最近七天"];
     __weak typeof(self) weakSelf = self;
     HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, sender.bounds.size.width, 125) dependView:sender textArr:arr textFont:14.0 block:^(NSString *region_name, NSInteger index) {
-        [weakSelf  changedSinceTimeString:index];
-        [self.timeBtn setTitle:region_name forState:UIControlStateNormal];
-        [self requestData];
+        
+        [weakSelf changedSinceTimeString:index];
+        [weakSelf.timeBtn setTitle:region_name forState:UIControlStateNormal];
     }];
+    popTV.backgroundColor = [UIColor clearColor];
     [self addSubview:popTV];
 }
 
 #pragma mark 类型选择
 - (IBAction)seleteTypeAction:(UIButton *)sender {
-    HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, sender.bounds.size.width, 125) dependView:sender textArr:self.searchTypeArr textFont:14.0 block:^(NSString *region_name, NSInteger index) {
+    HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, sender.bounds.size.width, 125) dependView:sender textArr:self.selectTypeNameArr textFont:14.0 block:^(NSString *region_name, NSInteger index) {
         [self.typeBtn setTitle:region_name forState:UIControlStateNormal];
         self.seleteTypeIndex = index;
-        [self requestData];
     }];
     [self addSubview:popTV];
 }
 #pragma mark 搜索
 - (IBAction)searchAction:(id)sender {
-    
+    NSString *searchType = [self.selectTypeIdArr objectAtIndex:self.seleteTypeIndex];
+    [self requestData:self.startTimeStr endTimeStr:self.endTimeStr searchType:searchType];
 }
 
 #pragma mark -  获取当前周的周一周日的时间
@@ -145,28 +163,32 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerNib:[UINib nibWithNibName:@"SH_WelfareNotesTableViewCell" bundle:nil] forCellReuseIdentifier:@"SH_WelfareNotesTableViewCell"];
     self.dataArr = [NSMutableArray array];
-    [self requestData];
+    [self requestData:self.startTimeStr endTimeStr:self.endTimeStr searchType:@""];
     [self searchTypeRequest];
 }
 
 -(void)searchTypeRequest {
+    __weak typeof(self) weakSelf = self;
+
     [SH_NetWorkService fetchDepositPulldownListComplete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        NSDictionary *dict = (NSDictionary *)response;
-        NSLog(@"dict===%@",dict);
-        SH_SearchTypeModel *model = [[SH_SearchTypeModel alloc] initWithDictionary:dict[@"data"] error:nil];
-        self.searchTypeArr = @[@"全部类型",model.deposit,model.backwater,model.withdrawals,model.recommend,model.transfers,model.favorable];
-        self.selectTypeIdArray = @[@"",@"deposit",@"backwater",@"withdrawals",@"recommend",@"transfers",@"favorable"];
+        NSDictionary *dataDic = [response objectForKey:@"data"];
+        [weakSelf.selectTypeNameArr addObject:@"全部"];
+        [weakSelf.selectTypeNameArr addObjectsFromArray:[dataDic allValues]];
+        
+        [weakSelf.selectTypeIdArr addObject:@""];
+        [weakSelf.selectTypeIdArr addObjectsFromArray:[dataDic allKeys]];
+
+        NSLog(@"");
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
 }
 
--(void)requestData {
+-(void)requestData:(NSString *)startTimeStr endTimeStr:(NSString *)endTimeStr searchType:(NSString *)searchType
+{
     [self.dataArr removeAllObjects];
-    NSLog(@"startTimeStr===%@",self.startTimeStr);
-    NSLog(@" endTimeStr===%@",self.endTimeStr);
     [MBProgressHUD showHUDAddedTo:self animated:YES];
-    [SH_NetWorkService  fetchDepositList:self.startTimeStr EndDate:self.endTimeStr SearchType:self.selectTypeIdArray[self.seleteTypeIndex] PageNumber:1 PageSize:5000 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [SH_NetWorkService fetchDepositList:startTimeStr EndDate:endTimeStr SearchType:searchType PageNumber:1 PageSize:5000 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dict = (NSDictionary *)response;
         NSLog(@"dict===%@",dict);
         NSString *code = dict[@"code"];
@@ -197,17 +219,6 @@
     }];
 }
 
--(NSString *)timeStampWithDate: (NSInteger)timeStamp {
-    // iOS 生成的时间戳是10位
-    NSTimeInterval interval    =timeStamp / 1000.0;
-    NSDate *date               = [NSDate dateWithTimeIntervalSince1970:interval];
-    
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSString *dateString       = [formatter stringFromDate: date];
-    return dateString;
-}
-
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -227,10 +238,7 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     SH_FundListModel *model = self.dataArr[indexPath.row];
-    cell.timeLabel.text = [self timeStampWithDate:model.createTime];
-    cell.moneyLabel.text = model.transactionMoney;
-    cell.statuLabel.text = model.statusName;
-    cell.typeLabel.text = model.transaction_typeName;
+    cell.model = model;
     return cell;
 }
 
@@ -240,7 +248,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 29;
+    return 32;
 }
 
 @end

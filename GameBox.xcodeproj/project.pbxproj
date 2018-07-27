@@ -140,6 +140,8 @@
 		543970F32106C38E0091C719 /* logo14.webp in Resources */ = {isa = PBXBuildFile; fileRef = 543970F02106C38E0091C719 /* logo14.webp */; };
 		543970F42106C38E0091C719 /* logo13.webp in Resources */ = {isa = PBXBuildFile; fileRef = 543970F12106C38E0091C719 /* logo13.webp */; };
 		547BCDF3210ACCBB00D7082F /* loading.webp in Resources */ = {isa = PBXBuildFile; fileRef = 547BCDF2210ACCBA00D7082F /* loading.webp */; };
+		547BCDF5210AF43100D7082F /* table-bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 547BCDF4210AF43100D7082F /* table-bg.webp */; };
+		547BCDF8210AFC4D00D7082F /* SH_SearchTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 547BCDF6210AFC4C00D7082F /* SH_SearchTypeModel.m */; };
 		54C21AB120EE23B2006FCA0F /* SH_BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C21AB020EE23B2006FCA0F /* SH_BaseViewController.m */; };
 		54C21AB920F1B981006FCA0F /* SH_CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C21AB820F1B981006FCA0F /* SH_CycleScrollView.m */; };
 		54C8758020F3560100AA0594 /* SH_PromoListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C8757F20F3560100AA0594 /* SH_PromoListView.xib */; };
@@ -332,7 +334,6 @@
 		DA1BCC5820FD942A00201DBC /* SH_WelfareInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCC5720FD942A00201DBC /* SH_WelfareInfoModel.m */; };
 		DA1BCC5B20FDBFCD00201DBC /* SH_FundListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCC5A20FDBFCD00201DBC /* SH_FundListModel.m */; };
 		DA1BCC6320FDC4B100201DBC /* UITableViewCell+ShowContent.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCC6120FDC4B100201DBC /* UITableViewCell+ShowContent.m */; };
-		DA1BCC6620FDD49E00201DBC /* SH_SearchTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCC6520FDD49E00201DBC /* SH_SearchTypeModel.m */; };
 		DA1BCC7520FDE6D500201DBC /* RH_CapitalDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCC7420FDE6D500201DBC /* RH_CapitalDetailModel.m */; };
 		DA1BCC7E20FE054500201DBC /* SH_CardRecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCC7C20FE054500201DBC /* SH_CardRecordView.m */; };
 		DA1BCC8020FE055800201DBC /* SH_CardRecordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1BCC7F20FE055800201DBC /* SH_CardRecordView.xib */; };
@@ -563,6 +564,9 @@
 		543970F02106C38E0091C719 /* logo14.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo14.webp; sourceTree = "<group>"; };
 		543970F12106C38E0091C719 /* logo13.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo13.webp; sourceTree = "<group>"; };
 		547BCDF2210ACCBA00D7082F /* loading.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = loading.webp; sourceTree = "<group>"; };
+		547BCDF4210AF43100D7082F /* table-bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "table-bg.webp"; sourceTree = "<group>"; };
+		547BCDF6210AFC4C00D7082F /* SH_SearchTypeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_SearchTypeModel.m; sourceTree = "<group>"; };
+		547BCDF7210AFC4D00D7082F /* SH_SearchTypeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_SearchTypeModel.h; sourceTree = "<group>"; };
 		54C21AAF20EE23B2006FCA0F /* SH_BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_BaseViewController.h; sourceTree = "<group>"; };
 		54C21AB020EE23B2006FCA0F /* SH_BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_BaseViewController.m; sourceTree = "<group>"; };
 		54C21AB720F1B981006FCA0F /* SH_CycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_CycleScrollView.h; sourceTree = "<group>"; };
@@ -868,8 +872,6 @@
 		DA1BCC5A20FDBFCD00201DBC /* SH_FundListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_FundListModel.m; sourceTree = "<group>"; };
 		DA1BCC6120FDC4B100201DBC /* UITableViewCell+ShowContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+ShowContent.m"; sourceTree = "<group>"; };
 		DA1BCC6220FDC4B100201DBC /* UITableViewCell+ShowContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+ShowContent.h"; sourceTree = "<group>"; };
-		DA1BCC6420FDD49E00201DBC /* SH_SearchTypeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SearchTypeModel.h; sourceTree = "<group>"; };
-		DA1BCC6520FDD49E00201DBC /* SH_SearchTypeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SearchTypeModel.m; sourceTree = "<group>"; };
 		DA1BCC7320FDE6D500201DBC /* RH_CapitalDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RH_CapitalDetailModel.h; sourceTree = "<group>"; };
 		DA1BCC7420FDE6D500201DBC /* RH_CapitalDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RH_CapitalDetailModel.m; sourceTree = "<group>"; };
 		DA1BCC7C20FE054500201DBC /* SH_CardRecordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_CardRecordView.m; sourceTree = "<group>"; };
@@ -1215,6 +1217,7 @@
 		5435E7C32104349B00DB809F /* webpRes */ = {
 			isa = PBXGroup;
 			children = (
+				547BCDF4210AF43100D7082F /* table-bg.webp */,
 				547BCDF2210ACCBA00D7082F /* loading.webp */,
 				54DD0369210AC5C400CE9199 /* drop_down.webp */,
 				54DD0367210AAD6B00CE9199 /* search-bg.webp */,
@@ -1991,6 +1994,8 @@
 		DA1BCC4020FCB74400201DBC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				547BCDF7210AFC4D00D7082F /* SH_SearchTypeModel.h */,
+				547BCDF6210AFC4C00D7082F /* SH_SearchTypeModel.m */,
 				DA1BCC8A20FE200700201DBC /* RH_BettingInfoModel.h */,
 				DA1BCC8920FE200700201DBC /* RH_BettingInfoModel.m */,
 				DA1BCC7220FDE6D500201DBC /* Detail */,
@@ -2000,8 +2005,6 @@
 				DA1BCC5720FD942A00201DBC /* SH_WelfareInfoModel.m */,
 				DA1BCC5920FDBFCD00201DBC /* SH_FundListModel.h */,
 				DA1BCC5A20FDBFCD00201DBC /* SH_FundListModel.m */,
-				DA1BCC6420FDD49E00201DBC /* SH_SearchTypeModel.h */,
-				DA1BCC6520FDD49E00201DBC /* SH_SearchTypeModel.m */,
 				DA1BCC9120FED79200201DBC /* SH_CardRecordModel.h */,
 				DA1BCC9220FED79200201DBC /* SH_CardRecordModel.m */,
 			);
@@ -2320,6 +2323,7 @@
 				54397089210462BB0091C719 /* arrow.webp in Resources */,
 				BFFC845C20F2F260008AD801 /* RH_RechargeCenterFooterView.xib in Resources */,
 				543970DB210462BB0091C719 /* logo08.webp in Resources */,
+				547BCDF5210AF43100D7082F /* table-bg.webp in Resources */,
 				543970D8210462BB0091C719 /* avatar.webp in Resources */,
 				54DD03522109B47E00CE9199 /* btn_blue.webp in Resources */,
 				543970CE210462BB0091C719 /* login_button_long.webp in Resources */,
@@ -2655,6 +2659,7 @@
 				DA1BCCAA20FF288B00201DBC /* RH_BettingRecordDetailCell.m in Sources */,
 				54C875B320FB4E1200AA0594 /* SH_DragableMenuView.m in Sources */,
 				DA1BCC8F20FEC91200201DBC /* SH_CardRecordTableViewCell.m in Sources */,
+				547BCDF8210AFC4D00D7082F /* SH_SearchTypeModel.m in Sources */,
 				BFA068C820FE0FF100F5ADFE /* SH_ModifyLoginPSDView.m in Sources */,
 				DA22F3D820F455C50058A54F /* UIImage+Representation.m in Sources */,
 				DA1BCCAF20FF33BE00201DBC /* SH_GamesHomeViewController.m in Sources */,
@@ -2691,7 +2696,6 @@
 				54C21AB120EE23B2006FCA0F /* SH_BaseViewController.m in Sources */,
 				DA22F40A20F494C60058A54F /* NSDictionary+CLCategory.m in Sources */,
 				54C8763221008D3800AA0594 /* SH_GameWebView.m in Sources */,
-				DA1BCC6620FDD49E00201DBC /* SH_SearchTypeModel.m in Sources */,
 				DA1BCDAD2102D27C00201DBC /* RH_CapitalRecordDetailsCell.m in Sources */,
 				DA1BCC8320FE06D300201DBC /* SH_CardRecordHeaderView.m in Sources */,
 				DA21F37C20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m in Sources */,
