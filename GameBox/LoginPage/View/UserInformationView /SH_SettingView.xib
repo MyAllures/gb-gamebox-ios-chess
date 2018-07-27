@@ -28,6 +28,12 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="251" image="bar_ios" translatesAutoresizingMaskIntoConstraints="NO" id="f5Z-HG-dVz">
+                                    <rect key="frame" x="33" y="2" width="251" height="12.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="12.5" id="zVK-Xn-kfq"/>
+                                    </constraints>
+                                </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="音效" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKT-2A-PQs">
                                     <rect key="frame" x="0.0" y="28" width="25" height="16"/>
                                     <color key="backgroundColor" red="0.28235294119999998" green="0.3294117647" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -35,35 +41,28 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <slider opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="u65-qc-s7I">
-                                    <rect key="frame" x="33" y="28" width="256" height="17"/>
-                                    <color key="tintColor" red="0.53333333329999999" green="0.80784313730000001" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="minimumTrackTintColor" red="0.53333333329999999" green="0.80784313730000001" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="maximumTrackTintColor" red="0.074509803920000006" green="0.42745098040000001" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <connections>
-                                        <action selector="changeSlideValue:" destination="iN0-l3-epB" eventType="valueChanged" id="L44-fK-Mb1"/>
-                                    </connections>
-                                </slider>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IMA-sx-wol">
-                                    <rect key="frame" x="33" y="0.0" width="255" height="16"/>
-                                    <color key="backgroundColor" red="0.28235294119999998" green="0.3294117647" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </view>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar_ios" translatesAutoresizingMaskIntoConstraints="NO" id="oLG-3a-eh1">
+                                    <rect key="frame" x="33" y="30" width="251" height="12.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="12.5" id="2RI-ko-Qeb"/>
+                                    </constraints>
+                                </imageView>
                             </subviews>
                             <color key="backgroundColor" red="0.28235294119999998" green="0.3294117647" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstItem="u65-qc-s7I" firstAttribute="leading" secondItem="GKT-2A-PQs" secondAttribute="trailing" constant="10" id="0CN-xK-Qkz"/>
+                                <constraint firstItem="f5Z-HG-dVz" firstAttribute="leading" secondItem="47I-UM-ebP" secondAttribute="trailing" constant="8" id="0eE-Qy-BbN"/>
                                 <constraint firstAttribute="height" constant="44" id="5BO-Tq-71x"/>
-                                <constraint firstItem="IMA-sx-wol" firstAttribute="bottom" secondItem="47I-UM-ebP" secondAttribute="bottom" id="AXq-ol-nat"/>
+                                <constraint firstAttribute="trailing" secondItem="f5Z-HG-dVz" secondAttribute="trailing" id="CZV-jd-pBv"/>
+                                <constraint firstItem="f5Z-HG-dVz" firstAttribute="centerY" secondItem="47I-UM-ebP" secondAttribute="centerY" id="KrV-74-IOG"/>
                                 <constraint firstItem="GKT-2A-PQs" firstAttribute="height" secondItem="47I-UM-ebP" secondAttribute="height" id="LWx-Vo-Vuk"/>
-                                <constraint firstItem="IMA-sx-wol" firstAttribute="top" secondItem="47I-UM-ebP" secondAttribute="top" id="Opo-Oa-4du"/>
-                                <constraint firstItem="u65-qc-s7I" firstAttribute="bottom" secondItem="GKT-2A-PQs" secondAttribute="bottom" id="Pqb-FL-MMz"/>
+                                <constraint firstItem="oLG-3a-eh1" firstAttribute="leading" secondItem="GKT-2A-PQs" secondAttribute="trailing" constant="8" id="LiZ-da-Gyk"/>
                                 <constraint firstItem="GKT-2A-PQs" firstAttribute="leading" secondItem="dsW-fY-rak" secondAttribute="leading" id="Umb-ha-nXm"/>
                                 <constraint firstItem="47I-UM-ebP" firstAttribute="leading" secondItem="dsW-fY-rak" secondAttribute="leading" id="ZCI-DG-Sr2"/>
+                                <constraint firstAttribute="trailing" secondItem="oLG-3a-eh1" secondAttribute="trailing" id="ZpB-N6-xZO"/>
                                 <constraint firstItem="GKT-2A-PQs" firstAttribute="width" secondItem="47I-UM-ebP" secondAttribute="width" id="ZzV-iZ-JIP"/>
-                                <constraint firstItem="u65-qc-s7I" firstAttribute="top" secondItem="GKT-2A-PQs" secondAttribute="top" id="bck-sJ-QsZ"/>
+                                <constraint firstItem="oLG-3a-eh1" firstAttribute="centerY" secondItem="GKT-2A-PQs" secondAttribute="centerY" id="aA6-Np-tGZ"/>
                                 <constraint firstAttribute="bottom" secondItem="GKT-2A-PQs" secondAttribute="bottom" id="c80-ym-zRZ"/>
                                 <constraint firstItem="47I-UM-ebP" firstAttribute="top" secondItem="dsW-fY-rak" secondAttribute="top" id="gdx-Of-Vph"/>
-                                <constraint firstItem="IMA-sx-wol" firstAttribute="leading" secondItem="47I-UM-ebP" secondAttribute="trailing" constant="8" id="mEn-QM-NTH"/>
                                 <constraint firstItem="GKT-2A-PQs" firstAttribute="top" secondItem="47I-UM-ebP" secondAttribute="bottom" constant="12" id="mo4-wt-l93"/>
                             </constraints>
                         </view>
@@ -73,8 +72,6 @@
                         <constraint firstAttribute="trailing" secondItem="dsW-fY-rak" secondAttribute="trailing" constant="12" id="EQr-PW-Rv2"/>
                         <constraint firstItem="dsW-fY-rak" firstAttribute="centerY" secondItem="pcG-Df-bjA" secondAttribute="centerY" id="OXe-vn-qDD"/>
                         <constraint firstItem="dsW-fY-rak" firstAttribute="leading" secondItem="pcG-Df-bjA" secondAttribute="leading" constant="12" id="bav-9h-xYN"/>
-                        <constraint firstAttribute="trailing" secondItem="u65-qc-s7I" secondAttribute="trailing" constant="9" id="kpJ-h2-X8L"/>
-                        <constraint firstAttribute="trailing" secondItem="IMA-sx-wol" secondAttribute="trailing" constant="8" id="v6F-ER-Ikm"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -92,11 +89,10 @@
                 <constraint firstAttribute="bottom" secondItem="pcG-Df-bjA" secondAttribute="bottom" constant="8" id="aan-bJ-Ino"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <connections>
-                <outlet property="sound_view" destination="IMA-sx-wol" id="1Kt-1C-Q4o"/>
-                <outlet property="soundeffec_slide" destination="u65-qc-s7I" id="iNM-Rp-byH"/>
-            </connections>
-            <point key="canvasLocation" x="85" y="-92"/>
+            <point key="canvasLocation" x="85" y="-92.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="bar_ios" width="12" height="12"/>
+    </resources>
 </document>
