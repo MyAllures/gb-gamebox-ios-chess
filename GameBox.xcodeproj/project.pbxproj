@@ -139,6 +139,7 @@
 		543970F22106C38E0091C719 /* logo12.webp in Resources */ = {isa = PBXBuildFile; fileRef = 543970EF2106C38D0091C719 /* logo12.webp */; };
 		543970F32106C38E0091C719 /* logo14.webp in Resources */ = {isa = PBXBuildFile; fileRef = 543970F02106C38E0091C719 /* logo14.webp */; };
 		543970F42106C38E0091C719 /* logo13.webp in Resources */ = {isa = PBXBuildFile; fileRef = 543970F12106C38E0091C719 /* logo13.webp */; };
+		547BCDF3210ACCBB00D7082F /* loading.webp in Resources */ = {isa = PBXBuildFile; fileRef = 547BCDF2210ACCBA00D7082F /* loading.webp */; };
 		54C21AB120EE23B2006FCA0F /* SH_BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C21AB020EE23B2006FCA0F /* SH_BaseViewController.m */; };
 		54C21AB920F1B981006FCA0F /* SH_CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C21AB820F1B981006FCA0F /* SH_CycleScrollView.m */; };
 		54C8758020F3560100AA0594 /* SH_PromoListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C8757F20F3560100AA0594 /* SH_PromoListView.xib */; };
@@ -206,6 +207,7 @@
 		54DD03642109FDA000CE9199 /* SH_MsgCenterDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DD03632109FDA000CE9199 /* SH_MsgCenterDetailView.m */; };
 		54DD03662109FDAB00CE9199 /* SH_MsgCenterDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54DD03652109FDAB00CE9199 /* SH_MsgCenterDetailView.xib */; };
 		54DD0368210AAD6C00CE9199 /* search-bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54DD0367210AAD6B00CE9199 /* search-bg.webp */; };
+		54DD036A210AC5C500CE9199 /* drop_down.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54DD0369210AC5C400CE9199 /* drop_down.webp */; };
 		54E7D2E7210726390069F2CE /* mearkRead.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54E7D2E6210726390069F2CE /* mearkRead.webp */; };
 		54E7D2E9210726580069F2CE /* down.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54E7D2E8210726580069F2CE /* down.webp */; };
 		54E7D2EB210726710069F2CE /* choose.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54E7D2EA210726710069F2CE /* choose.webp */; };
@@ -560,6 +562,7 @@
 		543970EF2106C38D0091C719 /* logo12.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo12.webp; sourceTree = "<group>"; };
 		543970F02106C38E0091C719 /* logo14.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo14.webp; sourceTree = "<group>"; };
 		543970F12106C38E0091C719 /* logo13.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo13.webp; sourceTree = "<group>"; };
+		547BCDF2210ACCBA00D7082F /* loading.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = loading.webp; sourceTree = "<group>"; };
 		54C21AAF20EE23B2006FCA0F /* SH_BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_BaseViewController.h; sourceTree = "<group>"; };
 		54C21AB020EE23B2006FCA0F /* SH_BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_BaseViewController.m; sourceTree = "<group>"; };
 		54C21AB720F1B981006FCA0F /* SH_CycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_CycleScrollView.h; sourceTree = "<group>"; };
@@ -661,6 +664,7 @@
 		54DD03632109FDA000CE9199 /* SH_MsgCenterDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_MsgCenterDetailView.m; sourceTree = "<group>"; };
 		54DD03652109FDAB00CE9199 /* SH_MsgCenterDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_MsgCenterDetailView.xib; sourceTree = "<group>"; };
 		54DD0367210AAD6B00CE9199 /* search-bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "search-bg.webp"; sourceTree = "<group>"; };
+		54DD0369210AC5C400CE9199 /* drop_down.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = drop_down.webp; sourceTree = "<group>"; };
 		54E7D2E6210726390069F2CE /* mearkRead.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = mearkRead.webp; sourceTree = "<group>"; };
 		54E7D2E8210726580069F2CE /* down.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = down.webp; sourceTree = "<group>"; };
 		54E7D2EA210726710069F2CE /* choose.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = choose.webp; sourceTree = "<group>"; };
@@ -1211,6 +1215,8 @@
 		5435E7C32104349B00DB809F /* webpRes */ = {
 			isa = PBXGroup;
 			children = (
+				547BCDF2210ACCBA00D7082F /* loading.webp */,
+				54DD0369210AC5C400CE9199 /* drop_down.webp */,
 				54DD0367210AAD6B00CE9199 /* search-bg.webp */,
 				54DD03602109FC1C00CE9199 /* effects_man.webp */,
 				54DD035A2109D03F00CE9199 /* game-back.webp */,
@@ -2325,6 +2331,7 @@
 				543970AD210462BB0091C719 /* btn_income.webp in Resources */,
 				543970CD210462BB0091C719 /* title-bg2.webp in Resources */,
 				54397092210462BB0091C719 /* font_money.webp in Resources */,
+				547BCDF3210ACCBB00D7082F /* loading.webp in Resources */,
 				5401C53C20ECA1100027246D /* LaunchScreen.storyboard in Resources */,
 				54C8759E20F756A500AA0594 /* moneyRing.mp3 in Resources */,
 				54397086210462BB0091C719 /* btn_top_recharge.webp in Resources */,
@@ -2417,6 +2424,7 @@
 				BF7B08C62101CF33008256FE /* SH_NiceDatePickerView.xib in Resources */,
 				22618C692109755100E4A6F6 /* SH_WelfareNotesTableViewCell.xib in Resources */,
 				DA1BCCA920FF288B00201DBC /* RH_BettingRecordDetailCell.xib in Resources */,
+				54DD036A210AC5C500CE9199 /* drop_down.webp in Resources */,
 				2209026720F053D400F8828E /* SH_PromoViewCell.xib in Resources */,
 				543970B1210462BB0091C719 /* yellow.webp in Resources */,
 				BF2F916020EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.xib in Resources */,

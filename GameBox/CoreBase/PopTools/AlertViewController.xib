@@ -57,7 +57,7 @@
                             </connections>
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="title04" translatesAutoresizingMaskIntoConstraints="NO" id="ock-Xm-rpE">
-                            <rect key="frame" x="217" y="24" width="96" height="22"/>
+                            <rect key="frame" x="215" y="22" width="96" height="22"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="title04"/>
                                 <userDefinedRuntimeAttribute type="number" keyPath="width">
@@ -75,10 +75,10 @@
                         <constraint firstItem="wQl-q3-foA" firstAttribute="leading" secondItem="b6L-qR-io7" secondAttribute="leading" id="8g2-f4-Wqu"/>
                         <constraint firstItem="b6L-qR-io7" firstAttribute="leading" secondItem="bD3-NP-rNa" secondAttribute="leading" constant="20" id="EnE-tv-jSy"/>
                         <constraint firstItem="b6L-qR-io7" firstAttribute="top" secondItem="11N-dG-hHA" secondAttribute="bottom" constant="-30" id="FHv-uD-Slz"/>
-                        <constraint firstItem="ock-Xm-rpE" firstAttribute="centerY" secondItem="b6L-qR-io7" secondAttribute="centerY" id="MsZ-Jh-qeM"/>
+                        <constraint firstItem="ock-Xm-rpE" firstAttribute="centerY" secondItem="b6L-qR-io7" secondAttribute="centerY" constant="-2" id="MsZ-Jh-qeM"/>
                         <constraint firstAttribute="height" constant="300" id="O9A-XT-9lM"/>
                         <constraint firstItem="11N-dG-hHA" firstAttribute="leading" secondItem="b6L-qR-io7" secondAttribute="trailing" constant="-20" id="Wx0-pI-4HJ"/>
-                        <constraint firstItem="ock-Xm-rpE" firstAttribute="centerX" secondItem="b6L-qR-io7" secondAttribute="centerX" constant="2" id="bfV-bD-1tY"/>
+                        <constraint firstItem="ock-Xm-rpE" firstAttribute="centerX" secondItem="b6L-qR-io7" secondAttribute="centerX" id="bfV-bD-1tY"/>
                         <constraint firstItem="wQl-q3-foA" firstAttribute="top" secondItem="b6L-qR-io7" secondAttribute="bottom" constant="-3" id="pVK-OA-88l"/>
                         <constraint firstAttribute="width" constant="526" id="r84-uc-aiL"/>
                         <constraint firstItem="b6L-qR-io7" firstAttribute="centerX" secondItem="bD3-NP-rNa" secondAttribute="centerX" id="sNV-8f-10C"/>

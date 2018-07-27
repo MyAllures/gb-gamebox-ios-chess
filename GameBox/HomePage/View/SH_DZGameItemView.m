@@ -29,7 +29,7 @@
 - (void)setGameItemModel:(SH_GameItemModel *)gameItemModel
 {
     _gameItemModel = gameItemModel;
-    [self.iconImg sd_setImageWithURL:[NSURL URLWithString:_gameItemModel.cover] placeholderImage:nil options:SDWebImageAllowInvalidSSLCertificates];
+    [self.iconImg sd_setImageWithURL:[NSURL URLWithString:_gameItemModel.cover] placeholderImage:[UIImage imageNamed:@"loading"] options:SDWebImageAllowInvalidSSLCertificates];
     self.gameNameLB.text = _gameItemModel.name;
 }
 

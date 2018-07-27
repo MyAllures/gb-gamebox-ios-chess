@@ -413,6 +413,11 @@
     [self presentViewController:cvc addTargetViewController:self];
 }
 
+- (IBAction)welfareClick:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"尚未开放，敬请期待" message:@"" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    [alert show];
+}
+
 - (IBAction)searchAction:(id)sender {
     [self.searchResultArr removeAllObjects];
     if ([[self.searchTF.text stringByReplacingOccurrencesOfString:@" " withString:@""] isEqualToString:@""]) {
@@ -560,7 +565,7 @@
         UIInterfaceOrientation oriention = [UIApplication sharedApplication].statusBarOrientation;
 
         [_topGamesListScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(self.cycleAdView.mas_right);
+            make.left.mas_equalTo(self.cycleAdView.mas_right).mas_offset(10);
             make.top.mas_equalTo(80);
             make.bottom.mas_equalTo(-53.5);
             make.right.mas_equalTo(oriention == UIInterfaceOrientationLandscapeLeft ? (iPhoneX ? -30 : 0) : 0);
@@ -855,7 +860,7 @@
         }];
 
         [self.topGamesListScrollView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(self.cycleAdView.mas_right);
+            make.left.mas_equalTo(self.cycleAdView.mas_right).mas_offset(10);
             make.top.mas_equalTo(80);
             make.bottom.mas_equalTo(-53.5);
             make.right.mas_equalTo(iPhoneX ? -30 : 0);
@@ -891,7 +896,7 @@
             }
             else
             {
-                make.left.mas_equalTo(self.cycleAdView.mas_right);
+                make.left.mas_equalTo(self.cycleAdView.mas_right).offset(10);
             }
             make.top.mas_equalTo(80);
             make.bottom.mas_equalTo(-53.5);
