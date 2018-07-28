@@ -9,7 +9,7 @@
 #import "RH_RechargeCenterFooterView.h"
 #import "THScrollChooseView.h"
 #import "TTTAttributedLabel.h"
-@interface RH_RechargeCenterFooterView()<TTTAttributedLabelDelegate>
+@interface RH_RechargeCenterFooterView()<TTTAttributedLabelDelegate, UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UILabel *chooseBkLab;
 @property (weak, nonatomic) IBOutlet UIButton *chooseBKBtn;
@@ -33,6 +33,7 @@
         make.left.equalTo(self).offset(15);
         make.right.equalTo(self).offset(-15);
     }];
+    _textField.delegate = self;
 }
 #pragma mark--
 #pragma mark--lazy
@@ -164,5 +165,16 @@
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url
 {
     NSLog(@"点击联系在线客服");
+}
+#pragma mark --- UITextViewDelegate
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    //限制输入小数点后两位
+    NSRange ran=[textField.text rangeOfString:@"."];
+    NSInteger tt=range.location-ran.location;
+    if (tt <= 2){
+        return YES;
+    }
+    return NO;
 }
 @end

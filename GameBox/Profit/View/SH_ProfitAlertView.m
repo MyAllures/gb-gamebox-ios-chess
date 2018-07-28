@@ -20,6 +20,7 @@
     self.lab.layer.borderColor = [UIColor colorWithWhite:1 alpha:0.25].CGColor;
 }
 - (void)setTargetVC:(UIViewController *)targetVC{
+    self.lab.text = self.content;
     _targetVC = targetVC;
 }
 - (IBAction)sureBtnClick:(id)sender {

@@ -19,8 +19,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *balanceLab;
 @property (weak, nonatomic) IBOutlet UILabel *bankNumLab;
 @property(nonatomic,strong)UIViewController *targetVC;
+@property (weak, nonatomic) IBOutlet SH_WebPButton *bandingBtn;
+
 @property(nonatomic,strong)SH_FeeModel *feeModel;//传到下面一个页面
 @property(nonatomic,copy)NSString *token;
+
 
 @end
 @implementation SH_PrifitOutCoinView
@@ -42,6 +45,11 @@
     }else{
         showMessage(self, @"您已绑定银行卡", nil);
     }
+    
+    
+    
+    
+    
 }
 - (IBAction)add50BtnClik:(id)sender {
     NSInteger num = [self.numTextField.text integerValue];
@@ -56,12 +64,15 @@
 - (IBAction)sureBtnClick:(id)sender {
      if ([self.bankNumLab.text isEqualToString:@"请绑定银行卡"]){
         showMessage(self, @"请绑定银行卡", nil);
-    }else if (self.numTextField.text.length == 0||[self.numTextField.text floatValue] > [self.balanceLab.text floatValue]) {
-        [self popAlertView];
+    }else if (self.numTextField.text.length == 0) {
+        [self popAlertView:@"请输入出币数量"];
+    }
+    else if ([self.numTextField.text floatValue] > [self.balanceLab.text floatValue]) {
+        [self popAlertView:@"福利余额不足"];
     }
     else if ([self.numTextField.text intValue]%50 != 0 || [self.numTextField.text intValue] == 0) {
         self.numTextField.text = @"";
-        [self popAlertView];
+        [self popAlertView:@"出币数量应为50的倍数"];
         return;
     }
     else{
@@ -83,6 +94,8 @@
         self.bankNumLab.text = @"请绑定银行卡";
     }else{
         self.bankNumLab.text = bankNum;
+        [self.bandingBtn setTitle:@"已绑定" forState:UIControlStateNormal];
+        self.bandingBtn.userInteractionEnabled = NO;
     }
     self.balanceLab.text = [NSString stringWithFormat:@"%.2f",[balance floatValue]];
     self.targetVC = targetVC;
@@ -101,8 +114,9 @@
         
     }];
 }
--(void)popAlertView{
+-(void)popAlertView: (NSString *)content{
     SH_ProfitAlertView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_ProfitAlertView" owner:self options:nil].firstObject;
+    view.content = content;
     view.targetVC = self.targetVC;
     AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:202 titleImageName:@"title03" alertViewType:AlertViewTypeShort];
     acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
