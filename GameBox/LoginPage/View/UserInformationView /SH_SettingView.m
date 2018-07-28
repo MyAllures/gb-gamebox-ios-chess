@@ -10,9 +10,6 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
 @interface  SH_SettingView()
-@property (weak, nonatomic) IBOutlet UISlider *sound_slide;
-@property (weak, nonatomic) IBOutlet UIView *sound_view;
-@property (weak, nonatomic) IBOutlet UISlider *soundeffec_slide;
 
 @end
 @implementation SH_SettingView
@@ -28,34 +25,15 @@
 */
 -(void)awakeFromNib{
     [super  awakeFromNib];
-    [self  configSlide];
+//    [self  configSlide];
 }
 -(void)configSlide{
-    UIImage *imagea=[self OriginImage:[UIImage imageNamed:@"circular_slide"] scaleToSize:CGSizeMake(20, 20)];
-    [self.sound_slide  setThumbImage:[UIImage imageNamed:@"circular_slide"] forState:UIControlStateNormal];
-    [self.soundeffec_slide  setThumbImage:[UIImage imageNamed:@"circular_slide"] forState:UIControlStateNormal];
-    
-    //自定义MPVolumeView 高度不能改变其他都可以
-    MPVolumeView *volumeView = [[MPVolumeView alloc] initWithFrame:CGRectZero];
-    //把自定义的MPVolumeView贴在view上
-    [self.sound_view addSubview: volumeView];
-    [volumeView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(self.sound_view).mas_offset(0);;
-    }];
-    
     //寻找建立UISlider;
     UISlider* volumeViewSlider = nil;
     //设置音量大小
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
     CGFloat currentVol = audioSession.outputVolume;
     volumeViewSlider.value = currentVol;
-    for (UIView *view in [volumeView subviews]){
-        if ([view.class.description isEqualToString:@"MPVolumeSlider"]){
-            volumeViewSlider = (UISlider*)view;
-            volumeViewSlider.backgroundColor = [UIColor clearColor];
-            break;
-        }
-    }
     [volumeViewSlider setThumbImage:[UIImage imageNamed:@"circular_slide"] forState:UIControlStateNormal];
     volumeViewSlider.minimumTrackTintColor = [UIColor colorWithHexStr:@"0x88CE2E"];
     volumeViewSlider.maximumTrackTintColor = [UIColor colorWithHexStr:@"0x136D6B"];
