@@ -786,11 +786,9 @@
         if ([[RH_UserInfoManager shareUserManager] isLogin]) {
             [SH_WaitingView showOn:self.view];
             [SH_NetWorkService fetchGameLink:model.gameLink complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-                //
                 NSString *gameMsg = [[response objectForKey:@"data"] objectForKey:@"gameMsg"];
                 if (IS_EMPTY_STRING(gameMsg)) {
                     NSString *gameLink = [[response objectForKey:@"data"] objectForKey:@"gameLink"];
-                    //                GameWebViewController *gameVC = [[GameWebViewController alloc] init];
                     SH_WKGameViewController *gameVC = [[SH_WKGameViewController alloc] init];
                     gameVC.url = gameLink;
                     [weakSelf.navigationController pushViewController:gameVC animated:NO];
