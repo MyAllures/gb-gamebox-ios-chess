@@ -81,7 +81,6 @@
 		543970A3210462BB0091C719 /* not-choose.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397044210462A90091C719 /* not-choose.webp */; };
 		543970A4210462BB0091C719 /* menu-bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397045210462A90091C719 /* menu-bg.webp */; };
 		543970A5210462BB0091C719 /* photo_male.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397046210462A90091C719 /* photo_male.webp */; };
-		543970A6210462BB0091C719 /* progress_bar_icon.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397047210462AA0091C719 /* progress_bar_icon.webp */; };
 		543970A8210462BB0091C719 /* rounded_bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397049210462AA0091C719 /* rounded_bg.webp */; };
 		543970A9210462BB0091C719 /* upper-bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 5439704A210462AA0091C719 /* upper-bg.webp */; };
 		543970AB210462BB0091C719 /* left_bgImage.webp in Resources */ = {isa = PBXBuildFile; fileRef = 5439704C210462AB0091C719 /* left_bgImage.webp */; };
@@ -510,7 +509,6 @@
 		54397044210462A90091C719 /* not-choose.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "not-choose.webp"; sourceTree = "<group>"; };
 		54397045210462A90091C719 /* menu-bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "menu-bg.webp"; sourceTree = "<group>"; };
 		54397046210462A90091C719 /* photo_male.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = photo_male.webp; sourceTree = "<group>"; };
-		54397047210462AA0091C719 /* progress_bar_icon.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = progress_bar_icon.webp; sourceTree = "<group>"; };
 		54397049210462AA0091C719 /* rounded_bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = rounded_bg.webp; sourceTree = "<group>"; };
 		5439704A210462AA0091C719 /* upper-bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "upper-bg.webp"; sourceTree = "<group>"; };
 		5439704C210462AB0091C719 /* left_bgImage.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = left_bgImage.webp; sourceTree = "<group>"; };
@@ -1335,7 +1333,6 @@
 				5439707B210462B90091C719 /* outCoinDetail.webp */,
 				54397051210462AD0091C719 /* photo_female.webp */,
 				54397046210462A90091C719 /* photo_male.webp */,
-				54397047210462AA0091C719 /* progress_bar_icon.webp */,
 				54397066210462B30091C719 /* promo_bg.webp */,
 				54397077210462B90091C719 /* rectangle_bg-3.webp */,
 				54397054210462AE0091C719 /* return.webp */,
@@ -2317,7 +2314,6 @@
 				BFA7DEB12105E58900DD731F /* mark.webp in Resources */,
 				543970C2210462BB0091C719 /* font_fee.webp in Resources */,
 				543970CB210462BB0091C719 /* game_deco.webp in Resources */,
-				543970A6210462BB0091C719 /* progress_bar_icon.webp in Resources */,
 				543970A4210462BB0091C719 /* menu-bg.webp in Resources */,
 				BF5C0BCD2105B8330035B754 /* SH_ProfitExchangeView.xib in Resources */,
 				543970C1210462BB0091C719 /* login_button_click.webp in Resources */,
