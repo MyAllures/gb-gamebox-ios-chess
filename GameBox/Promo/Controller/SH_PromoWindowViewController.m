@@ -69,7 +69,7 @@
         [_msgCenterView showDetail:^(NSString *content) {
             SH_MsgCenterDetailView *view = [[[NSBundle mainBundle]loadNibNamed:@"SH_MsgCenterDetailView" owner:nil options:nil] lastObject];
             view.content = content;
-            AlertViewController *acr  = [[AlertViewController alloc] initAlertView:view viewHeight:200 titleImageName:@"" alertViewType:AlertViewTypeShort];
+            AlertViewController *acr  = [[AlertViewController alloc] initAlertView:view viewHeight:200 titleImageName:@"title03" alertViewType:AlertViewTypeShort];
             acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
             acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
             [weakSelf presentViewController:acr animated:YES completion:nil];
