@@ -20,7 +20,7 @@
     [param setValue:password forKey:@"password"];
     [param setValue:newPassword forKey:@"newPassword"];
      [param setValue:code forKey:@"code"];
-    [self post:url parameter:param header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:param header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (success) {
             success(httpURLResponse,response);
         }
@@ -43,7 +43,7 @@
     [param setValue:bankName forKey:@"result.bankName"];
     [param setValue:cardNum forKey:@"result.bankcardNumber"];
     [param setValue:bankDeposit forKey:@"result.bankDeposit"];
-    [self post:url parameter:param header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:param header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (success) {
             success(httpURLResponse,response);
         }
@@ -57,7 +57,7 @@
                            Fail:(SHNetWorkFailed)fail{
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/initSafePassword.html"];
     NSDictionary *header = @{@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
-    [self post:url parameter:[NSDictionary dictionary] header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:[NSDictionary dictionary] header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (success) {
             success(httpURLResponse,response);
         }
@@ -84,7 +84,7 @@
     [param setValue:pwd1 forKey:@"pwd1"];
     [param setValue:pwd2 forKey:@"pwd2"];
     [param setValue:code forKey:@"code"];
-    [self post:url parameter:param header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:param header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (success) {
             success(httpURLResponse,response);
         }
@@ -101,7 +101,7 @@
     NSDictionary *header = @{@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
     NSTimeInterval timeInterval = [[NSDate date] timeIntervalSince1970] ;
     NSString *timeStr = [NSString stringWithFormat:@"%.0f",timeInterval*1000] ;
-    [self post:url parameter:@{@"_t":timeStr} header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:@{@"_t":timeStr} header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (success) {
             success(httpURLResponse,response);
         }
@@ -115,7 +115,7 @@
                           Fail:(SHNetWorkFailed)fail{
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/getUserPhone.html"];
     NSDictionary *header = @{@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
-    [self post:url parameter:[NSDictionary dictionary] header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:[NSDictionary dictionary] header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (success) {
             success(httpURLResponse,response);
         }
@@ -132,7 +132,7 @@
     NSDictionary *header = @{@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
     NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
     [param setValue:phoneNum forKey:@"phone"];
-    [self post:url parameter:param header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:param header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (success) {
             success(httpURLResponse,response);
         }
@@ -154,7 +154,7 @@
     [param setValue:phoneNum forKey:@"search.contactValue"];
     [param setValue:originalPhoneNum forKey:@"oldPhone"];
     [param setValue:code forKey:@"code"];
-    [self post:url parameter:param header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:param header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (success) {
             success(httpURLResponse,response);
         }
@@ -169,7 +169,7 @@
                        Fail:(SHNetWorkFailed)fail{
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/userInfoOrigin/refresh.html"];
     NSDictionary *header = @{@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost};
-    [self post:url parameter:[NSDictionary dictionary] header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:[NSDictionary dictionary] header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (success) {
             success(httpURLResponse,response);
         }
@@ -186,7 +186,7 @@
     NSDictionary *header = @{@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
     NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
     [param setValue:searchId forKey:@"search.apiId"];
-    [self post:url parameter:param header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:param header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (success) {
             success(httpURLResponse,response);
         }

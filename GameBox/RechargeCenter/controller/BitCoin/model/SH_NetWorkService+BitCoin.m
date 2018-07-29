@@ -22,7 +22,7 @@
     [param setValue:payway forKey:@"depositWay"];
     [param setValue:txid forKey:@"result.bankOrder"];
     [param setValue:accountId forKey:@"account"];
-    [self post:url parameter:param header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:param header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             NSDictionary *dic = (NSDictionary *)response;
             NSError *erro;
@@ -54,7 +54,7 @@
     [param setValue:txid forKey:@"result.bankOrder"];
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/depositOrigin/bitcoinPay.html"];
     NSDictionary *header = @{@"X-Requested-With":@"XMLHttpRequest",@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost};
-    [self post:url parameter:param header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:param header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse,response);
         }

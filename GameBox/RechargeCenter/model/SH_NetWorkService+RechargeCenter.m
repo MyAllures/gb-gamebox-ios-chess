@@ -13,7 +13,7 @@
                        failed:(SHNetWorkFailed)failed{
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/depositOrigin/index.html"];
     NSDictionary *header = @{@"X-Requested-With":@"XMLHttpRequest",@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost};
-    [self post:url parameter:[NSDictionary dictionary] header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:[NSDictionary dictionary] header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             NSError *err;
             NSArray *platforms= [SH_RechargeCenterPlatformModel arrayOfModelsFromDictionaries:response[@"data"] error:&err];
@@ -30,7 +30,7 @@
                      failed:(SHNetWorkFailed)failed{
      NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:[NSString stringWithFormat:@"/mobile-api/depositOrigin/%@.html",payway]];
     NSDictionary *header = @{@"X-Requested-With":@"XMLHttpRequest",@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
-    [self post:url parameter:[NSDictionary dictionary] header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:[NSDictionary dictionary] header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             NSDictionary *dic = [(NSDictionary *)response objectForKey:@"data"];
             NSError *err;
@@ -55,7 +55,7 @@
     [param setValue:num forKey:@"result.rechargeAmount"];
     [param setValue:payway forKey:@"depositWay"];
     [param setValue:accountId forKey:@"account"];
-    [self post:url parameter:param header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:param header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             NSDictionary *dic = (NSDictionary *)response;
             NSError *erro;
@@ -83,7 +83,7 @@
     [param setValue:rechargeType forKey:@"result.rechargeType"];
     [param setValue:payAccountId forKey:@"account"];
     [param setValue:activityId forKey:@"activityId"];
-    [self post:url parameter:param header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:param header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse,response);
         }
@@ -113,7 +113,7 @@
     [param setValue:payerName forKey:@"result.payerName"];
     [param setValue:payerBankcard forKey:@"result.payerBankcard"];
     [param setValue:activityId forKey:@"activityId"];
-    [self post:url parameter:param header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:param header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse,response);
         }

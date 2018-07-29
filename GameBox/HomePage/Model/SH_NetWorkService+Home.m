@@ -13,7 +13,7 @@
 + (void)fetchHomeInfo:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
 {
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/chess/mainIndex.html"];
-    [self post:url parameter:nil header:@{@"Host":[NetWorkLineMangaer sharedManager].currentHost} complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:nil header:@{@"Host":[NetWorkLineMangaer sharedManager].currentHost} cache:YES complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse, response);
         }
@@ -36,7 +36,7 @@
         [postDic setObject:[temArr objectAtIndex:2*i+1] forKey:[temArr objectAtIndex:i*2]];
     }
     
-    [self post:gameLinkUrl parameter:postDic header:@{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie} complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:gameLinkUrl parameter:postDic header:@{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie} cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse, response);
         }
@@ -50,7 +50,7 @@
 + (void)fetchAnnouncement:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
 {
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/origin/getAnnouncement.html"];
-    [self post:url parameter:nil header:@{@"Host":[NetWorkLineMangaer sharedManager].currentHost} complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:nil header:@{@"Host":[NetWorkLineMangaer sharedManager].currentHost} cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse, response);
         }
@@ -67,7 +67,7 @@
     NSDictionary *header = @{@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
     NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
     [param setValue:apiId forKey:@"search.apiId"];
-    [self post:url parameter:param header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:param header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (success) {
             success(httpURLResponse, response);
         }
@@ -82,7 +82,7 @@
 {
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/origin/getTimeZone.html"];
     NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
-    [self post:url parameter:nil header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:nil header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse, response);
         }
@@ -97,7 +97,7 @@
 {
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/alwaysRequest.html"];
     NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
-    [self post:url parameter:nil header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:nil header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse, response);
         }

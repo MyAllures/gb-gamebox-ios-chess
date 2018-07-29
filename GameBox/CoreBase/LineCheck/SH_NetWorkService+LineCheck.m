@@ -119,7 +119,7 @@
             NSDictionary *parameter = @{@"code":CODE,@"s":S,@"type":@"ips"};
             NSDictionary *header = (host == nil || [host isEqualToString:@""]) ? nil : @{@"Host":host};
 
-            [weakSelf get:fetchIPSUrl withPublicParameter:NO parameter:parameter header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+            [weakSelf get:fetchIPSUrl withPublicParameter:NO parameter:parameter header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
                 if (response) {
                     if (oneTurn) {
                         oneTurn(fetchIPSUrl, YES);
@@ -181,7 +181,7 @@
                     
                     NSArray *checkTypeComp = [checkType componentsSeparatedByString:@"+"];
                     NSString *checkUrl = [NSString stringWithFormat:@"%@://%@%@/__check",checkTypeComp[0],ip,checkTypeComp.count==2?[NSString stringWithFormat:@":%@",checkTypeComp[1]]:@""];
-                    [weakSelf get:checkUrl withPublicParameter:NO parameter:nil header:@{@"Host":host} complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+                    [weakSelf get:checkUrl withPublicParameter:NO parameter:nil header:@{@"Host":host} cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
                         if (response) {
                             response = [response stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 ;

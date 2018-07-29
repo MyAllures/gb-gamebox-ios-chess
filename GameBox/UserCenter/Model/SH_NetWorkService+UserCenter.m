@@ -14,7 +14,7 @@
                                  failed:(SHNetWorkFailed)failed{
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/getTransactionType.html"];
     NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":([NetWorkLineMangaer sharedManager].currentCookie?[NetWorkLineMangaer sharedManager].currentCookie:@"")};
-    [self post:url parameter:nil header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:nil header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
               complete(httpURLResponse, response);
         }
@@ -41,7 +41,7 @@
     
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/getFundRecord.html"];
     NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":([NetWorkLineMangaer sharedManager].currentCookie?[NetWorkLineMangaer sharedManager].currentCookie:@"")};
-    [self post:url parameter:dictTmp header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:dictTmp header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
            /* NSDictionary * result = ConvertToClassPointer(NSDictionary, response);
             if ([result boolValueForKey:@"success"]) {
@@ -65,7 +65,7 @@
     [dict setValue:Id forKey:@"searchId"];
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/getFundRecordDetails.html"];
     NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":([NetWorkLineMangaer sharedManager].currentCookie?[NetWorkLineMangaer sharedManager].currentCookie:@"")};
-    [self post:url parameter:dict header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:dict header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse, response);
         }
@@ -90,7 +90,7 @@
     [dict setValue:[NSString  stringWithFormat:@"%@",@(isShowStatistics)] forKey:@"isShowStatistics"];
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/getBettingList.html"];
     NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":([NetWorkLineMangaer sharedManager].currentCookie?[NetWorkLineMangaer sharedManager].currentCookie:@"")};
-    [self post:url parameter:dict header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:dict header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse, response);
         }
@@ -108,7 +108,7 @@
     [dict setValue:@(listId) forKey:@"id"] ;
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/getBettingDetails.html"];
     NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":([NetWorkLineMangaer sharedManager].currentCookie?[NetWorkLineMangaer sharedManager].currentCookie:@"")};
-    [self post:url parameter:dict header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:dict header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse, response);
         }
@@ -122,7 +122,7 @@
 +(void)fetchShareQRCodeComplete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed{
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/chess/getShareQRCode.html"];
     NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":([NetWorkLineMangaer sharedManager].currentCookie?[NetWorkLineMangaer sharedManager].currentCookie:@"")};
-    [self post:url parameter:nil header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:nil header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse, response);
         }

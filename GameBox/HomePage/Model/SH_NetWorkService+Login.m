@@ -31,7 +31,7 @@
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/passport/login.html"];
     NSDictionary *parameter = verfyCode == nil || [verfyCode isEqualToString:@""] ? @{@"username":userName,@"password":psw} : @{@"username":userName,@"password":psw,@"captcha":verfyCode};
     NSDictionary *header = @{@"X-Requested-With":@"XMLHttpRequest",@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":([NetWorkLineMangaer sharedManager].currentCookie?[NetWorkLineMangaer sharedManager].currentCookie:@"")};
-    [self post:url parameter:parameter header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:parameter header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse, response);
         }

@@ -9,6 +9,7 @@
 #import "SH_NetWorkService.h"
 #import <AFNetworking/AFNetworking.h>
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
+#import "SH_CacheManager.h"
 
 #define SH_DEFAULT_NETWORK_TIMEOUT 15.0f //默认的超时秒数
 #define SH_MAX_NETWORK_CONCURRENT 10 //最大http并发数
@@ -58,7 +59,7 @@ static AFHTTPSessionManager *sharedManager = nil;
 
 + (void)get:(NSString *)url withPublicParameter:(BOOL)withPublicParameter parameter:(NSDictionary *)parameter complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
 {
-    [self get:url withPublicParameter:withPublicParameter parameter:parameter header:nil complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self get:url withPublicParameter:withPublicParameter parameter:parameter header:nil cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse, response);
         }
@@ -69,8 +70,19 @@ static AFHTTPSessionManager *sharedManager = nil;
     }];
 }
 
-+ (void)get:(NSString *)url withPublicParameter:(BOOL)withPublicParameter parameter:(NSDictionary *)parameter header:(NSDictionary *)header complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
++ (void)get:(NSString *)url withPublicParameter:(BOOL)withPublicParameter parameter:(NSDictionary *)parameter header:(NSDictionary *)header cache:(BOOL)cache complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
 {
+    if (cache) {
+        //如果有需要缓存 先读取缓存
+        id response = [[SH_CacheManager shareManager] getCacheResponseObjectWithRequestUrl:url params:parameter];
+        if (response) {
+            if (complete)
+            {
+                complete(nil, response);
+            }
+        }
+    }
+
     __weak typeof(self) weakSelf = self;
     AFHTTPSessionManager *manager = [self manager];
     
@@ -97,6 +109,12 @@ static AFHTTPSessionManager *sharedManager = nil;
     [manager GET:url parameters:mParameter progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (complete) {
             id response = [weakSelf translateResponseData:responseObject];
+            if (cache)
+            {
+                //如果需要缓存 则缓存数据
+                [[SH_CacheManager shareManager] cacheResponseObject:response requestUrl:url params:parameter];
+            }
+
             complete((NSHTTPURLResponse *)task.response, response);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -121,7 +139,7 @@ static AFHTTPSessionManager *sharedManager = nil;
 
 + (void)get:(NSString *)url parameter:(NSDictionary *)parameter complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
 {
-    [self get:url withPublicParameter:YES parameter:parameter header:nil complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self get:url withPublicParameter:YES parameter:parameter header:nil cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse, response);
         }
@@ -134,7 +152,7 @@ static AFHTTPSessionManager *sharedManager = nil;
 
 + (void)get:(NSString *)url parameter:(NSDictionary *)parameter header:(NSDictionary *)header complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
 {
-    [self get:url withPublicParameter:YES parameter:parameter header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self get:url withPublicParameter:YES parameter:parameter header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse,response);
         }
@@ -160,7 +178,7 @@ static AFHTTPSessionManager *sharedManager = nil;
 
 + (void)post:(NSString *)url parameter:(NSDictionary *)parameter complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
 {
-    [self post:url parameter:parameter header:nil complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:parameter header:nil cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse, response);
         }
@@ -171,8 +189,19 @@ static AFHTTPSessionManager *sharedManager = nil;
     }];
 }
 
-+ (void)post:(NSString *)url parameter:(NSDictionary *)parameter header:(NSDictionary *)header complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
++ (void)post:(NSString *)url parameter:(NSDictionary *)parameter header:(NSDictionary *)header cache:(BOOL)cache complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
 {
+    if (cache) {
+        //如果有需要缓存 先读取缓存
+        id response = [[SH_CacheManager shareManager] getCacheResponseObjectWithRequestUrl:url params:parameter];
+        if (response) {
+            if (complete)
+            {
+                complete(nil, response);
+            }
+        }
+    }
+    
     __weak typeof(self) weakSelf = self;
     AFHTTPSessionManager *manager = [self manager];
 
@@ -199,6 +228,12 @@ static AFHTTPSessionManager *sharedManager = nil;
     [manager POST:url parameters:mParameter progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (complete) {
             id response = [weakSelf translateResponseData:responseObject];
+            if (cache)
+            {
+                //如果需要缓存 则缓存数据
+                [[SH_CacheManager shareManager] cacheResponseObject:response requestUrl:url params:parameter];
+            }
+
             complete((NSHTTPURLResponse *)task.response, response);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

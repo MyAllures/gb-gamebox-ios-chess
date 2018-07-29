@@ -29,7 +29,7 @@
         //柜员机是有地址的   网银是没有的
         [param setValue:rechargeAddress forKey:@"result.rechargeAddress"];
     }
-    [self post:url parameter:param header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:param header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse,response);
         }

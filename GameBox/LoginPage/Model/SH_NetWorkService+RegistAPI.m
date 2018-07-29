@@ -13,7 +13,7 @@
 +(void)fetchCaptchaCodeInfo:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed{
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/captcha/pmregister.html"];
     NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie?[NetWorkLineMangaer sharedManager].currentCookie:@""};
-    [self post:url parameter:nil header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:nil header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse, response);
         }
@@ -31,7 +31,7 @@
     NSDictionary * dict = [NSDictionary  dictionaryWithObjectsAndKeys:timeStr,@"_t", nil];
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/captcha/code.html"];
     NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost};
-    [self post:url parameter:dict header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:dict header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse, response);
         }
@@ -50,7 +50,7 @@
     NSDictionary * dic = [NSDictionary  dictionaryWithObjectsAndKeys:timeStr,@"_t", nil];
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/captcha/pmregister.html"];
     NSDictionary  * header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost};
-    [self post:url parameter:dic header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:dic header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse, response);
         }
@@ -64,7 +64,7 @@
 +(void)fetchIsOpenCodeVerifty:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed{
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/loginIsOpenVerify.html"];
     NSDictionary  * header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost};
-    [self post:url parameter:nil header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:nil header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse, response);
         }
@@ -78,7 +78,7 @@
 +(void)fetchV3RegisetInit:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed{
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/registerOrigin/getRegisterInfo.html"];
     NSDictionary  * header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost};
-    [self post:url parameter:nil header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:nil header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             NSDictionary  *  dic = ConvertToClassPointer(NSDictionary, response);
             RH_RegisetInitModel * model = [[RH_RegisetInitModel alloc] initWithDictionary:[dic objectForKey:@"data"] error:nil] ;
@@ -94,7 +94,7 @@
 +(void)fetchV3RegisetTerm:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed{
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/origin/terms.html"];
     NSDictionary  * header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost};
-    [self post:url parameter:nil header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:nil header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse, response);
         }
@@ -109,7 +109,7 @@
     NSDictionary  * dic = [NSDictionary  dictionaryWithObjectsAndKeys:phoneNUmber,@"phone", nil];
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/origin/sendPhoneCode.html"];
     NSDictionary  * header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost};
-    [self post:url parameter:dic header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:dic header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse, response);
         }
@@ -155,7 +155,7 @@
    
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/registerOrigin/save.html"];
     NSDictionary  * header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost};
-    [self post:url parameter:dict header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:dict header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse, response);
 
@@ -176,7 +176,7 @@
     NSDictionary  * dic = [NSDictionary  dictionaryWithObjectsAndKeys:userName,@"username",password,@"password", nil];
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/login/autoLogin.html"];
     NSDictionary  * header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":([NetWorkLineMangaer sharedManager].currentCookie?[NetWorkLineMangaer sharedManager].currentCookie:@"")};
-    [self post:url parameter:dic header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:dic header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse, response);
         }
@@ -191,7 +191,7 @@
                   failed:(SHNetWorkFailed)failed{
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/logout.html"];
     NSDictionary  * header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost};
-    [self post:url parameter:nil header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:nil header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse, response);
         }
@@ -206,7 +206,7 @@
 {
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/userInfoOrigin/getUserInfo.html"];
     NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":([NetWorkLineMangaer sharedManager].currentCookie?[NetWorkLineMangaer sharedManager].currentCookie:@"")};
-    [self post:url parameter:nil header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:nil header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             NSDictionary  * result = ConvertToClassPointer(NSDictionary, response);
             NSString *code = [NSString stringWithFormat:@"%@",result[@"code"]];
@@ -231,7 +231,7 @@
 +(void)fetchRegisetTerm:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed{
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/origin/terms.html"];
     NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost};
-    [self post:url parameter:nil header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:nil header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {

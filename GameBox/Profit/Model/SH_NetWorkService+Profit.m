@@ -14,7 +14,7 @@
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/withdrawOrigin/getWithDraw.html"];
     NSDictionary *header = @{@"X-Requested-With":@"XMLHttpRequest",@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost};
 
-    [self post:url parameter:[NSDictionary dictionary] header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:[NSDictionary dictionary] header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             NSDictionary *dic = [(NSDictionary *)response objectForKey:@"data"];
             SH_ProfitModel *model = [[SH_ProfitModel alloc]initWithDictionary:dic error:nil];
@@ -33,7 +33,7 @@
     NSDictionary *header = @{@"X-Requested-With":@"XMLHttpRequest",@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost};
     NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
     [param setValue:num forKey:@"withdrawAmount"];
-    [self post:url parameter:param header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:param header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             NSDictionary *dic = [(NSDictionary *)response objectForKey:@"data"];
             SH_FeeModel *model = [[SH_FeeModel alloc]initWithDictionary:dic error:nil];
@@ -50,7 +50,7 @@
                 Failed:(SHNetWorkFailed)failed{
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/withdrawOrigin/getAuditLog.html"];
     NSDictionary *header = @{@"X-Requested-With":@"XMLHttpRequest",@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost};
-    [self post:url parameter:[NSDictionary dictionary] header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:[NSDictionary dictionary] header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (success) {
             NSDictionary *dic = [(NSDictionary *)response objectForKey:@"data"];
             SH_JiHeModel *model = [[SH_JiHeModel alloc]initWithDictionary:dic error:nil];
@@ -76,7 +76,7 @@
     [param setValue:saftyPWD forKey:@"originPwd"];
     [param setValue:token forKey:@"gb.token"];
     [param setValue:way forKey:@"remittanceWay"];
-    [self post:url parameter:param header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [self post:url parameter:param header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (success) {
             success(httpURLResponse,response);
           
