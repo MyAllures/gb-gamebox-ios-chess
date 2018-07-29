@@ -233,7 +233,9 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"SH_MsgCenterCell" owner:nil options:nil] lastObject];
     }
-    cell.model = self.msgArr[indexPath.row];
+    if (self.msgArr.count > indexPath.row) {
+        cell.model = self.msgArr[indexPath.row];
+    }
     return cell;
 }
 
