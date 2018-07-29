@@ -90,7 +90,7 @@
     [[YFAnimationManager shareInstancetype] showAnimationInView:self.snowBGImg withAnimationStyle:YFAnimationStyleOfSnow];
 
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didRegistratedSuccessful) name:@"didRegistratedSuccessful" object:nil];
-    [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(configUI) name:@"didLogOut" object:nil];
+    [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(logoutAction) name:@"didLogOut" object:nil];
     if (iPhoneX) {
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(statusBarOrientationChange:)
@@ -129,12 +129,19 @@
     }];
 }
 
+- (void)logoutAction
+{
+    [self.keepAliveTimer invalidate];
+    self.keepAliveTimer = nil;
+    [self configUI];
+}
+
 - (void)keepAlive
 {
     [self.keepAliveTimer invalidate];
     self.keepAliveTimer = nil;
 
-    self.keepAliveTimer = [NSTimer timerWithTimeInterval:5 target:self selector:@selector(refreshUserSessin) userInfo:nil repeats:YES];
+    self.keepAliveTimer = [NSTimer timerWithTimeInterval:5*60 target:self selector:@selector(refreshUserSessin) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self.keepAliveTimer forMode:NSDefaultRunLoopMode];
 }
 
@@ -221,6 +228,8 @@
         //
         [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
     }];
+    
+    [self keepAlive];
 }
 
 #pragma mark - 更新用户信息
