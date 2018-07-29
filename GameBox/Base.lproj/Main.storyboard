@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7kh-kj-pqA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bMX-l1-9gN">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -140,51 +140,65 @@
             </objects>
             <point key="canvasLocation" x="416" y="598"/>
         </scene>
-        <!--Splash Notice View Controller-->
-        <scene sceneID="nyG-D5-wZh">
+        <!--Navigation Controller-->
+        <scene sceneID="dbX-d7-WFA">
             <objects>
-                <viewController id="7kh-kj-pqA" customClass="SH_SplashNoticeViewController" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="bMX-l1-9gN" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Sqq-YC-Z6y">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="wbN-U9-EPp" kind="relationship" relationship="rootViewController" id="xtS-o9-nof"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pM4-Gk-GVN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1053" y="598"/>
+        </scene>
+        <!--Splash Notice View Controller-->
+        <scene sceneID="1gw-VW-nhd">
+            <objects>
+                <viewController id="wbN-U9-EPp" customClass="SH_SplashNoticeViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="JTc-kR-90k"/>
-                        <viewControllerLayoutGuide type="bottom" id="gsJ-5v-3mX"/>
+                        <viewControllerLayoutGuide type="top" id="EW0-ma-Rgc"/>
+                        <viewControllerLayoutGuide type="bottom" id="fSM-h7-NG6"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="B1b-Fs-ULW">
+                    <view key="view" contentMode="scaleToFill" id="BZb-sa-ETa">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dlS-5X-IBd" customClass="SH_WebPImageView">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aOm-Ke-uh8" customClass="SH_WebPImageView">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="bg"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yxw-Pm-gwJ" customClass="SH_WebPImageView">
-                                <rect key="frame" x="188" y="36" width="290" height="302.5"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e3h-wY-ihy" customClass="SH_WebPImageView">
+                                <rect key="frame" x="188.5" y="34" width="290" height="306"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="302.5" id="5Ri-T0-xnC"/>
-                                    <constraint firstAttribute="width" constant="290" id="hID-yZ-S54"/>
+                                    <constraint firstAttribute="width" constant="290" id="9s1-sW-yIk"/>
+                                    <constraint firstAttribute="height" constant="306" id="JjF-cP-cm4"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="deco"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.06768973214" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="dlS-5X-IBd" secondAttribute="bottom" id="1eh-3V-1cS"/>
-                            <constraint firstItem="dlS-5X-IBd" firstAttribute="leading" secondItem="B1b-Fs-ULW" secondAttribute="leading" id="FMF-gQ-Gy6"/>
-                            <constraint firstItem="yxw-Pm-gwJ" firstAttribute="centerX" secondItem="B1b-Fs-ULW" secondAttribute="centerX" id="Fqp-wy-ljK"/>
-                            <constraint firstItem="yxw-Pm-gwJ" firstAttribute="centerY" secondItem="B1b-Fs-ULW" secondAttribute="centerY" id="Lie-do-m6v"/>
-                            <constraint firstItem="dlS-5X-IBd" firstAttribute="top" secondItem="B1b-Fs-ULW" secondAttribute="top" id="T7A-nr-NhI"/>
-                            <constraint firstAttribute="trailing" secondItem="dlS-5X-IBd" secondAttribute="trailing" id="v6s-Xm-K4u"/>
+                            <constraint firstItem="aOm-Ke-uh8" firstAttribute="top" secondItem="EW0-ma-Rgc" secondAttribute="bottom" id="454-3D-5yq"/>
+                            <constraint firstItem="aOm-Ke-uh8" firstAttribute="bottom" secondItem="fSM-h7-NG6" secondAttribute="top" id="7Xx-P2-Xcz"/>
+                            <constraint firstItem="e3h-wY-ihy" firstAttribute="centerY" secondItem="BZb-sa-ETa" secondAttribute="centerY" id="Coz-6O-CS3"/>
+                            <constraint firstItem="aOm-Ke-uh8" firstAttribute="trailing" secondItem="BZb-sa-ETa" secondAttribute="trailing" id="LQe-Oo-hsv"/>
+                            <constraint firstItem="e3h-wY-ihy" firstAttribute="centerX" secondItem="BZb-sa-ETa" secondAttribute="centerX" id="gQm-cr-Ad4"/>
+                            <constraint firstItem="aOm-Ke-uh8" firstAttribute="leading" secondItem="BZb-sa-ETa" secondAttribute="leading" id="vlf-JD-PWv"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" id="gLM-ts-fLT"/>
+                    <navigationItem key="navigationItem" id="Xcv-mV-Czb"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="U5e-4q-Ef3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sCG-YS-MrL" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-390" y="636"/>
+            <point key="canvasLocation" x="-364" y="598"/>
         </scene>
     </scenes>
 </document>
