@@ -8,6 +8,8 @@
 
 #import "SH_WelfareTableViewCell.h"
 #import "SH_FundListModel.h"
+#import "SH_TimeZoneManager.h"
+
 @interface SH_WelfareTableViewCell()
 @property (weak, nonatomic) IBOutlet UILabel *one_label;
 @property (weak, nonatomic) IBOutlet UILabel *two_label;
@@ -24,9 +26,8 @@
 -(void)updateCellWithInfo:(NSDictionary *)info context:(id)context{
     SH_FundListModel * model =  ConvertToClassPointer(SH_FundListModel, context);
    
-    NSTimeInterval interval    =model.createTime / 1000.0;
-    NSDate *date               = [NSDate dateWithTimeIntervalSince1970:interval];
-    self.one_label.text =  dateStringWithFormatter(date, @"yyyy-MM-dd");
+    NSTimeInterval interval = model.createTime / 1000.0;
+    self.one_label.text = [[SH_TimeZoneManager sharedManager] timeStringFrom:interval format:@"yyyy-MM-dd"];
     self.two_label.text = model.transactionMoney;
     self.three_label.text = model.statusName;
     self.four_label.text = model.transaction_typeName;

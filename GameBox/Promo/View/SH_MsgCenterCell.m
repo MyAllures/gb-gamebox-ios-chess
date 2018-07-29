@@ -11,6 +11,7 @@
 #import "UIImage+SH_WebPImage.h"
 #import "SH_GameBulletinModel.h"
 #import "SH_SysMsgDataListModel.h"
+#import "SH_TimeZoneManager.h"
 
 @interface SH_MsgCenterCell ()
 @property (weak, nonatomic) IBOutlet UILabel *msgContentLB;
@@ -73,11 +74,8 @@
 }
 
 - (NSString*)getTimeFrom:(NSTimeInterval)time
-{
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:MM:ss"];
-    NSDate *datenow = [NSDate dateWithTimeIntervalSince1970:time];
-    NSString *currentTimeString = [formatter stringFromDate:datenow];
+{    
+    NSString *currentTimeString = [[SH_TimeZoneManager sharedManager] timeStringFrom:time format:@"yyyy-MM-dd HH:MM:ss"];
     return currentTimeString;
 }
 

@@ -7,10 +7,8 @@
 //
 
 #import "SH_GamesHomeViewController.h"
-#import "SH_WelfareRecordView.h"
 #import "AlertViewController.h"
 #import "SH_SaftyCenterView.h"
-#import "SH_CardRecordView.h"
 #import "SH_NetWorkService+RegistAPI.h"
 #import "UIImage+SH_WebPImage.h"
 #import "SH_WebPButton.h"
@@ -80,11 +78,6 @@
     NSInteger  tag = sender.tag-100;
     switch (tag) {
         case 0:{
-//            //福利记录
-//            SH_WelfareRecordView   *welfare =  [SH_WelfareRecordView instanceWelfareRecordView];
-//            AlertViewController *cvc  = [[AlertViewController  alloc] initAlertView:welfare viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title09" alertViewType:AlertViewTypeLong];
-//             welfare.vc = cvc;
-//            [self presentViewController:cvc addTargetViewController:self];
             //福利记录
             SH_WelfareNotesView   *welfare =  [SH_WelfareNotesView instanceWelfareRecordView];
             AlertViewController *cvc  = [[AlertViewController  alloc] initAlertView:welfare viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title09" alertViewType:AlertViewTypeLong];
@@ -93,12 +86,6 @@
             break;
         }
         case 1:{
-//            //牌局记录
-//            SH_CardRecordView *crv = [SH_CardRecordView  instanceCardRecordView];
-//            // 投注记录详情
-//            AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:crv viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title10" alertViewType:AlertViewTypeLong];
-//            crv.alertVC = acr;
-//            [self presentViewController:acr addTargetViewController:self];
             //牌局记录
             SH_HandRecordView *crv = [SH_HandRecordView  instanceCardRecordView];
             // 投注记录详情

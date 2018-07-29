@@ -19,4 +19,7 @@
 +(void)onekeyrecoveryApiId:(NSString *)apiId
                    Success:(SHNetWorkComplete)success
                       failed:(SHNetWorkFailed)failed;
+
++ (void)fetchTimeZone:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
+
 @end

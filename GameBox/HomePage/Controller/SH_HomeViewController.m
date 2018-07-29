@@ -43,6 +43,7 @@
 #import "UIImage+SH_WebPImage.h"
 #import "SH_PromoWindowViewController.h"
 #import "SH_WaitingView.h"
+#import "SH_TimeZoneManager.h"
 
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate>
 
@@ -79,6 +80,7 @@
     // Do any additional setup after loading the view from its nib.
     [self.searchTF addTarget:self action:@selector(searchingTextChange:) forControlEvents:UIControlEventEditingChanged];
 
+    [self dealTimeZone];
     [self fetchCookie];
     [self initAdScroll];
     [self refreshAnnouncement];
@@ -110,6 +112,22 @@
     }
 }
 
+- (void)dealTimeZone
+{
+    //默认东八区
+    [SH_NetWorkService fetchTimeZone:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (response && [response[@"code"] intValue] == 0) {
+            [SH_TimeZoneManager sharedManager].timeZone = [response objectForKey:@"data"];
+        }
+        else
+        {
+            [SH_TimeZoneManager sharedManager].timeZone = @"GMT+08:00";
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        [SH_TimeZoneManager sharedManager].timeZone = @"GMT+08:00";
+    }];
+}
+
 #pragma mark - 记着密码启动自动登录
 #pragma mark - 自动登录
 
@@ -126,7 +144,7 @@
             NSDictionary *result = ConvertToClassPointer(NSDictionary, response) ;
             if ([result boolValueForKey:@"success"]){
                 [[RH_UserInfoManager shareUserManager] updateLoginInfoWithUserName:account
-                                                                         LoginTime:dateStringWithFormatter([NSDate date], @"yyyy-MM-dd HH:mm:ss")] ;
+                                                                         LoginTime:[[SH_TimeZoneManager sharedManager] timeStringFrom:[[NSDate date] timeIntervalSince1970] format:@"yyyy-MM-dd HH:mm:ss"]] ;
                 [self autoLoginSuccess:httpURLResponse isRegist:isRegist];
             }else{
                  [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
@@ -141,8 +159,9 @@
         [SH_NetWorkService  login:account psw:password verfyCode:@"" complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *result = ConvertToClassPointer(NSDictionary, response) ;
             if ([result boolValueForKey:@"success"]){
+                
                 [[RH_UserInfoManager shareUserManager] updateLoginInfoWithUserName:account
-                                                                         LoginTime:dateStringWithFormatter([NSDate date], @"yyyy-MM-dd HH:mm:ss")] ;
+                                                                         LoginTime:[[SH_TimeZoneManager sharedManager] timeStringFrom:[[NSDate date] timeIntervalSince1970] format:@"yyyy-MM-dd HH:mm:ss"]];
                 [self autoLoginSuccess:httpURLResponse isRegist:isRegist];
             }else{
                  [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];

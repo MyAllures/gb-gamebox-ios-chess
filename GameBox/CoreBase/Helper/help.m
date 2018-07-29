@@ -886,27 +886,6 @@ BOOL isSameMoreThreePwd(NSString *password)
     return [integerTest evaluateWithObject:password];
 }
 
-NSString * dateStringWithFormatter(NSDate * date,NSString * dateFormat)
-{
-    if (date == nil || dateFormat.length == 0) {
-        return nil;
-    }
-
-    static NSDateFormatter * dateFormatter = nil;
-    if (dateFormatter == nil) {
-        dateFormatter = [[NSDateFormatter alloc] init];
-        dateFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"zh_CN"];
-    }
-    
-    if ([RH_UserInfoManager shareUserManager].timeZone){
-        [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:[RH_UserInfoManager shareUserManager].timeZone]] ;
-    }else{
-        NSTimeZone *sourceTimeZone = [NSTimeZone systemTimeZone];
-        dateFormatter.timeZone = sourceTimeZone;
-    }
-    dateFormatter.dateFormat = dateFormat;
-    return [dateFormatter stringFromDate:date];
-}
 NSString * dateString(NSDate * date,NSString * dateFormat)
 {
     if (date == nil || dateFormat.length == 0) {

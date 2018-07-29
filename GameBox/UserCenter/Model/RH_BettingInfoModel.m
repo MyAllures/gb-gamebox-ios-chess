@@ -7,6 +7,7 @@
 //
 
 #import "RH_BettingInfoModel.h"
+#import "SH_TimeZoneManager.h"
 
 @implementation RH_BettingInfoModel
 +(JSONKeyMapper *)keyMapper{
@@ -30,8 +31,7 @@
 {
     if (!_showBettingDate){
         NSTimeInterval interval    =_betTime/ 1000.0;
-        NSDate *date               = [NSDate dateWithTimeIntervalSince1970:interval];
-        _showBettingDate = dateStringWithFormatter(date, @"yyyy-MM-dd \n HH:mm:ss") ;
+        _showBettingDate = [[SH_TimeZoneManager sharedManager] timeStringFrom:interval format:@"yyyy-MM-dd HH:mm:ss"];
     }
     
     return _showBettingDate ;

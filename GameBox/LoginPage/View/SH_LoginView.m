@@ -20,7 +20,7 @@
 #import "SH_RegistView.h"
 #import "SH_BankCardModel.h"
 #import "UIImage+SH_WebPImage.h"
-
+#import "SH_TimeZoneManager.h"
 #import "SH_FindPSWView.h"
 #import "AlertViewController.h"
 
@@ -273,7 +273,7 @@
     UIWindow  * window = [UIApplication  sharedApplication].keyWindow;
     
     [[RH_UserInfoManager shareUserManager] updateLoginInfoWithUserName:self.account_textField.text
-                                                             LoginTime:dateStringWithFormatter([NSDate date], @"yyyy-MM-dd HH:mm:ss")] ;
+                                                             LoginTime:[[SH_TimeZoneManager sharedManager] timeStringFrom:[[NSDate date] timeIntervalSince1970] format:@"yyyy-MM-dd HH:mm:ss"]] ;
     NSString *setCookie = [httpURLResponse.allHeaderFields objectForKey:@"Set-Cookie"];
     NSUInteger startLocation = [setCookie rangeOfString:@"GMT, "].location +4;
     NSUInteger endLocation = [setCookie rangeOfString:@" rememberMe=deleteMe"].location;

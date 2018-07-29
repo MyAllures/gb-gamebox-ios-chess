@@ -26,7 +26,6 @@ typedef void(^AutoLoginCompletation)(BOOL result) ;
 @property(nonatomic,strong,readonly) RH_UserSafetyCodeModel *userSafetyInfo ;
 @property(nonatomic,strong) RH_MineInfoModel *mineSettingInfo ;
 @property(nonatomic,strong,readonly) NSArray<SH_BankListModel *> *bankList ;
-@property(nonatomic,strong,readonly) NSString *timeZone ;
 @property(nonatomic,assign,readonly) BOOL  isLogin;
 
 -(void)setMineSettingInfo:(RH_MineInfoModel *)mineSettingInfo ;

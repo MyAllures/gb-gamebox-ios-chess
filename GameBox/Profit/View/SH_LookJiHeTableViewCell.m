@@ -7,6 +7,7 @@
 //
 
 #import "SH_LookJiHeTableViewCell.h"
+#import "SH_TimeZoneManager.h"
 
 @interface SH_LookJiHeTableViewCell()
 @property (weak, nonatomic) IBOutlet UILabel *createTimeLB;//存款时间
@@ -30,9 +31,7 @@
     // Configure the view for the selected state
 }
 - (void)updaetUIWithModel:(SH_JiHeSubModel *)model{
-    
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[model.createTime longLongValue]/1000.0];
-    self.createTimeLB.text = dateStringWithFormatter(date, @"yyyy-MM-dd HH:MM:ss");
+    self.createTimeLB.text = [[SH_TimeZoneManager sharedManager] timeStringFrom:[model.createTime longLongValue]/1000.0 format:@"yyyy-MM-dd HH:MM:ss"];
     self.rechargeAmountLB.text = model.rechargeAmount;
     self.rechargeAuditLB.text = [NSString stringWithFormat:@"%@/%@",model.rechargeRemindAudit,model.rechargeAudit];
     self.favorableAmountLB.text = model.favorableAmount;

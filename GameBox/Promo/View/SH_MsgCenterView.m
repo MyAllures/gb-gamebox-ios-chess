@@ -271,12 +271,4 @@
 
 #pragma mark - Private M
 
-- (NSString*)getCurrentTimes{
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd"];
-    NSDate *datenow = [NSDate date];
-    NSString *currentTimeString = [formatter stringFromDate:datenow];
-    return currentTimeString;
-}
-
 @end
