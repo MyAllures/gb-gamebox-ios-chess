@@ -15,8 +15,17 @@
             <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hAw-gd-rS9">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hAw-gd-rS9" customClass="SH_XibImageView">
                     <rect key="frame" x="5" y="5" width="80" height="80"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="game_deco" translatesAutoresizingMaskIntoConstraints="NO" id="rO2-71-oRK">
                     <rect key="frame" x="5" y="5" width="80" height="80"/>
@@ -25,8 +34,9 @@
                     </userDefinedRuntimeAttributes>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="妞妞" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXd-Q1-UYd">
-                    <rect key="frame" x="15" y="66" width="60" height="18"/>
+                    <rect key="frame" x="17" y="66" width="56" height="18"/>
                     <constraints>
+                        <constraint firstAttribute="width" constant="56" id="MgO-xb-Wrf"/>
                         <constraint firstAttribute="height" constant="18" id="wdu-S3-lwt"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="14"/>
@@ -39,11 +49,10 @@
                 <constraint firstItem="rO2-71-oRK" firstAttribute="trailing" secondItem="hAw-gd-rS9" secondAttribute="trailing" id="EFD-im-tZH"/>
                 <constraint firstItem="aXd-Q1-UYd" firstAttribute="bottom" secondItem="rO2-71-oRK" secondAttribute="bottom" constant="-1" id="SLP-oB-Lmd"/>
                 <constraint firstItem="rO2-71-oRK" firstAttribute="leading" secondItem="hAw-gd-rS9" secondAttribute="leading" id="Tfn-wj-lmz"/>
+                <constraint firstItem="aXd-Q1-UYd" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Ukq-on-iBd"/>
                 <constraint firstAttribute="trailing" secondItem="hAw-gd-rS9" secondAttribute="trailing" constant="5" id="aVy-Ae-sd5"/>
                 <constraint firstItem="rO2-71-oRK" firstAttribute="bottom" secondItem="hAw-gd-rS9" secondAttribute="bottom" id="hEo-sH-4Yr"/>
-                <constraint firstItem="aXd-Q1-UYd" firstAttribute="leading" secondItem="rO2-71-oRK" secondAttribute="leading" constant="10" id="kBZ-Rb-Js8"/>
                 <constraint firstAttribute="bottom" secondItem="hAw-gd-rS9" secondAttribute="bottom" constant="5" id="q6r-zc-IOc"/>
-                <constraint firstItem="aXd-Q1-UYd" firstAttribute="trailing" secondItem="rO2-71-oRK" secondAttribute="trailing" constant="-10" id="tFg-zT-TQP"/>
                 <constraint firstItem="hAw-gd-rS9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="tgW-34-8uP"/>
                 <constraint firstItem="rO2-71-oRK" firstAttribute="top" secondItem="hAw-gd-rS9" secondAttribute="top" id="tly-es-dcS"/>
                 <constraint firstItem="hAw-gd-rS9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="wIY-Q1-xF0"/>

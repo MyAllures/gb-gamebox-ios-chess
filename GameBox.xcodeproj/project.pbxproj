@@ -219,6 +219,7 @@
 		54E2483E210D6DFB005C5263 /* SH_WaitingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54E2483D210D6DFB005C5263 /* SH_WaitingView.xib */; };
 		54E24848210D9EEC005C5263 /* SH_TimeZoneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E24847210D9EEC005C5263 /* SH_TimeZoneManager.m */; };
 		54E2484A210DB7D1005C5263 /* gongxi.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54E24849210DB7D0005C5263 /* gongxi.webp */; };
+		54E24850210DDF31005C5263 /* SH_XibImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E2484F210DDF31005C5263 /* SH_XibImageView.m */; };
 		54E7D2E7210726390069F2CE /* mearkRead.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54E7D2E6210726390069F2CE /* mearkRead.webp */; };
 		54E7D2E9210726580069F2CE /* down.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54E7D2E8210726580069F2CE /* down.webp */; };
 		54E7D2EB210726710069F2CE /* choose.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54E7D2EA210726710069F2CE /* choose.webp */; };
@@ -672,6 +673,8 @@
 		54E24846210D9EEC005C5263 /* SH_TimeZoneManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_TimeZoneManager.h; sourceTree = "<group>"; };
 		54E24847210D9EEC005C5263 /* SH_TimeZoneManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_TimeZoneManager.m; sourceTree = "<group>"; };
 		54E24849210DB7D0005C5263 /* gongxi.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = gongxi.webp; sourceTree = "<group>"; };
+		54E2484E210DDF31005C5263 /* SH_XibImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_XibImageView.h; sourceTree = "<group>"; };
+		54E2484F210DDF31005C5263 /* SH_XibImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_XibImageView.m; sourceTree = "<group>"; };
 		54E7D2E6210726390069F2CE /* mearkRead.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = mearkRead.webp; sourceTree = "<group>"; };
 		54E7D2E8210726580069F2CE /* down.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = down.webp; sourceTree = "<group>"; };
 		54E7D2EA210726710069F2CE /* choose.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = choose.webp; sourceTree = "<group>"; };
@@ -1540,6 +1543,8 @@
 			children = (
 				54D5F57621081C5300439A94 /* SH_XibView.h */,
 				54D5F57721081C5300439A94 /* SH_XibView.m */,
+				54E2484E210DDF31005C5263 /* SH_XibImageView.h */,
+				54E2484F210DDF31005C5263 /* SH_XibImageView.m */,
 			);
 			path = XibView;
 			sourceTree = "<group>";
@@ -2535,6 +2540,7 @@
 				54C8761F20FE220C00AA0594 /* UIImage+EXtension.m in Sources */,
 				BFA0689020FC8C1000F5ADFE /* SH_OutCoinDetailView.m in Sources */,
 				22618C682109755100E4A6F6 /* SH_WelfareNotesTableViewCell.m in Sources */,
+				54E24850210DDF31005C5263 /* SH_XibImageView.m in Sources */,
 				22FC6E892107549A001FA492 /* SH_FindPSWSureView.m in Sources */,
 				DA1BCDB12102D27C00201DBC /* SH_WelfareTableViewCell.m in Sources */,
 				DA18EFBF20F0A9C3002B7E22 /* PopTool.m in Sources */,

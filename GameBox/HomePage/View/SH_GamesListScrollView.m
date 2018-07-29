@@ -15,6 +15,9 @@
 #define SH_GAMELIST_ITEM_WIDTH self.frame.size.height/2.0*(128/107.5) //128
 #define SH_GAMELIST_ITEM_HEIGHT self.frame.size.height/2.0 //107.5
 
+#define SH_GAMELIST_DZ_ITEM_WIDTH self.frame.size.height/2.0
+#define SH_GAMELIST_DZ_ITEM_HEIGHT self.frame.size.height/2.0
+
 @interface SH_GamesListScrollView () <UIScrollViewDelegate, SH_GameItemViewDelegate, SH_DZGameItemViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -39,33 +42,35 @@
     }
     
     NSInteger itemsNum = [self.dataSource numberOfItemsOfGamesListScrollView:self];
-    CGFloat calculationW = (itemsNum/2+itemsNum%2)*SH_GAMELIST_ITEM_WIDTH;
-    CGFloat contentSizeW = calculationW > self.scrollView.frame.size.width ? calculationW : self.scrollView.frame.size.width;
-    
-    if (calculationW > self.scrollView.frame.size.width) {
-        self.nextBT.hidden = NO;
-        self.preBT.hidden = YES;
-    }
-    else
-    {
-        self.nextBT.hidden = YES;
-        self.preBT.hidden = YES;
-    }
+//    CGFloat calculationW = (itemsNum/2+itemsNum%2)*SH_GAMELIST_ITEM_WIDTH;
+//    CGFloat contentSizeW = calculationW > self.scrollView.frame.size.width ? calculationW : self.scrollView.frame.size.width;
+//
+//    if (calculationW > self.scrollView.frame.size.width) {
+//        self.nextBT.hidden = NO;
+//        self.preBT.hidden = YES;
+//    }
+//    else
+//    {
+//        self.nextBT.hidden = YES;
+//        self.preBT.hidden = YES;
+//    }
+//
+//    self.scrollView.contentSize = CGSizeMake(contentSizeW, self.scrollView.frame.size.height);
+//    [self.scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
 
-    self.scrollView.contentSize = CGSizeMake(contentSizeW, self.scrollView.frame.size.height);
-    [self.scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
-
+    BOOL isDzType = NO;
     for (int i = 0; i < itemsNum; i++) {
         id itemView =[self.dataSource gamesListScrollView:self viewForItem:i];
         if ([itemView isMemberOfClass:[SH_DZGameItemView class]]) {
+            isDzType = YES;
             SH_DZGameItemView *gameItemView = (SH_DZGameItemView *)[self.dataSource gamesListScrollView:self viewForItem:i];
             [self.scrollView addSubview:gameItemView];
             gameItemView.delegate = self;
             [gameItemView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.mas_equalTo((i/2)*SH_GAMELIST_ITEM_WIDTH);
-                make.top.mas_equalTo((i%2)*SH_GAMELIST_ITEM_HEIGHT);
-                make.width.mas_equalTo(SH_GAMELIST_ITEM_WIDTH);
-                make.height.mas_equalTo(SH_GAMELIST_ITEM_HEIGHT);
+                make.left.mas_equalTo((i/2)*SH_GAMELIST_DZ_ITEM_WIDTH);
+                make.top.mas_equalTo((i%2)*SH_GAMELIST_DZ_ITEM_HEIGHT);
+                make.width.mas_equalTo(SH_GAMELIST_DZ_ITEM_WIDTH);
+                make.height.mas_equalTo(SH_GAMELIST_DZ_ITEM_HEIGHT);
             }];
         }
         else if ([itemView isMemberOfClass:[SH_GameItemView class]])
@@ -81,6 +86,22 @@
             }];
         }
     }
+    
+    CGFloat calculationW = (itemsNum/2+itemsNum%2)*(isDzType ? SH_GAMELIST_DZ_ITEM_WIDTH: SH_GAMELIST_ITEM_WIDTH);
+    CGFloat contentSizeW = calculationW > self.scrollView.frame.size.width ? calculationW : self.scrollView.frame.size.width;
+    
+    if (calculationW > self.scrollView.frame.size.width) {
+        self.nextBT.hidden = NO;
+        self.preBT.hidden = YES;
+    }
+    else
+    {
+        self.nextBT.hidden = YES;
+        self.preBT.hidden = YES;
+    }
+    
+    self.scrollView.contentSize = CGSizeMake(contentSizeW, self.scrollView.frame.size.height);
+    [self.scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
 }
 
 - (UIScrollView *)scrollView
