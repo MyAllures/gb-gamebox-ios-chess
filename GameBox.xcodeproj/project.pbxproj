@@ -218,6 +218,7 @@
 		54E2483C210D6DE2005C5263 /* SH_WaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E2483B210D6DE2005C5263 /* SH_WaitingView.m */; };
 		54E2483E210D6DFB005C5263 /* SH_WaitingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54E2483D210D6DFB005C5263 /* SH_WaitingView.xib */; };
 		54E24848210D9EEC005C5263 /* SH_TimeZoneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E24847210D9EEC005C5263 /* SH_TimeZoneManager.m */; };
+		54E2484A210DB7D1005C5263 /* gongxi.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54E24849210DB7D0005C5263 /* gongxi.webp */; };
 		54E7D2E7210726390069F2CE /* mearkRead.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54E7D2E6210726390069F2CE /* mearkRead.webp */; };
 		54E7D2E9210726580069F2CE /* down.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54E7D2E8210726580069F2CE /* down.webp */; };
 		54E7D2EB210726710069F2CE /* choose.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54E7D2EA210726710069F2CE /* choose.webp */; };
@@ -670,6 +671,7 @@
 		54E2483D210D6DFB005C5263 /* SH_WaitingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_WaitingView.xib; sourceTree = "<group>"; };
 		54E24846210D9EEC005C5263 /* SH_TimeZoneManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_TimeZoneManager.h; sourceTree = "<group>"; };
 		54E24847210D9EEC005C5263 /* SH_TimeZoneManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_TimeZoneManager.m; sourceTree = "<group>"; };
+		54E24849210DB7D0005C5263 /* gongxi.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = gongxi.webp; sourceTree = "<group>"; };
 		54E7D2E6210726390069F2CE /* mearkRead.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = mearkRead.webp; sourceTree = "<group>"; };
 		54E7D2E8210726580069F2CE /* down.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = down.webp; sourceTree = "<group>"; };
 		54E7D2EA210726710069F2CE /* choose.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = choose.webp; sourceTree = "<group>"; };
@@ -1194,6 +1196,7 @@
 		5435E7C32104349B00DB809F /* webpRes */ = {
 			isa = PBXGroup;
 			children = (
+				54E24849210DB7D0005C5263 /* gongxi.webp */,
 				54E2482C210D5B06005C5263 /* loading_eaIcon.webp */,
 				54E2482A210D5B06005C5263 /* loading_eaIcon2.webp */,
 				54E2482B210D5B06005C5263 /* loading_eaIcon3.webp */,
@@ -2302,6 +2305,7 @@
 				543970E7210467F90091C719 /* index_bg.webp in Resources */,
 				BF44ECD120F59A6300BC6EF3 /* SH_RechargeDetailBankView.xib in Resources */,
 				BF5C0BD62105D3530035B754 /* SH_ProfitExchangeTableViewCell.xib in Resources */,
+				54E2484A210DB7D1005C5263 /* gongxi.webp in Resources */,
 				54C875BA20FB788D00AA0594 /* SH_NoAccessViewController.xib in Resources */,
 				BFA7DEBC2106C2CB00DD731F /* chip_yellow.webp in Resources */,
 				54E24833210D5B07005C5263 /* loading_eaIcon3.webp in Resources */,

@@ -18,7 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *messageLab;
 @property (weak, nonatomic) IBOutlet UITextField *personTextField;
 @property (weak, nonatomic) IBOutlet UITextField *addressTextField;
-@property (weak, nonatomic) IBOutlet UIButton *contactCustomerServiceBtn;
 @property (weak, nonatomic) IBOutlet UILabel *adressLab;
 @property (weak, nonatomic) IBOutlet UIButton *chooseDepositeBtn;
 @property (weak, nonatomic) IBOutlet UILabel *depositeLab;
@@ -27,14 +26,23 @@
 @property(nonatomic,strong)SH_RechargeCenterPlatformModel *platformModel;
 @property(nonatomic,copy)NSString *depositWay;//因为网银存款和柜员机不同所以要记录下来
 @property(nonatomic,strong)NSArray *accountModelArray;
+@property (nonatomic, strong) SH_RechargeCenterPaywayModel *paywayModel;
 @end
 @implementation SH_RechargeDetailBankView
 - (void)awakeFromNib{
     [super awakeFromNib];
     self.depositeTypeArray = [NSMutableArray array];
 }
-- (IBAction)contactCustomerServiceBtnClick:(id)sender {
-    
+- (IBAction)copyBankNum:(id)sender {
+    //复制银行账户或代码code
+    UIPasteboard *pboard = [UIPasteboard generalPasteboard];
+
+    if ([self.paywayModel.hide isEqualToString:@"0"]) {
+        pboard.string = self.channelModel.account;
+    }else{
+        pboard.string = self.channelModel.code;
+    }
+    showMessage(self, @"复制成功",nil);
 }
 - (IBAction)copyPersonName:(id)sender {
     //复制开户名
@@ -65,16 +73,15 @@
                 PlatformModel:(SH_RechargeCenterPlatformModel *)paltformModel{
     self.channelModel = channelModel;
     self.platformModel = paltformModel;
+    self.paywayModel = paywayModel;
     if ([paywayModel.hide isEqualToString:@"0"]) {
         //隐藏
         self.cardNumLab.text = channelModel.account;
-        self.contactCustomerServiceBtn.hidden = YES;
     }else{
         self.cardNumLab.text = [NSString stringWithFormat:@"账号代码：%@",channelModel.code];
-        self.contactCustomerServiceBtn.hidden = NO;
     }
     [self.iconImageView setImageWithType:1 ImageName:channelModel.imgUrl];
-    self.titleLab.text = channelModel.payName;
+    self.titleLab.text = channelModel.aliasName;
     [self.personLab setTextWithFirstString:[NSString stringWithFormat:@"银行开户名:  %@",channelModel.fullName] SecondString:channelModel.fullName FontSize:14 Color:[UIColor blackColor]] ;
     [self.bankLab setTextWithFirstString:[NSString stringWithFormat:@"开户行:  %@",channelModel.openAcountName] SecondString:channelModel.openAcountName FontSize:14 Color:[UIColor blackColor]];
     self.messageLab.text = channelModel.remark;

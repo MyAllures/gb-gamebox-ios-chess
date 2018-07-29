@@ -183,7 +183,9 @@
                 [NetWorkLineMangaer sharedManager].currentPreUrl = [NSString stringWithFormat:@"%@://%@%@",[NetWorkLineMangaer sharedManager].currentHttpType,[NetWorkLineMangaer sharedManager].currentIP,[[NetWorkLineMangaer sharedManager].currentPort isEqualToString:@""] ? @"" : [NSString stringWithFormat:@":%@",[NetWorkLineMangaer sharedManager].currentPort]];
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     SH_HomeViewController *homeVC =[[SH_HomeViewController alloc] initWithNibName:@"SH_HomeViewController" bundle:nil];
-                    [weakSelf.navigationController pushViewController:homeVC animated:NO];
+                    UINavigationController *rootNav = [[UINavigationController alloc] initWithRootViewController:homeVC];
+                    rootNav.navigationBarHidden = YES;
+                    [weakSelf presentViewController:rootNav animated:NO completion:nil];
                 });
             });
         }

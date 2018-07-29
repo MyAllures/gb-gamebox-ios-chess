@@ -41,6 +41,9 @@
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txQ-vW-7jq">
                             <rect key="frame" x="50" y="7" width="36" height="17"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="36" id="9OB-nK-76T"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -84,11 +87,11 @@
                                 <constraint firstAttribute="width" constant="46" id="e4l-OP-bzf"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                            <state key="normal" title="联系客服">
+                            <state key="normal" title="复制">
                                 <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="contactCustomerServiceBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="bBd-1q-nn0"/>
+                                <action selector="copyBankNum:" destination="iN0-l3-epB" eventType="touchUpInside" id="9Ci-RP-1bu"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cs1-qd-aUh">
@@ -289,7 +292,6 @@
                 <outlet property="bankLab" destination="b9v-2c-THg" id="Uf8-kc-AjN"/>
                 <outlet property="cardNumLab" destination="W9U-PV-vCk" id="sOs-K3-dEM"/>
                 <outlet property="chooseDepositeBtn" destination="1gL-bA-Oyy" id="GkX-yQ-yYY"/>
-                <outlet property="contactCustomerServiceBtn" destination="HRc-a7-00K" id="VTW-DQ-IBl"/>
                 <outlet property="depositeLab" destination="pZs-gP-QsN" id="pb8-In-Uo8"/>
                 <outlet property="iconImageView" destination="UkJ-wm-yhR" id="duz-da-bTj"/>
                 <outlet property="messageLab" destination="q4E-Km-kSm" id="a8t-bL-VdD"/>

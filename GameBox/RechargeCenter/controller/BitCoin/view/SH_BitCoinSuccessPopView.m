@@ -20,4 +20,11 @@
         [self.superview removeFromSuperview];
     }];
 }
+
+- (IBAction)backToHomePage:(id)sender {
+    [self.delegate SH_BitCoinSuccessPopViewBackToHomePage];
+    [self.superview removeFromSuperview];
+}
+
+
 @end

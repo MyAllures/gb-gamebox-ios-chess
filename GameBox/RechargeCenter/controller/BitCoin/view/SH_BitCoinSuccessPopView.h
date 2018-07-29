@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 @protocol SH_BitCoinSuccessPopViewDelegate<NSObject>
 -(void)SH_BitCoinSuccessPopViewTryAgainBtnClick;
+-(void)SH_BitCoinSuccessPopViewBackToHomePage;
 @end
 @interface SH_BitCoinSuccessPopView : UIView
 @property(nonatomic,weak)id<SH_BitCoinSuccessPopViewDelegate>delegate;

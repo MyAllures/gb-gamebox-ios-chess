@@ -38,8 +38,8 @@
         make.top.left.bottom.right.equalTo(self);
     }];
     [self.popView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@(screenSize().width*3/5));
-        make.height.equalTo(@(screenSize().width*4/5));
+        make.width.mas_equalTo(264);
+        make.height.mas_equalTo(348);
         make.center.equalTo(self);
     }];
 }
@@ -70,4 +70,10 @@
     });
     
 }
+
+- (void)SH_BitCoinSuccessPopViewBackToHomePage
+{
+    [self.targetVC.navigationController popToRootViewControllerAnimated:YES];
+}
+
 @end
