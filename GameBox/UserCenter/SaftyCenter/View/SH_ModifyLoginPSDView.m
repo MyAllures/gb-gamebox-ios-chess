@@ -36,7 +36,7 @@
     }else if (self.sureTX.text.length == 0){
         showMessage(self, @"请再次输入新密码", nil);
     }else{
-        if ([self.NewTX.text isEqualToString:self.sureTX.text]) {
+//        if ([self.NewTX.text isEqualToString:self.sureTX.text]) {
             [SH_NetWorkService updatePassword:self.currentTX.text NewPassword:self.NewTX.text VerificationCode:self.verificationTF.text Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
                 NSString *code = [NSString stringWithFormat:@"%@",response[@"code"]];
                 if ([code isEqualToString:@"0"]) {
@@ -49,19 +49,23 @@
                     });
                   
                 }else{
-                    NSString *isOpenCaptcha = [NSString stringWithFormat:@"%@",response[@"data"][@"isOpenCaptcha"]];//是否需要输入验证码
-                    if ([isOpenCaptcha isEqualToString:@"1"]) {
-                        [self updateModifyLoginView];
-                        [self getLoginVerificationCode];
+                    if ([code isEqualToString:@"1301"]||[code isEqualToString:@"1308"]||[code isEqualToString:@"1016"]) {
+                        showMessage(self, [NSString stringWithFormat:@"%@",response[@"message"]], nil);
+                    } else {
+                        NSString *isOpenCaptcha = [NSString stringWithFormat:@"%@",response[@"data"][@"isOpenCaptcha"]];//是否需要输入验证码
+                        if ([isOpenCaptcha isEqualToString:@"1"]) {
+                            [self updateModifyLoginView];
+                            [self getLoginVerificationCode];
+                        }
+                        showMessage(self, [NSString stringWithFormat:@"%@",response[@"message"]], nil);
                     }
-                     showMessage(self, [NSString stringWithFormat:@"%@",response[@"message"]], nil);
                 }
             } Fail:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
                 
             }];
-        }else{
-             showMessage(self, @"请输入相同的新密码", nil);
-        }
+//        }else{
+//             showMessage(self, @"请输入相同的新密码", nil);
+//        }
     }
 }
 - (void)setTargetVC:(UIViewController *)targetVC{

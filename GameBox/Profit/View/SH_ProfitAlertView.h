@@ -10,4 +10,5 @@
 
 @interface SH_ProfitAlertView : UIView
 @property(nonatomic,strong)UIViewController *targetVC;
+@property (nonatomic, strong) NSString *content;
 @end

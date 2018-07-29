@@ -330,6 +330,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="balanceLab" destination="95P-5W-htK" id="5EY-0J-L2c"/>
+                <outlet property="bandingBtn" destination="xau-X1-eQZ" id="qM5-lh-nQQ"/>
                 <outlet property="bankNumLab" destination="I7E-T3-NgX" id="CvN-Y5-en4"/>
                 <outlet property="feeLab" destination="ZL9-rA-b0O" id="4Fj-BO-zfB"/>
                 <outlet property="numTextField" destination="E25-4K-mCq" id="BaA-oi-Bw9"/>
