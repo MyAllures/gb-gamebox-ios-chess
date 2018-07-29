@@ -21,7 +21,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *progressNumLB;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *progressMarkLeading;
 @property (weak, nonatomic) IBOutlet UIImageView *animationStartImg;
-    
+@property (weak, nonatomic) IBOutlet SH_WebPImageView *animationProgressImg;
+
 @property (nonatomic, assign) CGFloat progress;//线路检测进度
 @property (nonatomic, strong) NSString *lineCheckStatus;//线路检测提示语
 
@@ -34,6 +35,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     __weak typeof(self) weakSelf = self;
     [self starsAnimation];
+    [self progressAnimation];
     //先检查缓存的ips是否还有效
     BOOL isIPsValid = [[IPsCacheManager sharedManager] isIPsValid];
     if (isIPsValid) {
@@ -209,6 +211,16 @@
     self.animationStartImg.animationDuration = 0.9;
     self.animationStartImg.animationRepeatCount = 0;
     [self.animationStartImg startAnimating];
+}
+
+- (void)progressAnimation
+{
+    NSArray *images=[NSArray arrayWithObjects:[UIImage imageWithWebPImageName:@"loading_eaIcon"],[UIImage imageWithWebPImageName:@"loading_eaIcon2"],[UIImage imageWithWebPImageName:@"loading_eaIcon3"], nil];
+    self.animationProgressImg.animationImages = images;
+    self.animationProgressImg.contentMode = UIViewContentModeScaleAspectFit;
+    self.animationProgressImg.animationDuration = 0.5;
+    self.animationProgressImg.animationRepeatCount = 0;
+    [self.animationProgressImg startAnimating];
 }
 
 - (void)didReceiveMemoryWarning {

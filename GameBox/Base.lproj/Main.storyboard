@@ -52,13 +52,13 @@
                                 <rect key="frame" x="161" y="308.5" width="68" height="58"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sK7-IS-sRc" customClass="SH_WebPImageView">
-                                        <rect key="frame" x="20.5" y="19" width="27" height="20.5"/>
+                                        <rect key="frame" x="23.5" y="18" width="21.5" height="23"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="27" id="ZTa-gJ-hdS"/>
-                                            <constraint firstAttribute="height" constant="20.5" id="fnG-vz-lhs"/>
+                                            <constraint firstAttribute="width" constant="21.5" id="ZTa-gJ-hdS"/>
+                                            <constraint firstAttribute="height" constant="23" id="fnG-vz-lhs"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="progress_bar_icon"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="loading_eaIcon"/>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFf-f3-2ib">
@@ -127,6 +127,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="DEp-M8-4Wh"/>
                     <connections>
+                        <outlet property="animationProgressImg" destination="sK7-IS-sRc" id="5nX-LG-fVt"/>
                         <outlet property="animationStartImg" destination="uE9-et-Tce" id="tSF-0H-Jcw"/>
                         <outlet property="progressMarkLeading" destination="8ps-o3-zMF" id="QTY-zv-QDn"/>
                         <outlet property="progressMarkView" destination="gOX-s5-mV8" id="UbF-ZJ-zVF"/>
