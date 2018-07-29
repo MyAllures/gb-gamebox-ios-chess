@@ -22,4 +22,6 @@
 
 + (void)fetchTimeZone:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
 
++ (void)refreshUserSessin:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
+
 @end

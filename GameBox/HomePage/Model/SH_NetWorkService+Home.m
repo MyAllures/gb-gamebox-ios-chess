@@ -93,4 +93,19 @@
     }];
 }
 
++ (void)refreshUserSessin:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
+{
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/alwaysRequest.html"];
+    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
+    [self post:url parameter:nil header:header complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (complete) {
+            complete(httpURLResponse, response);
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        if (failed) {
+            failed(httpURLResponse, err);
+        }
+    }];
+}
+
 @end

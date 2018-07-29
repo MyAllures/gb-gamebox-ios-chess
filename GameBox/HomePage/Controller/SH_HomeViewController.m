@@ -70,6 +70,7 @@
 @property (nonatomic, strong) SH_AnnouncementView *announcementView;
 @property (nonatomic, strong) NSMutableArray *searchResultArr;
 @property (nonatomic, assign) BOOL isSearchStatus;
+@property (nonatomic, strong) NSTimer *keepAliveTimer;
 
 @end
 
@@ -125,6 +126,24 @@
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         [SH_TimeZoneManager sharedManager].timeZone = @"GMT+08:00";
+    }];
+}
+
+- (void)keepAlive
+{
+    [self.keepAliveTimer invalidate];
+    self.keepAliveTimer = nil;
+
+    self.keepAliveTimer = [NSTimer timerWithTimeInterval:5 target:self selector:@selector(refreshUserSessin) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:self.keepAliveTimer forMode:NSDefaultRunLoopMode];
+}
+
+- (void)refreshUserSessin
+{
+    [SH_NetWorkService refreshUserSessin:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        //
     }];
 }
 
@@ -419,6 +438,8 @@
 #pragma mark - 用户登录
 
 -(void)login{
+    __weak typeof(self) weakSelf = self;
+
     SH_LoginView *login = [SH_LoginView InstanceLoginView];
     AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title01" alertViewType:AlertViewTypeLong];
     login.targetVC = cvc;
@@ -429,6 +450,10 @@
     login.changeChannelBlock = ^(NSString *string) {
       [cvc setImageName:string];
         
+    };
+    login.loginSuccessBlock = ^{
+        //登录成功后每5分钟调用一次保活接口
+        [weakSelf keepAlive];
     };
     [self presentViewController:cvc addTargetViewController:self];
 }

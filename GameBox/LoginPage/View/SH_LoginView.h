@@ -11,6 +11,7 @@
 @interface SH_LoginView : UIView
 @property(nonatomic,copy)void (^dismissBlock)(void);
 @property(nonatomic,copy)void (^changeChannelBlock)(NSString * string);
+@property(nonatomic,copy)void (^loginSuccessBlock)(void);
 @property (strong, nonatomic) UIViewController *targetVC;
 +(instancetype)InstanceLoginView;
 

@@ -285,6 +285,9 @@
         NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
         if ([dict  boolValueForKey:@"success"]) {
             showMessage(window, @"登录成功", nil);
+            if (self.loginSuccessBlock) {
+                self.loginSuccessBlock();
+            }
             [[RH_UserInfoManager  shareUserManager] updateIsLogin:YES];
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             [defaults setObject:self.account_textField.text forKey:@"account"];
