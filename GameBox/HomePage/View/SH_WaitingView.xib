@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SH_WaitingView">
+            <rect key="frame" x="0.0" y="0.0" width="432" height="400"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VrE-cp-928" customClass="SH_WebPImageView">
+                    <rect key="frame" x="182.5" y="166.5" width="67" height="67"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="67" id="7ij-Lm-ilA"/>
+                        <constraint firstAttribute="height" constant="67" id="Vwl-jN-H6O"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="loading-5"/>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rRi-jd-3xz" customClass="SH_WebPImageView">
+                    <rect key="frame" x="182.5" y="166.5" width="67" height="67"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="loading-1"/>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="VrE-cp-928" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="A66-Ql-fhv"/>
+                <constraint firstItem="VrE-cp-928" firstAttribute="leading" secondItem="rRi-jd-3xz" secondAttribute="leading" id="AAD-1i-p6q"/>
+                <constraint firstItem="VrE-cp-928" firstAttribute="bottom" secondItem="rRi-jd-3xz" secondAttribute="bottom" id="RuT-oT-iFl"/>
+                <constraint firstItem="VrE-cp-928" firstAttribute="top" secondItem="rRi-jd-3xz" secondAttribute="top" id="YPH-QN-A1E"/>
+                <constraint firstItem="VrE-cp-928" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ZnE-2Z-6gE"/>
+                <constraint firstItem="VrE-cp-928" firstAttribute="trailing" secondItem="rRi-jd-3xz" secondAttribute="trailing" id="iYL-Aj-c1f"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="animationImg" destination="rRi-jd-3xz" id="eZC-Ya-qcV"/>
+                <outlet property="circleImg" destination="VrE-cp-928" id="rVu-e1-sJP"/>
+            </connections>
+            <point key="canvasLocation" x="62" y="-80"/>
+        </view>
+    </objects>
+</document>

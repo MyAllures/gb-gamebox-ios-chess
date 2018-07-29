@@ -42,6 +42,7 @@
 #import "SH_PromoListModel.h"
 #import "UIImage+SH_WebPImage.h"
 #import "SH_PromoWindowViewController.h"
+#import "SH_WaitingView.h"
 
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate>
 
@@ -783,7 +784,7 @@
         //进入游戏
         //先获取游戏的url
         if ([[RH_UserInfoManager shareUserManager] isLogin]) {
-            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            [SH_WaitingView showOn:self.view];
             [SH_NetWorkService fetchGameLink:model.gameLink complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
                 //
                 NSString *gameMsg = [[response objectForKey:@"data"] objectForKey:@"gameMsg"];
@@ -798,10 +799,10 @@
                 {
                     showErrorMessage([UIApplication sharedApplication].keyWindow, nil, gameMsg);
                 }
-                [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+                [SH_WaitingView hide:weakSelf.view];
             } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
                 showErrorMessage([UIApplication sharedApplication].keyWindow, nil, @"连接游戏失败");
-                [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+                [SH_WaitingView hide:weakSelf.view];
             }];
         }else{
             [self login];
