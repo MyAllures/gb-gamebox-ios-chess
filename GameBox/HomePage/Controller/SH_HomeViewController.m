@@ -619,6 +619,7 @@
     [self.bannerArr removeAllObjects];
     [self.siteApiRelationArr removeAllObjects];
     
+    [SH_WaitingView showOn:self.view];
     [SH_NetWorkService fetchHomeInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary * result = ConvertToClassPointer(NSDictionary, response);
         if ([result  boolValueForKey:@"success"]) {
@@ -640,11 +641,12 @@
             }
             [weakSelf.topGamesListScrollView reloaData];
         }
-       
+        [SH_WaitingView hide:weakSelf.view];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         if (httpURLResponse.statusCode == 605) {
             [weakSelf showNoAccess];
         }
+        [SH_WaitingView hide:weakSelf.view];
     }];
 }
 
