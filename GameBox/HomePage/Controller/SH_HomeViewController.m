@@ -513,6 +513,10 @@
 //    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
 //
 //    }];
+    if (![RH_UserInfoManager  shareUserManager].isLogin) {
+        [self login];
+        return;
+    }
     [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
         if ([dict[@"code"] isEqualToString:@"0"]) {
