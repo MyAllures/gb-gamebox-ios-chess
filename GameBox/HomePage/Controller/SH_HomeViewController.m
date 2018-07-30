@@ -605,7 +605,7 @@
         make.top.mas_equalTo(self.topGamesListScrollView.mas_top);
         make.bottom.mas_equalTo(self.topGamesListScrollView.mas_bottom);
         make.height.mas_equalTo(self->_cycleAdView.mas_width).multipliedBy(224/190.0);
-        make.right.equalTo(self.topGamesListScrollView.mas_left);
+        make.right.equalTo(self.topGamesListScrollView.mas_left).mas_offset(-10);
     }];
 }
 
@@ -910,7 +910,7 @@
             make.top.mas_equalTo(self.topGamesListScrollView.mas_top);
             make.bottom.mas_equalTo(self.topGamesListScrollView.mas_bottom);
             make.height.mas_equalTo(self->_cycleAdView.mas_width).multipliedBy(224/190.0);
-            make.right.equalTo(self.topGamesListScrollView.mas_left);
+            make.right.equalTo(self.topGamesListScrollView.mas_left).mas_offset(-10);
         }];
 
         [self.topGamesListScrollView mas_updateConstraints:^(MASConstraintMaker *make) {
@@ -941,17 +941,11 @@
             make.top.mas_equalTo(self.topGamesListScrollView.mas_top);
             make.bottom.mas_equalTo(self.topGamesListScrollView.mas_bottom);
             make.height.mas_equalTo(self->_cycleAdView.mas_width).multipliedBy(224/190.0);
-            make.right.equalTo(self.topGamesListScrollView.mas_left);
+            make.right.equalTo(self.topGamesListScrollView.mas_left).mas_offset(-10);
         }];
         
         [self.topGamesListScrollView mas_updateConstraints:^(MASConstraintMaker *make) {
-            if (iPhoneX) {
-                make.left.mas_equalTo(self.cycleAdView.mas_right).offset(30);
-            }
-            else
-            {
-                make.left.mas_equalTo(self.cycleAdView.mas_right).offset(10);
-            }
+            make.left.mas_equalTo(self.cycleAdView.mas_right).offset(10);
             make.top.mas_equalTo(80);
             make.bottom.mas_equalTo(-53.5);
             make.right.mas_equalTo(0);
