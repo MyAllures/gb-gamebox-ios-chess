@@ -78,6 +78,22 @@
 
 @implementation SH_HomeViewController
 
+-(void)viewWillAppear:(BOOL)animated {
+    [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
+        if ([dict[@"code"] isEqualToString:@"0"]) {
+            RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[dict[@"data"] objectForKey:@"user"] error:nil];
+            [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
+            [self  configUI];
+        }else{
+            [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        //
+        [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
+    }];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -145,7 +161,7 @@
     [self.keepAliveTimer invalidate];
     self.keepAliveTimer = nil;
 
-    self.keepAliveTimer = [NSTimer timerWithTimeInterval:5*60 target:self selector:@selector(refreshUserSessin) userInfo:nil repeats:YES];
+    self.keepAliveTimer = [NSTimer timerWithTimeInterval:5 target:self selector:@selector(refreshUserSessin) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self.keepAliveTimer forMode:NSDefaultRunLoopMode];
     [self.keepAliveTimer fire];
 }
@@ -161,7 +177,10 @@
                     [vc dismissViewControllerAnimated:NO completion:nil];
                 }
             }
-            [self login];
+            showMessage(self.view, @"", @"您的账号在另外一台设备登录");
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self login];
+            });
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         //
@@ -504,18 +523,35 @@
 #pragma mark--
 #pragma mark--一键回收按钮
 - (IBAction)oneKeyReciveBtnClick:(id)sender {
-    if (![RH_UserInfoManager  shareUserManager].isLogin) {
-        [self login];
-        return;
-    }
       __weak typeof(self) weakSelf = self;
     [SH_NetWorkService onekeyrecoveryApiId:nil Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
         //刷新用户余额
         if (![[response objectForKey:@"data"] isKindOfClass:[NSNull class]]) {
-            weakSelf.suishenFuLiLab.text = response[@"data"][@"assets"];
+//            weakSelf.suishenFuLiLab.text = response[@"data"][@"assets"];
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+
+    }];
+    if (![RH_UserInfoManager  shareUserManager].isLogin) {
+        [self login];
+        return;
+    }
+    [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
+        if ([dict[@"code"] isEqualToString:@"0"]) {
+            RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[dict[@"data"] objectForKey:@"user"] error:nil];
+            NSLog(@"walletBalance==%f",model.walletBalance);
+            [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
+            
+            [self  configUI];
+            weakSelf.suishenFuLiLab.text = [NSString stringWithFormat:@"%.2f",model.walletBalance];
+        }else{
+            [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
+        }
         
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        //
+        [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
     }];
 }
 
@@ -572,7 +608,7 @@
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:acr animated:YES completion:nil];
     [SH_NetWorkService getBankInforComplete:^(SH_ProfitModel *model) {
-        [view updateUIWithBalance:model.totalBalance BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:acr Token:model.token];
+        [view updateUIWithBalance:model BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:acr Token:model.token];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
@@ -583,16 +619,6 @@
 //玩家中心
 - (IBAction)userCenterClick:(id)sender
 {
-    
-    [SH_NetWorkService refreshUserSessin:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        NSString *code = response[@"code"];
-        if ([code isEqualToString:@"1001"]) {
-            
-        }
-    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
-    }];
-    
     if ([RH_UserInfoManager shareUserManager].isLogin) {
          self.vc = [SH_GamesHomeViewController new];
         
@@ -600,9 +626,6 @@
     }else{
         [self login];
     }
-   
-    
-   
 }
 
 #pragma mark - SH_PlayerCenterViewDelegate

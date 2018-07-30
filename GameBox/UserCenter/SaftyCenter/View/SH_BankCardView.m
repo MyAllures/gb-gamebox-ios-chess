@@ -36,7 +36,12 @@
             }
         }
         self.realNameTF.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard.realName;
-        self.bankTF.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard.bankName;
+        if ( [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard.bankName.length > 0) {
+            self.bankTF.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard.bankName;
+        } else {
+            self.bankTF.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard.bankNameCode;
+        }
+        
         self.cardNumTF.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard.bankcardNumber;
         self.addressTF.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard.bankDeposit;
         self.chooseBankBtn.hidden = YES;
@@ -54,36 +59,44 @@
     }else if (self.cardNumTF.text.length == 0){
         showMessage(self, @"请输入银行卡号", nil);
     }else if ([self.bankTF.text isEqualToString:@" 其它银行"]){
-        showMessage(self, @"请输入开户银行", nil);
-        return;
+        if (self.addressTF.text.length > 0) {
+           [self bindBankcardRequeset];
+        } else {
+            showMessage(self, @"请输入开户银行", nil);
+            return;
+        }
     }else{
-          __weak typeof(self) weakSelf = self;
-        [SH_NetWorkService bindBankcardRealName:self.realNameTF.text BankName:self.bankTF.text CardNum:self.cardNumTF.text BankDeposit:self.addressTF.text?:@"" Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
-            showMessage(self, response[@"message"], nil);
-            NSString *code = [NSString stringWithFormat:@"%@",response[@"code"]];
-            if ([code isEqualToString:@"0"]) {
-                SH_BankCardModel *model = [[SH_BankCardModel alloc]init];
-                model.bankcardNumber = response[@"data"][@"bankCardNumber"];
-                model.bankDeposit = response[@"data"][@"bankDeposit"];
-                model.bankName = response[@"data"][@"bankName"];
-                model.realName  = response[@"data"][@"realName"];
-                [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard = model;
-                //更新用户银行信息
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [weakSelf.targetVC dismissViewControllerAnimated:NO completion:^{
-                        if ([weakSelf.from isEqualToString:@"profitView"]) {
-                            //从收益跳过来要通知其刷新数据
-                            [[NSNotificationCenter defaultCenter]postNotificationName:@"refreshBankNumer" object:nil];
-                        }
-                    }];
-                });
-            }
-           
-            
-        } Fail:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-            
-        }];
+        [self bindBankcardRequeset];
     }
+}
+
+-(void)bindBankcardRequeset {
+    __weak typeof(self) weakSelf = self;
+    [SH_NetWorkService bindBankcardRealName:self.realNameTF.text BankName:self.bankTF.text CardNum:self.cardNumTF.text BankDeposit:self.addressTF.text?:@"" Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        showMessage(self, response[@"message"], nil);
+        NSString *code = [NSString stringWithFormat:@"%@",response[@"code"]];
+        if ([code isEqualToString:@"0"]) {
+            SH_BankCardModel *model = [[SH_BankCardModel alloc]init];
+            model.bankcardNumber = response[@"data"][@"bankCardNumber"];
+            model.bankDeposit = response[@"data"][@"bankDeposit"];
+            model.bankName = response[@"data"][@"bankName"];
+            model.realName  = response[@"data"][@"realName"];
+            [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard = model;
+            //更新用户银行信息
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [weakSelf.targetVC dismissViewControllerAnimated:NO completion:^{
+                    if ([weakSelf.from isEqualToString:@"profitView"]) {
+                        //从收益跳过来要通知其刷新数据
+                        [[NSNotificationCenter defaultCenter]postNotificationName:@"refreshBankNumer" object:nil];
+                    }
+                }];
+            });
+        }
+        
+        
+    } Fail:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        
+    }];
 }
 
 - (IBAction)chooseBankBtnClick:(id)sender {

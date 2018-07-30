@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class SH_ProfitModel;
 @interface SH_PrifitOutCoinView : UIView
--(void)updateUIWithBalance:(NSString *)balance
+-(void)updateUIWithBalance:(SH_ProfitModel *)model
                    BankNum:(NSString *)bankNum
                   TargetVC:(UIViewController *)targetVC
                      Token:(NSString *)token;

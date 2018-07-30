@@ -64,12 +64,18 @@
         NSLog(@"dict == %@",dict);
         self.effectiveLabel.text = [NSString stringWithFormat:@"福利投注合计:%@",dict[@"data"][@"statisticsData"][@"effective"]];
         self.profitLabel.text = [NSString stringWithFormat:@"赛果合计:%@",dict[@"data"][@"statisticsData"][@"profit"]];
-        for (NSDictionary *dict1 in dict[@"data"][@"list"]) {
-            RH_BettingInfoModel *model = [[RH_BettingInfoModel alloc] initWithDictionary:dict1 error:nil];
-            [self.bettingArr addObject:model];
-            [self.tableView reloadData];
+        NSArray *arr = dict[@"data"][@"list"];
+        if (arr.count > 0) {
+            for (NSDictionary *dict1 in dict[@"data"][@"list"]) {
+                RH_BettingInfoModel *model = [[RH_BettingInfoModel alloc] initWithDictionary:dict1 error:nil];
+                [self.bettingArr addObject:model];
+                [self.tableView reloadData];
+                [MBProgressHUD hideHUDForView:self animated:YES];
+            }
+        }else{
             [MBProgressHUD hideHUDForView:self animated:YES];
         }
+        
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
