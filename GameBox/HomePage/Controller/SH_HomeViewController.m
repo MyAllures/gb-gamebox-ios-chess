@@ -490,6 +490,10 @@
 #pragma mark--
 #pragma mark--一键回收按钮
 - (IBAction)oneKeyReciveBtnClick:(id)sender {
+    if (![RH_UserInfoManager  shareUserManager].isLogin) {
+        [self login];
+        return;
+    }
       __weak typeof(self) weakSelf = self;
     [SH_NetWorkService onekeyrecoveryApiId:nil Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
         //刷新用户余额
@@ -522,6 +526,10 @@
 
 #pragma mark - 优惠活动
 - (IBAction)activitiesClick:(id)sender {
+    if (![RH_UserInfoManager  shareUserManager].isLogin) {
+        [self login];
+        return;
+    }
     SH_PromoWindowViewController *vc = [[SH_PromoWindowViewController alloc] initWithNibName:@"SH_PromoWindowViewController" bundle:nil];
     [self presentViewController:vc addTargetViewController:self];
 }
