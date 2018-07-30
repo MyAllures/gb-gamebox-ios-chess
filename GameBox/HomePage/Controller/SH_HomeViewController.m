@@ -97,8 +97,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self.searchTF addTarget:self action:@selector(searchingTextChange:) forControlEvents:UIControlEventEditingChanged];
-
+    [self configSearchTF];
     [self dealTimeZone];
     [self fetchCookie];
     [self initAdScroll];
@@ -117,6 +116,20 @@
     }
     [self  configUI];
     [self  autoLoginIsRegist:false];
+}
+
+- (void)configSearchTF
+{
+    NSString *holderText = @"搜索游戏";
+    NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:holderText];
+    [placeholder addAttribute:NSForegroundColorAttributeName
+                        value:colorWithRGB(170, 170, 170)
+                        range:NSMakeRange(0, holderText.length)];
+    [placeholder addAttribute:NSFontAttributeName
+                        value:[UIFont boldSystemFontOfSize:12]
+                        range:NSMakeRange(0, holderText.length)];
+    self.searchTF.attributedPlaceholder = placeholder;
+    [self.searchTF addTarget:self action:@selector(searchingTextChange:) forControlEvents:UIControlEventEditingChanged];
 }
 
 - (void)searchingTextChange:(UITextField *)textField
