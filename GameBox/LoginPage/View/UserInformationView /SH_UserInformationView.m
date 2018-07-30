@@ -39,7 +39,8 @@
     self.titleNum_label.text = [RH_UserInfoManager  shareUserManager].mineSettingInfo.username?:@"";
     self.lastLoginTime_label.text = [NSString  stringWithFormat:@"上次登录时间：%@",[RH_UserInfoManager  shareUserManager].mineSettingInfo.lastLoginTime?:@""];
     self.userWelfare_label.text = [NSString  stringWithFormat:@"%.2f",[RH_UserInfoManager  shareUserManager].mineSettingInfo.walletBalance?:0.0];
-     self.warehouseWelfare_label.text = [NSString  stringWithFormat:@"%.2f",[RH_UserInfoManager  shareUserManager].mineSettingInfo.walletBalance?:0.0];
+//     self.warehouseWelfare_label.text = [NSString  stringWithFormat:@"%.2f",[RH_UserInfoManager  shareUserManager].mineSettingInfo.walletBalance?:0.0];
+    self.warehouseWelfare_label.text = @"0.00";
     if ([RH_UserInfoManager  shareUserManager].isLogin) {
         self.userAvatar.image = [UIImage  imageWithWebPImageName:@"photo_male"];
     }else{

@@ -145,7 +145,7 @@
     [self.keepAliveTimer invalidate];
     self.keepAliveTimer = nil;
 
-    self.keepAliveTimer = [NSTimer timerWithTimeInterval:5*60 target:self selector:@selector(refreshUserSessin) userInfo:nil repeats:YES];
+    self.keepAliveTimer = [NSTimer timerWithTimeInterval:5 target:self selector:@selector(refreshUserSessin) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self.keepAliveTimer forMode:NSDefaultRunLoopMode];
     [self.keepAliveTimer fire];
 }
@@ -504,14 +504,29 @@
 #pragma mark--
 #pragma mark--一键回收按钮
 - (IBAction)oneKeyReciveBtnClick:(id)sender {
-      __weak typeof(self) weakSelf = self;
-    [SH_NetWorkService onekeyrecoveryApiId:nil Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        //刷新用户余额
-        if (![[response objectForKey:@"data"] isKindOfClass:[NSNull class]]) {
-            weakSelf.suishenFuLiLab.text = response[@"data"][@"assets"];
+//      __weak typeof(self) weakSelf = self;
+//    [SH_NetWorkService onekeyrecoveryApiId:nil Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
+//        //刷新用户余额
+//        if (![[response objectForKey:@"data"] isKindOfClass:[NSNull class]]) {
+//            weakSelf.suishenFuLiLab.text = response[@"data"][@"assets"];
+//        }
+//    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+//
+//    }];
+    [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
+        if ([dict[@"code"] isEqualToString:@"0"]) {
+            RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[dict[@"data"] objectForKey:@"user"] error:nil];
+            [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
+            [self  configUI];
+            showMessage(self.view, @"", @"刷新成功");
+        }else{
+            [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
         }
-    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        //
+        [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
     }];
 }
 
@@ -575,16 +590,6 @@
 //玩家中心
 - (IBAction)userCenterClick:(id)sender
 {
-    
-    [SH_NetWorkService refreshUserSessin:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        NSString *code = response[@"code"];
-        if ([code isEqualToString:@"1001"]) {
-            
-        }
-    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
-    }];
-    
     if ([RH_UserInfoManager shareUserManager].isLogin) {
          self.vc = [SH_GamesHomeViewController new];
         
@@ -592,9 +597,6 @@
     }else{
         [self login];
     }
-   
-    
-   
 }
 
 #pragma mark - SH_PlayerCenterViewDelegate
