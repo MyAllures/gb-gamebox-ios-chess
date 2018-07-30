@@ -555,6 +555,10 @@
 
 #pragma mark - 优惠活动
 - (IBAction)activitiesClick:(id)sender {
+    if (![RH_UserInfoManager  shareUserManager].isLogin) {
+        [self login];
+        return;
+    }
     SH_PromoWindowViewController *vc = [[SH_PromoWindowViewController alloc] initWithNibName:@"SH_PromoWindowViewController" bundle:nil];
     [self presentViewController:vc addTargetViewController:self];
 }
