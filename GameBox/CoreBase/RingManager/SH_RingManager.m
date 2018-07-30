@@ -30,12 +30,43 @@
     return manager;
 }
 
+- (CGFloat)bgmPlayerVolume
+{
+    return self.bgmPlayer.volume;
+}
+
+- (void)configBgmPlayerVolume:(CGFloat)volume
+{
+    self.bgmPlayer.volume = volume;
+    [[NSUserDefaults standardUserDefaults] setObject:@(volume) forKey:@"GB_CHESS_BGM_VOLUME"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 - (AVAudioPlayer *)bgmPlayer
 {
     if (_bgmPlayer == nil) {
         NSURL *url = [[NSBundle mainBundle] URLForResource:@"bgm.mp3" withExtension:nil];
         _bgmPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
         _bgmPlayer.numberOfLoops = -1;
+        NSDictionary *allUserDefaults = [[NSUserDefaults standardUserDefaults] dictionaryRepresentation];
+        NSArray *allKeys = [allUserDefaults allKeys];
+        BOOL hasDefaultVolume = NO;
+        for (NSString *key in allKeys) {
+            if ([key isEqualToString:@"GB_CHESS_BGM_VOLUME"]) {
+                hasDefaultVolume = YES;
+                break;
+            }
+        }
+        if (hasDefaultVolume) {
+            CGFloat volume = [[[NSUserDefaults standardUserDefaults] objectForKey:@"GB_CHESS_BGM_VOLUME"] floatValue];
+            _bgmPlayer.volume = volume;
+        }
+        else
+        {
+            [[NSUserDefaults standardUserDefaults] setObject:@(0.8) forKey:@"GB_CHESS_BGM_VOLUME"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            _bgmPlayer.volume = 0.8;
+        }
         [_bgmPlayer prepareToPlay];
     }
     return _bgmPlayer;

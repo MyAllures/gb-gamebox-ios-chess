@@ -139,6 +139,7 @@
 		547BCDF3210ACCBB00D7082F /* loading.webp in Resources */ = {isa = PBXBuildFile; fileRef = 547BCDF2210ACCBA00D7082F /* loading.webp */; };
 		547BCDF5210AF43100D7082F /* table-bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 547BCDF4210AF43100D7082F /* table-bg.webp */; };
 		547BCDF8210AFC4D00D7082F /* SH_SearchTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 547BCDF6210AFC4C00D7082F /* SH_SearchTypeModel.m */; };
+		5480CD4B210F0789008465C5 /* SH_SliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5480CD4A210F0789008465C5 /* SH_SliderView.m */; };
 		54C21AB120EE23B2006FCA0F /* SH_BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C21AB020EE23B2006FCA0F /* SH_BaseViewController.m */; };
 		54C21AB920F1B981006FCA0F /* SH_CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C21AB820F1B981006FCA0F /* SH_CycleScrollView.m */; };
 		54C8758020F3560100AA0594 /* SH_PromoListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C8757F20F3560100AA0594 /* SH_PromoListView.xib */; };
@@ -561,6 +562,8 @@
 		547BCDF4210AF43100D7082F /* table-bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "table-bg.webp"; sourceTree = "<group>"; };
 		547BCDF6210AFC4C00D7082F /* SH_SearchTypeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_SearchTypeModel.m; sourceTree = "<group>"; };
 		547BCDF7210AFC4D00D7082F /* SH_SearchTypeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_SearchTypeModel.h; sourceTree = "<group>"; };
+		5480CD49210F0789008465C5 /* SH_SliderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SliderView.h; sourceTree = "<group>"; };
+		5480CD4A210F0789008465C5 /* SH_SliderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SliderView.m; sourceTree = "<group>"; };
 		54C21AAF20EE23B2006FCA0F /* SH_BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_BaseViewController.h; sourceTree = "<group>"; };
 		54C21AB020EE23B2006FCA0F /* SH_BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_BaseViewController.m; sourceTree = "<group>"; };
 		54C21AB720F1B981006FCA0F /* SH_CycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_CycleScrollView.h; sourceTree = "<group>"; };
@@ -2190,6 +2193,8 @@
 				DA6EE1C520F99F39009A01C5 /* SH_SettingView.h */,
 				DA6EE1C620F99F39009A01C5 /* SH_SettingView.m */,
 				DA6EE1C820F99F45009A01C5 /* SH_SettingView.xib */,
+				5480CD49210F0789008465C5 /* SH_SliderView.h */,
+				5480CD4A210F0789008465C5 /* SH_SliderView.m */,
 			);
 			path = "UserInformationView ";
 			sourceTree = "<group>";
@@ -2717,6 +2722,7 @@
 				5401C53120ECA10F0027246D /* AppDelegate.m in Sources */,
 				DA22F3D520F454840058A54F /* NSString+CLCategory.m in Sources */,
 				54C8761C20FE218B00AA0594 /* YFEmitterSnowCell.m in Sources */,
+				5480CD4B210F0789008465C5 /* SH_SliderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

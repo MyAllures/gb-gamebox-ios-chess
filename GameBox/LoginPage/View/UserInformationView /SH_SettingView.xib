@@ -19,51 +19,36 @@
                     <rect key="frame" x="8" y="8" width="308" height="215"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dsW-fY-rak">
-                            <rect key="frame" x="12" y="85.5" width="284" height="44"/>
+                            <rect key="frame" x="12" y="74.5" width="284" height="66"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="音乐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47I-UM-ebP">
-                                    <rect key="frame" x="0.0" y="0.0" width="25" height="16"/>
-                                    <color key="backgroundColor" red="0.28235294117647058" green="0.32941176470588235" blue="0.66274509803921566" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="25" height="33"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="25" id="Y5M-Tr-yGG"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="251" image="bar_ios" translatesAutoresizingMaskIntoConstraints="NO" id="f5Z-HG-dVz">
-                                    <rect key="frame" x="33" y="2" width="251" height="12.5"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="12.5" id="zVK-Xn-kfq"/>
-                                    </constraints>
-                                </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="音效" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKT-2A-PQs">
-                                    <rect key="frame" x="0.0" y="28" width="25" height="16"/>
-                                    <color key="backgroundColor" red="0.28235294119999998" green="0.3294117647" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <rect key="frame" x="0.0" y="33" width="25" height="33"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar_ios" translatesAutoresizingMaskIntoConstraints="NO" id="oLG-3a-eh1">
-                                    <rect key="frame" x="33" y="30" width="251" height="12.5"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="12.5" id="2RI-ko-Qeb"/>
-                                    </constraints>
-                                </imageView>
                             </subviews>
-                            <color key="backgroundColor" red="0.28235294119999998" green="0.3294117647" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="f5Z-HG-dVz" firstAttribute="leading" secondItem="47I-UM-ebP" secondAttribute="trailing" constant="8" id="0eE-Qy-BbN"/>
-                                <constraint firstAttribute="height" constant="44" id="5BO-Tq-71x"/>
-                                <constraint firstAttribute="trailing" secondItem="f5Z-HG-dVz" secondAttribute="trailing" id="CZV-jd-pBv"/>
-                                <constraint firstItem="f5Z-HG-dVz" firstAttribute="centerY" secondItem="47I-UM-ebP" secondAttribute="centerY" id="KrV-74-IOG"/>
-                                <constraint firstItem="GKT-2A-PQs" firstAttribute="height" secondItem="47I-UM-ebP" secondAttribute="height" id="LWx-Vo-Vuk"/>
-                                <constraint firstItem="oLG-3a-eh1" firstAttribute="leading" secondItem="GKT-2A-PQs" secondAttribute="trailing" constant="8" id="LiZ-da-Gyk"/>
-                                <constraint firstItem="GKT-2A-PQs" firstAttribute="leading" secondItem="dsW-fY-rak" secondAttribute="leading" id="Umb-ha-nXm"/>
-                                <constraint firstItem="47I-UM-ebP" firstAttribute="leading" secondItem="dsW-fY-rak" secondAttribute="leading" id="ZCI-DG-Sr2"/>
-                                <constraint firstAttribute="trailing" secondItem="oLG-3a-eh1" secondAttribute="trailing" id="ZpB-N6-xZO"/>
-                                <constraint firstItem="GKT-2A-PQs" firstAttribute="width" secondItem="47I-UM-ebP" secondAttribute="width" id="ZzV-iZ-JIP"/>
-                                <constraint firstItem="oLG-3a-eh1" firstAttribute="centerY" secondItem="GKT-2A-PQs" secondAttribute="centerY" id="aA6-Np-tGZ"/>
-                                <constraint firstAttribute="bottom" secondItem="GKT-2A-PQs" secondAttribute="bottom" id="c80-ym-zRZ"/>
-                                <constraint firstItem="47I-UM-ebP" firstAttribute="top" secondItem="dsW-fY-rak" secondAttribute="top" id="gdx-Of-Vph"/>
-                                <constraint firstItem="GKT-2A-PQs" firstAttribute="top" secondItem="47I-UM-ebP" secondAttribute="bottom" constant="12" id="mo4-wt-l93"/>
+                                <constraint firstAttribute="height" constant="66" id="5BO-Tq-71x"/>
+                                <constraint firstItem="GKT-2A-PQs" firstAttribute="width" secondItem="47I-UM-ebP" secondAttribute="width" id="F9N-Yp-axg"/>
+                                <constraint firstItem="47I-UM-ebP" firstAttribute="top" secondItem="dsW-fY-rak" secondAttribute="top" id="KHt-Kh-xXZ"/>
+                                <constraint firstAttribute="bottom" secondItem="GKT-2A-PQs" secondAttribute="bottom" id="UiG-Od-xlS"/>
+                                <constraint firstItem="47I-UM-ebP" firstAttribute="leading" secondItem="dsW-fY-rak" secondAttribute="leading" id="XSj-6F-ZnQ"/>
+                                <constraint firstItem="GKT-2A-PQs" firstAttribute="leading" secondItem="dsW-fY-rak" secondAttribute="leading" id="b0j-dI-piO"/>
+                                <constraint firstItem="GKT-2A-PQs" firstAttribute="top" secondItem="47I-UM-ebP" secondAttribute="bottom" id="cg0-L5-s7F"/>
+                                <constraint firstItem="GKT-2A-PQs" firstAttribute="height" secondItem="47I-UM-ebP" secondAttribute="height" id="dzg-72-pqa"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -89,10 +74,12 @@
                 <constraint firstAttribute="bottom" secondItem="pcG-Df-bjA" secondAttribute="bottom" constant="8" id="aan-bJ-Ino"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="containerView" destination="dsW-fY-rak" id="zeE-9o-p4i"/>
+                <outlet property="musicLB" destination="47I-UM-ebP" id="EUT-fA-BNz"/>
+                <outlet property="soundEffectLB" destination="GKT-2A-PQs" id="HEI-Dx-K6d"/>
+            </connections>
             <point key="canvasLocation" x="85" y="-92.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="bar_ios" width="12" height="12"/>
-    </resources>
 </document>
