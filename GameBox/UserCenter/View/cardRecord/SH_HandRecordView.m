@@ -171,6 +171,7 @@
     cell.singleAmountLabel.text = [NSString stringWithFormat:@"%.2f",model.singleAmount];
     cell.profitAmountLabel.text = [NSString stringWithFormat:@"%.2f",model.profitAmount];
     cell.orderStateLabel.text = model.orderState;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

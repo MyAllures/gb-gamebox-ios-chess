@@ -169,17 +169,18 @@
 
 -(void)searchTypeRequest {
     __weak typeof(self) weakSelf = self;
-
-    [SH_NetWorkService fetchDepositPulldownListComplete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        NSDictionary *dataDic = [response objectForKey:@"data"];
-        [weakSelf.selectTypeNameArr addObject:@"全部"];
-        [weakSelf.selectTypeNameArr addObjectsFromArray:[dataDic allValues]];
-        
-        [weakSelf.selectTypeIdArr addObject:@""];
-        [weakSelf.selectTypeIdArr addObjectsFromArray:[dataDic allKeys]];
-    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
-    }];
+    if ([RH_UserInfoManager  shareUserManager].isLogin) {
+        [SH_NetWorkService fetchDepositPulldownListComplete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+            NSDictionary *dataDic = [response objectForKey:@"data"];
+            [weakSelf.selectTypeNameArr addObject:@"全部"];
+            [weakSelf.selectTypeNameArr addObjectsFromArray:[dataDic allValues]];
+            
+            [weakSelf.selectTypeIdArr addObject:@""];
+            [weakSelf.selectTypeIdArr addObjectsFromArray:[dataDic allKeys]];
+        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+            
+        }];
+    }
 }
 
 -(void)requestData:(NSString *)startTimeStr endTimeStr:(NSString *)endTimeStr searchType:(NSString *)searchType

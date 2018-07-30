@@ -72,6 +72,8 @@
 @property (nonatomic, assign) BOOL isSearchStatus;
 @property (nonatomic, strong) NSTimer *keepAliveTimer;
 
+@property (nonatomic, strong) SH_GamesHomeViewController * vc;
+
 @end
 
 @implementation SH_HomeViewController
@@ -133,6 +135,8 @@
 {
     [self.keepAliveTimer invalidate];
     self.keepAliveTimer = nil;
+    [[RH_UserInfoManager  shareUserManager] updateIsLogin:NO];
+    [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:nil];
     [self configUI];
 }
 
@@ -141,14 +145,24 @@
     [self.keepAliveTimer invalidate];
     self.keepAliveTimer = nil;
 
-    self.keepAliveTimer = [NSTimer timerWithTimeInterval:5*60 target:self selector:@selector(refreshUserSessin) userInfo:nil repeats:YES];
+    self.keepAliveTimer = [NSTimer timerWithTimeInterval:10 target:self selector:@selector(refreshUserSessin) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self.keepAliveTimer forMode:NSDefaultRunLoopMode];
+    [self.keepAliveTimer fire];
 }
 
 - (void)refreshUserSessin
 {
     [SH_NetWorkService refreshUserSessin:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        
+        NSString *code = response[@"code"];
+        if ([code isEqualToString:@"1001"]) {
+            [[NSNotificationCenter  defaultCenter] postNotificationName:@"didLogOut" object:nil];
+            for (UIViewController *vc in self.navigationController.viewControllers) {
+                if(vc.presentedViewController) {
+                    [vc dismissViewControllerAnimated:NO completion:nil];
+                }
+            }
+            [self login];
+        }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         //
     }];
@@ -561,10 +575,20 @@
 //玩家中心
 - (IBAction)userCenterClick:(id)sender
 {
-    if ([RH_UserInfoManager shareUserManager].isLogin) {
-        SH_GamesHomeViewController * vc = [SH_GamesHomeViewController new];
+    
+    [SH_NetWorkService refreshUserSessin:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSString *code = response[@"code"];
+        if ([code isEqualToString:@"1001"]) {
+            
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
-        [self presentViewController:vc addTargetViewController:self];
+    }];
+    
+    if ([RH_UserInfoManager shareUserManager].isLogin) {
+         self.vc = [SH_GamesHomeViewController new];
+        
+        [self presentViewController:self.vc addTargetViewController:self];
     }else{
         [self login];
     }
