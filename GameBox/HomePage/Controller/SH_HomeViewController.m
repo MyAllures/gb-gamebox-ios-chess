@@ -145,7 +145,7 @@
     [self.keepAliveTimer invalidate];
     self.keepAliveTimer = nil;
 
-    self.keepAliveTimer = [NSTimer timerWithTimeInterval:10 target:self selector:@selector(refreshUserSessin) userInfo:nil repeats:YES];
+    self.keepAliveTimer = [NSTimer timerWithTimeInterval:5*60 target:self selector:@selector(refreshUserSessin) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self.keepAliveTimer forMode:NSDefaultRunLoopMode];
     [self.keepAliveTimer fire];
 }
