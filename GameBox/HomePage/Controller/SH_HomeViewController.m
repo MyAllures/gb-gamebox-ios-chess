@@ -608,7 +608,7 @@
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:acr animated:YES completion:nil];
     [SH_NetWorkService getBankInforComplete:^(SH_ProfitModel *model) {
-        [view updateUIWithBalance:model.totalBalance BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:acr Token:model.token];
+        [view updateUIWithBalance:model BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:acr Token:model.token];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];

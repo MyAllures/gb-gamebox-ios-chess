@@ -86,7 +86,7 @@
     }
     
 }
--(void)updateUIWithBalance:(NSString *)balance
+-(void)updateUIWithBalance:(SH_ProfitModel *)model
                    BankNum:(NSString *)bankNum
                   TargetVC:(UIViewController *)targetVC
                      Token:(NSString *)token{
@@ -97,7 +97,12 @@
         [self.bandingBtn setTitle:@"已绑定" forState:UIControlStateNormal];
         self.bandingBtn.userInteractionEnabled = NO;
     }
-    self.balanceLab.text = [NSString stringWithFormat:@"%.2f",[balance floatValue]];
+    SH_ProfitModel *model1  = model;
+    NSDictionary *rank = model1.rank;
+    self.balanceLab.text = [NSString stringWithFormat:@"%.2f",[model1.totalBalance floatValue]];
+    NSString *withdrawMinNum = rank[@"withdrawMinNum"];
+    NSString *withdrawMaxNum = rank[@"withdrawMaxNum"];
+    self.numTextField.placeholder = [NSString stringWithFormat:@"¥%@~¥%@",withdrawMinNum,withdrawMaxNum];
     self.targetVC = targetVC;
     self.token = token;
 }
