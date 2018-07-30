@@ -78,6 +78,22 @@
 
 @implementation SH_HomeViewController
 
+-(void)viewWillAppear:(BOOL)animated {
+    [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
+        if ([dict[@"code"] isEqualToString:@"0"]) {
+            RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[dict[@"data"] objectForKey:@"user"] error:nil];
+            [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
+            [self  configUI];
+        }else{
+            [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        //
+        [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
+    }];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -504,15 +520,15 @@
 #pragma mark--
 #pragma mark--一键回收按钮
 - (IBAction)oneKeyReciveBtnClick:(id)sender {
-//      __weak typeof(self) weakSelf = self;
-//    [SH_NetWorkService onekeyrecoveryApiId:nil Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
-//        //刷新用户余额
-//        if (![[response objectForKey:@"data"] isKindOfClass:[NSNull class]]) {
+      __weak typeof(self) weakSelf = self;
+    [SH_NetWorkService onekeyrecoveryApiId:nil Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        //刷新用户余额
+        if (![[response objectForKey:@"data"] isKindOfClass:[NSNull class]]) {
 //            weakSelf.suishenFuLiLab.text = response[@"data"][@"assets"];
-//        }
-//    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-//
-//    }];
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+
+    }];
     if (![RH_UserInfoManager  shareUserManager].isLogin) {
         [self login];
         return;
@@ -521,9 +537,11 @@
         NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
         if ([dict[@"code"] isEqualToString:@"0"]) {
             RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[dict[@"data"] objectForKey:@"user"] error:nil];
+            NSLog(@"walletBalance==%f",model.walletBalance);
             [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
+            
             [self  configUI];
-            showMessage(self.view, @"", @"刷新成功");
+            weakSelf.suishenFuLiLab.text = [NSString stringWithFormat:@"%.2f",model.walletBalance];
         }else{
             [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
         }
