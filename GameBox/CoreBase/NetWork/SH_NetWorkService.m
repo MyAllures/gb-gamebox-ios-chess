@@ -74,12 +74,15 @@ static AFHTTPSessionManager *sharedManager = nil;
 {
     if (cache) {
         //如果有需要缓存 先读取缓存
-        id response = [[SH_CacheManager shareManager] getCacheResponseObjectWithRequestUrl:url params:parameter];
-        if (response) {
-            if (complete)
-            {
-                complete(nil, response);
-            }
+        id responseObject = [[SH_CacheManager shareManager] getCacheResponseObjectWithRequestUrl:url params:parameter];
+        if (responseObject) {
+            id response = [self translateResponseData:responseObject];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (complete)
+                {
+                    complete(nil, response);
+                }
+            });
         }
     }
 
@@ -112,7 +115,7 @@ static AFHTTPSessionManager *sharedManager = nil;
             if (cache)
             {
                 //如果需要缓存 则缓存数据
-                [[SH_CacheManager shareManager] cacheResponseObject:response requestUrl:url params:parameter];
+                [[SH_CacheManager shareManager] cacheResponseObject:responseObject requestUrl:url params:parameter];
             }
 
             complete((NSHTTPURLResponse *)task.response, response);
@@ -193,12 +196,15 @@ static AFHTTPSessionManager *sharedManager = nil;
 {
     if (cache) {
         //如果有需要缓存 先读取缓存
-        id response = [[SH_CacheManager shareManager] getCacheResponseObjectWithRequestUrl:url params:parameter];
-        if (response) {
-            if (complete)
-            {
-                complete(nil, response);
-            }
+        id responseObject = [[SH_CacheManager shareManager] getCacheResponseObjectWithRequestUrl:url params:parameter];
+        if (responseObject) {
+            id response = [self translateResponseData:responseObject];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (complete)
+                {
+                    complete(nil, response);
+                }
+            });
         }
     }
     
@@ -231,9 +237,9 @@ static AFHTTPSessionManager *sharedManager = nil;
             if (cache)
             {
                 //如果需要缓存 则缓存数据
-                [[SH_CacheManager shareManager] cacheResponseObject:response requestUrl:url params:parameter];
+                [[SH_CacheManager shareManager] cacheResponseObject:responseObject requestUrl:url params:parameter];
             }
-
+            
             complete((NSHTTPURLResponse *)task.response, response);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

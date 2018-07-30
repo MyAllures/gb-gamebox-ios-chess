@@ -669,13 +669,13 @@
 - (void)refreshHomeInfo
 {
     __weak typeof(self) weakSelf = self;
-    [self.bannerArr removeAllObjects];
-    [self.siteApiRelationArr removeAllObjects];
     
     [SH_WaitingView showOn:self.view];
     [SH_NetWorkService fetchHomeInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        NSDictionary * result = ConvertToClassPointer(NSDictionary, response);
-        if ([result  boolValueForKey:@"success"]) {
+        [weakSelf.bannerArr removeAllObjects];
+        [weakSelf.siteApiRelationArr removeAllObjects];
+
+        if (response && [[response objectForKey:@"code"] intValue] == 0) {
             NSDictionary *data = [response objectForKey:@"data"];
             
             //获取banner数据并更新UI

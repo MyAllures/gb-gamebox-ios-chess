@@ -21,6 +21,9 @@
     
     NSError *error = nil;
     
+    //将相对路径转换为绝对路径
+    directory = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:directory];
+
     if (![[NSFileManager defaultManager] fileExistsAtPath:directory isDirectory:nil]) {
         [[NSFileManager defaultManager] createDirectoryAtPath:directory withIntermediateDirectories:YES attributes:nil error:&error];
     }
