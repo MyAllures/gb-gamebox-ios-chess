@@ -629,7 +629,7 @@
         make.top.mas_equalTo(self.topGamesListScrollView.mas_top);
         make.bottom.mas_equalTo(self.topGamesListScrollView.mas_bottom);
         make.height.mas_equalTo(self->_cycleAdView.mas_width).multipliedBy(224/190.0);
-        make.right.equalTo(self.topGamesListScrollView.mas_left);
+        make.right.equalTo(self.topGamesListScrollView.mas_left).mas_offset(-10);
     }];
 }
 
@@ -693,13 +693,13 @@
 - (void)refreshHomeInfo
 {
     __weak typeof(self) weakSelf = self;
-    [self.bannerArr removeAllObjects];
-    [self.siteApiRelationArr removeAllObjects];
     
     [SH_WaitingView showOn:self.view];
     [SH_NetWorkService fetchHomeInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        NSDictionary * result = ConvertToClassPointer(NSDictionary, response);
-        if ([result  boolValueForKey:@"success"]) {
+        [weakSelf.bannerArr removeAllObjects];
+        [weakSelf.siteApiRelationArr removeAllObjects];
+
+        if (response && [[response objectForKey:@"code"] intValue] == 0) {
             NSDictionary *data = [response objectForKey:@"data"];
             
             //获取banner数据并更新UI
@@ -934,7 +934,7 @@
             make.top.mas_equalTo(self.topGamesListScrollView.mas_top);
             make.bottom.mas_equalTo(self.topGamesListScrollView.mas_bottom);
             make.height.mas_equalTo(self->_cycleAdView.mas_width).multipliedBy(224/190.0);
-            make.right.equalTo(self.topGamesListScrollView.mas_left);
+            make.right.equalTo(self.topGamesListScrollView.mas_left).mas_offset(-10);
         }];
 
         [self.topGamesListScrollView mas_updateConstraints:^(MASConstraintMaker *make) {
@@ -965,17 +965,11 @@
             make.top.mas_equalTo(self.topGamesListScrollView.mas_top);
             make.bottom.mas_equalTo(self.topGamesListScrollView.mas_bottom);
             make.height.mas_equalTo(self->_cycleAdView.mas_width).multipliedBy(224/190.0);
-            make.right.equalTo(self.topGamesListScrollView.mas_left);
+            make.right.equalTo(self.topGamesListScrollView.mas_left).mas_offset(-10);
         }];
         
         [self.topGamesListScrollView mas_updateConstraints:^(MASConstraintMaker *make) {
-            if (iPhoneX) {
-                make.left.mas_equalTo(self.cycleAdView.mas_right).offset(30);
-            }
-            else
-            {
-                make.left.mas_equalTo(self.cycleAdView.mas_right).offset(10);
-            }
+            make.left.mas_equalTo(self.cycleAdView.mas_right).offset(10);
             make.top.mas_equalTo(80);
             make.bottom.mas_equalTo(-53.5);
             make.right.mas_equalTo(0);

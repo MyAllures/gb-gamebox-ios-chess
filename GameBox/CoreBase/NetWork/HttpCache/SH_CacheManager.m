@@ -64,7 +64,7 @@ static NSTimeInterval cacheTime = 7 * 24 * 60 * 60;
         NSString *directoryPath = nil;
         directoryPath = [[NSUserDefaults standardUserDefaults] objectForKey:cacheDirKey];
         if (!directoryPath) {
-            directoryPath = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"YQNetworking"] stringByAppendingPathComponent:@"networkCache"];
+            directoryPath = @"SHNetworking/networkCache";//存的是相对路径
             [[NSUserDefaults standardUserDefaults] setObject:directoryPath forKey:cacheDirKey];
             [[NSUserDefaults standardUserDefaults] synchronize];
         }
@@ -90,8 +90,10 @@ static NSTimeInterval cacheTime = 7 * 24 * 60 * 60;
     
     if (!cacheData) {
         NSString *directoryPath = [[NSUserDefaults standardUserDefaults] objectForKey:cacheDirKey];
-        
         if (directoryPath) {
+            //转换为绝对路径
+            directoryPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:directoryPath];
+
             cacheData = [SH_DiskCache readDataFromDir:directoryPath filename:hash];
             
             if (cacheData) [[SH_LRUManager shareManager] refreshIndexOfFileNode:hash];
@@ -125,8 +127,8 @@ static NSTimeInterval cacheTime = 7 * 24 * 60 * 60;
     NSString *directoryPath = nil;
     directoryPath = [[NSUserDefaults standardUserDefaults] objectForKey:downloadDirKey];
     if (!directoryPath) {
-        directoryPath = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"YQNetworking"] stringByAppendingPathComponent:@"download"];
-        
+        //只存相对路径
+        directoryPath = @"SHNetworking/download";
         [[NSUserDefaults standardUserDefaults] setObject:directoryPath forKey:downloadDirKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
@@ -160,7 +162,12 @@ static NSTimeInterval cacheTime = 7 * 24 * 60 * 60;
     
     NSString *directoryPath = [[NSUserDefaults standardUserDefaults] objectForKey:downloadDirKey];
     
-    if (directoryPath) data = [SH_DiskCache readDataFromDir:directoryPath filename:fileName];
+    if (directoryPath)
+    {
+        //转换为绝对路径
+        directoryPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:directoryPath];
+        data = [SH_DiskCache readDataFromDir:directoryPath filename:fileName];
+    }
     
     if (data) {
         NSString *path = [directoryPath stringByAppendingPathComponent:fileName];
@@ -171,36 +178,43 @@ static NSTimeInterval cacheTime = 7 * 24 * 60 * 60;
 }
 
 - (NSUInteger)totalCacheSize {
-    NSString *diretoryPath = [[NSUserDefaults standardUserDefaults] objectForKey: cacheDirKey];
-    
-    return [SH_DiskCache dataSizeInDir:diretoryPath];
+    NSString *directoryPath = [[NSUserDefaults standardUserDefaults] objectForKey: cacheDirKey];
+    directoryPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:directoryPath];
+    return [SH_DiskCache dataSizeInDir:directoryPath];
 }
 
 - (NSUInteger)totalDownloadDataSize {
-    NSString *diretoryPath = [[NSUserDefaults standardUserDefaults] objectForKey: downloadDirKey];
-    
-    return [SH_DiskCache dataSizeInDir:diretoryPath];
+    NSString *directoryPath = [[NSUserDefaults standardUserDefaults] objectForKey: downloadDirKey];
+    directoryPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:directoryPath];
+
+    return [SH_DiskCache dataSizeInDir:directoryPath];
 }
 
 - (void)clearDownloadData {
-    NSString *diretoryPath = [[NSUserDefaults standardUserDefaults] objectForKey:downloadDirKey];
-    
-    [SH_DiskCache clearDataIinDir:diretoryPath];
+    NSString *directoryPath = [[NSUserDefaults standardUserDefaults] objectForKey:downloadDirKey];
+    directoryPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:directoryPath];
+
+    [SH_DiskCache clearDataIinDir:directoryPath];
 }
 
 - (NSString *)getDownDirectoryPath {
-    NSString *diretoryPath = [[NSUserDefaults standardUserDefaults] objectForKey:downloadDirKey];
-    return diretoryPath;
+    NSString *directoryPath = [[NSUserDefaults standardUserDefaults] objectForKey:downloadDirKey];
+    directoryPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:directoryPath];
+
+    return directoryPath;
 }
 
 - (NSString *)getCacheDiretoryPath {
-    NSString *diretoryPath = [[NSUserDefaults standardUserDefaults] objectForKey:cacheDirKey];
-    return diretoryPath;
+    NSString *directoryPath = [[NSUserDefaults standardUserDefaults] objectForKey:cacheDirKey];
+    directoryPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:directoryPath];
+
+    return directoryPath;
 }
 
 - (void)clearTotalCache {
     NSString *directoryPath = [[NSUserDefaults standardUserDefaults] objectForKey:cacheDirKey];
-    
+    directoryPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:directoryPath];
+
     [SH_DiskCache clearDataIinDir:directoryPath];
 }
 
@@ -209,6 +223,7 @@ static NSTimeInterval cacheTime = 7 * 24 * 60 * 60;
         NSArray *deleteFiles = [[SH_LRUManager shareManager] removeLRUFileNodeWithCacheTime:cacheTime];
         NSString *directoryPath = [[NSUserDefaults standardUserDefaults] objectForKey:cacheDirKey];
         if (directoryPath && deleteFiles.count > 0) {
+            directoryPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:directoryPath];
             [deleteFiles enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 NSString *filePath = [directoryPath stringByAppendingPathComponent:obj];
                 [SH_DiskCache deleteCache:filePath];
