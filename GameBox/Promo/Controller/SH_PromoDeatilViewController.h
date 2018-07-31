@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "SH_BaseViewController.h"
 @class SH_PromoListModel;
-@interface SH_PromoDeatilViewController : UIViewController
+@interface SH_PromoDeatilViewController : SH_BaseViewController
 
 @property (nonatomic, strong) SH_PromoListModel *model;
 

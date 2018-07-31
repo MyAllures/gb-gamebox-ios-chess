@@ -9,7 +9,7 @@
 #import "SH_MsgCenterDetailView.h"
 
 @interface SH_MsgCenterDetailView ()
-@property (weak, nonatomic) IBOutlet UILabel *detailLB;
+@property (weak, nonatomic) IBOutlet UITextView *detailLB;
 @property (nonatomic, copy) SH_MsgCenterDetailViewDismiss dismissBlock;
 
 @end
