@@ -73,30 +73,28 @@
 @property (nonatomic, strong) NSTimer *keepAliveTimer;
 
 @property (nonatomic, strong) SH_GamesHomeViewController * vc;
+@property (nonatomic, strong) AlertViewController *acr;
 
 @end
 
 @implementation SH_HomeViewController
 
 -(void)viewWillAppear:(BOOL)animated {
-    if ([RH_UserInfoManager shareUserManager].isLogin) {
-        [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
-            NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
-            if ([dict[@"code"] isEqualToString:@"0"]) {
-                NSError *err;
-                NSArray *arr = [SH_BankListModel arrayOfModelsFromDictionaries:response[@"data"][@"bankList"] error:&err];
-                [[RH_UserInfoManager shareUserManager] setBankList:arr];
-                NSError *err2;
-                RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[response[@"data"] objectForKey:@"user"] error:&err2];
-                [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
-            }else{
-                [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
-            }
-        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-            //
-            [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
-        }];
-    }
+//    [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
+//        NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
+//        if ([dict[@"code"] isEqualToString:@"0"]) {
+//            RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[dict[@"data"] objectForKey:@"user"] error:nil];
+//            [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
+//        }else{
+//            [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
+//        }
+//    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+//        //
+//        [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
+//    }];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:@"" forKey:@"saftyKoken"];
+    [defaults synchronize];
 }
 
 - (void)viewDidLoad {
@@ -113,6 +111,7 @@
 
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didRegistratedSuccessful) name:@"didRegistratedSuccessful" object:nil];
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(logoutAction) name:@"didLogOut" object:nil];
+    [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(close) name:@"close" object:nil];
     if (iPhoneX) {
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(statusBarOrientationChange:)
@@ -607,15 +606,19 @@
         return;
     }
     SH_PrifitOutCoinView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_PrifitOutCoinView" owner:nil options:nil].lastObject;
-    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-75 titleImageName:@"title07" alertViewType:AlertViewTypeLong];
-    acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:acr animated:YES completion:nil];
+    self.acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-75 titleImageName:@"title07" alertViewType:AlertViewTypeLong];
+    self.acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    self.acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:self.acr animated:YES completion:nil];
     [SH_NetWorkService getBankInforComplete:^(SH_ProfitModel *model) {
-        [view updateUIWithBalance:model BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:acr Token:model.token];
+        [view updateUIWithBalance:model BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:self.acr Token:model.token];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
+}
+
+-(void) close {
+    [self.acr close];
 }
 
 #pragma mark --- 玩家中心
