@@ -12,6 +12,7 @@
 #import "SH_LookJiHeView.h"
 #import "SH_NetWorkService+Profit.h"
 #import "SH_ConfirSaftyPassWordView.h"
+#import "SH_ProfitAlertView.h"
 @interface SH_OutCoinDetailView()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
@@ -59,12 +60,27 @@
 }
 
 - (IBAction)sureOutCoinBtnClick:(id)sender {
+    NSString *actualWithdraw = self.titles[5];
+    if ([actualWithdraw floatValue] <= 0) {
+        [self popAlertView:@"最后取款金额应大于0元"];
+        return;
+    }
     SH_ConfirSaftyPassWordView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_ConfirSaftyPassWordView" owner:self options:nil].firstObject;
     view.money = self.details[1];
     view.token = self.token;
     view.targetVC = self.targetVC;
     AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:210 titleImageName:@"title17" alertViewType:AlertViewTypeShort];
     acr.modalPresentationStyle = UIModalPresentationCurrentContext;
+    acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self.targetVC presentViewController:acr animated:YES completion:nil];
+}
+
+-(void)popAlertView: (NSString *)content{
+    SH_ProfitAlertView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_ProfitAlertView" owner:self options:nil].firstObject;
+    view.content = content;
+    view.targetVC = self.targetVC;
+    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:202 titleImageName:@"title03" alertViewType:AlertViewTypeShort];
+    acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self.targetVC presentViewController:acr animated:YES completion:nil];
 }

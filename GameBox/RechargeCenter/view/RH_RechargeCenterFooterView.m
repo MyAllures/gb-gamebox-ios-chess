@@ -97,7 +97,9 @@
         self.randomBtn.hidden = YES;
     }else{
         self.randomBtn.hidden = NO;
-        [self.randomBtn setTitle:[NSString stringWithFormat:@"%0.2f",(float)(1+arc4random()%99)/100] forState:UIControlStateNormal];
+        NSString *str = [NSString stringWithFormat:@"%.2f",(float)(1+arc4random()%99)/100];
+        str = [str substringWithRange:NSMakeRange(1, 3)];
+        [self.randomBtn setTitle:str forState:UIControlStateNormal];
     }
 }
 - (IBAction)submitBtnClick:(id)sender {
@@ -159,7 +161,9 @@
                     withRange:boldRange1];
 }
 - (IBAction)randomBtnClick:(id)sender {
-    [self.randomBtn setTitle:[NSString stringWithFormat:@"%0.2f",(float)(1+arc4random()%99)/100] forState:UIControlStateNormal];
+    NSString *str = [NSString stringWithFormat:@"%.2f",(float)(1+arc4random()%99)/100];
+    str = [str substringWithRange:NSMakeRange(1, 3)];
+    [self.randomBtn setTitle:str forState:UIControlStateNormal];
 }
 #pragma mark - TTTAttributedLabelDelegate
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url

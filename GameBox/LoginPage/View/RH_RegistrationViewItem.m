@@ -346,7 +346,7 @@
     [button mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self->textField);
         make.right.mas_equalTo(-8);
-        make.width.mas_equalTo(25);
+        make.width.mas_equalTo(180);
         make.height.mas_equalTo(20);
     }];
 
@@ -448,7 +448,7 @@
     [button  mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self->textField);
         make.right.mas_equalTo(-8);
-        make.width.mas_equalTo(25);
+        make.width.mas_equalTo(180);
         make.height.mas_equalTo(20);
     }];
 
@@ -481,7 +481,7 @@
     [button mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self->textField);
         make.right.mas_equalTo(-8);
-        make.width.mas_equalTo(25);
+        make.width.mas_equalTo(180);
         make.height.mas_equalTo(20);
     }];
     [button setImage:ImageWithName(@"arrow") forState:UIControlStateNormal];

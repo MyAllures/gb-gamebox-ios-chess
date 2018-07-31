@@ -37,6 +37,7 @@
 }
 #pragma mark --- 配置UI
 -(void)configUI{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismiss) name:@"dismiss" object:nil];
     self.view.backgroundColor = [[UIColor  blackColor] colorWithAlphaComponent:0.5];
 //    UIImage * img = [UIImage imageNamed:@"top-bg"];
     UIImage *img = [UIImage imageWithWebPImageName:@"top-bg"];
@@ -140,6 +141,10 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)dismiss {
+    [self dismiss:nil];
+}
 - (IBAction)dismiss:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
