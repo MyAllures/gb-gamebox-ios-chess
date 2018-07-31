@@ -33,7 +33,11 @@
             NSLog(@"%@",dic);
             NSString *code = [NSString stringWithFormat:@"%@",dic[@"code"]];
             if ([code isEqualToString:@"0"]) {
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                showMessage(self, @"取款成功", nil);
+                NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                [defaults setObject:@"" forKey:@"saftyKoken"];
+                [defaults synchronize];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     UIViewController *vc = self.targetVC;
                     while (vc.presentingViewController) {
                         vc = vc.presentingViewController;

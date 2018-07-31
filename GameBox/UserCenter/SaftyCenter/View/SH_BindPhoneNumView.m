@@ -8,6 +8,7 @@
 
 #import "SH_BindPhoneNumView.h"
 #import "SH_NetWorkService+SaftyCenter.h"
+#import "SH_GamesHomeViewController.h"
 @interface SH_BindPhoneNumView()
 @property (weak, nonatomic) IBOutlet UILabel *oldPhoneNumLab; //旧手机号码lable
 @property (weak, nonatomic) IBOutlet UITextField *oldPhoneNumTF;//旧手机号码textfield
@@ -58,6 +59,17 @@
 -(void)selectBindPhoneNumView{
     [SH_NetWorkService getUserPhoneInfoSuccess:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dataDic = ConvertToClassPointer(NSDictionary, response);
+        NSString *code = dataDic[@"code"];
+        showMessage(self, dataDic[@"message"], @"");
+        if ([code isEqualToString:@"1001"]) {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self.targetVC dismissViewControllerAnimated:NO completion:nil];
+            });
+            [[RH_UserInfoManager  shareUserManager] updateIsLogin:NO];
+            [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:nil];
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"configUI" object:nil];
+            return ;
+        }
         NSString *data = [dataDic objectForKey:@"data"];
         if (data == nil || [data isEqualToString:@""]) {
             //没有绑定过手机

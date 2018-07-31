@@ -113,6 +113,7 @@
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didLoginSuccess) name:@"SH_LOGIN_SUCCESS" object:nil];
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(logoutAction) name:@"didLogOut" object:nil];
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(close) name:@"close" object:nil];
+    [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(configUI) name:@"configUI" object:nil];
     if (iPhoneX) {
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(statusBarOrientationChange:)
@@ -268,7 +269,7 @@
 #pragma mark - 更新用户信息
 
 -(void)configUI{
-    self.userAccountLB.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.username?:@"登录/注册";
+    self.userAccountLB.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.username?:@"请先登录";
     
     if ([RH_UserInfoManager  shareUserManager].isLogin) {
         self.avatarImg.image = [UIImage imageWithWebPImageName:@"photo_male"];
@@ -888,23 +889,28 @@
 
 - (void)gamesListScrollView:(SH_GamesListScrollView *)scrollView didSelectItem:(SH_GameItemModel *)model
 {
-    __weak typeof(self) weakSelf = self;
     
+    __weak typeof(self) weakSelf = self;
     self.currentGameItemModel = model;
     if (self.enterDZGameLevel == NO) {
         self.enterDZGameLevel = self.currentLevel == 0 && [self.currentGameItemModel.apiTypeId intValue] == 2;
     }
     
     if ([model.type isEqualToString:@"game"]) {
-        if (![[RH_UserInfoManager shareUserManager] isLogin]) {
-            [self login];
-            return;
-        }
         //进入游戏
         //先获取游戏的url
         if ([[RH_UserInfoManager shareUserManager] isLogin]) {
             [SH_WaitingView showOn:self.view];
             [SH_NetWorkService fetchGameLink:model.gameLink complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+                NSDictionary *dict = (NSDictionary *)response;
+                NSString *code = dict[@"code"];
+                if ([code isEqualToString:@"1001"]) {
+                    [[RH_UserInfoManager  shareUserManager] updateIsLogin:NO];
+                    [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:nil];
+                    [weakSelf configUI];
+                    [weakSelf login];
+                    return ;
+                }
                 NSString *gameMsg = [[response objectForKey:@"data"] objectForKey:@"gameMsg"];
                 if (IS_EMPTY_STRING(gameMsg)) {
                     NSString *gameLink = [[response objectForKey:@"data"] objectForKey:@"gameLink"];
