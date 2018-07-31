@@ -119,7 +119,7 @@ static AFHTTPSessionManager *sharedManager = nil;
     [manager GET:url parameters:mParameter progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         id response = [weakSelf translateResponseData:responseObject];
         //先做code判断看是否需要做特点错误码的统一回调
-        if ([response isMemberOfClass:[NSDictionary class]]) {
+        if ([response isKindOfClass:[NSDictionary class]]) {
             if ([[response allKeys] containsObject:@"code"]) {
                 int code = [response[@"code"] intValue];
                 if (code == SH_API_ERRORCODE_SESSION_EXPIRED ||
@@ -146,6 +146,12 @@ static AFHTTPSessionManager *sharedManager = nil;
                     if (complete) {
                         complete((NSHTTPURLResponse *)task.response, response);
                     }
+                }
+            }
+            else
+            {
+                if (complete) {
+                    complete((NSHTTPURLResponse *)task.response, response);
                 }
             }
         }
@@ -269,7 +275,7 @@ static AFHTTPSessionManager *sharedManager = nil;
     [manager POST:url parameters:mParameter progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         id response = [weakSelf translateResponseData:responseObject];
         //先做code判断看是否需要做特点错误码的统一回调
-        if ([response isMemberOfClass:[NSDictionary class]]) {
+        if ([response isKindOfClass:[NSDictionary class]]) {
             if ([[response allKeys] containsObject:@"code"]) {
                 int code = [response[@"code"] intValue];
                 if (code == SH_API_ERRORCODE_SESSION_EXPIRED ||
@@ -297,6 +303,12 @@ static AFHTTPSessionManager *sharedManager = nil;
                     if (complete) {
                         complete((NSHTTPURLResponse *)task.response, response);
                     }
+                }
+            }
+            else
+            {
+                if (complete) {
+                    complete((NSHTTPURLResponse *)task.response, response);
                 }
             }
         }
