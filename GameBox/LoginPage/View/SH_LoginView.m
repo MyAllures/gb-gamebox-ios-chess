@@ -274,16 +274,20 @@
     
     [[RH_UserInfoManager shareUserManager] updateLoginInfoWithUserName:self.account_textField.text
                                                              LoginTime:[[SH_TimeZoneManager sharedManager] timeStringFrom:[[NSDate date] timeIntervalSince1970] format:@"yyyy-MM-dd HH:mm:ss"]] ;
-    NSString *setCookie = [httpURLResponse.allHeaderFields objectForKey:@"Set-Cookie"];
-    NSUInteger startLocation = [setCookie rangeOfString:@"GMT, "].location +4;
-    NSUInteger endLocation = [setCookie rangeOfString:@" rememberMe=deleteMe"].location;
-    NSUInteger lenth = endLocation - startLocation;
-    NSString *cookie = [setCookie substringWithRange:NSMakeRange(startLocation, lenth)];
-    [NetWorkLineMangaer sharedManager].currentCookie = cookie;
+    
+    [[NetWorkLineMangaer sharedManager] configCookieAndSid:httpURLResponse];
+
     [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
         
         NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
         if ([dict  boolValueForKey:@"success"]) {
+            NSError *err;
+            NSArray *arr = [SH_BankListModel arrayOfModelsFromDictionaries:response[@"data"][@"bankList"] error:&err];
+            [[RH_UserInfoManager shareUserManager] setBankList:arr];
+            NSError *err2;
+            RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[response[@"data"] objectForKey:@"user"] error:&err2];
+            [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
+
             showMessage(window, @"登录成功", nil);
             if (self.loginSuccessBlock) {
                 self.loginSuccessBlock();
