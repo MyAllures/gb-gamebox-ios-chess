@@ -149,6 +149,12 @@ static AFHTTPSessionManager *sharedManager = nil;
                 }
             }
         }
+        else
+        {
+            if (complete) {
+                complete((NSHTTPURLResponse *)task.response, response);
+            }
+        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (failed) {
             failed((NSHTTPURLResponse *)task.response, error.description);
@@ -292,6 +298,12 @@ static AFHTTPSessionManager *sharedManager = nil;
                         complete((NSHTTPURLResponse *)task.response, response);
                     }
                 }
+            }
+        }
+        else
+        {
+            if (complete) {
+                complete((NSHTTPURLResponse *)task.response, response);
             }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
