@@ -12,9 +12,9 @@
 #import "SH_NetWorkService+RegistAPI.h"
 #import "UIImage+SH_WebPImage.h"
 #import "SH_WebPButton.h"
-
 #import "SH_WelfareNotesView.h"
 #import "SH_HandRecordView.h"
+#import "SH_CustomerServiceManager.h"
 
 @interface SH_GamesHomeViewController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintWidth;
@@ -109,6 +109,7 @@
         }
         case 3:{
             //联系客服
+            [[SH_CustomerServiceManager sharedManager] open];
             break;
         }
         case 4:{

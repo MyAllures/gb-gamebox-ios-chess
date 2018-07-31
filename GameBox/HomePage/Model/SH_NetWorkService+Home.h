@@ -24,4 +24,6 @@
 
 + (void)refreshUserSessin:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
 
++ (void)getCustomerService:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
+
 @end

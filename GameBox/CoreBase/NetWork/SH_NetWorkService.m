@@ -15,8 +15,6 @@
 //其他宏配置
 #define SH_DEFAULT_NETWORK_TIMEOUT 15.0f //默认的超时秒数
 #define SH_MAX_NETWORK_CONCURRENT 10 //最大http并发数
-#define GB_CURRENT_APPVERSION [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
-#define GB_CURRENT_APPBUILD [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]
 
 static AFHTTPSessionManager *sharedManager = nil;
 
@@ -100,6 +98,7 @@ static AFHTTPSessionManager *sharedManager = nil;
     //默认header
     NSString *user_agent = [NSString stringWithFormat:@"app_ios, iPhone, chess, %@.%@",GB_CURRENT_APPVERSION, GB_CURRENT_APPBUILD];
     [manager.requestSerializer setValue:user_agent forHTTPHeaderField:@"User-Agent"];
+    [manager.requestSerializer setValue:[NetWorkLineMangaer sharedManager].currentCookie forHTTPHeaderField:@"Cookie"];
     if (header) {
         for (NSString *key in header.allKeys) {
             [manager.requestSerializer setValue:[header objectForKey:key] forHTTPHeaderField:key];
@@ -256,6 +255,7 @@ static AFHTTPSessionManager *sharedManager = nil;
     //默认header
     NSString *user_agent = [NSString stringWithFormat:@"app_ios, iPhone, chess, %@.%@",GB_CURRENT_APPVERSION, GB_CURRENT_APPBUILD];
     [manager.requestSerializer setValue:user_agent forHTTPHeaderField:@"User-Agent"];
+    [manager.requestSerializer setValue:[NetWorkLineMangaer sharedManager].currentCookie forHTTPHeaderField:@"Cookie"];
     if (header) {
         for (NSString *key in header.allKeys) {
             [manager.requestSerializer setValue:[header objectForKey:key] forHTTPHeaderField:key];

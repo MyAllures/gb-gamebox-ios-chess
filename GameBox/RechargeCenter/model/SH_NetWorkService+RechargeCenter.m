@@ -29,7 +29,7 @@
                    Complete:(RechargeCenterPayway)complete
                      failed:(SHNetWorkFailed)failed{
      NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:[NSString stringWithFormat:@"/mobile-api/depositOrigin/%@.html",payway]];
-    NSDictionary *header = @{@"X-Requested-With":@"XMLHttpRequest",@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
+    NSDictionary *header = @{@"X-Requested-With":@"XMLHttpRequest",@"Host":[NetWorkLineMangaer sharedManager].currentHost,};
     [self post:url parameter:[NSDictionary dictionary] header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             NSDictionary *dic = [(NSDictionary *)response objectForKey:@"data"];

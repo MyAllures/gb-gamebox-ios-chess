@@ -9,6 +9,8 @@
 #ifndef MacroDef_h
 #define MacroDef_h
 
+#define GB_CURRENT_APPVERSION [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
+#define GB_CURRENT_APPBUILD [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]
 
 //系统版本
 #define SystemVersion systemVersion()
