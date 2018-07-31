@@ -79,18 +79,24 @@
 @implementation SH_HomeViewController
 
 -(void)viewWillAppear:(BOOL)animated {
-    [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
-        if ([dict[@"code"] isEqualToString:@"0"]) {
-            RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[dict[@"data"] objectForKey:@"user"] error:nil];
-            [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
-        }else{
+    if ([RH_UserInfoManager shareUserManager].isLogin) {
+        [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
+            NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
+            if ([dict[@"code"] isEqualToString:@"0"]) {
+                NSError *err;
+                NSArray *arr = [SH_BankListModel arrayOfModelsFromDictionaries:response[@"data"][@"bankList"] error:&err];
+                [[RH_UserInfoManager shareUserManager] setBankList:arr];
+                NSError *err2;
+                RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[response[@"data"] objectForKey:@"user"] error:&err2];
+                [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
+            }else{
+                [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
+            }
+        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+            //
             [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
-        }
-    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        //
-        [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
-    }];
+        }];
+    }
 }
 
 - (void)viewDidLoad {
@@ -233,24 +239,19 @@
 #pragma mark - 登录成功之后 获取用户信息
 
 -(void)autoLoginSuccess:(NSHTTPURLResponse *)httpURLResponse isRegist:(BOOL)isRegist{
-    
-    NSString * setCookie = [httpURLResponse.allHeaderFields objectForKey:@"Set-Cookie"];
-    NSString *cookie;
-    if (isRegist) {
-        NSUInteger startLocation = [setCookie rangeOfString:@"GMT, "].location +4;
-        NSUInteger endLocation = [setCookie rangeOfString:@" rememberMe=deleteMe"].location;
-        NSUInteger lenth = endLocation - startLocation;
-        cookie = [setCookie substringWithRange:NSMakeRange(startLocation, lenth)];
-    }else{
-        cookie = setCookie;
-    }
-    [NetWorkLineMangaer sharedManager].currentCookie = cookie;
+    [[NetWorkLineMangaer sharedManager] configCookieAndSid:httpURLResponse];
+
     [[RH_UserInfoManager  shareUserManager] updateIsLogin:YES];
     [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
         if ([dict[@"code"] isEqualToString:@"0"]) {
-            RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[dict[@"data"] objectForKey:@"user"] error:nil];
-            [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];            
+            NSError *err;
+            NSArray *arr = [SH_BankListModel arrayOfModelsFromDictionaries:response[@"data"][@"bankList"] error:&err];
+            [[RH_UserInfoManager shareUserManager] setBankList:arr];
+            NSError *err2;
+            RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[response[@"data"] objectForKey:@"user"] error:&err2];
+            [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
+
             [self  configUI];
         }else{
              [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
@@ -467,8 +468,7 @@
     __weak typeof(self) weakSelf = self;
 
     [SH_NetWorkService fetchHttpCookie:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        NSString *setCookie = [httpURLResponse.allHeaderFields objectForKey:@"Set-Cookie"];
-        [NetWorkLineMangaer sharedManager].currentCookie = setCookie;
+        [[NetWorkLineMangaer sharedManager] configCookieAndSid:httpURLResponse];
     } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
         if (httpURLResponse.statusCode == 605) {
             [weakSelf showNoAccess];
@@ -538,9 +538,14 @@
     [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
         if ([dict[@"code"] isEqualToString:@"0"]) {
-            RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[dict[@"data"] objectForKey:@"user"] error:nil];
-            NSLog(@"walletBalance==%f",model.walletBalance);
+            NSError *err;
+            NSArray *arr = [SH_BankListModel arrayOfModelsFromDictionaries:response[@"data"][@"bankList"] error:&err];
+            [[RH_UserInfoManager shareUserManager] setBankList:arr];
+            NSError *err2;
+            RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[response[@"data"] objectForKey:@"user"] error:&err2];
             [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
+
+            NSLog(@"walletBalance==%f",model.walletBalance);
             
             [self  configUI];
             weakSelf.suishenFuLiLab.text = [NSString stringWithFormat:@"%.2f",model.walletBalance];

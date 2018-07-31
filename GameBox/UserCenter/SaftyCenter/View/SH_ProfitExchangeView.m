@@ -69,7 +69,14 @@
           NSString *code = [NSString stringWithFormat:@"%@",result[@"code"]];
         if ([code isEqualToString:@"0"]) {
             NSError *err;
-            self.dataArray = [SH_ApiModel arrayOfModelsFromDictionaries:result[@"data"][@"user"][@"apis"] error:&err];
+            NSArray *arr = [SH_BankListModel arrayOfModelsFromDictionaries:response[@"data"][@"bankList"] error:&err];
+            [[RH_UserInfoManager shareUserManager] setBankList:arr];
+            NSError *err2;
+            RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[response[@"data"] objectForKey:@"user"] error:&err2];
+            [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
+
+            NSError *err3;
+            self.dataArray = [SH_ApiModel arrayOfModelsFromDictionaries:result[@"data"][@"user"][@"apis"] error:&err3];
             
         }
         [self.mainTableView reloadData];
