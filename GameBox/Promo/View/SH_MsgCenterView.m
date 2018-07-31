@@ -12,6 +12,7 @@
 #import "SH_SystemNotificationModel.h"
 #import "SH_GameBulletinModel.h"
 #import "SH_SysMsgDataListModel.h"
+#import "SH_WaitingView.h"
 
 @interface SH_MsgCenterView () <UITableViewDataSource, UITableViewDelegate>
 
@@ -165,7 +166,7 @@
     }
 
     if (![ids isEqualToString:@""]) {
-        [MBProgressHUD showHUDAddedTo:self animated:YES];
+        [SH_WaitingView showOn:self];
         [SH_NetWorkService_Promo startLoadSystemMessageReadYesWithIds:ids complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             if (response && [[response objectForKey:@"code"] integerValue] == 0) {
                 for (SH_SysMsgDataListModel *model in self.msgArr) {
@@ -179,9 +180,9 @@
             {
                 showErrorMessage([UIApplication sharedApplication].keyWindow, nil, [response objectForKey:@"message"]);
             }
-            [MBProgressHUD hideHUDForView:weakSelf animated:YES];
+            [SH_WaitingView hide:weakSelf];
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-            [MBProgressHUD hideHUDForView:weakSelf animated:YES];
+            [SH_WaitingView hide:weakSelf];
         }];
     }
 }
@@ -197,7 +198,7 @@
     }
     
     if (![ids isEqualToString:@""]) {
-        [MBProgressHUD showHUDAddedTo:self animated:YES];
+        [SH_WaitingView showOn:self];
         [SH_NetWorkService_Promo startLoadSystemMessageDeleteWithIds:ids complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             if (response && [[response objectForKey:@"code"] integerValue] == 0) {
                 for (int i = 0; i < weakSelf.msgArr.count; i++) {
@@ -212,9 +213,9 @@
             {
                 showErrorMessage([UIApplication sharedApplication].keyWindow, nil, [response objectForKey:@"message"]);
             }
-            [MBProgressHUD hideHUDForView:weakSelf animated:YES];
+            [SH_WaitingView hide:weakSelf];
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-            [MBProgressHUD hideHUDForView:weakSelf animated:YES];
+            [SH_WaitingView hide:weakSelf];
         }];
     }
 }
@@ -254,15 +255,15 @@
         SH_MsgCenterCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         [cell updateSelectedStatus];
         
-        [MBProgressHUD showHUDAddedTo:self animated:YES];
+        [SH_WaitingView showOn:self];
         [SH_NetWorkService_Promo startLoadSystemMessageDetailWithSearchId:tModel.searchId complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSString *content = response[@"data"][@"content"];
             if (weakSelf.showDetailBlock) {
                 weakSelf.showDetailBlock(content);
             }
-            [MBProgressHUD hideHUDForView:weakSelf animated:YES];
+            [SH_WaitingView hide:weakSelf];
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-            [MBProgressHUD hideHUDForView:weakSelf animated:YES];
+            [SH_WaitingView hide:weakSelf];
         }];
     }
 }

@@ -239,7 +239,6 @@
 
 #pragma mark --  登录
 -(void)login{
-//    [MBProgressHUD showHUDAddedTo:self.window animated:YES];
      UIWindow  * window = [UIApplication  sharedApplication].keyWindow;
     MBProgressHUD *hud =showHUDWithMyActivityIndicatorView(self, nil, @"正在登录...");
      __weak  typeof(self) weakSelf = self;
