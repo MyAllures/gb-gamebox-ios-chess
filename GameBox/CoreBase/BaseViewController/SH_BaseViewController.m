@@ -86,6 +86,14 @@
         oriention = UIInterfaceOrientationLandscapeLeft;
     }
 
+    NSNumber *orientationNumber = [NSNumber numberWithInt:oriention];
+    [[UIDevice currentDevice] setValue:orientationNumber forKey:@"orientation"];
+
+    AppDelegate *appdelegate=(AppDelegate *)[UIApplication sharedApplication].delegate;
+    appdelegate.forcePortrait = NO;
+    appdelegate.forceLandscape = YES;
+    [appdelegate application:[UIApplication sharedApplication] supportedInterfaceOrientationsForWindow:self.view.window];
+
     if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
         SEL selector = NSSelectorFromString(@"setOrientation:");
         NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
@@ -95,14 +103,6 @@
         [invocation setArgument:&val atIndex:2];
         [invocation invoke];
     }
-    
-    NSNumber *orientationNumber = [NSNumber numberWithInt:oriention];
-    [[UIDevice currentDevice] setValue:orientationNumber forKey:@"orientation"];
-
-    AppDelegate *appdelegate=(AppDelegate *)[UIApplication sharedApplication].delegate;
-    appdelegate.forcePortrait = NO;
-    appdelegate.forceLandscape = YES;
-    [appdelegate application:[UIApplication sharedApplication] supportedInterfaceOrientationsForWindow:self.view.window];
 }
 
 /**

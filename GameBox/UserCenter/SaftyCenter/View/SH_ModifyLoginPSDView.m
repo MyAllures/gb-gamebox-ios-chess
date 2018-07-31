@@ -49,7 +49,7 @@
                     });
                   
                 }else{
-                    if ([code isEqualToString:@"1301"]||[code isEqualToString:@"1308"]||[code isEqualToString:@"1016"]) {
+                    if ([code isEqualToString:@"1301"]||[code isEqualToString:@"1308"]||[code isEqualToString:@"1016"]||[code isEqualToString:@"1311"]) {
                         showMessage(self, [NSString stringWithFormat:@"%@",response[@"message"]], nil);
                     } else {
                         NSString *isOpenCaptcha = [NSString stringWithFormat:@"%@",response[@"data"][@"isOpenCaptcha"]];//是否需要输入验证码

@@ -73,24 +73,28 @@
 @property (nonatomic, strong) NSTimer *keepAliveTimer;
 
 @property (nonatomic, strong) SH_GamesHomeViewController * vc;
+@property (nonatomic, strong) AlertViewController *acr;
 
 @end
 
 @implementation SH_HomeViewController
 
 -(void)viewWillAppear:(BOOL)animated {
-    [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
-        if ([dict[@"code"] isEqualToString:@"0"]) {
-            RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[dict[@"data"] objectForKey:@"user"] error:nil];
-            [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
-        }else{
-            [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
-        }
-    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        //
-        [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
-    }];
+//    [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
+//        NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
+//        if ([dict[@"code"] isEqualToString:@"0"]) {
+//            RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[dict[@"data"] objectForKey:@"user"] error:nil];
+//            [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
+//        }else{
+//            [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
+//        }
+//    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+//        //
+//        [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
+//    }];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:@"" forKey:@"saftyKoken"];
+    [defaults synchronize];
 }
 
 - (void)viewDidLoad {
@@ -107,6 +111,7 @@
 
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didRegistratedSuccessful) name:@"didRegistratedSuccessful" object:nil];
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(logoutAction) name:@"didLogOut" object:nil];
+    [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(close) name:@"close" object:nil];
     if (iPhoneX) {
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(statusBarOrientationChange:)
@@ -233,24 +238,19 @@
 #pragma mark - 登录成功之后 获取用户信息
 
 -(void)autoLoginSuccess:(NSHTTPURLResponse *)httpURLResponse isRegist:(BOOL)isRegist{
-    
-    NSString * setCookie = [httpURLResponse.allHeaderFields objectForKey:@"Set-Cookie"];
-    NSString *cookie;
-    if (isRegist) {
-        NSUInteger startLocation = [setCookie rangeOfString:@"GMT, "].location +4;
-        NSUInteger endLocation = [setCookie rangeOfString:@" rememberMe=deleteMe"].location;
-        NSUInteger lenth = endLocation - startLocation;
-        cookie = [setCookie substringWithRange:NSMakeRange(startLocation, lenth)];
-    }else{
-        cookie = setCookie;
-    }
-    [NetWorkLineMangaer sharedManager].currentCookie = cookie;
+    [[NetWorkLineMangaer sharedManager] configCookieAndSid:httpURLResponse];
+
     [[RH_UserInfoManager  shareUserManager] updateIsLogin:YES];
     [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
         if ([dict[@"code"] isEqualToString:@"0"]) {
-            RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[dict[@"data"] objectForKey:@"user"] error:nil];
-            [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];            
+            NSError *err;
+            NSArray *arr = [SH_BankListModel arrayOfModelsFromDictionaries:response[@"data"][@"bankList"] error:&err];
+            [[RH_UserInfoManager shareUserManager] setBankList:arr];
+            NSError *err2;
+            RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[response[@"data"] objectForKey:@"user"] error:&err2];
+            [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
+
             [self  configUI];
         }else{
              [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
@@ -467,8 +467,7 @@
     __weak typeof(self) weakSelf = self;
 
     [SH_NetWorkService fetchHttpCookie:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        NSString *setCookie = [httpURLResponse.allHeaderFields objectForKey:@"Set-Cookie"];
-        [NetWorkLineMangaer sharedManager].currentCookie = setCookie;
+        [[NetWorkLineMangaer sharedManager] configCookieAndSid:httpURLResponse];
     } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
         if (httpURLResponse.statusCode == 605) {
             [weakSelf showNoAccess];
@@ -538,9 +537,14 @@
     [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
         if ([dict[@"code"] isEqualToString:@"0"]) {
-            RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[dict[@"data"] objectForKey:@"user"] error:nil];
-            NSLog(@"walletBalance==%f",model.walletBalance);
+            NSError *err;
+            NSArray *arr = [SH_BankListModel arrayOfModelsFromDictionaries:response[@"data"][@"bankList"] error:&err];
+            [[RH_UserInfoManager shareUserManager] setBankList:arr];
+            NSError *err2;
+            RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[response[@"data"] objectForKey:@"user"] error:&err2];
             [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
+
+            NSLog(@"walletBalance==%f",model.walletBalance);
             
             [self  configUI];
             weakSelf.suishenFuLiLab.text = [NSString stringWithFormat:@"%.2f",model.walletBalance];
@@ -602,15 +606,19 @@
         return;
     }
     SH_PrifitOutCoinView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_PrifitOutCoinView" owner:nil options:nil].lastObject;
-    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-75 titleImageName:@"title07" alertViewType:AlertViewTypeLong];
-    acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:acr animated:YES completion:nil];
+    self.acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-75 titleImageName:@"title07" alertViewType:AlertViewTypeLong];
+    self.acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    self.acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:self.acr animated:YES completion:nil];
     [SH_NetWorkService getBankInforComplete:^(SH_ProfitModel *model) {
-        [view updateUIWithBalance:model BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:acr Token:model.token];
+        [view updateUIWithBalance:model BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:self.acr Token:model.token];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
+}
+
+-(void) close {
+    [self.acr close];
 }
 
 #pragma mark --- 玩家中心

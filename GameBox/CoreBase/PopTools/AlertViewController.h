@@ -24,7 +24,6 @@ typedef void(^alertViewDismissBlock)(void);
  自定义弹窗
  @param view 自定义的UIView
  @param height 自定义的UIView的高度
- @param width 自定义的UIView的宽度
  @return return value description
  */
 -(instancetype)initAlertView:(UIView*)view

@@ -14,6 +14,7 @@ typedef void(^SHCheckIPSFailed)(void);//所有ip都check失败
 
 @interface LineCheckViewController : SH_BaseViewController
 
+@property (nonatomic, strong) UINavigationController *rootNav;
 
 @end
 

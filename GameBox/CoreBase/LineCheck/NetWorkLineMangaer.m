@@ -37,13 +37,17 @@
     return self;
 }
 
-- (void)setCurrentCookie:(NSString *)currentCookie
+- (void)configCookieAndSid:(NSHTTPURLResponse *)httpURLResponse
 {
-    _currentCookie = currentCookie;
-    if (_currentCookie) {
-        NSArray *setCookieComp = [_currentCookie componentsSeparatedByString:@";"];
-        NSString *sid = [setCookieComp[0] stringByReplacingOccurrencesOfString:@"SID=" withString:@""];
-        self.currentSID = sid;
+    NSArray *cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:httpURLResponse.allHeaderFields forURL:[NSURL URLWithString:httpURLResponse.URL.absoluteString]];
+    for(NSHTTPCookie *cookie in cookies)
+    {
+        if ([cookie.name isEqualToString:@"SID"] && cookie.value.length > 20) {
+            //获取到正确的Cookie和SID
+            self.currentCookie = [NSString stringWithFormat:@"SID=%@; Path=/; HttpOnly",cookie.value];
+            self.currentSID = cookie.value;
+            break;
+        }
     }
 }
 

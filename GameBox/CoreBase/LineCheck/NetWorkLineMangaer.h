@@ -25,4 +25,6 @@
 @property (nonatomic, strong) NSString *currentCookie;
 @property (nonatomic, strong) NSString *currentSID;
 
+- (void)configCookieAndSid:(NSHTTPURLResponse *)httpURLResponse;
+
 @end

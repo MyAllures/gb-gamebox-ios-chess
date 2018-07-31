@@ -205,21 +205,10 @@
 + (void)fetchUserInfo:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
 {
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/userInfoOrigin/getUserInfo.html"];
-    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":([NetWorkLineMangaer sharedManager].currentCookie?[NetWorkLineMangaer sharedManager].currentCookie:@"")};
+    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":([NetWorkLineMangaer sharedManager].currentCookie)};
     [self post:url parameter:nil header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
-            NSDictionary  * result = ConvertToClassPointer(NSDictionary, response);
-            NSString *code = [NSString stringWithFormat:@"%@",result[@"code"]];
-            if ([code isEqualToString:@"0"]) {
-                NSError *err;
-                NSArray *arr = [SH_BankListModel arrayOfModelsFromDictionaries:response[@"data"][@"bankList"] error:&err];
-                [[RH_UserInfoManager shareUserManager] setBankList:arr];
-                NSError *err2;
-                RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[response[@"data"] objectForKey:@"user"] error:&err2];
-                [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
-                complete(httpURLResponse, response);
-            }
-
+            complete(httpURLResponse, response);
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         if (failed) {
