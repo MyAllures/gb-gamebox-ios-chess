@@ -42,21 +42,6 @@
     }
     
     NSInteger itemsNum = [self.dataSource numberOfItemsOfGamesListScrollView:self];
-//    CGFloat calculationW = (itemsNum/2+itemsNum%2)*SH_GAMELIST_ITEM_WIDTH;
-//    CGFloat contentSizeW = calculationW > self.scrollView.frame.size.width ? calculationW : self.scrollView.frame.size.width;
-//
-//    if (calculationW > self.scrollView.frame.size.width) {
-//        self.nextBT.hidden = NO;
-//        self.preBT.hidden = YES;
-//    }
-//    else
-//    {
-//        self.nextBT.hidden = YES;
-//        self.preBT.hidden = YES;
-//    }
-//
-//    self.scrollView.contentSize = CGSizeMake(contentSizeW, self.scrollView.frame.size.height);
-//    [self.scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
 
     BOOL isDzType = NO;
     for (int i = 0; i < itemsNum; i++) {

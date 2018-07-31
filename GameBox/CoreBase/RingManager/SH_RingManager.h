@@ -18,4 +18,7 @@
 - (void)playAlertRing;
 - (void)playErrRing;
 
+- (CGFloat)bgmPlayerVolume;
+- (void)configBgmPlayerVolume:(CGFloat)volume;
+
 @end

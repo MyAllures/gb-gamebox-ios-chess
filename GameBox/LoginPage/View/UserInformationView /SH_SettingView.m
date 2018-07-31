@@ -9,10 +9,19 @@
 #import "SH_SettingView.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
-@interface  SH_SettingView()
+#import "SH_SliderView.h"
+#import "SH_RingManager.h"
 
+@interface  SH_SettingView()
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nonatomic) IBOutlet UILabel *musicLB;
+@property (weak, nonatomic) IBOutlet UILabel *soundEffectLB;
+@property (nonatomic, strong) SH_SliderView *musicSlider;
+@property (nonatomic, strong) SH_SliderView *soundEffectSlider;
 @end
+
 @implementation SH_SettingView
+
 +(instancetype)instanceSettingView{
     return  [[[NSBundle  mainBundle] loadNibNamed:NSStringFromClass([self  class]) owner:nil options:nil] lastObject];
 }
@@ -25,30 +34,47 @@
 */
 -(void)awakeFromNib{
     [super  awakeFromNib];
-//    [self  configSlide];
-}
--(void)configSlide{
-    //寻找建立UISlider;
+    
+    _musicSlider = [[SH_SliderView alloc] init];
+    [self.containerView addSubview:_musicSlider];
+    [_musicSlider mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.musicLB.mas_right).mas_offset(15);
+        make.right.mas_equalTo(-15);
+        make.height.mas_equalTo(30);
+        make.centerY.equalTo(self.musicLB);
+    }];
+    _musicSlider.progress = [[SH_RingManager sharedManager] bgmPlayerVolume];
+    [_musicSlider progressChanging:^(CGFloat progress) {
+        [[SH_RingManager sharedManager] configBgmPlayerVolume:progress];
+    }];
+    
+    
+    MPVolumeView *volumeView = [[MPVolumeView alloc] init];
     UISlider* volumeViewSlider = nil;
-    //设置音量大小
-    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
-    CGFloat currentVol = audioSession.outputVolume;
-    volumeViewSlider.value = currentVol;
-    [volumeViewSlider setThumbImage:[UIImage imageNamed:@"circular_slide"] forState:UIControlStateNormal];
-    volumeViewSlider.minimumTrackTintColor = [UIColor colorWithHexStr:@"0x88CE2E"];
-    volumeViewSlider.maximumTrackTintColor = [UIColor colorWithHexStr:@"0x136D6B"];
-}
--(UIImage *)OriginImage:(UIImage *)image scaleToSize:(CGSize)size
-{
-    UIGraphicsBeginImageContext(size);
-    [image drawInRect:CGRectMake(0,0, size.width, size.height)];
-    UIImage *scaleImage=UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return scaleImage;
-}
-- (IBAction)changeSlideValue:(UISlider *)sender {
-    if (sender.tag==100) {
-        
+    for (UIView *view in [volumeView subviews]){
+        if ([view.class.description isEqualToString:@"MPVolumeSlider"]){
+            volumeViewSlider = (UISlider*)view;
+            break;
+        }
     }
+    _soundEffectSlider = [[SH_SliderView alloc] init];
+    [self.containerView addSubview:_soundEffectSlider];
+    [_soundEffectSlider mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.soundEffectLB.mas_right).mas_offset(15);
+        make.right.mas_equalTo(-15);
+        make.height.mas_equalTo(30);
+        make.centerY.equalTo(self.soundEffectLB);
+    }];
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    _soundEffectSlider.progress = audioSession.outputVolume;
+    [_soundEffectSlider progressChanging:^(CGFloat progress) {
+        // retrieve system volumefloat systemVolume = volumeViewSlider.value;
+        // change system volume, the value is between 0.0f and 1.0f
+        [volumeViewSlider setValue:progress animated:NO];
+        // send UI control event to make the change effect right now.
+        [volumeViewSlider sendActionsForControlEvents:UIControlEventTouchUpInside];
+    }];
+
 }
+
 @end

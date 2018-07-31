@@ -12,7 +12,6 @@
 
 +(instancetype)snowCellWithCellImg:(NSString *)cellImg andRadious:(CGFloat)radious andVelocity:(CGFloat)velocity andDirection:(YFEmitterParticleCellDirection)direction
 {
-    NSLog(@"snowCellWithCellImg ");
     NSString * const snowPic = @"snow.png";//雪花图片样式
     
     YFEmitterSnowCell *cell=[[self alloc] init];

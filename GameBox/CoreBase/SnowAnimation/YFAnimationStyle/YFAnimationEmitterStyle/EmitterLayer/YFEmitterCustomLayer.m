@@ -69,8 +69,6 @@
 
 +(void)snowLayerInView:(UIView *)view atPosition:(CGPoint)position andDirection:(YFEmitterParticleCellDirection)direction andRadious:(CGFloat)radious andCellImg:(NSString *)cellImg
 {
-    NSLog(@"调用了 - snowLayerInView");
-
     //创建雪花所在图层layer
     YFEmitterCustomLayer *snowLayer=[self addCustomLayerInView:view atPosition:position inSize:CGSizeMake(view.frame.size.width, view.frame.size.height)];
     
@@ -83,7 +81,6 @@
 
 +(void)addSnowLayerInView:(UIView *)view
 {
-    NSLog(@"调用了 - addSnowLayerInView");
     //雪花粒子所在view,发射雪花的位置,雪花飘向的方向,雪花粒子半径,雪花粒子图片
     [YFEmitterCustomLayer snowLayerInView:view atPosition:CGPointMake(-60,-20) andDirection:YFEmitterParticleCellDirectionToBottom andRadious:19 andCellImg:nil];
     

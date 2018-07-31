@@ -96,8 +96,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self.searchTF addTarget:self action:@selector(searchingTextChange:) forControlEvents:UIControlEventEditingChanged];
-
+    [self configSearchTF];
     [self dealTimeZone];
     [self fetchCookie];
     [self initAdScroll];
@@ -116,6 +115,20 @@
     }
     [self  configUI];
     [self  autoLoginIsRegist:false];
+}
+
+- (void)configSearchTF
+{
+    NSString *holderText = @"搜索游戏";
+    NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:holderText];
+    [placeholder addAttribute:NSForegroundColorAttributeName
+                        value:colorWithRGB(170, 170, 170)
+                        range:NSMakeRange(0, holderText.length)];
+    [placeholder addAttribute:NSFontAttributeName
+                        value:[UIFont boldSystemFontOfSize:12]
+                        range:NSMakeRange(0, holderText.length)];
+    self.searchTF.attributedPlaceholder = placeholder;
+    [self.searchTF addTarget:self action:@selector(searchingTextChange:) forControlEvents:UIControlEventEditingChanged];
 }
 
 - (void)searchingTextChange:(UITextField *)textField
@@ -160,27 +173,14 @@
     [self.keepAliveTimer invalidate];
     self.keepAliveTimer = nil;
 
-    self.keepAliveTimer = [NSTimer timerWithTimeInterval:5 target:self selector:@selector(refreshUserSessin) userInfo:nil repeats:YES];
+    //每五分钟调用一次保活
+    self.keepAliveTimer = [NSTimer timerWithTimeInterval:5*60 target:self selector:@selector(refreshUserSessin) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self.keepAliveTimer forMode:NSDefaultRunLoopMode];
-    [self.keepAliveTimer fire];
 }
 
 - (void)refreshUserSessin
 {
     [SH_NetWorkService refreshUserSessin:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        NSString *code = response[@"code"];
-        if ([code isEqualToString:@"1001"]) {
-            [[NSNotificationCenter  defaultCenter] postNotificationName:@"didLogOut" object:nil];
-            for (UIViewController *vc in self.navigationController.viewControllers) {
-                if(vc.presentedViewController) {
-                    [vc dismissViewControllerAnimated:NO completion:nil];
-                }
-            }
-            showMessage(self.view, @"", @"您的账号在另外一台设备登录");
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [self login];
-            });
-        }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         //
     }];
