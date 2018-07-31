@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SH_BaseViewController.h"
 
-@interface SH_PromoWindowViewController : UIViewController
+@interface SH_PromoWindowViewController : SH_BaseViewController
 
 @end
