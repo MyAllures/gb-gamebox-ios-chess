@@ -64,7 +64,7 @@
                    Success:(SHNetWorkComplete)success
                       failed:(SHNetWorkFailed)failed{
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/recovery.html"];
-    NSDictionary *header = @{@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
+    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
     NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
     [param setValue:apiId forKey:@"search.apiId"];
     [self post:url parameter:param header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {

@@ -154,7 +154,7 @@
     [dict setObject:jsonString forKey:@"requiredJson"];
    
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/registerOrigin/save.html"];
-    NSDictionary  * header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost};
+    NSDictionary  * header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
     [self post:url parameter:dict header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse, response);
