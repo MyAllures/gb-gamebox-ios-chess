@@ -23,6 +23,15 @@
         code == SH_API_ERRORCODE_SESSION_TAKEOUT ||
         code == SH_API_ERRORCODE_USER_NERVER_LOGIN) {
         
+        id topVC = [self fetchTopLevelController];
+
+        if ([topVC isMemberOfClass:[AlertViewController class]]) {
+            NSString *title = ((AlertViewController *)topVC).imageName;
+            if ([title isEqualToString:@"title01"]) {
+                //已经展示了登录页面 则不再展示
+                return;
+            };
+        }
         //先调用退出通知
         [[NSNotificationCenter  defaultCenter] postNotificationName:@"didLogOut" object:nil];
 
@@ -38,7 +47,6 @@
             [cvc setImageName:string];
         };
         
-        UIViewController *topVC = [self fetchTopLevelController];
         [topVC presentViewController:cvc animated:NO completion:nil];
     }
 }

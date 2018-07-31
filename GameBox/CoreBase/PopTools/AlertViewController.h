@@ -16,7 +16,7 @@ typedef NS_ENUM(NSUInteger ,AlertViewType){
 typedef void(^alertViewDismissBlock)(void);
 @interface AlertViewController : SH_BaseViewController
 @property(nonatomic,copy)NSString * subTitle;
-@property(nonatomic,copy,readonly)NSString * imageName;
+@property(nonatomic,strong)NSString * imageName;
 @property(nonatomic,copy)alertViewDismissBlock dismissBlock;
 @property (weak, nonatomic) IBOutlet UIView *animationView;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
@@ -31,5 +31,4 @@ typedef void(^alertViewDismissBlock)(void);
               titleImageName:(NSString*)imageName
                alertViewType:(AlertViewType)type;
 -(void)close;
--(void)setImageName:(NSString *)imageName;
 @end

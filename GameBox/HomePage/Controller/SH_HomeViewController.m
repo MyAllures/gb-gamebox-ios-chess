@@ -479,8 +479,6 @@
 #pragma mark - 用户登录
 
 -(void)login{
-    __weak typeof(self) weakSelf = self;
-
     SH_LoginView *login = [SH_LoginView InstanceLoginView];
     AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title01" alertViewType:AlertViewTypeLong];
     login.targetVC = cvc;
