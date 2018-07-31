@@ -10,9 +10,6 @@
 
 @interface SH_HttpErrManager : NSObject
 
-+ (instancetype)sharedManager;
-+ (UIViewController *)fetchTopLevelController;
-
-- (void)dealWithErrCode:(int)code;
++ (void)dealWithErrCode:(int)code;
 
 @end

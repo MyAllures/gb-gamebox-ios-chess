@@ -117,15 +117,37 @@ static AFHTTPSessionManager *sharedManager = nil;
     }
     
     [manager GET:url parameters:mParameter progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        if (complete) {
-            id response = [weakSelf translateResponseData:responseObject];
-            if (cache)
-            {
-                //如果需要缓存 则缓存数据
-                [[SH_CacheManager shareManager] cacheResponseObject:responseObject requestUrl:url params:parameter];
+        id response = [weakSelf translateResponseData:responseObject];
+        //先做code判断看是否需要做特点错误码的统一回调
+        if ([response isMemberOfClass:[NSDictionary class]]) {
+            if ([[response allKeys] containsObject:@"code"]) {
+                int code = [response[@"code"] intValue];
+                if (code == SH_API_ERRORCODE_SESSION_EXPIRED ||
+                    code == SH_API_ERRORCODE_SESSION_TAKEOUT ||
+                    code == SH_API_ERRORCODE_USER_NERVER_LOGIN) {
+                    //session过期
+                    //被强制踢出
+                    //未登录
+                    //统一处理
+                    [SH_HttpErrManager dealWithErrCode:code];
+                    if (failed) {
+                        failed((NSHTTPURLResponse *)task.response, @"");
+                    }
+                }
+                else
+                {
+                    //不是以上特定的错误
+                    //才会缓存responseObject
+                    if (cache)
+                    {
+                        //如果需要缓存 则缓存数据
+                        [[SH_CacheManager shareManager] cacheResponseObject:responseObject requestUrl:url params:parameter];
+                    }
+                    if (complete) {
+                        complete((NSHTTPURLResponse *)task.response, response);
+                    }
+                }
             }
-
-            complete((NSHTTPURLResponse *)task.response, response);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (failed) {
@@ -239,37 +261,38 @@ static AFHTTPSessionManager *sharedManager = nil;
     }
 
     [manager POST:url parameters:mParameter progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        if (complete) {
-            id response = [weakSelf translateResponseData:responseObject];
-            //先做code判断看是否需要做特点错误码的统一回调
-            if ([response isMemberOfClass:[NSDictionary class]]) {
-                if ([[response allKeys] containsObject:@"code"]) {
-                    int code = [response[@"code"] intValue];
-                    if (code == SH_API_ERRORCODE_SESSION_EXPIRED ||
-                        code == SH_API_ERRORCODE_SESSION_TAKEOUT ||
-                        code == SH_API_ERRORCODE_USER_NERVER_LOGIN) {
-                        //session过期
-                        //被强制踢出
-                        //未登录
-                        //统一处理
-                        [[SH_HttpErrManager sharedManager] dealWithErrCode:code];
-                    }
-                    else
-                    {
-                        //不是以上特定的错误
-                        //才会缓存responseObject
-                        if (cache)
-                        {
-                            //如果需要缓存 则缓存数据
-                            [[SH_CacheManager shareManager] cacheResponseObject:responseObject requestUrl:url params:parameter];
-                        }
+        id response = [weakSelf translateResponseData:responseObject];
+        //先做code判断看是否需要做特点错误码的统一回调
+        if ([response isMemberOfClass:[NSDictionary class]]) {
+            if ([[response allKeys] containsObject:@"code"]) {
+                int code = [response[@"code"] intValue];
+                if (code == SH_API_ERRORCODE_SESSION_EXPIRED ||
+                    code == SH_API_ERRORCODE_SESSION_TAKEOUT ||
+                    code == SH_API_ERRORCODE_USER_NERVER_LOGIN) {
+                    //session过期
+                    //被强制踢出
+                    //未登录
+                    //统一处理
+                    [SH_HttpErrManager dealWithErrCode:code];
+                    if (failed) {
+                        failed((NSHTTPURLResponse *)task.response, @"");
                     }
                 }
-                
+                else
+                {
+                    //不是以上特定的错误
+                    //才会缓存responseObject
+                    if (cache)
+                    {
+                        //如果需要缓存 则缓存数据
+                        [[SH_CacheManager shareManager] cacheResponseObject:responseObject requestUrl:url params:parameter];
+                    }
+                    
+                    if (complete) {
+                        complete((NSHTTPURLResponse *)task.response, response);
+                    }
+                }
             }
-            
-            
-            complete((NSHTTPURLResponse *)task.response, response);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (failed) {
