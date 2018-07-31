@@ -84,7 +84,6 @@
         if ([dict[@"code"] isEqualToString:@"0"]) {
             RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[dict[@"data"] objectForKey:@"user"] error:nil];
             [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
-            [self  configUI];
         }else{
             [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
         }
