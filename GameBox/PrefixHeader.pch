@@ -50,5 +50,6 @@
 #import "SH_WebPImageView.h"
 #import "SH_WebPButton.h"
 #import "SH_NetWorkService_FindPsw.h"
+#import "SH_ERRCodeMacro.h"
 
 #endif /* PrefixHeader_pch */

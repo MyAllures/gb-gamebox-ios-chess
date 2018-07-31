@@ -110,6 +110,7 @@
     [[YFAnimationManager shareInstancetype] showAnimationInView:self.snowBGImg withAnimationStyle:YFAnimationStyleOfSnow];
 
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didRegistratedSuccessful) name:@"didRegistratedSuccessful" object:nil];
+    [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didLoginSuccess) name:@"SH_LOGIN_SUCCESS" object:nil];
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(logoutAction) name:@"didLogOut" object:nil];
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(close) name:@"close" object:nil];
     if (iPhoneX) {
@@ -491,10 +492,7 @@
       [cvc setImageName:string];
         
     };
-    login.loginSuccessBlock = ^{
-        //登录成功后每5分钟调用一次保活接口
-        [weakSelf keepAlive];
-    };
+    
     [self presentViewController:cvc addTargetViewController:self];
 }
 
@@ -797,6 +795,12 @@
 
 -(void)didRegistratedSuccessful{
     [self  autoLoginIsRegist:YES];
+}
+
+- (void)didLoginSuccess
+{
+    //登录成功后每5分钟调用一次保活接口
+    [self keepAlive];
 }
 
 #pragma mark - SH_CycleScrollViewDataSource

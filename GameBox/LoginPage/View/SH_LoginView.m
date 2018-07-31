@@ -53,6 +53,11 @@
 @end
 @implementation SH_LoginView
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark -- Create  SH_LoginView
 +(instancetype)InstanceLoginView{
     return  [[[NSBundle  mainBundle] loadNibNamed:NSStringFromClass([self  class]) owner:nil options:nil] lastObject];
@@ -289,14 +294,13 @@
             [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
 
             showMessage(window, @"登录成功", nil);
-            if (self.loginSuccessBlock) {
-                self.loginSuccessBlock();
-            }
+            
             [[RH_UserInfoManager  shareUserManager] updateIsLogin:YES];
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             [defaults setObject:self.account_textField.text forKey:@"account"];
             [defaults setObject:self.password_textField.text forKey:@"password"];
             [defaults synchronize];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"SH_LOGIN_SUCCESS" object:nil];
             if (self.dismissBlock) {
                 self.dismissBlock();
             }

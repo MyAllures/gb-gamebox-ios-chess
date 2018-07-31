@@ -634,6 +634,7 @@
 		54C8763F2100BFA000AA0594 /* SH_PromoDeatilViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoDeatilViewController.h; sourceTree = "<group>"; };
 		54C876402100BFA000AA0594 /* SH_PromoDeatilViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoDeatilViewController.m; sourceTree = "<group>"; };
 		54C876412100BFA000AA0594 /* SH_PromoDeatilViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PromoDeatilViewController.xib; sourceTree = "<group>"; };
+		54CB4E3F21104C4000170B1B /* SH_ERRCodeMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ERRCodeMacro.h; sourceTree = "<group>"; };
 		54D5F573210816A900439A94 /* column_bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = column_bg.webp; sourceTree = "<group>"; };
 		54D5F57621081C5300439A94 /* SH_XibView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_XibView.h; sourceTree = "<group>"; };
 		54D5F57721081C5300439A94 /* SH_XibView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_XibView.m; sourceTree = "<group>"; };
@@ -1669,6 +1670,7 @@
 			isa = PBXGroup;
 			children = (
 				BF44EC5420F4554000BC6EF3 /* UIMacro.h */,
+				54CB4E3F21104C4000170B1B /* SH_ERRCodeMacro.h */,
 			);
 			path = Macro;
 			sourceTree = "<group>";

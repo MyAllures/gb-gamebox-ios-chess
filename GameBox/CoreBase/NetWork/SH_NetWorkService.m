@@ -12,11 +12,6 @@
 #import "SH_CacheManager.h"
 #import "SH_HttpErrManager.h"
 
-//错误码定义
-#define SH_API_ERRORCODE_SESSION_EXPIRED         600   //session 过期
-#define SH_API_ERRORCODE_SESSION_TAKEOUT         606   //被强制踢出
-#define SH_API_ERRORCODE_USER_NERVER_LOGIN       1001  //未登录
-
 //其他宏配置
 #define SH_DEFAULT_NETWORK_TIMEOUT 15.0f //默认的超时秒数
 #define SH_MAX_NETWORK_CONCURRENT 10 //最大http并发数
