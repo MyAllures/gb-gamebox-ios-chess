@@ -8,6 +8,7 @@
 
 #import "SH_ConfirSaftyPassWordView.h"
 #import "SH_NetWorkService+Profit.h"
+#import "AlertViewController.h"
 
 @interface SH_ConfirSaftyPassWordView()
 @property (weak, nonatomic) IBOutlet UITextField *pswTF;
@@ -21,6 +22,11 @@
     if (self.pswTF.text.length == 0) {
         showMessage(self, @"请输入密码", nil);
     }else{
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *saftyKoken = [defaults objectForKey:@"saftyKoken"];
+        if (saftyKoken.length > 0) {
+            self.token = saftyKoken;
+        }
         [SH_NetWorkService sureOutCoinMoney:self.money SaftyPWD:self.pswTF.text Token:self.token Way:@"1" Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
             showMessage(self, [NSString stringWithFormat:@"%@",response[@"message"]], nil);
             NSDictionary *dic = ConvertToClassPointer(NSDictionary, response);
@@ -31,11 +37,19 @@
                     UIViewController *vc = self.targetVC;
                     while (vc.presentingViewController) {
                         vc = vc.presentingViewController;
+                        if ([vc isKindOfClass:[AlertViewController class]]) {
+                            self.targetVC = vc;
+                            [self.targetVC dismissViewControllerAnimated:NO completion:nil];
+                        } else{
+                            [[NSNotificationCenter defaultCenter] postNotificationName:@"close" object:nil];
+                        }
                     }
-                    [vc dismissViewControllerAnimated:NO completion:nil];
                 });
             } else {
                 self.token = dic[@"data"][@"token"];
+                NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                [defaults setObject:self.token forKey:@"saftyKoken"];
+                [defaults synchronize];
             }
         } Failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             

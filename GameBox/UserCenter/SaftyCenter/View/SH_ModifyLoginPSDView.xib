@@ -117,7 +117,7 @@
                     </constraints>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                    <textInputTraits key="textInputTraits"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -178,7 +178,7 @@
                 <outlet property="verificationLab" destination="FyI-DG-seg" id="0Fl-w3-BHd"/>
                 <outlet property="verificationTF" destination="Mwz-mR-0ic" id="FKY-aS-XoY"/>
             </connections>
-            <point key="canvasLocation" x="75" y="19"/>
+            <point key="canvasLocation" x="-107" y="15"/>
         </view>
     </objects>
 </document>
