@@ -74,7 +74,7 @@
             <connections>
                 <outlet property="detailLB" destination="0fd-Uk-grd" id="DrE-r2-grr"/>
             </connections>
-            <point key="canvasLocation" x="41" y="-145.5"/>
+            <point key="canvasLocation" x="-125" y="-94"/>
         </view>
     </objects>
 </document>

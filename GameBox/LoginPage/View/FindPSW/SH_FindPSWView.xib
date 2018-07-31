@@ -84,7 +84,7 @@
             <connections>
                 <outlet property="realNameTV" destination="C8V-mM-hkg" id="LVf-3D-d8d"/>
             </connections>
-            <point key="canvasLocation" x="-324" y="-39.5"/>
+            <point key="canvasLocation" x="-123" y="-110"/>
         </view>
     </objects>
 </document>
