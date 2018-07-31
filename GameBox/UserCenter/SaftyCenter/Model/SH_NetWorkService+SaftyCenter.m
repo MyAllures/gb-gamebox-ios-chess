@@ -15,7 +15,7 @@
               Success:(SHNetWorkComplete)success
                  Fail:(SHNetWorkFailed)fail{
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/updateLoginPassword.html"];
-    NSDictionary *header = @{@"X-Requested-With":@"XMLHttpRequest",@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost};
+    NSDictionary *header = @{@"X-Requested-With":@"XMLHttpRequest",@"Host":[NetWorkLineMangaer sharedManager].currentHost};
     NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
     [param setValue:password forKey:@"password"];
     [param setValue:newPassword forKey:@"newPassword"];
@@ -37,7 +37,7 @@
                     Success:(SHNetWorkComplete)success
                        Fail:(SHNetWorkFailed)fail{
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/userInfoOrigin/submitBankCard.html"];
-    NSDictionary *header = @{@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
+    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,};
     NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
     [param setValue:realName forKey:@"result.bankcardMasterName"];
     [param setValue:bankName forKey:@"result.bankName"];
@@ -56,7 +56,7 @@
 +(void)initUserSaftyInfoSuccess:(SHNetWorkComplete)success
                            Fail:(SHNetWorkFailed)fail{
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/initSafePassword.html"];
-    NSDictionary *header = @{@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
+    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,};
     [self post:url parameter:[NSDictionary dictionary] header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (success) {
             success(httpURLResponse,response);
@@ -77,7 +77,7 @@
                            Fail:(SHNetWorkFailed)fail{
     
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/updateSafePassword.html"];
-    NSDictionary *header = @{@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
+    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,};
     NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
     [param setValue:realName forKey:@"realName"];
     [param setValue:originPwd forKey:@"originPwd"];
@@ -98,7 +98,7 @@
 +(void)getSaftyVericationCodeSuccess:(SHNetWorkComplete)success
                                 Fail:(SHNetWorkFailed)fail{
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/captcha/securityPwd.html"];
-    NSDictionary *header = @{@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
+    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,};
     NSTimeInterval timeInterval = [[NSDate date] timeIntervalSince1970] ;
     NSString *timeStr = [NSString stringWithFormat:@"%.0f",timeInterval*1000] ;
     [self post:url parameter:@{@"_t":timeStr} header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
@@ -114,7 +114,7 @@
 +(void)getUserPhoneInfoSuccess:(SHNetWorkComplete)success
                           Fail:(SHNetWorkFailed)fail{
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/getUserPhone.html"];
-    NSDictionary *header = @{@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
+    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,};
     [self post:url parameter:[NSDictionary dictionary] header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (success) {
             success(httpURLResponse,response);
@@ -129,7 +129,7 @@
                     Success:(SHNetWorkComplete)success
                        Fail:(SHNetWorkFailed)fail{
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/origin/sendPhoneCode.html"];
-    NSDictionary *header = @{@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
+    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,};
     NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
     [param setValue:phoneNum forKey:@"phone"];
     [self post:url parameter:param header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
@@ -149,7 +149,7 @@
             Success:(SHNetWorkComplete)success
                Fail:(SHNetWorkFailed)fail{
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/updateUserPhone.html"];
-    NSDictionary *header = @{@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
+    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,};
     NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
     [param setValue:phoneNum forKey:@"search.contactValue"];
     [param setValue:originalPhoneNum forKey:@"oldPhone"];
@@ -168,7 +168,7 @@
 +(void)oneKeyRefreshSuccess:(SHNetWorkComplete)success
                        Fail:(SHNetWorkFailed)fail{
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/userInfoOrigin/refresh.html"];
-    NSDictionary *header = @{@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost};
+    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost};
     [self post:url parameter:[NSDictionary dictionary] header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (success) {
             success(httpURLResponse,response);
@@ -183,7 +183,7 @@
                       Success:(SHNetWorkComplete)success
                          Fail:(SHNetWorkFailed)fail{
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/recovery.html"];
-    NSDictionary *header = @{@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost,@"Cookie":[NetWorkLineMangaer sharedManager].currentCookie};
+    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,};
     NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
     [param setValue:searchId forKey:@"search.apiId"];
     [self post:url parameter:param header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {

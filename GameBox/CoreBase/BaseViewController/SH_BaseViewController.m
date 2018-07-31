@@ -8,6 +8,7 @@
 
 #import "SH_BaseViewController.h"
 #import "AppDelegate.h"
+#import "LineCheckViewController.h"
 
 @interface SH_BaseViewController ()
 
@@ -42,17 +43,28 @@
 {
     [super viewWillDisappear:animated];
     
-    //如果是竖屏 则退出时强制为横屏
-    UIInterfaceOrientationMask mask = [self orientation];
-    if (mask == UIInterfaceOrientationMaskPortrait || mask == UIInterfaceOrientationMaskAll)
-    {
-        [self forceOrientationLandscape];
-    }
+//    //如果是竖屏 则退出时强制为横屏
+//    UIInterfaceOrientationMask mask = [self orientation];
+//    if (mask == UIInterfaceOrientationMaskPortrait || mask == UIInterfaceOrientationMaskAll)
+//    {
+//        [self forceOrientationLandscape];
+//    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+    SH_BaseViewController *topVC = (SH_BaseViewController *)[self fetchTopLevelController];
+    
+    if ([topVC orientation] == UIInterfaceOrientationMaskLandscape) {
+        //如果是竖屏 则退出时强制为横屏
+        UIInterfaceOrientationMask mask = [self orientation];
+        if (mask == UIInterfaceOrientationMaskPortrait || mask == UIInterfaceOrientationMaskAll)
+        {
+            [self forceOrientationLandscape];
+        }
+
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -153,4 +165,34 @@
     [appdelegate application:[UIApplication sharedApplication] supportedInterfaceOrientationsForWindow:self.view.window];
 }
 
+//获取顶层视图控制器
+- (UIViewController *)fetchTopLevelController
+{
+    UINavigationController *rootViewController = (UINavigationController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+    LineCheckViewController *lineCheckViewController = (LineCheckViewController *)rootViewController.presentedViewController;
+    //取到顶层navigation控制器
+    UIViewController *topNavController = [lineCheckViewController.rootNav.viewControllers lastObject];
+    if (topNavController.presentedViewController) {
+        //如果顶层nav有present的控制器
+        //则取顶层present控制器
+        UIViewController *topPresentedViewController = [self fetchTopLevelPresentedController:topNavController.presentedViewController];
+        return topPresentedViewController;
+    }
+    else
+    {
+        return topNavController;
+    }
+}
+
+//递归查找顶层present控制器
+- (UIViewController *)fetchTopLevelPresentedController:(UIViewController *)rootVC
+{
+    if (rootVC.presentedViewController) {
+        return [self fetchTopLevelPresentedController:rootVC.presentedViewController];
+    }
+    else
+    {
+        return rootVC;
+    }
+}
 @end

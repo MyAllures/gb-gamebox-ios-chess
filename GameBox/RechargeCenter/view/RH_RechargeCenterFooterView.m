@@ -9,6 +9,8 @@
 #import "RH_RechargeCenterFooterView.h"
 #import "THScrollChooseView.h"
 #import "TTTAttributedLabel.h"
+#import "SH_CustomerServiceManager.h"
+
 @interface RH_RechargeCenterFooterView()<TTTAttributedLabelDelegate, UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UILabel *chooseBkLab;
@@ -168,6 +170,7 @@
 #pragma mark - TTTAttributedLabelDelegate
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url
 {
+    [[SH_CustomerServiceManager sharedManager] open];
     NSLog(@"点击联系在线客服");
 }
 #pragma mark --- UITextViewDelegate

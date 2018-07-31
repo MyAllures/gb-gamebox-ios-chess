@@ -181,6 +181,8 @@
 		54C8763D2100B04300AA0594 /* SH_HorizontalscreenPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8763A2100B04300AA0594 /* SH_HorizontalscreenPicker.m */; };
 		54C876422100BFA000AA0594 /* SH_PromoDeatilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C876402100BFA000AA0594 /* SH_PromoDeatilViewController.m */; };
 		54C876432100BFA000AA0594 /* SH_PromoDeatilViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C876412100BFA000AA0594 /* SH_PromoDeatilViewController.xib */; };
+		54CB4E4421107CED00170B1B /* SH_CustomerServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 54CB4E4321107CED00170B1B /* SH_CustomerServiceManager.m */; };
+		54CB4E47211088BD00170B1B /* SH_CustomerServiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54CB4E46211088BD00170B1B /* SH_CustomerServiceView.m */; };
 		54D5F574210816AA00439A94 /* column_bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54D5F573210816A900439A94 /* column_bg.webp */; };
 		54D5F57821081C5300439A94 /* SH_XibView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D5F57721081C5300439A94 /* SH_XibView.m */; };
 		54DD033721085A9100CE9199 /* SH_PromoWindowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DD033521085A9100CE9199 /* SH_PromoWindowViewController.m */; };
@@ -634,6 +636,11 @@
 		54C8763F2100BFA000AA0594 /* SH_PromoDeatilViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoDeatilViewController.h; sourceTree = "<group>"; };
 		54C876402100BFA000AA0594 /* SH_PromoDeatilViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoDeatilViewController.m; sourceTree = "<group>"; };
 		54C876412100BFA000AA0594 /* SH_PromoDeatilViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PromoDeatilViewController.xib; sourceTree = "<group>"; };
+		54CB4E3F21104C4000170B1B /* SH_ERRCodeMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ERRCodeMacro.h; sourceTree = "<group>"; };
+		54CB4E4221107CED00170B1B /* SH_CustomerServiceManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_CustomerServiceManager.h; sourceTree = "<group>"; };
+		54CB4E4321107CED00170B1B /* SH_CustomerServiceManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_CustomerServiceManager.m; sourceTree = "<group>"; };
+		54CB4E45211088BD00170B1B /* SH_CustomerServiceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_CustomerServiceView.h; sourceTree = "<group>"; };
+		54CB4E46211088BD00170B1B /* SH_CustomerServiceView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_CustomerServiceView.m; sourceTree = "<group>"; };
 		54D5F573210816A900439A94 /* column_bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = column_bg.webp; sourceTree = "<group>"; };
 		54D5F57621081C5300439A94 /* SH_XibView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_XibView.h; sourceTree = "<group>"; };
 		54D5F57721081C5300439A94 /* SH_XibView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_XibView.m; sourceTree = "<group>"; };
@@ -1185,6 +1192,8 @@
 				54C875AA20F84BFF00AA0594 /* SH_GameItemModel.m */,
 				54C875BB20FC4B0B00AA0594 /* SH_AnnouncementModel.h */,
 				54C875BC20FC4B0B00AA0594 /* SH_AnnouncementModel.m */,
+				54CB4E4221107CED00170B1B /* SH_CustomerServiceManager.h */,
+				54CB4E4321107CED00170B1B /* SH_CustomerServiceManager.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1213,6 +1222,8 @@
 				54E2483A210D6DE2005C5263 /* SH_WaitingView.h */,
 				54E2483B210D6DE2005C5263 /* SH_WaitingView.m */,
 				54E2483D210D6DFB005C5263 /* SH_WaitingView.xib */,
+				54CB4E45211088BD00170B1B /* SH_CustomerServiceView.h */,
+				54CB4E46211088BD00170B1B /* SH_CustomerServiceView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1669,6 +1680,7 @@
 			isa = PBXGroup;
 			children = (
 				BF44EC5420F4554000BC6EF3 /* UIMacro.h */,
+				54CB4E3F21104C4000170B1B /* SH_ERRCodeMacro.h */,
 			);
 			path = Macro;
 			sourceTree = "<group>";
@@ -2548,11 +2560,13 @@
 				2274222120FE03BB003529FF /* SH_PromoListView.m in Sources */,
 				425A90C320F88746004B681A /* UIView+HLExtension.m in Sources */,
 				DA21F3AF20F6FCD000D20672 /* RH_RegistrationSelectView.m in Sources */,
+				54CB4E4421107CED00170B1B /* SH_CustomerServiceManager.m in Sources */,
 				DA21F38D20F590A800D20672 /* RH_RegisetInitModel.m in Sources */,
 				BFA068A320FCBF1700F5ADFE /* SH_AuditMapModel.m in Sources */,
 				BFA068A620FCC0CF00F5ADFE /* SH_NetWorkService+Profit.m in Sources */,
 				DA22F3CC20F44F610058A54F /* CLNetReachability.m in Sources */,
 				22618C62210963F700E4A6F6 /* SH_WelfareNotesView.m in Sources */,
+				54CB4E47211088BD00170B1B /* SH_CustomerServiceView.m in Sources */,
 				54C875C320FC846200AA0594 /* SH_AnnouncementView.m in Sources */,
 				BF44ECC920F4D6BE00BC6EF3 /* SH_RechargeDetailMainSubmitView.m in Sources */,
 				22552CF120F4E0BB0090EFBC /* SH_PromoListModel.m in Sources */,
@@ -2879,7 +2893,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.GameBox;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid18;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2899,7 +2913,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.GameBox;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid18;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

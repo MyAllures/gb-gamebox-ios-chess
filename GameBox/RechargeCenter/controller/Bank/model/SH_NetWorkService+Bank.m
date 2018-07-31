@@ -18,7 +18,7 @@
                               Complete:(SHNetWorkComplete)complete
                                 failed:(SHNetWorkFailed)failed{
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/depositOrigin/companyPay.html"];
-    NSDictionary *header = @{@"X-Requested-With":@"XMLHttpRequest",@"User-Agent":@"app_ios, iPhone",@"Host":[NetWorkLineMangaer sharedManager].currentHost};
+    NSDictionary *header = @{@"X-Requested-With":@"XMLHttpRequest",@"Host":[NetWorkLineMangaer sharedManager].currentHost};
     NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
     [param setValue:amount forKey:@"result.rechargeAmount"];
     [param setValue:rechargeType forKey:@"result.rechargeType"];

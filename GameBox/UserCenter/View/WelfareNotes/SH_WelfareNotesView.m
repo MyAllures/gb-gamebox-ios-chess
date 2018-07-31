@@ -11,6 +11,7 @@
 #import "HLPopTableView.h"
 #import "SH_NetWorkService+UserCenter.h"
 #import "SH_FundListModel.h"
+#import "SH_WaitingView.h"
 
 @interface SH_WelfareNotesView() <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -186,7 +187,7 @@
 -(void)requestData:(NSString *)startTimeStr endTimeStr:(NSString *)endTimeStr searchType:(NSString *)searchType
 {
     [self.dataArr removeAllObjects];
-    [MBProgressHUD showHUDAddedTo:self animated:YES];
+    [SH_WaitingView showOn:self];
     [SH_NetWorkService fetchDepositList:startTimeStr EndDate:endTimeStr SearchType:searchType PageNumber:1 PageSize:5000 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dict = (NSDictionary *)response;
         NSLog(@"dict===%@",dict);
@@ -200,21 +201,21 @@
                     SH_FundListModel *model = [[SH_FundListModel alloc]initWithDictionary:dict1 error:nil];
                     [self.dataArr addObject:model];
                     [self.tableView reloadData];
-                    [MBProgressHUD hideHUDForView:self animated:YES];
+                    [SH_WaitingView hide:self];
                 }
             } else {
                 [self.tableView reloadData];
-                [MBProgressHUD hideHUDForView:self animated:YES];
+                [SH_WaitingView hide:self];
             }
             
         } else {
             showMessage(self, @"", dict[@"message"]);
-            [MBProgressHUD hideHUDForView:self animated:YES];
+            [SH_WaitingView hide:self];
         }
         
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         showMessage(self, @"", err);
-        [MBProgressHUD hideHUDForView:self animated:YES];
+        [SH_WaitingView hide:self];
     }];
 }
 

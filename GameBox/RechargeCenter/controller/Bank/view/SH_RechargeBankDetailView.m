@@ -9,6 +9,8 @@
 #import "SH_RechargeBankDetailView.h"
 #import "SH_RechargeDetailBankView.h"
 #import "TTTAttributedLabel.h"
+#import "SH_CustomerServiceManager.h"
+
 @interface SH_RechargeBankDetailView()<SH_RechargeDetailBankViewDelegate,TTTAttributedLabelDelegate>
 @property(nonatomic,strong)SH_RechargeDetailBankView *headView;
 @property(nonatomic,strong)UILabel *bottomLab;
@@ -111,6 +113,7 @@
 #pragma mark - TTTAttributedLabelDelegate
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url
 {
+    [[SH_CustomerServiceManager sharedManager] open];
     NSLog(@"点击联系在线客服");
 }
 @end

@@ -34,6 +34,18 @@
 #define S       @"1d497c482250b85debcaff3b9099d469"
 #define SID     @"18"
 
+//#ifdef _ojzk
+//
+//#define CODE    @"ojzk"
+//#define S        @"85c362697077e64248fd5f2fbdcabae8"
+//#define SID        @"7000"
+
+//#ifdef _ty3a
+//
+//#define CODE    @"ty3a"
+//#define S        @"e1576bc75aabd600d0b6b078af7a96a3"
+//#define SID        @"7001"
+
 #endif
 
 #import <Masonry.h>
@@ -50,5 +62,6 @@
 #import "SH_WebPImageView.h"
 #import "SH_WebPButton.h"
 #import "SH_NetWorkService_FindPsw.h"
+#import "SH_ERRCodeMacro.h"
 
 #endif /* PrefixHeader_pch */

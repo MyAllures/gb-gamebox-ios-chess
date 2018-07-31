@@ -194,7 +194,7 @@
                 <outlet property="systemNoticeBt" destination="EoG-PJ-hxP" id="bCT-AE-FLV"/>
                 <outlet property="tableView" destination="Ovy-TN-Yre" id="kHt-if-EKI"/>
             </connections>
-            <point key="canvasLocation" x="113.5" y="-127"/>
+            <point key="canvasLocation" x="-148" y="56"/>
         </view>
     </objects>
 </document>

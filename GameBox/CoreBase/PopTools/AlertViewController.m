@@ -17,7 +17,6 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintHeight;
 @property (weak, nonatomic) IBOutlet UIImageView *headImage;
 @property(nonatomic,strong)UIView  * presentView;
-@property(nonatomic,copy)NSString * imageName;
 @property(nonatomic,assign)CGFloat viewHeight;
 @property(nonatomic,assign)CGFloat viewWidth;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *btnContrainsHeight;
@@ -35,7 +34,7 @@
     if (self = [super  init]) {
         
         self.view.backgroundColor = [[UIColor  blackColor] colorWithAlphaComponent:0.5];
-
+        _imageName = imageName;
         self.viewHeight = height +50;
         NSString  * img_name;
         if (type ==AlertViewTypeLong) {
@@ -75,32 +74,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
-/*
--(void)configurationUI{
-    
-    self.view.backgroundColor = [[UIColor  blackColor] colorWithAlphaComponent:0.7];
-
-    self.constraintHeight.constant = self.viewHeight;
-    self.constraintWidth.constant = self.viewWidth;
-    [self.view  layoutIfNeeded];
-   
-
-    [self.containerView addSubview:self.presentView];
-    [self.presentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(self.containerView);
-    }];
-    
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(seleteDate) name:@"seleteDate" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(seleteEndTime:) name:@"seleteEndTime" object:nil];
-    
-    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.containerView.bounds byRoundingCorners: UIRectCornerBottomRight|UIRectCornerBottomLeft cornerRadii:CGSizeMake(8, 8)];
-    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-    maskLayer.frame = self.containerView.bounds;
-    maskLayer.path = maskPath.CGPath;
-    self.self.containerView.layer.mask = maskLayer;
-    
-}
- */
 
 - (IBAction)closeClick:(id)sender {
 
@@ -112,9 +85,8 @@
 
 
 -(void)setImageName:(NSString *)imageName{
-    self.headImage.image = [UIImage imageNamed:imageName];
-//    self.headImage.image = [UIImage imageWithWebPImageName:imageName];
-
+    _imageName = imageName;
+    self.headImage.image = [UIImage imageNamed:_imageName];
 }
 
 -(void)dealloc{

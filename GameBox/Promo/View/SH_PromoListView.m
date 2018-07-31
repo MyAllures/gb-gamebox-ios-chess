@@ -16,6 +16,7 @@
 #import "SH_NetWorkService+Promo.h"
 #import <SDWebImage/SDWebImageFrame.h>
 #import "SH_PromoDeatilViewController.h"
+#import "SH_WaitingView.h"
 
 @interface SH_PromoListView () <UITableViewDelegate, UITableViewDataSource>
 
@@ -50,7 +51,7 @@
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         }];
     }];
-    [MBProgressHUD showHUDAddedTo:self animated:YES];
+    [SH_WaitingView showOn:self];
     [SH_NetWorkService_Promo getPromoList:1 pageSize:5000 activityClassifyKey:@"" complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         weakSelf.promoListArr = [NSMutableArray array];
         NSDictionary *dic = (NSDictionary *)response;
@@ -59,9 +60,9 @@
             [weakSelf.promoListArr addObject:model];
             [weakSelf.tableView reloadData];
         }
-        [MBProgressHUD hideHUDForView:weakSelf animated:YES];
+        [SH_WaitingView hide:weakSelf];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
+        [SH_WaitingView hide:weakSelf];
     }];
 
 }

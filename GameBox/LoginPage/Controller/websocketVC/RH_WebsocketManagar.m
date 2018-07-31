@@ -65,8 +65,9 @@ NSString * const kWebSocketdidReceiveMessageNote = @"kWebSocketdidReceiveMessage
     
     //设置请求头
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:[NSURL URLWithString:wsUrl] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
-    [request addValue:[NSString stringWithFormat:@"%@", [NetWorkLineMangaer sharedManager].currentSID] forHTTPHeaderField:@"Cookie"];
-    [request addValue:@"app_ios, iPhone" forHTTPHeaderField:@"User-Agent"];
+    [request addValue:[NSString stringWithFormat:@"%@", [NetWorkLineMangaer sharedManager].currentCookie] forHTTPHeaderField:@"Cookie"];
+    NSString *user_agent = [NSString stringWithFormat:@"app_ios, iPhone, chess, %@.%@",GB_CURRENT_APPVERSION, GB_CURRENT_APPBUILD];
+    [request addValue:user_agent forHTTPHeaderField:@"User-Agent"];
     
     [request addValue:[NetWorkLineMangaer sharedManager].currentHost forHTTPHeaderField:@"Host"];
 

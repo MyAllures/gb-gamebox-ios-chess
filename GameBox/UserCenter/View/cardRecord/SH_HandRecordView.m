@@ -13,6 +13,8 @@
 #import "SH_CardRecordModel.h"
 #import "RH_BettingInfoModel.h"
 #import "HLPopTableView.h"
+#import "SH_WaitingView.h"
+
 @interface SH_HandRecordView() <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *timeBtn;
@@ -58,7 +60,7 @@
 
 -(void)requestData {
     [self.bettingArr removeAllObjects];
-    [MBProgressHUD showHUDAddedTo:self animated:YES];
+    [SH_WaitingView showOn:self];
     [SH_NetWorkService fetchBettingList:self.startTimeStr EndDate:self.endTimeStr PageNumber:1 PageSize:500 withIsStatistics:YES complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dict = (NSDictionary *)response;
         NSLog(@"dict == %@",dict);
@@ -70,14 +72,14 @@
                 RH_BettingInfoModel *model = [[RH_BettingInfoModel alloc] initWithDictionary:dict1 error:nil];
                 [self.bettingArr addObject:model];
                 [self.tableView reloadData];
-                [MBProgressHUD hideHUDForView:self animated:YES];
+                [SH_WaitingView hide:self];
             }
         }else{
-            [MBProgressHUD hideHUDForView:self animated:YES];
+            [SH_WaitingView hide:self];
         }
         
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
+        [SH_WaitingView hide:self];
     }];
 }
 #pragma mark -  获取当前周的周一周日的时间

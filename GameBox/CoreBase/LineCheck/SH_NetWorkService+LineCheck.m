@@ -183,11 +183,25 @@
                     NSString *checkUrl = [NSString stringWithFormat:@"%@://%@%@/__check",checkTypeComp[0],ip,checkTypeComp.count==2?[NSString stringWithFormat:@":%@",checkTypeComp[1]]:@""];
                     [weakSelf get:checkUrl withPublicParameter:NO parameter:nil header:@{@"Host":host} cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
                         if (response) {
-                            response = [response stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-;
-                            if ([[response lowercaseString] isEqualToString:@"ok"]) {
+                            if ([response isKindOfClass:[NSString class]]) {
+                                response = [response stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                                ;
+                                if ([[response lowercaseString] isEqualToString:@"ok"]) {
+                                    if (oneTurn) {
+                                        oneTurn(ip, checkType, YES);
+                                    }
+                                }
+                            }
+                            else
+                            {
                                 if (oneTurn) {
-                                    oneTurn(ip, checkType, YES);
+                                    oneTurn(ip, checkType, NO);
+                                }
+                                failTimes++;
+                                if (failTimes == ipGroup.count*checkTypes.count) {
+                                    if (failed) {
+                                        failed(httpURLResponse, @"全部ip check失败");
+                                    }
                                 }
                             }
                         }
