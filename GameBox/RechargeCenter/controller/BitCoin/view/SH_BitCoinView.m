@@ -12,6 +12,8 @@
 #import "SH_NiceDatePickerView.h"
 #import "SavePhotoTool.h"
 #import "TTTAttributedLabel.h"
+#import "SH_CustomerServiceManager.h"
+
 @interface SH_BitCoinView()<SH_BitCoinTextViewDelegate,TTTAttributedLabelDelegate>
 @property(nonatomic,strong)UIImageView *QRImageView;
 @property(nonatomic,strong)SH_BitCoinTextView *bitCoinView;
@@ -190,6 +192,7 @@
 #pragma mark - TTTAttributedLabelDelegate
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url
 {
+    [[SH_CustomerServiceManager sharedManager] open];
     NSLog(@"点击联系在线客服");
 }
 @end

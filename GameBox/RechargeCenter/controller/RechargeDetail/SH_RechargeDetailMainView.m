@@ -10,6 +10,8 @@
 #import "SH_RechargeDetailHeadView.h"
 #import "SH_RechargeDetailMainSubmitView.h"
 #import "TTTAttributedLabel.h"
+#import "SH_CustomerServiceManager.h"
+
 @interface SH_RechargeDetailMainView()<SH_RechargeDetailMainSubmitViewDelegate,TTTAttributedLabelDelegate>
 @property(nonatomic,strong)SH_RechargeDetailHeadView *headView;
 @property(nonatomic,strong)SH_RechargeDetailMainSubmitView *submitView;
@@ -154,6 +156,6 @@
 #pragma mark - TTTAttributedLabelDelegate
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url
 {
-    NSLog(@"点击联系在线客服");
+    [[SH_CustomerServiceManager sharedManager] open];
 }
 @end
