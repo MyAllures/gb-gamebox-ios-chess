@@ -233,7 +233,39 @@
 
 - (void)refreshLineCheck
 {
-    NSLog(@">>>>>>refreshLineCheck");
+    __weak typeof(self) weakSelf = self;
+
+    //从缓存读取bossApi
+    NSDictionary *bossApiCache = [[IPsCacheManager sharedManager] bossApis];
+    NSLog(@"refreshLineCheck：从bossAPI获取IPS");
+    NSString *host = [bossApiCache objectForKey:@"host"];
+    NSArray *ips = [bossApiCache objectForKey:@"ips"];
+    NSMutableArray *bossApiArr = [NSMutableArray array];
+    for (NSString *bossApi in ips) {
+        NSString *url = [NSString stringWithFormat:@"https://%@:1344/boss-api",bossApi];
+        [bossApiArr addObject:url];
+    }
+    
+    //
+    //区分测试站
+    //
+    if ([SID isEqualToString:@"18"] || [SID isEqualToString:@"21"]) {
+        bossApiArr = [NSMutableArray arrayWithObject:@"http://boss-api-test.gbboss.com/boss-api"];
+        host = @"";
+    }
+    
+    [SH_NetWorkService fetchIPSFromBossAPIGroup:bossApiArr host:host oneTurn:^(NSString *bossapi, BOOL success) {
+        //
+    } complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        [weakSelf checkIPS:response complete:^(NSDictionary *ips) {
+            //check成功 更新缓存
+            [[IPsCacheManager sharedManager] updateIPsList:ips];
+        } failed:^{
+            //
+        }];
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        //
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
