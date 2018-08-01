@@ -71,8 +71,23 @@
 
 - (void)clearCaches
 {
+    //只清空IPS 不清空bossApi
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"GB_IPS_CACHE_DATA"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (NSDictionary *)bossApis
+{
+    NSDictionary *bossApisCacheDic = [[NSUserDefaults standardUserDefaults] objectForKey:@"GB_BOSSAPIS_CACHE_DATA"];
+    return bossApisCacheDic;
+}
+
+- (void)updateBossApiList:(NSDictionary *)bossApis
+{
+    if (bossApis != nil) {
+        [[NSUserDefaults standardUserDefaults] setObject:bossApis forKey:@"GB_BOSSAPIS_CACHE_DATA"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 }
 
 @end

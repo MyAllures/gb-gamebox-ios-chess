@@ -43,7 +43,7 @@
         NSDictionary *cacheIPSInfo = [[IPsCacheManager sharedManager] ips];
         NSDictionary *ips = [cacheIPSInfo objectForKey:@"ips"];
         [self checkIPS:ips complete:^(NSDictionary *ips) {
-            //
+            [weakSelf enterHomePage];
         } failed:^{
             //
         }];
@@ -62,6 +62,7 @@
                 [weakSelf checkIPS:response complete:^(NSDictionary *ips) {
                     //check成功 更新缓存
                     [[IPsCacheManager sharedManager] updateIPsList:ips];
+                    [weakSelf enterHomePage];
                 } failed:^{
                     //
                 }];
@@ -70,7 +71,6 @@
             }];
         }
         else if ([SID isEqualToString:@"18"]) {
-            //@"http://192.168.0.92/boss-api"
             [SH_NetWorkService fetchIPSFromBossAPIGroup:@[@"http://boss-api-test.gbboss.com/boss-api"] host:@"" oneTurn:^(NSString *bossapi, BOOL success) {
                 NSLog(@">>>%@检测结果:%i",bossapi,success);
                 weakSelf.progress += 0.1;
@@ -82,22 +82,13 @@
                 [weakSelf checkIPS:response complete:^(NSDictionary *ips) {
                     //check成功 更新缓存
                     [[IPsCacheManager sharedManager] updateIPsList:ips];
+                    [weakSelf enterHomePage];
                 } failed:^{
                     //
                 }];
             } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
                 NSLog(@"检测失败:%@",err);
             }];
-            
-//            [NetWorkLineMangaer sharedManager].currentHost = @"test18.ccenter.test.so";
-//            [NetWorkLineMangaer sharedManager].currentIP = @"192.168.0.92";
-//            [NetWorkLineMangaer sharedManager].currentHttpType = @"https";
-//            [NetWorkLineMangaer sharedManager].currentPort = @"8989";
-//            [NetWorkLineMangaer sharedManager].currentPreUrl = @"https://192.168.0.92:8989";
-//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//                SH_HomeViewController *homeVC =[[SH_HomeViewController alloc] initWithNibName:@"SH_HomeViewController" bundle:nil];
-//                [weakSelf.navigationController pushViewController:homeVC animated:NO];
-//            });
         }
         else
         {
@@ -109,6 +100,9 @@
                 weakSelf.lineCheckStatus = @"正在匹配服务器，请稍后...";
             } complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
                 NSLog(@"检测完毕:%@",response);
+                //缓存boss-api
+                [[IPsCacheManager sharedManager] updateBossApiList:response];
+
                 //第二步
                 NSLog(@"第二步：从bossAPI获取IPS");
                 NSString *host = [response objectForKey:@"host"];
@@ -130,6 +124,7 @@
                     [weakSelf checkIPS:response complete:^(NSDictionary *ips) {
                         //check成功 更新缓存
                         [[IPsCacheManager sharedManager] updateIPsList:ips];
+                        [weakSelf enterHomePage];
                     } failed:^{
                         //
                     }];
@@ -171,9 +166,6 @@
             dispatch_once(&onceToken, ^{
                 weakSelf.progress = 1.0;
                 weakSelf.lineCheckStatus = @"匹配服务器完成，即将进入...";
-                if (complete) {
-                    complete(ipsInfo);
-                }
                 //将数据存入单利
                 NSArray *checkTypeComp = [checkType componentsSeparatedByString:@"+"];
                 [NetWorkLineMangaer sharedManager].currentHost = host;
@@ -181,12 +173,10 @@
                 [NetWorkLineMangaer sharedManager].currentHttpType = checkTypeComp[0];
                 [NetWorkLineMangaer sharedManager].currentPort = checkTypeComp.count == 2 ? checkTypeComp[1] : @"";
                 [NetWorkLineMangaer sharedManager].currentPreUrl = [NSString stringWithFormat:@"%@://%@%@",[NetWorkLineMangaer sharedManager].currentHttpType,[NetWorkLineMangaer sharedManager].currentIP,[[NetWorkLineMangaer sharedManager].currentPort isEqualToString:@""] ? @"" : [NSString stringWithFormat:@":%@",[NetWorkLineMangaer sharedManager].currentPort]];
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    SH_HomeViewController *homeVC =[[SH_HomeViewController alloc] initWithNibName:@"SH_HomeViewController" bundle:nil];
-                    weakSelf.rootNav = [[UINavigationController alloc] initWithRootViewController:homeVC];
-                    weakSelf.rootNav.navigationBarHidden = YES;
-                    [weakSelf presentViewController:weakSelf.rootNav animated:NO completion:nil];
-                });
+                
+                if (complete) {
+                    complete(ipsInfo);
+                }
             });
         }
         else
@@ -223,6 +213,27 @@
     self.animationProgressImg.animationDuration = 0.5;
     self.animationProgressImg.animationRepeatCount = 0;
     [self.animationProgressImg startAnimating];
+}
+
+- (void)enterHomePage
+{
+    //每五分钟从boss-api获取一些ips 并check
+    //从而更新线路
+    [NSTimer scheduledTimerWithTimeInterval:5*60 target:self selector:@selector(refreshLineCheck) userInfo:nil repeats:YES];
+    
+    __weak typeof(self) weakSelf = self;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        SH_HomeViewController *homeVC =[[SH_HomeViewController alloc] initWithNibName:@"SH_HomeViewController" bundle:nil];
+        weakSelf.rootNav = [[UINavigationController alloc] initWithRootViewController:homeVC];
+        weakSelf.rootNav.navigationBarHidden = YES;
+        [weakSelf presentViewController:weakSelf.rootNav animated:NO completion:nil];
+    });
+}
+
+
+- (void)refreshLineCheck
+{
+    NSLog(@">>>>>>refreshLineCheck");
 }
 
 - (void)didReceiveMemoryWarning {

@@ -24,4 +24,10 @@
 //清空缓存
 - (void)clearCaches;
 
+//获取缓存的bossApi
+- (NSDictionary *)bossApis;
+
+//更新bossApi
+- (void)updateBossApiList:(NSDictionary *)bossApis;
+
 @end
