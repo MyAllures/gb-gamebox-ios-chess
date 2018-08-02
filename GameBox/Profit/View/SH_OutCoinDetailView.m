@@ -60,7 +60,7 @@
 }
 
 - (IBAction)sureOutCoinBtnClick:(id)sender {
-    NSString *actualWithdraw = self.titles[5];
+    NSString *actualWithdraw = self.details[5];
     if ([actualWithdraw floatValue] <= 0) {
         [self popAlertView:@"最后取款金额应大于0元"];
         return;
