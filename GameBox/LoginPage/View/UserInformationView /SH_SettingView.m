@@ -28,7 +28,6 @@
 }
 
 +(instancetype)instanceSettingView{
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(volumeChanged:) name:@"AVSystemController_SystemVolumeDidChangeNotification" object:nil];
     return  [[[NSBundle  mainBundle] loadNibNamed:NSStringFromClass([self  class]) owner:nil options:nil] lastObject];
 }
 /*
@@ -41,6 +40,8 @@
 -(void)awakeFromNib{
     [super  awakeFromNib];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(volumeChanged:) name:@"AVSystemController_SystemVolumeDidChangeNotification" object:nil];
+
     _musicSlider = [[SH_SliderView alloc] init];
     [self.containerView addSubview:_musicSlider];
     [_musicSlider mas_makeConstraints:^(MASConstraintMaker *make) {
