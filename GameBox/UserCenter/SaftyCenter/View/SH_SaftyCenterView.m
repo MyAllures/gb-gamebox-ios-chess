@@ -34,6 +34,18 @@
     [self configUI];
     [self setUIWithSelecteBtn:self.loginBtn SelectedView:self.loginView];
    
+    [SH_NetWorkService_FindPsw checkForgetPswStatusComplete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSDictionary *dict = (NSDictionary *)response;
+        NSLog(@"dict===%@",dict);
+        NSString *dataStr = dict[@"data"];
+        if ([dataStr intValue] == 0) {
+            self.bindPhoneBtn.hidden = NO;
+        } else{
+            self.bindPhoneBtn.hidden = YES;
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        
+    }];
 }
 #pragma mark--
 #pragma mark--lazy
