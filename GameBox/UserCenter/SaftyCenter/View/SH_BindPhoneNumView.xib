@@ -52,7 +52,7 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入手机号码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MWe-jF-7oz">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MWe-jF-7oz">
                             <rect key="frame" x="107" y="56" width="123" height="33"/>
                             <color key="backgroundColor" red="0.13725490200000001" green="0.16862745100000001" blue="0.41568627450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
@@ -184,6 +184,7 @@
                 <outlet property="oldPhoneNumTF" destination="7L4-0o-smw" id="Ev4-4U-7My"/>
                 <outlet property="sureBtn" destination="zwV-Rc-eZY" id="Git-vV-VB2"/>
             </connections>
+            <point key="canvasLocation" x="-52" y="133"/>
         </view>
     </objects>
 </document>

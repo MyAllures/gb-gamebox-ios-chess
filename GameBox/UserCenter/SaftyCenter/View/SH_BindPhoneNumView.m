@@ -91,7 +91,6 @@
     self.oldPhoneNumTF.hidden = YES;
     self.NewPhoneNumLab.text = @"手机号码";
     self.NewPhoneNumTF.text = phoneNum;
-    self.NewPhoneNumTF.enabled = NO;
     self.VerificationBtn.hidden = YES;
     self.InputVerificationCodeLab.hidden = YES;
     self.InputCodeTF.hidden = YES;

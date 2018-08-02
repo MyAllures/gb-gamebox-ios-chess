@@ -229,4 +229,24 @@
         }
     }];
 }
+
+#pragma mark - 设置真实姓名
++(void)startSetRealName:(NSString *)name
+                 complete:(SHNetWorkComplete)complete
+                   failed:(SHNetWorkFailed)failed {
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setObject:name forKey:@"realName"];
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/setRealName.html"];
+    NSDictionary  * header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost,};
+    [self post:url parameter:dict header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (complete) {
+            complete(httpURLResponse, response);
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        if (failed) {
+            failed(httpURLResponse, err);
+        }
+    }];
+}
+
 @end

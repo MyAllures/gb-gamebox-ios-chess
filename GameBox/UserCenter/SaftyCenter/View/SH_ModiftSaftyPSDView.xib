@@ -201,6 +201,7 @@
                 <outlet property="NewTF" destination="QFQ-yV-bV8" id="quG-qv-fqm"/>
                 <outlet property="currentLab" destination="K8n-Qx-tST" id="Fn9-9g-oSj"/>
                 <outlet property="currentTF" destination="Tcr-pv-DXT" id="GEp-Iw-7Gz"/>
+                <outlet property="realNameLabel" destination="LIP-5j-gdb" id="WQX-KL-afN"/>
                 <outlet property="realNameTF" destination="CR3-h0-Scj" id="VNH-sk-DG9"/>
                 <outlet property="sureBtnTopDistance" destination="cz1-Gh-qiK" id="6Pj-fG-Gle"/>
                 <outlet property="sureTF" destination="5f3-aV-gNR" id="CDJ-Sf-GL8"/>

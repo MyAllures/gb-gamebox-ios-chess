@@ -82,4 +82,8 @@ failed:(SHNetWorkFailed)failed;
 + (void)fetchUserInfo:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
 #pragma mark - 注册条款
 +(void)fetchRegisetTerm:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
+
++(void)startSetRealName:(NSString *)name
+                 complete:(SHNetWorkComplete)complete
+                   failed:(SHNetWorkFailed)failed;
 @end
