@@ -36,7 +36,7 @@
 - (IBAction)bindProfitAccountNumBtnClick:(id)sender {
     if ([self.bankNumLab.text isEqualToString:@"请绑定银行卡"]) {
         SH_SaftyCenterView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_SaftyCenterView" owner:self options:nil].firstObject;
-        AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-50 titleImageName:@"saftyTtile" alertViewType:AlertViewTypeLong];
+        AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-50 titleImageName:@"title12" alertViewType:AlertViewTypeLong];
         acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         [self.targetVC presentViewController:acr animated:YES completion:nil];
