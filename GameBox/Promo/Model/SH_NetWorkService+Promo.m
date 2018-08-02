@@ -269,5 +269,38 @@
     }];
 }
 
++ (void)getGameNoticeDetail:(NSString *)searchId
+                                       complete:(SHNetWorkComplete)complete
+                                         failed:(SHNetWorkFailed)failed {
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/getGameNoticeDetail.html"];
+    NSDictionary *parameter =  @{@"searchId":searchId};
+    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost, };
+    [SH_NetWorkService post:url parameter:parameter header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (complete) {
+            complete(httpURLResponse, response);
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
+        if (failed) {
+            failed(httpURLResponse, err);
+        }
+    }];
+}
+
++ (void)getSysNoticeDetail:(NSString *)searchId
+                  complete:(SHNetWorkComplete)complete
+                    failed:(SHNetWorkFailed)failed {
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/getSysNoticeDetail.html"];
+    NSDictionary *parameter =  @{@"searchId":searchId};
+    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost, };
+    [SH_NetWorkService post:url parameter:parameter header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (complete) {
+            complete(httpURLResponse, response);
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
+        if (failed) {
+            failed(httpURLResponse, err);
+        }
+    }];
+}
 
 @end

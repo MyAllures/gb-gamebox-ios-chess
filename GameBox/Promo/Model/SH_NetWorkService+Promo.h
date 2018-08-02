@@ -85,4 +85,11 @@
                                  complete:(SHNetWorkComplete)complete
                                    failed:(SHNetWorkFailed)failed;
 
++ (void)getGameNoticeDetail:(NSString *)searchId
+                  complete:(SHNetWorkComplete)complete
+                    failed:(SHNetWorkFailed)failed;
+
++ (void)getSysNoticeDetail:(NSString *)searchId
+                  complete:(SHNetWorkComplete)complete
+                    failed:(SHNetWorkFailed)failed;
 @end

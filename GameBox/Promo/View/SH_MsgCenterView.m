@@ -266,6 +266,36 @@
             [SH_WaitingView hide:weakSelf];
         }];
     }
+    else if ([model isMemberOfClass:[SH_GameBulletinModel class]])
+    {
+        SH_GameBulletinModel *tModel = (SH_GameBulletinModel *)model;
+        
+        [SH_WaitingView showOn:self];
+        [SH_NetWorkService_Promo getGameNoticeDetail:tModel.id complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+            NSString *content = response[@"data"][@"context"];
+            if (weakSelf.showDetailBlock) {
+                weakSelf.showDetailBlock(content);
+            }
+            [SH_WaitingView hide:weakSelf];
+        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+            [SH_WaitingView hide:weakSelf];
+        }];
+    }
+    else if ([model isMemberOfClass:[SH_SystemNotificationModel class]])
+    {
+        SH_SystemNotificationModel *tModel = (SH_SystemNotificationModel *)model;
+        
+        [SH_WaitingView showOn:self];
+        [SH_NetWorkService_Promo getSysNoticeDetail:tModel.searchId complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+            NSString *content = response[@"data"][@"content"];
+            if (weakSelf.showDetailBlock) {
+                weakSelf.showDetailBlock(content);
+            }
+            [SH_WaitingView hide:weakSelf];
+        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+            [SH_WaitingView hide:weakSelf];
+        }];
+    }
 }
 
 #pragma mark - UITableViewDelegate M

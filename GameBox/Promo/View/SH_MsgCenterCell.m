@@ -37,6 +37,7 @@
 - (void)updateSelectedStatus
 {
     self.selectBt.selected = !self.selectBt.selected;
+    self.markNewImg.hidden = YES;
 }
 
 - (void)setModel:(id)model
