@@ -9,6 +9,8 @@
 #import "SH_ModiftSaftyPSDView.h"
 #import "SH_NetWorkService+SaftyCenter.h"
 #import "RH_UserSafetyCodeModel.h"
+#import "SH_FillRealNameView.h"
+#import "AlertViewController.h"
 @interface SH_ModiftSaftyPSDView()
 //@property (weak, nonatomic) IBOutlet UITextField *realNameTF;
 @property (weak, nonatomic) IBOutlet UITextField *currentTF;
@@ -20,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *verificationCodeTF;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *sureBtnTopDistance;
 @property (weak, nonatomic) IBOutlet UIButton *verificationBtn;
+@property (weak, nonatomic) IBOutlet UILabel *realNameLabel;
 
 
 @end
@@ -31,41 +34,68 @@
     self.verificationCodeTF.hidden = YES;
     self.verificationBtn.hidden = YES;
     self.sureBtnTopDistance.constant = 15;
+    [self updateView];
+   
+    
+//    SH_ProfitAlertView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_ProfitAlertView" owner:self options:nil].firstObject;
+//    view.content = content;
+//    view.targetVC = self.targetVC;
+//    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:202 titleImageName:@"title03" alertViewType:AlertViewTypeShort];
+//    acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+//    acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+//    [self.targetVC presentViewController:acr animated:YES completion:nil];
+}
+
+-(void)drawRect:(CGRect)rect {
+    if([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length > 0){
+        
+    } else {
+        SH_FillRealNameView *view = [[[NSBundle mainBundle] loadNibNamed:@"SH_FillRealNameView" owner:nil options:nil] lastObject];
+        AlertViewController *acr = [[AlertViewController alloc] initAlertView:view viewHeight:202 titleImageName:@"title18" alertViewType:AlertViewTypeShort];
+        view.targetVC1 = acr;
+        acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self.targetVC presentViewController:acr animated:YES completion:nil];
+    }
 }
 
 - (void)updateView{
-    if([RH_UserInfoManager shareUserManager].userSafetyInfo.hasPermissionPwd){
+    if([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length > 0){
         //设置过安全密码
         self.topDistance.constant = 110;
         
     }else{
         //没有设置过安全密码
-        self.topDistance.constant = 70;
+        self.topDistance.constant = 30;
         self.currentTF.hidden = YES;
         self.currentLab.hidden = YES;
-        
+        self.realNameTF.hidden = YES;
+        [self.realNameLabel setHidden:YES];
     }
 }
 
 - (IBAction)sureBtnClick:(id)sender {
-    if (self.realNameTF.text.length == 0) {
-        showMessage(self, @"请输入真实姓名", nil);
-    }else if (self.NewTF.text.length == 0){
+    if (self.NewTF.text.length == 0){
         showMessage(self, @"请输入新密码", nil);
     }else if (self.sureTF.text.length == 0){
         showMessage(self, @"请确认新密码", nil);
     }else if (![self.NewTF.text isEqualToString:self.sureTF.text]){
         showMessage(self, @"请输入相同密码", nil);
     }else{
-        if([RH_UserInfoManager shareUserManager].userSafetyInfo.hasPermissionPwd){
-           //设置过安全密码
-            if (self.currentTF.text.length == 0){
-                showMessage(self, @"请输入当前密码", nil);
-                return;
-            }
+        NSString *realName;
+        if([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length > 0){
+            realName  = [RH_UserInfoManager shareUserManager].mineSettingInfo.realName;
+        } else {
+            SH_FillRealNameView *view = [[[NSBundle mainBundle] loadNibNamed:@"SH_FillRealNameView" owner:nil options:nil] lastObject];
+            AlertViewController *acr = [[AlertViewController alloc] initAlertView:view viewHeight:202 titleImageName:@"title18" alertViewType:AlertViewTypeShort];
+            view.targetVC1 = acr;
+            acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+            acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+            [self.targetVC presentViewController:acr animated:YES completion:nil];
+            return;
         }
         __weak typeof(self) weakSelf = self;
-        [SH_NetWorkService setSaftyPasswordRealName:self.realNameTF.text originPassword:self.currentTF.text newPassword:self.NewTF.text confirmPassword:self.sureTF.text verifyCode:@"" Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        [SH_NetWorkService setSaftyPasswordRealName:realName originPassword:self.currentTF.text newPassword:self.NewTF.text confirmPassword:self.sureTF.text verifyCode:@"" Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSString *code = response[@"code"];
             NSString *message  = response[@"message"];
             

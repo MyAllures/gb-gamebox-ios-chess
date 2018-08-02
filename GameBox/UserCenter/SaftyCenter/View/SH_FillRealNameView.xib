@@ -20,7 +20,7 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请填写真实姓名，真实姓名将用于绑定福利卡号，绑定成功后才可申请出币！一旦设置后不可修改。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdy-9D-Y72">
                             <rect key="frame" x="20" y="15" width="317" height="29"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -66,6 +66,7 @@
                         <constraint firstItem="aRN-38-Fpd" firstAttribute="leading" secondItem="8gG-nk-WqQ" secondAttribute="trailing" constant="3" id="G8d-Fh-PHD"/>
                         <constraint firstItem="7Cb-d3-Y80" firstAttribute="leading" secondItem="ZyO-W6-jc6" secondAttribute="trailing" constant="10" id="HPi-ND-8iT"/>
                         <constraint firstItem="gdy-9D-Y72" firstAttribute="top" secondItem="iw5-Hv-1Sn" secondAttribute="top" constant="15" id="QTs-eV-IU6"/>
+                        <constraint firstAttribute="bottom" secondItem="8gG-nk-WqQ" secondAttribute="bottom" constant="9" id="RCU-cj-7J5"/>
                         <constraint firstItem="aRN-38-Fpd" firstAttribute="centerY" secondItem="8gG-nk-WqQ" secondAttribute="centerY" id="Y4o-9D-dAI"/>
                         <constraint firstItem="ZyO-W6-jc6" firstAttribute="top" secondItem="gdy-9D-Y72" secondAttribute="bottom" constant="20" id="Y91-kL-Avb"/>
                         <constraint firstAttribute="height" constant="116" id="ZjC-Em-HnA"/>
@@ -75,10 +76,10 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8V-vt-RTO" customClass="SH_WebPButton">
-                    <rect key="frame" x="115" y="135" width="145" height="47"/>
+                    <rect key="frame" x="115" y="147" width="145" height="47"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="145" id="0nE-UB-3vq"/>
-                        <constraint firstAttribute="height" constant="47" id="uHb-Cq-5sK"/>
+                        <constraint firstAttribute="width" constant="145" id="S6H-sT-Aju"/>
+                        <constraint firstAttribute="height" constant="47" id="eCo-jW-9gr"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                     <state key="normal" title="确认"/>
@@ -92,11 +93,11 @@
             </subviews>
             <color key="backgroundColor" red="0.1647058824" green="0.20784313730000001" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="k8V-vt-RTO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ASf-VL-5s3"/>
+                <constraint firstAttribute="bottom" secondItem="k8V-vt-RTO" secondAttribute="bottom" constant="6" id="Cjw-L4-6oV"/>
                 <constraint firstAttribute="trailing" secondItem="iw5-Hv-1Sn" secondAttribute="trailing" constant="9" id="Joi-VL-zLZ"/>
                 <constraint firstItem="iw5-Hv-1Sn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="9" id="XS6-yB-chk"/>
-                <constraint firstItem="k8V-vt-RTO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="hvR-9J-B6l"/>
                 <constraint firstItem="iw5-Hv-1Sn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="13" id="tmQ-yJ-4TM"/>
-                <constraint firstAttribute="bottom" secondItem="k8V-vt-RTO" secondAttribute="bottom" constant="18" id="vjp-at-QTp"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

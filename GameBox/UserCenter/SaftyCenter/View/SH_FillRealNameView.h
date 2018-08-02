@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SH_FillRealNameView : UIView
-
+@property (strong, nonatomic) UIViewController *targetVC1;
 @end
