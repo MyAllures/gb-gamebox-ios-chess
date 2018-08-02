@@ -9,6 +9,7 @@
 #import "SH_FindPSWView.h"
 #import "SH_FindPSWSendCodeView.h"
 #import "AlertViewController.h"
+#import "SH_SafeCenterAlertView.h"
 @interface SH_FindPSWView ()
 @property (weak, nonatomic) IBOutlet UITextField *realNameTV;
 @end
@@ -40,7 +41,7 @@
                         [defaults setObject:self.realNameTV.text forKey:@"userName"];
                         [defaults synchronize];
                     } else{
-                        showMessage(self, @"", dict1[@"message"]);
+                        [self popAlertView];
                     }
                 } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
 
@@ -56,6 +57,16 @@
     } else {
         showMessage(self, @"", @"请输入账号");
     }
+}
+
+
+-(void)popAlertView {
+    SH_SafeCenterAlertView * alert = [SH_SafeCenterAlertView  instanceSafeCenterAlertView];
+    AlertViewController * acr = [[AlertViewController  alloc] initAlertView:alert viewHeight:174 titleImageName:@"title03" alertViewType:AlertViewTypeShort];
+    alert.vc = acr;
+    acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self.targetVC presentViewController:acr animated:YES completion:nil];
 }
 
 /*
