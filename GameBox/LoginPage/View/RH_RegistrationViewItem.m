@@ -664,6 +664,7 @@
         NSDictionary *dict = ConvertToClassPointer(NSDictionary, response);
         NSLog(@"%@", dict);
         if ([dict[@"success"] isEqual:@YES]) {
+            showMessage(self.window, @"手机验证码已发送", @"");
             self->countDownNumber = 90;
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(startCountDown) userInfo:nil repeats:YES];
@@ -684,7 +685,7 @@
         if (countDownNumber > 0) {
             button.enabled = NO;
             button.layer.borderColor =[UIColor  whiteColor].CGColor;// colorWithRGB(168, 168, 168).CGColor;
-            [button setTitle:[NSString stringWithFormat:@"%lds",(long)countDownNumber] forState:UIControlStateNormal];
+            [button setTitle:[NSString stringWithFormat:@"%ld",(long)countDownNumber] forState:UIControlStateNormal];
             [button setTitleColor:[UIColor  whiteColor] forState:UIControlStateNormal];//colorWithRGB(168, 168, 168)
         }else {
             [self.timer invalidate];

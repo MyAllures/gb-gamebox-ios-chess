@@ -36,6 +36,9 @@
                         acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
                         acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
                         [self.targetVC1 presentViewController:acr animated:YES completion:nil];
+                        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                        [defaults setObject:self.realNameTV.text forKey:@"userName"];
+                        [defaults synchronize];
                     } else{
                         showMessage(self, @"", dict1[@"message"]);
                     }

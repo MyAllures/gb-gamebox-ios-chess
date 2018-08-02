@@ -23,6 +23,7 @@
 #import "SH_TimeZoneManager.h"
 #import "SH_FindPSWView.h"
 #import "AlertViewController.h"
+#import "SH_SafeCenterAlertView.h"
 
 @interface SH_LoginView(){
      RH_RegisetInitModel *registrationInitModel;
@@ -199,7 +200,7 @@
                     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
                     [self.targetVC presentViewController:acr animated:YES completion:nil];
                 } else{
-                    showMessage(self, @"", @"未开启找回密码功能，请联系客服");
+                    [self popAlertView];
                 }
             } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
                 
@@ -209,6 +210,16 @@
         default:
             break;
     }
+    
+}
+
+-(void)popAlertView {
+    SH_SafeCenterAlertView * alert = [SH_SafeCenterAlertView  instanceSafeCenterAlertView];
+    AlertViewController * acr = [[AlertViewController  alloc] initAlertView:alert viewHeight:174 titleImageName:@"title03" alertViewType:AlertViewTypeShort];
+    alert.vc = acr;
+    acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self.targetVC presentViewController:acr animated:YES completion:nil];
     
 }
 

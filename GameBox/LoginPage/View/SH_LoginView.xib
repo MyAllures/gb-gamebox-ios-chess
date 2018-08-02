@@ -12,11 +12,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SH_LoginView">
-            <rect key="frame" x="0.0" y="0.0" width="407" height="300"/>
+            <rect key="frame" x="0.0" y="0.0" width="764" height="483"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ZP-Dx-Gh2">
-                    <rect key="frame" x="0.0" y="0.0" width="135" height="300"/>
+                    <rect key="frame" x="0.0" y="0.0" width="135" height="483"/>
                     <subviews>
                         <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hzc-wN-B7s" customClass="SH_WebPButton">
                             <rect key="frame" x="8" y="8" width="119" height="50"/>
@@ -65,10 +65,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJ0-VR-dqr" customClass="SH_XibView">
-                    <rect key="frame" x="143" y="8" width="256" height="284"/>
+                    <rect key="frame" x="143" y="8" width="613" height="467"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入账号" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ue5-ax-zvL">
-                            <rect key="frame" x="80" y="32" width="160" height="33"/>
+                            <rect key="frame" x="80" y="32" width="517" height="33"/>
                             <color key="backgroundColor" red="0.13725490200000001" green="0.16862745100000001" blue="0.41568627450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
@@ -84,7 +84,7 @@
                             </userDefinedRuntimeAttributes>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入密码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N0y-Qo-ZTY">
-                            <rect key="frame" x="80" y="73" width="160" height="33"/>
+                            <rect key="frame" x="80" y="73" width="517" height="33"/>
                             <color key="backgroundColor" red="0.13725490200000001" green="0.16862745100000001" blue="0.41568627450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -96,7 +96,7 @@
                             </userDefinedRuntimeAttributes>
                         </textField>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V90-gp-QJ4">
-                            <rect key="frame" x="192" y="114" width="48" height="0.0"/>
+                            <rect key="frame" x="549" y="114" width="48" height="0.0"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="48" id="aA5-z0-a4P"/>
                                 <constraint firstAttribute="height" id="mdu-4B-Fqk"/>
@@ -109,7 +109,7 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入验证码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JOr-0j-YBn">
-                            <rect key="frame" x="80" y="114" width="96" height="0.0"/>
+                            <rect key="frame" x="80" y="114" width="453" height="0.0"/>
                             <color key="backgroundColor" red="0.13725490200000001" green="0.16862745100000001" blue="0.41568627450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -186,7 +186,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RHZ-se-umN">
-                            <rect key="frame" x="0.0" y="0.0" width="256" height="284"/>
+                            <rect key="frame" x="0.0" y="0.0" width="613" height="467"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                     </subviews>

@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *InputCodeTF;//验证码textfield
 @property (weak, nonatomic) IBOutlet SH_WebPButton *sureBtn;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *NewPhoneLabTopDistance;
+@property (strong, nonatomic) NSString *phoneNum;
 
 @end
 @implementation SH_BindPhoneNumView
@@ -62,7 +63,6 @@
     [SH_NetWorkService getUserPhoneInfoSuccess:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dataDic = ConvertToClassPointer(NSDictionary, response);
         NSString *code = dataDic[@"code"];
-//        showMessage(self, dataDic[@"message"], @"");
         if ([code isEqualToString:@"1001"]) {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [self.targetVC dismissViewControllerAnimated:NO completion:nil];
@@ -73,14 +73,14 @@
             return ;
         }
         NSString *data = [dataDic objectForKey:@"data"];
-        if (data == nil || [data isEqualToString:@""]) {
-            //没有绑定过手机
-            [self notBindPhoneNum];
-
+        if (data.length > 0) {
+            //绑定过手机
+            self.phoneNum = data;
+            [self bindedPhoneNumber:data];
         }else
         {
-         //绑定过手机
-            [self bindedPhoneNumber:nil];
+            //没有绑定过手机
+            [self notBindPhoneNum];
         }
         
     } Fail:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
@@ -93,6 +93,7 @@
     self.oldPhoneNumTF.hidden = YES;
     self.NewPhoneNumLab.text = @"手机号码";
     self.NewPhoneNumTF.text = phoneNum;
+    self.NewPhoneNumTF.userInteractionEnabled = NO;
     self.VerificationBtn.hidden = YES;
     self.InputVerificationCodeLab.hidden = YES;
     self.InputCodeTF.hidden = YES;
@@ -122,6 +123,9 @@
     self.NewPhoneNumLab.text = @"新手机号码";
     self.VerificationBtn.hidden = NO;
     self.InputVerificationCodeLab.hidden = NO;
+    self.NewPhoneNumTF.text = @"";
+    self.oldPhoneNumTF.text = self.phoneNum;
+    self.NewPhoneNumTF.userInteractionEnabled = YES;
     self.InputCodeTF.hidden = NO;
     [self.sureBtn setTitle:@"确认" forState:UIControlStateNormal];
     self.NewPhoneLabTopDistance.constant = 55;
