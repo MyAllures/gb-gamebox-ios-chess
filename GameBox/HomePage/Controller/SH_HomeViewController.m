@@ -869,6 +869,7 @@
 - (void)didLoginSuccess
 {
     //登录成功后每5分钟调用一次保活接口
+    [self configUI];
     [self keepAlive];
 }
 
