@@ -21,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet SH_WebPButton *inboxBt;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *operationBarConstraint;
+@property (weak, nonatomic) IBOutlet SH_WebPImageView *nodataMarkView;
+@property (weak, nonatomic) IBOutlet SH_WebPButton *selectAllBT;
 @property (nonatomic, strong) NSMutableArray *msgArr;
 @property (nonatomic, copy) SH_MsgCenterViewShowDetail showDetailBlock;
 
@@ -76,16 +78,18 @@
             for (NSDictionary *dic in list) {
                 NSError *err;
                 SH_GameBulletinModel *model = [[SH_GameBulletinModel alloc] initWithDictionary:dic error:&err];
-                [self.msgArr addObject:model];
+                [weakSelf.msgArr addObject:model];
             }
+            weakSelf.nodataMarkView.hidden = weakSelf.msgArr.count > 0;
         }
         else
         {
             showErrorMessage([UIApplication sharedApplication].keyWindow, nil, [response objectForKey:@"message"]);
+            weakSelf.nodataMarkView.hidden = NO;
         }
         [weakSelf.tableView reloadData];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
+        weakSelf.nodataMarkView.hidden = NO;
     }];
 }
 
@@ -106,14 +110,16 @@
                 SH_SystemNotificationModel *model = [[SH_SystemNotificationModel alloc] initWithDictionary:dic error:&err];
                 [weakSelf.msgArr addObject:model];
             }
+            weakSelf.nodataMarkView.hidden = weakSelf.msgArr.count > 0;
         }
         else
         {
             showErrorMessage([UIApplication sharedApplication].keyWindow, nil, [response objectForKey:@"message"]);
+            weakSelf.nodataMarkView.hidden = NO;
         }
         [weakSelf.tableView reloadData];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
+        weakSelf.nodataMarkView.hidden = NO;
     }];
 }
 
@@ -121,6 +127,7 @@
     self.gameNoticeBt.selected = NO;
     self.systemNoticeBt.selected = NO;
     self.inboxBt.selected = YES;
+    self.selectAllBT.selected = NO;
     self.operationBarConstraint.constant = 42.5;
 
     [self.msgArr removeAllObjects];
@@ -134,14 +141,16 @@
                 SH_SysMsgDataListModel *model = [[SH_SysMsgDataListModel alloc] initWithDictionary:dic error:&err];
                 [weakSelf.msgArr addObject:model];
             }
+            weakSelf.nodataMarkView.hidden = weakSelf.msgArr.count > 0;
         }
         else
         {
             showErrorMessage([UIApplication sharedApplication].keyWindow, nil, [response objectForKey:@"message"]);
+            weakSelf.nodataMarkView.hidden = NO;
         }
         [weakSelf.tableView reloadData];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
+        weakSelf.nodataMarkView.hidden = NO;
     }];
 }
 
@@ -201,12 +210,17 @@
         [SH_WaitingView showOn:self];
         [SH_NetWorkService_Promo startLoadSystemMessageDeleteWithIds:ids complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             if (response && [[response objectForKey:@"code"] integerValue] == 0) {
+                NSMutableArray *readedObjs = [NSMutableArray array];
                 for (int i = 0; i < weakSelf.msgArr.count; i++) {
                     SH_SysMsgDataListModel *model = self.msgArr[i];
                     if (model.read) {
-                        [weakSelf.msgArr removeObjectAtIndex:i];
+                        [readedObjs addObject:model];
                     }
                 }
+                for (SH_SysMsgDataListModel *model in readedObjs) {
+                    [weakSelf.msgArr removeObject:model];
+                }
+                
                 [weakSelf.tableView reloadData];
             }
             else
