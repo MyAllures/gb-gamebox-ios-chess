@@ -10,7 +10,7 @@
 #import <WebKit/WebKit.h>
 #import "SH_DragableMenuView.h"
 
-@interface SH_WKGameViewController ()
+@interface SH_WKGameViewController ()<WKNavigationDelegate, WKUIDelegate>
 
 @property (nonatomic, strong) WKWebView *wkWebView;
 @property (nonatomic, strong) SH_DragableMenuView *dragableMenuView;
@@ -44,6 +44,8 @@
 
     WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
     _wkWebView = [[WKWebView alloc]initWithFrame:CGRectZero configuration:config];
+    _wkWebView.navigationDelegate = self;
+    _wkWebView.UIDelegate = self;
     [self.view addSubview:_wkWebView];
     [_wkWebView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
@@ -99,15 +101,59 @@
     self.closeBlock = closeBlock;
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - WKUIDelegate M
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (nullable WKWebView *)webView:(WKWebView *)webView createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures
+{
+    [_wkWebView loadRequest:[NSMutableURLRequest requestWithURL:navigationAction.request.URL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60]];
+    
+    return nil;
 }
-*/
+
+#pragma mark - WKNavigationDelegate M
+
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation
+{
+    
+}
+
+// 内容开始加载
+- (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation
+{
+    
+}
+
+// 页面加载完成
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation
+{
+    
+}
+
+// 页面加载失败
+- (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation
+{
+    
+}
+
+// 收到服务器重定向请求
+- (void)webView:(WKWebView *)webView didReceiveServerRedirectForProvisionalNavigation:(WKNavigation *)navigation
+{
+    
+}
+
+// 在收到响应开始加载后，决定是否跳转
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler
+{
+    WKNavigationResponsePolicy responsePolicy = WKNavigationResponsePolicyAllow;
+    decisionHandler(responsePolicy);
+}
+
+// 在请求开始加载之前，决定是否跳转
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
+{
+    WKNavigationActionPolicy Allow = WKNavigationActionPolicyAllow;
+    decisionHandler(Allow);
+}
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([object isEqual:self.wkWebView] && [keyPath isEqualToString:@"estimatedProgress"]) {

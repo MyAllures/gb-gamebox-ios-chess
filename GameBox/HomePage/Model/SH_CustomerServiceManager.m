@@ -39,7 +39,7 @@
 
     [self fetchCustomerService:^(NSString *url) {
         if (!weakSelf.isInlay) {
-            if (weakSelf.customerUrl) {
+            if (!IS_EMPTY_STRING(weakSelf.customerUrl)) {
                 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:weakSelf.customerUrl]];
             }
             else
@@ -49,7 +49,7 @@
         }
         else
         {
-            if (weakSelf.customerUrl) {
+            if (!IS_EMPTY_STRING(weakSelf.customerUrl)) {
                 [weakSelf showCustomerWindow:self.customerUrl];
             }
             else

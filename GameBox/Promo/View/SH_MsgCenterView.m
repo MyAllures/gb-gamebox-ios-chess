@@ -83,7 +83,7 @@
         {
             showErrorMessage([UIApplication sharedApplication].keyWindow, nil, [response objectForKey:@"message"]);
         }
-        [self.tableView reloadData];
+        [weakSelf.tableView reloadData];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
