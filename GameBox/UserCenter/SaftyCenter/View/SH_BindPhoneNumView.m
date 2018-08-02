@@ -61,7 +61,6 @@
     [SH_NetWorkService getUserPhoneInfoSuccess:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dataDic = ConvertToClassPointer(NSDictionary, response);
         NSString *code = dataDic[@"code"];
-        showMessage(self, dataDic[@"message"], @"");
         if ([code isEqualToString:@"1001"]) {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [self.targetVC dismissViewControllerAnimated:NO completion:nil];

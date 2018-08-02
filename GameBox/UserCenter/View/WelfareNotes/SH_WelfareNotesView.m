@@ -53,7 +53,7 @@
 
 #pragma mark 时间选择
 - (IBAction)seleteTimeAction:(UIButton *)sender {
-    NSArray *arr = @[@"今天",@"昨天",@"本周",@"最近七天"];
+    NSArray *arr = @[@"今天",@"昨天",@"本周",@"近七天"];
     __weak typeof(self) weakSelf = self;
     HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, sender.bounds.size.width, 125) dependView:sender textArr:arr textFont:14.0 block:^(NSString *region_name, NSInteger index) {
         

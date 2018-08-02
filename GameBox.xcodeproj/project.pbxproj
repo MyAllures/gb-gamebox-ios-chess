@@ -21,6 +21,8 @@
 		22618C6F2109E7C900E4A6F6 /* SH_HandRecordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22618C6E2109E7C900E4A6F6 /* SH_HandRecordView.xib */; };
 		22618C782109F27A00E4A6F6 /* SH_HandRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22618C762109F27A00E4A6F6 /* SH_HandRecordTableViewCell.m */; };
 		22618C792109F27A00E4A6F6 /* SH_HandRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22618C772109F27A00E4A6F6 /* SH_HandRecordTableViewCell.xib */; };
+		226D950821132539000E466E /* SH_SafeCenterAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 226D950721132539000E466E /* SH_SafeCenterAlertView.xib */; };
+		226D950B2113254E000E466E /* SH_SafeCenterAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 226D950A2113254E000E466E /* SH_SafeCenterAlertView.m */; };
 		2274222120FE03BB003529FF /* SH_PromoListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8757D20F355F800AA0594 /* SH_PromoListView.m */; };
 		22878ECA210029E3005D7652 /* SH_SysMsgDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22878EC9210029E3005D7652 /* SH_SysMsgDetailModel.m */; };
 		22E486D920F9F8AE0051A68C /* SH_SysMsgDataListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E486D820F9F8AE0051A68C /* SH_SysMsgDataListModel.m */; };
@@ -425,6 +427,9 @@
 		22618C752109F27A00E4A6F6 /* SH_HandRecordTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_HandRecordTableViewCell.h; sourceTree = "<group>"; };
 		22618C762109F27A00E4A6F6 /* SH_HandRecordTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_HandRecordTableViewCell.m; sourceTree = "<group>"; };
 		22618C772109F27A00E4A6F6 /* SH_HandRecordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_HandRecordTableViewCell.xib; sourceTree = "<group>"; };
+		226D950721132539000E466E /* SH_SafeCenterAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_SafeCenterAlertView.xib; sourceTree = "<group>"; };
+		226D95092113254E000E466E /* SH_SafeCenterAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SafeCenterAlertView.h; sourceTree = "<group>"; };
+		226D950A2113254E000E466E /* SH_SafeCenterAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SafeCenterAlertView.m; sourceTree = "<group>"; };
 		22878EC8210029E3005D7652 /* SH_SysMsgDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SysMsgDetailModel.h; sourceTree = "<group>"; };
 		22878EC9210029E3005D7652 /* SH_SysMsgDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SysMsgDetailModel.m; sourceTree = "<group>"; };
 		22E486D720F9F8AE0051A68C /* SH_SysMsgDataListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SysMsgDataListModel.h; sourceTree = "<group>"; };
@@ -2150,6 +2155,9 @@
 				DA21F3AD20F6FCD000D20672 /* RH_RegistrationSelectView.m */,
 				DA21F3AA20F6FCD000D20672 /* RH_RegistrationViewItem.h */,
 				DA21F3AB20F6FCD000D20672 /* RH_RegistrationViewItem.m */,
+				226D95092113254E000E466E /* SH_SafeCenterAlertView.h */,
+				226D950A2113254E000E466E /* SH_SafeCenterAlertView.m */,
+				226D950721132539000E466E /* SH_SafeCenterAlertView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2361,6 +2369,7 @@
 				543970B4210462BB0091C719 /* btn_return.webp in Resources */,
 				54DD035021096C1400CE9199 /* btn-activity.webp in Resources */,
 				54E2483E210D6DFB005C5263 /* SH_WaitingView.xib in Resources */,
+				226D950821132539000E466E /* SH_SafeCenterAlertView.xib in Resources */,
 				54E24837210D5B07005C5263 /* loading-3.webp in Resources */,
 				5439708D210462BB0091C719 /* logo05.webp in Resources */,
 				5401C56320ECF9EA0027246D /* SH_HomeViewController.xib in Resources */,
@@ -2666,6 +2675,7 @@
 				DA22F3B820F44A130058A54F /* RH_UserSafetyCodeModel.m in Sources */,
 				54C8761920FE218B00AA0594 /* YFPublicParticleCell.m in Sources */,
 				BF44ECDC20F602FE00BC6EF3 /* SH_KuaiChongViewController.m in Sources */,
+				226D950B2113254E000E466E /* SH_SafeCenterAlertView.m in Sources */,
 				BFA068AA20FD86BF00F5ADFE /* SH_OutCoinDetailTableViewCell.m in Sources */,
 				BF44ECFD20F7477900BC6EF3 /* SH_BitCoinSuccessPopView.m in Sources */,
 				54DD03592109C84F00CE9199 /* SH_SplashNoticeViewController.m in Sources */,

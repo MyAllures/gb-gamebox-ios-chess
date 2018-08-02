@@ -36,6 +36,13 @@
             }
         }
         self.realNameTF.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard.realName;
+        NSString *first = [self.realNameTF.text substringWithRange:NSMakeRange(0, 1)];
+        NSString *last = [self.realNameTF.text substringWithRange:NSMakeRange(self.realNameTF.text.length-1, 1)];
+        if (self.realNameTF.text.length == 2) {
+            self.realNameTF.text = [NSString stringWithFormat:@"%@*",first];
+        } else {
+            self.realNameTF.text = [NSString stringWithFormat:@"%@*%@",first,last];
+        }
         if ( [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard.bankName.length > 0) {
             self.bankTF.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard.bankName;
         } else {

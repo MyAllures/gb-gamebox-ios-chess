@@ -65,6 +65,7 @@
     self.bankArray = array;
     self.code = code;
     self.channelModel = channelModel;
+    
     NSString *content;
     if ([code isEqualToString:@"online"]) {
         content = @"温馨提示：\n• 为了提高对账速度及成功率，当前支付方式已开随机额度，请输入整数存款金额，将随机增加0.01~0.99元！\n• 请保留好转账单据作为核对证明。\n• 如出现充值失败或充值后未到账等情况，请联系在线客服获取帮助。 点击联系在线客服";
@@ -95,7 +96,7 @@
     self.textField.placeholder = [NSString stringWithFormat:@"%@~%@",channelModel.singleDepositMin,channelModel.singleDepositMax];
     self.textField.text = number;
     
-    if ([channelModel.randomAmount isEqualToString:@"0"]) {
+    if (channelModel.randomAmount == NO) {
         self.randomBtn.hidden = YES;
     }else{
         self.randomBtn.hidden = NO;
