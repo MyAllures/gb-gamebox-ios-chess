@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 typedef void(^SH_CustomerServiceFetchSuccess)(NSString *url);
-typedef void(^SH_CustomerServiceFetchFailed)();
+typedef void(^SH_CustomerServiceFetchFailed)(void);
 
 @interface SH_CustomerServiceManager : NSObject
 
