@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet SH_WebPButton *inboxBt;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *operationBarConstraint;
+@property (weak, nonatomic) IBOutlet SH_WebPImageView *nodataMarkView;
 @property (nonatomic, strong) NSMutableArray *msgArr;
 @property (nonatomic, copy) SH_MsgCenterViewShowDetail showDetailBlock;
 
@@ -76,16 +77,18 @@
             for (NSDictionary *dic in list) {
                 NSError *err;
                 SH_GameBulletinModel *model = [[SH_GameBulletinModel alloc] initWithDictionary:dic error:&err];
-                [self.msgArr addObject:model];
+                [weakSelf.msgArr addObject:model];
             }
+            weakSelf.nodataMarkView.hidden = weakSelf.msgArr.count > 0;
         }
         else
         {
             showErrorMessage([UIApplication sharedApplication].keyWindow, nil, [response objectForKey:@"message"]);
+            weakSelf.nodataMarkView.hidden = NO;
         }
         [weakSelf.tableView reloadData];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
+        weakSelf.nodataMarkView.hidden = NO;
     }];
 }
 
@@ -106,14 +109,16 @@
                 SH_SystemNotificationModel *model = [[SH_SystemNotificationModel alloc] initWithDictionary:dic error:&err];
                 [weakSelf.msgArr addObject:model];
             }
+            weakSelf.nodataMarkView.hidden = weakSelf.msgArr.count > 0;
         }
         else
         {
             showErrorMessage([UIApplication sharedApplication].keyWindow, nil, [response objectForKey:@"message"]);
+            weakSelf.nodataMarkView.hidden = NO;
         }
         [weakSelf.tableView reloadData];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
+        weakSelf.nodataMarkView.hidden = NO;
     }];
 }
 
@@ -134,14 +139,16 @@
                 SH_SysMsgDataListModel *model = [[SH_SysMsgDataListModel alloc] initWithDictionary:dic error:&err];
                 [weakSelf.msgArr addObject:model];
             }
+            weakSelf.nodataMarkView.hidden = weakSelf.msgArr.count > 0;
         }
         else
         {
             showErrorMessage([UIApplication sharedApplication].keyWindow, nil, [response objectForKey:@"message"]);
+            weakSelf.nodataMarkView.hidden = NO;
         }
         [weakSelf.tableView reloadData];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
+        weakSelf.nodataMarkView.hidden = NO;
     }];
 }
 

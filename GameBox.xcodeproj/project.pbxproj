@@ -46,6 +46,7 @@
 		5401C56220ECF9EA0027246D /* SH_HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C56020ECF9EA0027246D /* SH_HomeViewController.m */; };
 		5401C56320ECF9EA0027246D /* SH_HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5401C56120ECF9EA0027246D /* SH_HomeViewController.xib */; };
 		5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C56520ECFB3E0027246D /* SH_NetWorkService+Login.m */; };
+		5404EA7D2112F955004D75AA /* nodata_bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 5404EA7C2112F954004D75AA /* nodata_bg.webp */; };
 		5434E0B92112987C00DCCC49 /* SH_XibButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5434E0B82112987C00DCCC49 /* SH_XibButton.m */; };
 		5435E7C92104381C00DB809F /* SH_WebPImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5435E7C82104381C00DB809F /* SH_WebPImageView.m */; };
 		54397081210462BB0091C719 /* top-bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397022210462A30091C719 /* top-bg.webp */; };
@@ -471,6 +472,7 @@
 		5401C56120ECF9EA0027246D /* SH_HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_HomeViewController.xib; sourceTree = "<group>"; };
 		5401C56420ECFB3E0027246D /* SH_NetWorkService+Login.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+Login.h"; sourceTree = "<group>"; };
 		5401C56520ECFB3E0027246D /* SH_NetWorkService+Login.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+Login.m"; sourceTree = "<group>"; };
+		5404EA7C2112F954004D75AA /* nodata_bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = nodata_bg.webp; sourceTree = "<group>"; };
 		5434E0B72112987C00DCCC49 /* SH_XibButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_XibButton.h; sourceTree = "<group>"; };
 		5434E0B82112987C00DCCC49 /* SH_XibButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_XibButton.m; sourceTree = "<group>"; };
 		5435E7C72104381C00DB809F /* SH_WebPImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_WebPImageView.h; sourceTree = "<group>"; };
@@ -1242,6 +1244,7 @@
 		5435E7C32104349B00DB809F /* webpRes */ = {
 			isa = PBXGroup;
 			children = (
+				5404EA7C2112F954004D75AA /* nodata_bg.webp */,
 				54E24849210DB7D0005C5263 /* gongxi.webp */,
 				54E2482C210D5B06005C5263 /* loading_eaIcon.webp */,
 				54E2482A210D5B06005C5263 /* loading_eaIcon2.webp */,
@@ -2442,6 +2445,7 @@
 				543970C8210462BB0091C719 /* effects_star2.webp in Resources */,
 				DA6EE1BF20F8BEDA009A01C5 /* SH_UserInformationView.xib in Resources */,
 				BF7B08C62101CF33008256FE /* SH_NiceDatePickerView.xib in Resources */,
+				5404EA7D2112F955004D75AA /* nodata_bg.webp in Resources */,
 				22618C692109755100E4A6F6 /* SH_WelfareNotesTableViewCell.xib in Resources */,
 				54DD036A210AC5C500CE9199 /* drop_down.webp in Resources */,
 				2209026720F053D400F8828E /* SH_PromoViewCell.xib in Resources */,
