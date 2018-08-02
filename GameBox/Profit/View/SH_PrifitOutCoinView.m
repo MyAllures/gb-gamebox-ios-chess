@@ -70,9 +70,9 @@
     else if ([self.numTextField.text floatValue] > [self.balanceLab.text floatValue]) {
         [self popAlertView:@"福利余额不足"];
     }
-    else if ([self.numTextField.text intValue]%50 != 0 || [self.numTextField.text intValue] == 0) {
+    else if ([self.numTextField.text intValue] == 0) {
         self.numTextField.text = @"";
-        [self popAlertView:@"出币数量应为50的倍数"];
+        [self popAlertView:@"出币数量应大于0"];
         return;
     }
     else{
@@ -82,6 +82,11 @@
         acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         [self.targetVC presentViewController:acr animated:YES completion:nil];
         self.feeModel.actualWithdraw = [NSString stringWithFormat:@"%.2f",[self.feeModel.actualWithdraw floatValue]];
+        NSLog(@"bankNumLab===%@",self.bankNumLab.text);
+        NSLog(@"numTextField==%@",self.numTextField.text);
+        NSLog(@"counterFee==%@",self.feeModel.counterFee);
+        NSLog(@"administrativeFee==%@",self.feeModel.administrativeFee);
+        NSLog(@"actualWithdraw==%@",self.feeModel.actualWithdraw);
         [view updateUIWithDetailArray:@[self.bankNumLab.text,self.numTextField.text,self.feeModel.counterFee,self.feeModel.administrativeFee,self.feeModel.deductFavorable,self.feeModel.actualWithdraw] TargetVC:acr Token:self.token];
     }
     

@@ -14,10 +14,15 @@
 
 @implementation SH_FindPSWSureView
 - (IBAction)sureAction:(id)sender {
-    if (self.textField2.text.length == 0) {
+    if (self.textField2.text.length == 0 || self.textField1.text.length == 0) {
         showMessage(self, @"", @"密码不能为空");
     }
-    [SH_NetWorkService_FindPsw finbackLoginPsw:self.textField1.text psw:self.textField2.text complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    if (![self.textField1.text isEqualToString:self.textField2.text]) {
+        showMessage(self, @"", @"两次输入的密码不一致");
+    }
+    NSUserDefaults *defaults =  [NSUserDefaults standardUserDefaults];
+    NSString *userName = [defaults objectForKey:@"userName"];
+    [SH_NetWorkService_FindPsw finbackLoginPsw:userName psw:self.textField2.text complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dict = (NSDictionary *)response;
         NSLog(@"dict==%@",dict);
         NSString *code = dict[@"code"];
@@ -25,6 +30,8 @@
             showMessage(self, @"", dict[@"message"]);
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 UIViewController *vc = self.targetVC3;
+                [defaults setObject:nil forKey:@"userName"];
+                [defaults synchronize];
                 while (vc.presentingViewController) {
                     vc = vc.presentingViewController;
                 }
