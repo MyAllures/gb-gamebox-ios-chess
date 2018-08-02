@@ -106,6 +106,56 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="effects_man"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0AM-qn-Qlc">
+                                <rect key="frame" x="223" y="283" width="220" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9qs-It-C9D" customClass="SH_XibButton">
+                                        <rect key="frame" x="0.0" y="5.5" width="100" height="33"/>
+                                        <color key="backgroundColor" red="0.26666666666666666" green="0.63529411764705879" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="5jk-kk-yYt"/>
+                                            <constraint firstAttribute="height" constant="33" id="uQD-Kg-akp"/>
+                                        </constraints>
+                                        <state key="normal" title="线路检测">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="16.5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="doItAgainAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hfq-7M-yyi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eMO-lH-N3f" customClass="SH_XibButton">
+                                        <rect key="frame" x="120" y="5.5" width="100" height="33"/>
+                                        <color key="backgroundColor" red="0.26666666666666666" green="0.63529411764705879" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="检测结果">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="16.5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="errDetailAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6A5-9N-gxH"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="4IB-M0-plV"/>
+                                    <constraint firstItem="9qs-It-C9D" firstAttribute="leading" secondItem="0AM-qn-Qlc" secondAttribute="leading" id="G2F-oa-05C"/>
+                                    <constraint firstAttribute="width" constant="220" id="GJv-3O-pyc"/>
+                                    <constraint firstItem="9qs-It-C9D" firstAttribute="centerY" secondItem="0AM-qn-Qlc" secondAttribute="centerY" id="gVQ-dY-ESG"/>
+                                    <constraint firstItem="eMO-lH-N3f" firstAttribute="width" secondItem="9qs-It-C9D" secondAttribute="width" id="hAx-So-xqH"/>
+                                    <constraint firstItem="eMO-lH-N3f" firstAttribute="height" secondItem="9qs-It-C9D" secondAttribute="height" id="jQw-VH-RqG"/>
+                                    <constraint firstAttribute="trailing" secondItem="eMO-lH-N3f" secondAttribute="trailing" id="wHk-rV-Zig"/>
+                                    <constraint firstItem="eMO-lH-N3f" firstAttribute="centerY" secondItem="9qs-It-C9D" secondAttribute="centerY" id="z2v-RR-cIz"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -115,12 +165,14 @@
                             <constraint firstItem="Wz2-x6-9Jf" firstAttribute="top" secondItem="k54-Re-HF4" secondAttribute="bottom" constant="25.5" id="QEv-dJ-JRa"/>
                             <constraint firstItem="Wz2-x6-9Jf" firstAttribute="centerY" secondItem="gOX-s5-mV8" secondAttribute="centerY" id="ZkJ-Kb-CB5"/>
                             <constraint firstItem="L6r-nP-SZN" firstAttribute="top" secondItem="Wz2-x6-9Jf" secondAttribute="bottom" constant="35.5" id="eJm-D1-1BN"/>
+                            <constraint firstItem="0AM-qn-Qlc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fLw-Ad-PXf"/>
                             <constraint firstItem="Wz2-x6-9Jf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gu7-3t-0Y9"/>
                             <constraint firstItem="Uka-EU-gLu" firstAttribute="top" secondItem="VG6-jE-ntK" secondAttribute="bottom" id="l0g-o6-0Of"/>
                             <constraint firstItem="suy-RU-j6c" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mbY-VV-WpH"/>
                             <constraint firstItem="Uka-EU-gLu" firstAttribute="bottom" secondItem="L6r-nP-SZN" secondAttribute="top" id="t4e-3y-GAs"/>
                             <constraint firstItem="Uka-EU-gLu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="tRn-3A-oox"/>
                             <constraint firstItem="uE9-et-Tce" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="u8P-qw-qK3"/>
+                            <constraint firstItem="Wz2-x6-9Jf" firstAttribute="top" secondItem="0AM-qn-Qlc" secondAttribute="bottom" constant="8.5" id="xVk-L8-3rU"/>
                             <constraint firstItem="uE9-et-Tce" firstAttribute="top" secondItem="VG6-jE-ntK" secondAttribute="bottom" id="xWW-Mh-Wf3"/>
                             <constraint firstItem="suy-RU-j6c" firstAttribute="top" secondItem="VG6-jE-ntK" secondAttribute="bottom" constant="29" id="zGo-Br-FOW"/>
                         </constraints>
@@ -129,6 +181,7 @@
                     <connections>
                         <outlet property="animationProgressImg" destination="sK7-IS-sRc" id="5nX-LG-fVt"/>
                         <outlet property="animationStartImg" destination="uE9-et-Tce" id="tSF-0H-Jcw"/>
+                        <outlet property="checkLineErrView" destination="0AM-qn-Qlc" id="oSV-XZ-Oia"/>
                         <outlet property="progressMarkLeading" destination="8ps-o3-zMF" id="QTY-zv-QDn"/>
                         <outlet property="progressMarkView" destination="gOX-s5-mV8" id="UbF-ZJ-zVF"/>
                         <outlet property="progressNumLB" destination="IFf-f3-2ib" id="5dp-3u-0b9"/>
@@ -138,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="645" y="537"/>
+            <point key="canvasLocation" x="644.52773613193403" y="536.79999999999995"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dbX-d7-WFA">

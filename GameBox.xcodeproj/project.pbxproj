@@ -46,6 +46,7 @@
 		5401C56220ECF9EA0027246D /* SH_HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C56020ECF9EA0027246D /* SH_HomeViewController.m */; };
 		5401C56320ECF9EA0027246D /* SH_HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5401C56120ECF9EA0027246D /* SH_HomeViewController.xib */; };
 		5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C56520ECFB3E0027246D /* SH_NetWorkService+Login.m */; };
+		5434E0B92112987C00DCCC49 /* SH_XibButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5434E0B82112987C00DCCC49 /* SH_XibButton.m */; };
 		5435E7C92104381C00DB809F /* SH_WebPImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5435E7C82104381C00DB809F /* SH_WebPImageView.m */; };
 		54397081210462BB0091C719 /* top-bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397022210462A30091C719 /* top-bg.webp */; };
 		54397082210462BB0091C719 /* logo09.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397023210462A30091C719 /* logo09.webp */; };
@@ -136,6 +137,8 @@
 		543970F22106C38E0091C719 /* logo12.webp in Resources */ = {isa = PBXBuildFile; fileRef = 543970EF2106C38D0091C719 /* logo12.webp */; };
 		543970F32106C38E0091C719 /* logo14.webp in Resources */ = {isa = PBXBuildFile; fileRef = 543970F02106C38E0091C719 /* logo14.webp */; };
 		543970F42106C38E0091C719 /* logo13.webp in Resources */ = {isa = PBXBuildFile; fileRef = 543970F12106C38E0091C719 /* logo13.webp */; };
+		544B5C0A2112B52200AF086C /* SH_UpdatedVersionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 544B5C092112B52200AF086C /* SH_UpdatedVersionModel.m */; };
+		544B5C0D2112B81400AF086C /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 544B5C0C2112B81400AF086C /* UIAlertView+Block.m */; };
 		547BCDF3210ACCBB00D7082F /* loading.webp in Resources */ = {isa = PBXBuildFile; fileRef = 547BCDF2210ACCBA00D7082F /* loading.webp */; };
 		547BCDF5210AF43100D7082F /* table-bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 547BCDF4210AF43100D7082F /* table-bg.webp */; };
 		547BCDF8210AFC4D00D7082F /* SH_SearchTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 547BCDF6210AFC4C00D7082F /* SH_SearchTypeModel.m */; };
@@ -468,6 +471,8 @@
 		5401C56120ECF9EA0027246D /* SH_HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_HomeViewController.xib; sourceTree = "<group>"; };
 		5401C56420ECFB3E0027246D /* SH_NetWorkService+Login.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+Login.h"; sourceTree = "<group>"; };
 		5401C56520ECFB3E0027246D /* SH_NetWorkService+Login.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+Login.m"; sourceTree = "<group>"; };
+		5434E0B72112987C00DCCC49 /* SH_XibButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_XibButton.h; sourceTree = "<group>"; };
+		5434E0B82112987C00DCCC49 /* SH_XibButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_XibButton.m; sourceTree = "<group>"; };
 		5435E7C72104381C00DB809F /* SH_WebPImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_WebPImageView.h; sourceTree = "<group>"; };
 		5435E7C82104381C00DB809F /* SH_WebPImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_WebPImageView.m; sourceTree = "<group>"; };
 		54397022210462A30091C719 /* top-bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "top-bg.webp"; sourceTree = "<group>"; };
@@ -561,6 +566,10 @@
 		543970EF2106C38D0091C719 /* logo12.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo12.webp; sourceTree = "<group>"; };
 		543970F02106C38E0091C719 /* logo14.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo14.webp; sourceTree = "<group>"; };
 		543970F12106C38E0091C719 /* logo13.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo13.webp; sourceTree = "<group>"; };
+		544B5C082112B52200AF086C /* SH_UpdatedVersionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_UpdatedVersionModel.h; sourceTree = "<group>"; };
+		544B5C092112B52200AF086C /* SH_UpdatedVersionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_UpdatedVersionModel.m; sourceTree = "<group>"; };
+		544B5C0B2112B81400AF086C /* UIAlertView+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Block.h"; sourceTree = "<group>"; };
+		544B5C0C2112B81400AF086C /* UIAlertView+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Block.m"; sourceTree = "<group>"; };
 		547BCDF2210ACCBA00D7082F /* loading.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = loading.webp; sourceTree = "<group>"; };
 		547BCDF4210AF43100D7082F /* table-bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "table-bg.webp"; sourceTree = "<group>"; };
 		547BCDF6210AFC4C00D7082F /* SH_SearchTypeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_SearchTypeModel.m; sourceTree = "<group>"; };
@@ -1194,6 +1203,8 @@
 				54C875BC20FC4B0B00AA0594 /* SH_AnnouncementModel.m */,
 				54CB4E4221107CED00170B1B /* SH_CustomerServiceManager.h */,
 				54CB4E4321107CED00170B1B /* SH_CustomerServiceManager.m */,
+				544B5C082112B52200AF086C /* SH_UpdatedVersionModel.h */,
+				544B5C092112B52200AF086C /* SH_UpdatedVersionModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1577,6 +1588,8 @@
 				54D5F57721081C5300439A94 /* SH_XibView.m */,
 				54E2484E210DDF31005C5263 /* SH_XibImageView.h */,
 				54E2484F210DDF31005C5263 /* SH_XibImageView.m */,
+				5434E0B72112987C00DCCC49 /* SH_XibButton.h */,
+				5434E0B82112987C00DCCC49 /* SH_XibButton.m */,
 			);
 			path = XibView;
 			sourceTree = "<group>";
@@ -1960,6 +1973,8 @@
 		BFFC846A20F344C8008AD801 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				544B5C0B2112B81400AF086C /* UIAlertView+Block.h */,
+				544B5C0C2112B81400AF086C /* UIAlertView+Block.m */,
 				DA1BCC6220FDC4B100201DBC /* UITableViewCell+ShowContent.h */,
 				DA1BCC6120FDC4B100201DBC /* UITableViewCell+ShowContent.m */,
 				BF44ECDE20F6F6AA00BC6EF3 /* UILabel+handle.h */,
@@ -2574,6 +2589,7 @@
 				BFA068CD20FE134700F5ADFE /* SH_ModiftSaftyPSDView.m in Sources */,
 				BF2F915A20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m in Sources */,
 				BFFEDCB820F34CDC002E69FD /* SH_RechargeCenterChannelModel.m in Sources */,
+				544B5C0A2112B52200AF086C /* SH_UpdatedVersionModel.m in Sources */,
 				BFA068DB20FF11E500F5ADFE /* SH_BankCardModel.m in Sources */,
 				BFA0689520FC8D9A00F5ADFE /* SH_LookJiHeView.m in Sources */,
 				BFFC846620F3043A008AD801 /* SH_RechargeCenterPaywayModel.m in Sources */,
@@ -2667,6 +2683,7 @@
 				DA1BCC8F20FEC91200201DBC /* SH_CardRecordTableViewCell.m in Sources */,
 				547BCDF8210AFC4D00D7082F /* SH_SearchTypeModel.m in Sources */,
 				BFA068C820FE0FF100F5ADFE /* SH_ModifyLoginPSDView.m in Sources */,
+				5434E0B92112987C00DCCC49 /* SH_XibButton.m in Sources */,
 				DA22F3D820F455C50058A54F /* UIImage+Representation.m in Sources */,
 				DA1BCCAF20FF33BE00201DBC /* SH_GamesHomeViewController.m in Sources */,
 				5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */,
@@ -2729,6 +2746,7 @@
 				DA22F3E520F4597E0058A54F /* RH_WebsocketManagar.m in Sources */,
 				BFA0688B20FC70AC00F5ADFE /* SH_PrifitOutCoinView.m in Sources */,
 				BF44EC5F20F45DA700BC6EF3 /* SH_BitCoinTextView.m in Sources */,
+				544B5C0D2112B81400AF086C /* UIAlertView+Block.m in Sources */,
 				54DD033D21086D8200CE9199 /* SH_MsgCenterView.m in Sources */,
 				54DD03432108797200CE9199 /* SH_MsgCenterCell.m in Sources */,
 				5401C55020ECA1B80027246D /* SH_NetWorkService+LineCheck.m in Sources */,
@@ -2893,7 +2911,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid18;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7001;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2913,7 +2931,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid18;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7001;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

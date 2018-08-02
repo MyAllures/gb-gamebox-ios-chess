@@ -123,4 +123,23 @@
     }];
 }
 
++ (void)checkVersionUpdate:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
+{
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/app/update.html"];
+    NSDictionary *param = @{@"code":S,
+                            @"type":@"ios",
+                            @"siteId":SID
+                            };
+    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost};
+    [self post:url parameter:param header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (complete) {
+            complete(httpURLResponse, response);
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        if (failed) {
+            failed(httpURLResponse, err);
+        }
+    }];
+}
+
 @end

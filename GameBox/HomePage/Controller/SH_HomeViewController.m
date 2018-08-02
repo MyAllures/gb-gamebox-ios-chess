@@ -44,6 +44,8 @@
 #import "SH_PromoWindowViewController.h"
 #import "SH_WaitingView.h"
 #import "SH_TimeZoneManager.h"
+#import "SH_UpdatedVersionModel.h"
+#import "UIAlertView+Block.h"
 
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate>
 
@@ -106,7 +108,8 @@
     [self initAdScroll];
     [self refreshAnnouncement];
     [self refreshHomeInfo];
-        
+    [self checkUpdate];
+    
     [[YFAnimationManager shareInstancetype] showAnimationInView:self.snowBGImg withAnimationStyle:YFAnimationStyleOfSnow];
 
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didRegistratedSuccessful) name:@"didRegistratedSuccessful" object:nil];
@@ -188,6 +191,73 @@
 - (void)refreshUserSessin
 {
     [SH_NetWorkService refreshUserSessin:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        //
+    }];
+}
+
+- (void)checkUpdate
+{
+    [SH_NetWorkService checkVersionUpdate:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (response) {
+            NSError *err;
+            SH_UpdatedVersionModel *updatedVersionModel = [[SH_UpdatedVersionModel alloc] initWithDictionary:response error:&err];
+            if(updatedVersionModel.versionCode <= [GB_CURRENT_APPBUILD integerValue]&&updatedVersionModel.forceVersion <= [GB_CURRENT_APPBUILD integerValue]){
+                //本地版本号和强制更新版本号都小于当前版本号 则 直接跳过
+                //跳过
+            }
+            else if (updatedVersionModel.versionCode>[GB_CURRENT_APPBUILD integerValue]&&updatedVersionModel.forceVersion <= [GB_CURRENT_APPBUILD integerValue])
+            {
+                //本地版本号比线上版本号要小 且
+                //本地版本号大于强制更新版本号
+                //需要弹框 但可以跳过
+                UIAlertView *alert =
+                [UIAlertView alertWithCallBackBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                    if (buttonIndex == 0) {
+                        //点击了忽略更新
+                        //直接跳过
+                    }
+                    else
+                    {
+                        NSString *downLoadIpaUrl = [NSString stringWithFormat:@"itms-services://?action=download-manifest&url=https://%@%@/%@/app_%@_%@.plist",updatedVersionModel.appUrl,updatedVersionModel.versionName,CODE,CODE,updatedVersionModel.versionName];
+                        NSURL *ipaUrl = [NSURL URLWithString:[downLoadIpaUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+                        [[UIApplication sharedApplication] openURL:ipaUrl];
+                        exit(0);
+                    }
+                }
+                                              title:@"发现新版本啦"
+                                            message:updatedVersionModel.memo
+                                   cancelButtonName:@"忽略更新"
+                                  otherButtonTitles:@"下载更新", nil];
+                [alert show];
+            }
+            else if (updatedVersionModel.versionCode > [GB_CURRENT_APPBUILD integerValue] && updatedVersionModel.forceVersion > [GB_CURRENT_APPBUILD integerValue])
+            {
+                //本地版本号小于线上版本号 且
+                //本地版本号小于线上强制更新版本号
+                //需要弹框 不能跳过
+                UIAlertView *alert =
+                [UIAlertView alertWithCallBackBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                    if (buttonIndex == 0) {
+                        //点击了忽略更新
+                        //直接退出app
+                        exit(0);
+                    }
+                    else
+                    {
+                        NSString *downLoadIpaUrl = [NSString stringWithFormat:@"itms-services://?action=download-manifest&url=https://%@%@/%@/app_%@_%@.plist",updatedVersionModel.appUrl,updatedVersionModel.versionName,CODE,CODE,updatedVersionModel.versionName];
+                        NSURL *ipaUrl = [NSURL URLWithString:[downLoadIpaUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+                        [[UIApplication sharedApplication] openURL:ipaUrl];
+                        exit(0);
+                    }
+                }
+                                              title:@"发现新版本啦"
+                                            message:updatedVersionModel.memo
+                                   cancelButtonName:@"退出"
+                                  otherButtonTitles:@"下载更新", nil];
+                [alert show];
+            }
+        }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         //
     }];

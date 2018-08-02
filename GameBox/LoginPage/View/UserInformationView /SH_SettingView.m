@@ -22,6 +22,11 @@
 
 @implementation SH_SettingView
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 +(instancetype)instanceSettingView{
     return  [[[NSBundle  mainBundle] loadNibNamed:NSStringFromClass([self  class]) owner:nil options:nil] lastObject];
 }
@@ -35,6 +40,8 @@
 -(void)awakeFromNib{
     [super  awakeFromNib];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(volumeChanged:) name:@"AVSystemController_SystemVolumeDidChangeNotification" object:nil];
+
     _musicSlider = [[SH_SliderView alloc] init];
     [self.containerView addSubview:_musicSlider];
     [_musicSlider mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -74,7 +81,12 @@
         // send UI control event to make the change effect right now.
         [volumeViewSlider sendActionsForControlEvents:UIControlEventTouchUpInside];
     }];
+}
 
+- (void)volumeChanged:(NSNotification *)notification
+{
+    CGFloat volume = [notification.userInfo[@"AVSystemController_AudioVolumeNotificationParameter"] floatValue];
+    _soundEffectSlider.progress = volume;
 }
 
 @end

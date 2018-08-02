@@ -26,4 +26,6 @@
 
 + (void)getCustomerService:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
 
++ (void)checkVersionUpdate:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
+
 @end
