@@ -22,9 +22,11 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *progressMarkLeading;
 @property (weak, nonatomic) IBOutlet UIImageView *animationStartImg;
 @property (weak, nonatomic) IBOutlet SH_WebPImageView *animationProgressImg;
+@property (weak, nonatomic) IBOutlet UIView *checkLineErrView;
 
 @property (nonatomic, assign) CGFloat progress;//线路检测进度
 @property (nonatomic, strong) NSString *lineCheckStatus;//线路检测提示语
+@property (strong, nonatomic) NSString *currentErrCode;//线路检测错误代码
 
 @end
 
@@ -45,32 +47,14 @@
         [self checkIPS:ips complete:^(NSDictionary *ips) {
             [weakSelf enterHomePage];
         } failed:^{
-            //
+            NSLog(@"全部ip check失败");
+            weakSelf.progress = 0;
+            weakSelf.currentErrCode = @"003";
         }];
     }
     else
     {
-        if ([SID isEqualToString:@"21"]) {
-            [SH_NetWorkService fetchIPSFromBossAPIGroup:@[@"http://boss-api-test.gbboss.com/boss-api"] host:@"" oneTurn:^(NSString *bossapi, BOOL success) {
-                NSLog(@">>>%@检测结果:%i",bossapi,success);
-                weakSelf.progress += 0.1;
-                weakSelf.lineCheckStatus = @"正在匹配服务器，请稍后...";
-            } complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-                NSLog(@"检测完毕:%@",response);
-                
-                NSLog(@"第三步：check-ip");
-                [weakSelf checkIPS:response complete:^(NSDictionary *ips) {
-                    //check成功 更新缓存
-                    [[IPsCacheManager sharedManager] updateIPsList:ips];
-                    [weakSelf enterHomePage];
-                } failed:^{
-                    //
-                }];
-            } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
-                NSLog(@"检测失败:%@",err);
-            }];
-        }
-        else if ([SID isEqualToString:@"18"]) {
+        if ([SID isEqualToString:@"21"] || [SID isEqualToString:@"18"]) {
             [SH_NetWorkService fetchIPSFromBossAPIGroup:@[@"http://boss-api-test.gbboss.com/boss-api"] host:@"" oneTurn:^(NSString *bossapi, BOOL success) {
                 NSLog(@">>>%@检测结果:%i",bossapi,success);
                 weakSelf.progress += 0.1;
@@ -84,10 +68,14 @@
                     [[IPsCacheManager sharedManager] updateIPsList:ips];
                     [weakSelf enterHomePage];
                 } failed:^{
-                    //
+                    NSLog(@"全部ip check失败");
+                    weakSelf.progress = 0;
+                    weakSelf.currentErrCode = @"003";
                 }];
             } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
-                NSLog(@"检测失败:%@",err);
+                NSLog(@"从bossAPI获取IPS失败:%@",err);
+                weakSelf.progress = 0;
+                weakSelf.currentErrCode = @"002";
             }];
         }
         else
@@ -126,13 +114,19 @@
                         [[IPsCacheManager sharedManager] updateIPsList:ips];
                         [weakSelf enterHomePage];
                     } failed:^{
-                        //
+                        NSLog(@"全部ip check失败");
+                        weakSelf.progress = 0;
+                        weakSelf.currentErrCode = @"003";
                     }];
                 } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
-                    NSLog(@"检测失败:%@",err);
+                    NSLog(@"从bossAPI获取IPS失败:%@",err);
+                    weakSelf.progress = 0;
+                    weakSelf.currentErrCode = @"002";
                 }];
             } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
-                NSLog(@"检测失败:%@",err);
+                NSLog(@"DNS检测失败:%@",err);
+                weakSelf.progress = 0;
+                weakSelf.currentErrCode = @"001";
             }];
         }
     }
@@ -266,6 +260,26 @@
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         //
     }];
+}
+
+- (void)showErrAlertWithErrCode:(NSString *)code otherInfo:(NSDictionary *)otherInfo
+{
+    NSDictionary *infoDic = [[NSBundle mainBundle] infoDictionary];
+    NSString *appVersion = [infoDic objectForKey:@"CFBundleShortVersionString"];
+    NSString *ip = [self localIPAddress];
+    NSString *msg = [NSString stringWithFormat:@"\n错误码:%@\n当前ip:%@\n版本号:%@\n很抱歉,请联系客服并提供以上信息",code, ip, [NSString stringWithFormat:@"iOS %@.%@",appVersion,RH_APP_VERCODE]];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"线路检测失败" message:msg preferredStyle:UIAlertControllerStyleAlert];
+    
+    NSMutableAttributedString *messageText = [[NSMutableAttributedString alloc] initWithString:msg];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.alignment = NSTextAlignmentLeft;
+    [messageText addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, msg.length)];
+    [alert setValue:messageText forKey:@"attributedMessage"];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"关闭" style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:cancelAction];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
