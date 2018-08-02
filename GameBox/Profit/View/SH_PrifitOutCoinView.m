@@ -98,11 +98,11 @@
         self.bandingBtn.userInteractionEnabled = NO;
     }
     SH_ProfitModel *model1  = model;
-    NSDictionary *rank = model1.rank;
+//    NSDictionary *rank = model1.rank;
     self.balanceLab.text = [NSString stringWithFormat:@"%.2f",[model1.totalBalance floatValue]];
-    NSString *withdrawMinNum = rank[@"withdrawMinNum"];
-    NSString *withdrawMaxNum = rank[@"withdrawMaxNum"];
-    self.numTextField.placeholder = [NSString stringWithFormat:@"¥%@~¥%@",withdrawMinNum,withdrawMaxNum];
+//    NSString *withdrawMinNum = rank[@"withdrawMinNum"];
+//    NSString *withdrawMaxNum = rank[@"withdrawMaxNum"];
+//    self.numTextField.placeholder = [NSString stringWithFormat:@"¥%@~¥%@",withdrawMinNum,withdrawMaxNum];
     self.targetVC = targetVC;
     self.token = token;
 }
