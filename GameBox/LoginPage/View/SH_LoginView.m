@@ -24,6 +24,7 @@
 #import "SH_FindPSWView.h"
 #import "AlertViewController.h"
 #import "SH_SafeCenterAlertView.h"
+#import "SH_CustomerServiceManager.h"
 
 @interface SH_LoginView(){
      RH_RegisetInitModel *registrationInitModel;
@@ -220,7 +221,6 @@
     acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self.targetVC presentViewController:acr animated:YES completion:nil];
-    
 }
 
 #pragma mark --  简单的非空判断
