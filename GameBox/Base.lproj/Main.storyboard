@@ -107,7 +107,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0AM-qn-Qlc">
-                                <rect key="frame" x="213" y="283" width="240" height="44"/>
+                                <rect key="frame" x="223" y="283" width="220" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9qs-It-C9D" customClass="SH_XibButton">
                                         <rect key="frame" x="0.0" y="5.5" width="100" height="33"/>
@@ -124,9 +124,12 @@
                                                 <real key="value" value="16.5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="doItAgainAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hfq-7M-yyi"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eMO-lH-N3f" customClass="SH_XibButton">
-                                        <rect key="frame" x="140" y="5.5" width="100" height="33"/>
+                                        <rect key="frame" x="120" y="5.5" width="100" height="33"/>
                                         <color key="backgroundColor" red="0.26666666666666666" green="0.63529411764705879" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="检测结果">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -136,13 +139,16 @@
                                                 <real key="value" value="16.5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="errDetailAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6A5-9N-gxH"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="4IB-M0-plV"/>
                                     <constraint firstItem="9qs-It-C9D" firstAttribute="leading" secondItem="0AM-qn-Qlc" secondAttribute="leading" id="G2F-oa-05C"/>
-                                    <constraint firstAttribute="width" constant="240" id="GJv-3O-pyc"/>
+                                    <constraint firstAttribute="width" constant="220" id="GJv-3O-pyc"/>
                                     <constraint firstItem="9qs-It-C9D" firstAttribute="centerY" secondItem="0AM-qn-Qlc" secondAttribute="centerY" id="gVQ-dY-ESG"/>
                                     <constraint firstItem="eMO-lH-N3f" firstAttribute="width" secondItem="9qs-It-C9D" secondAttribute="width" id="hAx-So-xqH"/>
                                     <constraint firstItem="eMO-lH-N3f" firstAttribute="height" secondItem="9qs-It-C9D" secondAttribute="height" id="jQw-VH-RqG"/>

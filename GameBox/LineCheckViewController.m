@@ -35,9 +35,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    __weak typeof(self) weakSelf = self;
     [self starsAnimation];
     [self progressAnimation];
+    [self doLineCheck];
+}
+
+- (void)doLineCheck
+{
+    __weak typeof(self) weakSelf = self;
+    self.progress = 0.05;//默认给个5%的进度
     //先检查缓存的ips是否还有效
     BOOL isIPsValid = [[IPsCacheManager sharedManager] isIPsValid];
     if (isIPsValid) {
@@ -61,7 +67,7 @@
                 weakSelf.lineCheckStatus = @"正在匹配服务器，请稍后...";
             } complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
                 NSLog(@"检测完毕:%@",response);
-
+                
                 NSLog(@"第三步：check-ip");
                 [weakSelf checkIPS:response complete:^(NSDictionary *ips) {
                     //check成功 更新缓存
@@ -90,7 +96,7 @@
                 NSLog(@"检测完毕:%@",response);
                 //缓存boss-api
                 [[IPsCacheManager sharedManager] updateBossApiList:response];
-
+                
                 //第二步
                 NSLog(@"第二步：从bossAPI获取IPS");
                 NSString *host = [response objectForKey:@"host"];
@@ -138,6 +144,9 @@
     self.progressView.progress = _progress;
     self.progressNumLB.text = [NSString stringWithFormat:@"%.0f%%",_progress*100];
     self.progressMarkLeading.constant = -34+_progress*277;
+    
+    self.statusLB.hidden = _progress == 0;
+    self.checkLineErrView.hidden = _progress != 0;
 }
 
 - (void)setLineCheckStatus:(NSString *)lineCheckStatus
@@ -264,10 +273,11 @@
 
 - (void)showErrAlertWithErrCode:(NSString *)code otherInfo:(NSDictionary *)otherInfo
 {
-    NSDictionary *infoDic = [[NSBundle mainBundle] infoDictionary];
-    NSString *appVersion = [infoDic objectForKey:@"CFBundleShortVersionString"];
+    NSString *appVersion = GB_CURRENT_APPVERSION;
+    NSString *appBuildVersion = GB_CURRENT_APPBUILD;
+
     NSString *ip = [self localIPAddress];
-    NSString *msg = [NSString stringWithFormat:@"\n错误码:%@\n当前ip:%@\n版本号:%@\n很抱歉,请联系客服并提供以上信息",code, ip, [NSString stringWithFormat:@"iOS %@.%@",appVersion,RH_APP_VERCODE]];
+    NSString *msg = [NSString stringWithFormat:@"\n错误码:%@\n当前ip:%@\n版本号:%@\n很抱歉,请联系客服并提供以上信息",code, ip, [NSString stringWithFormat:@"iOS %@.%@",appVersion,appBuildVersion]];
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"线路检测失败" message:msg preferredStyle:UIAlertControllerStyleAlert];
     
     NSMutableAttributedString *messageText = [[NSMutableAttributedString alloc] initWithString:msg];
@@ -280,6 +290,36 @@
     [alert addAction:cancelAction];
     
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+//获取设备IP地址
+- (NSString *)localIPAddress
+{
+    NSError *error;
+    NSURL *ipURL = [NSURL URLWithString:@"http://pv.sohu.com/cityjson?ie=utf-8"];
+    NSMutableString *ip = [NSMutableString stringWithContentsOfURL:ipURL encoding:NSUTF8StringEncoding error:&error];
+    //判断返回字符串是否为所需数据
+    if ([ip hasPrefix:@"var returnCitySN = "]) {
+        //对字符串进行处理，然后进行json解析
+        //删除字符串多余字符串
+        NSRange range = NSMakeRange(0, 19);
+        [ip deleteCharactersInRange:range];
+        NSString * nowIp =[ip substringToIndex:ip.length-1];
+        //将字符串转换成二进制进行Json解析
+        NSData * data = [nowIp dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary * dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        return dict[@"cip"] ? dict[@"cip"] : @"";
+    }
+    return @"";
+}
+
+- (IBAction)errDetailAction:(id)sender {
+    [self showErrAlertWithErrCode:self.currentErrCode otherInfo:nil];
+}
+
+- (IBAction)doItAgainAction:(id)sender {
+    self.checkLineErrView.hidden = YES;
+    [self doLineCheck];
 }
 
 - (void)didReceiveMemoryWarning {
