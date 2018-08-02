@@ -202,6 +202,7 @@
                 <outlet property="inboxBt" destination="r97-Ox-5W1" id="vT3-7X-KVj"/>
                 <outlet property="nodataMarkView" destination="Rv3-QU-d8G" id="XRi-K9-zLL"/>
                 <outlet property="operationBarConstraint" destination="nRk-bI-a5c" id="uVf-6V-1d9"/>
+                <outlet property="selectAllBT" destination="M6W-VX-sHV" id="NOJ-lD-5tp"/>
                 <outlet property="systemNoticeBt" destination="EoG-PJ-hxP" id="bCT-AE-FLV"/>
                 <outlet property="tableView" destination="Ovy-TN-Yre" id="kHt-if-EKI"/>
             </connections>
