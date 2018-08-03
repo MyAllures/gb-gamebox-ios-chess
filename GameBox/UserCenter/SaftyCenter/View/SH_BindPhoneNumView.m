@@ -10,10 +10,12 @@
 #import "SH_NetWorkService+SaftyCenter.h"
 #import "SH_GamesHomeViewController.h"
 @interface SH_BindPhoneNumView()
+@property (weak, nonatomic) IBOutlet UIView *olbPhone_view;
 @property (weak, nonatomic) IBOutlet UILabel *oldPhoneNumLab; //旧手机号码lable
 @property (weak, nonatomic) IBOutlet UITextField *oldPhoneNumTF;//旧手机号码textfield
 @property (weak, nonatomic) IBOutlet UILabel *NewPhoneNumLab;//新手机号码lable
 @property (weak, nonatomic) IBOutlet UITextField *NewPhoneNumTF;//新手机号码textfield
+@property (weak, nonatomic) IBOutlet UIView *NewPhone_view;
 @property (weak, nonatomic) IBOutlet UIButton *VerificationBtn;//验证码按钮
 @property (weak, nonatomic) IBOutlet UILabel *InputVerificationCodeLab;//验证码lable
 @property (weak, nonatomic) IBOutlet UITextField *InputCodeTF;//验证码textfield
@@ -109,6 +111,7 @@
 -(void)notBindPhoneNum{
     self.oldPhoneNumLab.hidden = YES;
     self.oldPhoneNumTF.hidden = YES;
+    self.olbPhone_view.hidden = YES;
     self.NewPhoneNumLab.text = @"手机号码";
     self.VerificationBtn.hidden = NO;
     self.InputVerificationCodeLab.hidden = NO;
@@ -121,6 +124,7 @@
 -(void)changedBindedPhoneNum{
     self.oldPhoneNumLab.hidden = NO;
     self.oldPhoneNumLab.text = @"旧手机号码";
+    self.olbPhone_view.hidden = NO;
     self.oldPhoneNumTF.hidden = NO;
     self.NewPhoneNumLab.text = @"新手机号码";
     self.VerificationBtn.hidden = NO;

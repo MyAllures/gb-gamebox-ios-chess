@@ -11,7 +11,7 @@
 @interface SH_SysMsgDataListModel : JSONModel
 
 @property (strong, nonatomic) NSString <Optional> *content;
-@property (assign, nonatomic) NSInteger id;
+@property (assign, nonatomic) NSInteger mId;
 @property (strong, nonatomic) NSString <Optional> *link;
 @property (assign, nonatomic) NSInteger publishTime;
 @property (assign, nonatomic) BOOL read;
