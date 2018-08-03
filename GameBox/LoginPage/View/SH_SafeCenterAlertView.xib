@@ -28,13 +28,13 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="login_button"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="buttonClick:" destination="iae-aI-JlP" eventType="touchUpInside" id="YHE-xr-MgD"/>
+                        <action selector="btnClick:" destination="iae-aI-JlP" eventType="touchUpInside" id="F2Y-4L-R3n"/>
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="whb-rU-Cu0">
                     <rect key="frame" x="8" y="8" width="329" height="133"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="确定退出吗？" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pV-NZ-saY">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未开启找回密码功能，请联系客服" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pV-NZ-saY">
                             <rect key="frame" x="8" y="8" width="313" height="117"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

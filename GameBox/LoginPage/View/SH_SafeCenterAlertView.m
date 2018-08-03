@@ -7,6 +7,7 @@
 //
 
 #import "SH_SafeCenterAlertView.h"
+#import "SH_CustomerServiceManager.h"
 
 @implementation SH_SafeCenterAlertView
 
@@ -15,7 +16,8 @@
 }
 - (IBAction)btnClick:(UIButton *)sender {
     if (sender.tag == 100) {
-       
+        //联系客服
+        [[SH_CustomerServiceManager sharedManager] open];
     } else {
          [self.vc close];
     }
