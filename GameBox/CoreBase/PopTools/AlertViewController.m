@@ -21,7 +21,7 @@
 @property(nonatomic,assign)CGFloat viewWidth;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *btnContrainsHeight;
 
-@property (weak, nonatomic) IBOutlet UIButton *shutBtn;
+
 @property(nonatomic, strong) NSString *startAndEndDateStr;
 @end
 

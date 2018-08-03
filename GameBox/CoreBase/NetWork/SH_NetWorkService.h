@@ -10,6 +10,7 @@
 
 typedef void(^SHNetWorkComplete)(NSHTTPURLResponse *httpURLResponse, id response);
 typedef void(^SHNetWorkFailed)(NSHTTPURLResponse *httpURLResponse, NSString *err);
+typedef void(^SHNetWorkCheckComplete)(BOOL ok);
 
 @interface SH_NetWorkService : NSObject
 

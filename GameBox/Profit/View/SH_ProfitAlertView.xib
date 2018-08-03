@@ -58,6 +58,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="lab" destination="rrb-QA-77k" id="8ae-Ya-LHP"/>
+                <outlet property="sureBtn" destination="zfo-JZ-3Li" id="NWU-DB-Nz9"/>
             </connections>
         </view>
     </objects>

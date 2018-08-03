@@ -75,6 +75,9 @@
         make.height.mas_equalTo(95);
     }];
     [_dragableMenuView closeAction:^{
+        if (weakSelf.closeBlock) {
+            weakSelf.closeBlock();
+        }
         [weakSelf.navigationController popViewControllerAnimated:NO];
     }];
     
@@ -87,6 +90,7 @@
             if (weakSelf.closeBlock) {
                 weakSelf.closeBlock();
             }
+            [weakSelf.navigationController popViewControllerAnimated:NO];
         }
     }];
 }

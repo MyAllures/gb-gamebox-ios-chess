@@ -47,12 +47,14 @@
 }
 
 -(void)drawRect:(CGRect)rect {
+    
     if([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length > 0){
         
     } else {
         SH_FillRealNameView *view = [[[NSBundle mainBundle] loadNibNamed:@"SH_FillRealNameView" owner:nil options:nil] lastObject];
         AlertViewController *acr = [[AlertViewController alloc] initAlertView:view viewHeight:202 titleImageName:@"title18" alertViewType:AlertViewTypeShort];
         view.targetVC1 = acr;
+        acr.shutBtn.hidden = YES;
         acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         [self.targetVC presentViewController:acr animated:YES completion:nil];
@@ -60,10 +62,13 @@
 }
 
 - (void)updateView{
-    if([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length > 0){
+    if([RH_UserInfoManager shareUserManager].userSafetyInfo.hasPermissionPwd){
         //设置过安全密码
         self.topDistance.constant = 110;
-        
+        self.currentTF.hidden = NO;
+        self.currentLab.hidden = NO;
+        self.realNameTF.hidden = NO;
+        [self.realNameLabel setHidden:NO];
     }else{
         //没有设置过安全密码
         self.topDistance.constant = 30;
@@ -89,6 +94,7 @@
             SH_FillRealNameView *view = [[[NSBundle mainBundle] loadNibNamed:@"SH_FillRealNameView" owner:nil options:nil] lastObject];
             AlertViewController *acr = [[AlertViewController alloc] initAlertView:view viewHeight:202 titleImageName:@"title18" alertViewType:AlertViewTypeShort];
             view.targetVC1 = acr;
+            acr.shutBtn.hidden = YES;
             acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
             acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
             [self.targetVC presentViewController:acr animated:YES completion:nil];
@@ -156,4 +162,5 @@
 - (IBAction)verificationBtnClick:(id)sender {
     [self verificationImage];
 }
+
 @end

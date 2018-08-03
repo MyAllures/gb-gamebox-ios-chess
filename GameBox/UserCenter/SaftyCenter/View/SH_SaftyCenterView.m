@@ -15,6 +15,8 @@
 #import "SH_WebPButton.h"
 #import "SH_BindPhoneNumView.h"
 #import "SH_ProfitExchangeView.h"
+#import "SH_FillRealNameView.h"
+#import "AlertViewController.h"
 @interface SH_SaftyCenterView()
 @property (weak, nonatomic) IBOutlet SH_WebPButton *loginBtn;
 @property (weak, nonatomic) IBOutlet SH_WebPButton *saftyBtn;
@@ -114,6 +116,7 @@
 - (IBAction)saftyBtnclick:(id)sender {
     self.saftyView.targetVC = self.targetVC;
      [self setUIWithSelecteBtn:self.saftyBtn SelectedView:self.saftyView];
+//    self.saftyView.
     //这里用户要请求有没有设置过安全密码接口
       __weak typeof(self) weakSelf = self;
     [SH_NetWorkService initUserSaftyInfoSuccess:^(NSHTTPURLResponse *httpURLResponse, id response) {
@@ -150,6 +153,8 @@
     self.bankView.from = from;
     if ([type isEqualToString:@"bindBankcard"]) {
         [self bankCardBtnClick:nil];
+    } else if ([type isEqualToString:@"setSafePsw"]){
+        [self saftyBtnclick:nil];
     }
 }
 - (IBAction)bindPhoneBtnClick:(id)sender {

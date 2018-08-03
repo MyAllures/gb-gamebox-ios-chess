@@ -20,6 +20,7 @@ typedef void(^alertViewDismissBlock)(void);
 @property(nonatomic,copy)alertViewDismissBlock dismissBlock;
 @property (weak, nonatomic) IBOutlet UIView *animationView;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nonatomic) IBOutlet UIButton *shutBtn;
 /**
  自定义弹窗
  @param view 自定义的UIView
