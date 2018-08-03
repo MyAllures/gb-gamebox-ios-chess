@@ -16,11 +16,13 @@
 #define SH_DEFAULT_NETWORK_TIMEOUT 15.0f //默认的超时秒数
 #define SH_MAX_NETWORK_CONCURRENT 10 //最大http并发数
 
-static AFHTTPSessionManager *sharedManager = nil;
+static BOOL isNetworkingOK = YES;//网络状态 默认畅通
 
 @implementation SH_NetWorkService
 
 + (AFHTTPSessionManager *)manager {
+    __weak typeof(self) weakSelf = self;
+
     static AFHTTPSessionManager *manager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -34,6 +36,13 @@ static AFHTTPSessionManager *sharedManager = nil;
             [NSSet setWithArray:@[@"application/json",@"text/html",@"text/json",@"text/plain",@"text/javascript",@"text/xml",@"image/*",@"image/jpeg"]];
             manager.requestSerializer.timeoutInterval = SH_DEFAULT_NETWORK_TIMEOUT;
             manager.operationQueue.maxConcurrentOperationCount = SH_MAX_NETWORK_CONCURRENT;
+            //监控网络状态
+            [weakSelf isNetWorkStatusOK:^(BOOL ok) {
+                isNetworkingOK = ok;
+                if (!ok) {
+                    showErrorMessage([UIApplication sharedApplication].keyWindow, nil, @"暂无网络");
+                }
+            }];
         }
     });
     return manager;
@@ -72,106 +81,44 @@ static AFHTTPSessionManager *sharedManager = nil;
 
 + (void)get:(NSString *)url withPublicParameter:(BOOL)withPublicParameter parameter:(NSDictionary *)parameter header:(NSDictionary *)header cache:(BOOL)cache complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
 {
-    if (cache) {
-        //如果有需要缓存 先读取缓存
-        id responseObject = [[SH_CacheManager shareManager] getCacheResponseObjectWithRequestUrl:url params:parameter];
-        if (responseObject) {
-            id response = [self translateResponseData:responseObject];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if (complete)
-                {
-                    complete(nil, response);
-                }
-            });
-        }
-    }
-
     __weak typeof(self) weakSelf = self;
-    AFHTTPSessionManager *manager = [self manager];
-    
-    //允许非权威机构颁发的证书
-    manager.securityPolicy.allowInvalidCertificates = YES;
-    //也不验证域名一致性
-    manager.securityPolicy.validatesDomainName = NO;
-    
-    //添加消息头
-    //默认header
-    NSString *user_agent = [NSString stringWithFormat:@"app_ios, iPhone, chess, %@.%@",GB_CURRENT_APPVERSION, GB_CURRENT_APPBUILD];
-    [manager.requestSerializer setValue:user_agent forHTTPHeaderField:@"User-Agent"];
-    [manager.requestSerializer setValue:[NetWorkLineMangaer sharedManager].currentCookie forHTTPHeaderField:@"Cookie"];
-    if (header) {
-        for (NSString *key in header.allKeys) {
-            [manager.requestSerializer setValue:[header objectForKey:key] forHTTPHeaderField:key];
-        }
-    }
-    
-    NSMutableDictionary *mParameter = withPublicParameter ? [self publicParam] : [NSMutableDictionary dictionary];
-    if (parameter) {
-        [mParameter addEntriesFromDictionary:parameter];
-    }
-    
-    [manager GET:url parameters:mParameter progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        id response = [weakSelf translateResponseData:responseObject];
-        //先做code判断看是否需要做特点错误码的统一回调
-        if ([response isKindOfClass:[NSDictionary class]]) {
-            if ([[response allKeys] containsObject:@"code"]) {
-                int code = [response[@"code"] intValue];
-                if (code == SH_API_ERRORCODE_SESSION_EXPIRED ||
-                    code == SH_API_ERRORCODE_SESSION_TAKEOUT ||
-                    code == SH_API_ERRORCODE_USER_NERVER_LOGIN) {
-                    //session过期
-                    //被强制踢出
-                    //未登录
-                    //统一处理
-                    [SH_HttpErrManager dealWithErrCode:code];
-                    if (failed) {
-                        NSString *errDes = @"";
-                        if (code == SH_API_ERRORCODE_SESSION_EXPIRED) {
-                            errDes = @"session已过期";
-                        }
-                        else if (code == SH_API_ERRORCODE_SESSION_TAKEOUT)
-                        {
-                            errDes = @"您的账号在其他设备登录";
-                        }
-                        else if (code == SH_API_ERRORCODE_USER_NERVER_LOGIN)
-                        {
-                            errDes = @"请先登录";
-                        }
-                        failed((NSHTTPURLResponse *)task.response, errDes);
-                    }
-                }
-                else
-                {
-                    //不是以上特定的错误
-                    //才会缓存responseObject
-                    if (cache)
-                    {
-                        //如果需要缓存 则缓存数据
-                        [[SH_CacheManager shareManager] cacheResponseObject:responseObject requestUrl:url params:parameter];
-                    }
-                    if (complete) {
-                        complete((NSHTTPURLResponse *)task.response, response);
-                    }
-                }
-            }
-            else
-            {
-                if (complete) {
-                    complete((NSHTTPURLResponse *)task.response, response);
-                }
-            }
-        }
-        else
-        {
+    if (isNetworkingOK) {
+        //先从cache读取
+        [weakSelf readFromCache:cache url:url parameter:parameter complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             if (complete) {
-                complete((NSHTTPURLResponse *)task.response, response);
+                complete(httpURLResponse, response);
             }
-        }
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        }];
+        
+        //配置HTTPSessionManager
+        AFHTTPSessionManager *manager = [self configHTTPSessionManager:header];
+        
+        //配置parameters
+        NSMutableDictionary *mParameter = [self appendParameter:parameter withPublicParameter:withPublicParameter];
+        
+        [manager GET:url parameters:mParameter progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            //统一处理respones并回调
+            [weakSelf dealResultWithUrl:url parameter:parameter header:header cache:cache task:task responseObject:responseObject complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+                if (complete) {
+                    complete(httpURLResponse, response);
+                }
+            } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+                if (failed) {
+                    failed(httpURLResponse, err);
+                }
+            }];
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            if (failed) {
+                failed((NSHTTPURLResponse *)task.response, @"访问失败");
+            }
+        }];
+    }
+    else
+    {
         if (failed) {
-            failed((NSHTTPURLResponse *)task.response, @"访问失败");
+            failed(nil, @"网络链接失败");
         }
-    }];
+    }
 }
 
 + (void)get:(NSString *)url complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
@@ -241,107 +188,46 @@ static AFHTTPSessionManager *sharedManager = nil;
 
 + (void)post:(NSString *)url parameter:(NSDictionary *)parameter header:(NSDictionary *)header cache:(BOOL)cache complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
 {
-    if (cache) {
-        //如果有需要缓存 先读取缓存
-        id responseObject = [[SH_CacheManager shareManager] getCacheResponseObjectWithRequestUrl:url params:parameter];
-        if (responseObject) {
-            id response = [self translateResponseData:responseObject];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if (complete)
-                {
-                    complete(nil, response);
-                }
-            });
-        }
-    }
-    
     __weak typeof(self) weakSelf = self;
-    AFHTTPSessionManager *manager = [self manager];
 
-    //允许非权威机构颁发的证书
-    manager.securityPolicy.allowInvalidCertificates = YES;
-    //也不验证域名一致性
-    manager.securityPolicy.validatesDomainName = NO;
-    
-    //添加消息头
-    //默认header
-    NSString *user_agent = [NSString stringWithFormat:@"app_ios, iPhone, chess, %@.%@",GB_CURRENT_APPVERSION, GB_CURRENT_APPBUILD];
-    [manager.requestSerializer setValue:user_agent forHTTPHeaderField:@"User-Agent"];
-    [manager.requestSerializer setValue:[NetWorkLineMangaer sharedManager].currentCookie forHTTPHeaderField:@"Cookie"];
-    if (header) {
-        for (NSString *key in header.allKeys) {
-            [manager.requestSerializer setValue:[header objectForKey:key] forHTTPHeaderField:key];
-        }
-    }
-    
-    NSMutableDictionary *mParameter = [self publicParam];
-    if (parameter) {
-        [mParameter addEntriesFromDictionary:parameter];
-    }
-
-    [manager POST:url parameters:mParameter progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        id response = [weakSelf translateResponseData:responseObject];
-        //先做code判断看是否需要做特点错误码的统一回调
-        if ([response isKindOfClass:[NSDictionary class]]) {
-            if ([[response allKeys] containsObject:@"code"]) {
-                int code = [response[@"code"] intValue];
-                if (code == SH_API_ERRORCODE_SESSION_EXPIRED ||
-                    code == SH_API_ERRORCODE_SESSION_TAKEOUT ||
-                    code == SH_API_ERRORCODE_USER_NERVER_LOGIN) {
-                    //session过期
-                    //被强制踢出
-                    //未登录
-                    //统一处理
-                    [SH_HttpErrManager dealWithErrCode:code];
-                    if (failed) {
-                        NSString *errDes = @"";
-                        if (code == SH_API_ERRORCODE_SESSION_EXPIRED) {
-                            errDes = @"session已过期";
-                        }
-                        else if (code == SH_API_ERRORCODE_SESSION_TAKEOUT)
-                        {
-                            errDes = @"您的账号在其他设备登录";
-                        }
-                        else if (code == SH_API_ERRORCODE_USER_NERVER_LOGIN)
-                        {
-                            errDes = @"请先登录";
-                        }
-                        failed((NSHTTPURLResponse *)task.response, errDes);
-                    }
-                }
-                else
-                {
-                    //不是以上特定的错误
-                    //才会缓存responseObject
-                    if (cache)
-                    {
-                        //如果需要缓存 则缓存数据
-                        [[SH_CacheManager shareManager] cacheResponseObject:responseObject requestUrl:url params:parameter];
-                    }
-                    
-                    if (complete) {
-                        complete((NSHTTPURLResponse *)task.response, response);
-                    }
-                }
-            }
-            else
-            {
-                if (complete) {
-                    complete((NSHTTPURLResponse *)task.response, response);
-                }
-            }
-        }
-        else
-        {
+    //先检测网络是否链接
+    if (isNetworkingOK) {
+        //先从cache读取
+        [weakSelf readFromCache:cache url:url parameter:parameter complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             if (complete) {
-                complete((NSHTTPURLResponse *)task.response, response);
+                complete(httpURLResponse, response);
             }
-        }
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        }];
+        
+        //配置HTTPSessionManager
+        AFHTTPSessionManager *manager = [self configHTTPSessionManager:header];
+        
+        //配置parameters
+        NSMutableDictionary *mParameter = [self appendParameter:parameter withPublicParameter:YES];
+        
+        [manager POST:url parameters:mParameter progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            //统一处理respones并回调
+            [weakSelf dealResultWithUrl:url parameter:parameter header:header cache:cache task:task responseObject:responseObject complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+                if (complete) {
+                    complete(httpURLResponse, response);
+                }
+            } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+                if (failed) {
+                    failed(httpURLResponse, err);
+                }
+            }];
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            if (failed) {
+                failed((NSHTTPURLResponse *)task.response, @"访问失败");
+            }
+        }];
+    }
+    else
+    {
         if (failed) {
-            failed((NSHTTPURLResponse *)task.response, @"访问失败");
+            failed(nil, @"网络链接失败");
         }
-    }];
+    }
 }
 
 #pragma mark - Private M
@@ -381,7 +267,138 @@ static AFHTTPSessionManager *sharedManager = nil;
         //只记得转换为对象输出
         return responseObject;
     }
+}
+
++ (void)isNetWorkStatusOK:(SHNetWorkCheckComplete)complete
+{
+    AFNetworkReachabilityManager *reachabilityManager = [AFNetworkReachabilityManager sharedManager];
+    [reachabilityManager startMonitoring];
+    [reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        if (status == AFNetworkReachabilityStatusUnknown || status == AFNetworkReachabilityStatusNotReachable) {
+            //未知网络或无网络
+            if (complete) {
+                complete(NO);
+            }
+        }
+        else
+        {
+            //网络通畅
+            if (complete) {
+                complete(YES);
+            }
+        }
+    }];
+}
+
+//处理回调结果
++ (void)dealResultWithUrl:(NSString *)url parameter:(NSDictionary *)parameter header:(NSDictionary *)header cache:(BOOL)cache task:(NSURLSessionDataTask * _Nonnull)task responseObject:(id  _Nullable) responseObject complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
+{
+    id response = [self translateResponseData:responseObject];
+    //先做code判断看是否需要做特点错误码的统一回调
+    if ([response isKindOfClass:[NSDictionary class]]) {
+        if ([[response allKeys] containsObject:@"code"]) {
+            int code = [response[@"code"] intValue];
+            if (code == SH_API_ERRORCODE_SESSION_EXPIRED ||
+                code == SH_API_ERRORCODE_SESSION_TAKEOUT ||
+                code == SH_API_ERRORCODE_USER_NERVER_LOGIN) {
+                //session过期
+                //被强制踢出
+                //未登录
+                //统一处理
+                [SH_HttpErrManager dealWithErrCode:code];
+                if (failed) {
+                    NSString *errDes = @"";
+                    if (code == SH_API_ERRORCODE_SESSION_EXPIRED) {
+                        errDes = @"session已过期";
+                    }
+                    else if (code == SH_API_ERRORCODE_SESSION_TAKEOUT)
+                    {
+                        errDes = @"您的账号在其他设备登录";
+                    }
+                    else if (code == SH_API_ERRORCODE_USER_NERVER_LOGIN)
+                    {
+                        errDes = @"请先登录";
+                    }
+                    failed((NSHTTPURLResponse *)task.response, errDes);
+                }
+            }
+            else
+            {
+                //不是以上特定的错误
+                //才会缓存responseObject
+                if (cache)
+                {
+                    //如果需要缓存 则缓存数据
+                    [[SH_CacheManager shareManager] cacheResponseObject:responseObject requestUrl:url params:parameter];
+                }
+                
+                if (complete) {
+                    complete((NSHTTPURLResponse *)task.response, response);
+                }
+            }
+        }
+        else
+        {
+            if (complete) {
+                complete((NSHTTPURLResponse *)task.response, response);
+            }
+        }
+    }
+    else
+    {
+        if (complete) {
+            complete((NSHTTPURLResponse *)task.response, response);
+        }
+    }
+}
+
++ (void)readFromCache:(BOOL)cache url:(NSString *)url parameter:(NSDictionary *)parameter complete:(SHNetWorkComplete)complete
+{
+    if (cache) {
+        //如果有需要缓存 先读取缓存
+        id responseObject = [[SH_CacheManager shareManager] getCacheResponseObjectWithRequestUrl:url params:parameter];
+        if (responseObject) {
+            id response = [self translateResponseData:responseObject];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (complete)
+                {
+                    complete(nil, response);
+                }
+            });
+        }
+    }
+}
+
++ (AFHTTPSessionManager *)configHTTPSessionManager:(NSDictionary *)header
+{
+    AFHTTPSessionManager *manager = [self manager];
     
+    //允许非权威机构颁发的证书
+    manager.securityPolicy.allowInvalidCertificates = YES;
+    //也不验证域名一致性
+    manager.securityPolicy.validatesDomainName = NO;
+    
+    //添加消息头
+    //默认header
+    NSString *user_agent = [NSString stringWithFormat:@"app_ios, iPhone, chess, %@.%@",GB_CURRENT_APPVERSION, GB_CURRENT_APPBUILD];
+    [manager.requestSerializer setValue:user_agent forHTTPHeaderField:@"User-Agent"];
+    [manager.requestSerializer setValue:[NetWorkLineMangaer sharedManager].currentCookie forHTTPHeaderField:@"Cookie"];
+    if (header) {
+        for (NSString *key in header.allKeys) {
+            [manager.requestSerializer setValue:[header objectForKey:key] forHTTPHeaderField:key];
+        }
+    }
+    
+    return manager;
+}
+
++ (NSMutableDictionary *)appendParameter:(NSDictionary *)parameter withPublicParameter:(BOOL)withPublicParameter
+{
+    NSMutableDictionary *mParameter = withPublicParameter ? [self publicParam] : [NSMutableDictionary dictionary];
+    if (parameter) {
+        [mParameter addEntriesFromDictionary:parameter];
+    }
+    return mParameter;
 }
 
 @end
