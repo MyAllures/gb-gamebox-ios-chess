@@ -995,7 +995,7 @@
                 }
                 [SH_WaitingView hide:weakSelf.view];
             } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-                showErrorMessage([UIApplication sharedApplication].keyWindow, nil, @"连接游戏失败");
+                showErrorMessage([UIApplication sharedApplication].keyWindow, nil, err);
                 [SH_WaitingView hide:weakSelf.view];
             }];
         }else{

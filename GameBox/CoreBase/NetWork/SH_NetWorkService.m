@@ -125,7 +125,19 @@ static AFHTTPSessionManager *sharedManager = nil;
                     //统一处理
                     [SH_HttpErrManager dealWithErrCode:code];
                     if (failed) {
-                        failed((NSHTTPURLResponse *)task.response, @"");
+                        NSString *errDes = @"";
+                        if (code == SH_API_ERRORCODE_SESSION_EXPIRED) {
+                            errDes = @"session已过期";
+                        }
+                        else if (code == SH_API_ERRORCODE_SESSION_TAKEOUT)
+                        {
+                            errDes = @"您的账号在其他设备登录";
+                        }
+                        else if (code == SH_API_ERRORCODE_USER_NERVER_LOGIN)
+                        {
+                            errDes = @"请先登录";
+                        }
+                        failed((NSHTTPURLResponse *)task.response, errDes);
                     }
                 }
                 else
@@ -157,7 +169,7 @@ static AFHTTPSessionManager *sharedManager = nil;
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (failed) {
-            failed((NSHTTPURLResponse *)task.response, error.description);
+            failed((NSHTTPURLResponse *)task.response, @"访问失败");
         }
     }];
 }
@@ -282,7 +294,19 @@ static AFHTTPSessionManager *sharedManager = nil;
                     //统一处理
                     [SH_HttpErrManager dealWithErrCode:code];
                     if (failed) {
-                        failed((NSHTTPURLResponse *)task.response, @"");
+                        NSString *errDes = @"";
+                        if (code == SH_API_ERRORCODE_SESSION_EXPIRED) {
+                            errDes = @"session已过期";
+                        }
+                        else if (code == SH_API_ERRORCODE_SESSION_TAKEOUT)
+                        {
+                            errDes = @"您的账号在其他设备登录";
+                        }
+                        else if (code == SH_API_ERRORCODE_USER_NERVER_LOGIN)
+                        {
+                            errDes = @"请先登录";
+                        }
+                        failed((NSHTTPURLResponse *)task.response, errDes);
                     }
                 }
                 else
@@ -315,7 +339,7 @@ static AFHTTPSessionManager *sharedManager = nil;
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (failed) {
-            failed((NSHTTPURLResponse *)task.response, error.description);
+            failed((NSHTTPURLResponse *)task.response, @"访问失败");
         }
     }];
 }
