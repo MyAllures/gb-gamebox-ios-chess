@@ -158,10 +158,12 @@
             }
             if ([obj isEqualToString:@"paymentPassword"]) {
                 label_Title.text = @"6位数字安全密码⭐️";
+                textField.secureTextEntry = YES;
                 textField.placeholder = @"6位数字安全密码"; break ;
             }
             if ([obj isEqualToString:@"paymentPassword2"]) {
                 label_Title.text = @"验证6位数字安全密码";
+                textField.secureTextEntry = YES;
                 textField.placeholder = @"验证6位数字安全密码"; break ;
             }
             if ([obj isEqualToString:@"defaultTimezone"]) {
@@ -685,7 +687,7 @@
         if (countDownNumber > 0) {
             button.enabled = NO;
             button.layer.borderColor =[UIColor  whiteColor].CGColor;// colorWithRGB(168, 168, 168).CGColor;
-            [button setTitle:[NSString stringWithFormat:@"%ld",(long)countDownNumber] forState:UIControlStateNormal];
+            [button setTitle:[NSString stringWithFormat:@"%lds",(long)countDownNumber] forState:UIControlStateNormal];
             [button setTitleColor:[UIColor  whiteColor] forState:UIControlStateNormal];//colorWithRGB(168, 168, 168)
         }else {
             [self.timer invalidate];

@@ -44,7 +44,7 @@
                         if ([vc isKindOfClass:[AlertViewController class]]) {
                             self.targetVC = vc;
                             [self.targetVC dismissViewControllerAnimated:NO completion:nil];
-                        } else{
+                        } else {
                             [[NSNotificationCenter defaultCenter] postNotificationName:@"close" object:nil];
                         }
                     }

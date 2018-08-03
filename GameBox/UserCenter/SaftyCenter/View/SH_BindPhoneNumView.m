@@ -52,6 +52,12 @@
         }else if (self.InputCodeTF.text.length == 0){
             showMessage(self, @"请输入验证码", nil);
         }else{
+            NSString *first = [self.oldPhoneNumTF.text substringWithRange:NSMakeRange(1, 3)];
+            NSString *last = [self.oldPhoneNumTF.text substringWithRange:NSMakeRange(self.oldPhoneNumTF.text.length-3, 3)];
+            if ([self.NewPhoneNumTF.text containsString:first] && [self.NewPhoneNumTF.text containsString:last]) {
+                showMessage(self, @"新手机号不能与旧手机号相同", @"");
+                return;
+            }
             [self bindPhoneNum];
         }
     }
@@ -146,6 +152,7 @@
 }
 //绑定手机接口
 -(void)bindPhoneNum{
+    
     __weak typeof(self) weakSelf = self;
     [SH_NetWorkService bindPhoneNum:self.NewPhoneNumTF.text OriginalPhoneNum:self.oldPhoneNumTF.text VerificationCode:self.InputCodeTF.text Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dataDic = ConvertToClassPointer(NSDictionary, response);
@@ -155,6 +162,8 @@
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [weakSelf.targetVC dismissViewControllerAnimated:NO completion:nil];
             });
+        } else {
+            showMessage(self, dataDic[@"message"], nil);
         }
     } Fail:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
