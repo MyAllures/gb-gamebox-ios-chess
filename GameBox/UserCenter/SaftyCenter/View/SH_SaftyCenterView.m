@@ -115,8 +115,8 @@
 
 - (IBAction)saftyBtnclick:(id)sender {
     self.saftyView.targetVC = self.targetVC;
-     [self setUIWithSelecteBtn:self.saftyBtn SelectedView:self.saftyView];
-//    self.saftyView.
+    self.saftyView.comeFromVC  = self.bankView.from;
+    [self setUIWithSelecteBtn:self.saftyBtn SelectedView:self.saftyView];
     //这里用户要请求有没有设置过安全密码接口
       __weak typeof(self) weakSelf = self;
     [SH_NetWorkService initUserSaftyInfoSuccess:^(NSHTTPURLResponse *httpURLResponse, id response) {
