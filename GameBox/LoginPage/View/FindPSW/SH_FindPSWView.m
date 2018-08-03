@@ -66,7 +66,7 @@
     alert.vc = acr;
     acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self.targetVC presentViewController:acr animated:YES completion:nil];
+    [self.targetVC1 presentViewController:acr animated:YES completion:nil];
 }
 
 /*
