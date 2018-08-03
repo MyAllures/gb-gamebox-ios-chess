@@ -7,6 +7,7 @@
 //
 
 #import "SH_FindPSWSureView.h"
+#import "AlertViewController.h"
 @interface SH_FindPSWSureView()
 @property (weak, nonatomic) IBOutlet UITextField *textField1;
 @property (weak, nonatomic) IBOutlet UITextField *textField2;
@@ -28,14 +29,19 @@
         NSString *code = dict[@"code"];
         if ([code isEqualToString:@"0"]) {
             showMessage(self, @"", dict[@"message"]);
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 UIViewController *vc = self.targetVC3;
                 [defaults setObject:nil forKey:@"userName"];
                 [defaults synchronize];
                 while (vc.presentingViewController) {
                     vc = vc.presentingViewController;
+                    if ([vc isKindOfClass:[AlertViewController class]]) {
+                        self.targetVC3 = vc;
+                        [self.targetVC3 dismissViewControllerAnimated:NO completion:nil];
+                    } else {
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"close" object:nil];
+                    }
                 }
-                [vc dismissViewControllerAnimated:NO completion:nil];
             });
         } else {
             showMessage(self, @"", dict[@"message"]);
