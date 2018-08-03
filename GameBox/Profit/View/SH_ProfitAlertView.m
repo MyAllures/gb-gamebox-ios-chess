@@ -7,6 +7,8 @@
 //
 
 #import "SH_ProfitAlertView.h"
+#import "SH_SaftyCenterView.h"
+#import "AlertViewController.h"
 
 @interface SH_ProfitAlertView()
 @property (weak, nonatomic) IBOutlet UILabel *lab;
@@ -23,7 +25,28 @@
     self.lab.text = self.content;
     _targetVC = targetVC;
 }
-- (IBAction)sureBtnClick:(id)sender {
+- (IBAction)sureBtnClick:(SH_WebPButton *)sender {
+    if (sender.tag == 100) {
+        [self popAlertView];
+        return;
+    }
     [self.targetVC dismissViewControllerAnimated:NO completion:nil];
 }
+
+-(void)popAlertView {
+    SH_SaftyCenterView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_SaftyCenterView" owner:self options:nil].firstObject;
+    view.targetVC = self.targetVC;
+    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title03" alertViewType:AlertViewTypeLong];
+    acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self.targetVC presentViewController:acr animated:YES completion:nil];
+    [view selectedWithType:@"setSafePsw" From:@"setSafePsw"];
+}
+
+- (void)updateUIWithDetailArray:(NSArray *)details
+                       TargetVC:(UIViewController *)targetVC
+                          Token:(NSString *)token {
+    self.targetVC = targetVC;
+}
+
 @end

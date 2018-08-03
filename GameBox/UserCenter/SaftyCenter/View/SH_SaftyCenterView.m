@@ -114,18 +114,9 @@
 }
 
 - (IBAction)saftyBtnclick:(id)sender {
-    if([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length > 0){
-        
-    } else {
-        SH_FillRealNameView *view = [[[NSBundle mainBundle] loadNibNamed:@"SH_FillRealNameView" owner:nil options:nil] lastObject];
-        AlertViewController *acr = [[AlertViewController alloc] initAlertView:view viewHeight:202 titleImageName:@"title18" alertViewType:AlertViewTypeShort];
-        view.targetVC1 = acr;
-        acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-        acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        [self.targetVC presentViewController:acr animated:YES completion:nil];
-    }
     self.saftyView.targetVC = self.targetVC;
      [self setUIWithSelecteBtn:self.saftyBtn SelectedView:self.saftyView];
+    self.saftyView.
     //这里用户要请求有没有设置过安全密码接口
       __weak typeof(self) weakSelf = self;
     [SH_NetWorkService initUserSaftyInfoSuccess:^(NSHTTPURLResponse *httpURLResponse, id response) {
@@ -162,6 +153,8 @@
     self.bankView.from = from;
     if ([type isEqualToString:@"bindBankcard"]) {
         [self bankCardBtnClick:nil];
+    } else if ([type isEqualToString:@"setSafePsw"]){
+        [self saftyBtnclick:nil];
     }
 }
 - (IBAction)bindPhoneBtnClick:(id)sender {

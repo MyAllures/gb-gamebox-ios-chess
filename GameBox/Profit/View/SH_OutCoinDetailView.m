@@ -73,6 +73,7 @@
     acr.modalPresentationStyle = UIModalPresentationCurrentContext;
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self.targetVC presentViewController:acr animated:YES completion:nil];
+    [view updateUIWithDetailArray:nil TargetVC:acr Token:nil];
 }
 
 -(void)popAlertView: (NSString *)content{

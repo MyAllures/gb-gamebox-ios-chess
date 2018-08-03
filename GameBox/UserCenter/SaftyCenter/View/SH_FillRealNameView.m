@@ -22,7 +22,10 @@
     [super awakeFromNib];
 }
 - (IBAction)sureBtnClick:(id)sender {
-    
+    if (self.realNameTF.text.length == 0) {
+        showMessage(self, @"请输入真实姓名", @"");
+        return;
+    }
     [SH_NetWorkService startSetRealName:self.realNameTF.text complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dict = (NSDictionary *)response;
         NSString *code = dict[@"code"];
