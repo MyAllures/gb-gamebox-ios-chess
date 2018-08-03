@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void(^SH_HttpErrManagerFetchTargetVCComplete)(UIViewController *vc);
+
 @interface SH_HttpErrManager : NSObject
 
 + (void)dealWithErrCode:(int)code;

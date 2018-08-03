@@ -984,9 +984,15 @@
                 }
                 NSString *gameMsg = [[response objectForKey:@"data"] objectForKey:@"gameMsg"];
                 if (IS_EMPTY_STRING(gameMsg)) {
+                    //先关闭背景BGM
+                    [[SH_RingManager sharedManager] pauseBGM];
+                    
                     NSString *gameLink = [[response objectForKey:@"data"] objectForKey:@"gameLink"];
                     SH_WKGameViewController *gameVC = [[SH_WKGameViewController alloc] init];
                     gameVC.url = gameLink;
+                    [gameVC close:^{
+                        [[SH_RingManager sharedManager] playBGM];
+                    }];
                     [weakSelf.navigationController pushViewController:gameVC animated:NO];
                 }
                 else
@@ -995,7 +1001,7 @@
                 }
                 [SH_WaitingView hide:weakSelf.view];
             } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-                showErrorMessage([UIApplication sharedApplication].keyWindow, nil, @"连接游戏失败");
+                showErrorMessage([UIApplication sharedApplication].keyWindow, nil, err);
                 [SH_WaitingView hide:weakSelf.view];
             }];
         }else{
