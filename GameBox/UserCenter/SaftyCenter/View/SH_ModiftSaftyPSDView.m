@@ -11,7 +11,7 @@
 #import "RH_UserSafetyCodeModel.h"
 #import "SH_FillRealNameView.h"
 #import "AlertViewController.h"
-@interface SH_ModiftSaftyPSDView()
+@interface SH_ModiftSaftyPSDView()<UITextFieldDelegate>
 //@property (weak, nonatomic) IBOutlet UITextField *realNameTF;
 @property (weak, nonatomic) IBOutlet UITextField *currentTF;
 @property (weak, nonatomic) IBOutlet UITextField *NewTF;
@@ -34,6 +34,11 @@
     self.verificationCodeTF.hidden = YES;
     self.verificationBtn.hidden = YES;
     self.sureBtnTopDistance.constant = 15;
+    
+    self.currentTF.delegate = self;
+    self.NewTF.delegate = self;
+    self.sureTF.delegate = self;
+    
     [self updateView];
    
     
@@ -156,4 +161,20 @@
 - (IBAction)verificationBtnClick:(id)sender {
     [self verificationImage];
 }
+#pragma mark -- UITextFieldDelegate
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    if([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length > 0){
+        return YES;
+    } else {
+        SH_FillRealNameView *view = [[[NSBundle mainBundle] loadNibNamed:@"SH_FillRealNameView" owner:nil options:nil] lastObject];
+        AlertViewController *acr = [[AlertViewController alloc] initAlertView:view viewHeight:202 titleImageName:@"title18" alertViewType:AlertViewTypeShort];
+        view.targetVC1 = acr;
+        acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self.targetVC presentViewController:acr animated:YES completion:nil];
+        return NO;
+    }
+    
+}
+
 @end
