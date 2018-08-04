@@ -395,6 +395,9 @@
 		DA22F40820F494C60058A54F /* ScreenAdaptation.m in Sources */ = {isa = PBXBuildFile; fileRef = DA22F40220F494C60058A54F /* ScreenAdaptation.m */; };
 		DA22F40920F494C60058A54F /* UIViewController+Instance.m in Sources */ = {isa = PBXBuildFile; fileRef = DA22F40420F494C60058A54F /* UIViewController+Instance.m */; };
 		DA22F40A20F494C60058A54F /* NSDictionary+CLCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = DA22F40620F494C60058A54F /* NSDictionary+CLCategory.m */; };
+		DA334BFD211483B800290D86 /* RH_RegisterClauseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA334BFB211483B700290D86 /* RH_RegisterClauseModel.m */; };
+		DA334C0021148A7800290D86 /* SH_RegistRulerView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA334BFF21148A7800290D86 /* SH_RegistRulerView.m */; };
+		DA334C0221148A8800290D86 /* SH_RegistRulerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA334C0121148A8800290D86 /* SH_RegistRulerView.xib */; };
 		DA6EE1BD20F8BECD009A01C5 /* SH_UserInformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6EE1BC20F8BECD009A01C5 /* SH_UserInformationView.m */; };
 		DA6EE1BF20F8BEDA009A01C5 /* SH_UserInformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA6EE1BE20F8BEDA009A01C5 /* SH_UserInformationView.xib */; };
 		DA6EE1C220F98B72009A01C5 /* SH_AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6EE1C120F98B72009A01C5 /* SH_AlertView.m */; };
@@ -989,6 +992,11 @@
 		DA22F40420F494C60058A54F /* UIViewController+Instance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Instance.m"; sourceTree = "<group>"; };
 		DA22F40520F494C60058A54F /* UIViewController+Instance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Instance.h"; sourceTree = "<group>"; };
 		DA22F40620F494C60058A54F /* NSDictionary+CLCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+CLCategory.m"; sourceTree = "<group>"; };
+		DA334BFB211483B700290D86 /* RH_RegisterClauseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RH_RegisterClauseModel.m; sourceTree = "<group>"; };
+		DA334BFC211483B800290D86 /* RH_RegisterClauseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RH_RegisterClauseModel.h; sourceTree = "<group>"; };
+		DA334BFE21148A7800290D86 /* SH_RegistRulerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_RegistRulerView.h; sourceTree = "<group>"; };
+		DA334BFF21148A7800290D86 /* SH_RegistRulerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_RegistRulerView.m; sourceTree = "<group>"; };
+		DA334C0121148A8800290D86 /* SH_RegistRulerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_RegistRulerView.xib; sourceTree = "<group>"; };
 		DA6EE1BB20F8BECD009A01C5 /* SH_UserInformationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_UserInformationView.h; sourceTree = "<group>"; };
 		DA6EE1BC20F8BECD009A01C5 /* SH_UserInformationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_UserInformationView.m; sourceTree = "<group>"; };
 		DA6EE1BE20F8BEDA009A01C5 /* SH_UserInformationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_UserInformationView.xib; sourceTree = "<group>"; };
@@ -2161,6 +2169,9 @@
 				226D95092113254E000E466E /* SH_SafeCenterAlertView.h */,
 				226D950A2113254E000E466E /* SH_SafeCenterAlertView.m */,
 				226D950721132539000E466E /* SH_SafeCenterAlertView.xib */,
+				DA334BFE21148A7800290D86 /* SH_RegistRulerView.h */,
+				DA334BFF21148A7800290D86 /* SH_RegistRulerView.m */,
+				DA334C0121148A8800290D86 /* SH_RegistRulerView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2177,6 +2188,8 @@
 		DA22F3B520F449E30058A54F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DA334BFC211483B800290D86 /* RH_RegisterClauseModel.h */,
+				DA334BFB211483B700290D86 /* RH_RegisterClauseModel.m */,
 				DA21F38C20F590A800D20672 /* RH_RegisetInitModel.h */,
 				DA21F38B20F590A800D20672 /* RH_RegisetInitModel.m */,
 				DA22F3B620F44A130058A54F /* RH_UserSafetyCodeModel.h */,
@@ -2378,6 +2391,7 @@
 				5401C56320ECF9EA0027246D /* SH_HomeViewController.xib in Resources */,
 				54DD034D21096C1400CE9199 /* btn-news.webp in Resources */,
 				54397093210462BB0091C719 /* logo11.webp in Resources */,
+				DA334C0221148A8800290D86 /* SH_RegistRulerView.xib in Resources */,
 				543970BF210462BB0091C719 /* game_chess_34_870.webp in Resources */,
 				54397096210462BB0091C719 /* title_bg_long.webp in Resources */,
 				54E24839210D5B07005C5263 /* loading-5.webp in Resources */,
@@ -2627,6 +2641,7 @@
 				DA1BCDB12102D27C00201DBC /* SH_WelfareTableViewCell.m in Sources */,
 				DA18EFBF20F0A9C3002B7E22 /* PopTool.m in Sources */,
 				DA1BCC8B20FE200700201DBC /* RH_BettingInfoModel.m in Sources */,
+				DA334C0021148A7800290D86 /* SH_RegistRulerView.m in Sources */,
 				BFA7DEB42106077300DD731F /* SH_ApiModel.m in Sources */,
 				22878ECA210029E3005D7652 /* SH_SysMsgDetailModel.m in Sources */,
 				BF44ECCF20F59A5800BC6EF3 /* SH_RechargeDetailBankView.m in Sources */,
@@ -2719,6 +2734,7 @@
 				5401C55620ECA2CC0027246D /* IPsCacheManager.m in Sources */,
 				DA6EE1C720F99F39009A01C5 /* SH_SettingView.m in Sources */,
 				5401C53F20ECA1100027246D /* main.m in Sources */,
+				DA334BFD211483B800290D86 /* RH_RegisterClauseModel.m in Sources */,
 				54D5F57821081C5300439A94 /* SH_XibView.m in Sources */,
 				5401C55A20ECA48D0027246D /* NetWorkLineMangaer.m in Sources */,
 				22FC6E8421075262001FA492 /* SH_FindPSWSendCodeView.m in Sources */,

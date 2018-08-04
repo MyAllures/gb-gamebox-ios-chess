@@ -364,5 +364,6 @@
 }
 - (void)setTargetVC:(UIViewController *)targetVC{
     _targetVC = targetVC;
+    self.registView.targetVC = targetVC;
 }
 @end
