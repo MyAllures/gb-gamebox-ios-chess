@@ -13,7 +13,9 @@
 #import "UIColor+HexString.h"
 #import "AppDelegate.h"
 #import "UIImage+SH_WebPImage.h"
-
+#import "RH_RegisterClauseModel.h"
+#import "SH_RegistRulerView.h"
+#import "AlertViewController.h"
 @interface SH_RegistView()
 {
     RH_RegisetInitModel *registrationInitModel;
@@ -312,7 +314,27 @@
 }
 
 - (void)zhucetiaokuan {
-//    [self showViewController:[RH_RegisterClauseViewController viewController] sender:nil];
+    __weak typeof(self)  weakSelf = self;
+    [SH_NetWorkService fetchRegisetTerm:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if ([response[@"code"] isEqualToString:@"0"]) {
+          RH_RegisterClauseModel  * model = [[RH_RegisterClauseModel alloc] initWithDictionary:[response objectForKey:@"data"] error:nil];
+            [weakSelf showRulerWebViewWithHtml:model.value];
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+    }];
+}
+-(void)showRulerWebViewWithHtml:(NSString*)html{
+    SH_RegistRulerView * view = [SH_RegistRulerView instanceRegistRulerView];
+    view.html = html;
+    AlertViewController * alert = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title02" alertViewType:AlertViewTypeLong];
+    [self presentViewController:alert addTargetViewController:self.targetVC];
+    
+}
+#pragma mark --- 模态弹出viewController
+-(void)presentViewController:(UIViewController*)viewController addTargetViewController:(UIViewController*)targetVC{
+    viewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    viewController.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
+    [targetVC presentViewController:viewController animated:YES completion:nil];
 }
 - (NSString *)obtainContent:(NSString *)name {
     for (RH_RegistrationViewItem *item in self.stackView.subviews) {
