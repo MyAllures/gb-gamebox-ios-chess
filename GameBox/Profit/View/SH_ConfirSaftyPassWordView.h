@@ -13,7 +13,6 @@
 @property(nonatomic,copy)NSString *money;
 @property(nonatomic,copy)NSString *token;
 @property(nonatomic,strong)UIViewController *targetVC;
-@property(nonatomic,strong)NSString *comeFromVC;
 
 - (void)updateUIWithDetailArray:(NSArray *)details
                        TargetVC:(UIViewController *)targetVC

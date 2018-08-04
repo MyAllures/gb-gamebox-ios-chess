@@ -30,7 +30,6 @@
         [SH_NetWorkService sureOutCoinMoney:self.money SaftyPWD:self.pswTF.text Token:self.token Way:@"1" Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
             showMessage(self, [NSString stringWithFormat:@"%@",response[@"message"]], nil);
             NSString *message = response[@"message"];
-            
             NSDictionary *dic = ConvertToClassPointer(NSDictionary, response);
             NSLog(@"%@",dic);
             NSString *code = [NSString stringWithFormat:@"%@",dic[@"code"]];
@@ -41,17 +40,11 @@
                 [defaults synchronize];
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     UIViewController *vc = self.targetVC;
-                    int count = 0;
                     while (vc.presentingViewController) {
-                        count ++;
                         vc = vc.presentingViewController;
                         if ([vc isKindOfClass:[AlertViewController class]]) {
                             self.targetVC = vc;
-                            if ([self.comeFromVC isEqualToString:@"profit"] && count <= 2) {
-                                [self.targetVC dismissViewControllerAnimated:NO completion:nil];
-                            } else {
-                               [self.targetVC dismissViewControllerAnimated:NO completion:nil];
-                            }
+                            [self.targetVC dismissViewControllerAnimated:NO completion:nil];
                         } else {
                             [[NSNotificationCenter defaultCenter] postNotificationName:@"close" object:nil];
                         }

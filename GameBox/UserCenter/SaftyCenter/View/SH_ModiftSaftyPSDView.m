@@ -35,7 +35,7 @@
     self.verificationBtn.hidden = YES;
     self.sureBtnTopDistance.constant = 15;
     [self updateView];
-   
+    
     
 //    SH_ProfitAlertView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_ProfitAlertView" owner:self options:nil].firstObject;
 //    view.content = content;
@@ -47,7 +47,7 @@
 }
 
 -(void)drawRect:(CGRect)rect {
-    
+    NSLog(@"comeFromVC===%@",self.comeFromVC);
     if([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length > 0){
         
     } else {
@@ -104,13 +104,31 @@
         [SH_NetWorkService setSaftyPasswordRealName:realName originPassword:self.currentTF.text newPassword:self.NewTF.text confirmPassword:self.sureTF.text verifyCode:@"" Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSString *code = response[@"code"];
             NSString *message  = response[@"message"];
-            
             if ([code isEqualToString:@"0"]) {
                 showMessage(self, @"设置成功", nil);
                 RH_UserSafetyCodeModel *model = [[RH_UserSafetyCodeModel alloc]initWithDictionary:response[@"data"] error:nil];
                 [[RH_UserInfoManager shareUserManager] setUserSafetyInfo:model];
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [weakSelf.targetVC dismissViewControllerAnimated:NO completion:nil];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    UIViewController *vc = self.targetVC;
+                    int count = 0;
+                    while (vc.presentingViewController) {
+                        vc = vc.presentingViewController;
+                        self.targetVC = vc;
+                        if ([vc isKindOfClass:[AlertViewController class]]) {
+                            count ++;
+                            if ([self.comeFromVC isEqualToString:@"setSafePsw"]) {
+                                if (count < 2) {
+                                    [self.targetVC dismissViewControllerAnimated:NO completion:nil];
+                                } else {
+                                    return ;
+                                }
+                            } else {
+                                [self.targetVC dismissViewControllerAnimated:NO completion:nil];
+                            }
+                        } else {
+                            [[NSNotificationCenter defaultCenter] postNotificationName:@"close" object:nil];
+                        }
+                    }
                 });
             }else{
                 NSString *isOpenCaptcha = [NSString stringWithFormat:@"%@",response[@"data"][@"isOpenCaptcha"]];//是否需要输入验证码
