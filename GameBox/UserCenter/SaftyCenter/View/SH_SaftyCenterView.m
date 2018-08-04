@@ -15,8 +15,8 @@
 #import "SH_WebPButton.h"
 #import "SH_BindPhoneNumView.h"
 #import "SH_ProfitExchangeView.h"
-#import "SH_FillRealNameView.h"
 #import "AlertViewController.h"
+#import "SH_FillRealNameView.h"
 @interface SH_SaftyCenterView()
 @property (weak, nonatomic) IBOutlet SH_WebPButton *loginBtn;
 @property (weak, nonatomic) IBOutlet SH_WebPButton *saftyBtn;
@@ -114,6 +114,19 @@
 }
 
 - (IBAction)saftyBtnclick:(id)sender {
+    
+    if([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length > 0){
+        
+    } else {
+        SH_FillRealNameView *view = [[[NSBundle mainBundle] loadNibNamed:@"SH_FillRealNameView" owner:nil options:nil] lastObject];
+        AlertViewController *acr = [[AlertViewController alloc] initAlertView:view viewHeight:202 titleImageName:@"title18" alertViewType:AlertViewTypeShort];
+        view.targetVC1 = acr;
+        acr.shutBtn.hidden = YES;
+        acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self.targetVC presentViewController:acr animated:YES completion:nil];
+    }
+    
     self.saftyView.targetVC = self.targetVC;
     self.saftyView.comeFromVC  = self.bankView.from;
     [self setUIWithSelecteBtn:self.saftyBtn SelectedView:self.saftyView];

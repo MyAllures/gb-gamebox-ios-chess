@@ -31,6 +31,25 @@
         NSString *code = dict[@"code"];
         if ([code isEqualToString:@"0"]) {
             showMessage(self, @"", @"真实姓名设置成功");
+            
+            [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
+                NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
+                if ([dict[@"code"] isEqualToString:@"0"]) {
+                    NSError *err;
+                    NSArray *arr = [SH_BankListModel arrayOfModelsFromDictionaries:response[@"data"][@"bankList"] error:&err];
+                    [[RH_UserInfoManager shareUserManager] setBankList:arr];
+                    NSError *err2;
+                    RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[response[@"data"] objectForKey:@"user"] error:&err2];
+                    [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
+                }else{
+//                    [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
+                }
+                
+            } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+                //
+//                [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
+            }];
+            
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [self.targetVC1 dismissViewControllerAnimated:NO completion:nil];
             });

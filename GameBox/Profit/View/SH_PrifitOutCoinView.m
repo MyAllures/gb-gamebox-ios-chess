@@ -65,11 +65,11 @@
     else if ([self.numTextField.text floatValue] > [self.balanceLab.text floatValue]) {
         [self popAlertView:@"福利余额不足"];
     }
-//    else if ([self.numTextField.text intValue] == 0) {
-//        self.numTextField.text = @"";
-//        [self popAlertView:@"出币数量应大于0"];
-//        return;
-//    }
+    else if ([self.numTextField.text intValue] == 0) {
+        self.numTextField.text = @"";
+        [self popAlertView:@"出币数量应大于0"];
+        return;
+    }
     else{
         SH_OutCoinDetailView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_OutCoinDetailView" owner:self options:nil].firstObject;
         AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-95 titleImageName:@"title14" alertViewType:AlertViewTypeShort];

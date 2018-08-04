@@ -94,6 +94,14 @@
 //        //
 //        [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
 //    }];
+    [SH_NetWorkService onekeyrecoveryApiId:nil Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        //刷新用户余额
+        if (![[response objectForKey:@"data"] isKindOfClass:[NSNull class]]) {
+            //            weakSelf.suishenFuLiLab.text = response[@"data"][@"assets"];
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        
+    }];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:@"" forKey:@"saftyKoken"];
     [defaults synchronize];

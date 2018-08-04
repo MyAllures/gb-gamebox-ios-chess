@@ -30,6 +30,7 @@
 
 @property (nonatomic, strong) NSMutableArray *selectTypeNameArr;
 @property (nonatomic, strong) NSMutableArray *selectTypeIdArr;
+@property (weak, nonatomic) IBOutlet SH_WebPImageView *imageView;
 
 @end
 
@@ -228,6 +229,11 @@
 */
 #pragma mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (self.dataArr.count > 0) {
+        self.imageView.hidden = YES;
+    } else {
+        self.imageView.hidden = NO;
+    }
     return self.dataArr.count;
 }
 

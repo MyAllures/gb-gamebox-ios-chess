@@ -11,6 +11,7 @@
 #import "RH_UserSafetyCodeModel.h"
 #import "SH_FillRealNameView.h"
 #import "AlertViewController.h"
+#import "SH_GamesHomeViewController.h"
 @interface SH_ModiftSaftyPSDView()
 //@property (weak, nonatomic) IBOutlet UITextField *realNameTF;
 @property (weak, nonatomic) IBOutlet UITextField *currentTF;
@@ -48,17 +49,17 @@
 
 -(void)drawRect:(CGRect)rect {
     NSLog(@"comeFromVC===%@",self.comeFromVC);
-    if([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length > 0){
-        
-    } else {
-        SH_FillRealNameView *view = [[[NSBundle mainBundle] loadNibNamed:@"SH_FillRealNameView" owner:nil options:nil] lastObject];
-        AlertViewController *acr = [[AlertViewController alloc] initAlertView:view viewHeight:202 titleImageName:@"title18" alertViewType:AlertViewTypeShort];
-        view.targetVC1 = acr;
-        acr.shutBtn.hidden = YES;
-        acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-        acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        [self.targetVC presentViewController:acr animated:YES completion:nil];
-    }
+//    if([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length > 0){
+//
+//    } else {
+//        SH_FillRealNameView *view = [[[NSBundle mainBundle] loadNibNamed:@"SH_FillRealNameView" owner:nil options:nil] lastObject];
+//        AlertViewController *acr = [[AlertViewController alloc] initAlertView:view viewHeight:202 titleImageName:@"title18" alertViewType:AlertViewTypeShort];
+//        view.targetVC1 = acr;
+//        acr.shutBtn.hidden = YES;
+//        acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+//        acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+//        [self.targetVC presentViewController:acr animated:YES completion:nil];
+//    }
 }
 
 - (void)updateView{
@@ -90,17 +91,8 @@
         NSString *realName;
         if([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length > 0){
             realName  = [RH_UserInfoManager shareUserManager].mineSettingInfo.realName;
-        } else {
-            SH_FillRealNameView *view = [[[NSBundle mainBundle] loadNibNamed:@"SH_FillRealNameView" owner:nil options:nil] lastObject];
-            AlertViewController *acr = [[AlertViewController alloc] initAlertView:view viewHeight:202 titleImageName:@"title18" alertViewType:AlertViewTypeShort];
-            view.targetVC1 = acr;
-            acr.shutBtn.hidden = YES;
-            acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-            acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-            [self.targetVC presentViewController:acr animated:YES completion:nil];
-            return;
         }
-        __weak typeof(self) weakSelf = self;
+//        __weak typeof(self) weakSelf = self;
         [SH_NetWorkService setSaftyPasswordRealName:realName originPassword:self.currentTF.text newPassword:self.NewTF.text confirmPassword:self.sureTF.text verifyCode:@"" Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSString *code = response[@"code"];
             NSString *message  = response[@"message"];
@@ -125,6 +117,8 @@
                             } else {
                                 [self.targetVC dismissViewControllerAnimated:NO completion:nil];
                             }
+                        } else if ([vc isKindOfClass:[SH_GamesHomeViewController class]]) {
+                            [self.targetVC dismissViewControllerAnimated:NO completion:nil];
                         } else {
                             [[NSNotificationCenter defaultCenter] postNotificationName:@"close" object:nil];
                         }

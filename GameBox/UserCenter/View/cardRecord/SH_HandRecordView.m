@@ -26,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *effectiveLabel;
 @property (weak, nonatomic) IBOutlet UILabel *profitLabel;
 
+@property (weak, nonatomic) IBOutlet SH_WebPImageView *imageView;
+
 @end
 
 @implementation SH_HandRecordView
@@ -165,6 +167,11 @@
 
 #pragma mark --UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (self.bettingArr.count > 0) {
+        self.imageView.hidden = YES;
+    } else {
+        self.imageView.hidden = NO;
+    }
     return self.bettingArr.count;
 }
 
