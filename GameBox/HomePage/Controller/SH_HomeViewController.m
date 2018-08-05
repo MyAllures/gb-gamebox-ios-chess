@@ -45,7 +45,6 @@
 #import "SH_WaitingView.h"
 #import "SH_TimeZoneManager.h"
 #import "SH_UpdatedVersionModel.h"
-#import "UIAlertView+Block.h"
 
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate>
 
@@ -232,9 +231,6 @@
                 [messageText addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, updatedVersionModel.memo.length)];
                 [alert setValue:messageText forKey:@"attributedMessage"];
                 
-                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"忽略更新" style:UIAlertActionStyleCancel handler:nil];
-                [alert addAction:cancelAction];
-                
                 UIAlertAction *downLoadAction = [UIAlertAction actionWithTitle:@"下载更新" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                     NSString *downLoadIpaUrl = [NSString stringWithFormat:@"itms-services://?action=download-manifest&url=https://%@%@/%@/app_%@_%@.plist",updatedVersionModel.appUrl,updatedVersionModel.versionName,CODE,CODE,updatedVersionModel.versionName];
                     NSURL *ipaUrl = [NSURL URLWithString:[downLoadIpaUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
@@ -242,6 +238,9 @@
                     exit(0);
                 }];
                 [alert addAction:downLoadAction];
+
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"忽略更新" style:UIAlertActionStyleCancel handler:nil];
+                [alert addAction:cancelAction];
 
                 [weakSelf presentViewController:alert animated:YES completion:nil];
             }
@@ -259,11 +258,6 @@
                 [messageText addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, updatedVersionModel.memo.length)];
                 [alert setValue:messageText forKey:@"attributedMessage"];
                 
-                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"退出" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                    exit(0);
-                }];
-                [alert addAction:cancelAction];
-                
                 UIAlertAction *downLoadAction = [UIAlertAction actionWithTitle:@"下载更新" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                     NSString *downLoadIpaUrl = [NSString stringWithFormat:@"itms-services://?action=download-manifest&url=https://%@%@/%@/app_%@_%@.plist",updatedVersionModel.appUrl,updatedVersionModel.versionName,CODE,CODE,updatedVersionModel.versionName];
                     NSURL *ipaUrl = [NSURL URLWithString:[downLoadIpaUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
@@ -272,6 +266,11 @@
                 }];
                 [alert addAction:downLoadAction];
                 
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"退出" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                    exit(0);
+                }];
+                [alert addAction:cancelAction];
+
                 [weakSelf presentViewController:alert animated:YES completion:nil];
             }
         }
