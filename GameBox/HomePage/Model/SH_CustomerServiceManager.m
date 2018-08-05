@@ -91,6 +91,7 @@
 {
     UINavigationController *rootViewController = (UINavigationController *)[UIApplication sharedApplication].keyWindow.rootViewController;
     LineCheckViewController *lineCheckViewController = (LineCheckViewController *)rootViewController.presentedViewController;
+
     //取到顶层navigation控制器
     UIViewController *topNavController = [lineCheckViewController.rootNav.viewControllers lastObject];
     if (topNavController.presentedViewController) {

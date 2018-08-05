@@ -61,7 +61,7 @@
     else
     {
         if ([SID isEqualToString:@"21"] || [SID isEqualToString:@"18"]) {
-            [SH_NetWorkService fetchIPSFromBossAPIGroup:@[@"http://boss-api-test.gbboss.com/boss-api"] host:@"" oneTurn:^(NSString *bossapi, BOOL success) {
+            [SH_NetWorkService fetchIPSFromBossAPIGroup:@[@"http://boss.ampinplayopt0matrix.com/boss-api"] host:@"" oneTurn:^(NSString *bossapi, BOOL success) {
                 NSLog(@">>>%@检测结果:%i",bossapi,success);
                 weakSelf.progress += 0.1;
                 weakSelf.lineCheckStatus = @"正在匹配服务器，请稍后...";
