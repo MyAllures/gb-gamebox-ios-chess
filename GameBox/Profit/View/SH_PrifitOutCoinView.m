@@ -32,7 +32,18 @@
     [super awakeFromNib];
     self.numTextField.delegate = self;
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateBankNum) name:@"refreshBankNumer" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshBankcard) name:@"refreshBankcard" object:nil];
 }
+
+-(void)refreshBankcard {
+    NSString *bankcardNumber = [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard.bankcardNumber;
+    NSString *first = [bankcardNumber substringWithRange:NSMakeRange(1, 8)];
+    NSString *last = [bankcardNumber substringWithRange:NSMakeRange(bankcardNumber.length-4, 4)];
+    self.bankNumLab.text = [NSString stringWithFormat:@"%@****%@",first,last];
+    [self.bandingBtn setTitle:@"已绑定" forState:UIControlStateNormal];
+    self.bandingBtn.userInteractionEnabled = NO;
+}
+
 - (IBAction)bindProfitAccountNumBtnClick:(id)sender {
     if ([self.bankNumLab.text isEqualToString:@"请绑定银行卡"]) {
         SH_SaftyCenterView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_SaftyCenterView" owner:self options:nil].firstObject;
@@ -71,16 +82,28 @@
         return;
     }
     else{
-        SH_OutCoinDetailView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_OutCoinDetailView" owner:self options:nil].firstObject;
-        AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-95 titleImageName:@"title14" alertViewType:AlertViewTypeShort];
-        acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-        acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        [self.targetVC presentViewController:acr animated:YES completion:nil];
-        self.feeModel.actualWithdraw = [NSString stringWithFormat:@"%.2f",[self.feeModel.actualWithdraw floatValue]];
-        [view updateUIWithDetailArray:@[self.bankNumLab.text,self.numTextField.text,self.feeModel.counterFee,self.feeModel.administrativeFee,self.feeModel.deductFavorable,self.feeModel.actualWithdraw] TargetVC:acr Token:self.token];
+        
+        [SH_NetWorkService getBankInforComplete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+            NSString *code = response[@"code"];
+            if ([code intValue] == 1100) {
+                [self popAlertView:response[@"message"]];
+            } else if ([code intValue] == 0) {
+                SH_OutCoinDetailView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_OutCoinDetailView" owner:self options:nil].firstObject;
+                AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-95 titleImageName:@"title14" alertViewType:AlertViewTypeShort];
+                acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+                acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+                [self.targetVC presentViewController:acr animated:YES completion:nil];
+                self.feeModel.actualWithdraw = [NSString stringWithFormat:@"%.2f",[self.feeModel.actualWithdraw floatValue]];
+                [view updateUIWithDetailArray:@[self.bankNumLab.text,self.numTextField.text,self.feeModel.counterFee,self.feeModel.administrativeFee,self.feeModel.deductFavorable,self.feeModel.actualWithdraw] TargetVC:acr Token:self.token];
+            } else {
+               showMessage(self, response[@"message"], nil);
+            }
+        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+            
+        }];
     }
-    
 }
+
 -(void)updateUIWithBalance:(SH_ProfitModel *)model
                    BankNum:(NSString *)bankNum
                   TargetVC:(UIViewController *)targetVC
@@ -101,6 +124,7 @@
     self.targetVC = targetVC;
     self.token = token;
 }
+
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     [self caculateWithMoney:textField.text];
 }
@@ -124,8 +148,11 @@
     [self.targetVC presentViewController:acr animated:YES completion:nil];
 
 }
--(void)updateBankNum{
-    self.bankNumLab.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard.bankcardNumber;
+-(void)updateBankNum {
+    NSString *bankcardNumber = [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard.bankcardNumber;
+    NSString *first = [bankcardNumber substringWithRange:NSMakeRange(1, 8)];
+    NSString *last = [bankcardNumber substringWithRange:NSMakeRange(bankcardNumber.length-4, 4)];
+    self.bankNumLab.text = [NSString stringWithFormat:@"%@****%@",first,last];
 }
 - (void)dealloc
 {

@@ -10,6 +10,8 @@
 #import "SH_NetWorkService+Profit.h"
 #import "AlertViewController.h"
 #import "SH_ProfitAlertView.h"
+#import "SH_NetWorkService+Home.h"
+#import "SH_NetWorkService+RegistAPI.h"
 
 @interface SH_ConfirSaftyPassWordView()
 @property (weak, nonatomic) IBOutlet UITextField *pswTF;
@@ -35,6 +37,7 @@
             NSString *code = [NSString stringWithFormat:@"%@",dic[@"code"]];
             if ([code isEqualToString:@"0"]) {
                 showMessage(self, @"取款成功", nil);
+                [self refreshBalance];
                 NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
                 [defaults setObject:@"" forKey:@"saftyKoken"];
                 [defaults synchronize];
@@ -43,9 +46,6 @@
                     while (vc.presentingViewController) {
                         vc = vc.presentingViewController;
                         if ([vc isKindOfClass:[AlertViewController class]]) {
-                            self.targetVC = vc;
-                            [self.targetVC dismissViewControllerAnimated:NO completion:nil];
-                        } else {
                             [[NSNotificationCenter defaultCenter] postNotificationName:@"close" object:nil];
                         }
                     }
@@ -65,6 +65,34 @@
     }
 }
 
+-(void) refreshBalance {
+    [SH_NetWorkService onekeyrecoveryApiId:nil Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        //刷新用户余额
+        if (![[response objectForKey:@"data"] isKindOfClass:[NSNull class]]) {
+            //            weakSelf.suishenFuLiLab.text = response[@"data"][@"assets"];
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        
+    }];
+    [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
+        if ([dict[@"code"] isEqualToString:@"0"]) {
+            NSError *err;
+            NSArray *arr = [SH_BankListModel arrayOfModelsFromDictionaries:response[@"data"][@"bankList"] error:&err];
+            [[RH_UserInfoManager shareUserManager] setBankList:arr];
+            NSError *err2;
+            RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[response[@"data"] objectForKey:@"user"] error:&err2];
+            [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshBalance" object:nil];
+        }else{
+            [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
+        }
+        
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        //
+        [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
+    }];
+}
 
 -(void)popAlertView: (NSString *)content{
     SH_ProfitAlertView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_ProfitAlertView" owner:self options:nil].lastObject;

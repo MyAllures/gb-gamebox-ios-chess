@@ -40,8 +40,8 @@
                         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
                         [defaults setObject:self.realNameTV.text forKey:@"userName"];
                         [defaults synchronize];
-                    } else{
-                        [self popAlertView];
+                    } else {
+                        [self popAlertView:dict1[@"message"]];
                     }
                 } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
 
@@ -60,10 +60,11 @@
 }
 
 
--(void)popAlertView {
+-(void)popAlertView:(NSString *)context {
     SH_SafeCenterAlertView * alert = [SH_SafeCenterAlertView  instanceSafeCenterAlertView];
     AlertViewController * acr = [[AlertViewController  alloc] initAlertView:alert viewHeight:174 titleImageName:@"title03" alertViewType:AlertViewTypeShort];
     alert.vc = acr;
+    alert.context = context;
     acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self.targetVC1 presentViewController:acr animated:YES completion:nil];

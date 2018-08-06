@@ -122,6 +122,7 @@
     [[YFAnimationManager shareInstancetype] showAnimationInView:self.snowBGImg withAnimationStyle:YFAnimationStyleOfSnow];
 
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didRegistratedSuccessful) name:@"didRegistratedSuccessful" object:nil];
+    [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(refreshBalance) name:@"refreshBalance" object:nil];
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didLoginSuccess) name:@"SH_LOGIN_SUCCESS" object:nil];
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(logoutAction) name:@"didLogOut" object:nil];
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(close) name:@"close" object:nil];
@@ -134,6 +135,10 @@
     }
     [self  configUI];
     [self  autoLoginIsRegist:false];
+}
+
+-(void)refreshBalance {
+    [self  configUI];
 }
 
 - (void)configSearchTF
@@ -693,8 +698,16 @@
     self.acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     self.acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:self.acr animated:YES completion:nil];
-    [SH_NetWorkService getBankInforComplete:^(SH_ProfitModel *model) {
-        [view updateUIWithBalance:model BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:self.acr Token:model.token];
+    [SH_NetWorkService getBankInforComplete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSDictionary *dic = [(NSDictionary *)response objectForKey:@"data"];
+        SH_ProfitModel *model = [[SH_ProfitModel alloc]initWithDictionary:dic error:nil];
+        NSString *code = dic[@"code"];
+        if ([code intValue] == 1100) {
+            showMessage(self.view, response[@"message"], nil);
+            return ;
+        } else {
+            [view updateUIWithBalance:model BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:self.acr Token:model.token];
+        }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
@@ -730,9 +743,6 @@
     }else{
         [self login];
     }
-    
-  
-    
 }
 
 - (void)initAdScroll

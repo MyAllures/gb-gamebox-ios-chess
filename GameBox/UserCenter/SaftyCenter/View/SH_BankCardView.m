@@ -89,6 +89,8 @@
             model.bankName = response[@"data"][@"bankName"];
             model.realName  = response[@"data"][@"realName"];
             [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard = model;
+            //绑定成功刷新已绑定状态
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"refreshBankcard" object:nil];
             //更新用户银行信息
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [weakSelf.targetVC dismissViewControllerAnimated:NO completion:^{

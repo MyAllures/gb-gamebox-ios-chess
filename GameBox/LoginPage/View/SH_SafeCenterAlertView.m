@@ -8,6 +8,9 @@
 
 #import "SH_SafeCenterAlertView.h"
 #import "SH_CustomerServiceManager.h"
+@interface SH_SafeCenterAlertView()
+@property (weak, nonatomic) IBOutlet UILabel *label;
+@end
 
 @implementation SH_SafeCenterAlertView
 
@@ -23,12 +26,15 @@
     }
 }
 
-/*
+
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     // Drawing code
+    if (self.context.length > 0) {
+        self.label.text = self.context;
+    }
 }
-*/
+
 
 @end
