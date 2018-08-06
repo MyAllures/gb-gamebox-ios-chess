@@ -80,7 +80,8 @@
 -(void)bindBankcardRequeset {
     __weak typeof(self) weakSelf = self;
     [SH_NetWorkService bindBankcardRealName:self.realNameTF.text BankName:self.bankTF.text CardNum:self.cardNumTF.text BankDeposit:self.addressTF.text?:@"" Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        showMessage(self, response[@"message"], nil);
+//        showMessage(self, response[@"message"], nil);
+        showMessage(self, @"绑定成功", nil);
         NSString *code = [NSString stringWithFormat:@"%@",response[@"code"]];
         if ([code isEqualToString:@"0"]) {
             SH_BankCardModel *model = [[SH_BankCardModel alloc]init];
