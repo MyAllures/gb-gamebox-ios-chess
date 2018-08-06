@@ -86,7 +86,7 @@
                     NSError *err;
                     SH_GameBulletinModel *model = [[SH_GameBulletinModel alloc] initWithDictionary:dic error:&err];
                     [notice_array addObject:model];
-                    if (![readNoticeId_array containsObject:model.id]) {
+                    if (![readNoticeId_array containsObject:model.id] && model.id) {
                         [noticeId_array addObject: model.id];
                     }
                 }
@@ -117,7 +117,7 @@
                     NSError *err;
                     SH_SystemNotificationModel *model = [[SH_SystemNotificationModel alloc] initWithDictionary:dic error:&err];
                     [system_array addObject:model];
-                    if (!model.read) {
+                    if (!model.read && model.id) {
                         [systemId_array addObject:model.id];
                     }
                 }
@@ -149,7 +149,7 @@
                 for (NSDictionary *dic in list) {
                     NSError *err;
                     SH_SysMsgDataListModel *model = [[SH_SysMsgDataListModel alloc] initWithDictionary:dic error:&err];
-                    if (!model.read) {
+                    if (!model.read && model.mId) {
                        [gameId_array addObject:[NSString  stringWithFormat:@"%ld",model.mId]];
                     }
                     [game_array addObject:model];
