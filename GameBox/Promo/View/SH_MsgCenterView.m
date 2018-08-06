@@ -178,7 +178,7 @@
     self.selectAllBT.selected = NO;
     self.operationBarConstraint.constant = 42.5;
     _selectButtonName = @"inboxButton";
-    [self fetchSystemMsg];
+    [self fetchInboxMsg];
 }
 -(void)fetchInboxMsg{
     [self.msgArr removeAllObjects];
