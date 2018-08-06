@@ -75,7 +75,11 @@
             [weakSelf presentViewController:acr animated:YES completion:nil];
             [view dismiss:^{
                 [acr dismissViewControllerAnimated:NO completion:nil];
+                [self->_msgCenterView  fetchHttpData];
             }];
+            acr.dismissBlock = ^{
+                 [self->_msgCenterView  fetchHttpData];
+            };
         }];
     }
     return _msgCenterView;

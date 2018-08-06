@@ -303,4 +303,19 @@
     }];
 }
 
++(void)getLoadMessageCenterSiteMessageUnReadCountComplete:(SHNetWorkComplete)complete
+                                                   failed:(SHNetWorkFailed)failed{
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/mineOrigin/getUnReadCount.html"];
+    NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost, };
+    [SH_NetWorkService post:url parameter:nil header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (complete) {
+            complete(httpURLResponse, response);
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
+        if (failed) {
+            failed(httpURLResponse, err);
+        }
+    }];
+    
+}
 @end

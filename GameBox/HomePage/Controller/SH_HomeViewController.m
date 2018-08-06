@@ -45,9 +45,9 @@
 #import "SH_WaitingView.h"
 #import "SH_TimeZoneManager.h"
 #import "SH_UpdatedVersionModel.h"
+#import "RH_WebsocketManagar.h"
 
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate>
-
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImg;
 @property (weak, nonatomic) IBOutlet UILabel *userAccountLB;
 @property (weak, nonatomic) IBOutlet UIButton *upLevelBT;
@@ -135,7 +135,6 @@
     [self  configUI];
     [self  autoLoginIsRegist:false];
 }
-
 - (void)configSearchTF
 {
     NSString *holderText = @"搜索游戏";
@@ -270,7 +269,6 @@
                     exit(0);
                 }];
                 [alert addAction:cancelAction];
-
                 [weakSelf presentViewController:alert animated:YES completion:nil];
             }
         }
@@ -340,6 +338,7 @@
             [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
 
             [self  configUI];
+             [[RH_WebsocketManagar instance] SRWebSocketOpenWithURLString:[NetWorkLineMangaer sharedManager].currentPreUrl];
         }else{
              [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
         }

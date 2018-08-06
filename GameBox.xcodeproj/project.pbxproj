@@ -397,6 +397,7 @@
 		DA334BFD211483B800290D86 /* RH_RegisterClauseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA334BFB211483B700290D86 /* RH_RegisterClauseModel.m */; };
 		DA334C0021148A7800290D86 /* SH_RegistRulerView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA334BFF21148A7800290D86 /* SH_RegistRulerView.m */; };
 		DA334C0221148A8800290D86 /* SH_RegistRulerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA334C0121148A8800290D86 /* SH_RegistRulerView.xib */; };
+		DA334C1021184CFB00290D86 /* SH_SiteMsgUnReadCountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA334C0F21184CFB00290D86 /* SH_SiteMsgUnReadCountModel.m */; };
 		DA6EE1BD20F8BECD009A01C5 /* SH_UserInformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6EE1BC20F8BECD009A01C5 /* SH_UserInformationView.m */; };
 		DA6EE1BF20F8BEDA009A01C5 /* SH_UserInformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA6EE1BE20F8BEDA009A01C5 /* SH_UserInformationView.xib */; };
 		DA6EE1C220F98B72009A01C5 /* SH_AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6EE1C120F98B72009A01C5 /* SH_AlertView.m */; };
@@ -994,6 +995,8 @@
 		DA334BFE21148A7800290D86 /* SH_RegistRulerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_RegistRulerView.h; sourceTree = "<group>"; };
 		DA334BFF21148A7800290D86 /* SH_RegistRulerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_RegistRulerView.m; sourceTree = "<group>"; };
 		DA334C0121148A8800290D86 /* SH_RegistRulerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_RegistRulerView.xib; sourceTree = "<group>"; };
+		DA334C0E21184CFB00290D86 /* SH_SiteMsgUnReadCountModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SiteMsgUnReadCountModel.h; sourceTree = "<group>"; };
+		DA334C0F21184CFB00290D86 /* SH_SiteMsgUnReadCountModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SiteMsgUnReadCountModel.m; sourceTree = "<group>"; };
 		DA6EE1BB20F8BECD009A01C5 /* SH_UserInformationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_UserInformationView.h; sourceTree = "<group>"; };
 		DA6EE1BC20F8BECD009A01C5 /* SH_UserInformationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_UserInformationView.m; sourceTree = "<group>"; };
 		DA6EE1BE20F8BEDA009A01C5 /* SH_UserInformationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_UserInformationView.xib; sourceTree = "<group>"; };
@@ -1426,6 +1429,8 @@
 				22E486D820F9F8AE0051A68C /* SH_SysMsgDataListModel.m */,
 				22878EC8210029E3005D7652 /* SH_SysMsgDetailModel.h */,
 				22878EC9210029E3005D7652 /* SH_SysMsgDetailModel.m */,
+				DA334C0E21184CFB00290D86 /* SH_SiteMsgUnReadCountModel.h */,
+				DA334C0F21184CFB00290D86 /* SH_SiteMsgUnReadCountModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2744,6 +2749,7 @@
 				54C8763221008D3800AA0594 /* SH_GameWebView.m in Sources */,
 				DA1BCC8320FE06D300201DBC /* SH_CardRecordHeaderView.m in Sources */,
 				DA21F37C20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m in Sources */,
+				DA334C1021184CFB00290D86 /* SH_SiteMsgUnReadCountModel.m in Sources */,
 				DA22F40920F494C60058A54F /* UIViewController+Instance.m in Sources */,
 				BFA068B620FDE2EC00F5ADFE /* SH_JiHeModel.m in Sources */,
 				BFD6CFC120F8901500EDBC5B /* SH_NetWorkService+Bank.m in Sources */,

@@ -12,7 +12,10 @@
 #import "SH_NetWorkService+RegistAPI.h"
 #import "RH_UserInfoManager.h"
 @interface RH_RegistrationViewItem() <RH_RegistrationSelectViewDelegate, UIGestureRecognizerDelegate, UITextFieldDelegate>
-@property (nonatomic, strong) NSTimer *timer;
+{
+    dispatch_source_t timer;
+}
+//@property (nonatomic, strong) NSTimer *timer;
 
 @end
 @implementation RH_RegistrationViewItem
@@ -667,10 +670,35 @@
         NSLog(@"%@", dict);
         if ([dict[@"success"] isEqual:@YES]) {
             showMessage(self.window, @"手机验证码已发送", @"");
-            self->countDownNumber = 90;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(startCountDown) userInfo:nil repeats:YES];
-            });
+              self->countDownNumber = 90;
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(startCountDown) userInfo:nil repeats:YES];
+                dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+                self->timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+                dispatch_source_set_timer(self->timer, DISPATCH_TIME_NOW, 1.0 * NSEC_PER_SEC, 0.0 * NSEC_PER_SEC);
+                NSTimeInterval seconds =self->countDownNumber;
+                NSDate *endTime = [NSDate dateWithTimeIntervalSinceNow:seconds];//进入后台的时间
+                dispatch_source_set_event_handler(self->timer, ^{
+                    NSTimeInterval  intinterval = [endTime timeIntervalSinceNow];
+                    NSString *str = [NSString stringWithFormat:@"%f",intinterval];
+                    int time = [str intValue];
+                    UIButton *button = [self viewWithTag:1002];
+                    if (time > 0) {
+                        button.enabled = NO;
+                        button.layer.borderColor =[UIColor  whiteColor].CGColor;// colorWithRGB(168, 168, 168).CGColor;
+                        [button setTitle:[NSString stringWithFormat:@"%lds",(long)self->countDownNumber] forState:UIControlStateNormal];
+                        [button setTitleColor:[UIColor  whiteColor] forState:UIControlStateNormal];//colorWithRGB(168, 168, 168)
+                    }else {
+                        dispatch_source_cancel(self->timer);
+                        button.layer.borderColor = [UIColor  whiteColor].CGColor;// colorWithRGB(20, 90, 180).CGColor; //colorWithRGB(20, 90, 180)
+                        [button setTitleColor:[UIColor  whiteColor] forState:UIControlStateNormal];
+                        [button setTitle:@"获取验证码" forState:UIControlStateNormal];
+                        button.enabled = YES;
+                    }
+                });
+            dispatch_resume(self->timer);
+
+//            });
         }else {
             dispatch_async(dispatch_get_main_queue(), ^{
                 showMessage(self.window, @"发送失败", @"");
@@ -680,6 +708,7 @@
         showMessage(self.window, err, nil);
     }];
 }
+/*
 - (void)startCountDown {
     NSLog(@"%s", __func__);
         countDownNumber--;
@@ -697,7 +726,7 @@
             button.enabled = YES;
         }
 }
-
+*/
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     return [self validateNumber:string];
 }

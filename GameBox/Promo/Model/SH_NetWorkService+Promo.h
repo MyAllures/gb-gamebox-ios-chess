@@ -92,4 +92,7 @@
 + (void)getSysNoticeDetail:(NSString *)searchId
                   complete:(SHNetWorkComplete)complete
                     failed:(SHNetWorkFailed)failed;
+#pragma mark - 获取站点消息-系统消息&&我的消息 未读消息的条数
++(void)getLoadMessageCenterSiteMessageUnReadCountComplete:(SHNetWorkComplete)complete
+                                                   failed:(SHNetWorkFailed)failed;
 @end

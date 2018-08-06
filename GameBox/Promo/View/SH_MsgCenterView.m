@@ -13,8 +13,13 @@
 #import "SH_GameBulletinModel.h"
 #import "SH_SysMsgDataListModel.h"
 #import "SH_WaitingView.h"
+#import "RH_WebsocketManagar.h"
+#import "SH_SiteMsgUnReadCountModel.h"
 
 @interface SH_MsgCenterView () <UITableViewDataSource, UITableViewDelegate>
+{
+    NSString * _selectButtonName;
+}
 @property (weak, nonatomic) IBOutlet UILabel *game_label;
 
 @property (weak, nonatomic) IBOutlet SH_WebPButton *gameNoticeBt;
@@ -34,12 +39,15 @@
 @end
 
 @implementation SH_MsgCenterView
-
 - (void)awakeFromNib
 {
     [super awakeFromNib];
     
     [self  fetchHttpData];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SRWebSocketDidOpen) name:kWebSocketDidOpenNote object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SRWebSocketDidReceiveMsg:) name:kWebSocketdidReceiveMessageNote object:nil];
+    _selectButtonName = @"gameButton";
 }
 
 - (void)showDetail:(SH_MsgCenterViewShowDetail)showDetailBlock
@@ -73,121 +81,61 @@
     [self gameNoticeClick:nil];
 }
 -(void)fetchHttpData{
-    // 游戏公告
-    __weak typeof(self) weakSelf = self;
-    __block NSMutableArray  * notice_array = [NSMutableArray  array];
-    __block NSMutableArray  * readNoticeId_array = [NSArray arrayWithContentsOfFile:[self pathForFile:@"notice"]].mutableCopy;
-    __block NSMutableArray  * noticeId_array = [NSMutableArray  array];
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        [SH_NetWorkService_Promo startLoadGameNoticeStartTime:@"" endTime:@"" pageNumber:1 pageSize:5000 apiId:0 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-            if (response && [[response objectForKey:@"code"] intValue] == 0) {
-                NSArray *list = response[@"data"][@"list"];
-                for (NSDictionary *dic in list) {
-                    NSError *err;
-                    SH_GameBulletinModel *model = [[SH_GameBulletinModel alloc] initWithDictionary:dic error:&err];
-                    [notice_array addObject:model];
-                    if (![readNoticeId_array containsObject:model.id] && model.id) {
-                        [noticeId_array addObject: model.id];
-                    }
-                }
-                [weakSelf.data_dict setValue:notice_array forKey:@"notice"];
-                if (noticeId_array.count>0) {
-                    weakSelf.game_label.hidden = false;
-                    weakSelf.game_label.text = [NSString  stringWithFormat:@"%ld",noticeId_array.count];
-                }else{
-                    weakSelf.game_label.hidden = YES;
-                }
-            }
-            else
-            {
-                showErrorMessage([UIApplication sharedApplication].keyWindow, nil, [response objectForKey:@"message"]);
-            }
-        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-            
-        }];
-    });
-    // 系统公告
-    __block NSMutableArray  * system_array = [NSMutableArray  array];
-    __block NSMutableArray  * systemId_array = [NSMutableArray  array];
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        [SH_NetWorkService_Promo startLoadSystemNoticeStartTime:@"" endTime:@"" pageNumber:1 pageSize:5000 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-            if (response && [[response objectForKey:@"code"] intValue] == 0) {
-                NSArray *list = response[@"data"][@"list"];
-                for (NSDictionary *dic in list) {
-                    NSError *err;
-                    SH_SystemNotificationModel *model = [[SH_SystemNotificationModel alloc] initWithDictionary:dic error:&err];
-                    [system_array addObject:model];
-                    if (!model.read && model.id) {
-                        [systemId_array addObject:model.id];
-                    }
-                }
-                if (systemId_array.count >0) {
-                    weakSelf.system_label.hidden = false;
-                    weakSelf.system_label.text = [NSString  stringWithFormat:@"%ld",systemId_array.count];
-                    [systemId_array writeToFile:[self pathForFile:@"system"] atomically:YES];
-                }else{
-                    weakSelf.system_label.hidden = YES;
-                }
-                [weakSelf.data_dict setValue:system_array forKey:@"system"];
-            }
-            else
-            {
-                showErrorMessage([UIApplication sharedApplication].keyWindow, nil, [response objectForKey:@"message"]);
-            }
-        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-            
-        }];
-    });
-    //收件箱
-    __block NSMutableArray  * game_array = [NSMutableArray  array];
-    __block NSMutableArray  * gameId_array = [NSMutableArray  array];
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        
-        [SH_NetWorkService_Promo startLoadSystemMessageWithpageNumber:1 pageSize:5000 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-            if (response && [[response objectForKey:@"code"] intValue] == 0) {
-                NSArray *list = response[@"data"][@"list"];
-                for (NSDictionary *dic in list) {
-                    NSError *err;
-                    SH_SysMsgDataListModel *model = [[SH_SysMsgDataListModel alloc] initWithDictionary:dic error:&err];
-                    if (!model.read && model.mId) {
-                       [gameId_array addObject:[NSString  stringWithFormat:@"%ld",model.mId]];
-                    }
-                    [game_array addObject:model];
-                }
-                [weakSelf.data_dict setValue:game_array forKey:@"inbox"];
-                if (gameId_array.count >0) {
+   
+       __weak typeof(self) weakSelf = self;
+        [SH_NetWorkService_Promo  getLoadMessageCenterSiteMessageUnReadCountComplete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+            if ([[response objectForKey:@"code"] isEqualToString:@"0"]) {
+                SH_SiteMsgUnReadCountModel * model = [[SH_SiteMsgUnReadCountModel alloc] initWithDictionary:response[@"data"] error:nil];
+                if ([model.sysMessageUnReadCount integerValue] >0) {
                     weakSelf.inbox_label.hidden = false;
-                    weakSelf.inbox_label.text = [NSString  stringWithFormat:@"%ld",gameId_array.count];
-                    [gameId_array writeToFile:[self pathForFile:@"inbox"] atomically:YES];
+                    weakSelf.inbox_label.text = model.sysMessageUnReadCount;
                 }else{
                     weakSelf.inbox_label.hidden = YES;
                 }
+                if ([model.advisoryUnReadCount integerValue] >0) {
+                    weakSelf.game_label.hidden =  false;
+                    weakSelf.game_label.text = model.advisoryUnReadCount;
+                }else{
+                    weakSelf.game_label.hidden = YES;
+                }
                 
-            }
-            else
-            {
-                showErrorMessage([UIApplication sharedApplication].keyWindow, nil, [response objectForKey:@"message"]);
             }
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             
         }];
-    });
+
 }
 - (IBAction)gameNoticeClick:(id)sender {
     self.gameNoticeBt.selected = YES;
     self.systemNoticeBt.selected = NO;
     self.inboxBt.selected = NO;
     self.operationBarConstraint.constant = 0;
-    if (self.msgArr.count >0) {
-        [self.msgArr removeAllObjects];
-    }
-    self.msgArr = [self.data_dict[@"notice"] mutableCopy];
-    if (self.msgArr.count>0) {
-        self.nodataMarkView.hidden = YES;
-    }else{
-        self.nodataMarkView.hidden = false;
-    }
-    [self.tableView reloadData];
+    _selectButtonName = @"gameButton";
+    [self.msgArr removeAllObjects];
+
+    __weak typeof(self) weakSelf = self;
+
+    [SH_NetWorkService_Promo startLoadGameNoticeStartTime:@"" endTime:@"" pageNumber:1 pageSize:5000 apiId:0 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (response && [[response objectForKey:@"code"] intValue] == 0) {
+            NSArray *list = response[@"data"][@"list"];
+            [weakSelf.msgArr removeAllObjects];
+            
+            for (NSDictionary *dic in list) {
+                NSError *err;
+                SH_GameBulletinModel *model = [[SH_GameBulletinModel alloc] initWithDictionary:dic error:&err];
+                [weakSelf.msgArr addObject:model];
+            }
+            weakSelf.nodataMarkView.hidden = weakSelf.msgArr.count > 0;
+        }
+        else
+        {
+            showErrorMessage([UIApplication sharedApplication].keyWindow, nil, [response objectForKey:@"message"]);
+            weakSelf.nodataMarkView.hidden = NO;
+        }
+        [weakSelf.tableView reloadData];
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        weakSelf.nodataMarkView.hidden = NO;
+    }];
 }
 
 - (IBAction)systemNoticeClick:(id)sender {
@@ -195,39 +143,67 @@
     self.systemNoticeBt.selected = YES;
     self.inboxBt.selected = NO;
     self.operationBarConstraint.constant = 0;
-    if (self.msgArr.count >0) {
-        [self.msgArr removeAllObjects];
-    }
-    self.msgArr = [self.data_dict[@"system"] mutableCopy];
-    if (self.msgArr.count>0) {
-        self.nodataMarkView.hidden = YES;
-    }else{
-        self.nodataMarkView.hidden = false;
-    }
-    [self.tableView reloadData];
+    _selectButtonName = @"systemButton";
+    [self fetchSystemMsg];
 }
-
+-(void)fetchSystemMsg{
+    
+    [self.msgArr removeAllObjects];
+    
+    __weak typeof(self) weakSelf = self;
+    [SH_NetWorkService_Promo startLoadSystemNoticeStartTime:@"" endTime:@"" pageNumber:1 pageSize:5000 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (response && [[response objectForKey:@"code"] intValue] == 0) {
+            NSArray *list = response[@"data"][@"list"];
+            for (NSDictionary *dic in list) {
+                NSError *err;
+                SH_SystemNotificationModel *model = [[SH_SystemNotificationModel alloc] initWithDictionary:dic error:&err];
+                [weakSelf.msgArr addObject:model];
+            }
+            weakSelf.nodataMarkView.hidden = weakSelf.msgArr.count > 0;
+        }
+        else
+        {
+            showErrorMessage([UIApplication sharedApplication].keyWindow, nil, [response objectForKey:@"message"]);
+            weakSelf.nodataMarkView.hidden = NO;
+        }
+        [weakSelf.tableView reloadData];
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        weakSelf.nodataMarkView.hidden = NO;
+    }];
+}
 - (IBAction)InboxClick:(id)sender {
     self.gameNoticeBt.selected = NO;
     self.systemNoticeBt.selected = NO;
     self.inboxBt.selected = YES;
     self.selectAllBT.selected = NO;
     self.operationBarConstraint.constant = 42.5;
-    if (self.msgArr.count >0) {
-        [self.msgArr removeAllObjects];
-    }
-    self.msgArr = [self.data_dict[@"inbox"] mutableCopy];
-    if (self.msgArr.count>0) {
-        self.nodataMarkView.hidden = YES;
-    }else{
-        self.nodataMarkView.hidden = false;
-    }
-    [self.tableView reloadData];
+    _selectButtonName = @"inboxButton";
+    [self fetchSystemMsg];
 }
--(NSString*)pathForFile:(NSString*)fileName{
-    NSString  * path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
-    NSString *filePatch = [path stringByAppendingPathComponent:fileName];
-    return filePatch;
+-(void)fetchInboxMsg{
+    [self.msgArr removeAllObjects];
+    
+    __weak typeof(self) weakSelf = self;
+    
+    [SH_NetWorkService_Promo startLoadSystemMessageWithpageNumber:1 pageSize:5000 complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (response && [[response objectForKey:@"code"] intValue] == 0) {
+            NSArray *list = response[@"data"][@"list"];
+            for (NSDictionary *dic in list) {
+                NSError *err;
+                SH_SysMsgDataListModel *model = [[SH_SysMsgDataListModel alloc] initWithDictionary:dic error:&err];
+                [weakSelf.msgArr addObject:model];
+            }
+            weakSelf.nodataMarkView.hidden = weakSelf.msgArr.count > 0;
+        }
+        else
+        {
+            showErrorMessage([UIApplication sharedApplication].keyWindow, nil, [response objectForKey:@"message"]);
+            weakSelf.nodataMarkView.hidden = NO;
+        }
+        [weakSelf.tableView reloadData];
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        weakSelf.nodataMarkView.hidden = NO;
+    }];
 }
 - (IBAction)allSelectAction:(id)sender {
     SH_WebPButton *bt = (SH_WebPButton *)sender;
@@ -336,26 +312,9 @@
     //只有收件箱有此操作
     id model = self.msgArr[indexPath.row];
     if ([model isMemberOfClass:[SH_SysMsgDataListModel class]]) {
-        NSMutableArray  * temp_array = [NSArray  arrayWithContentsOfFile:[self pathForFile:@"inbox"]].mutableCopy;
-        if (!temp_array) {
-            temp_array = [NSMutableArray  array];
-        }
         //模型赋值
         SH_SysMsgDataListModel *tModel = (SH_SysMsgDataListModel *)model;
-        if ([temp_array containsObject:[NSString  stringWithFormat:@"%ld",tModel.mId]]) {
-            [temp_array removeObject:[NSString stringWithFormat:@"%ld",tModel.mId]];
-            [temp_array writeToFile:[self pathForFile:@"inbox"] atomically:YES];
-        }
         tModel.selected = !tModel.selected;
-        
-        if (temp_array.count>0) {
-            self.inbox_label.hidden = false;
-            self.inbox_label.text = [NSString  stringWithFormat:@"%ld",temp_array.count];
-        }else{
-            
-            self.inbox_label.hidden = YES;
-        }
-        
         //UI更新
         SH_MsgCenterCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         [cell updateSelectedStatus];
@@ -373,21 +332,7 @@
     }
     else if ([model isMemberOfClass:[SH_GameBulletinModel class]])
     {
-        NSMutableArray  * temp_array = [NSArray  arrayWithContentsOfFile:[self pathForFile:@"notice"]].mutableCopy;
-        if (!temp_array) {
-            temp_array = [NSMutableArray  array];
-        }
         SH_GameBulletinModel *tModel = (SH_GameBulletinModel *)model;
-        if (![temp_array containsObject:tModel.id]) {
-            [temp_array addObject:tModel.id];
-        }
-         [temp_array writeToFile:[self pathForFile:@"notice"] atomically:YES];
-        if ((self.msgArr.count-temp_array.count)>0) {
-            self.game_label.hidden = false;
-            self.game_label.text = [NSString  stringWithFormat:@"%ld",self.msgArr.count-temp_array.count];
-        }else{
-            self.game_label.hidden = YES;
-        }
         [SH_WaitingView showOn:self];
         [SH_NetWorkService_Promo getGameNoticeDetail:tModel.id complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSString *content = response[@"data"][@"context"];
@@ -402,21 +347,6 @@
     else if ([model isMemberOfClass:[SH_SystemNotificationModel class]])
     {
         SH_SystemNotificationModel *tModel = (SH_SystemNotificationModel *)model;
-        NSMutableArray * temp_array = [NSArray  arrayWithContentsOfFile:[self pathForFile:@"system"]].mutableCopy;
-        if (!temp_array) {
-            temp_array = [NSMutableArray  array];
-        }
-        if ([temp_array containsObject:tModel.id]) {
-            
-            [temp_array removeObject:tModel.id];
-        }
-        [temp_array writeToFile:[self pathForFile:@"system"] atomically:YES];
-        if (temp_array.count >0) {
-            self.system_label.hidden = false;
-            self.system_label.text = [NSString  stringWithFormat:@"%ld",temp_array.count];
-        }else{
-            self.system_label.hidden = YES;
-        }
         [SH_WaitingView showOn:self];
         [SH_NetWorkService_Promo getSysNoticeDetail:tModel.searchId complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSString *content = response[@"data"][@"content"];
@@ -433,5 +363,45 @@
 #pragma mark - UITableViewDelegate M
 
 #pragma mark - Private M
+#pragma mark ==============test webSocket================
+- (void)SRWebSocketDidOpen {
+    NSLog(@"开启成功");
+    //在成功后需要做的操作。。。
+}
 
+- (void)SRWebSocketDidReceiveMsg:(NSNotification *)note {
+    //收到服务端发送过来的消息
+    NSString * message = note.object;
+    NSLog(@"message====%@",message);
+    NSMutableArray * array = [NSMutableArray array];
+    if ([message isKindOfClass:[NSString  class]]) {
+        NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
+        id obj = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        if ([obj isKindOfClass:[NSArray class]]) {
+            for (NSString * s in obj) {
+                NSDictionary* dic = [NSJSONSerialization  JSONObjectWithData:[s dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
+                [array addObject:dic];
+            }
+        }else if([obj isKindOfClass:[NSDictionary class]]){
+            [array addObject:obj];
+        }
+        NSLog(@"------%@",array);
+    }else if([message isKindOfClass:[NSData  class]]){
+        NSData * d = (NSData*)message;
+        NSDictionary* dic = [NSJSONSerialization  JSONObjectWithData:d options:0 error:nil];
+        [array addObject:dic];
+    }
+    if (array.count >=1) {
+        for (NSDictionary * dic in array) {
+            if ([dic[@"subscribeType"] isEqualToString:@"MCENTER_READ_COUNT"] &&[_selectButtonName isEqualToString:@"inboxButton"]) {
+                [self fetchInboxMsg];
+            }else if ([dic[@"subscribeType"] isEqualToString:@"SYS_ANN"]&&[_selectButtonName isEqualToString:@"systemButton"]){
+                [self fetchSystemMsg];
+            }else if ([dic[@"subscribeType"] isEqualToString:@"SITE_ANN"]&&[_selectButtonName isEqualToString:@"inboxButton"]){
+            }
+            [self fetchHttpData];
+        }
+    }
+//    [self fetchHttpData];
+}
 @end

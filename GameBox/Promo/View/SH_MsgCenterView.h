@@ -14,5 +14,5 @@ typedef void(^SH_MsgCenterViewShowDetail)(NSString *content);
 
 - (void)reloadData;
 - (void)showDetail:(SH_MsgCenterViewShowDetail)showDetailBlock;
-
+-(void)fetchHttpData;
 @end
