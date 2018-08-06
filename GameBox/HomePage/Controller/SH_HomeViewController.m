@@ -722,9 +722,7 @@
     }else{
         [self login];
     }
-    
-  
-    
+     
 }
 
 - (void)initAdScroll

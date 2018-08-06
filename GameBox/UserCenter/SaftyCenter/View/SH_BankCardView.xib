@@ -198,7 +198,7 @@
                 <outlet property="realNameTF" destination="0E4-bh-MeB" id="vsi-pg-6eS"/>
                 <outlet property="sureBtn" destination="9s2-FX-4AL" id="Prh-vQ-pO0"/>
             </connections>
-            <point key="canvasLocation" x="-60" y="-45"/>
+            <point key="canvasLocation" x="-332" y="-286"/>
         </view>
     </objects>
 </document>
