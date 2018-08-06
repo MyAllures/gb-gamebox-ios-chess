@@ -30,7 +30,6 @@
             self.token = saftyKoken;
         }
         [SH_NetWorkService sureOutCoinMoney:self.money SaftyPWD:self.pswTF.text Token:self.token Way:@"1" Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
-            showMessage(self, [NSString stringWithFormat:@"%@",response[@"message"]], nil);
             NSString *message = response[@"message"];
             NSDictionary *dic = ConvertToClassPointer(NSDictionary, response);
             NSLog(@"%@",dic);
@@ -55,9 +54,7 @@
                 NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
                 [defaults setObject:self.token forKey:@"saftyKoken"];
                 [defaults synchronize];
-                if ([message containsString:@"未设置安全密码"]) {
-                    [self popAlertView:message];
-                }
+                [self popAlertView:message];
             }
         } Failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             
