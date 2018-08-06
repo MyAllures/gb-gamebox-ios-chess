@@ -94,7 +94,9 @@
 -(void)popAlertView: (NSString *)content{
     SH_ProfitAlertView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_ProfitAlertView" owner:self options:nil].lastObject;
     view.content = content;
-    view.sureBtn.tag = 100;
+    if ([content containsString:@"未设置安全密码"]) {
+        view.sureBtn.tag = 100;
+    }
     view.targetVC = self.targetVC;
     AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:202 titleImageName:@"title03" alertViewType:AlertViewTypeShort];
     acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
