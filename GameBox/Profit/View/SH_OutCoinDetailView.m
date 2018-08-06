@@ -62,7 +62,7 @@
 - (IBAction)sureOutCoinBtnClick:(id)sender {
     NSString *actualWithdraw = self.details[5];
     if ([actualWithdraw floatValue] <= 0) {
-        [self popAlertView:@"最后取款金额应大于0元"];
+        [self popAlertView:@"最后出币数量应大于0"];
         return;
     }
     SH_ConfirSaftyPassWordView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_ConfirSaftyPassWordView" owner:self options:nil].firstObject;

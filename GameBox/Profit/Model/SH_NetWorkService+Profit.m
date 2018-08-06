@@ -9,16 +9,16 @@
 #import "SH_NetWorkService+Profit.h"
 
 @implementation SH_NetWorkService (Profit)
-+ (void)getBankInforComplete:(profitBlock)complete
++ (void)getBankInforComplete:(SHNetWorkComplete)complete
                       failed:(SHNetWorkFailed)failed{
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/withdrawOrigin/getWithDraw.html"];
     NSDictionary *header = @{@"X-Requested-With":@"XMLHttpRequest",@"Host":[NetWorkLineMangaer sharedManager].currentHost};
 
     [self post:url parameter:[NSDictionary dictionary] header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
-            NSDictionary *dic = [(NSDictionary *)response objectForKey:@"data"];
-            SH_ProfitModel *model = [[SH_ProfitModel alloc]initWithDictionary:dic error:nil];
-            complete(model);
+//            NSDictionary *dic = [(NSDictionary *)response objectForKey:@"data"];
+//            SH_ProfitModel *model = [[SH_ProfitModel alloc]initWithDictionary:dic error:nil];
+            complete(httpURLResponse, response);
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
         if (failed) {

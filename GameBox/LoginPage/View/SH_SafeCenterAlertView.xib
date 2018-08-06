@@ -34,7 +34,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="whb-rU-Cu0">
                     <rect key="frame" x="8" y="8" width="329" height="133"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未开启找回密码功能，请联系客服" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pV-NZ-saY">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未开启找回密码功能，请联系客服" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pV-NZ-saY">
                             <rect key="frame" x="8" y="8" width="313" height="117"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -78,6 +78,9 @@
                 <constraint firstItem="XoC-Rg-XMr" firstAttribute="leading" secondItem="iae-aI-JlP" secondAttribute="leading" constant="8" id="uf0-Hf-fpq"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="label" destination="4pV-NZ-saY" id="TFn-Ar-tT1"/>
+            </connections>
             <point key="canvasLocation" x="-683.5" y="-107"/>
         </view>
     </objects>

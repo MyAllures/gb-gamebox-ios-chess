@@ -41,9 +41,9 @@
         NSLog(@"dict===%@",dict);
         NSString *dataStr = dict[@"data"];
         if ([dataStr intValue] == 0) {
-            self.bindPhoneBtn.hidden = NO;
-        } else{
             self.bindPhoneBtn.hidden = YES;
+        } else {
+            self.bindPhoneBtn.hidden = NO;
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         

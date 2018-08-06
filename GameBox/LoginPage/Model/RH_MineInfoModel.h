@@ -21,6 +21,7 @@
 @property(nonatomic,assign) float   unReadCount ;
 @property(nonatomic,strong) NSString  *username ;
 @property(nonatomic,strong) NSString  *realName ;
+@property(nonatomic,strong) NSString  *userSex ;
 @property(nonatomic,assign) float  walletBalance ;
 @property(nonatomic,assign) float  withdrawAmount ;
 @property(nonatomic,assign) BOOL  isBit ;
