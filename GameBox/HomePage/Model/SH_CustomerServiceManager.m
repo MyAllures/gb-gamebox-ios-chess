@@ -68,7 +68,7 @@
     [SH_NetWorkService getCustomerService:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (response && [response[@"code"] intValue] == 0) {
             self.isInlay = [response[@"data"][@"isInlay"] boolValue];
-            self.customerUrl = response[@"data"][@"customerUrl"];
+            self.customerUrl = [response[@"data"][@"customerUrl"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             if (success) {
                 success(self.customerUrl);
             }
