@@ -363,7 +363,15 @@
     self.userAccountLB.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.username?:@"请先登录";
     
     if ([RH_UserInfoManager  shareUserManager].isLogin) {
-        self.avatarImg.image = [UIImage imageWithWebPImageName:@"photo_male"];
+        if ([RH_UserInfoManager shareUserManager].mineSettingInfo.userSex.length > 0) {
+            if ([[RH_UserInfoManager shareUserManager].mineSettingInfo.userSex isEqualToString:@"男"]) {
+                self.avatarImg.image = [UIImage imageWithWebPImageName:@"photo_male"];
+            } else {
+                self.avatarImg.image = [UIImage imageWithWebPImageName:@"photo_female"];
+            }
+        } else {
+            self.avatarImg.image = [UIImage imageWithWebPImageName:@"photo_male"];
+        }
         //刷新随身福利
         self.suishenFuLiLab.text = [NSString stringWithFormat:@"%.2f",[RH_UserInfoManager shareUserManager].mineSettingInfo.walletBalance];        
     }else{
