@@ -194,14 +194,14 @@
                 NSLog(@"dict===%@",dict);
                 NSString *dataStr = dict[@"data"];
                 if ([dataStr intValue] == 0) {
+                    [self popAlertView];
+                } else{
                     SH_FindPSWView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_FindPSWView" owner:self options:nil].firstObject;
                     AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:200 titleImageName:@"title19" alertViewType:AlertViewTypeShort];
                     view.targetVC1 = acr;
                     acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
                     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
                     [self.targetVC presentViewController:acr animated:YES completion:nil];
-                } else{
-                    [self popAlertView];
                 }
             } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
                 

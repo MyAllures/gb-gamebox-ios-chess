@@ -80,7 +80,8 @@
 -(void)bindBankcardRequeset {
     __weak typeof(self) weakSelf = self;
     [SH_NetWorkService bindBankcardRealName:self.realNameTF.text BankName:self.bankTF.text CardNum:self.cardNumTF.text BankDeposit:self.addressTF.text?:@"" Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        showMessage(self, response[@"message"], nil);
+//        showMessage(self, response[@"message"], nil);
+        showMessage(self, @"绑定成功", nil);
         NSString *code = [NSString stringWithFormat:@"%@",response[@"code"]];
         if ([code isEqualToString:@"0"]) {
             SH_BankCardModel *model = [[SH_BankCardModel alloc]init];
@@ -89,6 +90,8 @@
             model.bankName = response[@"data"][@"bankName"];
             model.realName  = response[@"data"][@"realName"];
             [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard = model;
+            //绑定成功刷新已绑定状态
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"refreshBankcard" object:nil];
             //更新用户银行信息
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [weakSelf.targetVC dismissViewControllerAnimated:NO completion:^{

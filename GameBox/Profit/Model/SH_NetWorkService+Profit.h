@@ -14,7 +14,7 @@ typedef void(^profitBlock) (SH_ProfitModel *model);
 typedef void (^feeBlock)(SH_FeeModel *model);
 typedef void (^jiHeBlock)(SH_JiHeModel *model);
 @interface SH_NetWorkService (Profit)
-+(void)getBankInforComplete:(profitBlock)complete
++(void)getBankInforComplete:(SHNetWorkComplete)complete
                      failed:(SHNetWorkFailed)failed;
 
 +(void)caculateOutCoinFeeWithNum:(NSString *)num

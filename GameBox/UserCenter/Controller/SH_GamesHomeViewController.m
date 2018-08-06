@@ -88,6 +88,7 @@
             AlertViewController *cvc  = [[AlertViewController  alloc] initAlertView:welfare viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title09" alertViewType:AlertViewTypeLong];
             //             welfare.vc = cvc;
             [self presentViewController:cvc addTargetViewController:self];
+
             break;
         }
         case 1:{

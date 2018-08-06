@@ -257,10 +257,12 @@
     }
     if ([model.name isEqualToString:@"paymentPassword"]) {
         label_Title.text = @"6位数字安全密码";
+        textField.secureTextEntry = YES;
         textField.placeholder = @"6位数字安全密码";
     }
     if ([model.name isEqualToString:@"paymentPassword2"]) {
         label_Title.text = @"验证6位数字安全密码";
+        textField.secureTextEntry = YES;
         textField.placeholder = @"验证6位数字安全密码";
     }
     if ([model.name isEqualToString:@"defaultTimezone"]) {
