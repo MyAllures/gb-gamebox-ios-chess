@@ -45,7 +45,6 @@
 #import "SH_WaitingView.h"
 #import "SH_TimeZoneManager.h"
 #import "SH_UpdatedVersionModel.h"
-#import "UIAlertView+Block.h"
 
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate>
 
@@ -94,14 +93,16 @@
 //        //
 //        [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
 //    }];
-    [SH_NetWorkService onekeyrecoveryApiId:nil Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        //刷新用户余额
-        if (![[response objectForKey:@"data"] isKindOfClass:[NSNull class]]) {
-            //            weakSelf.suishenFuLiLab.text = response[@"data"][@"assets"];
-        }
-    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
-    }];
+    if ([RH_UserInfoManager shareUserManager].isLogin) {
+        [SH_NetWorkService onekeyrecoveryApiId:nil Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
+            //刷新用户余额
+            if (![[response objectForKey:@"data"] isKindOfClass:[NSNull class]]) {
+                //            weakSelf.suishenFuLiLab.text = response[@"data"][@"assets"];
+            }
+        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+            
+        }];
+    }
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:@"" forKey:@"saftyKoken"];
     [defaults synchronize];
@@ -206,6 +207,8 @@
 
 - (void)checkUpdate
 {
+    __weak typeof(self) weakSelf = self;
+
     [SH_NetWorkService checkVersionUpdate:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (response) {
             NSError *err;
@@ -219,51 +222,56 @@
                 //本地版本号比线上版本号要小 且
                 //本地版本号大于强制更新版本号
                 //需要弹框 但可以跳过
-                UIAlertView *alert =
-                [UIAlertView alertWithCallBackBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
-                    if (buttonIndex == 0) {
-                        //点击了忽略更新
-                        //直接跳过
-                    }
-                    else
-                    {
-                        NSString *downLoadIpaUrl = [NSString stringWithFormat:@"itms-services://?action=download-manifest&url=https://%@%@/%@/app_%@_%@.plist",updatedVersionModel.appUrl,updatedVersionModel.versionName,CODE,CODE,updatedVersionModel.versionName];
-                        NSURL *ipaUrl = [NSURL URLWithString:[downLoadIpaUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-                        [[UIApplication sharedApplication] openURL:ipaUrl];
-                        exit(0);
-                    }
-                }
-                                              title:@"发现新版本啦"
-                                            message:updatedVersionModel.memo
-                                   cancelButtonName:@"忽略更新"
-                                  otherButtonTitles:@"下载更新", nil];
-                [alert show];
+                
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"发现新版本啦" message:updatedVersionModel.memo preferredStyle:UIAlertControllerStyleAlert];
+                
+                NSMutableAttributedString *messageText = [[NSMutableAttributedString alloc] initWithString:updatedVersionModel.memo];
+                NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+                paragraphStyle.alignment = NSTextAlignmentLeft;
+                [messageText addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, updatedVersionModel.memo.length)];
+                [alert setValue:messageText forKey:@"attributedMessage"];
+                
+                UIAlertAction *downLoadAction = [UIAlertAction actionWithTitle:@"下载更新" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    NSString *downLoadIpaUrl = [NSString stringWithFormat:@"itms-services://?action=download-manifest&url=https://%@%@/%@/app_%@_%@.plist",updatedVersionModel.appUrl,updatedVersionModel.versionName,CODE,CODE,updatedVersionModel.versionName];
+                    NSURL *ipaUrl = [NSURL URLWithString:[downLoadIpaUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+                    [[UIApplication sharedApplication] openURL:ipaUrl];
+                    exit(0);
+                }];
+                [alert addAction:downLoadAction];
+
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"忽略更新" style:UIAlertActionStyleCancel handler:nil];
+                [alert addAction:cancelAction];
+
+                [weakSelf presentViewController:alert animated:YES completion:nil];
             }
             else if (updatedVersionModel.versionCode > [GB_CURRENT_APPBUILD integerValue] && updatedVersionModel.forceVersion > [GB_CURRENT_APPBUILD integerValue])
             {
                 //本地版本号小于线上版本号 且
                 //本地版本号小于线上强制更新版本号
                 //需要弹框 不能跳过
-                UIAlertView *alert =
-                [UIAlertView alertWithCallBackBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
-                    if (buttonIndex == 0) {
-                        //点击了忽略更新
-                        //直接退出app
-                        exit(0);
-                    }
-                    else
-                    {
-                        NSString *downLoadIpaUrl = [NSString stringWithFormat:@"itms-services://?action=download-manifest&url=https://%@%@/%@/app_%@_%@.plist",updatedVersionModel.appUrl,updatedVersionModel.versionName,CODE,CODE,updatedVersionModel.versionName];
-                        NSURL *ipaUrl = [NSURL URLWithString:[downLoadIpaUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-                        [[UIApplication sharedApplication] openURL:ipaUrl];
-                        exit(0);
-                    }
-                }
-                                              title:@"发现新版本啦"
-                                            message:updatedVersionModel.memo
-                                   cancelButtonName:@"退出"
-                                  otherButtonTitles:@"下载更新", nil];
-                [alert show];
+
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"发现新版本啦" message:updatedVersionModel.memo preferredStyle:UIAlertControllerStyleAlert];
+                
+                NSMutableAttributedString *messageText = [[NSMutableAttributedString alloc] initWithString:updatedVersionModel.memo];
+                NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+                paragraphStyle.alignment = NSTextAlignmentLeft;
+                [messageText addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, updatedVersionModel.memo.length)];
+                [alert setValue:messageText forKey:@"attributedMessage"];
+                
+                UIAlertAction *downLoadAction = [UIAlertAction actionWithTitle:@"下载更新" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    NSString *downLoadIpaUrl = [NSString stringWithFormat:@"itms-services://?action=download-manifest&url=https://%@%@/%@/app_%@_%@.plist",updatedVersionModel.appUrl,updatedVersionModel.versionName,CODE,CODE,updatedVersionModel.versionName];
+                    NSURL *ipaUrl = [NSURL URLWithString:[downLoadIpaUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+                    [[UIApplication sharedApplication] openURL:ipaUrl];
+                    exit(0);
+                }];
+                [alert addAction:downLoadAction];
+                
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"退出" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                    exit(0);
+                }];
+                [alert addAction:cancelAction];
+
+                [weakSelf presentViewController:alert animated:YES completion:nil];
             }
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {

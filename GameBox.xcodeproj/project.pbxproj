@@ -141,7 +141,6 @@
 		543970F32106C38E0091C719 /* logo14.webp in Resources */ = {isa = PBXBuildFile; fileRef = 543970F02106C38E0091C719 /* logo14.webp */; };
 		543970F42106C38E0091C719 /* logo13.webp in Resources */ = {isa = PBXBuildFile; fileRef = 543970F12106C38E0091C719 /* logo13.webp */; };
 		544B5C0A2112B52200AF086C /* SH_UpdatedVersionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 544B5C092112B52200AF086C /* SH_UpdatedVersionModel.m */; };
-		544B5C0D2112B81400AF086C /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 544B5C0C2112B81400AF086C /* UIAlertView+Block.m */; };
 		547BCDF3210ACCBB00D7082F /* loading.webp in Resources */ = {isa = PBXBuildFile; fileRef = 547BCDF2210ACCBA00D7082F /* loading.webp */; };
 		547BCDF5210AF43100D7082F /* table-bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 547BCDF4210AF43100D7082F /* table-bg.webp */; };
 		547BCDF8210AFC4D00D7082F /* SH_SearchTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 547BCDF6210AFC4C00D7082F /* SH_SearchTypeModel.m */; };
@@ -578,8 +577,6 @@
 		543970F12106C38E0091C719 /* logo13.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo13.webp; sourceTree = "<group>"; };
 		544B5C082112B52200AF086C /* SH_UpdatedVersionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_UpdatedVersionModel.h; sourceTree = "<group>"; };
 		544B5C092112B52200AF086C /* SH_UpdatedVersionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_UpdatedVersionModel.m; sourceTree = "<group>"; };
-		544B5C0B2112B81400AF086C /* UIAlertView+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Block.h"; sourceTree = "<group>"; };
-		544B5C0C2112B81400AF086C /* UIAlertView+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Block.m"; sourceTree = "<group>"; };
 		547BCDF2210ACCBA00D7082F /* loading.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = loading.webp; sourceTree = "<group>"; };
 		547BCDF4210AF43100D7082F /* table-bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "table-bg.webp"; sourceTree = "<group>"; };
 		547BCDF6210AFC4C00D7082F /* SH_SearchTypeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_SearchTypeModel.m; sourceTree = "<group>"; };
@@ -1989,8 +1986,6 @@
 		BFFC846A20F344C8008AD801 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				544B5C0B2112B81400AF086C /* UIAlertView+Block.h */,
-				544B5C0C2112B81400AF086C /* UIAlertView+Block.m */,
 				DA1BCC6220FDC4B100201DBC /* UITableViewCell+ShowContent.h */,
 				DA1BCC6120FDC4B100201DBC /* UITableViewCell+ShowContent.m */,
 				BF44ECDE20F6F6AA00BC6EF3 /* UILabel+handle.h */,
@@ -2776,7 +2771,6 @@
 				DA22F3E520F4597E0058A54F /* RH_WebsocketManagar.m in Sources */,
 				BFA0688B20FC70AC00F5ADFE /* SH_PrifitOutCoinView.m in Sources */,
 				BF44EC5F20F45DA700BC6EF3 /* SH_BitCoinTextView.m in Sources */,
-				544B5C0D2112B81400AF086C /* UIAlertView+Block.m in Sources */,
 				54DD033D21086D8200CE9199 /* SH_MsgCenterView.m in Sources */,
 				54DD03432108797200CE9199 /* SH_MsgCenterCell.m in Sources */,
 				5401C55020ECA1B80027246D /* SH_NetWorkService+LineCheck.m in Sources */,
@@ -2941,7 +2935,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid18;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7001;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2961,7 +2955,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid18;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7001;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

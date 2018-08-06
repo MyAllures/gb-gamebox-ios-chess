@@ -97,6 +97,7 @@
 -(void)bindedPhoneNumber:(NSString *)phoneNum{
     self.oldPhoneNumLab.hidden = YES;
     self.oldPhoneNumTF.hidden = YES;
+    self.olbPhone_view.hidden = YES;
     self.NewPhoneNumLab.text = @"手机号码";
     self.NewPhoneNumTF.text = phoneNum;
     self.NewPhoneNumTF.userInteractionEnabled = NO;
