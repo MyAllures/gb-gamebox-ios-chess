@@ -74,14 +74,9 @@
         
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeImageView_VerfyCode1) name:@"changeImageView_VerfyCode" object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoTimer) name:@"startCountDown" object:nil];
         
     }
     return self;
-}
-
--(void)gotoTimer {
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(startCountDown) userInfo:nil repeats:YES];
 }
 
 - (BOOL)isRequire {
