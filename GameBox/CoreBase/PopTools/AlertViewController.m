@@ -77,7 +77,7 @@
 
 - (IBAction)closeClick:(id)sender {
 
-    [self  dismissViewControllerAnimated:YES completion:nil];
+    [self  dismissViewControllerAnimated:NO completion:nil];
     if (self.dismissBlock) {
         self.dismissBlock();
     }
