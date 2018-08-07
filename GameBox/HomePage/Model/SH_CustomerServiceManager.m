@@ -11,6 +11,7 @@
 #import "LineCheckViewController.h"
 #import "AlertViewController.h"
 #import "SH_CustomerServiceView.h"
+#import "SH_PromoWindowViewController.h"
 
 @interface SH_CustomerServiceManager ()
 
@@ -120,12 +121,18 @@
 
 - (void)showCustomerWindow:(NSString *)url
 {
+//    SH_PromoWindowViewController *vc = [[SH_PromoWindowViewController alloc] initWithNibName:@"SH_PromoWindowViewController" bundle:nil];
+//    vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+//    vc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
+//    UIViewController *topVC = [self fetchTopLevelController];
+//    [topVC presentViewController:vc animated:NO completion:nil];
+
     SH_CustomerServiceView *customerServiceView = [[SH_CustomerServiceView alloc] init];
     customerServiceView.url = url;
     AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:customerServiceView viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title20" alertViewType:AlertViewTypeLong];
     cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
-    
+
     UIViewController *topVC = [self fetchTopLevelController];
     [topVC presentViewController:cvc animated:NO completion:nil];
 }

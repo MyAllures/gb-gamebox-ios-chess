@@ -10,6 +10,7 @@
 #import "LineCheckViewController.h"
 #import "SH_LoginView.h"
 #import "AlertViewController.h"
+#import "SH_NoAccessViewController.h"
 
 @interface SH_HttpErrManager ()
 
@@ -19,9 +20,9 @@
 
 + (void)dealWithErrCode:(int)code
 {
-    if (code == SH_API_ERRORCODE_SESSION_EXPIRED ||
-        code == SH_API_ERRORCODE_SESSION_TAKEOUT ||
-        code == SH_API_ERRORCODE_USER_NERVER_LOGIN) {
+    if (code == SH_API_ERRORCODE_600 ||
+        code == SH_API_ERRORCODE_606 ||
+        code == SH_API_ERRORCODE_1001) {
         
         [self fetchTargetVC:^(UIViewController *vc) {
             id topVC = vc;
@@ -50,6 +51,69 @@
             
             [topVC presentViewController:cvc animated:NO completion:nil];
         }];
+    }
+    else if (code == SH_API_ERRORCODE_403)
+    {
+        showErrorMessage([UIApplication sharedApplication].keyWindow, nil, @"无权限访问");
+    }
+    else if (code == SH_API_ERRORCODE_404)
+    {
+        showErrorMessage([UIApplication sharedApplication].keyWindow, nil, @"请求链接或页面找不到");
+    }
+    else if (code == SH_API_ERRORCODE_500)
+    {
+        showErrorMessage([UIApplication sharedApplication].keyWindow, nil, @"代码错误");
+    }
+    else if (code == SH_API_ERRORCODE_502)
+    {
+        showErrorMessage([UIApplication sharedApplication].keyWindow, nil, @"网络错误");
+    }
+    else if (code == SH_API_ERRORCODE_601)
+    {
+        showErrorMessage([UIApplication sharedApplication].keyWindow, nil, @"需要输入安全密码");
+    }
+    else if (code == SH_API_ERRORCODE_602)
+    {
+        showErrorMessage([UIApplication sharedApplication].keyWindow, nil, @"服务忙");
+    }
+    else if (code == SH_API_ERRORCODE_603)
+    {
+        showErrorMessage([UIApplication sharedApplication].keyWindow, nil, @"域名不存在");
+    }
+    else if (code == SH_API_ERRORCODE_604)
+    {
+        showErrorMessage([UIApplication sharedApplication].keyWindow, nil, @"临时域名过期");
+    }
+    else if (code == SH_API_ERRORCODE_605)
+    {
+        //ip被限制
+        UINavigationController *rootViewController = (UINavigationController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+        LineCheckViewController *lineCheckViewController = (LineCheckViewController *)rootViewController.presentedViewController;
+        
+        //取到顶层navigation控制器
+        UIViewController *topNavController = [lineCheckViewController.rootNav.viewControllers lastObject];
+        //如果有push的VC先pop到首页控制器
+        [topNavController.navigationController popToRootViewControllerAnimated:NO];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            UIViewController *homeViewVC = [lineCheckViewController.rootNav.viewControllers firstObject];
+            static dispatch_once_t onceToken;
+            dispatch_once(&onceToken, ^{
+                SH_NoAccessViewController *vc = [[SH_NoAccessViewController alloc] initWithNibName:@"SH_NoAccessViewController" bundle:nil];
+                [homeViewVC.navigationController pushViewController:vc animated:NO];
+            });
+        });
+    }
+    else if (code == SH_API_ERRORCODE_607)
+    {
+        showErrorMessage([UIApplication sharedApplication].keyWindow, nil, @"站点维护");
+    }
+    else if (code == SH_API_ERRORCODE_608)
+    {
+        showErrorMessage([UIApplication sharedApplication].keyWindow, nil, @"重复请求");
+    }
+    else if (code == SH_API_ERRORCODE_609)
+    {
+        showErrorMessage([UIApplication sharedApplication].keyWindow, nil, @"站点不存在");
     }
 }
 

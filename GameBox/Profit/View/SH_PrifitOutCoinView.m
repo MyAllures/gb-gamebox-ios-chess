@@ -23,6 +23,9 @@
 
 @property(nonatomic,strong)SH_FeeModel *feeModel;//传到下面一个页面
 @property(nonatomic,copy)NSString *token;
+@property(nonatomic,strong)SH_ProfitModel *model;
+@property(nonatomic,copy)NSString *code;
+@property(nonatomic,copy)NSString *message;
 
 
 @end
@@ -68,6 +71,9 @@
     [self caculateWithMoney:self.numTextField.text];
 }
 - (IBAction)sureBtnClick:(id)sender {
+        NSDictionary *rank = self.model.rank;
+        float withdrawMinNum = [rank[@"withdrawMinNum"] floatValue];
+        float withdrawMaxNum = [rank[@"withdrawMaxNum"] floatValue];;
      if ([self.bankNumLab.text isEqualToString:@"请绑定银行卡"]){
         showMessage(self, @"请绑定银行卡", nil);
     }else if (self.numTextField.text.length == 0) {
@@ -80,14 +86,14 @@
         self.numTextField.text = @"";
         [self popAlertView:@"出币数量应大于0"];
         return;
-    }
-    else{
-        
-        [SH_NetWorkService getBankInforComplete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-            NSString *code = response[@"code"];
-            if ([code intValue] == 1100) {
-                [self popAlertView:response[@"message"]];
-            } else if ([code intValue] == 0) {
+    }else if ([self.numTextField.text floatValue] < withdrawMinNum){
+         [self popAlertView:[NSString stringWithFormat:@"出币数量应大于%.2f",withdrawMinNum]];
+    }else if ([self.numTextField.text floatValue] > withdrawMaxNum){
+         [self popAlertView:[NSString stringWithFormat:@"出币数量应小于%.2f",withdrawMaxNum]];
+    }else{
+            if ([self.code intValue] == 1100) {
+                [self popAlertView:self.message];
+            } else if ([self.code intValue] == 0) {
                 SH_OutCoinDetailView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_OutCoinDetailView" owner:self options:nil].firstObject;
                 AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-95 titleImageName:@"title14" alertViewType:AlertViewTypeShort];
                 acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
@@ -95,19 +101,17 @@
                 [self.targetVC presentViewController:acr animated:YES completion:nil];
                 self.feeModel.actualWithdraw = [NSString stringWithFormat:@"%.2f",[self.feeModel.actualWithdraw floatValue]];
                 [view updateUIWithDetailArray:@[self.bankNumLab.text,self.numTextField.text,self.feeModel.counterFee,self.feeModel.administrativeFee,self.feeModel.deductFavorable,self.feeModel.actualWithdraw] TargetVC:acr Token:self.token];
-            } else {
-               showMessage(self, response[@"message"], nil);
             }
-        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-            
-        }];
     }
 }
 
 -(void)updateUIWithBalance:(SH_ProfitModel *)model
                    BankNum:(NSString *)bankNum
                   TargetVC:(UIViewController *)targetVC
-                     Token:(NSString *)token{
+                     Token:(NSString *)token
+                      Code:(NSString *)code
+                   Message:(NSString *)message{
+   
     if (bankNum.length == 0) {
         self.bankNumLab.text = @"请绑定银行卡";
     }else{
@@ -115,14 +119,12 @@
         [self.bandingBtn setTitle:@"已绑定" forState:UIControlStateNormal];
         self.bandingBtn.userInteractionEnabled = NO;
     }
-    SH_ProfitModel *model1  = model;
-//    NSDictionary *rank = model1.rank;
-    self.balanceLab.text = [NSString stringWithFormat:@"%.2f",[model1.totalBalance floatValue]];
-//    NSString *withdrawMinNum = rank[@"withdrawMinNum"];
-//    NSString *withdrawMaxNum = rank[@"withdrawMaxNum"];
-//    self.numTextField.placeholder = [NSString stringWithFormat:@"¥%@~¥%@",withdrawMinNum,withdrawMaxNum];
+    self.balanceLab.text = [NSString stringWithFormat:@"%.2f",[model.totalBalance floatValue]];
     self.targetVC = targetVC;
     self.token = token;
+     self.model = model;
+    self.code = code;
+    self.message = message;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{

@@ -50,7 +50,12 @@
         }
         
         self.cardNumTF.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard.bankcardNumber;
-        self.addressTF.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard.bankDeposit;
+        if ([RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard.bankDeposit.length > 0) {
+            self.addressTF.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard.bankDeposit;
+        } else {
+            self.addressTF.placeholder = @"";
+        }
+        
         self.chooseBankBtn.hidden = YES;
         self.sureBtn.hidden = YES;
 

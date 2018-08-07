@@ -29,7 +29,6 @@
 #import "SH_UserInformationView.h"
 #import "SH_NetWorkService+RegistAPI.h"
 #import "SH_WKGameViewController.h"
-#import "SH_NoAccessViewController.h"
 #import "SH_PrifitOutCoinView.h"
 #import "SH_NetWorkService+Profit.h"
 #import "SH_ProfitModel.h"
@@ -81,28 +80,6 @@
 @implementation SH_HomeViewController
 
 -(void)viewWillAppear:(BOOL)animated {
-//    [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
-//        NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
-//        if ([dict[@"code"] isEqualToString:@"0"]) {
-//            RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[dict[@"data"] objectForKey:@"user"] error:nil];
-//            [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
-//        }else{
-//            [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
-//        }
-//    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-//        //
-//        [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
-//    }];
-    if ([RH_UserInfoManager shareUserManager].isLogin) {
-        [SH_NetWorkService onekeyrecoveryApiId:nil Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
-            //刷新用户余额
-            if (![[response objectForKey:@"data"] isKindOfClass:[NSNull class]]) {
-                //            weakSelf.suishenFuLiLab.text = response[@"data"][@"assets"];
-            }
-        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-            
-        }];
-    }
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:@"" forKey:@"saftyKoken"];
     [defaults synchronize];
@@ -564,14 +541,10 @@
  */
 - (void)fetchCookie
 {
-    __weak typeof(self) weakSelf = self;
-
     [SH_NetWorkService fetchHttpCookie:^(NSHTTPURLResponse *httpURLResponse, id response) {
         [[NetWorkLineMangaer sharedManager] configCookieAndSid:httpURLResponse];
     } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
-        if (httpURLResponse.statusCode == 605) {
-            [weakSelf showNoAccess];
-        }
+        
     }];
 }
 
@@ -708,13 +681,9 @@
     [SH_NetWorkService getBankInforComplete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dic = [(NSDictionary *)response objectForKey:@"data"];
         SH_ProfitModel *model = [[SH_ProfitModel alloc]initWithDictionary:dic error:nil];
-        NSString *code = dic[@"code"];
-        if ([code intValue] == 1100) {
-            showMessage(self.view, response[@"message"], nil);
-            return ;
-        } else {
-            [view updateUIWithBalance:model BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:self.acr Token:model.token];
-        }
+        NSString *code = response[@"code"];
+        NSString *message = response[@"message"];
+        [view updateUIWithBalance:model BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:self.acr Token:model.token Code:code Message:message];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
@@ -855,9 +824,6 @@
         }
         [SH_WaitingView hide:weakSelf.view];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        if (httpURLResponse.statusCode == 605) {
-            [weakSelf showNoAccess];
-        }
         [SH_WaitingView hide:weakSelf.view];
     }];
 }
@@ -1068,17 +1034,6 @@
             [self.lastGamesListScrollView reloaData];
         }
     }
-}
-
-- (void)showNoAccess
-{
-    __weak typeof(self) weakSelf = self;
-
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        SH_NoAccessViewController *vc = [[SH_NoAccessViewController alloc] initWithNibName:@"SH_NoAccessViewController" bundle:nil];
-        [weakSelf.navigationController pushViewController:vc animated:NO];
-    });
 }
 
 - (void)statusBarOrientationChange:(NSNotification *)notification
