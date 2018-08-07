@@ -42,7 +42,15 @@
 //     self.warehouseWelfare_label.text = [NSString  stringWithFormat:@"%.2f",[RH_UserInfoManager  shareUserManager].mineSettingInfo.walletBalance?:0.0];
     self.warehouseWelfare_label.text = @"0.00";
     if ([RH_UserInfoManager  shareUserManager].isLogin) {
-        self.userAvatar.image = [UIImage  imageWithWebPImageName:@"photo_male"];
+        if ([RH_UserInfoManager shareUserManager].mineSettingInfo.userSex.length > 0) {
+            if ([[RH_UserInfoManager shareUserManager].mineSettingInfo.userSex isEqualToString:@"男"]) {
+                self.userAvatar.image = [UIImage imageWithWebPImageName:@"photo_male"];
+            } else {
+                self.userAvatar.image = [UIImage imageWithWebPImageName:@"photo_female"];
+            }
+        } else {
+            self.userAvatar.image = [UIImage imageWithWebPImageName:@"photo_male"];
+        }
     }else{
         self.userAvatar.image = [UIImage  imageWithWebPImageName:@"avatar"];
     }
