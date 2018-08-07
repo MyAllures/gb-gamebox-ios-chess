@@ -708,11 +708,12 @@
         NSDictionary *dic = [(NSDictionary *)response objectForKey:@"data"];
         SH_ProfitModel *model = [[SH_ProfitModel alloc]initWithDictionary:dic error:nil];
         NSString *code = dic[@"code"];
+        NSString *message = response[@"message"];
         if ([code intValue] == 1100) {
-            showMessage(self.view, response[@"message"], nil);
+            showMessage(self.view, message, nil);
             return ;
         } else {
-            [view updateUIWithBalance:model BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:self.acr Token:model.token];
+            [view updateUIWithBalance:model BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:self.acr Token:model.token Code:code Message:message];
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
