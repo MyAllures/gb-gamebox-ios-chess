@@ -54,10 +54,8 @@
         }else if (self.InputCodeTF.text.length == 0){
             showMessage(self, @"请输入验证码", nil);
         }else{
-            NSString *first = [self.oldPhoneNumTF.text substringWithRange:NSMakeRange(1, 3)];
-            NSString *last = [self.oldPhoneNumTF.text substringWithRange:NSMakeRange(self.oldPhoneNumTF.text.length-3, 3)];
-            if ([self.NewPhoneNumTF.text containsString:first] && [self.NewPhoneNumTF.text containsString:last]) {
-                showMessage(self, @"新手机号不能与旧手机号相同", @"");
+            if ([self.oldPhoneNumTF.text isEqualToString: self.NewPhoneNumTF.text]) {
+                showMessage(self, @"新手机号码与原手机号码相同", @"");
                 return;
             }
             [self bindPhoneNum];
@@ -131,7 +129,7 @@
     self.VerificationBtn.hidden = NO;
     self.InputVerificationCodeLab.hidden = NO;
     self.NewPhoneNumTF.text = @"";
-    self.oldPhoneNumTF.text = self.phoneNum;
+    self.oldPhoneNumTF.text = @"";
     self.NewPhoneNumTF.userInteractionEnabled = YES;
     self.InputCodeTF.hidden = NO;
     [self.sureBtn setTitle:@"确认" forState:UIControlStateNormal];
@@ -140,12 +138,16 @@
 }
 - (IBAction)sendVerificationBtn:(id)sender {
     
-    BOOL bo = [self valiMobile: self.NewPhoneNumTF.text];    if (self.NewPhoneNumTF.text.length == 0) {
+    BOOL bo = [self valiMobile: self.NewPhoneNumTF.text];
+    if (self.NewPhoneNumTF.text.length == 0) {
         showMessage(self, @"请输入手机号", nil);
     }else if (bo == NO){
         showMessage(self, @"手机号格式错误", nil);
         return;
-    }else{
+    } else if ([self.oldPhoneNumTF.text isEqualToString:self.NewPhoneNumTF.text]){
+        showMessage(self, @"新手机号码与原手机号码相同", nil);
+        return;
+    } else {
     [self.VerificationBtn startCountDownTime:60 withCountDownBlock:^{
         [SH_NetWorkService sendVerificationCodePhoneNum:self.NewPhoneNumTF.text Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *dataDic = ConvertToClassPointer(NSDictionary, response);

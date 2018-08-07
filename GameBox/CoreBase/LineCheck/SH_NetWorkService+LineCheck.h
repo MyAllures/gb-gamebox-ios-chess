@@ -13,7 +13,7 @@ typedef void(^SHFetchBossAPIOneTurn)(NSString *dns, BOOL success);
 //线路检测【第二步】中 每检测完毕一个bossapi的回调
 typedef void(^SHFetchIPSOneTurn)(NSString *bossapi, BOOL success);
 //线路检测【第三步】中 每检测完毕一个ip的回调
-typedef void(^SHCheckIPOneTurn)(NSString *ip, NSString *checkType, BOOL success);
+typedef void(^SHCheckIPOneTurn)(NSHTTPURLResponse *httpURLResponse, NSString *err, NSString *ip, NSString *checkType, BOOL success);
 
 @interface SH_NetWorkService (LineCheck)
 
@@ -51,5 +51,14 @@ typedef void(^SHCheckIPOneTurn)(NSString *ip, NSString *checkType, BOOL success)
  @param failed 返回错误信息 展示在界面上
  */
 + (void)checkIPFromIPGroup:(NSArray *)ipGroup host:(NSString *)host oneTurn:(SHCheckIPOneTurn)oneTurn failed:(SHNetWorkFailed)failed;
+
+/**
+ 上传线路检测错误日志
+
+ @param errDic 错误日志
+ @param complete 完成回调
+ @param failed 失败回调
+ */
++ (void)uploadLineCheckErr:(NSMutableDictionary *)errDic complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
 
 @end

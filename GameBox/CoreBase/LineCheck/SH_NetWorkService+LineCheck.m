@@ -188,14 +188,14 @@
                                 ;
                                 if ([[response lowercaseString] isEqualToString:@"ok"]) {
                                     if (oneTurn) {
-                                        oneTurn(ip, checkType, YES);
+                                        oneTurn(httpURLResponse , @"", ip, checkType, YES);
                                     }
                                 }
                             }
                             else
                             {
                                 if (oneTurn) {
-                                    oneTurn(ip, checkType, NO);
+                                    oneTurn(httpURLResponse, @"", ip, checkType, NO);
                                 }
                                 failTimes++;
                                 if (failTimes == ipGroup.count*checkTypes.count) {
@@ -208,7 +208,7 @@
                         else
                         {
                             if (oneTurn) {
-                                oneTurn(ip, checkType, NO);
+                                oneTurn(httpURLResponse, @"", ip, checkType, NO);
                             }
                             failTimes++;
                             if (failTimes == ipGroup.count*checkTypes.count) {
@@ -220,7 +220,7 @@
                         dispatch_semaphore_signal(sema);
                     } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
                         if (oneTurn) {
-                            oneTurn(ip, checkType, NO);
+                            oneTurn(httpURLResponse, err, ip, checkType, NO);
                         }
                         failTimes++;
                         if (failTimes == ipGroup.count*checkTypes.count) {
@@ -236,4 +236,16 @@
     }
 }
 
++ (void)uploadLineCheckErr:(NSMutableDictionary *)errDic complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
+{
+    [self post:@"https://apiplay.info:1344/boss-api/facade/collectAppDomainError.html" parameter:errDic complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (complete) {
+            complete(httpURLResponse, response);
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        if (failed) {
+            failed(httpURLResponse, err);
+        }
+    }];
+}
 @end

@@ -9,6 +9,22 @@
 #ifndef MacroDef_h
 #define MacroDef_h
 
+#define RH_SP_COLLECTAPPERROR_MARK                       @"mark"
+#define RH_SP_COLLECTAPPERROR_SITEID                     @"siteId"
+#define RH_SP_COLLECTAPPERROR_USERNAME                   @"username"
+#define RH_SP_COLLECTAPPERROR_LASTLOGINTIME              @"lastLoginTime"
+#define RH_SP_COLLECTAPPERROR_DOMAIN                     @"domain"
+#define RH_SP_COLLECTAPPERROR_IP                         @"ip"
+#define RH_SP_COLLECTAPPERROR_ERRORMESSAGE               @"errorMessage"
+#define RH_SP_COLLECTAPPERROR_CODE                       @"code"
+#define RH_SP_COLLECTAPPERROR_MARK                       @"mark"
+#define RH_SP_COLLECTAPPERROR_TYPE                       @"type"
+#define RH_SP_COLLECTAPPERROR_VERSIONNAME                @"versionName"
+#define RH_SP_COLLECTAPPERROR_CHANNEL                    @"channel"
+#define RH_SP_COLLECTAPPERROR_SYSCODE                    @"sysCode"
+#define RH_SP_COLLECTAPPERROR_BRANDS                     @"brands"
+#define RH_SP_COLLECTAPPERROR_MODEL                      @"model"
+
 #define GB_CURRENT_APPVERSION [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
 #define GB_CURRENT_APPBUILD [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]
 

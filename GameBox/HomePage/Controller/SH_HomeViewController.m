@@ -683,10 +683,17 @@
         SH_ProfitModel *model = [[SH_ProfitModel alloc]initWithDictionary:dic error:nil];
         NSString *code = response[@"code"];
         NSString *message = response[@"message"];
+        [self refreshBalance:model.totalBalance];
         [view updateUIWithBalance:model BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:self.acr Token:model.token Code:code Message:message];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
+}
+
+-(void)refreshBalance: (NSString *)balance {
+    if (![self.suishenFuLiLab.text isEqualToString:balance]) {
+        self.suishenFuLiLab.text = balance;
+    }
 }
 
 -(void) close {
