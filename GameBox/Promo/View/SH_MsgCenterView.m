@@ -92,12 +92,12 @@
                 }else{
                     weakSelf.inbox_label.hidden = YES;
                 }
-                if ([model.advisoryUnReadCount integerValue] >0) {
+                /*if ([model.advisoryUnReadCount integerValue] >0) {
                     weakSelf.game_label.hidden =  false;
                     weakSelf.game_label.text = model.advisoryUnReadCount;
                 }else{
                     weakSelf.game_label.hidden = YES;
-                }
+                }*/
                 
             }
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
@@ -221,7 +221,7 @@
     NSString *ids = [NSString string];
     for (SH_SysMsgDataListModel *model in self.msgArr) {
         if (model.selected &&model.read == NO) {
-            ids = [ids stringByAppendingString:[NSString stringWithFormat:@"%li,",(long)model.mId]];
+            ids = [ids stringByAppendingString:[NSString stringWithFormat:@"%li,",(long)model.id]];
         }
     }
 
@@ -253,7 +253,7 @@
     NSString *ids = [NSString string];
     for (SH_SysMsgDataListModel *model in self.msgArr) {
         if (model.read) {
-            ids = [ids stringByAppendingString:[NSString stringWithFormat:@"%li,",(long)model.mId]];
+            ids = [ids stringByAppendingString:[NSString stringWithFormat:@"%li,",(long)model.id]];
         }
     }
     
@@ -315,6 +315,7 @@
         //模型赋值
         SH_SysMsgDataListModel *tModel = (SH_SysMsgDataListModel *)model;
         tModel.selected = !tModel.selected;
+        tModel.read = YES;
         //UI更新
         SH_MsgCenterCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         [cell updateSelectedStatus];

@@ -9,12 +9,12 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
-#define _8l6r
-#ifdef _8l6r
+#define _ty3a
+//#ifdef _8l6r
 
-#define CODE    @"8l6r"
-#define S       @"6bf3b743e414045e5123fc317fb9b535"
-#define SID     @"71"
+//#define CODE    @"8l6r"
+//#define S       @"6bf3b743e414045e5123fc317fb9b535"
+//#define SID     @"71"
 
 //#ifdef _nu9r
 //
@@ -40,11 +40,11 @@
 //#define S        @"85c362697077e64248fd5f2fbdcabae8"
 //#define SID        @"7000"
 
-//#ifdef _ty3a
-//
-//#define CODE    @"ty3a"
-//#define S        @"e1576bc75aabd600d0b6b078af7a96a3"
-//#define SID        @"7001"
+#ifdef _ty3a
+
+#define CODE    @"ty3a"
+#define S        @"e1576bc75aabd600d0b6b078af7a96a3"
+#define SID        @"7001"
 
 #endif
 
