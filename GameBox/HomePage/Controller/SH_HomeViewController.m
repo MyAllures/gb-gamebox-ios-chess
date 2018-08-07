@@ -64,6 +64,7 @@
 @property (nonatomic, strong) NSMutableArray *bannerArr;
 @property (nonatomic, strong) NSMutableArray *siteApiRelationArr;
 @property (nonatomic, strong) SH_GameItemModel *currentGameItemModel;
+@property (nonatomic, strong) SH_GameItemModel *localSearchGameModel;
 @property (nonatomic, assign) int currentLevel;
 @property (nonatomic, strong) NSString *currentDZGameTypeId;
 @property (nonatomic, assign) BOOL enterDZGameLevel;
@@ -155,7 +156,8 @@
 - (void)searchingTextChange:(UITextField *)textField
 {
     if ([textField.text isEqualToString:@""]) {
-        self.isSearchStatus = NO;
+//        self.isSearchStatus = NO;
+        [self.searchResultArr addObjectsFromArray:self.localSearchGameModel.relation];
         [self.lastGamesListScrollView reloaData];
     }
     else
@@ -602,7 +604,7 @@
         return;
     }
     
-    for (SH_GameItemModel *gameItemModel in self.currentGameItemModel.relation) {
+    for (SH_GameItemModel *gameItemModel in self.localSearchGameModel.relation) {
         if ([gameItemModel.name containsString:self.searchTF.text]) {
             [self.searchResultArr addObject:gameItemModel];
         }
@@ -990,6 +992,9 @@
 {
     
     __weak typeof(self) weakSelf = self;
+    if (![model.type isEqualToString:@"game"]) {
+        self.localSearchGameModel = model;
+    }
     self.currentGameItemModel = model;
     if (self.enterDZGameLevel == NO) {
         self.enterDZGameLevel = self.currentLevel == 0 && [self.currentGameItemModel.apiTypeId intValue] == 2;
