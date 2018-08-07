@@ -33,7 +33,6 @@
 		22FC6E8F210824EB001FA492 /* SH_NetWorkService_FindPsw.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC6E8E210824EB001FA492 /* SH_NetWorkService_FindPsw.m */; };
 		425A90C020F8873E004B681A /* HLPopTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 425A90BF20F8873E004B681A /* HLPopTableView.m */; };
 		425A90C320F88746004B681A /* UIView+HLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 425A90C220F88746004B681A /* UIView+HLExtension.m */; };
-		42BF3E6E20F33A5D00F36B82 /* SH_PlayerCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BF3E6D20F33A5D00F36B82 /* SH_PlayerCenterView.m */; };
 		5401C53120ECA10F0027246D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C53020ECA10F0027246D /* AppDelegate.m */; };
 		5401C53420ECA10F0027246D /* LineCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C53320ECA10F0027246D /* LineCheckViewController.m */; };
 		5401C53720ECA10F0027246D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5401C53520ECA10F0027246D /* Main.storyboard */; };
@@ -451,8 +450,6 @@
 		425A90BF20F8873E004B681A /* HLPopTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLPopTableView.m; sourceTree = "<group>"; };
 		425A90C120F88746004B681A /* UIView+HLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HLExtension.h"; sourceTree = "<group>"; };
 		425A90C220F88746004B681A /* UIView+HLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HLExtension.m"; sourceTree = "<group>"; };
-		42BF3E6C20F33A5D00F36B82 /* SH_PlayerCenterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PlayerCenterView.h; sourceTree = "<group>"; };
-		42BF3E6D20F33A5D00F36B82 /* SH_PlayerCenterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PlayerCenterView.m; sourceTree = "<group>"; };
 		4C23814E2A7636D1CE6B89BC /* libPods-GameBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GameBox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5401C52C20ECA10F0027246D /* GameBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5401C52F20ECA10F0027246D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1233,8 +1230,6 @@
 				425A90C220F88746004B681A /* UIView+HLExtension.m */,
 				54C21AB720F1B981006FCA0F /* SH_CycleScrollView.h */,
 				54C21AB820F1B981006FCA0F /* SH_CycleScrollView.m */,
-				42BF3E6C20F33A5D00F36B82 /* SH_PlayerCenterView.h */,
-				42BF3E6D20F33A5D00F36B82 /* SH_PlayerCenterView.m */,
 				54C8758620F48CD500AA0594 /* SH_GamesListScrollView.h */,
 				54C8758720F48CD500AA0594 /* SH_GamesListScrollView.m */,
 				54C8758920F498C700AA0594 /* SH_GameItemView.h */,
@@ -2783,7 +2778,6 @@
 				22618C782109F27A00E4A6F6 /* SH_HandRecordTableViewCell.m in Sources */,
 				54C875A420F7570800AA0594 /* SH_RingManager.m in Sources */,
 				BF44ECD820F5AE1300BC6EF3 /* SH_RechargeBankDetailView.m in Sources */,
-				42BF3E6E20F33A5D00F36B82 /* SH_PlayerCenterView.m in Sources */,
 				BFA068D220FE153000F5ADFE /* SH_BankCardView.m in Sources */,
 				BF44EC6420F4875300BC6EF3 /* SH_NavigationView.m in Sources */,
 				54DD03642109FDA000CE9199 /* SH_MsgCenterDetailView.m in Sources */,
@@ -2941,7 +2935,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7000;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid18;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2961,7 +2955,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7000;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid18;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

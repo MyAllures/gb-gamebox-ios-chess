@@ -16,7 +16,6 @@
 #import "SH_RechargeCenterViewController.h"
 #import "View+MASAdditions.h"
 #import "SH_CycleScrollView.h"
-#import "SH_PlayerCenterView.h"
 #import "AlertViewController.h"
 #import "SH_LoginView.h"
 #import "SH_GamesListScrollView.h"
@@ -736,9 +735,6 @@
         [self login];
     }
 }
-
-#pragma mark - SH_PlayerCenterViewDelegate
-
 
 - (IBAction)shareClick:(id)sender {
     if ([RH_UserInfoManager shareUserManager].isLogin) {
