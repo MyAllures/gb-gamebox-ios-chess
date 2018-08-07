@@ -131,7 +131,7 @@
     self.VerificationBtn.hidden = NO;
     self.InputVerificationCodeLab.hidden = NO;
     self.NewPhoneNumTF.text = @"";
-    self.oldPhoneNumTF.text = self.phoneNum;
+    self.oldPhoneNumTF.text = @"";
     self.NewPhoneNumTF.userInteractionEnabled = YES;
     self.InputCodeTF.hidden = NO;
     [self.sureBtn setTitle:@"确认" forState:UIControlStateNormal];
