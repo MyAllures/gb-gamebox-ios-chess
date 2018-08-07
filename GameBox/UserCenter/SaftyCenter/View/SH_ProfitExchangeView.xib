@@ -31,22 +31,6 @@
                         <action selector="oneKeyRefresh:" destination="iN0-l3-epB" eventType="touchUpInside" id="Rea-D7-edN"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SnL-dA-g8x" customClass="SH_WebPButton">
-                    <rect key="frame" x="190" y="7" width="131" height="33"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="33" id="atA-9B-LeH"/>
-                        <constraint firstAttribute="width" constant="131" id="mEG-wO-obe"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                    <state key="normal" title="一键回收"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_blue_long_action"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="recovery"/>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="oneKeyRecovery:" destination="iN0-l3-epB" eventType="touchUpInside" id="H4x-yq-HxZ"/>
-                    </connections>
-                </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vqe-Q8-5ly">
                     <rect key="frame" x="12" y="40" width="309" height="242"/>
                     <color key="backgroundColor" red="0.3411764706" green="0.39607843139999999" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -54,8 +38,6 @@
             </subviews>
             <color key="backgroundColor" red="0.3411764705882353" green="0.396078431372549" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="SnL-dA-g8x" secondAttribute="trailing" constant="12" id="FZZ-Yj-Pzt"/>
-                <constraint firstItem="SnL-dA-g8x" firstAttribute="centerY" secondItem="azb-3E-1Ox" secondAttribute="centerY" id="LS6-6n-SBK"/>
                 <constraint firstItem="Vqe-Q8-5ly" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="MIn-bs-aW4"/>
                 <constraint firstItem="azb-3E-1Ox" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="bHo-os-69c"/>
                 <constraint firstItem="Vqe-Q8-5ly" firstAttribute="top" secondItem="azb-3E-1Ox" secondAttribute="bottom" id="jd2-Hw-c2Q"/>
@@ -74,7 +56,6 @@
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="mainTableView" destination="Vqe-Q8-5ly" id="2sM-Oh-f3z"/>
-                <outlet property="recoveryBtn" destination="SnL-dA-g8x" id="AwX-Yc-tEK"/>
                 <outlet property="refreshBtn" destination="azb-3E-1Ox" id="eJH-09-mcT"/>
             </connections>
         </view>
