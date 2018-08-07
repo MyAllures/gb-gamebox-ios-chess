@@ -100,27 +100,19 @@
                 RH_UserSafetyCodeModel *model = [[RH_UserSafetyCodeModel alloc]initWithDictionary:response[@"data"] error:nil];
                 [[RH_UserInfoManager shareUserManager] setUserSafetyInfo:model];
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    UIViewController *vc = self.targetVC;
-                    int count = 0;
-                    while (vc.presentingViewController) {
-                        vc = vc.presentingViewController;
-                        self.targetVC = vc;
-                        if ([vc isKindOfClass:[AlertViewController class]]) {
-                            count ++;
-                            if ([self.comeFromVC isEqualToString:@"setSafePsw"]) {
-                                if (count < 2) {
-                                    [self.targetVC dismissViewControllerAnimated:NO completion:nil];
-                                } else {
-                                    return ;
-                                }
-                            } else {
-                                [self.targetVC dismissViewControllerAnimated:NO completion:nil];
+                    if ([self.comeFromVC isEqualToString:@"setSafePsw"]) {
+                        [self.targetVC.presentingViewController dismissViewControllerAnimated:NO completion:nil];
+                    }
+                    else{
+                        UIViewController *vc = self.targetVC;
+                        while (vc.presentingViewController) {
+                            if ([vc isKindOfClass:[UINavigationController class]]) {
+                                break;
+                                
                             }
-                        } else if ([vc isKindOfClass:[SH_GamesHomeViewController class]]) {
-                            [self.targetVC dismissViewControllerAnimated:NO completion:nil];
-                        } else {
-                            [[NSNotificationCenter defaultCenter] postNotificationName:@"close" object:nil];
+                            vc = vc.presentingViewController;
                         }
+                        [vc dismissViewControllerAnimated:NO completion:nil];
                     }
                 });
             }else{

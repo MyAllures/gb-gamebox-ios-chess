@@ -37,7 +37,7 @@
         showMessage(self, @"请再次输入新密码", nil);
     }else if (self.sureTX.text.length < 6 || self.NewTX.text.length < 6){
         showMessage(self, @"密码至少6位数", nil);
-    } else if ([self.sureTX.text isEqualToString:self.NewTX.text]){
+    } else if (![self.sureTX.text isEqualToString:self.NewTX.text]){
         showMessage(self, @"两次输入的密码不一致", nil);
     } else {
 //        if ([self.NewTX.text isEqualToString:self.sureTX.text]) {
@@ -49,7 +49,7 @@
                     [defaults setObject:self.NewTX.text forKey:@"password"];
                     [defaults synchronize];
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                          [self.targetVC dismissViewControllerAnimated:NO completion:nil];
+                          [self.targetVC.presentingViewController dismissViewControllerAnimated:NO completion:nil];
                     });
                   
                 }else{

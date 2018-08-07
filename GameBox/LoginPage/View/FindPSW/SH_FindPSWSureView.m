@@ -34,14 +34,13 @@
                 [defaults setObject:nil forKey:@"userName"];
                 [defaults synchronize];
                 while (vc.presentingViewController) {
-                    vc = vc.presentingViewController;
-                    if ([vc isKindOfClass:[AlertViewController class]]) {
-                        self.targetVC3 = vc;
-                        [self.targetVC3 dismissViewControllerAnimated:NO completion:nil];
-                    } else {
-                        [[NSNotificationCenter defaultCenter] postNotificationName:@"close" object:nil];
+                    if ([vc isKindOfClass:[UINavigationController class]]) {
+                        break;
+                        
                     }
+                    vc = vc.presentingViewController;
                 }
+                [vc dismissViewControllerAnimated:NO completion:nil];
             });
         } else {
             showMessage(self, @"", dict[@"message"]);
