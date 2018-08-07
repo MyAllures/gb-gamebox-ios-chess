@@ -135,7 +135,7 @@
     self.NewPhoneNumTF.userInteractionEnabled = YES;
     self.InputCodeTF.hidden = NO;
     [self.sureBtn setTitle:@"确认" forState:UIControlStateNormal];
-    self.NewPhoneLabTopDistance.constant = 55;
+    self.NewPhoneLabTopDistance.constant = 64;
     [self layoutIfNeeded];
 }
 - (IBAction)sendVerificationBtn:(id)sender {
