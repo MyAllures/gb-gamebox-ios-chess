@@ -144,6 +144,7 @@
 		547BCDF5210AF43100D7082F /* table-bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 547BCDF4210AF43100D7082F /* table-bg.webp */; };
 		547BCDF8210AFC4D00D7082F /* SH_SearchTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 547BCDF6210AFC4C00D7082F /* SH_SearchTypeModel.m */; };
 		5480CD4B210F0789008465C5 /* SH_SliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5480CD4A210F0789008465C5 /* SH_SliderView.m */; };
+		5482546B21198C6700ECBD5B /* SH_LineCheckErrManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5482546A21198C6700ECBD5B /* SH_LineCheckErrManager.m */; };
 		54C21AB120EE23B2006FCA0F /* SH_BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C21AB020EE23B2006FCA0F /* SH_BaseViewController.m */; };
 		54C21AB920F1B981006FCA0F /* SH_CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C21AB820F1B981006FCA0F /* SH_CycleScrollView.m */; };
 		54C8758020F3560100AA0594 /* SH_PromoListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C8757F20F3560100AA0594 /* SH_PromoListView.xib */; };
@@ -581,6 +582,8 @@
 		547BCDF7210AFC4D00D7082F /* SH_SearchTypeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_SearchTypeModel.h; sourceTree = "<group>"; };
 		5480CD49210F0789008465C5 /* SH_SliderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SliderView.h; sourceTree = "<group>"; };
 		5480CD4A210F0789008465C5 /* SH_SliderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SliderView.m; sourceTree = "<group>"; };
+		5482546921198C6700ECBD5B /* SH_LineCheckErrManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_LineCheckErrManager.h; sourceTree = "<group>"; };
+		5482546A21198C6700ECBD5B /* SH_LineCheckErrManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_LineCheckErrManager.m; sourceTree = "<group>"; };
 		54C21AAF20EE23B2006FCA0F /* SH_BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_BaseViewController.h; sourceTree = "<group>"; };
 		54C21AB020EE23B2006FCA0F /* SH_BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_BaseViewController.m; sourceTree = "<group>"; };
 		54C21AB720F1B981006FCA0F /* SH_CycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_CycleScrollView.h; sourceTree = "<group>"; };
@@ -1144,6 +1147,8 @@
 				5401C54820ECA1B80027246D /* SH_NetWorkService+LineCheck.m */,
 				5401C55820ECA48D0027246D /* NetWorkLineMangaer.h */,
 				5401C55920ECA48D0027246D /* NetWorkLineMangaer.m */,
+				5482546921198C6700ECBD5B /* SH_LineCheckErrManager.h */,
+				5482546A21198C6700ECBD5B /* SH_LineCheckErrManager.m */,
 			);
 			path = LineCheck;
 			sourceTree = "<group>";
@@ -2717,6 +2722,7 @@
 				BF44ECC620F4D4FB00BC6EF3 /* SH_RechargeDetailMainView.m in Sources */,
 				22552CEE20F4CCE50090EFBC /* SH_NetWorkService+Promo.m in Sources */,
 				BF44ECF020F7253500BC6EF3 /* SH_PreferentialPopSubView.m in Sources */,
+				5482546B21198C6700ECBD5B /* SH_LineCheckErrManager.m in Sources */,
 				5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */,
 				BF44ECD420F5AD5C00BC6EF3 /* SH_RechargeBankDetailViewController.m in Sources */,
 				54C8758820F48CD500AA0594 /* SH_GamesListScrollView.m in Sources */,

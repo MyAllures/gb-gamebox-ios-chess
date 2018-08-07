@@ -13,6 +13,7 @@
 #import "IPsCacheManager.h"
 #import "SH_WebPImageView.h"
 #import "UIImage+SH_WebPImage.h"
+#import "SH_LineCheckErrManager.h"
 
 @interface LineCheckViewController ()
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
@@ -161,9 +162,11 @@
 
     NSArray *ips = [ipsInfo objectForKey:@"ips"];
     NSString *host = [ipsInfo objectForKey:@"domain"];
+    __block int totalCheckTimes = 0;//总的check次数 用于观察是否全部ip、全部类型都check完毕
     
-    [SH_NetWorkService checkIPFromIPGroup:ips host:host oneTurn:^(NSString *ip, NSString *checkType, BOOL success) {
+    [SH_NetWorkService checkIPFromIPGroup:ips host:host oneTurn:^(NSHTTPURLResponse *httpURLResponse, NSString *err, NSString *ip, NSString *checkType, BOOL success) {
         NSLog(@"check ip:%@ type:%@ success:%i",ip, checkType, success);
+        totalCheckTimes++;
         if (success) {
             static dispatch_once_t onceToken;
             dispatch_once(&onceToken, ^{
@@ -186,6 +189,16 @@
         {
             weakSelf.progress = (weakSelf.progress+0.05)>1.0 ? 1.0 : weakSelf.progress+0.05;
             weakSelf.lineCheckStatus = weakSelf.progress == 1.0 ? @"匹配服务器完成，即将进入..." : @"正在匹配服务器，请稍后...";
+            //收集错误信息
+            [[SH_LineCheckErrManager sharedManager] collectErrInfo:@{RH_SP_COLLECTAPPERROR_DOMAIN:host,RH_SP_COLLECTAPPERROR_CODE:@([httpURLResponse statusCode]),RH_SP_COLLECTAPPERROR_ERRORMESSAGE:err}];
+        }
+        if (totalCheckTimes == ips.count*4) {
+            //所有ip 所有类型都check完毕了
+            //发送check错误信息
+//            [[SH_LineCheckErrManager sharedManager] collectErrInfo:@{RH_SP_COLLECTAPPERROR_DOMAIN:host,RH_SP_COLLECTAPPERROR_CODE:@([httpURLResponse statusCode]),RH_SP_COLLECTAPPERROR_ERRORMESSAGE:@"测试数据1"}];
+//            [[SH_LineCheckErrManager sharedManager] collectErrInfo:@{RH_SP_COLLECTAPPERROR_DOMAIN:host,RH_SP_COLLECTAPPERROR_CODE:@([httpURLResponse statusCode]),RH_SP_COLLECTAPPERROR_ERRORMESSAGE:@"测试数据2"}];
+
+            [[SH_LineCheckErrManager sharedManager] send];
         }
     }  failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
         NSLog(@"%@",err);
