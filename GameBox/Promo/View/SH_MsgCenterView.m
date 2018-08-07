@@ -232,6 +232,7 @@
                         model.read = YES;
                     }
                 }
+                [weakSelf fetchHttpData];
                 [weakSelf.tableView reloadData];
             }
             else
