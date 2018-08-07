@@ -82,11 +82,13 @@
 - (IBAction)sureBtnClick:(id)sender {
     if (self.NewTF.text.length == 0){
         showMessage(self, @"请输入新密码", nil);
-    }else if (self.sureTF.text.length == 0){
+    } else if (self.sureTF.text.length == 0){
         showMessage(self, @"请确认新密码", nil);
-    }else if (![self.NewTF.text isEqualToString:self.sureTF.text]){
+    } else if (self.sureTF.text.length < 6 || self.NewTF.text.length < 6){
+        showMessage(self, @"密码至少6位数", nil);
+    } else if (![self.NewTF.text isEqualToString:self.sureTF.text]){
         showMessage(self, @"请输入相同密码", nil);
-    }else{
+    } else {
         NSString *realName;
         if([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length > 0){
             realName  = [RH_UserInfoManager shareUserManager].mineSettingInfo.realName;
