@@ -298,24 +298,73 @@ static BOOL isNetworkingOK = YES;//网络状态 默认畅通
     if ([response isKindOfClass:[NSDictionary class]]) {
         if ([[response allKeys] containsObject:@"code"]) {
             int code = [response[@"code"] intValue];
-            if (code == SH_API_ERRORCODE_SESSION_EXPIRED ||
-                code == SH_API_ERRORCODE_SESSION_TAKEOUT ||
-                code == SH_API_ERRORCODE_USER_NERVER_LOGIN) {
-                //session过期
-                //被强制踢出
-                //未登录
+            if (code == SH_API_ERRORCODE_403 ||
+                code == SH_API_ERRORCODE_404 ||
+                code == SH_API_ERRORCODE_500 ||
+                code == SH_API_ERRORCODE_502 ||
+                code == SH_API_ERRORCODE_600 ||
+                code == SH_API_ERRORCODE_601 ||
+                code == SH_API_ERRORCODE_602 ||
+                code == SH_API_ERRORCODE_603 ||
+                code == SH_API_ERRORCODE_604 ||
+                code == SH_API_ERRORCODE_605 ||
+                code == SH_API_ERRORCODE_606 ||
+                code == SH_API_ERRORCODE_607 ||
+                code == SH_API_ERRORCODE_608 ||
+                code == SH_API_ERRORCODE_609 ||
+                code == SH_API_ERRORCODE_1001) {
                 //统一处理
                 [SH_HttpErrManager dealWithErrCode:code];
                 if (failed) {
                     NSString *errDes = @"";
-                    if (code == SH_API_ERRORCODE_SESSION_EXPIRED) {
+                    if (code == SH_API_ERRORCODE_403)
+                    {
+                        errDes = @"无权限访问";
+                    }
+                    else if (code == SH_API_ERRORCODE_404) {
+                        errDes = @"请求链接或页面找不到";
+                    }
+                    else if (code == SH_API_ERRORCODE_500) {
+                        errDes = @"代码错误";
+                    }
+                    else if (code == SH_API_ERRORCODE_502) {
+                        errDes = @"网络连接错误";
+                    }
+                    else if (code == SH_API_ERRORCODE_600) {
                         errDes = @"session已过期";
                     }
-                    else if (code == SH_API_ERRORCODE_SESSION_TAKEOUT)
+                    else if (code == SH_API_ERRORCODE_601) {
+                        errDes = @"需要输入安全密码";
+                    }
+                    else if (code == SH_API_ERRORCODE_602) {
+                        errDes = @"服务忙";
+                    }
+                    else if (code == SH_API_ERRORCODE_603) {
+                        errDes = @"域名不存在";
+                    }
+                    else if (code == SH_API_ERRORCODE_604) {
+                        errDes = @"临时域名过期";
+                    }
+                    else if (code == SH_API_ERRORCODE_605) {
+                        errDes = @"ip被限制";
+                    }
+                    else if (code == SH_API_ERRORCODE_606)
                     {
                         errDes = @"您的账号在其他设备登录";
                     }
-                    else if (code == SH_API_ERRORCODE_USER_NERVER_LOGIN)
+                    else if (code == SH_API_ERRORCODE_607)
+                    {
+                        errDes = @"站点维护";
+                    }
+                    else if (code == SH_API_ERRORCODE_608)
+                    {
+                        errDes = @"重复请求";
+                    }
+                    else if (code == SH_API_ERRORCODE_609)
+                    {
+                        errDes = @"站点不存在";
+                    }
+                    else if (code == SH_API_ERRORCODE_1001)
                     {
                         errDes = @"请先登录";
                     }
