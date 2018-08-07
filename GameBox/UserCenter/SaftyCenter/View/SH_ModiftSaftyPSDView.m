@@ -13,7 +13,6 @@
 #import "AlertViewController.h"
 #import "SH_GamesHomeViewController.h"
 @interface SH_ModiftSaftyPSDView()
-//@property (weak, nonatomic) IBOutlet UITextField *realNameTF;
 @property (weak, nonatomic) IBOutlet UITextField *currentTF;
 @property (weak, nonatomic) IBOutlet UITextField *NewTF;
 @property (weak, nonatomic) IBOutlet UITextField *sureTF;
@@ -65,11 +64,11 @@
 - (void)updateView{
     if([RH_UserInfoManager shareUserManager].userSafetyInfo.hasPermissionPwd){
         //设置过安全密码
-        self.topDistance.constant = 110;
+        self.topDistance.constant = 70;
         self.currentTF.hidden = NO;
         self.currentLab.hidden = NO;
-        self.realNameTF.hidden = NO;
-        [self.realNameLabel setHidden:NO];
+        self.realNameTF.hidden = YES;
+        [self.realNameLabel setHidden:YES];
     }else{
         //没有设置过安全密码
         self.topDistance.constant = 30;

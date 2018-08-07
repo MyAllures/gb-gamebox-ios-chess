@@ -34,7 +34,7 @@
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入当前密码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tcr-pv-DXT">
-                    <rect key="frame" x="98" y="70" width="205" height="30"/>
+                    <rect key="frame" x="98" y="30" width="205" height="30"/>
                     <color key="backgroundColor" red="0.13725490200000001" green="0.16862745100000001" blue="0.41568627450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="BpU-DV-Obh"/>
@@ -94,7 +94,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当前密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8n-Qx-tST">
-                    <rect key="frame" x="32" y="76.5" width="58" height="17"/>
+                    <rect key="frame" x="32" y="36.5" width="58" height="17"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -141,7 +141,7 @@
                     </constraints>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                    <textInputTraits key="textInputTraits"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -174,7 +174,7 @@
                 <constraint firstItem="QFQ-yV-bV8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="110" id="RDE-U6-M9I"/>
                 <constraint firstItem="YAN-zz-6Wn" firstAttribute="trailing" secondItem="LIP-5j-gdb" secondAttribute="trailing" id="SsH-2R-FTG"/>
                 <constraint firstItem="n07-Dx-kpF" firstAttribute="centerY" secondItem="5f3-aV-gNR" secondAttribute="centerY" id="VbM-LX-m1f"/>
-                <constraint firstItem="Tcr-pv-DXT" firstAttribute="top" secondItem="CR3-h0-Scj" secondAttribute="bottom" constant="10" id="Z1d-Af-AZt"/>
+                <constraint firstItem="Tcr-pv-DXT" firstAttribute="top" secondItem="CR3-h0-Scj" secondAttribute="top" id="Z1d-Af-AZt"/>
                 <constraint firstItem="YAN-zz-6Wn" firstAttribute="centerY" secondItem="QFQ-yV-bV8" secondAttribute="centerY" id="ZG2-qN-ilE"/>
                 <constraint firstItem="kGm-iR-Deh" firstAttribute="top" secondItem="5f3-aV-gNR" secondAttribute="bottom" constant="55" id="cz1-Gh-qiK"/>
                 <constraint firstItem="Tcr-pv-DXT" firstAttribute="centerX" secondItem="CR3-h0-Scj" secondAttribute="centerX" id="e6k-nM-Obe"/>

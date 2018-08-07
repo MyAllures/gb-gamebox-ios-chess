@@ -35,7 +35,11 @@
         showMessage(self, @"请输入新密码", nil);
     }else if (self.sureTX.text.length == 0){
         showMessage(self, @"请再次输入新密码", nil);
-    }else{
+    }else if (self.sureTX.text.length < 6 || self.NewTX.text.length < 6){
+        showMessage(self, @"密码至少6位数", nil);
+    } else if ([self.sureTX.text isEqualToString:self.NewTX.text]){
+        showMessage(self, @"两次输入的密码不一致", nil);
+    } else {
 //        if ([self.NewTX.text isEqualToString:self.sureTX.text]) {
             [SH_NetWorkService updatePassword:self.currentTX.text NewPassword:self.NewTX.text VerificationCode:self.verificationTF.text Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
                 NSString *code = [NSString stringWithFormat:@"%@",response[@"code"]];
