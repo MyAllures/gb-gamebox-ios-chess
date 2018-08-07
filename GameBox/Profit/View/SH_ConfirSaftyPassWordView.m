@@ -43,11 +43,17 @@
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     UIViewController *vc = self.targetVC;
                     while (vc.presentingViewController) {
-                        vc = vc.presentingViewController;
-                        if ([vc isKindOfClass:[AlertViewController class]]) {
-                            [[NSNotificationCenter defaultCenter] postNotificationName:@"close" object:nil];
+//                        vc = vc.presentingViewController;
+//                        if ([vc isKindOfClass:[AlertViewController class]]) {
+//                            [[NSNotificationCenter defaultCenter] postNotificationName:@"close" object:nil];
+//                        }
+                        if ([vc isKindOfClass:[UINavigationController class]]) {
+                            break;
+                            
                         }
+                        vc = vc.presentingViewController;
                     }
+                    [vc dismissViewControllerAnimated:NO completion:nil];
                 });
             } else {
                 self.token = dic[@"data"][@"token"];
