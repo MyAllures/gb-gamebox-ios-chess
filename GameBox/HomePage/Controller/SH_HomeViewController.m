@@ -63,6 +63,7 @@
 @property (nonatomic, strong) NSMutableArray *bannerArr;
 @property (nonatomic, strong) NSMutableArray *siteApiRelationArr;
 @property (nonatomic, strong) SH_GameItemModel *currentGameItemModel;
+@property (nonatomic, strong) SH_GameItemModel *localSearchGameModel;
 @property (nonatomic, assign) int currentLevel;
 @property (nonatomic, strong) NSString *currentDZGameTypeId;
 @property (nonatomic, assign) BOOL enterDZGameLevel;
@@ -132,7 +133,8 @@
 - (void)searchingTextChange:(UITextField *)textField
 {
     if ([textField.text isEqualToString:@""]) {
-        self.isSearchStatus = NO;
+//        self.isSearchStatus = NO;
+        [self.searchResultArr addObjectsFromArray:self.localSearchGameModel.relation];
         [self.lastGamesListScrollView reloaData];
     }
     else
@@ -575,7 +577,7 @@
         return;
     }
     
-    for (SH_GameItemModel *gameItemModel in self.currentGameItemModel.relation) {
+    for (SH_GameItemModel *gameItemModel in self.localSearchGameModel.relation) {
         if ([gameItemModel.name containsString:self.searchTF.text]) {
             [self.searchResultArr addObject:gameItemModel];
         }
@@ -681,10 +683,17 @@
         SH_ProfitModel *model = [[SH_ProfitModel alloc]initWithDictionary:dic error:nil];
         NSString *code = response[@"code"];
         NSString *message = response[@"message"];
+        [self refreshBalance:model.totalBalance];
         [view updateUIWithBalance:model BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:self.acr Token:model.token Code:code Message:message];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
+}
+
+-(void)refreshBalance: (NSString *)balance {
+    if (![self.suishenFuLiLab.text isEqualToString:balance]) {
+        self.suishenFuLiLab.text = balance;
+    }
 }
 
 -(void) close {
@@ -956,6 +965,9 @@
 {
     
     __weak typeof(self) weakSelf = self;
+    if (![model.type isEqualToString:@"game"]) {
+        self.localSearchGameModel = model;
+    }
     self.currentGameItemModel = model;
     if (self.enterDZGameLevel == NO) {
         self.enterDZGameLevel = self.currentLevel == 0 && [self.currentGameItemModel.apiTypeId intValue] == 2;
