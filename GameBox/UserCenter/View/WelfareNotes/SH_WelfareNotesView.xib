@@ -286,16 +286,26 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ir7-or-Qu3" customClass="SH_WebPImageView">
+                    <rect key="frame" x="194" y="122.5" width="91" height="113"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="nodata_bg2_slices"/>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.16470588235294117" green="0.20784313725490194" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="w2b-Mt-WBe" secondAttribute="bottom" constant="7" id="4Et-SM-qZs"/>
                 <constraint firstAttribute="bottom" secondItem="w2b-Mt-WBe" secondAttribute="bottom" constant="7" id="7iG-Ys-7zL"/>
                 <constraint firstItem="w2b-Mt-WBe" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="FQU-UV-iwp"/>
+                <constraint firstAttribute="trailing" secondItem="ir7-or-Qu3" secondAttribute="trailing" constant="180" id="V65-IJ-5Ji"/>
+                <constraint firstItem="ir7-or-Qu3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="194" id="dfb-gB-B2q"/>
                 <constraint firstItem="w2b-Mt-WBe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="6" id="enD-78-8IX"/>
+                <constraint firstItem="ir7-or-Qu3" firstAttribute="top" secondItem="TYi-KI-VZS" secondAttribute="bottom" constant="25" id="ifa-Bo-MEK"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="imageView" destination="ir7-or-Qu3" id="sRG-W4-TKK"/>
                 <outlet property="tableView" destination="um2-Ca-YjF" id="6y0-MW-SHX"/>
                 <outlet property="timeBtn" destination="5vH-xq-hrm" id="9iM-wy-o2n"/>
                 <outlet property="totalDiscountlabel" destination="z4o-dn-xKW" id="DXw-YH-G00"/>

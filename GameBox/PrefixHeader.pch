@@ -9,7 +9,7 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
-#define _ty3a
+#define _7wt3
 //#ifdef _8l6r
 //
 //#define CODE    @"8l6r"
@@ -28,11 +28,11 @@
 //#define S       @"f0581a9da25c2476d18f7675362f596c"
 //#define SID     @"21"
 
-//#ifdef _7wt3
-//
-//#define CODE    @"7wt3"
-//#define S       @"1d497c482250b85debcaff3b9099d469"
-//#define SID     @"18"
+#ifdef _7wt3
+
+#define CODE    @"7wt3"
+#define S       @"1d497c482250b85debcaff3b9099d469"
+#define SID     @"18"
 
 //#ifdef _ojzk
 //
@@ -40,11 +40,11 @@
 //#define S        @"85c362697077e64248fd5f2fbdcabae8"
 //#define SID        @"7000"
 
-#ifdef _ty3a
-
-#define CODE    @"ty3a"
-#define S        @"e1576bc75aabd600d0b6b078af7a96a3"
-#define SID        @"7001"
+//#ifdef _ty3a
+//
+//#define CODE    @"ty3a"
+//#define S        @"e1576bc75aabd600d0b6b078af7a96a3"
+//#define SID        @"7001"
 
 #endif
 

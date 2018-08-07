@@ -65,6 +65,8 @@
 - (IBAction)sureBtnClick:(id)sender {
     if (self.realNameTF.text.length == 0) {
         showMessage(self, @"请输入真实姓名", nil);
+    }else if (self.realNameTF.text.length < 2 ){
+        showMessage(self, @"真实姓名至少2位数", nil);
     }
     else if (self.bankTF.text.length == 0 ){
          showMessage(self, @"请选择银行", nil);
