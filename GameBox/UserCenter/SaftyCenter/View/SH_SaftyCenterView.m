@@ -35,7 +35,6 @@
     [super awakeFromNib];
     [self configUI];
     [self setUIWithSelecteBtn:self.loginBtn SelectedView:self.loginView];
-   
     [SH_NetWorkService_FindPsw checkForgetPswStatusComplete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dict = (NSDictionary *)response;
         NSLog(@"dict===%@",dict);
@@ -161,6 +160,7 @@
 }
 - (void)setTargetVC:(UIViewController *)targetVC{
     _targetVC = targetVC;
+    self.loginView.targetVC = targetVC;
 }
 - (void)selectedWithType:(NSString *)type From:(NSString *)from{
     self.bankView.from = from;
