@@ -13,5 +13,5 @@
 -(void)updateUIWithBalance:(SH_ProfitModel *)model
                    BankNum:(NSString *)bankNum
                   TargetVC:(UIViewController *)targetVC
-                     Token:(NSString *)token;
+                     Token:(NSString *)token Code:(NSString *)code Message:(NSString *)message;
 @end

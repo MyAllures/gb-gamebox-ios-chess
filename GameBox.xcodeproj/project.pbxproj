@@ -213,7 +213,6 @@
 		54DD03642109FDA000CE9199 /* SH_MsgCenterDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DD03632109FDA000CE9199 /* SH_MsgCenterDetailView.m */; };
 		54DD03662109FDAB00CE9199 /* SH_MsgCenterDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54DD03652109FDAB00CE9199 /* SH_MsgCenterDetailView.xib */; };
 		54DD0368210AAD6C00CE9199 /* search-bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54DD0367210AAD6B00CE9199 /* search-bg.webp */; };
-		54DD036A210AC5C500CE9199 /* drop_down.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54DD0369210AC5C400CE9199 /* drop_down.webp */; };
 		54E24832210D5B07005C5263 /* loading_eaIcon2.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54E2482A210D5B06005C5263 /* loading_eaIcon2.webp */; };
 		54E24833210D5B07005C5263 /* loading_eaIcon3.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54E2482B210D5B06005C5263 /* loading_eaIcon3.webp */; };
 		54E24834210D5B07005C5263 /* loading_eaIcon.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54E2482C210D5B06005C5263 /* loading_eaIcon.webp */; };
@@ -242,6 +241,7 @@
 		BF2F916020EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2F915E20EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.xib */; };
 		BF2F916420EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F916220EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.m */; };
 		BF2F916520EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2F916320EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.xib */; };
+		BF3BC6FB2119704800367941 /* drop_down.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF3BC6FA2119704800367941 /* drop_down.webp */; };
 		BF44EC4D20F44BA300BC6EF3 /* SH_BitCoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF44EC4C20F44BA300BC6EF3 /* SH_BitCoinViewController.m */; };
 		BF44EC5020F44BB900BC6EF3 /* SH_BitCoinView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF44EC4F20F44BB900BC6EF3 /* SH_BitCoinView.m */; };
 		BF44EC5A20F4588D00BC6EF3 /* SH_BitCoinSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF44EC5920F4588D00BC6EF3 /* SH_BitCoinSubView.m */; };
@@ -687,7 +687,6 @@
 		54DD03632109FDA000CE9199 /* SH_MsgCenterDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_MsgCenterDetailView.m; sourceTree = "<group>"; };
 		54DD03652109FDAB00CE9199 /* SH_MsgCenterDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_MsgCenterDetailView.xib; sourceTree = "<group>"; };
 		54DD0367210AAD6B00CE9199 /* search-bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "search-bg.webp"; sourceTree = "<group>"; };
-		54DD0369210AC5C400CE9199 /* drop_down.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = drop_down.webp; sourceTree = "<group>"; };
 		54E2482A210D5B06005C5263 /* loading_eaIcon2.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = loading_eaIcon2.webp; sourceTree = "<group>"; };
 		54E2482B210D5B06005C5263 /* loading_eaIcon3.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = loading_eaIcon3.webp; sourceTree = "<group>"; };
 		54E2482C210D5B06005C5263 /* loading_eaIcon.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = loading_eaIcon.webp; sourceTree = "<group>"; };
@@ -727,6 +726,7 @@
 		BF2F916120EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_DespositeChooseMoneyCollectionViewCell.h; sourceTree = "<group>"; };
 		BF2F916220EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_DespositeChooseMoneyCollectionViewCell.m; sourceTree = "<group>"; };
 		BF2F916320EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_DespositeChooseMoneyCollectionViewCell.xib; sourceTree = "<group>"; };
+		BF3BC6FA2119704800367941 /* drop_down.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = drop_down.webp; sourceTree = "<group>"; };
 		BF44EC4B20F44BA300BC6EF3 /* SH_BitCoinViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_BitCoinViewController.h; sourceTree = "<group>"; };
 		BF44EC4C20F44BA300BC6EF3 /* SH_BitCoinViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_BitCoinViewController.m; sourceTree = "<group>"; };
 		BF44EC4E20F44BB900BC6EF3 /* SH_BitCoinView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_BitCoinView.h; sourceTree = "<group>"; };
@@ -1259,12 +1259,12 @@
 				54E2482B210D5B06005C5263 /* loading_eaIcon3.webp */,
 				54E2482E210D5B06005C5263 /* loading-1.webp */,
 				54E2482D210D5B06005C5263 /* loading-2.webp */,
+				BF3BC6FA2119704800367941 /* drop_down.webp */,
 				54E2482F210D5B06005C5263 /* loading-3.webp */,
 				54E24830210D5B07005C5263 /* loading-4.webp */,
 				54E24831210D5B07005C5263 /* loading-5.webp */,
 				547BCDF4210AF43100D7082F /* table-bg.webp */,
 				547BCDF2210ACCBA00D7082F /* loading.webp */,
-				54DD0369210AC5C400CE9199 /* drop_down.webp */,
 				54DD0367210AAD6B00CE9199 /* search-bg.webp */,
 				54DD03602109FC1C00CE9199 /* effects_man.webp */,
 				54DD035A2109D03F00CE9199 /* game-back.webp */,
@@ -2414,6 +2414,7 @@
 				54C875A020F756A500AA0594 /* errRing.mp3 in Resources */,
 				BFA7DEBD2106C2CB00DD731F /* chip_blue.webp in Resources */,
 				22618C792109F27A00E4A6F6 /* SH_HandRecordTableViewCell.xib in Resources */,
+				BF3BC6FB2119704800367941 /* drop_down.webp in Resources */,
 				54397090210462BB0091C719 /* logo04.webp in Resources */,
 				54DD035E2109D03F00CE9199 /* game-bg.webp in Resources */,
 				54C876432100BFA000AA0594 /* SH_PromoDeatilViewController.xib in Resources */,
@@ -2465,7 +2466,6 @@
 				BF7B08C62101CF33008256FE /* SH_NiceDatePickerView.xib in Resources */,
 				5404EA7D2112F955004D75AA /* nodata_bg.webp in Resources */,
 				22618C692109755100E4A6F6 /* SH_WelfareNotesTableViewCell.xib in Resources */,
-				54DD036A210AC5C500CE9199 /* drop_down.webp in Resources */,
 				2209026720F053D400F8828E /* SH_PromoViewCell.xib in Resources */,
 				543970B1210462BB0091C719 /* yellow.webp in Resources */,
 				BF2F916020EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.xib in Resources */,

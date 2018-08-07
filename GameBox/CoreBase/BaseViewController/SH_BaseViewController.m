@@ -39,18 +39,6 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    
-//    //如果是竖屏 则退出时强制为横屏
-//    UIInterfaceOrientationMask mask = [self orientation];
-//    if (mask == UIInterfaceOrientationMaskPortrait || mask == UIInterfaceOrientationMaskAll)
-//    {
-//        [self forceOrientationLandscape];
-//    }
-}
-
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
@@ -63,7 +51,10 @@
         {
             [self forceOrientationLandscape];
         }
-
+    }
+    else if ([topVC orientation] == UIInterfaceOrientationMaskPortrait)
+    {
+        [self forceOrientationPortrait];
     }
 }
 

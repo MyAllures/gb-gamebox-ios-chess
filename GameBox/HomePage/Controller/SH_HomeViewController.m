@@ -29,7 +29,6 @@
 #import "SH_UserInformationView.h"
 #import "SH_NetWorkService+RegistAPI.h"
 #import "SH_WKGameViewController.h"
-#import "SH_NoAccessViewController.h"
 #import "SH_PrifitOutCoinView.h"
 #import "SH_NetWorkService+Profit.h"
 #import "SH_ProfitModel.h"
@@ -540,14 +539,10 @@
  */
 - (void)fetchCookie
 {
-    __weak typeof(self) weakSelf = self;
-
     [SH_NetWorkService fetchHttpCookie:^(NSHTTPURLResponse *httpURLResponse, id response) {
         [[NetWorkLineMangaer sharedManager] configCookieAndSid:httpURLResponse];
     } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
-        if (httpURLResponse.statusCode == 605) {
-            [weakSelf showNoAccess];
-        }
+        
     }];
 }
 
@@ -685,11 +680,12 @@
         NSDictionary *dic = [(NSDictionary *)response objectForKey:@"data"];
         SH_ProfitModel *model = [[SH_ProfitModel alloc]initWithDictionary:dic error:nil];
         NSString *code = dic[@"code"];
+        NSString *message = response[@"message"];
         if ([code intValue] == 1100) {
-            showMessage(self.view, response[@"message"], nil);
+            showMessage(self.view, message, nil);
             return ;
         } else {
-            [view updateUIWithBalance:model BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:self.acr Token:model.token];
+            [view updateUIWithBalance:model BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:self.acr Token:model.token Code:code Message:message];
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
@@ -831,9 +827,6 @@
         }
         [SH_WaitingView hide:weakSelf.view];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        if (httpURLResponse.statusCode == 605) {
-            [weakSelf showNoAccess];
-        }
         [SH_WaitingView hide:weakSelf.view];
     }];
 }
@@ -1041,17 +1034,6 @@
             [self.lastGamesListScrollView reloaData];
         }
     }
-}
-
-- (void)showNoAccess
-{
-    __weak typeof(self) weakSelf = self;
-
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        SH_NoAccessViewController *vc = [[SH_NoAccessViewController alloc] initWithNibName:@"SH_NoAccessViewController" bundle:nil];
-        [weakSelf.navigationController pushViewController:vc animated:NO];
-    });
 }
 
 - (void)statusBarOrientationChange:(NSNotification *)notification
