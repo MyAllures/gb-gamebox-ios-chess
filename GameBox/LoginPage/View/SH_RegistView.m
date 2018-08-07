@@ -46,7 +46,6 @@
 
 -(void)startV3RegisetInit{
     [SH_NetWorkService  fetchV3RegisetInit:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        NSLog(@"%@",response);
         self->registrationInitModel =ConvertToClassPointer(RH_RegisetInitModel, response);
         [self configUI];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
@@ -58,9 +57,8 @@
 -(void)configUI{
     [self.scrollview  addSubview: self.stackView];
     [self.stackView  mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.scrollview.mas_top).mas_offset(8);
-        make.leading.mas_equalTo(self.scrollview.mas_leading).mas_offset(8);
-        make.centerX.mas_equalTo(self.scrollview.mas_centerX).mas_offset(0);
+        make.top.leading.mas_equalTo(8);
+        make.centerX.mas_equalTo(self.scrollview.mas_centerX);
         make.height.mas_equalTo( self->registrationInitModel.field.count*50);
     }];
     

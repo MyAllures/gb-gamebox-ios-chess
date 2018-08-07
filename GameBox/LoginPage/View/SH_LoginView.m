@@ -73,15 +73,19 @@
 -(void)fetchHttpData{
     __weak  typeof(self) weakSelf = self;
     [SH_NetWorkService  fetchIsOpenCodeVerifty:^(NSHTTPURLResponse *httpURLResponse, id response) {
+
         NSDictionary *result = ConvertToClassPointer(NSDictionary, response) ;
-        weakSelf.isOpenCaptcha = [result boolValueForKey:@"isOpenCaptcha"];
-        if (weakSelf.isOpenCaptcha) {
-            [weakSelf  startGetVerifyCode];
-            weakSelf.captcha_label.hidden = false;
-            weakSelf.check_textField.hidden = false;
-            weakSelf.constraintCaptchaHeight.constant = 33;
-            [weakSelf  layoutIfNeeded];
+        if ([result[@"code"] isEqualToString:@"0"]) {
+            weakSelf.isOpenCaptcha = [result[@"data"] boolValueForKey:@"isOpenCaptcha"];
+            if (weakSelf.isOpenCaptcha) {
+                [weakSelf  startGetVerifyCode];
+                weakSelf.captcha_label.hidden = false;
+                weakSelf.check_textField.hidden = false;
+                weakSelf.constraintCaptchaHeight.constant = 33;
+                [weakSelf  layoutIfNeeded];
+            }
         }
+      
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
@@ -157,10 +161,6 @@
         }
         case 1:{//注册按钮的点击事件
             self.stackView.hidden = false;
-            [self.stackView addSubview:self.registView];
-            [self.registView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.edges.mas_equalTo(0);
-            }];
             [sender setWebpBGImage:@"login_button_click" forState:UIControlStateNormal];
             SH_WebPButton  * btn  = [self  viewWithTag:100];
             [btn setWebpBGImage:@"login_button" forState:UIControlStateNormal];
@@ -191,7 +191,7 @@
         case 4:{
             [SH_NetWorkService_FindPsw checkForgetPswStatusComplete:^(NSHTTPURLResponse *httpURLResponse, id response) {
                 NSDictionary *dict = (NSDictionary *)response;
-                NSLog(@"dict===%@",dict);
+//                NSLog(@"dict===%@",dict);
                 NSString *dataStr = dict[@"data"];
                 if ([dataStr intValue] == 0) {
                     [self popAlertView];
@@ -359,6 +359,10 @@
                 weakSelf.dismissBlock();
             }
         };
+        [self.stackView addSubview:self.registView];
+        [self.registView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(self.stackView);
+        }];
     }
     return  _registView;
 }
