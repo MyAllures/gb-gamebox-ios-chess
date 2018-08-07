@@ -688,7 +688,7 @@
                     if (time > 0) {
                         button.enabled = NO;
                         button.layer.borderColor =[UIColor  whiteColor].CGColor;// colorWithRGB(168, 168, 168).CGColor;
-                        [button setTitle:[NSString stringWithFormat:@"%lds",(long)self->countDownNumber] forState:UIControlStateNormal];
+                        [button setTitle:[NSString stringWithFormat:@"%d",time] forState:UIControlStateNormal];
                         [button setTitleColor:[UIColor  whiteColor] forState:UIControlStateNormal];//colorWithRGB(168, 168, 168)
                     }else {
                         dispatch_source_cancel(self->timer);

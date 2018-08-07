@@ -397,11 +397,10 @@
                 [self fetchInboxMsg];
             }else if ([dic[@"subscribeType"] isEqualToString:@"SYS_ANN"]&&[_selectButtonName isEqualToString:@"systemButton"]){
                 [self fetchSystemMsg];
-            }else if ([dic[@"subscribeType"] isEqualToString:@"SITE_ANN"]&&[_selectButtonName isEqualToString:@"inboxButton"]){
+            }else if ([dic[@"subscribeType"] isEqualToString:@"SITE_ANN"]&&[_selectButtonName isEqualToString:@"gameButton"]){
             }
             [self fetchHttpData];
         }
     }
-//    [self fetchHttpData];
 }
 @end
