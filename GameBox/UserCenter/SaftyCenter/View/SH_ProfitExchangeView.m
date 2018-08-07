@@ -14,15 +14,12 @@
 @interface SH_ProfitExchangeView()<UITableViewDelegate,UITableViewDataSource,SH_ProfitExchangeTableViewCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
 @property(nonatomic,strong)NSArray *dataArray;
-
 @property (weak, nonatomic) IBOutlet SH_WebPButton *refreshBtn;
-@property (weak, nonatomic) IBOutlet SH_WebPButton *recoveryBtn;
 @end
 @implementation SH_ProfitExchangeView
 - (void)awakeFromNib{
     [super awakeFromNib];
     [self.refreshBtn ButtonPositionStyle:ButtonPositionStyleRight spacing:5];
-    [self.recoveryBtn ButtonPositionStyle:ButtonPositionStyleRight spacing:5];
     self.mainTableView.delegate = self;
     self.mainTableView.dataSource = self;
     [self.mainTableView registerNib:[UINib nibWithNibName:@"SH_ProfitExchangeTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SH_ProfitExchangeTableViewCell"];
@@ -57,9 +54,6 @@
     } Fail:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
-}
-- (IBAction)oneKeyRecovery:(id)sender {
-    [self recoveryActionWithId:nil];//一键刷新
 }
 //选中了额度转换的View
 -(void)selectProfitExchangeView{

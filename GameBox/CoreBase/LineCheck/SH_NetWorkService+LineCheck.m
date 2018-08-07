@@ -238,7 +238,9 @@
 
 + (void)uploadLineCheckErr:(NSMutableDictionary *)errDic complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
 {
-    [self post:@"https://apiplay.info:1344/boss-api/facade/collectAppDomainError.html" parameter:errDic complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    //https://apiplay.info:1344/boss-api/facade/collectAppDomainError.html
+    //https://apiplay.info:1344/boss-api/facade/collectAppDomainError.html?shin=1
+    [self post:@"https://apiplay.info:1344/boss-api/facade/collectAppDomainError.html?shin=1" parameter:errDic complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
             complete(httpURLResponse, response);
         }

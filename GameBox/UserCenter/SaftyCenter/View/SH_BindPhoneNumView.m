@@ -65,18 +65,7 @@
 }
 -(void)selectBindPhoneNumView{
     [SH_NetWorkService getUserPhoneInfoSuccess:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        NSDictionary *dataDic = ConvertToClassPointer(NSDictionary, response);
-        NSString *code = dataDic[@"code"];
-        if ([code isEqualToString:@"1001"]) {
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [self.targetVC dismissViewControllerAnimated:NO completion:nil];
-            });
-            [[RH_UserInfoManager  shareUserManager] updateIsLogin:NO];
-            [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:nil];
-            [[NSNotificationCenter defaultCenter]postNotificationName:@"configUI" object:nil];
-            return ;
-        }
-        NSString *data = [dataDic objectForKey:@"data"];
+        NSString *data = [response objectForKey:@"data"];
         if (data.length > 0) {
             //绑定过手机
             self.phoneNum = data;

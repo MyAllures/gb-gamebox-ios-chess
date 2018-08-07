@@ -22,7 +22,6 @@
 @property (weak, nonatomic) IBOutlet UIView *bottom_view;
 @property (weak, nonatomic) IBOutlet UILabel *account_label;
 @property (weak, nonatomic) IBOutlet UILabel *money_label;
-@property (weak, nonatomic) IBOutlet SH_WebPButton *avatar_button;
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatar_imgView;
 @end
@@ -48,12 +47,21 @@
     self.account_label.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.username;
     self.money_label.text = [NSString  stringWithFormat:@"%.2f",[RH_UserInfoManager shareUserManager].mineSettingInfo.walletBalance];
     if ([RH_UserInfoManager  shareUserManager].isLogin) {
-        self.avatar_imgView.image = [UIImage imageWithWebPImageName:@"photo_male"];
-        [self.avatar_button setWebpImage:@"photo_male" forState:UIControlStateNormal];
+        if ([RH_UserInfoManager shareUserManager].mineSettingInfo.userSex.length > 0) {
+            if ([[RH_UserInfoManager shareUserManager].mineSettingInfo.userSex isEqualToString:@"男"]) {
+                self.avatar_imgView.image = [UIImage imageWithWebPImageName:@"photo_male"];
+            } else {
+                self.avatar_imgView.image = [UIImage imageWithWebPImageName:@"photo_female"];
+            }
+        } else {
+            self.avatar_imgView.image = [UIImage imageWithWebPImageName:@"photo_male"];
+        }
+//        self.avatar_imgView.image = [UIImage imageWithWebPImageName:@"photo_male"];
+//        [self.avatar_button setWebpImage:@"photo_male" forState:UIControlStateNormal];
         //刷新随身福利
     }else{
         self.avatar_imgView.image = [UIImage imageWithWebPImageName:@"avatar"];
-          [self.avatar_button setWebpImage:@"avatar" forState:UIControlStateNormal];
+//          [self.avatar_button setWebpImage:@"avatar" forState:UIControlStateNormal];
     }
     if (iPhoneX) {
         self.constraintWidth.constant = 200;

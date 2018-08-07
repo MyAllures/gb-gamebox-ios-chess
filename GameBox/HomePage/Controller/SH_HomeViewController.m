@@ -979,15 +979,6 @@
         if ([[RH_UserInfoManager shareUserManager] isLogin]) {
             [SH_WaitingView showOn:self.view];
             [SH_NetWorkService fetchGameLink:model.gameLink complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-                NSDictionary *dict = (NSDictionary *)response;
-                NSString *code = dict[@"code"];
-                if ([code isEqualToString:@"1001"]) {
-                    [[RH_UserInfoManager  shareUserManager] updateIsLogin:NO];
-                    [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:nil];
-                    [weakSelf configUI];
-                    [weakSelf login];
-                    return ;
-                }
                 NSString *gameMsg = [[response objectForKey:@"data"] objectForKey:@"gameMsg"];
                 if (IS_EMPTY_STRING(gameMsg)) {
                     //先关闭背景BGM
