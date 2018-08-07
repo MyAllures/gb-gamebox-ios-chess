@@ -17,9 +17,7 @@
 #import "SH_SiteMsgUnReadCountModel.h"
 
 @interface SH_MsgCenterView () <UITableViewDataSource, UITableViewDelegate>
-{
-    NSString * _selectButtonName;
-}
+
 @property (weak, nonatomic) IBOutlet UILabel *game_label;
 
 @property (weak, nonatomic) IBOutlet SH_WebPButton *gameNoticeBt;
@@ -47,7 +45,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SRWebSocketDidOpen) name:kWebSocketDidOpenNote object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SRWebSocketDidReceiveMsg:) name:kWebSocketdidReceiveMessageNote object:nil];
-    _selectButtonName = @"gameButton";
+    [self.data_dict setObject:@"gameMsg" forKey:@"msgNotice"];
 }
 
 - (void)showDetail:(SH_MsgCenterViewShowDetail)showDetailBlock
@@ -110,7 +108,7 @@
     self.systemNoticeBt.selected = NO;
     self.inboxBt.selected = NO;
     self.operationBarConstraint.constant = 0;
-    _selectButtonName = @"gameButton";
+    [self.data_dict setObject:@"gameMsg" forKey:@"msgNotice"];
     [self.msgArr removeAllObjects];
 
     __weak typeof(self) weakSelf = self;
@@ -143,7 +141,7 @@
     self.systemNoticeBt.selected = YES;
     self.inboxBt.selected = NO;
     self.operationBarConstraint.constant = 0;
-    _selectButtonName = @"systemButton";
+    [self.data_dict setObject:@"systemMsg" forKey:@"msgNotice"];
     [self fetchSystemMsg];
 }
 -(void)fetchSystemMsg{
@@ -177,7 +175,7 @@
     self.inboxBt.selected = YES;
     self.selectAllBT.selected = NO;
     self.operationBarConstraint.constant = 42.5;
-    _selectButtonName = @"inboxButton";
+    [self.data_dict setObject:@"inboxMsg" forKey:@"msgNotice"];
     [self fetchInboxMsg];
 }
 -(void)fetchInboxMsg{
@@ -392,13 +390,14 @@
         NSDictionary* dic = [NSJSONSerialization  JSONObjectWithData:d options:0 error:nil];
         [array addObject:dic];
     }
+    NSLog(@"%@",self.data_dict);
     if (array.count >=1) {
         for (NSDictionary * dic in array) {
-            if ([dic[@"subscribeType"] isEqualToString:@"MCENTER_READ_COUNT"] &&[_selectButtonName isEqualToString:@"inboxButton"]) {
+            if ([dic[@"subscribeType"] isEqualToString:@"MCENTER_READ_COUNT"] &&[self.data_dict[@"msgNotice"] isEqualToString:@"inboxMsg"]) {
                 [self fetchInboxMsg];
-            }else if ([dic[@"subscribeType"] isEqualToString:@"SYS_ANN"]&&[_selectButtonName isEqualToString:@"systemButton"]){
+            }else if ([dic[@"subscribeType"] isEqualToString:@"SYS_ANN"]&&[self.data_dict[@"msgNotice"] isEqualToString:@"systemMsg"]){
                 [self fetchSystemMsg];
-            }else if ([dic[@"subscribeType"] isEqualToString:@"SITE_ANN"]&&[_selectButtonName isEqualToString:@"gameButton"]){
+            }else if ([dic[@"subscribeType"] isEqualToString:@"SITE_ANN"]&&[self.data_dict[@"msgNotice"] isEqualToString:@"gameMsg"]){
             }
             [self fetchHttpData];
         }
