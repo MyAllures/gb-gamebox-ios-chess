@@ -16,7 +16,6 @@
 #import "SH_RechargeCenterViewController.h"
 #import "View+MASAdditions.h"
 #import "SH_CycleScrollView.h"
-#import "SH_PlayerCenterView.h"
 #import "AlertViewController.h"
 #import "SH_LoginView.h"
 #import "SH_GamesListScrollView.h"
@@ -81,28 +80,6 @@
 @implementation SH_HomeViewController
 
 -(void)viewWillAppear:(BOOL)animated {
-//    [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
-//        NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
-//        if ([dict[@"code"] isEqualToString:@"0"]) {
-//            RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[dict[@"data"] objectForKey:@"user"] error:nil];
-//            [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
-//        }else{
-//            [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
-//        }
-//    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-//        //
-//        [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
-//    }];
-    if ([RH_UserInfoManager shareUserManager].isLogin) {
-        [SH_NetWorkService onekeyrecoveryApiId:nil Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
-            //刷新用户余额
-            if (![[response objectForKey:@"data"] isKindOfClass:[NSNull class]]) {
-                //            weakSelf.suishenFuLiLab.text = response[@"data"][@"assets"];
-            }
-        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-            
-        }];
-    }
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:@"" forKey:@"saftyKoken"];
     [defaults synchronize];
@@ -736,9 +713,6 @@
         [self login];
     }
 }
-
-#pragma mark - SH_PlayerCenterViewDelegate
-
 
 - (IBAction)shareClick:(id)sender {
     if ([RH_UserInfoManager shareUserManager].isLogin) {

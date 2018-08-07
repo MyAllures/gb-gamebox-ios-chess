@@ -69,9 +69,10 @@
             NSError *err;
             NSArray *arr = [SH_BankListModel arrayOfModelsFromDictionaries:response[@"data"][@"bankList"] error:&err];
             [[RH_UserInfoManager shareUserManager] setBankList:arr];
-
             RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[dict[@"data"] objectForKey:@"user"] error:nil];
             [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
+            //通知首页余额刷新
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"configUI" object:nil];
             [weakSelf  configUI];
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
