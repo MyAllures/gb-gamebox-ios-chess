@@ -391,13 +391,11 @@
         }else if([obj isKindOfClass:[NSDictionary class]]){
             [array addObject:obj];
         }
-//        NSLog(@"------%@",array);
     }else if([message isKindOfClass:[NSData  class]]){
         NSData * d = (NSData*)message;
         NSDictionary* dic = [NSJSONSerialization  JSONObjectWithData:d options:0 error:nil];
         [array addObject:dic];
     }
-//    NSLog(@"%@",self.data_dict);
     if (array.count >=1) {
         for (NSDictionary * dic in array) {
             if ([dic[@"subscribeType"] isEqualToString:@"MCENTER_READ_COUNT"] &&[self.data_dict[@"msgNotice"] isEqualToString:@"inboxMsg"]) {
@@ -407,6 +405,7 @@
                 [self fetchSystemMsg];
                 [self fetchHttpData];
             }else if ([dic[@"subscribeType"] isEqualToString:@"SITE_ANN"]&&[self.data_dict[@"msgNotice"] isEqualToString:@"gameMsg"]){
+                [self fetchHttpData];
             }
         }
     }
