@@ -115,6 +115,9 @@ static BOOL isNetworkingOK = YES;//网络状态 默认畅通
     }
     else
     {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            showErrorMessage([UIApplication sharedApplication].keyWindow, nil, @"网络链接失败");
+        });
         if (failed) {
             failed(nil, @"网络链接失败");
         }
@@ -224,6 +227,9 @@ static BOOL isNetworkingOK = YES;//网络状态 默认畅通
     }
     else
     {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            showErrorMessage([UIApplication sharedApplication].keyWindow, nil, @"网络链接失败");
+        });
         if (failed) {
             failed(nil, @"网络链接失败");
         }
