@@ -136,6 +136,7 @@
 {
     if ([textField.text isEqualToString:@""]) {
 //        self.isSearchStatus = NO;
+        [self.searchResultArr removeAllObjects];
         [self.searchResultArr addObjectsFromArray:self.localSearchGameModel.relation];
         [self.lastGamesListScrollView reloaData];
     }
