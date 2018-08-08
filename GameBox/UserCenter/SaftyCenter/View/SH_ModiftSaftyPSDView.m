@@ -12,7 +12,7 @@
 #import "SH_FillRealNameView.h"
 #import "AlertViewController.h"
 #import "SH_GamesHomeViewController.h"
-@interface SH_ModiftSaftyPSDView()
+@interface SH_ModiftSaftyPSDView()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *currentTF;
 @property (weak, nonatomic) IBOutlet UITextField *NewTF;
 @property (weak, nonatomic) IBOutlet UITextField *sureTF;
@@ -35,7 +35,8 @@
     self.verificationBtn.hidden = YES;
     self.sureBtnTopDistance.constant = 15;
     [self updateView];
-    
+    self.NewTF.delegate = self;
+    self.sureTF.delegate = self;
     
 //    SH_ProfitAlertView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_ProfitAlertView" owner:self options:nil].firstObject;
 //    view.content = content;
@@ -80,6 +81,19 @@
 }
 
 - (IBAction)sureBtnClick:(id)sender {
+    
+    if([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length > 0){
+        
+    } else {
+        SH_FillRealNameView *view = [[[NSBundle mainBundle] loadNibNamed:@"SH_FillRealNameView" owner:nil options:nil] lastObject];
+        AlertViewController *acr = [[AlertViewController alloc] initAlertView:view viewHeight:202 titleImageName:@"title18" alertViewType:AlertViewTypeShort];
+        view.targetVC1 = acr;
+        acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self.targetVC presentViewController:acr animated:YES completion:nil];
+        return;
+    }
+    
     if (self.NewTF.text.length == 0){
         showMessage(self, @"请输入新密码", nil);
     } else if (self.sureTF.text.length == 0){
@@ -166,6 +180,22 @@
 }
 - (IBAction)verificationBtnClick:(id)sender {
     [self verificationImage];
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    
+    if([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length > 0){
+        return YES;
+    } else {
+        SH_FillRealNameView *view = [[[NSBundle mainBundle] loadNibNamed:@"SH_FillRealNameView" owner:nil options:nil] lastObject];
+        AlertViewController *acr = [[AlertViewController alloc] initAlertView:view viewHeight:202 titleImageName:@"title18" alertViewType:AlertViewTypeShort];
+        view.targetVC1 = acr;
+        acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self.targetVC presentViewController:acr animated:YES completion:nil];
+        return NO;
+    }
 }
 
 @end
