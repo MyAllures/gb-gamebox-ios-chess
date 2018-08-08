@@ -60,7 +60,7 @@
         [self addSubview:textField];
         [textField mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(self);
-            make.trailing.mas_equalTo(0);
+            make.right.mas_equalTo(0);
             make.leading.mas_equalTo(self->label_Title.mas_trailing).mas_offset(8);
             make.height.mas_equalTo(38);
         }];
@@ -265,6 +265,7 @@
     }
     if ([model.name isEqualToString:@"paymentPassword2"]) {
         label_Title.text = @"验证6位数字安全密码";
+        label_Title.font = [UIFont systemFontOfSize:12];
         textField.secureTextEntry = YES;
         textField.placeholder = @"验证6位数字安全密码";
     }
