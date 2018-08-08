@@ -210,7 +210,7 @@
                 <outlet property="verificationCodeLab" destination="C2B-Eh-OY8" id="P0b-am-ndG"/>
                 <outlet property="verificationCodeTF" destination="MJQ-dT-TOi" id="bkq-MT-1bF"/>
             </connections>
-            <point key="canvasLocation" x="15" y="50"/>
+            <point key="canvasLocation" x="-524" y="182"/>
         </view>
     </objects>
     <resources>

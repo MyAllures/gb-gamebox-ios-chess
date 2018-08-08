@@ -244,6 +244,16 @@
                                 <constraint firstAttribute="height" constant="1" id="Lut-wA-FUm"/>
                             </constraints>
                         </view>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ir7-or-Qu3" customClass="SH_WebPImageView">
+                            <rect key="frame" x="150" y="116.5" width="150" height="113"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="150" id="NRW-GQ-8FM"/>
+                                <constraint firstAttribute="height" constant="113" id="Ypo-Ob-mDR"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="nodata_bg2_slices"/>
+                            </userDefinedRuntimeAttributes>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -259,8 +269,10 @@
                         <constraint firstItem="si8-O7-s20" firstAttribute="centerY" secondItem="R5O-s8-n2j" secondAttribute="centerY" id="NwE-x1-YWC"/>
                         <constraint firstItem="wla-Ba-jOw" firstAttribute="centerY" secondItem="dH7-tb-479" secondAttribute="centerY" id="NxR-kd-QC3"/>
                         <constraint firstAttribute="trailing" secondItem="TYi-KI-VZS" secondAttribute="trailing" constant="2" id="Shn-tU-Ige"/>
+                        <constraint firstItem="ir7-or-Qu3" firstAttribute="top" secondItem="TYi-KI-VZS" secondAttribute="bottom" constant="25" id="VfK-DR-QFf"/>
                         <constraint firstItem="skl-WE-GvD" firstAttribute="leading" secondItem="dH7-tb-479" secondAttribute="trailing" constant="7" id="W77-BZ-6f9"/>
                         <constraint firstItem="kRI-37-1ex" firstAttribute="trailing" secondItem="um2-Ca-YjF" secondAttribute="trailing" id="bo3-qt-JNF"/>
+                        <constraint firstItem="ir7-or-Qu3" firstAttribute="centerX" secondItem="w2b-Mt-WBe" secondAttribute="centerX" id="f6b-hZ-JB7"/>
                         <constraint firstItem="R5O-s8-n2j" firstAttribute="leading" secondItem="w2b-Mt-WBe" secondAttribute="leading" constant="17" id="gkL-xj-rqh"/>
                         <constraint firstItem="TYi-KI-VZS" firstAttribute="top" secondItem="w2b-Mt-WBe" secondAttribute="top" constant="48" id="hGO-vf-UgI"/>
                         <constraint firstItem="wla-Ba-jOw" firstAttribute="leading" secondItem="skl-WE-GvD" secondAttribute="trailing" constant="25" id="hZ8-h2-IoP"/>
@@ -286,22 +298,13 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ir7-or-Qu3" customClass="SH_WebPImageView">
-                    <rect key="frame" x="194" y="122.5" width="91" height="113"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="nodata_bg2_slices"/>
-                    </userDefinedRuntimeAttributes>
-                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.16470588235294117" green="0.20784313725490194" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="w2b-Mt-WBe" secondAttribute="bottom" constant="7" id="4Et-SM-qZs"/>
                 <constraint firstAttribute="bottom" secondItem="w2b-Mt-WBe" secondAttribute="bottom" constant="7" id="7iG-Ys-7zL"/>
                 <constraint firstItem="w2b-Mt-WBe" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="FQU-UV-iwp"/>
-                <constraint firstAttribute="trailing" secondItem="ir7-or-Qu3" secondAttribute="trailing" constant="180" id="V65-IJ-5Ji"/>
-                <constraint firstItem="ir7-or-Qu3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="194" id="dfb-gB-B2q"/>
                 <constraint firstItem="w2b-Mt-WBe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="6" id="enD-78-8IX"/>
-                <constraint firstItem="ir7-or-Qu3" firstAttribute="top" secondItem="TYi-KI-VZS" secondAttribute="bottom" constant="25" id="ifa-Bo-MEK"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

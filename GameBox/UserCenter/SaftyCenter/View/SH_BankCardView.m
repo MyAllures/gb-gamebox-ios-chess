@@ -72,6 +72,8 @@
          showMessage(self, @"请选择银行", nil);
     }else if (self.cardNumTF.text.length == 0){
         showMessage(self, @"请输入银行卡号", nil);
+    }else if (self.cardNumTF.text.length < 14){
+        showMessage(self, @"卡号至少14位数", nil);
     }else if ([self.bankTF.text isEqualToString:@" 其它银行"]){
         if (self.addressTF.text.length > 0) {
            [self bindBankcardRequeset];
@@ -87,10 +89,10 @@
 -(void)bindBankcardRequeset {
     __weak typeof(self) weakSelf = self;
     [SH_NetWorkService bindBankcardRealName:self.realNameTF.text BankName:self.bankTF.text CardNum:self.cardNumTF.text BankDeposit:self.addressTF.text?:@"" Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
-//        showMessage(self, response[@"message"], nil);
-        showMessage(self, @"绑定成功", nil);
+        
         NSString *code = [NSString stringWithFormat:@"%@",response[@"code"]];
         if ([code isEqualToString:@"0"]) {
+            showMessage(self, @"绑定成功", nil);
             SH_BankCardModel *model = [[SH_BankCardModel alloc]init];
             model.bankcardNumber = response[@"data"][@"bankCardNumber"];
             model.bankDeposit = response[@"data"][@"bankDeposit"];
@@ -108,6 +110,8 @@
                     }
                 }];
             });
+        } else {
+            showMessage(self, response[@"message"], nil);
         }
         
         
