@@ -345,8 +345,10 @@
         if ([RH_UserInfoManager shareUserManager].mineSettingInfo.userSex.length > 0) {
             if ([[RH_UserInfoManager shareUserManager].mineSettingInfo.userSex isEqualToString:@"男"]) {
                 self.avatarImg.image = [UIImage imageWithWebPImageName:@"photo_male"];
-            } else {
+            } else  if ([[RH_UserInfoManager shareUserManager].mineSettingInfo.userSex isEqualToString:@"女"]){
                 self.avatarImg.image = [UIImage imageWithWebPImageName:@"photo_female"];
+            } else {
+                self.avatarImg.image = [UIImage imageWithWebPImageName:@"photo_male"];
             }
         } else {
             self.avatarImg.image = [UIImage imageWithWebPImageName:@"photo_male"];
