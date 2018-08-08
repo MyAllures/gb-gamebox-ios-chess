@@ -689,12 +689,12 @@
                         UIButton *button = [self viewWithTag:1002];
                         if (time > 0) {
                             button.enabled = NO;
-                            button.layer.borderColor =[UIColor  whiteColor].CGColor;// colorWithRGB(168, 168, 168).CGColor;
-                            [button setTitle:[NSString stringWithFormat:@"%d",time] forState:UIControlStateNormal];
+//                            button.layer.borderColor =[UIColor  whiteColor].CGColor;// colorWithRGB(168, 168, 168).CGColor;
+                            [button setTitle:[NSString stringWithFormat:@"%02ds",time] forState:UIControlStateNormal];
                             [button setTitleColor:[UIColor  whiteColor] forState:UIControlStateNormal];//colorWithRGB(168, 168, 168)
                         }else {
                             dispatch_source_cancel(self->timer);
-                            button.layer.borderColor = [UIColor  whiteColor].CGColor;// colorWithRGB(20, 90, 180).CGColor; //colorWithRGB(20, 90, 180)
+//                            button.layer.borderColor = [UIColor  whiteColor].CGColor;// colorWithRGB(20, 90, 180).CGColor; //colorWithRGB(20, 90, 180)
                             [button setTitleColor:[UIColor  whiteColor] forState:UIControlStateNormal];
                             [button setTitle:@"获取验证码" forState:UIControlStateNormal];
                             button.enabled = YES;
