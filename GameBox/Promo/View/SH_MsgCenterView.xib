@@ -50,7 +50,7 @@
                                 <constraint firstAttribute="width" constant="22" id="PzG-M9-aAC"/>
                                 <constraint firstAttribute="height" constant="22" id="jza-dQ-aDC"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                             <userDefinedRuntimeAttributes>
@@ -106,7 +106,7 @@
                                 <constraint firstAttribute="width" constant="22" id="dm7-l3-r3d"/>
                                 <constraint firstAttribute="height" constant="22" id="iLr-P2-Ano"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                             <userDefinedRuntimeAttributes>
@@ -123,7 +123,7 @@
                                 <constraint firstAttribute="width" constant="22" id="pXY-Ji-TeB"/>
                                 <constraint firstAttribute="height" constant="22" id="zkA-1f-1CE"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                             <userDefinedRuntimeAttributes>

@@ -86,7 +86,12 @@
                 SH_SiteMsgUnReadCountModel * model = [[SH_SiteMsgUnReadCountModel alloc] initWithDictionary:response[@"data"] error:nil];
                 if ([model.sysMessageUnReadCount integerValue] >0) {
                     weakSelf.inbox_label.hidden = false;
-                    weakSelf.inbox_label.text = model.sysMessageUnReadCount;
+                    if ([model.sysMessageUnReadCount integerValue] <100) {
+                         weakSelf.inbox_label.text = model.sysMessageUnReadCount;
+                    }else{
+                         weakSelf.inbox_label.text = @"99+";
+                    }
+                   
                 }else{
                     weakSelf.inbox_label.hidden = YES;
                 }
@@ -177,6 +182,7 @@
     self.operationBarConstraint.constant = 42.5;
     [self.data_dict setObject:@"inboxMsg" forKey:@"msgNotice"];
     [self fetchInboxMsg];
+    [self fetchHttpData];
 }
 -(void)fetchInboxMsg{
     [self.msgArr removeAllObjects];
