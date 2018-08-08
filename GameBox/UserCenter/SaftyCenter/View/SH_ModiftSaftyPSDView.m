@@ -35,31 +35,10 @@
     self.verificationBtn.hidden = YES;
     self.sureBtnTopDistance.constant = 15;
     [self updateView];
-    
-    
-//    SH_ProfitAlertView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_ProfitAlertView" owner:self options:nil].firstObject;
-//    view.content = content;
-//    view.targetVC = self.targetVC;
-//    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:202 titleImageName:@"title03" alertViewType:AlertViewTypeShort];
-//    acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-//    acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-//    [self.targetVC presentViewController:acr animated:YES completion:nil];
+
 }
 
--(void)drawRect:(CGRect)rect {
-    NSLog(@"comeFromVC===%@",self.comeFromVC);
-//    if([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length > 0){
-//
-//    } else {
-//        SH_FillRealNameView *view = [[[NSBundle mainBundle] loadNibNamed:@"SH_FillRealNameView" owner:nil options:nil] lastObject];
-//        AlertViewController *acr = [[AlertViewController alloc] initAlertView:view viewHeight:202 titleImageName:@"title18" alertViewType:AlertViewTypeShort];
-//        view.targetVC1 = acr;
-//        acr.shutBtn.hidden = YES;
-//        acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-//        acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-//        [self.targetVC presentViewController:acr animated:YES completion:nil];
-//    }
-}
+
 
 - (void)updateView{
     if([RH_UserInfoManager shareUserManager].userSafetyInfo.hasPermissionPwd){
@@ -94,7 +73,7 @@
             realName  = [RH_UserInfoManager shareUserManager].mineSettingInfo.realName;
         }
 //        __weak typeof(self) weakSelf = self;
-        [SH_NetWorkService setSaftyPasswordRealName:realName originPassword:self.currentTF.text newPassword:self.NewTF.text confirmPassword:self.sureTF.text verifyCode:@"" Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        [SH_NetWorkService setSaftyPasswordRealName:realName originPassword:self.currentTF.text newPassword:self.NewTF.text confirmPassword:self.sureTF.text verifyCode:self.verificationCodeTF.text Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSString *code = response[@"code"];
             NSString *message  = response[@"message"];
             if ([code isEqualToString:@"0"]) {
