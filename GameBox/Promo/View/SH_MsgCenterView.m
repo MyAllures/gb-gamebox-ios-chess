@@ -401,12 +401,13 @@
     if (array.count >=1) {
         for (NSDictionary * dic in array) {
             if ([dic[@"subscribeType"] isEqualToString:@"MCENTER_READ_COUNT"] &&[self.data_dict[@"msgNotice"] isEqualToString:@"inboxMsg"]) {
+                [self fetchHttpData];
                 [self fetchInboxMsg];
             }else if ([dic[@"subscribeType"] isEqualToString:@"SYS_ANN"]&&[self.data_dict[@"msgNotice"] isEqualToString:@"systemMsg"]){
                 [self fetchSystemMsg];
+                [self fetchHttpData];
             }else if ([dic[@"subscribeType"] isEqualToString:@"SITE_ANN"]&&[self.data_dict[@"msgNotice"] isEqualToString:@"gameMsg"]){
             }
-            [self fetchHttpData];
         }
     }
 }
