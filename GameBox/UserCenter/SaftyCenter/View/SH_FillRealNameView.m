@@ -25,6 +25,9 @@
     if (self.realNameTF.text.length == 0) {
         showMessage(self, @"请输入真实姓名", @"");
         return;
+    } else if (self.realNameTF.text.length < 2) {
+        showMessage(self, @"真实姓名至少2位数", @"");
+        return;
     }
     [SH_NetWorkService startSetRealName:self.realNameTF.text complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dict = (NSDictionary *)response;

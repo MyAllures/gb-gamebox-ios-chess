@@ -60,7 +60,7 @@
         [self addSubview:textField];
         [textField mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(self);
-            make.trailing.mas_equalTo(0);
+            make.right.mas_equalTo(0);
             make.leading.mas_equalTo(self->label_Title.mas_trailing).mas_offset(8);
             make.height.mas_equalTo(38);
         }];
@@ -684,19 +684,22 @@
                     NSTimeInterval  intinterval = [endTime timeIntervalSinceNow];
                     NSString *str = [NSString stringWithFormat:@"%f",intinterval];
                     int time = [str intValue];
-                    UIButton *button = [self viewWithTag:1002];
-                    if (time > 0) {
-                        button.enabled = NO;
-                        button.layer.borderColor =[UIColor  whiteColor].CGColor;// colorWithRGB(168, 168, 168).CGColor;
-                        [button setTitle:[NSString stringWithFormat:@"%d",time] forState:UIControlStateNormal];
-                        [button setTitleColor:[UIColor  whiteColor] forState:UIControlStateNormal];//colorWithRGB(168, 168, 168)
-                    }else {
-                        dispatch_source_cancel(self->timer);
-                        button.layer.borderColor = [UIColor  whiteColor].CGColor;// colorWithRGB(20, 90, 180).CGColor; //colorWithRGB(20, 90, 180)
-                        [button setTitleColor:[UIColor  whiteColor] forState:UIControlStateNormal];
-                        [button setTitle:@"获取验证码" forState:UIControlStateNormal];
-                        button.enabled = YES;
-                    }
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        UIButton *button = [self viewWithTag:1002];
+                        if (time > 0) {
+                            button.enabled = NO;
+                            button.layer.borderColor =[UIColor  whiteColor].CGColor;// colorWithRGB(168, 168, 168).CGColor;
+                            [button setTitle:[NSString stringWithFormat:@"%d",time] forState:UIControlStateNormal];
+                            [button setTitleColor:[UIColor  whiteColor] forState:UIControlStateNormal];//colorWithRGB(168, 168, 168)
+                        }else {
+                            dispatch_source_cancel(self->timer);
+                            button.layer.borderColor = [UIColor  whiteColor].CGColor;// colorWithRGB(20, 90, 180).CGColor; //colorWithRGB(20, 90, 180)
+                            [button setTitleColor:[UIColor  whiteColor] forState:UIControlStateNormal];
+                            [button setTitle:@"获取验证码" forState:UIControlStateNormal];
+                            button.enabled = YES;
+                        }
+                    });
+                   
                 });
             dispatch_resume(self->timer);
 
