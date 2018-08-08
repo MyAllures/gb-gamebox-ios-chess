@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SH_SmallWindowViewController">
+            <connections>
+                <outlet property="contentView" destination="aQ5-MP-hcs" id="bE7-Y7-kix"/>
+                <outlet property="titleImgView" destination="w7P-wa-4h9" id="NGQ-49-T3d"/>
+                <outlet property="view" destination="bqg-rQ-JMj" id="FUE-rm-RAr"/>
+                <outlet property="windowHeightConstraint" destination="1N4-CE-ncU" id="4Xx-2N-cJG"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="bqg-rQ-JMj">
+            <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7du-JH-QX1" customClass="SH_XibView">
+                    <rect key="frame" x="176" y="87.5" width="315" height="200"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7t9-Q3-EpY" customClass="SH_WebPImageView">
+                            <rect key="frame" x="0.0" y="0.0" width="315" height="46"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="7t9-Q3-EpY" secondAttribute="height" multiplier="315:46" id="3mK-wC-s4j"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="title_bg"/>
+                            </userDefinedRuntimeAttributes>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="title01" translatesAutoresizingMaskIntoConstraints="NO" id="w7P-wa-4h9">
+                            <rect key="frame" x="82.5" y="0.0" width="150" height="46.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="150" id="TIS-He-Wbi"/>
+                            </constraints>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQ5-MP-hcs">
+                            <rect key="frame" x="0.0" y="46" width="315" height="154"/>
+                            <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="1N4-CE-ncU"/>
+                        <constraint firstAttribute="bottom" secondItem="aQ5-MP-hcs" secondAttribute="bottom" id="2pE-pH-Hg5"/>
+                        <constraint firstItem="7t9-Q3-EpY" firstAttribute="leading" secondItem="7du-JH-QX1" secondAttribute="leading" id="4G6-2s-L1N"/>
+                        <constraint firstItem="aQ5-MP-hcs" firstAttribute="leading" secondItem="7du-JH-QX1" secondAttribute="leading" id="ECR-WB-pYT"/>
+                        <constraint firstItem="7t9-Q3-EpY" firstAttribute="top" secondItem="7du-JH-QX1" secondAttribute="top" id="Eo0-rR-l1u"/>
+                        <constraint firstItem="w7P-wa-4h9" firstAttribute="bottom" secondItem="7t9-Q3-EpY" secondAttribute="bottom" id="ShN-9s-Sch"/>
+                        <constraint firstAttribute="trailing" secondItem="7t9-Q3-EpY" secondAttribute="trailing" id="WhE-zq-wwo"/>
+                        <constraint firstItem="w7P-wa-4h9" firstAttribute="centerX" secondItem="7du-JH-QX1" secondAttribute="centerX" id="ZoH-rj-o9Z"/>
+                        <constraint firstAttribute="width" constant="315" id="aDL-xJ-MBR"/>
+                        <constraint firstItem="w7P-wa-4h9" firstAttribute="top" secondItem="7t9-Q3-EpY" secondAttribute="top" id="bie-IU-JXf"/>
+                        <constraint firstItem="aQ5-MP-hcs" firstAttribute="top" secondItem="7t9-Q3-EpY" secondAttribute="bottom" id="fmV-Yy-g1H"/>
+                        <constraint firstAttribute="trailing" secondItem="aQ5-MP-hcs" secondAttribute="trailing" id="hwX-fx-N0B"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iBi-cS-9D7" customClass="SH_WebPButton">
+                    <rect key="frame" x="469" y="82.5" width="37" height="37"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="iBi-cS-9D7" secondAttribute="height" multiplier="1:1" id="Vxn-n7-b8y"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="close"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="closeAction:" destination="-1" eventType="touchUpInside" id="0qV-w3-jyo"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="7du-JH-QX1" firstAttribute="centerY" secondItem="bqg-rQ-JMj" secondAttribute="centerY" id="MBJ-yi-wZw"/>
+                <constraint firstItem="iBi-cS-9D7" firstAttribute="height" secondItem="7t9-Q3-EpY" secondAttribute="height" multiplier="0.8" id="Q2L-6j-Vff"/>
+                <constraint firstItem="iBi-cS-9D7" firstAttribute="top" secondItem="7du-JH-QX1" secondAttribute="top" constant="-5" id="UL8-wh-SeK"/>
+                <constraint firstItem="7du-JH-QX1" firstAttribute="centerX" secondItem="bqg-rQ-JMj" secondAttribute="centerX" id="UQo-Pa-vrd"/>
+                <constraint firstItem="iBi-cS-9D7" firstAttribute="trailing" secondItem="7du-JH-QX1" secondAttribute="trailing" constant="15" id="pBt-jg-Sl2"/>
+            </constraints>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="title01" width="60" height="22"/>
+    </resources>
+</document>
