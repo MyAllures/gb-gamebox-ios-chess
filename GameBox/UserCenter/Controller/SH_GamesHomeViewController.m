@@ -38,9 +38,7 @@
 -(void)configUI{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismiss) name:@"dismiss" object:nil];
     self.view.backgroundColor = [[UIColor  blackColor] colorWithAlphaComponent:0.5];
-//    UIImage * img = [UIImage imageNamed:@"top-bg"];
     UIImage *img = [UIImage imageWithWebPImageName:@"top-bg"];
-//    UIImage * imgs = [UIImage imageNamed:@"menu-bg"];
     UIImage *imgs = [UIImage imageWithWebPImageName:@"menu-bg"];
     self.top_view.layer.contents = (__bridge id _Nullable)(img.CGImage);
     self.bottom_view.layer.contents = (__bridge id _Nullable)(imgs.CGImage);
@@ -56,12 +54,9 @@
         } else {
             self.avatar_imgView.image = [UIImage imageWithWebPImageName:@"photo_male"];
         }
-//        self.avatar_imgView.image = [UIImage imageWithWebPImageName:@"photo_male"];
-//        [self.avatar_button setWebpImage:@"photo_male" forState:UIControlStateNormal];
         //刷新随身福利
     }else{
         self.avatar_imgView.image = [UIImage imageWithWebPImageName:@"avatar"];
-//          [self.avatar_button setWebpImage:@"avatar" forState:UIControlStateNormal];
     }
     if (iPhoneX) {
         self.constraintWidth.constant = 200;
