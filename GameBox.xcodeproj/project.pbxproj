@@ -149,6 +149,8 @@
 		5482546F2119C3D400ECBD5B /* SH_BigWindowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5482546D2119C3D400ECBD5B /* SH_BigWindowViewController.m */; };
 		548254702119C3D400ECBD5B /* SH_BigWindowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5482546E2119C3D400ECBD5B /* SH_BigWindowViewController.xib */; };
 		54825473211A8D0700ECBD5B /* SH_TopLevelControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 54825472211A8D0700ECBD5B /* SH_TopLevelControllerManager.m */; };
+		54825477211A8FFE00ECBD5B /* SH_SmallWindowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54825475211A8FFE00ECBD5B /* SH_SmallWindowViewController.m */; };
+		54825478211A8FFE00ECBD5B /* SH_SmallWindowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54825476211A8FFE00ECBD5B /* SH_SmallWindowViewController.xib */; };
 		54C21AB120EE23B2006FCA0F /* SH_BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C21AB020EE23B2006FCA0F /* SH_BaseViewController.m */; };
 		54C21AB920F1B981006FCA0F /* SH_CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C21AB820F1B981006FCA0F /* SH_CycleScrollView.m */; };
 		54C8758020F3560100AA0594 /* SH_PromoListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C8757F20F3560100AA0594 /* SH_PromoListView.xib */; };
@@ -594,6 +596,9 @@
 		5482546E2119C3D400ECBD5B /* SH_BigWindowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_BigWindowViewController.xib; sourceTree = "<group>"; };
 		54825471211A8D0700ECBD5B /* SH_TopLevelControllerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_TopLevelControllerManager.h; sourceTree = "<group>"; };
 		54825472211A8D0700ECBD5B /* SH_TopLevelControllerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_TopLevelControllerManager.m; sourceTree = "<group>"; };
+		54825474211A8FFE00ECBD5B /* SH_SmallWindowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SmallWindowViewController.h; sourceTree = "<group>"; };
+		54825475211A8FFE00ECBD5B /* SH_SmallWindowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SmallWindowViewController.m; sourceTree = "<group>"; };
+		54825476211A8FFE00ECBD5B /* SH_SmallWindowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_SmallWindowViewController.xib; sourceTree = "<group>"; };
 		54C21AAF20EE23B2006FCA0F /* SH_BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_BaseViewController.h; sourceTree = "<group>"; };
 		54C21AB020EE23B2006FCA0F /* SH_BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_BaseViewController.m; sourceTree = "<group>"; };
 		54C21AB720F1B981006FCA0F /* SH_CycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_CycleScrollView.h; sourceTree = "<group>"; };
@@ -2053,6 +2058,9 @@
 				5482546C2119C3D400ECBD5B /* SH_BigWindowViewController.h */,
 				5482546D2119C3D400ECBD5B /* SH_BigWindowViewController.m */,
 				5482546E2119C3D400ECBD5B /* SH_BigWindowViewController.xib */,
+				54825474211A8FFE00ECBD5B /* SH_SmallWindowViewController.h */,
+				54825475211A8FFE00ECBD5B /* SH_SmallWindowViewController.m */,
+				54825476211A8FFE00ECBD5B /* SH_SmallWindowViewController.xib */,
 			);
 			path = PopTools;
 			sourceTree = "<group>";
@@ -2374,6 +2382,7 @@
 				54C8758D20F498E200AA0594 /* SH_GameItemView.xib in Resources */,
 				BFA068AB20FD86BF00F5ADFE /* SH_OutCoinDetailTableViewCell.xib in Resources */,
 				5439709F210462BB0091C719 /* blueframe-click-1.webp in Resources */,
+				54825478211A8FFE00ECBD5B /* SH_SmallWindowViewController.xib in Resources */,
 				54397089210462BB0091C719 /* arrow.webp in Resources */,
 				BFFC845C20F2F260008AD801 /* RH_RechargeCenterFooterView.xib in Resources */,
 				543970DB210462BB0091C719 /* logo08.webp in Resources */,
@@ -2725,6 +2734,7 @@
 				54E2485C210DE85C005C5263 /* SH_MemoryCache.m in Sources */,
 				54C875AB20F84BFF00AA0594 /* SH_GameItemModel.m in Sources */,
 				BFFEDCBB20F35627002E69FD /* SH_RechargeCenterAccountModel.m in Sources */,
+				54825477211A8FFE00ECBD5B /* SH_SmallWindowViewController.m in Sources */,
 				DA22F40820F494C60058A54F /* ScreenAdaptation.m in Sources */,
 				54C875B320FB4E1200AA0594 /* SH_DragableMenuView.m in Sources */,
 				DA1BCC8F20FEC91200201DBC /* SH_CardRecordTableViewCell.m in Sources */,

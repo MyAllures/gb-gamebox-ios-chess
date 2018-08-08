@@ -45,6 +45,7 @@
 #import "SH_UpdatedVersionModel.h"
 #import "RH_WebsocketManagar.h"
 #import "SH_BigWindowViewController.h"
+#import "SH_SmallWindowViewController.h"
 
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImg;
@@ -637,7 +638,10 @@
         return;
     }
     SH_UserInformationView * inforView = [SH_UserInformationView  instanceInformationView];
-    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:inforView viewHeight:204 titleImageName:@"title04" alertViewType:AlertViewTypeShort];
+    SH_SmallWindowViewController *cvc = [[SH_SmallWindowViewController alloc] initWithNibName:@"SH_SmallWindowViewController" bundle:nil];
+    cvc.titleImageName = @"title04";
+    cvc.customView = inforView;
+    cvc.contentHeight = 204;
     inforView.vc = cvc;
     [self presentViewController:cvc addTargetViewController:self];
 }
