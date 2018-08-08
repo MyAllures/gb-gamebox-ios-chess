@@ -67,7 +67,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejK-a6-Yh9" customClass="SH_WebPButton">
-                    <rect key="frame" x="549.5" y="5" width="40" height="40"/>
+                    <rect key="frame" x="550" y="5" width="39.5" height="39.5"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="ejK-a6-Yh9" secondAttribute="height" multiplier="1:1" id="v0b-PJ-DvK"/>
                     </constraints>
@@ -89,7 +89,7 @@
                 <constraint firstItem="ejK-a6-Yh9" firstAttribute="trailing" secondItem="AbI-HQ-Sts" secondAttribute="trailing" constant="15" id="c9y-Di-4ZW"/>
                 <constraint firstItem="AbI-HQ-Sts" firstAttribute="centerX" secondItem="cUO-HJ-XlN" secondAttribute="centerX" id="pXD-4W-OLE"/>
             </constraints>
-            <point key="canvasLocation" x="33.5" y="53.5"/>
+            <point key="canvasLocation" x="42.5" y="77.5"/>
         </view>
     </objects>
     <resources>
