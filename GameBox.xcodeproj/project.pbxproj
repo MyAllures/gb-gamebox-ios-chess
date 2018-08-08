@@ -148,6 +148,7 @@
 		5482546B21198C6700ECBD5B /* SH_LineCheckErrManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5482546A21198C6700ECBD5B /* SH_LineCheckErrManager.m */; };
 		5482546F2119C3D400ECBD5B /* SH_BigWindowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5482546D2119C3D400ECBD5B /* SH_BigWindowViewController.m */; };
 		548254702119C3D400ECBD5B /* SH_BigWindowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5482546E2119C3D400ECBD5B /* SH_BigWindowViewController.xib */; };
+		54825473211A8D0700ECBD5B /* SH_TopLevelControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 54825472211A8D0700ECBD5B /* SH_TopLevelControllerManager.m */; };
 		54C21AB120EE23B2006FCA0F /* SH_BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C21AB020EE23B2006FCA0F /* SH_BaseViewController.m */; };
 		54C21AB920F1B981006FCA0F /* SH_CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C21AB820F1B981006FCA0F /* SH_CycleScrollView.m */; };
 		54C8758020F3560100AA0594 /* SH_PromoListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C8757F20F3560100AA0594 /* SH_PromoListView.xib */; };
@@ -591,6 +592,8 @@
 		5482546C2119C3D400ECBD5B /* SH_BigWindowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_BigWindowViewController.h; sourceTree = "<group>"; };
 		5482546D2119C3D400ECBD5B /* SH_BigWindowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_BigWindowViewController.m; sourceTree = "<group>"; };
 		5482546E2119C3D400ECBD5B /* SH_BigWindowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_BigWindowViewController.xib; sourceTree = "<group>"; };
+		54825471211A8D0700ECBD5B /* SH_TopLevelControllerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_TopLevelControllerManager.h; sourceTree = "<group>"; };
+		54825472211A8D0700ECBD5B /* SH_TopLevelControllerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_TopLevelControllerManager.m; sourceTree = "<group>"; };
 		54C21AAF20EE23B2006FCA0F /* SH_BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_BaseViewController.h; sourceTree = "<group>"; };
 		54C21AB020EE23B2006FCA0F /* SH_BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_BaseViewController.m; sourceTree = "<group>"; };
 		54C21AB720F1B981006FCA0F /* SH_CycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_CycleScrollView.h; sourceTree = "<group>"; };
@@ -1185,6 +1188,8 @@
 				5401C54E20ECA1B80027246D /* SH_NetWorkService.m */,
 				54E83D9021100FAD00C606FC /* SH_HttpErrManager.h */,
 				54E83D9121100FAD00C606FC /* SH_HttpErrManager.m */,
+				54825471211A8D0700ECBD5B /* SH_TopLevelControllerManager.h */,
+				54825472211A8D0700ECBD5B /* SH_TopLevelControllerManager.m */,
 			);
 			path = NetWork;
 			sourceTree = "<group>";
@@ -2767,6 +2772,7 @@
 				DA334C1021184CFB00290D86 /* SH_SiteMsgUnReadCountModel.m in Sources */,
 				DA22F40920F494C60058A54F /* UIViewController+Instance.m in Sources */,
 				BFA068B620FDE2EC00F5ADFE /* SH_JiHeModel.m in Sources */,
+				54825473211A8D0700ECBD5B /* SH_TopLevelControllerManager.m in Sources */,
 				BFD6CFC120F8901500EDBC5B /* SH_NetWorkService+Bank.m in Sources */,
 				DA21F37F20F58F9000D20672 /* SH_RegistView.m in Sources */,
 				54C8759320F7372D00AA0594 /* SH_HomeBannerModel.m in Sources */,
@@ -2955,7 +2961,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7001;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7000;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2975,7 +2981,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7001;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7000;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

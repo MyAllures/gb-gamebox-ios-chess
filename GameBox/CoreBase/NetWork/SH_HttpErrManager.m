@@ -9,8 +9,9 @@
 #import "SH_HttpErrManager.h"
 #import "LineCheckViewController.h"
 #import "SH_LoginView.h"
-#import "AlertViewController.h"
 #import "SH_NoAccessViewController.h"
+#import "SH_BigWindowViewController.h"
+#import "SH_TopLevelControllerManager.h"
 
 @interface SH_HttpErrManager ()
 
@@ -24,33 +25,34 @@
         code == SH_API_ERRORCODE_606 ||
         code == SH_API_ERRORCODE_1001) {
         
-        [self fetchTargetVC:^(UIViewController *vc) {
-            id topVC = vc;
-            
-            if ([topVC isMemberOfClass:[AlertViewController class]]) {
-                NSString *title = ((AlertViewController *)topVC).imageName;
-                if ([title isEqualToString:@"title01"]) {
-                    //已经展示了登录页面 则不再展示
-                    return;
-                };
-            }
-            //先调用退出通知
-            [[NSNotificationCenter  defaultCenter] postNotificationName:@"didLogOut" object:nil];
-            
-            SH_LoginView *login = [SH_LoginView InstanceLoginView];
-            AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title01" alertViewType:AlertViewTypeLong];
-            cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-            cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
-            login.targetVC = cvc;
-            login.dismissBlock = ^{
-                [cvc  close];
+        id topVC = [SH_TopLevelControllerManager fetchTopLevelController];
+        
+        if ([topVC isMemberOfClass:[SH_BigWindowViewController class]]) {
+            NSString *title = ((SH_BigWindowViewController *)topVC).titleImageName;
+            if ([title isEqualToString:@"title01"] || [title isEqualToString:@"title02"]) {
+                //已经展示了登录页面 则不再展示
+                return;
             };
-            login.changeChannelBlock = ^(NSString *string) {
-                [cvc setImageName:string];
-            };
-            
-            [topVC presentViewController:cvc animated:NO completion:nil];
-        }];
+        }
+        //先调用退出通知
+        [[NSNotificationCenter  defaultCenter] postNotificationName:@"didLogOut" object:nil];
+        
+        SH_LoginView *login = [SH_LoginView InstanceLoginView];
+        
+        SH_BigWindowViewController *cvc = [[SH_BigWindowViewController alloc] initWithNibName:@"SH_BigWindowViewController" bundle:nil];
+        cvc.titleImageName = @"title01";
+        cvc.customView = login;
+        cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
+        login.targetVC = cvc;
+        login.dismissBlock = ^{
+            [cvc  close:nil];
+        };
+        login.changeChannelBlock = ^(NSString *string) {
+            cvc.titleImageName = string;
+        };
+        
+        [topVC presentViewController:cvc animated:NO completion:nil];
     }
     else if (code == SH_API_ERRORCODE_403)
     {
@@ -114,48 +116,6 @@
     else if (code == SH_API_ERRORCODE_609)
     {
         showErrorMessage([UIApplication sharedApplication].keyWindow, nil, @"站点不存在");
-    }
-}
-
-//获取顶层视图控制器
-+ (void)fetchTargetVC:(SH_HttpErrManagerFetchTargetVCComplete)complete
-{
-    UINavigationController *rootViewController = (UINavigationController *)[UIApplication sharedApplication].keyWindow.rootViewController;
-    LineCheckViewController *lineCheckViewController = (LineCheckViewController *)rootViewController.presentedViewController;
-
-    //取到顶层navigation控制器
-    UIViewController *topNavController = [lineCheckViewController.rootNav.viewControllers lastObject];
-    //如果有push的VC先pop到首页控制器
-    [topNavController.navigationController popToRootViewControllerAnimated:NO];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        //取到首页控制器
-        UIViewController *homeViewVC = [lineCheckViewController.rootNav.viewControllers firstObject];
-        if (homeViewVC.presentedViewController) {
-            //如果顶层nav有present的控制器
-            //则取顶层present控制器
-            UIViewController *topPresentedViewController = [self fetchTopLevelPresentedController:homeViewVC.presentedViewController];
-            if (complete) {
-                complete(topPresentedViewController);
-            }
-        }
-        else
-        {
-            if (complete) {
-                complete(homeViewVC);
-            }
-        }
-    });
-}
-
-//递归查找顶层present控制器
-+ (UIViewController *)fetchTopLevelPresentedController:(UIViewController *)rootVC
-{
-    if (rootVC.presentedViewController) {
-        return [self fetchTopLevelPresentedController:rootVC.presentedViewController];
-    }
-    else
-    {
-        return rootVC;
     }
 }
 
