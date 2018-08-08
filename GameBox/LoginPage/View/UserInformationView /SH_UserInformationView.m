@@ -31,6 +31,11 @@
     // Drawing code
 }
 */
+- (void)dealloc
+{
+    
+}
+
 -(void)awakeFromNib{
     [super  awakeFromNib];
     [self configUI];

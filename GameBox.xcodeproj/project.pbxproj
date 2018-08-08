@@ -146,6 +146,11 @@
 		547BCDF8210AFC4D00D7082F /* SH_SearchTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 547BCDF6210AFC4C00D7082F /* SH_SearchTypeModel.m */; };
 		5480CD4B210F0789008465C5 /* SH_SliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5480CD4A210F0789008465C5 /* SH_SliderView.m */; };
 		5482546B21198C6700ECBD5B /* SH_LineCheckErrManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5482546A21198C6700ECBD5B /* SH_LineCheckErrManager.m */; };
+		5482546F2119C3D400ECBD5B /* SH_BigWindowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5482546D2119C3D400ECBD5B /* SH_BigWindowViewController.m */; };
+		548254702119C3D400ECBD5B /* SH_BigWindowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5482546E2119C3D400ECBD5B /* SH_BigWindowViewController.xib */; };
+		54825473211A8D0700ECBD5B /* SH_TopLevelControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 54825472211A8D0700ECBD5B /* SH_TopLevelControllerManager.m */; };
+		54825477211A8FFE00ECBD5B /* SH_SmallWindowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54825475211A8FFE00ECBD5B /* SH_SmallWindowViewController.m */; };
+		54825478211A8FFE00ECBD5B /* SH_SmallWindowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54825476211A8FFE00ECBD5B /* SH_SmallWindowViewController.xib */; };
 		54C21AB120EE23B2006FCA0F /* SH_BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C21AB020EE23B2006FCA0F /* SH_BaseViewController.m */; };
 		54C21AB920F1B981006FCA0F /* SH_CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C21AB820F1B981006FCA0F /* SH_CycleScrollView.m */; };
 		54C8758020F3560100AA0594 /* SH_PromoListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C8757F20F3560100AA0594 /* SH_PromoListView.xib */; };
@@ -586,6 +591,14 @@
 		5480CD4A210F0789008465C5 /* SH_SliderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SliderView.m; sourceTree = "<group>"; };
 		5482546921198C6700ECBD5B /* SH_LineCheckErrManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_LineCheckErrManager.h; sourceTree = "<group>"; };
 		5482546A21198C6700ECBD5B /* SH_LineCheckErrManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_LineCheckErrManager.m; sourceTree = "<group>"; };
+		5482546C2119C3D400ECBD5B /* SH_BigWindowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_BigWindowViewController.h; sourceTree = "<group>"; };
+		5482546D2119C3D400ECBD5B /* SH_BigWindowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_BigWindowViewController.m; sourceTree = "<group>"; };
+		5482546E2119C3D400ECBD5B /* SH_BigWindowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_BigWindowViewController.xib; sourceTree = "<group>"; };
+		54825471211A8D0700ECBD5B /* SH_TopLevelControllerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_TopLevelControllerManager.h; sourceTree = "<group>"; };
+		54825472211A8D0700ECBD5B /* SH_TopLevelControllerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_TopLevelControllerManager.m; sourceTree = "<group>"; };
+		54825474211A8FFE00ECBD5B /* SH_SmallWindowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SmallWindowViewController.h; sourceTree = "<group>"; };
+		54825475211A8FFE00ECBD5B /* SH_SmallWindowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SmallWindowViewController.m; sourceTree = "<group>"; };
+		54825476211A8FFE00ECBD5B /* SH_SmallWindowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_SmallWindowViewController.xib; sourceTree = "<group>"; };
 		54C21AAF20EE23B2006FCA0F /* SH_BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_BaseViewController.h; sourceTree = "<group>"; };
 		54C21AB020EE23B2006FCA0F /* SH_BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_BaseViewController.m; sourceTree = "<group>"; };
 		54C21AB720F1B981006FCA0F /* SH_CycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_CycleScrollView.h; sourceTree = "<group>"; };
@@ -1180,6 +1193,8 @@
 				5401C54E20ECA1B80027246D /* SH_NetWorkService.m */,
 				54E83D9021100FAD00C606FC /* SH_HttpErrManager.h */,
 				54E83D9121100FAD00C606FC /* SH_HttpErrManager.m */,
+				54825471211A8D0700ECBD5B /* SH_TopLevelControllerManager.h */,
+				54825472211A8D0700ECBD5B /* SH_TopLevelControllerManager.m */,
 			);
 			path = NetWork;
 			sourceTree = "<group>";
@@ -2040,6 +2055,12 @@
 				DA18EFBC20F0A9C3002B7E22 /* AlertViewController.h */,
 				DA18EFBA20F0A9C3002B7E22 /* AlertViewController.m */,
 				DA18EFB920F0A9C3002B7E22 /* AlertViewController.xib */,
+				5482546C2119C3D400ECBD5B /* SH_BigWindowViewController.h */,
+				5482546D2119C3D400ECBD5B /* SH_BigWindowViewController.m */,
+				5482546E2119C3D400ECBD5B /* SH_BigWindowViewController.xib */,
+				54825474211A8FFE00ECBD5B /* SH_SmallWindowViewController.h */,
+				54825475211A8FFE00ECBD5B /* SH_SmallWindowViewController.m */,
+				54825476211A8FFE00ECBD5B /* SH_SmallWindowViewController.xib */,
 			);
 			path = PopTools;
 			sourceTree = "<group>";
@@ -2361,6 +2382,7 @@
 				54C8758D20F498E200AA0594 /* SH_GameItemView.xib in Resources */,
 				BFA068AB20FD86BF00F5ADFE /* SH_OutCoinDetailTableViewCell.xib in Resources */,
 				5439709F210462BB0091C719 /* blueframe-click-1.webp in Resources */,
+				54825478211A8FFE00ECBD5B /* SH_SmallWindowViewController.xib in Resources */,
 				54397089210462BB0091C719 /* arrow.webp in Resources */,
 				BFFC845C20F2F260008AD801 /* RH_RechargeCenterFooterView.xib in Resources */,
 				543970DB210462BB0091C719 /* logo08.webp in Resources */,
@@ -2420,6 +2442,7 @@
 				54DD034F21096C1400CE9199 /* title16nw.webp in Resources */,
 				DA6EE1C920F99F45009A01C5 /* SH_SettingView.xib in Resources */,
 				54DD034E21096C1400CE9199 /* title15nw.webp in Resources */,
+				548254702119C3D400ECBD5B /* SH_BigWindowViewController.xib in Resources */,
 				54C875A020F756A500AA0594 /* errRing.mp3 in Resources */,
 				BFA7DEBD2106C2CB00DD731F /* chip_blue.webp in Resources */,
 				22618C792109F27A00E4A6F6 /* SH_HandRecordTableViewCell.xib in Resources */,
@@ -2711,10 +2734,12 @@
 				54E2485C210DE85C005C5263 /* SH_MemoryCache.m in Sources */,
 				54C875AB20F84BFF00AA0594 /* SH_GameItemModel.m in Sources */,
 				BFFEDCBB20F35627002E69FD /* SH_RechargeCenterAccountModel.m in Sources */,
+				54825477211A8FFE00ECBD5B /* SH_SmallWindowViewController.m in Sources */,
 				DA22F40820F494C60058A54F /* ScreenAdaptation.m in Sources */,
 				54C875B320FB4E1200AA0594 /* SH_DragableMenuView.m in Sources */,
 				DA1BCC8F20FEC91200201DBC /* SH_CardRecordTableViewCell.m in Sources */,
 				547BCDF8210AFC4D00D7082F /* SH_SearchTypeModel.m in Sources */,
+				5482546F2119C3D400ECBD5B /* SH_BigWindowViewController.m in Sources */,
 				BFA068C820FE0FF100F5ADFE /* SH_ModifyLoginPSDView.m in Sources */,
 				5434E0B92112987C00DCCC49 /* SH_XibButton.m in Sources */,
 				DA22F3D820F455C50058A54F /* UIImage+Representation.m in Sources */,
@@ -2757,6 +2782,7 @@
 				DA334C1021184CFB00290D86 /* SH_SiteMsgUnReadCountModel.m in Sources */,
 				DA22F40920F494C60058A54F /* UIViewController+Instance.m in Sources */,
 				BFA068B620FDE2EC00F5ADFE /* SH_JiHeModel.m in Sources */,
+				54825473211A8D0700ECBD5B /* SH_TopLevelControllerManager.m in Sources */,
 				BFD6CFC120F8901500EDBC5B /* SH_NetWorkService+Bank.m in Sources */,
 				DA21F37F20F58F9000D20672 /* SH_RegistView.m in Sources */,
 				54C8759320F7372D00AA0594 /* SH_HomeBannerModel.m in Sources */,
@@ -2945,7 +2971,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7001;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7000;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2965,7 +2991,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7001;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7000;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

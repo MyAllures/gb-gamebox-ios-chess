@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SH_BigWindowViewController">
+            <connections>
+                <outlet property="contentView" destination="Qys-en-47Q" id="01u-bQ-I07"/>
+                <outlet property="titleImgView" destination="6MS-Qs-WKi" id="Q7h-Jc-KiM"/>
+                <outlet property="view" destination="cUO-HJ-XlN" id="Ii3-hN-2mS"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="cUO-HJ-XlN">
+            <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AbI-HQ-Sts" customClass="SH_XibView">
+                    <rect key="frame" x="92.5" y="10" width="482" height="355"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fgF-HU-zAP" customClass="SH_WebPImageView">
+                            <rect key="frame" x="0.0" y="0.0" width="482" height="49.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="fgF-HU-zAP" secondAttribute="height" multiplier="485:50" id="4rK-0s-Wa3"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="title_bg_long"/>
+                            </userDefinedRuntimeAttributes>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="title01" translatesAutoresizingMaskIntoConstraints="NO" id="6MS-Qs-WKi">
+                            <rect key="frame" x="166" y="0.0" width="150" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="150" id="fSa-3q-unX"/>
+                            </constraints>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qys-en-47Q">
+                            <rect key="frame" x="0.0" y="49.5" width="482" height="305.5"/>
+                            <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="fgF-HU-zAP" secondAttribute="trailing" id="2zK-d2-41f"/>
+                        <constraint firstAttribute="width" secondItem="AbI-HQ-Sts" secondAttribute="height" multiplier="930:686" id="I3m-J9-0Ph"/>
+                        <constraint firstItem="6MS-Qs-WKi" firstAttribute="bottom" secondItem="fgF-HU-zAP" secondAttribute="bottom" id="Kes-ml-B6l"/>
+                        <constraint firstItem="6MS-Qs-WKi" firstAttribute="top" secondItem="fgF-HU-zAP" secondAttribute="top" id="NJa-4Q-Yo6"/>
+                        <constraint firstItem="Qys-en-47Q" firstAttribute="leading" secondItem="AbI-HQ-Sts" secondAttribute="leading" id="U00-fq-X4N"/>
+                        <constraint firstItem="fgF-HU-zAP" firstAttribute="leading" secondItem="AbI-HQ-Sts" secondAttribute="leading" id="XCK-Ys-d9c"/>
+                        <constraint firstItem="Qys-en-47Q" firstAttribute="top" secondItem="fgF-HU-zAP" secondAttribute="bottom" id="gn2-ax-Rms"/>
+                        <constraint firstAttribute="trailing" secondItem="Qys-en-47Q" secondAttribute="trailing" id="n1h-UU-8Iy"/>
+                        <constraint firstItem="fgF-HU-zAP" firstAttribute="top" secondItem="AbI-HQ-Sts" secondAttribute="top" id="oPW-bA-0DH"/>
+                        <constraint firstAttribute="bottom" secondItem="Qys-en-47Q" secondAttribute="bottom" id="qYZ-r5-RMr"/>
+                        <constraint firstItem="6MS-Qs-WKi" firstAttribute="centerX" secondItem="AbI-HQ-Sts" secondAttribute="centerX" id="sE1-T9-UrS"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejK-a6-Yh9" customClass="SH_WebPButton">
+                    <rect key="frame" x="549.5" y="5" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="ejK-a6-Yh9" secondAttribute="height" multiplier="1:1" id="v0b-PJ-DvK"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="close"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="closeAction:" destination="-1" eventType="touchUpInside" id="tAR-48-uRv"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="AbI-HQ-Sts" secondAttribute="bottom" constant="10" id="3p1-o0-jVg"/>
+                <constraint firstItem="ejK-a6-Yh9" firstAttribute="height" secondItem="fgF-HU-zAP" secondAttribute="height" multiplier="0.8" id="Ca6-84-luk"/>
+                <constraint firstItem="ejK-a6-Yh9" firstAttribute="top" secondItem="AbI-HQ-Sts" secondAttribute="top" constant="-5" id="GKf-DX-EF1"/>
+                <constraint firstItem="AbI-HQ-Sts" firstAttribute="width" secondItem="AbI-HQ-Sts" secondAttribute="height" multiplier="930:686" id="IuB-Fo-fj7"/>
+                <constraint firstItem="AbI-HQ-Sts" firstAttribute="top" secondItem="cUO-HJ-XlN" secondAttribute="top" constant="10" id="N6q-sE-pMf"/>
+                <constraint firstItem="ejK-a6-Yh9" firstAttribute="trailing" secondItem="AbI-HQ-Sts" secondAttribute="trailing" constant="15" id="c9y-Di-4ZW"/>
+                <constraint firstItem="AbI-HQ-Sts" firstAttribute="centerX" secondItem="cUO-HJ-XlN" secondAttribute="centerX" id="pXD-4W-OLE"/>
+            </constraints>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="title01" width="60" height="22"/>
+    </resources>
+</document>
