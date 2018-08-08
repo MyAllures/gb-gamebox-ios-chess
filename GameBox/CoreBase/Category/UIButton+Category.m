@@ -71,16 +71,19 @@ static NSString *tempText;
 
 - (void)startTime:(int)time{
     
-    __block int timeout = time;
+//    __block int timeout = time;
     
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     
     dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,queue);
     
     dispatch_source_set_timer(_timer,dispatch_walltime(NULL, 0),1.0 * NSEC_PER_SEC, 0);
-    
+    NSTimeInterval seconds = time;
+    NSDate *endTime = [NSDate dateWithTimeIntervalSinceNow:seconds];//进入后台的时间
     dispatch_source_set_event_handler(_timer, ^{
-        
+        NSTimeInterval  intinterval = [endTime timeIntervalSinceNow];
+        NSString *str = [NSString stringWithFormat:@"%f",intinterval];
+        int timeout = [str intValue];
         //倒计时结束
         if(timeout <= 0){
             
