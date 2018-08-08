@@ -145,6 +145,8 @@
 		547BCDF8210AFC4D00D7082F /* SH_SearchTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 547BCDF6210AFC4C00D7082F /* SH_SearchTypeModel.m */; };
 		5480CD4B210F0789008465C5 /* SH_SliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5480CD4A210F0789008465C5 /* SH_SliderView.m */; };
 		5482546B21198C6700ECBD5B /* SH_LineCheckErrManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5482546A21198C6700ECBD5B /* SH_LineCheckErrManager.m */; };
+		5482546F2119C3D400ECBD5B /* SH_BigWindowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5482546D2119C3D400ECBD5B /* SH_BigWindowViewController.m */; };
+		548254702119C3D400ECBD5B /* SH_BigWindowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5482546E2119C3D400ECBD5B /* SH_BigWindowViewController.xib */; };
 		54C21AB120EE23B2006FCA0F /* SH_BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C21AB020EE23B2006FCA0F /* SH_BaseViewController.m */; };
 		54C21AB920F1B981006FCA0F /* SH_CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C21AB820F1B981006FCA0F /* SH_CycleScrollView.m */; };
 		54C8758020F3560100AA0594 /* SH_PromoListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C8757F20F3560100AA0594 /* SH_PromoListView.xib */; };
@@ -584,6 +586,9 @@
 		5480CD4A210F0789008465C5 /* SH_SliderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SliderView.m; sourceTree = "<group>"; };
 		5482546921198C6700ECBD5B /* SH_LineCheckErrManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_LineCheckErrManager.h; sourceTree = "<group>"; };
 		5482546A21198C6700ECBD5B /* SH_LineCheckErrManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_LineCheckErrManager.m; sourceTree = "<group>"; };
+		5482546C2119C3D400ECBD5B /* SH_BigWindowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_BigWindowViewController.h; sourceTree = "<group>"; };
+		5482546D2119C3D400ECBD5B /* SH_BigWindowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_BigWindowViewController.m; sourceTree = "<group>"; };
+		5482546E2119C3D400ECBD5B /* SH_BigWindowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_BigWindowViewController.xib; sourceTree = "<group>"; };
 		54C21AAF20EE23B2006FCA0F /* SH_BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_BaseViewController.h; sourceTree = "<group>"; };
 		54C21AB020EE23B2006FCA0F /* SH_BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_BaseViewController.m; sourceTree = "<group>"; };
 		54C21AB720F1B981006FCA0F /* SH_CycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_CycleScrollView.h; sourceTree = "<group>"; };
@@ -2037,6 +2042,9 @@
 				DA18EFBC20F0A9C3002B7E22 /* AlertViewController.h */,
 				DA18EFBA20F0A9C3002B7E22 /* AlertViewController.m */,
 				DA18EFB920F0A9C3002B7E22 /* AlertViewController.xib */,
+				5482546C2119C3D400ECBD5B /* SH_BigWindowViewController.h */,
+				5482546D2119C3D400ECBD5B /* SH_BigWindowViewController.m */,
+				5482546E2119C3D400ECBD5B /* SH_BigWindowViewController.xib */,
 			);
 			path = PopTools;
 			sourceTree = "<group>";
@@ -2416,6 +2424,7 @@
 				54DD034F21096C1400CE9199 /* title16nw.webp in Resources */,
 				DA6EE1C920F99F45009A01C5 /* SH_SettingView.xib in Resources */,
 				54DD034E21096C1400CE9199 /* title15nw.webp in Resources */,
+				548254702119C3D400ECBD5B /* SH_BigWindowViewController.xib in Resources */,
 				54C875A020F756A500AA0594 /* errRing.mp3 in Resources */,
 				BFA7DEBD2106C2CB00DD731F /* chip_blue.webp in Resources */,
 				22618C792109F27A00E4A6F6 /* SH_HandRecordTableViewCell.xib in Resources */,
@@ -2711,6 +2720,7 @@
 				54C875B320FB4E1200AA0594 /* SH_DragableMenuView.m in Sources */,
 				DA1BCC8F20FEC91200201DBC /* SH_CardRecordTableViewCell.m in Sources */,
 				547BCDF8210AFC4D00D7082F /* SH_SearchTypeModel.m in Sources */,
+				5482546F2119C3D400ECBD5B /* SH_BigWindowViewController.m in Sources */,
 				BFA068C820FE0FF100F5ADFE /* SH_ModifyLoginPSDView.m in Sources */,
 				5434E0B92112987C00DCCC49 /* SH_XibButton.m in Sources */,
 				DA22F3D820F455C50058A54F /* UIImage+Representation.m in Sources */,

@@ -44,6 +44,7 @@
 #import "SH_TimeZoneManager.h"
 #import "SH_UpdatedVersionModel.h"
 #import "RH_WebsocketManagar.h"
+#import "SH_BigWindowViewController.h"
 
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImg;
@@ -552,18 +553,20 @@
 
 -(void)login{
     SH_LoginView *login = [SH_LoginView InstanceLoginView];
-    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title01" alertViewType:AlertViewTypeLong];
-    login.targetVC = cvc;
+    
+    SH_BigWindowViewController *vc = [[SH_BigWindowViewController alloc] initWithNibName:@"SH_BigWindowViewController" bundle:nil];
+    vc.titleImageName = @"title01";
+    vc.customView = login;
+    login.targetVC = vc;
     login.dismissBlock = ^{
-        [cvc  close];
-        [self  configUI];
+        [vc close:nil];
+        [self configUI];
     };
     login.changeChannelBlock = ^(NSString *string) {
-      [cvc setImageName:string];
-        
+        vc.titleImageName = string;
     };
-    
-    [self presentViewController:cvc addTargetViewController:self];
+
+    [self presentViewController:vc addTargetViewController:self];
 }
 
 - (IBAction)welfareClick:(id)sender {
