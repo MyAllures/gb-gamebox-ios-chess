@@ -16,10 +16,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PHK-AA-NMh" customClass="SH_XibView">
-                    <rect key="frame" x="10" y="8" width="313" height="200"/>
+                    <rect key="frame" x="8" y="8" width="317" height="200"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="旧手机号码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lj-5u-nPC">
-                            <rect key="frame" x="26" y="23" width="71.5" height="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="旧手机号码阿斯蒂芬按时按时" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lj-5u-nPC">
+                            <rect key="frame" x="26" y="23" width="75.5" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -53,7 +53,7 @@
                             </userDefinedRuntimeAttributes>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zwV-Rc-eZY" customClass="SH_WebPButton">
-                            <rect key="frame" x="84" y="140" width="145" height="47"/>
+                            <rect key="frame" x="86" y="140" width="145" height="47"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="47" id="Dp2-PU-zkr">
                                     <userDefinedRuntimeAttributes>
@@ -76,7 +76,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ula-a8-vQL">
-                            <rect key="frame" x="235" y="58.5" width="67" height="28"/>
+                            <rect key="frame" x="239" y="58.5" width="67" height="28"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="28" id="LOp-mD-obG">
                                     <userDefinedRuntimeAttributes>
@@ -98,7 +98,7 @@
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gq8-Bt-gKH">
-                            <rect key="frame" x="105.5" y="14.5" width="192" height="33"/>
+                            <rect key="frame" x="109.5" y="14.5" width="192" height="33"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7L4-0o-smw">
                                     <rect key="frame" x="8" y="0.0" width="184" height="33"/>
@@ -113,11 +113,19 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                             </subviews>
-                            <color key="backgroundColor" red="0.13725490200000001" green="0.16862745100000001" blue="0.41568627450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.1069291686" green="1" blue="0.040969342489999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
                                 <constraint firstItem="7L4-0o-smw" firstAttribute="top" secondItem="gq8-Bt-gKH" secondAttribute="top" id="Aa3-QX-rvD"/>
-                                <constraint firstAttribute="height" constant="33" id="E3F-mw-jUu"/>
-                                <constraint firstAttribute="width" constant="192" id="NQW-Eh-gZG"/>
+                                <constraint firstAttribute="height" constant="33" id="E3F-mw-jUu">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
+                                <constraint firstAttribute="width" constant="192" id="NQW-Eh-gZG">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
                                 <constraint firstAttribute="bottom" secondItem="7L4-0o-smw" secondAttribute="bottom" id="VZd-ft-8QY"/>
                                 <constraint firstItem="7L4-0o-smw" firstAttribute="leading" secondItem="gq8-Bt-gKH" secondAttribute="leading" constant="8" id="X1a-lk-vnr"/>
                                 <constraint firstAttribute="trailing" secondItem="7L4-0o-smw" secondAttribute="trailing" id="ucc-YJ-hg1"/>
@@ -130,7 +138,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eYU-ct-qFS">
-                            <rect key="frame" x="105.5" y="56" width="123" height="33"/>
+                            <rect key="frame" x="109.5" y="56" width="123" height="33"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MWe-jF-7oz">
                                     <rect key="frame" x="8" y="0.0" width="115" height="33"/>
@@ -245,14 +253,14 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QLz-oQ-9JM" userLabel="lineView">
-                    <rect key="frame" x="10" y="220" width="313" height="1"/>
+                    <rect key="frame" x="8" y="220" width="317" height="1"/>
                     <color key="backgroundColor" red="0.25882352941176467" green="0.29411764705882354" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="lnc-gm-fTy"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jz-Wo-dGv" userLabel="温馨提示： ●忘记密码时可以通过手机号码找回。 ●短信送达可能存在延迟，请耐心等待。 ●若规定时间内仍未收到短信，请您重新获取或联系在线客服。">
-                    <rect key="frame" x="10" y="229" width="323" height="53"/>
+                    <rect key="frame" x="8" y="229" width="325" height="53"/>
                     <string key="text">温馨提示：
 ●忘记密码时可以通过手机号码找回。
 ●短信送达可能存在延迟，请耐心等待。
@@ -270,9 +278,13 @@
                     </userDefinedRuntimeAttributes>
                 </constraint>
                 <constraint firstItem="QLz-oQ-9JM" firstAttribute="leading" secondItem="PHK-AA-NMh" secondAttribute="leading" id="FpE-ea-bKY"/>
-                <constraint firstItem="8jz-Wo-dGv" firstAttribute="top" secondItem="QLz-oQ-9JM" secondAttribute="bottom" constant="8" id="QaI-v3-T1K"/>
+                <constraint firstItem="8jz-Wo-dGv" firstAttribute="top" secondItem="QLz-oQ-9JM" secondAttribute="bottom" constant="8" id="QaI-v3-T1K">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </constraint>
                 <constraint firstItem="8jz-Wo-dGv" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="bK6-we-bBG"/>
-                <constraint firstItem="PHK-AA-NMh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="eNR-1X-yAM">
+                <constraint firstItem="PHK-AA-NMh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="eNR-1X-yAM">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                     </userDefinedRuntimeAttributes>
@@ -284,7 +296,7 @@
                     </userDefinedRuntimeAttributes>
                 </constraint>
                 <constraint firstItem="QLz-oQ-9JM" firstAttribute="trailing" secondItem="PHK-AA-NMh" secondAttribute="trailing" id="rP0-oO-otr"/>
-                <constraint firstAttribute="trailing" secondItem="PHK-AA-NMh" secondAttribute="trailing" constant="10" id="x4J-sF-0RW">
+                <constraint firstAttribute="trailing" secondItem="PHK-AA-NMh" secondAttribute="trailing" constant="8" id="x4J-sF-0RW">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                     </userDefinedRuntimeAttributes>
