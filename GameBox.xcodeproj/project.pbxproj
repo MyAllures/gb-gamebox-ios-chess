@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2209026620F053D400F8828E /* SH_PromoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2209026420F053D400F8828E /* SH_PromoViewCell.m */; };
 		2209026720F053D400F8828E /* SH_PromoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2209026520F053D400F8828E /* SH_PromoViewCell.xib */; };
-		221A427E211AE13F003DB774 /* nodata_bg2_slices.webp in Resources */ = {isa = PBXBuildFile; fileRef = 221A427D211AE13F003DB774 /* nodata_bg2_slices.webp */; };
 		2231283420F6F26D00D1BF5E /* SH_GameBulletinModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2231283320F6F26D00D1BF5E /* SH_GameBulletinModel.m */; };
 		2231283720F707F500D1BF5E /* SH_SystemNotificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2231283620F707F500D1BF5E /* SH_SystemNotificationModel.m */; };
 		22552CEE20F4CCE50090EFBC /* SH_NetWorkService+Promo.m in Sources */ = {isa = PBXBuildFile; fileRef = 22552CED20F4CCE50090EFBC /* SH_NetWorkService+Promo.m */; };
@@ -428,6 +427,7 @@
 		DA6EE1C420F98B7F009A01C5 /* SH_AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA6EE1C320F98B7F009A01C5 /* SH_AlertView.xib */; };
 		DA6EE1C720F99F39009A01C5 /* SH_SettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6EE1C620F99F39009A01C5 /* SH_SettingView.m */; };
 		DA6EE1C920F99F45009A01C5 /* SH_SettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA6EE1C820F99F45009A01C5 /* SH_SettingView.xib */; };
+		DACDEBC8211C370B00432E12 /* nodata_bg2_slices.webp in Resources */ = {isa = PBXBuildFile; fileRef = DACDEBC7211C370B00432E12 /* nodata_bg2_slices.webp */; };
 		F88297C8CDA8BE450455395E /* libPods-GameBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C23814E2A7636D1CE6B89BC /* libPods-GameBox.a */; };
 /* End PBXBuildFile section */
 
@@ -435,7 +435,6 @@
 		2209026320F053D400F8828E /* SH_PromoViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoViewCell.h; sourceTree = "<group>"; };
 		2209026420F053D400F8828E /* SH_PromoViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoViewCell.m; sourceTree = "<group>"; };
 		2209026520F053D400F8828E /* SH_PromoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PromoViewCell.xib; sourceTree = "<group>"; };
-		221A427D211AE13F003DB774 /* nodata_bg2_slices.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = nodata_bg2_slices.webp; sourceTree = "<group>"; };
 		2231283220F6F26D00D1BF5E /* SH_GameBulletinModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_GameBulletinModel.h; sourceTree = "<group>"; };
 		2231283320F6F26D00D1BF5E /* SH_GameBulletinModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_GameBulletinModel.m; sourceTree = "<group>"; };
 		2231283520F707F500D1BF5E /* SH_SystemNotificationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SystemNotificationModel.h; sourceTree = "<group>"; };
@@ -1067,6 +1066,7 @@
 		DA6EE1C520F99F39009A01C5 /* SH_SettingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SettingView.h; sourceTree = "<group>"; };
 		DA6EE1C620F99F39009A01C5 /* SH_SettingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SettingView.m; sourceTree = "<group>"; };
 		DA6EE1C820F99F45009A01C5 /* SH_SettingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_SettingView.xib; sourceTree = "<group>"; };
+		DACDEBC7211C370B00432E12 /* nodata_bg2_slices.webp */ = {isa = PBXFileReference; lastKnownFileType = file; name = nodata_bg2_slices.webp; path = ../../../../../../Desktop/nodata_bg2_slices.webp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1321,11 +1321,11 @@
 		5435E7C32104349B00DB809F /* webpRes */ = {
 			isa = PBXGroup;
 			children = (
+				DACDEBC7211C370B00432E12 /* nodata_bg2_slices.webp */,
 				BFA2EBED211BE64800B2678F /* error.webp */,
 				BFA2EBEB211BE62100B2678F /* correct.webp */,
 				BFA2EBDC211AF48000B2678F /* btn_green_action.webp */,
 				BFA2EBDA211AF0E900B2678F /* iconImage.webp */,
-				223297E72119C6B300089E26 /* nodata_bg2_slices.webp */,
 				5404EA7C2112F954004D75AA /* nodata_bg.webp */,
 				54E24849210DB7D0005C5263 /* gongxi.webp */,
 				54E2482C210D5B06005C5263 /* loading_eaIcon.webp */,
@@ -2476,7 +2476,6 @@
 				5401C53C20ECA1100027246D /* LaunchScreen.storyboard in Resources */,
 				54C8759E20F756A500AA0594 /* moneyRing.mp3 in Resources */,
 				54397086210462BB0091C719 /* btn_top_recharge.webp in Resources */,
-				221A427E211AE13F003DB774 /* nodata_bg2_slices.webp in Resources */,
 				54E7D2E7210726390069F2CE /* mearkRead.webp in Resources */,
 				543970D1210462BB0091C719 /* unselect.webp in Resources */,
 				BFA2EBDB211AF0E900B2678F /* iconImage.webp in Resources */,
@@ -2535,6 +2534,7 @@
 				543970C3210462BB0091C719 /* icon_promo.webp in Resources */,
 				54C875C820FCBE1900AA0594 /* SH_DZGameItemView.xib in Resources */,
 				543970B2210462BB0091C719 /* unselect2.webp in Resources */,
+				DACDEBC8211C370B00432E12 /* nodata_bg2_slices.webp in Resources */,
 				54C8761B20FE218B00AA0594 /* snow.png in Resources */,
 				54E24838210D5B07005C5263 /* loading-4.webp in Resources */,
 				54DD033A21085E1D00CE9199 /* title-bg-long.webp in Resources */,

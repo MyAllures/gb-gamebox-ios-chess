@@ -12,9 +12,7 @@
 #import "SH_PromoDeatilViewController.h"
 #import "SH_WebPButton.h"
 #import "SH_MsgCenterDetailView.h"
-
 #import "SH_PromoActivitiesView.h"
-
 #import "SH_BigWindowViewController.h"
 #import "SH_SmallWindowViewController.h"
 @interface SH_PromoWindowViewController () <SH_PromoListViewDelegate>
