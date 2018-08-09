@@ -136,6 +136,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="mainTableView" destination="k3t-3h-nMk" id="wTT-B5-bKF"/>
+                <outlet property="topView" destination="r70-mC-23F" id="FTX-TF-xhw"/>
             </connections>
             <point key="canvasLocation" x="135.5" y="95"/>
         </view>

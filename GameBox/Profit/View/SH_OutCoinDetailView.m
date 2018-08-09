@@ -42,7 +42,7 @@
     return 6;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 32;
+    return 32*screenSize().width/375.0;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     SH_OutCoinDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SH_OutCoinDetailTableViewCell"];

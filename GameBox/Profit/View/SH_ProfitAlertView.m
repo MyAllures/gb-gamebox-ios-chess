@@ -20,7 +20,6 @@
     [super awakeFromNib];
     self.lab.layer.borderWidth = 2;
     self.lab.layer.borderColor = [UIColor colorWithWhite:1 alpha:0.25].CGColor;
-    self.lab.text = self.content;
 }
 - (IBAction)sureBtnClick:(SH_WebPButton *)sender {
     if (sender.tag == 100) {
@@ -47,5 +46,8 @@
                        TargetVC:(UIViewController *)targetVC
                           Token:(NSString *)token {
 }
-
+- (void)setContent:(NSString *)content{
+    _content = content;
+    self.lab.text = content;
+}
 @end
