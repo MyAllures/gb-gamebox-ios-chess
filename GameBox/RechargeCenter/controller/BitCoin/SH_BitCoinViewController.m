@@ -29,7 +29,6 @@
     SH_BitCoinView *bitCoinView = [[SH_BitCoinView alloc]init];
     bitCoinView.delegate = self;
     [self.bgScrollView addSubview:bitCoinView];
-    bitCoinView.targetVC = self;
     [bitCoinView mas_makeConstraints:^(MASConstraintMaker *make) {
        make.top.left.bottom.right.equalTo(self.bgScrollView);
         make.width.mas_equalTo(SCREEN_WIDTH);
@@ -63,7 +62,6 @@
             showMessage(self.view, [NSString stringWithFormat:@"%@",response[@"message"]], nil);
         }else{
             SH_BitCoinSuccessView *popView = [[SH_BitCoinSuccessView alloc]initWithFrame:CGRectMake(0, 0, screenSize().width, screenSize().height)];
-            popView.targetVC = self;
             [popView popViewShow];
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {

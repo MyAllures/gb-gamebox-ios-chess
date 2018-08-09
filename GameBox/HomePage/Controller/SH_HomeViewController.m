@@ -560,7 +560,6 @@
     SH_BigWindowViewController *vc = [[SH_BigWindowViewController alloc] initWithNibName:@"SH_BigWindowViewController" bundle:nil];
     vc.titleImageName = @"title01";
     vc.customView = login;
-    login.targetVC = vc;
     login.dismissBlock = ^{
         [vc close:nil];
         [self configUI];
@@ -698,7 +697,7 @@
             NSString *code = response[@"code"];
             NSString *message = response[@"message"];
             [self refreshBalance:model.totalBalance];
-            [view updateUIWithBalance:model BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:self.acr Token:model.token Code:code Message:message];
+            [view updateUIWithBalance:model BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:nil Token:model.token Code:code Message:message];
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
@@ -736,7 +735,6 @@
         vc.contentHeight = 260;
         vc.titleImageName = @"title08";
         vc.customView = share;
-        share.targetVC = vc;
         [self presentViewController:vc addTargetViewController:self];
     }else{
         [self login];

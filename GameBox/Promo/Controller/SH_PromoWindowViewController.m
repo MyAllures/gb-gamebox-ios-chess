@@ -80,9 +80,9 @@
                 [acr dismissViewControllerAnimated:NO completion:nil];
                 [self->_msgCenterView  fetchHttpData];
             }];
-//            [acr close:^{
-//                [self->_msgCenterView  fetchHttpData];
-//            }];
+            [acr close:^{
+                 [self->_msgCenterView  fetchHttpData];
+            }];
         }];
     }
     return _msgCenterView;

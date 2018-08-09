@@ -8,6 +8,7 @@
 
 #import "SH_ShareView.h"
 #import "SH_NetWorkService+UserCenter.h"
+#import "SH_TopLevelControllerManager.h"
 @interface SH_ShareView()
 @property (weak, nonatomic) IBOutlet UIImageView *QRCode_imageView;
 @property (weak, nonatomic) IBOutlet UILabel *shareTitle_label;
@@ -32,8 +33,8 @@
     [alert addAction:[UIAlertAction  actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self saveImageToPhotosAlbum];
     }] ];
-    
-    [self.targetVC  presentViewController:alert animated:YES completion:nil];
+     UIViewController * svc = [SH_TopLevelControllerManager fetchTopLevelController];
+    [svc  presentViewController:alert animated:YES completion:nil];
     
 }
 #pragma mark --- 保存图片到相册

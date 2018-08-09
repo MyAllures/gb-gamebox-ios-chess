@@ -10,6 +10,7 @@
 #import "SH_FindPSWSendCodeView.h"
 #import "SH_FindPSWSureView.h"
 #import "SH_SmallWindowViewController.h"
+#import "SH_TopLevelControllerManager.h"
 @interface SH_FindPSWSendCodeView()
 @property (weak, nonatomic) IBOutlet UIButton *verificationBtn;
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
@@ -29,10 +30,10 @@
             acr.contentHeight = 200;
             acr.customView = view;
             acr.titleImageName = @"title19";
-            view.targetVC3 = acr;
             acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
             acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-            [self.targetVC2 presentViewController:acr animated:YES completion:nil];
+             UIViewController * svc = [SH_TopLevelControllerManager fetchTopLevelController];
+            [svc presentViewController:acr animated:YES completion:nil];
         } else {
             showMessage(self, @"", dict1[@"message"]);
         }

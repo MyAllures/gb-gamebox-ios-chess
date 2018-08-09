@@ -10,7 +10,6 @@
 #import "SH_XibView.h"
 
 @interface SH_ModiftSaftyPSDView : SH_XibView
-@property(nonatomic,strong)UIViewController *targetVC;
 @property (weak, nonatomic) IBOutlet UITextField *realNameTF;
 @property (strong, nonatomic) NSString *comeFromVC;
 -(void)updateView;

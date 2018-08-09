@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SH_BitCoinSuccessView : UIView
-@property(nonatomic,strong)UIViewController *targetVC;
 -(void)popViewShow;
 @end

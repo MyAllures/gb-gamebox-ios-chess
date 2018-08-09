@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SH_FindPSWSureView : UIView
-@property (nonatomic, strong) UIViewController *targetVC3;
+
 @end

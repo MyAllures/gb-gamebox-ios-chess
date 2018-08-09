@@ -44,7 +44,6 @@
         cvc.customView = login;
         cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
-        login.targetVC = cvc;
         login.dismissBlock = ^{
             [cvc  close:nil];
         };
