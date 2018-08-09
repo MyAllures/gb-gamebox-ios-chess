@@ -7,7 +7,7 @@
 //
 
 #import "SH_FindPSWSureView.h"
-#import "AlertViewController.h"
+
 @interface SH_FindPSWSureView()
 @property (weak, nonatomic) IBOutlet UITextField *textField1;
 @property (weak, nonatomic) IBOutlet UITextField *textField2;

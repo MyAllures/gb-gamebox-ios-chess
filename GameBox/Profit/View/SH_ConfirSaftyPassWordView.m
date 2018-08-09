@@ -8,11 +8,12 @@
 
 #import "SH_ConfirSaftyPassWordView.h"
 #import "SH_NetWorkService+Profit.h"
-#import "AlertViewController.h"
 #import "SH_ProfitAlertView.h"
 #import "SH_NetWorkService+Home.h"
 #import "SH_NetWorkService+RegistAPI.h"
 
+#import "SH_SmallWindowViewController.h"
+#import "SH_BigWindowViewController.h"
 @interface SH_ConfirSaftyPassWordView()
 @property (weak, nonatomic) IBOutlet UITextField *pswTF;
 
@@ -100,7 +101,10 @@
         view.sureBtn.tag = 100;
     }
     view.targetVC = self.targetVC;
-    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:202 titleImageName:@"title03" alertViewType:AlertViewTypeShort];
+    SH_SmallWindowViewController *acr = [SH_SmallWindowViewController new];
+    acr.customView = view;
+    acr.titleImageName = @"title03";
+    acr.contentHeight = 202;
     acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self.targetVC presentViewController:acr animated:YES completion:nil];

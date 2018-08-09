@@ -10,7 +10,6 @@
 #import "SH_NetWorkService+SaftyCenter.h"
 #import "RH_UserSafetyCodeModel.h"
 #import "SH_FillRealNameView.h"
-#import "AlertViewController.h"
 #import "SH_GamesHomeViewController.h"
 @interface SH_ModiftSaftyPSDView()
 @property (weak, nonatomic) IBOutlet UITextField *currentTF;

@@ -16,7 +16,6 @@
 #import "SH_RechargeCenterViewController.h"
 #import "View+MASAdditions.h"
 #import "SH_CycleScrollView.h"
-#import "AlertViewController.h"
 #import "SH_LoginView.h"
 #import "SH_GamesListScrollView.h"
 #import "SH_NetWorkService+Home.h"
@@ -75,7 +74,7 @@
 @property (nonatomic, strong) NSTimer *keepAliveTimer;
 
 @property (nonatomic, strong) SH_GamesHomeViewController * vc;
-@property (nonatomic, strong) AlertViewController *acr;
+@property (nonatomic, strong) SH_BigWindowViewController *acr;
 
 @end
 
@@ -681,7 +680,9 @@
         return;
     }
     SH_PrifitOutCoinView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_PrifitOutCoinView" owner:nil options:nil].lastObject;
-    self.acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-75 titleImageName:@"title07" alertViewType:AlertViewTypeLong];
+    self.acr = [SH_BigWindowViewController new];
+    self.acr.titleImageName = @"title07";
+    self.acr.customView = view;
     self.acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     self.acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:self.acr animated:YES completion:nil];
@@ -704,7 +705,7 @@
 }
 
 -(void) close {
-    [self.acr close];
+    [self.acr close:nil];
 }
 
 #pragma mark --- 玩家中心
@@ -724,7 +725,10 @@
 - (IBAction)shareClick:(id)sender {
     if ([RH_UserInfoManager shareUserManager].isLogin) {
           SH_ShareView * share = [SH_ShareView instanceShareView];
-        AlertViewController *vc  = [[AlertViewController  alloc] initAlertView:share viewHeight:260 titleImageName:@"title08" alertViewType:AlertViewTypeShort];
+        SH_SmallWindowViewController * vc = [SH_SmallWindowViewController new];
+        vc.contentHeight = 260;
+        vc.titleImageName = @"title08";
+        vc.customView = share;
         share.targetVC = vc;
         [self presentViewController:vc addTargetViewController:self];
     }else{

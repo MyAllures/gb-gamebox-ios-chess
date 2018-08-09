@@ -8,7 +8,7 @@
 
 #import "SH_ProfitAlertView.h"
 #import "SH_SaftyCenterView.h"
-#import "AlertViewController.h"
+#import "SH_BigWindowViewController.h"
 
 @interface SH_ProfitAlertView()
 @property (weak, nonatomic) IBOutlet UILabel *lab;
@@ -36,7 +36,9 @@
 -(void)popAlertView {
     SH_SaftyCenterView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_SaftyCenterView" owner:self options:nil].firstObject;
     view.targetVC = self.targetVC;
-    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title03" alertViewType:AlertViewTypeLong];
+    SH_BigWindowViewController * acr = [SH_BigWindowViewController  new];
+    acr.customView = view;
+    acr.titleImageName = @"title03";
     acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self.targetVC presentViewController:acr animated:YES completion:nil];

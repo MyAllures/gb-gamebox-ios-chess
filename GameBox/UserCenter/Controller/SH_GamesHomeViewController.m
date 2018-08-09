@@ -7,7 +7,6 @@
 //
 
 #import "SH_GamesHomeViewController.h"
-#import "AlertViewController.h"
 #import "SH_SaftyCenterView.h"
 #import "SH_NetWorkService+RegistAPI.h"
 #import "UIImage+SH_WebPImage.h"
@@ -16,6 +15,8 @@
 #import "SH_HandRecordView.h"
 #import "SH_CustomerServiceManager.h"
 
+#import "SH_BigWindowViewController.h"
+#import "SH_SmallWindowViewController.h"
 @interface SH_GamesHomeViewController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintWidth;
 @property (weak, nonatomic) IBOutlet UIView *top_view;
@@ -89,7 +90,9 @@
         case 0:{
             //福利记录
             SH_WelfareNotesView   *welfare =  [SH_WelfareNotesView instanceWelfareRecordView];
-            AlertViewController *cvc  = [[AlertViewController  alloc] initAlertView:welfare viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title09" alertViewType:AlertViewTypeLong];
+            SH_BigWindowViewController * cvc = [SH_BigWindowViewController new];
+            cvc.customView = welfare;
+            cvc.titleImageName = @"title09";
             //             welfare.vc = cvc;
             [self presentViewController:cvc addTargetViewController:self];
 
@@ -99,7 +102,9 @@
             //牌局记录
             SH_HandRecordView *crv = [SH_HandRecordView  instanceCardRecordView];
             // 投注记录详情
-            AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:crv viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title10" alertViewType:AlertViewTypeLong];
+            SH_BigWindowViewController * acr = [SH_BigWindowViewController new];
+            acr.customView = crv;
+            acr.titleImageName = @"title10";
             [self presentViewController:acr addTargetViewController:self];
             
             break;
@@ -107,8 +112,9 @@
         case 2:{
             // 安全中心
             SH_SaftyCenterView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_SaftyCenterView" owner:self options:nil].firstObject;
-            
-            AlertViewController *avc  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title12" alertViewType:AlertViewTypeLong];
+            SH_BigWindowViewController *avc = [SH_BigWindowViewController new];
+            avc.customView = view;
+            avc.titleImageName = @"title12";
             [self presentViewController:avc addTargetViewController:self];
             view.targetVC = avc;
             break;
