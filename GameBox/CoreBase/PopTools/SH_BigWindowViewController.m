@@ -33,7 +33,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void)setTitleImageName:(NSString *)titleImageName
+{
+    _titleImageName = titleImageName;
+    self.titleImgView.image = [UIImage imageNamed:_titleImageName];
+}
 -(void)close:(SH_BigWindowViewControllerDismissBlock)closeBlock
 {
     self.dismissBlock = closeBlock; 
