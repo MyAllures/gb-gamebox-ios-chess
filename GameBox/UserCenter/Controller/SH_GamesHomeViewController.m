@@ -47,9 +47,9 @@
     self.money_label.text = [NSString  stringWithFormat:@"%.2f",[RH_UserInfoManager shareUserManager].mineSettingInfo.walletBalance];
     if ([RH_UserInfoManager  shareUserManager].isLogin) {
         if ([RH_UserInfoManager shareUserManager].mineSettingInfo.userSex.length > 0) {
-            if ([[RH_UserInfoManager shareUserManager].mineSettingInfo.userSex isEqualToString:@"男"]) {
+            if ([[RH_UserInfoManager shareUserManager].mineSettingInfo.userSex isEqualToString:@"male"]) {
                 self.avatar_imgView.image = [UIImage imageWithWebPImageName:@"photo_male"];
-            } else  if ([[RH_UserInfoManager shareUserManager].mineSettingInfo.userSex isEqualToString:@"女"]){
+            } else  if ([[RH_UserInfoManager shareUserManager].mineSettingInfo.userSex isEqualToString:@"female"]){
                 self.avatar_imgView.image = [UIImage imageWithWebPImageName:@"photo_female"];
             } else {
                 self.avatar_imgView.image = [UIImage imageWithWebPImageName:@"photo_male"];
@@ -57,7 +57,6 @@
         } else {
             self.avatar_imgView.image = [UIImage imageWithWebPImageName:@"photo_male"];
         }
-        //刷新随身福利
     }else{
         self.avatar_imgView.image = [UIImage imageWithWebPImageName:@"avatar"];
     }

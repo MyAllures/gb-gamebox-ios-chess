@@ -48,9 +48,9 @@
     self.warehouseWelfare_label.text = @"0.00";
     if ([RH_UserInfoManager  shareUserManager].isLogin) {
         if ([RH_UserInfoManager shareUserManager].mineSettingInfo.userSex.length > 0) {
-            if ([[RH_UserInfoManager shareUserManager].mineSettingInfo.userSex isEqualToString:@"男"]) {
+            if ([[RH_UserInfoManager shareUserManager].mineSettingInfo.userSex isEqualToString:@"male"]) {
                 self.userAvatar.image = [UIImage imageWithWebPImageName:@"photo_male"];
-            } else if ([[RH_UserInfoManager shareUserManager].mineSettingInfo.userSex isEqualToString:@"女"]){
+            } else  if ([[RH_UserInfoManager shareUserManager].mineSettingInfo.userSex isEqualToString:@"female"]){
                 self.userAvatar.image = [UIImage imageWithWebPImageName:@"photo_female"];
             } else {
                 self.userAvatar.image = [UIImage imageWithWebPImageName:@"photo_male"];
