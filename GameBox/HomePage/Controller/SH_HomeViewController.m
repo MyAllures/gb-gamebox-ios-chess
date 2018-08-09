@@ -690,12 +690,16 @@
     self.acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:self.acr animated:YES completion:nil];
     [SH_NetWorkService getBankInforComplete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        NSDictionary *dic = [(NSDictionary *)response objectForKey:@"data"];
-        SH_ProfitModel *model = [[SH_ProfitModel alloc]initWithDictionary:dic error:nil];
-        NSString *code = response[@"code"];
-        NSString *message = response[@"message"];
-        [self refreshBalance:model.totalBalance];
-        [view updateUIWithBalance:model BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:self.acr Token:model.token Code:code Message:message];
+        NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
+        // ts333 账号返回的是json字符串 ，所以判断下
+        if (dict) {
+            NSDictionary *dic = [(NSDictionary *)response objectForKey:@"data"];
+            SH_ProfitModel *model = [[SH_ProfitModel alloc]initWithDictionary:dic error:nil];
+            NSString *code = response[@"code"];
+            NSString *message = response[@"message"];
+            [self refreshBalance:model.totalBalance];
+            [view updateUIWithBalance:model BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:self.acr Token:model.token Code:code Message:message];
+        }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
