@@ -26,8 +26,16 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Jx-pb-qEM" customClass="SH_WebPButton">
                             <rect key="frame" x="22.5" y="216" width="130" height="47"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="47" id="3f8-jA-Dpp"/>
-                                <constraint firstAttribute="width" constant="130" id="wOz-AC-CId"/>
+                                <constraint firstAttribute="height" constant="47" id="3f8-jA-Dpp">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
+                                <constraint firstAttribute="width" constant="130" id="wOz-AC-CId">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                             <state key="normal" title="查看稽核"/>
@@ -41,8 +49,16 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svl-rE-TNT" customClass="SH_WebPButton">
                             <rect key="frame" x="157.5" y="216" width="130" height="47"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="130" id="Nca-sw-3fC"/>
-                                <constraint firstAttribute="height" constant="47" id="Wnt-UW-JB3"/>
+                                <constraint firstAttribute="width" constant="130" id="Nca-sw-3fC">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
+                                <constraint firstAttribute="height" constant="47" id="Wnt-UW-JB3">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                             <state key="normal" title="确定出币"/>
@@ -56,13 +72,25 @@
                     </subviews>
                     <color key="backgroundColor" red="0.18823529411764706" green="0.23529411764705882" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="QI9-Ws-ha7" secondAttribute="bottom" constant="60" id="63l-EE-Srv"/>
+                        <constraint firstAttribute="bottom" secondItem="QI9-Ws-ha7" secondAttribute="bottom" constant="60" id="63l-EE-Srv">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
                         <constraint firstItem="svl-rE-TNT" firstAttribute="leading" secondItem="3Jx-pb-qEM" secondAttribute="trailing" constant="5" id="9A6-CN-FUc"/>
-                        <constraint firstAttribute="bottom" secondItem="3Jx-pb-qEM" secondAttribute="bottom" constant="7" id="9RK-YJ-bl2"/>
+                        <constraint firstAttribute="bottom" secondItem="3Jx-pb-qEM" secondAttribute="bottom" constant="7" id="9RK-YJ-bl2">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
                         <constraint firstItem="3Jx-pb-qEM" firstAttribute="trailing" secondItem="66a-UP-S79" secondAttribute="centerX" constant="-2.5" id="HW9-Uf-Zyc"/>
                         <constraint firstItem="svl-rE-TNT" firstAttribute="centerY" secondItem="3Jx-pb-qEM" secondAttribute="centerY" id="NAU-5q-xu1"/>
                         <constraint firstItem="QI9-Ws-ha7" firstAttribute="leading" secondItem="66a-UP-S79" secondAttribute="leading" id="dBq-ab-cy9"/>
-                        <constraint firstItem="QI9-Ws-ha7" firstAttribute="top" secondItem="66a-UP-S79" secondAttribute="top" constant="5" id="jFq-rG-V3L"/>
+                        <constraint firstItem="QI9-Ws-ha7" firstAttribute="top" secondItem="66a-UP-S79" secondAttribute="top" constant="5" id="jFq-rG-V3L">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
                         <constraint firstAttribute="trailing" secondItem="QI9-Ws-ha7" secondAttribute="trailing" id="o7G-Fe-q3a"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
