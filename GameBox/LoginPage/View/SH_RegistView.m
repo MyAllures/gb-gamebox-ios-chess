@@ -15,7 +15,7 @@
 #import "UIImage+SH_WebPImage.h"
 #import "RH_RegisterClauseModel.h"
 #import "SH_RegistRulerView.h"
-#import "AlertViewController.h"
+#import "SH_BigWindowViewController.h"
 @interface SH_RegistView()
 {
     RH_RegisetInitModel *registrationInitModel;
@@ -324,7 +324,9 @@
 -(void)showRulerWebViewWithHtml:(NSString*)html{
     SH_RegistRulerView * view = [SH_RegistRulerView instanceRegistRulerView];
     view.html = html;
-    AlertViewController * alert = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title02" alertViewType:AlertViewTypeLong];
+    SH_BigWindowViewController * alert = [SH_BigWindowViewController new];
+    alert.customView = view;
+    alert.titleImageName =@"title02";
     [self presentViewController:alert addTargetViewController:self.targetVC];
     
 }

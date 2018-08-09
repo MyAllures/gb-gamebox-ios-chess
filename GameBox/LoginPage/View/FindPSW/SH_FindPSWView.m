@@ -8,8 +8,8 @@
 
 #import "SH_FindPSWView.h"
 #import "SH_FindPSWSendCodeView.h"
-#import "AlertViewController.h"
 #import "SH_SafeCenterAlertView.h"
+#import "SH_SmallWindowViewController.h"
 @interface SH_FindPSWView ()
 @property (weak, nonatomic) IBOutlet UITextField *realNameTV;
 @end
@@ -30,7 +30,10 @@
                     NSString *code = dict1[@"code"];
                     if ([code intValue] == 0) {
                         SH_FindPSWSendCodeView *view = [[[NSBundle mainBundle]loadNibNamed:@"SH_FindPSWSendCodeView" owner:nil options:nil] lastObject];
-                        AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:200 titleImageName:@"title19" alertViewType:AlertViewTypeShort];
+                        SH_SmallWindowViewController *acr = [SH_SmallWindowViewController new];
+                        acr.titleImageName = @"title19";
+                        acr.contentHeight = 200;
+                        acr.customView = view;
                         view.targetVC2 = acr;
                         view.encryptedId = dict[@"data"][@"encryptedId"];
                         view.phoneStr = dict[@"data"][@"phone"];
@@ -62,7 +65,10 @@
 
 -(void)popAlertView:(NSString *)context {
     SH_SafeCenterAlertView * alert = [SH_SafeCenterAlertView  instanceSafeCenterAlertView];
-    AlertViewController * acr = [[AlertViewController  alloc] initAlertView:alert viewHeight:174 titleImageName:@"title03" alertViewType:AlertViewTypeShort];
+    SH_SmallWindowViewController * acr = [SH_SmallWindowViewController new];
+    acr.customView = alert;
+    acr.titleImageName = @"title03";
+    acr.contentHeight = 174;
     alert.vc = acr;
     alert.context = context;
     acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;

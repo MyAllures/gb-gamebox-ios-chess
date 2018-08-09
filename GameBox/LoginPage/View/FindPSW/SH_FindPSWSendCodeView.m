@@ -8,8 +8,8 @@
 //
 
 #import "SH_FindPSWSendCodeView.h"
-#import "AlertViewController.h"
 #import "SH_FindPSWSureView.h"
+#import "SH_SmallWindowViewController.h"
 @interface SH_FindPSWSendCodeView()
 @property (weak, nonatomic) IBOutlet UIButton *verificationBtn;
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
@@ -25,7 +25,10 @@
         NSString *code = dict1[@"code"];
         if ([code isEqualToString:@"0"]) {
             SH_FindPSWSureView *view = [[[NSBundle mainBundle]loadNibNamed:@"SH_FindPSWSureView" owner:nil options:nil] lastObject];
-            AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:200 titleImageName:@"title19" alertViewType:AlertViewTypeShort];
+            SH_SmallWindowViewController * acr = [SH_SmallWindowViewController new];
+            acr.contentHeight = 200;
+            acr.customView = view;
+            acr.titleImageName = @"title19";
             view.targetVC3 = acr;
             acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
             acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;

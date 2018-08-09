@@ -15,8 +15,9 @@
 #import "SH_WebPButton.h"
 #import "SH_BindPhoneNumView.h"
 #import "SH_ProfitExchangeView.h"
-#import "AlertViewController.h"
 #import "SH_FillRealNameView.h"
+#import "SH_BigWindowViewController.h"
+#import "SH_SmallWindowViewController.h"
 @interface SH_SaftyCenterView()
 @property (weak, nonatomic) IBOutlet SH_WebPButton *loginBtn;
 @property (weak, nonatomic) IBOutlet SH_WebPButton *saftyBtn;
@@ -118,7 +119,10 @@
         
     } else {
         SH_FillRealNameView *view = [[[NSBundle mainBundle] loadNibNamed:@"SH_FillRealNameView" owner:nil options:nil] lastObject];
-        AlertViewController *acr = [[AlertViewController alloc] initAlertView:view viewHeight:202 titleImageName:@"title18" alertViewType:AlertViewTypeShort];
+        SH_SmallWindowViewController * acr = [SH_SmallWindowViewController new];
+        acr.customView = view;
+        acr.titleImageName = @"title18";
+        acr.contentHeight = 202;
         view.targetVC1 = acr;
         acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;

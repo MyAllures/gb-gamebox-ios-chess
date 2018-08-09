@@ -356,9 +356,6 @@
 		BFFEDCB820F34CDC002E69FD /* SH_RechargeCenterChannelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFEDCB720F34CDC002E69FD /* SH_RechargeCenterChannelModel.m */; };
 		BFFEDCBB20F35627002E69FD /* SH_RechargeCenterAccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFEDCBA20F35627002E69FD /* SH_RechargeCenterAccountModel.m */; };
 		BFFEDCBE20F3792E002E69FD /* SH_RechargeCenterDataHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFEDCBD20F3792E002E69FD /* SH_RechargeCenterDataHandle.m */; };
-		DA18EFBD20F0A9C3002B7E22 /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA18EFB920F0A9C3002B7E22 /* AlertViewController.xib */; };
-		DA18EFBE20F0A9C3002B7E22 /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA18EFBA20F0A9C3002B7E22 /* AlertViewController.m */; };
-		DA18EFBF20F0A9C3002B7E22 /* PopTool.m in Sources */ = {isa = PBXBuildFile; fileRef = DA18EFBB20F0A9C3002B7E22 /* PopTool.m */; };
 		DA1BCC5220FD7C6D00201DBC /* SH_NetWorkService+UserCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCC5120FD7C6D00201DBC /* SH_NetWorkService+UserCenter.m */; };
 		DA1BCC5820FD942A00201DBC /* SH_WelfareInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCC5720FD942A00201DBC /* SH_WelfareInfoModel.m */; };
 		DA1BCC5B20FDBFCD00201DBC /* SH_FundListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCC5A20FDBFCD00201DBC /* SH_FundListModel.m */; };
@@ -922,11 +919,6 @@
 		BFFEDCBC20F3792E002E69FD /* SH_RechargeCenterDataHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_RechargeCenterDataHandle.h; sourceTree = "<group>"; };
 		BFFEDCBD20F3792E002E69FD /* SH_RechargeCenterDataHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_RechargeCenterDataHandle.m; sourceTree = "<group>"; };
 		CD08B466133A38336C9BD914 /* Pods-GameBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GameBox/Pods-GameBox.debug.xcconfig"; sourceTree = "<group>"; };
-		DA18EFB820F0A9C3002B7E22 /* PopTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopTool.h; sourceTree = "<group>"; };
-		DA18EFB920F0A9C3002B7E22 /* AlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertViewController.xib; sourceTree = "<group>"; };
-		DA18EFBA20F0A9C3002B7E22 /* AlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewController.m; sourceTree = "<group>"; };
-		DA18EFBB20F0A9C3002B7E22 /* PopTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopTool.m; sourceTree = "<group>"; };
-		DA18EFBC20F0A9C3002B7E22 /* AlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewController.h; sourceTree = "<group>"; };
 		DA1BCC5020FD7C6D00201DBC /* SH_NetWorkService+UserCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+UserCenter.h"; sourceTree = "<group>"; };
 		DA1BCC5120FD7C6D00201DBC /* SH_NetWorkService+UserCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+UserCenter.m"; sourceTree = "<group>"; };
 		DA1BCC5620FD942900201DBC /* SH_WelfareInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_WelfareInfoModel.h; sourceTree = "<group>"; };
@@ -2050,11 +2042,6 @@
 		DA18EFB720F0A9C3002B7E22 /* PopTools */ = {
 			isa = PBXGroup;
 			children = (
-				DA18EFB820F0A9C3002B7E22 /* PopTool.h */,
-				DA18EFBB20F0A9C3002B7E22 /* PopTool.m */,
-				DA18EFBC20F0A9C3002B7E22 /* AlertViewController.h */,
-				DA18EFBA20F0A9C3002B7E22 /* AlertViewController.m */,
-				DA18EFB920F0A9C3002B7E22 /* AlertViewController.xib */,
 				5482546C2119C3D400ECBD5B /* SH_BigWindowViewController.h */,
 				5482546D2119C3D400ECBD5B /* SH_BigWindowViewController.m */,
 				5482546E2119C3D400ECBD5B /* SH_BigWindowViewController.xib */,
@@ -2532,7 +2519,6 @@
 				54397082210462BB0091C719 /* logo09.webp in Resources */,
 				54E24836210D5B07005C5263 /* loading-1.webp in Resources */,
 				543970C7210462BB0091C719 /* black.webp in Resources */,
-				DA18EFBD20F0A9C3002B7E22 /* AlertViewController.xib in Resources */,
 				BF44EC5C20F4589D00BC6EF3 /* SH_BitCoinSubView.xib in Resources */,
 				54397083210462BB0091C719 /* effects_man._defaultwebp in Resources */,
 				22618C6F2109E7C900E4A6F6 /* SH_HandRecordView.xib in Resources */,
@@ -2666,14 +2652,12 @@
 				22FC6E892107549A001FA492 /* SH_FindPSWSureView.m in Sources */,
 				54E2485A210DE85C005C5263 /* SH_LRUManager.m in Sources */,
 				DA1BCDB12102D27C00201DBC /* SH_WelfareTableViewCell.m in Sources */,
-				DA18EFBF20F0A9C3002B7E22 /* PopTool.m in Sources */,
 				DA1BCC8B20FE200700201DBC /* RH_BettingInfoModel.m in Sources */,
 				DA334C0021148A7800290D86 /* SH_RegistRulerView.m in Sources */,
 				BFA7DEB42106077300DD731F /* SH_ApiModel.m in Sources */,
 				22878ECA210029E3005D7652 /* SH_SysMsgDetailModel.m in Sources */,
 				BF44ECCF20F59A5800BC6EF3 /* SH_RechargeDetailBankView.m in Sources */,
 				BF44ECC120F4B4BF00BC6EF3 /* SH_RechargeDetailHeadView.m in Sources */,
-				DA18EFBE20F0A9C3002B7E22 /* AlertViewController.m in Sources */,
 				DA1BCD762100B0F500201DBC /* SH_ShareView.m in Sources */,
 				BF44ECFA20F7475A00BC6EF3 /* SH_BitCoinSuccessView.m in Sources */,
 				54C8763D2100B04300AA0594 /* SH_HorizontalscreenPicker.m in Sources */,

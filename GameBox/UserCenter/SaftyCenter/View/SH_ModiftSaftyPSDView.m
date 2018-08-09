@@ -10,8 +10,8 @@
 #import "SH_NetWorkService+SaftyCenter.h"
 #import "RH_UserSafetyCodeModel.h"
 #import "SH_FillRealNameView.h"
-#import "AlertViewController.h"
 #import "SH_GamesHomeViewController.h"
+#import "SH_SmallWindowViewController.h"
 @interface SH_ModiftSaftyPSDView()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *currentTF;
 @property (weak, nonatomic) IBOutlet UITextField *NewTF;
@@ -66,7 +66,10 @@
         
     } else {
         SH_FillRealNameView *view = [[[NSBundle mainBundle] loadNibNamed:@"SH_FillRealNameView" owner:nil options:nil] lastObject];
-        AlertViewController *acr = [[AlertViewController alloc] initAlertView:view viewHeight:202 titleImageName:@"title18" alertViewType:AlertViewTypeShort];
+        SH_SmallWindowViewController *acr = [SH_SmallWindowViewController new];
+        acr.contentHeight = 202;
+        acr.titleImageName = @"title18";
+        acr.customView = view;
         view.targetVC1 = acr;
         acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -169,7 +172,10 @@
         return YES;
     } else {
         SH_FillRealNameView *view = [[[NSBundle mainBundle] loadNibNamed:@"SH_FillRealNameView" owner:nil options:nil] lastObject];
-        AlertViewController *acr = [[AlertViewController alloc] initAlertView:view viewHeight:202 titleImageName:@"title18" alertViewType:AlertViewTypeShort];
+        SH_SmallWindowViewController * acr = [SH_SmallWindowViewController new];
+        acr.customView = view;
+        acr.contentHeight = 202;
+        acr.titleImageName = @"title18";
         view.targetVC1 = acr;
         acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
