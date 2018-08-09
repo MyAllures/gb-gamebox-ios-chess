@@ -8,8 +8,8 @@
 
 #import "SH_PromoDetailView.h"
 #import "SH_PromoAlertView.h"
-#import "AlertViewController.h"
 #import "SH_TimeZoneManager.h"
+#import "SH_SmallWindowViewController.h"
 @interface SH_PromoDetailView()
 @property (weak, nonatomic) IBOutlet UILabel *contentLab;
 @property (weak, nonatomic) IBOutlet UIImageView *bannerImageView;
@@ -29,7 +29,10 @@
     UIViewController *vc = [self getCurrentViewController];
     
     SH_PromoAlertView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_PromoAlertView" owner:self options:nil].firstObject;
-    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:250 titleImageName:@"title03" alertViewType:AlertViewTypeShort];
+    SH_SmallWindowViewController * acr = [SH_SmallWindowViewController new];
+    acr.customView = view;
+    acr.contentHeight = 250;
+    acr.titleImageName = @"title03";
     acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [vc presentViewController:acr animated:YES completion:nil];
