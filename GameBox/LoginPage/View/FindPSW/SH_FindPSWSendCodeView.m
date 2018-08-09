@@ -47,13 +47,12 @@
         [SH_NetWorkService_FindPsw forgetPswSendCode:self.encryptedId complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *dict1 = (NSDictionary *)response;
             NSLog(@"dict1===%@",dict1);
-//            NSString *code = dict1[@"code"];
-//            if ([code isEqualToString:@"0"]) {
-//
-//            } else {
-//
-//            }
-            showMessage(self, @"", dict1[@"message"]);
+            NSString *code = dict1[@"code"];
+            if ([code isEqualToString:@"0"]) {
+                showMessage(self, @"短信发送成功", nil);
+            } else {
+                showMessage(self, @"", dict1[@"message"]);
+            }
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             
         }];
