@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SH_ShareView : UIView
-@property(nonatomic,strong)UIViewController  * targetVC;
 
 +(instancetype)instanceShareView;
 @end

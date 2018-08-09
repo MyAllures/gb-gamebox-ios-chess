@@ -7,7 +7,7 @@
 //
 
 #import "SH_FindPSWSureView.h"
-
+#import "SH_TopLevelControllerManager.h"
 @interface SH_FindPSWSureView()
 @property (weak, nonatomic) IBOutlet UITextField *textField1;
 @property (weak, nonatomic) IBOutlet UITextField *textField2;
@@ -31,7 +31,8 @@
             if ([code isEqualToString:@"0"]) {
                 showMessage(self, @"密码修改成功", nil);
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    UIViewController *vc = self.targetVC3;
+                    
+                    UIViewController *vc= [SH_TopLevelControllerManager fetchTopLevelController];;
                     [defaults setObject:nil forKey:@"userName"];
                     [defaults synchronize];
                     while (vc.presentingViewController) {

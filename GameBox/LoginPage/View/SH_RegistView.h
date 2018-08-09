@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SH_RegistView : UIView
-@property (strong, nonatomic) UIViewController *targetVC;
+//@property (strong, nonatomic) UIViewController *targetVC;
 @property(nonatomic,copy)void (^closeAlerViewBlock)(void);
 @end

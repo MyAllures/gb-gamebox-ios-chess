@@ -12,7 +12,7 @@
 #import "SH_BankListModel.h"
 #import "SH_BankCardModel.h"
 #import "SH_ModiftSaftyPSDView.h"
-
+#import "SH_TopLevelControllerManager.h"
 @interface SH_BankCardView()
 @property (weak, nonatomic) IBOutlet UIButton *chooseBankBtn;
 @property (weak, nonatomic) IBOutlet UITextField *realNameTF;
@@ -103,7 +103,8 @@
             [[NSNotificationCenter defaultCenter]postNotificationName:@"refreshBankcard" object:nil];
             //更新用户银行信息
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [weakSelf.targetVC dismissViewControllerAnimated:NO completion:^{
+                 UIViewController * svc = [SH_TopLevelControllerManager fetchTopLevelController];
+                [svc dismissViewControllerAnimated:NO completion:^{
                     if ([weakSelf.from isEqualToString:@"profitView"]) {
                         //从收益跳过来要通知其刷新数据
                         [[NSNotificationCenter defaultCenter]postNotificationName:@"refreshBankNumer" object:nil];
@@ -138,9 +139,6 @@
 
         
     };   
-}
-- (void)setTargetVC:(UIViewController *)targetVC{
-    _targetVC = targetVC;
 }
 - (void)setFrom:(NSString *)from{
     _from = from;

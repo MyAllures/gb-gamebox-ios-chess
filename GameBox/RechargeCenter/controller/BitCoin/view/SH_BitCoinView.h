@@ -12,7 +12,6 @@
 -(void)SH_BitCoinViewAdress:(NSString *)address Txid:(NSString *)txid BitCoinNum:(NSString *)num date:(NSString *)date;
 @end
 @interface SH_BitCoinView : UIView
-@property(nonatomic,strong)UIViewController *targetVC;
 @property(nonatomic,weak)id<SH_BitCoinViewDelegate>delegate;
 -(void)updateUIWithChannelModel:(SH_RechargeCenterChannelModel *)model;
 @end

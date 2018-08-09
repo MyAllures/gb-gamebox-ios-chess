@@ -60,7 +60,6 @@
             showMessage(self.view, [NSString stringWithFormat:@"%@",response[@"message"]], nil);
         }else{
             SH_BitCoinSuccessView *popView = [[SH_BitCoinSuccessView alloc]initWithFrame:CGRectMake(0, 0, screenSize().width, screenSize().height)];
-            popView.targetVC = self;
             [popView popViewShow];
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {

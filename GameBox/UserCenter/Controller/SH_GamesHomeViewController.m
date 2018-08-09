@@ -117,7 +117,6 @@
             avc.customView = view;
             avc.titleImageName = @"title12";
             [self presentViewController:avc addTargetViewController:self];
-            view.targetVC = avc;
             break;
         }
         case 3:{
