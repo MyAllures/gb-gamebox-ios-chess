@@ -36,7 +36,7 @@
 
 -(void)close:(SH_BigWindowViewControllerDismissBlock)closeBlock
 {
-    self.dismissBlock = closeBlock;
+    self.dismissBlock = closeBlock; 
     [self closeAction:nil];
 }
 

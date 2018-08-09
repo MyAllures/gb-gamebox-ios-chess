@@ -81,7 +81,7 @@
                 [self->_msgCenterView  fetchHttpData];
             }];
             [acr close:^{
-                [self->_msgCenterView  fetchHttpData];
+                 [self->_msgCenterView  fetchHttpData];
             }];
         }];
     }

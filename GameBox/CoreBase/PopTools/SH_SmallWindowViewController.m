@@ -38,7 +38,7 @@
 -(void)close:(SH_SmallWindowViewControllerDismissBlock)closeBlock
 {
     self.dismissBlock = closeBlock;
-    [self closeAction:nil];
+//    [self closeAction:nil];
 }
 
 - (IBAction)closeAction:(id)sender {
