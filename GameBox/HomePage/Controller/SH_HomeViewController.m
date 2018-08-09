@@ -643,7 +643,6 @@
     cvc.titleImageName = @"title04";
     cvc.customView = inforView;
     cvc.contentHeight = 204;
-    inforView.vc = cvc;
     [self presentViewController:cvc addTargetViewController:self];
 }
 #pragma mark --- 模态弹出viewController

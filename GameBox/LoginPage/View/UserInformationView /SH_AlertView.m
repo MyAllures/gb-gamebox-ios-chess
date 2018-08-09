@@ -8,6 +8,8 @@
 
 #import "SH_AlertView.h"
 #import "SH_NetWorkService+RegistAPI.h"
+#import "SH_TopLevelControllerManager.h"
+#import "SH_SmallWindowViewController.h"
 @interface  SH_AlertView()
 @property (weak, nonatomic) IBOutlet UILabel *content_label;
 
@@ -26,9 +28,10 @@
 - (IBAction)buttonClick:(UIButton *)sender {
 
     if (sender.tag == 100) {
-        [self.vc close:nil];
+        UIViewController * vc = [SH_TopLevelControllerManager fetchTopLevelController];
+        [vc dismissViewControllerAnimated:YES completion:nil];
     }else{
-        __weak typeof(self) weakSelf = self;
+//        __weak typeof(self) weakSelf = self;
         MBProgressHUD * activityIndicatorView= showHUDWithMyActivityIndicatorView(self.window, nil, @"正在退出...");
         [SH_NetWorkService  fetchUserLoginOut:^(NSHTTPURLResponse *httpURLResponse, id response) {
             [activityIndicatorView hideAnimated:false];
@@ -39,10 +42,11 @@
 //            [weakSelf configUI];
             [[NSNotificationCenter  defaultCenter] postNotificationName:@"didLogOut" object:nil];
             showMessage([UIApplication  sharedApplication].keyWindow, @"已成功退出", nil);
-            if ([weakSelf.vc respondsToSelector:@selector(presentingViewController)]){
-                [weakSelf.vc.presentingViewController.presentingViewController dismissViewControllerAnimated:NO completion:nil];
+               UIViewController * vc = [SH_TopLevelControllerManager fetchTopLevelController];
+            if ([vc respondsToSelector:@selector(presentingViewController)]){
+                [vc.presentingViewController.presentingViewController dismissViewControllerAnimated:NO completion:nil];
             }else {
-                [weakSelf.vc.parentViewController.parentViewController dismissViewControllerAnimated:NO completion:nil];
+                [vc.parentViewController.parentViewController dismissViewControllerAnimated:NO completion:nil];
             }
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             [activityIndicatorView hideAnimated:false];

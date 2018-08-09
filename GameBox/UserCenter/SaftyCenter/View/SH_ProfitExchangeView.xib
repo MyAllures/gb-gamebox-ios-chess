@@ -38,12 +38,24 @@
             </subviews>
             <color key="backgroundColor" red="0.3411764705882353" green="0.396078431372549" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Vqe-Q8-5ly" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="MIn-bs-aW4"/>
+                <constraint firstItem="Vqe-Q8-5ly" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="MIn-bs-aW4">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </constraint>
                 <constraint firstItem="azb-3E-1Ox" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="bHo-os-69c"/>
                 <constraint firstItem="Vqe-Q8-5ly" firstAttribute="top" secondItem="azb-3E-1Ox" secondAttribute="bottom" id="jd2-Hw-c2Q"/>
-                <constraint firstAttribute="bottom" secondItem="Vqe-Q8-5ly" secondAttribute="bottom" constant="2" id="kCM-bO-fke"/>
+                <constraint firstAttribute="bottom" secondItem="Vqe-Q8-5ly" secondAttribute="bottom" constant="2" id="kCM-bO-fke">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </constraint>
                 <constraint firstItem="azb-3E-1Ox" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="7" id="pGC-G5-8Jg"/>
-                <constraint firstAttribute="trailing" secondItem="Vqe-Q8-5ly" secondAttribute="trailing" constant="12" id="yZl-te-SXr"/>
+                <constraint firstAttribute="trailing" secondItem="Vqe-Q8-5ly" secondAttribute="trailing" constant="12" id="yZl-te-SXr">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </constraint>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <userDefinedRuntimeAttributes>

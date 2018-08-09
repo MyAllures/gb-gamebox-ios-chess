@@ -55,8 +55,16 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zwV-Rc-eZY" customClass="SH_WebPButton">
                             <rect key="frame" x="84" y="140" width="145" height="47"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="47" id="Dp2-PU-zkr"/>
-                                <constraint firstAttribute="width" constant="145" id="Tsn-Qc-upg"/>
+                                <constraint firstAttribute="height" constant="47" id="Dp2-PU-zkr">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
+                                <constraint firstAttribute="width" constant="145" id="Tsn-Qc-upg">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                             <state key="normal" title="立即绑定"/>
@@ -69,7 +77,19 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ula-a8-vQL">
                             <rect key="frame" x="235" y="58.5" width="67" height="28"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="28" id="LOp-mD-obG">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
+                                <constraint firstAttribute="width" constant="67" id="yl1-qM-uBL">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <state key="normal" title="获取验证码">
                                 <color key="titleColor" red="0.1764705882352941" green="0.90196078431372551" blue="0.078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
@@ -127,10 +147,22 @@
                             </subviews>
                             <color key="backgroundColor" red="0.13725490200000001" green="0.16862745100000001" blue="0.41568627450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="MWe-jF-7oz" secondAttribute="trailing" id="4Oo-AP-G8d"/>
-                                <constraint firstItem="MWe-jF-7oz" firstAttribute="leading" secondItem="eYU-ct-qFS" secondAttribute="leading" constant="8" id="7iX-55-hOv"/>
+                                <constraint firstAttribute="trailing" secondItem="MWe-jF-7oz" secondAttribute="trailing" id="4Oo-AP-G8d">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
+                                <constraint firstItem="MWe-jF-7oz" firstAttribute="leading" secondItem="eYU-ct-qFS" secondAttribute="leading" constant="8" id="7iX-55-hOv">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
                                 <constraint firstItem="MWe-jF-7oz" firstAttribute="top" secondItem="eYU-ct-qFS" secondAttribute="top" id="Je4-5R-3IV"/>
-                                <constraint firstAttribute="width" constant="123" id="Xxr-Xa-0GH"/>
+                                <constraint firstAttribute="width" constant="123" id="Xxr-Xa-0GH">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
                                 <constraint firstAttribute="bottom" secondItem="MWe-jF-7oz" secondAttribute="bottom" id="bFi-mW-r0x"/>
                                 <constraint firstAttribute="height" constant="33" id="dYs-21-Qz2"/>
                             </constraints>
@@ -146,21 +178,59 @@
                     <constraints>
                         <constraint firstItem="kUB-Cf-MZh" firstAttribute="leading" secondItem="qxL-Fa-b7X" secondAttribute="trailing" constant="9" id="0Y6-Gd-qo0"/>
                         <constraint firstItem="qxL-Fa-b7X" firstAttribute="leading" secondItem="OiY-R3-8xh" secondAttribute="leading" id="5e7-CP-JP7"/>
-                        <constraint firstItem="gq8-Bt-gKH" firstAttribute="leading" secondItem="3lj-5u-nPC" secondAttribute="trailing" constant="8" id="6YV-nO-rVc"/>
-                        <constraint firstAttribute="height" constant="200" id="GCd-aE-jtg"/>
+                        <constraint firstItem="gq8-Bt-gKH" firstAttribute="leading" secondItem="3lj-5u-nPC" secondAttribute="trailing" constant="8" id="6YV-nO-rVc">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                        <constraint firstItem="OiY-R3-8xh" firstAttribute="leading" secondItem="PHK-AA-NMh" secondAttribute="leading" constant="26" id="FHc-CY-KlQ">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                        <constraint firstAttribute="trailing" secondItem="Ula-a8-vQL" secondAttribute="trailing" constant="11" id="FZ6-JN-7Bg">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                        <constraint firstAttribute="height" constant="200" id="GCd-aE-jtg">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
                         <constraint firstAttribute="bottom" secondItem="zwV-Rc-eZY" secondAttribute="bottom" constant="13" id="PBK-iH-1Vx"/>
-                        <constraint firstItem="Ula-a8-vQL" firstAttribute="leading" secondItem="MWe-jF-7oz" secondAttribute="trailing" constant="6.5" id="RxM-gR-A5S"/>
-                        <constraint firstItem="3lj-5u-nPC" firstAttribute="leading" secondItem="PHK-AA-NMh" secondAttribute="leading" constant="26" id="Seo-eB-GGe"/>
+                        <constraint firstItem="Ula-a8-vQL" firstAttribute="leading" secondItem="MWe-jF-7oz" secondAttribute="trailing" constant="6.5" id="RxM-gR-A5S">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                        <constraint firstItem="3lj-5u-nPC" firstAttribute="leading" secondItem="PHK-AA-NMh" secondAttribute="leading" constant="26" id="Seo-eB-GGe">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
                         <constraint firstItem="eYU-ct-qFS" firstAttribute="centerY" secondItem="OiY-R3-8xh" secondAttribute="centerY" id="T2l-pn-M2m"/>
-                        <constraint firstItem="qxL-Fa-b7X" firstAttribute="top" secondItem="OiY-R3-8xh" secondAttribute="bottom" constant="24" id="g7s-38-Apz"/>
+                        <constraint firstItem="qxL-Fa-b7X" firstAttribute="top" secondItem="OiY-R3-8xh" secondAttribute="bottom" constant="24" id="g7s-38-Apz">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
                         <constraint firstItem="kUB-Cf-MZh" firstAttribute="centerY" secondItem="qxL-Fa-b7X" secondAttribute="centerY" id="izX-bT-3GI"/>
                         <constraint firstItem="zwV-Rc-eZY" firstAttribute="centerX" secondItem="PHK-AA-NMh" secondAttribute="centerX" id="oNh-0o-paY"/>
                         <constraint firstItem="OiY-R3-8xh" firstAttribute="leading" secondItem="3lj-5u-nPC" secondAttribute="leading" id="qh2-eF-bBV"/>
                         <constraint firstItem="Ula-a8-vQL" firstAttribute="centerY" secondItem="MWe-jF-7oz" secondAttribute="centerY" id="sDN-p8-0Xo"/>
                         <constraint firstItem="eYU-ct-qFS" firstAttribute="leading" secondItem="gq8-Bt-gKH" secondAttribute="leading" id="tnO-Yu-YeE"/>
-                        <constraint firstItem="OiY-R3-8xh" firstAttribute="top" secondItem="PHK-AA-NMh" secondAttribute="top" constant="64" id="trF-3N-WYl"/>
+                        <constraint firstItem="OiY-R3-8xh" firstAttribute="top" secondItem="PHK-AA-NMh" secondAttribute="top" constant="64" id="trF-3N-WYl">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
                         <constraint firstItem="gq8-Bt-gKH" firstAttribute="centerY" secondItem="3lj-5u-nPC" secondAttribute="centerY" id="xte-t0-yHq"/>
-                        <constraint firstItem="3lj-5u-nPC" firstAttribute="top" secondItem="PHK-AA-NMh" secondAttribute="top" constant="23" id="yFa-lT-OnQ"/>
+                        <constraint firstItem="3lj-5u-nPC" firstAttribute="top" secondItem="PHK-AA-NMh" secondAttribute="top" constant="23" id="yFa-lT-OnQ">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -194,15 +264,31 @@
             </subviews>
             <color key="backgroundColor" red="0.1647058824" green="0.20784313730000001" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="QLz-oQ-9JM" firstAttribute="top" secondItem="PHK-AA-NMh" secondAttribute="bottom" constant="12" id="4Jb-Jf-Ke9"/>
+                <constraint firstItem="QLz-oQ-9JM" firstAttribute="top" secondItem="PHK-AA-NMh" secondAttribute="bottom" constant="12" id="4Jb-Jf-Ke9">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </constraint>
                 <constraint firstItem="QLz-oQ-9JM" firstAttribute="leading" secondItem="PHK-AA-NMh" secondAttribute="leading" id="FpE-ea-bKY"/>
                 <constraint firstItem="8jz-Wo-dGv" firstAttribute="top" secondItem="QLz-oQ-9JM" secondAttribute="bottom" constant="8" id="QaI-v3-T1K"/>
                 <constraint firstItem="8jz-Wo-dGv" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="bK6-we-bBG"/>
-                <constraint firstItem="PHK-AA-NMh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="eNR-1X-yAM"/>
+                <constraint firstItem="PHK-AA-NMh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="eNR-1X-yAM">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </constraint>
                 <constraint firstItem="8jz-Wo-dGv" firstAttribute="leading" secondItem="QLz-oQ-9JM" secondAttribute="leading" id="m8j-oM-HbF"/>
-                <constraint firstItem="PHK-AA-NMh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="o0h-dc-luM"/>
+                <constraint firstItem="PHK-AA-NMh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="o0h-dc-luM">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </constraint>
                 <constraint firstItem="QLz-oQ-9JM" firstAttribute="trailing" secondItem="PHK-AA-NMh" secondAttribute="trailing" id="rP0-oO-otr"/>
-                <constraint firstAttribute="trailing" secondItem="PHK-AA-NMh" secondAttribute="trailing" constant="10" id="x4J-sF-0RW"/>
+                <constraint firstAttribute="trailing" secondItem="PHK-AA-NMh" secondAttribute="trailing" constant="10" id="x4J-sF-0RW">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </constraint>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
