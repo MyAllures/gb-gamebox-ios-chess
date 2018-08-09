@@ -79,7 +79,7 @@ static BOOL isNetworkingOK = YES;//网络状态 默认畅通
     }];
 }
 
-+ (void)get:(NSString *)url withPublicParameter:(BOOL)withPublicParameter parameter:(NSDictionary *)parameter header:(NSDictionary *)header cache:(BOOL)cache complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
++ (void)get:(NSString *)url withPublicParameter:(BOOL)withPublicParameter parameter:(NSDictionary *)parameter header:(NSDictionary *)header cache:(BOOL)cache detailErr:(BOOL)detailErr complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
 {
     __weak typeof(self) weakSelf = self;
     if (isNetworkingOK) {
@@ -109,7 +109,7 @@ static BOOL isNetworkingOK = YES;//网络状态 默认畅通
             }];
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             if (failed) {
-                failed((NSHTTPURLResponse *)task.response, @"访问失败");
+                failed((NSHTTPURLResponse *)task.response, detailErr ? error.description : @"访问失败");
             }
         }];
     }
@@ -122,6 +122,19 @@ static BOOL isNetworkingOK = YES;//网络状态 默认畅通
             failed(nil, @"网络链接失败");
         }
     }
+}
+
++ (void)get:(NSString *)url withPublicParameter:(BOOL)withPublicParameter parameter:(NSDictionary *)parameter header:(NSDictionary *)header cache:(BOOL)cache complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
+{
+    [self get:url withPublicParameter:withPublicParameter parameter:parameter header:header cache:cache detailErr:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if (complete) {
+            complete(httpURLResponse, response);
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        if (failed) {
+            failed(httpURLResponse,err);
+        }
+    }];
 }
 
 + (void)get:(NSString *)url complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed

@@ -181,7 +181,7 @@
                     
                     NSArray *checkTypeComp = [checkType componentsSeparatedByString:@"+"];
                     NSString *checkUrl = [NSString stringWithFormat:@"%@://%@%@/__check",checkTypeComp[0],ip,checkTypeComp.count==2?[NSString stringWithFormat:@":%@",checkTypeComp[1]]:@""];
-                    [weakSelf get:checkUrl withPublicParameter:NO parameter:nil header:@{@"Host":host} cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+                    [weakSelf get:checkUrl withPublicParameter:NO parameter:nil header:@{@"Host":host} cache:NO detailErr:YES complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
                         if (response) {
                             if ([response isKindOfClass:[NSString class]]) {
                                 response = [response stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
@@ -195,7 +195,7 @@
                             else
                             {
                                 if (oneTurn) {
-                                    oneTurn(httpURLResponse, @"", ip, checkType, NO);
+                                    oneTurn(httpURLResponse, @"unknown", ip, checkType, NO);
                                 }
                                 failTimes++;
                                 if (failTimes == ipGroup.count*checkTypes.count) {
@@ -208,7 +208,7 @@
                         else
                         {
                             if (oneTurn) {
-                                oneTurn(httpURLResponse, @"", ip, checkType, NO);
+                                oneTurn(httpURLResponse, @"unknown", ip, checkType, NO);
                             }
                             failTimes++;
                             if (failTimes == ipGroup.count*checkTypes.count) {
