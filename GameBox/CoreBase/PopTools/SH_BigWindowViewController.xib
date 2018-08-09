@@ -24,10 +24,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AbI-HQ-Sts" customClass="SH_XibView">
-                    <rect key="frame" x="92.5" y="10" width="482" height="355"/>
+                    <rect key="frame" x="93" y="10" width="481" height="355"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fgF-HU-zAP" customClass="SH_WebPImageView">
-                            <rect key="frame" x="0.0" y="0.0" width="482" height="49.5"/>
+                            <rect key="frame" x="0.5" y="0.0" width="481" height="49.5"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="fgF-HU-zAP" secondAttribute="height" multiplier="485:50" id="4rK-0s-Wa3"/>
                             </constraints>
@@ -42,7 +42,7 @@
                             </constraints>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qys-en-47Q">
-                            <rect key="frame" x="0.0" y="49.5" width="482" height="305.5"/>
+                            <rect key="frame" x="0.5" y="49.5" width="481" height="305.5"/>
                             <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                     </subviews>
@@ -67,7 +67,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejK-a6-Yh9" customClass="SH_WebPButton">
-                    <rect key="frame" x="550" y="5" width="39.5" height="39.5"/>
+                    <rect key="frame" x="549.5" y="5" width="39.5" height="39.5"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="ejK-a6-Yh9" secondAttribute="height" multiplier="1:1" id="v0b-PJ-DvK"/>
                     </constraints>
@@ -89,7 +89,7 @@
                 <constraint firstItem="ejK-a6-Yh9" firstAttribute="trailing" secondItem="AbI-HQ-Sts" secondAttribute="trailing" constant="15" id="c9y-Di-4ZW"/>
                 <constraint firstItem="AbI-HQ-Sts" firstAttribute="centerX" secondItem="cUO-HJ-XlN" secondAttribute="centerX" id="pXD-4W-OLE"/>
             </constraints>
-            <point key="canvasLocation" x="42.5" y="77.5"/>
+            <point key="canvasLocation" x="84.5" y="93.5"/>
         </view>
     </objects>
     <resources>
