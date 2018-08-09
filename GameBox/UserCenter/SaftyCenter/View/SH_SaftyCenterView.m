@@ -56,6 +56,12 @@
     if (!_loginView) {
         _loginView = [[NSBundle mainBundle]loadNibNamed:@"SH_ModifyLoginPSDView" owner:self options:nil].firstObject;
         [self addSubview:_loginView];
+        [_loginView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self).offset(10);
+            make.left.equalTo(self).offset(145*screenSize().width/375.0);
+            make.right.equalTo(self).offset(-10*screenSize().width/375.0);
+            make.bottom.equalTo(self).offset(-10);
+        }];
     }
     return _loginView;
 }
@@ -65,8 +71,9 @@
         [self addSubview:_saftyView];
         [_saftyView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self).offset(10);
-            make.left.equalTo(self).offset(145);
-            make.bottom.right.equalTo(self).offset(-10);
+            make.left.equalTo(self).offset(145*screenSize().width/375.0);
+            make.right.equalTo(self).offset(-10*screenSize().width/375.0);
+            make.bottom.equalTo(self).offset(-10);
         }];
     }
     return _saftyView;
@@ -77,8 +84,9 @@
         [self addSubview:_bankView];
         [_bankView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self).offset(10);
-            make.left.equalTo(self).offset(145);
-            make.bottom.right.equalTo(self).offset(-10);
+            make.left.equalTo(self).offset(145*screenSize().width/375.0);
+            make.right.equalTo(self).offset(-10*screenSize().width/375.0);
+            make.bottom.equalTo(self).offset(-10);
         }];
     }
     return _bankView;
@@ -89,8 +97,12 @@
         _bindPhoneView = [[NSBundle mainBundle]loadNibNamed:@"SH_BindPhoneNumView" owner:self options:nil].firstObject;
         [self addSubview:_bindPhoneView];
         [_bindPhoneView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.bottom.right.equalTo(self);
-            make.left.equalTo(self).offset(135);
+//            make.top.bottom.right.equalTo(self);
+//            make.left.equalTo(self).offset(135);
+            make.top.equalTo(self).offset(10);
+            make.left.equalTo(self).offset(145*screenSize().width/375.0);
+            make.right.equalTo(self).offset(-10*screenSize().width/375.0);
+            make.bottom.equalTo(self).offset(-10);
         }];
     }
     return _bindPhoneView;
@@ -102,8 +114,9 @@
         [self addSubview:_profitExView];
         [_profitExView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self).offset(10);
-            make.left.equalTo(self).offset(145);
-            make.bottom.right.equalTo(self).offset(-10);
+            make.left.equalTo(self).offset(145*screenSize().width/375.0);
+            make.right.equalTo(self).offset(-10*screenSize().width/375.0);
+            make.bottom.equalTo(self).offset(-10);
         }];
     }
     return _profitExView;

@@ -20,7 +20,11 @@
                     <color key="backgroundColor" red="0.13725490200000001" green="0.16862745100000001" blue="0.41568627450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="rvh-us-EH7"/>
-                        <constraint firstAttribute="width" constant="205" id="uCo-tP-O9y"/>
+                        <constraint firstAttribute="width" constant="205" id="uCo-tP-O9y">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
                     </constraints>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -38,7 +42,11 @@
                     <color key="backgroundColor" red="0.13725490200000001" green="0.16862745100000001" blue="0.41568627450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="BpU-DV-Obh"/>
-                        <constraint firstAttribute="width" constant="205" id="Gck-a0-uNF"/>
+                        <constraint firstAttribute="width" constant="205" id="Gck-a0-uNF">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
                     </constraints>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -56,7 +64,11 @@
                     <color key="backgroundColor" red="0.13725490200000001" green="0.16862745100000001" blue="0.41568627450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="1Ia-NN-TfO"/>
-                        <constraint firstAttribute="width" constant="205" id="vTh-Hm-xz1"/>
+                        <constraint firstAttribute="width" constant="205" id="vTh-Hm-xz1">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
                     </constraints>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -74,7 +86,11 @@
                     <color key="backgroundColor" red="0.13725490200000001" green="0.16862745100000001" blue="0.41568627450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="NKe-ra-arW"/>
-                        <constraint firstAttribute="width" constant="205" id="mrv-Nk-1eJ"/>
+                        <constraint firstAttribute="width" constant="205" id="mrv-Nk-1eJ">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
                     </constraints>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -136,7 +152,11 @@
                     <rect key="frame" x="98" y="192" width="119" height="30"/>
                     <color key="backgroundColor" red="0.13725490200000001" green="0.16862745100000001" blue="0.41568627450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="119" id="91f-ex-7JD"/>
+                        <constraint firstAttribute="width" constant="119" id="91f-ex-7JD">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
                         <constraint firstAttribute="height" constant="30" id="ZCp-41-Mgk"/>
                     </constraints>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -153,7 +173,11 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PJq-zL-HCf">
                     <rect key="frame" x="227" y="190.5" width="78" height="33"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="78" id="Eop-nn-9ke"/>
+                        <constraint firstAttribute="width" constant="78" id="Eop-nn-9ke">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
                         <constraint firstAttribute="height" constant="33" id="nfm-ob-mjS"/>
                     </constraints>
                     <connections>
@@ -185,7 +209,11 @@
                 <constraint firstItem="K8n-Qx-tST" firstAttribute="trailing" secondItem="LIP-5j-gdb" secondAttribute="trailing" id="pvt-ZY-HUQ"/>
                 <constraint firstItem="CR3-h0-Scj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="sK3-G8-z1A"/>
                 <constraint firstItem="kGm-iR-Deh" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="smu-Zm-bGm"/>
-                <constraint firstAttribute="trailing" secondItem="CR3-h0-Scj" secondAttribute="trailing" constant="30" id="uu0-0E-jgQ"/>
+                <constraint firstAttribute="trailing" secondItem="CR3-h0-Scj" secondAttribute="trailing" constant="30" id="uu0-0E-jgQ">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </constraint>
                 <constraint firstItem="5f3-aV-gNR" firstAttribute="top" secondItem="QFQ-yV-bV8" secondAttribute="bottom" constant="10" id="v9V-gm-mco"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
