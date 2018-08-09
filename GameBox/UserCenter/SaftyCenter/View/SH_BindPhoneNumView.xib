@@ -19,13 +19,16 @@
                     <rect key="frame" x="8" y="8" width="317" height="200"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="旧手机号码阿斯蒂芬按时按时" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lj-5u-nPC">
-                            <rect key="frame" x="26" y="23" width="75.5" height="17"/>
+                            <rect key="frame" x="26" y="23" width="72" height="17"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="72" id="Z6v-2v-OK5"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新手机号码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OiY-R3-8xh">
-                            <rect key="frame" x="26" y="64" width="72" height="17"/>
+                            <rect key="frame" x="26" y="64" width="80.5" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -98,7 +101,7 @@
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gq8-Bt-gKH">
-                            <rect key="frame" x="109.5" y="14.5" width="192" height="33"/>
+                            <rect key="frame" x="114" y="15" width="192" height="33"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7L4-0o-smw">
                                     <rect key="frame" x="8" y="0.0" width="184" height="33"/>
@@ -113,7 +116,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                             </subviews>
-                            <color key="backgroundColor" red="0.1069291686" green="1" blue="0.040969342489999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="backgroundColor" red="0.13725490200000001" green="0.16862745100000001" blue="0.41568627450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="7L4-0o-smw" firstAttribute="top" secondItem="gq8-Bt-gKH" secondAttribute="top" id="Aa3-QX-rvD"/>
                                 <constraint firstAttribute="height" constant="33" id="E3F-mw-jUu">
@@ -138,10 +141,10 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eYU-ct-qFS">
-                            <rect key="frame" x="109.5" y="56" width="123" height="33"/>
+                            <rect key="frame" x="114" y="56" width="118.5" height="33"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MWe-jF-7oz">
-                                    <rect key="frame" x="8" y="0.0" width="115" height="33"/>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MWe-jF-7oz">
+                                    <rect key="frame" x="8" y="0.0" width="110.5" height="33"/>
                                     <color key="backgroundColor" red="0.13725490200000001" green="0.16862745100000001" blue="0.41568627450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -166,11 +169,6 @@
                                     </userDefinedRuntimeAttributes>
                                 </constraint>
                                 <constraint firstItem="MWe-jF-7oz" firstAttribute="top" secondItem="eYU-ct-qFS" secondAttribute="top" id="Je4-5R-3IV"/>
-                                <constraint firstAttribute="width" constant="123" id="Xxr-Xa-0GH">
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
-                                    </userDefinedRuntimeAttributes>
-                                </constraint>
                                 <constraint firstAttribute="bottom" secondItem="MWe-jF-7oz" secondAttribute="bottom" id="bFi-mW-r0x"/>
                                 <constraint firstAttribute="height" constant="33" id="dYs-21-Qz2"/>
                             </constraints>
@@ -186,7 +184,7 @@
                     <constraints>
                         <constraint firstItem="kUB-Cf-MZh" firstAttribute="leading" secondItem="qxL-Fa-b7X" secondAttribute="trailing" constant="9" id="0Y6-Gd-qo0"/>
                         <constraint firstItem="qxL-Fa-b7X" firstAttribute="leading" secondItem="OiY-R3-8xh" secondAttribute="leading" id="5e7-CP-JP7"/>
-                        <constraint firstItem="gq8-Bt-gKH" firstAttribute="leading" secondItem="3lj-5u-nPC" secondAttribute="trailing" constant="8" id="6YV-nO-rVc">
+                        <constraint firstItem="gq8-Bt-gKH" firstAttribute="leading" secondItem="3lj-5u-nPC" secondAttribute="trailing" constant="16" id="C63-dI-VAp">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                             </userDefinedRuntimeAttributes>
@@ -206,7 +204,11 @@
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </constraint>
-                        <constraint firstAttribute="bottom" secondItem="zwV-Rc-eZY" secondAttribute="bottom" constant="13" id="PBK-iH-1Vx"/>
+                        <constraint firstItem="eYU-ct-qFS" firstAttribute="leading" secondItem="OiY-R3-8xh" secondAttribute="trailing" constant="7.5" id="LdZ-Vc-TF0">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
                         <constraint firstItem="Ula-a8-vQL" firstAttribute="leading" secondItem="MWe-jF-7oz" secondAttribute="trailing" constant="6.5" id="RxM-gR-A5S">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
@@ -219,6 +221,16 @@
                         </constraint>
                         <constraint firstItem="eYU-ct-qFS" firstAttribute="centerY" secondItem="OiY-R3-8xh" secondAttribute="centerY" id="T2l-pn-M2m"/>
                         <constraint firstItem="qxL-Fa-b7X" firstAttribute="top" secondItem="OiY-R3-8xh" secondAttribute="bottom" constant="24" id="g7s-38-Apz">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                        <constraint firstItem="zwV-Rc-eZY" firstAttribute="top" secondItem="kUB-Cf-MZh" secondAttribute="bottom" constant="13" id="hHF-Om-avc">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                        <constraint firstAttribute="trailing" secondItem="gq8-Bt-gKH" secondAttribute="trailing" constant="11" id="hhn-II-cD0">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                             </userDefinedRuntimeAttributes>
@@ -236,7 +248,7 @@
                         <constraint firstItem="gq8-Bt-gKH" firstAttribute="centerY" secondItem="3lj-5u-nPC" secondAttribute="centerY" id="xte-t0-yHq"/>
                         <constraint firstItem="3lj-5u-nPC" firstAttribute="top" secondItem="PHK-AA-NMh" secondAttribute="top" constant="23" id="yFa-lT-OnQ">
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="NO"/>
                             </userDefinedRuntimeAttributes>
                         </constraint>
                     </constraints>
