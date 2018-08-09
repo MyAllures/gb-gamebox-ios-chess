@@ -12,14 +12,9 @@
 #import "SH_PromoDeatilViewController.h"
 #import "SH_WebPButton.h"
 #import "SH_MsgCenterDetailView.h"
-<<<<<<< HEAD
-#import "AlertViewController.h"
 #import "SH_PromoActivitiesView.h"
-
-=======
 #import "SH_BigWindowViewController.h"
 #import "SH_SmallWindowViewController.h"
->>>>>>> eb3bb850763d4636a779ca48933550a90567132e
 @interface SH_PromoWindowViewController () <SH_PromoListViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet SH_WebPButton *promoTypeBt;
