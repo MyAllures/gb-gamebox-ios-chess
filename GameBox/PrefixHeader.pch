@@ -25,5 +25,5 @@
 #import "SH_WebPButton.h"
 #import "SH_NetWorkService_FindPsw.h"
 #import "SH_ERRCodeMacro.h"
-
+#import "UIView+CurrentVC.h"
 #endif /* PrefixHeader_pch */
