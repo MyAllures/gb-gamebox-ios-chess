@@ -11,7 +11,8 @@
 #import "RH_UserSafetyCodeModel.h"
 #import "SH_FillRealNameView.h"
 #import "SH_GamesHomeViewController.h"
-@interface SH_ModiftSaftyPSDView()
+#import "SH_SmallWindowViewController.h"
+@interface SH_ModiftSaftyPSDView()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *currentTF;
 @property (weak, nonatomic) IBOutlet UITextField *NewTF;
 @property (weak, nonatomic) IBOutlet UITextField *sureTF;
@@ -34,6 +35,8 @@
     self.verificationBtn.hidden = YES;
     self.sureBtnTopDistance.constant = 15;
     [self updateView];
+    self.NewTF.delegate = self;
+    self.sureTF.delegate = self;
 
 }
 
@@ -58,6 +61,22 @@
 }
 
 - (IBAction)sureBtnClick:(id)sender {
+    
+    if([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length > 0){
+        
+    } else {
+        SH_FillRealNameView *view = [[[NSBundle mainBundle] loadNibNamed:@"SH_FillRealNameView" owner:nil options:nil] lastObject];
+        SH_SmallWindowViewController *acr = [SH_SmallWindowViewController new];
+        acr.contentHeight = 202;
+        acr.titleImageName = @"title18";
+        acr.customView = view;
+        view.targetVC1 = acr;
+        acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self.targetVC presentViewController:acr animated:YES completion:nil];
+        return;
+    }
+    
     if (self.NewTF.text.length == 0){
         showMessage(self, @"请输入新密码", nil);
     } else if (self.sureTF.text.length == 0){
@@ -144,6 +163,25 @@
 }
 - (IBAction)verificationBtnClick:(id)sender {
     [self verificationImage];
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    
+    if([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length > 0){
+        return YES;
+    } else {
+        SH_FillRealNameView *view = [[[NSBundle mainBundle] loadNibNamed:@"SH_FillRealNameView" owner:nil options:nil] lastObject];
+        SH_SmallWindowViewController * acr = [SH_SmallWindowViewController new];
+        acr.customView = view;
+        acr.contentHeight = 202;
+        acr.titleImageName = @"title18";
+        view.targetVC1 = acr;
+        acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self.targetVC presentViewController:acr animated:YES completion:nil];
+        return NO;
+    }
 }
 
 @end

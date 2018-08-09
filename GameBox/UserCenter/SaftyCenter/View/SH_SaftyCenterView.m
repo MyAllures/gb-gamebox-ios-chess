@@ -124,8 +124,6 @@
         acr.titleImageName = @"title18";
         acr.contentHeight = 202;
         view.targetVC1 = acr;
-#pragma mark ---- ？？？？？
-//        acr.shutBtn.hidden = YES;
         acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         [self.targetVC presentViewController:acr animated:YES completion:nil];
@@ -200,4 +198,6 @@
     }
     selectedView.hidden = NO;
 }
+
+
 @end
