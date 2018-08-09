@@ -22,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.titleImgView.image = [UIImage imageNamed:self.titleImageName];
     self.windowHeightConstraint.constant = self.contentHeight+46;
     [self.contentView addSubview:self.customView];
     [self.customView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -32,12 +33,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)setTitleImageName:(NSString *)titleImageName
-{
-    _titleImageName = titleImageName;
-    self.titleImgView.image = [UIImage imageNamed:_titleImageName];
 }
 
 -(void)close:(SH_SmallWindowViewControllerDismissBlock)closeBlock
