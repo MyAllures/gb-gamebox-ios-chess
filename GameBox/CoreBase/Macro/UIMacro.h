@@ -21,6 +21,7 @@
 #define WIDTH_PERCENT  SCREEN_WIDTH/375.0
 #define HEIGHT_PERCENT SCREEN_HEIGHT/667.0
 
+
 #define  colorWithRGB(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 
 #define ifRespondsSelector(_obj,_sel)  if (_obj&&[(NSObject *)_obj respondsToSelector:_sel])
