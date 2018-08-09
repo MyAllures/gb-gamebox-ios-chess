@@ -27,6 +27,7 @@
     [super awakeFromNib];
     self.detailLB.editable = false;
 }
+
 - (void)dismiss:(SH_MsgCenterDetailViewDismiss)dismissBlock
 {
     self.dismissBlock = dismissBlock;
