@@ -195,6 +195,7 @@
         if (totalCheckTimes == ips.count*4) {
             //所有ip 所有类型都check完毕了
             //发送check错误信息
+            NSLog(@"ips check完毕");
             [[SH_LineCheckErrManager sharedManager] send];
         }
     }  failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -195,9 +196,9 @@
                             </connections>
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zcy-tE-pgf" customClass="SH_WebPImageView">
-                            <rect key="frame" x="165" y="119" width="120" height="121"/>
+                            <rect key="frame" x="144.5" y="119" width="161" height="121"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="120" id="6VG-hG-Drt"/>
+                                <constraint firstAttribute="width" secondItem="Zcy-tE-pgf" secondAttribute="height" multiplier="150:112.5" id="nGo-ZE-bSs"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="nodata_bg2_slices"/>
