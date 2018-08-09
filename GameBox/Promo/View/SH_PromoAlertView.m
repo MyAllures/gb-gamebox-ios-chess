@@ -34,6 +34,7 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     SH_PromoAlertTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SH_PromoAlertTableViewCell"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 @end

@@ -32,7 +32,7 @@
     SH_PromoAlertView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_PromoAlertView" owner:self options:nil].firstObject;
     SH_SmallWindowViewController * acr = [SH_SmallWindowViewController new];
     acr.customView = view;
-    acr.contentHeight = 250;
+    acr.contentHeight = 250*screenSize().width/375;
     acr.titleImageName = @"title03";
     acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
