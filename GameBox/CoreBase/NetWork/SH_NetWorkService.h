@@ -18,6 +18,7 @@ typedef void(^SHNetWorkCheckComplete)(BOOL ok);
 
 + (void)get:(NSString *)url withPublicParameter:(BOOL)withPublicParameter complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
 + (void)get:(NSString *)url withPublicParameter:(BOOL)withPublicParameter parameter:(NSDictionary *)parameter complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
++ (void)get:(NSString *)url withPublicParameter:(BOOL)withPublicParameter parameter:(NSDictionary *)parameter header:(NSDictionary *)header cache:(BOOL)cache detailErr:(BOOL)detailErr complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed;
 /**
  * 如果cache=YES
  * 成功回调会调用两次

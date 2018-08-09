@@ -9,9 +9,10 @@
 #import "SH_CustomerServiceManager.h"
 #import "SH_NetWorkService+Home.h"
 #import "LineCheckViewController.h"
-#import "AlertViewController.h"
 #import "SH_CustomerServiceView.h"
 #import "SH_PromoWindowViewController.h"
+#import "SH_TopLevelControllerManager.h"
+#import "SH_BigWindowViewController.h"
 
 @interface SH_CustomerServiceManager ()
 
@@ -68,8 +69,8 @@
 {
     [SH_NetWorkService getCustomerService:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (response && [response[@"code"] intValue] == 0) {
-            self.isInlay = [response[@"data"][@"isInlay"] boolValue];
-            self.customerUrl = [response[@"data"][@"customerUrl"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            self.isInlay = YES;//[response[@"data"][@"isInlay"] boolValue];
+            self.customerUrl = @"http://www.baidu.com";//[response[@"data"][@"customerUrl"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             if (success) {
                 success(self.customerUrl);
             }
@@ -87,53 +88,18 @@
     }];
 }
 
-//获取顶层视图控制器
-- (UIViewController *)fetchTopLevelController
-{
-    UINavigationController *rootViewController = (UINavigationController *)[UIApplication sharedApplication].keyWindow.rootViewController;
-    LineCheckViewController *lineCheckViewController = (LineCheckViewController *)rootViewController.presentedViewController;
-
-    //取到顶层navigation控制器
-    UIViewController *topNavController = [lineCheckViewController.rootNav.viewControllers lastObject];
-    if (topNavController.presentedViewController) {
-        //如果顶层nav有present的控制器
-        //则取顶层present控制器
-        UIViewController *topPresentedViewController = [self fetchTopLevelPresentedController:topNavController.presentedViewController];
-        return topPresentedViewController;
-    }
-    else
-    {
-        return topNavController;
-    }
-}
-
-//递归查找顶层present控制器
-- (UIViewController *)fetchTopLevelPresentedController:(UIViewController *)rootVC
-{
-    if (rootVC.presentedViewController) {
-        return [self fetchTopLevelPresentedController:rootVC.presentedViewController];
-    }
-    else
-    {
-        return rootVC;
-    }
-}
-
 - (void)showCustomerWindow:(NSString *)url
 {
-//    SH_PromoWindowViewController *vc = [[SH_PromoWindowViewController alloc] initWithNibName:@"SH_PromoWindowViewController" bundle:nil];
-//    vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-//    vc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
-//    UIViewController *topVC = [self fetchTopLevelController];
-//    [topVC presentViewController:vc animated:NO completion:nil];
-
     SH_CustomerServiceView *customerServiceView = [[SH_CustomerServiceView alloc] init];
     customerServiceView.url = url;
-    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:customerServiceView viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title20" alertViewType:AlertViewTypeLong];
+    
+    SH_BigWindowViewController *cvc = [[SH_BigWindowViewController alloc] initWithNibName:@"SH_BigWindowViewController" bundle:nil];
+    cvc.titleImageName = @"title20";
+    cvc.customView = customerServiceView;
     cvc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     cvc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
 
-    UIViewController *topVC = [self fetchTopLevelController];
+    UIViewController *topVC = [SH_TopLevelControllerManager fetchTopLevelController];
     [topVC presentViewController:cvc animated:NO completion:nil];
 }
 

@@ -8,17 +8,18 @@
 
 #import "SH_OutCoinDetailView.h"
 #import "SH_OutCoinDetailTableViewCell.h"
-#import "AlertViewController.h"
 #import "SH_LookJiHeView.h"
 #import "SH_NetWorkService+Profit.h"
 #import "SH_ConfirSaftyPassWordView.h"
 #import "SH_ProfitAlertView.h"
+#import "SH_SmallWindowViewController.h"
+#import "SH_BigWindowViewController.h"
+#import "SH_TopLevelControllerManager.h"
 @interface SH_OutCoinDetailView()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
 @property(nonatomic,strong)NSArray *details;
 @property(nonatomic,strong)NSArray *titles;
-@property(nonatomic,strong)UIViewController *targetVC;
 @property(nonatomic,copy)NSString *token;
 @end
 @implementation SH_OutCoinDetailView
@@ -51,12 +52,14 @@
 }
 - (IBAction)lookJiHeBtnClick:(id)sender {
     SH_LookJiHeView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_LookJiHeView" owner:self options:nil].firstObject;
-    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-77 titleImageName:@"title15" alertViewType:AlertViewTypeLong];
+    SH_BigWindowViewController * acr = [SH_BigWindowViewController new];
+    acr.customView = view;
+    acr.titleImageName = @"title15";
     acr.title = @"牌局记录";
     acr.modalPresentationStyle = UIModalPresentationCurrentContext;
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self.targetVC presentViewController:acr animated:YES completion:nil];
-    view.targetVC = acr;
+     UIViewController * svc = [SH_TopLevelControllerManager fetchTopLevelController];
+    [svc presentViewController:acr animated:YES completion:nil];
 }
 
 - (IBAction)sureOutCoinBtnClick:(id)sender {
@@ -68,28 +71,33 @@
     SH_ConfirSaftyPassWordView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_ConfirSaftyPassWordView" owner:self options:nil].firstObject;
     view.money = self.details[1];
     view.token = self.token;
-    view.targetVC = self.targetVC;
-    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:210 titleImageName:@"title17" alertViewType:AlertViewTypeShort];
+    SH_SmallWindowViewController *acr = [SH_SmallWindowViewController new];
+    acr.customView = view;
+    acr.contentHeight = 210;
+    acr.titleImageName = @"title17";
     acr.modalPresentationStyle = UIModalPresentationCurrentContext;
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self.targetVC presentViewController:acr animated:YES completion:nil];
-    [view updateUIWithDetailArray:nil TargetVC:acr Token:nil];
+     UIViewController * svc = [SH_TopLevelControllerManager fetchTopLevelController];
+    [svc presentViewController:acr animated:YES completion:nil];
+    [view updateUIWithDetailArray:nil TargetVC:nil Token:nil];
 }
 
 -(void)popAlertView: (NSString *)content{
     SH_ProfitAlertView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_ProfitAlertView" owner:self options:nil].firstObject;
     view.content = content;
-    view.targetVC = self.targetVC;
-    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:202 titleImageName:@"title03" alertViewType:AlertViewTypeShort];
+    SH_SmallWindowViewController * acr = [SH_SmallWindowViewController new];
+    acr.customView = view;
+    acr.contentHeight = 202;
+    acr.titleImageName =@"title03";
     acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self.targetVC presentViewController:acr animated:YES completion:nil];
+     UIViewController * svc = [SH_TopLevelControllerManager fetchTopLevelController];
+    [svc presentViewController:acr animated:YES completion:nil];
 }
 
 - (void)updateUIWithDetailArray:(NSArray *)details
                        TargetVC:(UIViewController *)targetVC
                           Token:(NSString *)token{
-    self.targetVC = targetVC;
     self.details = details;
     self.token = token;
     [self.mainTableView reloadData];

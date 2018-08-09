@@ -15,7 +15,8 @@
 #import "UIImage+SH_WebPImage.h"
 #import "RH_RegisterClauseModel.h"
 #import "SH_RegistRulerView.h"
-#import "AlertViewController.h"
+#import "SH_BigWindowViewController.h"
+#import "SH_TopLevelControllerManager.h"
 @interface SH_RegistView()
 {
     RH_RegisetInitModel *registrationInitModel;
@@ -273,7 +274,7 @@
     [label  mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.mas_equalTo(button_Check.mas_trailing).mas_offset(10);
         make.centerY.mas_equalTo(button_Check);
-        
+        make.trailing.mas_equalTo(self.stackView);
     }];
 
     label.titleLabel.font = [UIFont systemFontOfSize:9];
@@ -285,7 +286,12 @@
     [button  mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(button_Check.mas_bottom).mas_offset(20);
 //        make.centerX.mas_equalTo(self.scrollview);
-        make.width.mas_equalTo(145);
+//        make.width.mas_equalTo(145);
+        if (self.stackView.frameWidth >265) {
+            make.width.mas_equalTo(145);
+        }else{
+             make.trailing.mas_equalTo(self.stackView);
+        }
         make.leading.mas_equalTo(button_Check.mas_leading).mas_offset(5);
         make.height.mas_equalTo(48);
     }];
@@ -324,8 +330,11 @@
 -(void)showRulerWebViewWithHtml:(NSString*)html{
     SH_RegistRulerView * view = [SH_RegistRulerView instanceRegistRulerView];
     view.html = html;
-    AlertViewController * alert = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title02" alertViewType:AlertViewTypeLong];
-    [self presentViewController:alert addTargetViewController:self.targetVC];
+    SH_BigWindowViewController * alert = [SH_BigWindowViewController new];
+    alert.customView = view;
+    alert.titleImageName =@"title02";
+    UIViewController * svc = [SH_TopLevelControllerManager fetchTopLevelController];
+    [self presentViewController:alert addTargetViewController:svc];
     
 }
 #pragma mark --- 模态弹出viewController

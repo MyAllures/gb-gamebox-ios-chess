@@ -45,7 +45,4 @@
     [cell updaetUIWithModel:self.dataArray[indexPath.row]];
     return cell;
 }
-- (void)setTargetVC:(UIViewController *)targetVC{
-    _targetVC = targetVC;
-}
 @end

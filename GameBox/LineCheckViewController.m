@@ -195,9 +195,7 @@
         if (totalCheckTimes == ips.count*4) {
             //所有ip 所有类型都check完毕了
             //发送check错误信息
-            [[SH_LineCheckErrManager sharedManager] collectErrInfo:@{RH_SP_COLLECTAPPERROR_DOMAIN:host,RH_SP_COLLECTAPPERROR_CODE:@([httpURLResponse statusCode]),RH_SP_COLLECTAPPERROR_ERRORMESSAGE:@"测试数据1"}];
-            [[SH_LineCheckErrManager sharedManager] collectErrInfo:@{RH_SP_COLLECTAPPERROR_DOMAIN:host,RH_SP_COLLECTAPPERROR_CODE:@([httpURLResponse statusCode]),RH_SP_COLLECTAPPERROR_ERRORMESSAGE:@"测试数据2"}];
-
+            NSLog(@"ips check完毕");
             [[SH_LineCheckErrManager sharedManager] send];
         }
     }  failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {

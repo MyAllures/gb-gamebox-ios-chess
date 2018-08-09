@@ -15,8 +15,10 @@
 #import "SH_WebPButton.h"
 #import "SH_BindPhoneNumView.h"
 #import "SH_ProfitExchangeView.h"
-#import "AlertViewController.h"
 #import "SH_FillRealNameView.h"
+#import "SH_BigWindowViewController.h"
+#import "SH_SmallWindowViewController.h"
+#import "SH_TopLevelControllerManager.h"
 @interface SH_SaftyCenterView()
 @property (weak, nonatomic) IBOutlet SH_WebPButton *loginBtn;
 @property (weak, nonatomic) IBOutlet SH_WebPButton *saftyBtn;
@@ -108,7 +110,6 @@
 }
 
 - (IBAction)modifyLoginBtnClick:(id)sender {
-     self.loginView.targetVC = self.targetVC;
      [self setUIWithSelecteBtn:self.loginBtn SelectedView:self.loginView];
 }
 
@@ -118,15 +119,15 @@
         
     } else {
         SH_FillRealNameView *view = [[[NSBundle mainBundle] loadNibNamed:@"SH_FillRealNameView" owner:nil options:nil] lastObject];
-        AlertViewController *acr = [[AlertViewController alloc] initAlertView:view viewHeight:202 titleImageName:@"title18" alertViewType:AlertViewTypeShort];
-        view.targetVC1 = acr;
-        acr.shutBtn.hidden = YES;
+        SH_SmallWindowViewController * acr = [SH_SmallWindowViewController new];
+        acr.customView = view;
+        acr.titleImageName = @"title18";
+        acr.contentHeight = 202;
         acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        [self.targetVC presentViewController:acr animated:YES completion:nil];
+         UIViewController * svc= [SH_TopLevelControllerManager  fetchTopLevelController];
+        [svc presentViewController:acr animated:YES completion:nil];
     }
-    
-    self.saftyView.targetVC = self.targetVC;
     self.saftyView.comeFromVC  = self.bankView.from;
     [self setUIWithSelecteBtn:self.saftyBtn SelectedView:self.saftyView];
     //这里用户要请求有没有设置过安全密码接口
@@ -144,7 +145,6 @@
     }];
 }
 - (IBAction)bankCardBtnClick:(id)sender {
-    self.bankView.targetVC = self.targetVC;
     [self setUIWithSelecteBtn:self.bankBtn SelectedView:self.bankView];
 }
 -(void)configUI{
@@ -158,10 +158,6 @@
 -(void)setButton:(SH_WebPButton *)button BackgroundImage:(NSString *)image{
     [button setWebpBGImage:image forState:UIControlStateNormal];
 }
-- (void)setTargetVC:(UIViewController *)targetVC{
-    _targetVC = targetVC;
-    self.loginView.targetVC = targetVC;
-}
 - (void)selectedWithType:(NSString *)type From:(NSString *)from{
     self.bankView.from = from;
     if ([type isEqualToString:@"bindBankcard"]) {
@@ -171,7 +167,6 @@
     }
 }
 - (IBAction)bindPhoneBtnClick:(id)sender {
-    self.bindPhoneView.targetVC = self.targetVC;
     [self setUIWithSelecteBtn:self.bindPhoneBtn SelectedView:self.bindPhoneView];
     [self.bindPhoneView selectBindPhoneNumView];
 }
@@ -195,4 +190,6 @@
     }
     selectedView.hidden = NO;
 }
+
+
 @end

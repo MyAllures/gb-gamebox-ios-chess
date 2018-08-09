@@ -12,7 +12,6 @@
 @interface SH_ConfirSaftyPassWordView : UIView
 @property(nonatomic,copy)NSString *money;
 @property(nonatomic,copy)NSString *token;
-@property(nonatomic,strong)UIViewController *targetVC;
 
 - (void)updateUIWithDetailArray:(NSArray *)details
                        TargetVC:(UIViewController *)targetVC

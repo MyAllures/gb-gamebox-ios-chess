@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AlertViewController.h"
+#import "SH_SmallWindowViewController.h"
 @interface SH_AlertView : UIView
-@property(nonatomic,strong)AlertViewController  * vc;
+@property(nonatomic,strong)SH_SmallWindowViewController  * vc;
 +(instancetype)instanceAlertView;
 @end

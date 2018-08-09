@@ -8,17 +8,19 @@
 
 #import "SH_PrifitOutCoinView.h"
 #import "SH_NetWorkService+Profit.h"
-#import "AlertViewController.h"
+#import "SH_BigWindowViewController.h"
+#import "SH_SmallWindowViewController.h"
 #import "SH_OutCoinDetailView.h"
 #import "SH_FeeModel.h"
 #import "SH_ProfitAlertView.h"
 #import "SH_SaftyCenterView.h"
+#import "SH_TopLevelControllerManager.h"
 @interface SH_PrifitOutCoinView()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *numTextField;
 @property (weak, nonatomic) IBOutlet UILabel *feeLab;
 @property (weak, nonatomic) IBOutlet UILabel *balanceLab;
 @property (weak, nonatomic) IBOutlet UILabel *bankNumLab;
-@property(nonatomic,strong)UIViewController *targetVC;
+//@property(nonatomic,strong)UIViewController *targetVC;
 @property (weak, nonatomic) IBOutlet SH_WebPButton *bandingBtn;
 
 @property(nonatomic,strong)SH_FeeModel *feeModel;//传到下面一个页面
@@ -50,11 +52,14 @@
 - (IBAction)bindProfitAccountNumBtnClick:(id)sender {
     if ([self.bankNumLab.text isEqualToString:@"请绑定银行卡"]) {
         SH_SaftyCenterView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_SaftyCenterView" owner:self options:nil].firstObject;
-        AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-50 titleImageName:@"title12" alertViewType:AlertViewTypeLong];
-        acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-        acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        [self.targetVC presentViewController:acr animated:YES completion:nil];
-        view.targetVC = acr;
+        SH_BigWindowViewController *vc = [SH_BigWindowViewController new];
+        vc.titleImageName = @"title12";
+        vc.customView = view;
+        vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        UIViewController * svc= [SH_TopLevelControllerManager  fetchTopLevelController];
+        
+        [svc presentViewController:vc animated:YES completion:nil];
         [view selectedWithType:@"bindBankcard" From:@"profitView"];
     }else{
         showMessage(self, @"您已绑定银行卡", nil);
@@ -95,12 +100,15 @@
                 [self popAlertView:self.message];
             } else if ([self.code intValue] == 0) {
                 SH_OutCoinDetailView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_OutCoinDetailView" owner:self options:nil].firstObject;
-                AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-95 titleImageName:@"title14" alertViewType:AlertViewTypeShort];
-                acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-                acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-                [self.targetVC presentViewController:acr animated:YES completion:nil];
+                SH_BigWindowViewController *vc = [SH_BigWindowViewController new];
+                vc.titleImageName = @"title14";
+                vc.customView = view;
+                vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+                vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+                 UIViewController * svc= [SH_TopLevelControllerManager  fetchTopLevelController];
+                [svc presentViewController:vc animated:YES completion:nil];
                 self.feeModel.actualWithdraw = [NSString stringWithFormat:@"%.2f",[self.feeModel.actualWithdraw floatValue]];
-                [view updateUIWithDetailArray:@[self.bankNumLab.text,self.numTextField.text,self.feeModel.counterFee,self.feeModel.administrativeFee,self.feeModel.deductFavorable,self.feeModel.actualWithdraw] TargetVC:acr Token:self.token];
+                [view updateUIWithDetailArray:@[self.bankNumLab.text,self.numTextField.text,self.feeModel.counterFee,self.feeModel.administrativeFee,self.feeModel.deductFavorable,self.feeModel.actualWithdraw] TargetVC:nil Token:self.token];
             }
     }
 }
@@ -120,7 +128,6 @@
         self.bandingBtn.userInteractionEnabled = NO;
     }
     self.balanceLab.text = [NSString stringWithFormat:@"%.2f",[model.totalBalance floatValue]];
-    self.targetVC = targetVC;
     self.token = token;
      self.model = model;
     self.code = code;
@@ -143,11 +150,14 @@
 -(void)popAlertView: (NSString *)content{
     SH_ProfitAlertView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_ProfitAlertView" owner:self options:nil].firstObject;
     view.content = content;
-    view.targetVC = self.targetVC;
-    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:202 titleImageName:@"title03" alertViewType:AlertViewTypeShort];
+    SH_SmallWindowViewController * acr = [SH_SmallWindowViewController new];
+    acr.titleImageName = @"title03";
+    acr.customView = view;
+    acr.contentHeight = 202;
     acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self.targetVC presentViewController:acr animated:YES completion:nil];
+     UIViewController * svc= [SH_TopLevelControllerManager  fetchTopLevelController];
+    [svc presentViewController:acr animated:YES completion:nil];
 
 }
 -(void)updateBankNum {

@@ -211,7 +211,7 @@ NSString * const kWebSocketdidReceiveMessageNote = @"kWebSocketdidReceiveMessage
     //开启心跳
     [self initHeartBeat];
     if (webSocket == self.socket) {
-        NSLog(@"************************** socket 连接成功************************** ");
+//        NSLog(@"************************** socket 连接成功************************** ");
         [[NSNotificationCenter defaultCenter] postNotificationName:kWebSocketDidOpenNote object:nil];
     }
 }
@@ -219,7 +219,7 @@ NSString * const kWebSocketdidReceiveMessageNote = @"kWebSocketdidReceiveMessage
 - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error {
     
     if (webSocket == self.socket) {
-        NSLog(@"************************** socket 连接失败************************** ");
+//        NSLog(@"************************** socket 连接失败************************** ");
         _socket = nil;
         //连接失败就重连
         [self reConnect];
@@ -229,8 +229,8 @@ NSString * const kWebSocketdidReceiveMessageNote = @"kWebSocketdidReceiveMessage
 - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
     
     if (webSocket == self.socket) {
-        NSLog(@"************************** socket连接断开************************** ");
-        NSLog(@"被关闭连接，code:%ld,reason:%@,wasClean:%d",(long)code,reason,wasClean);
+//        NSLog(@"************************** socket连接断开************************** ");
+//        NSLog(@"被关闭连接，code:%ld,reason:%@,wasClean:%d",(long)code,reason,wasClean);
         [self SRWebSocketClose];
         [[NSNotificationCenter defaultCenter] postNotificationName:kWebSocketDidCloseNote object:nil];
     }

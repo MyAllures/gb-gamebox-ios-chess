@@ -9,5 +9,4 @@
 #import <UIKit/UIKit.h>
 
 @interface SH_FindPSWView : UIView
-@property (nonatomic, strong) UIViewController *targetVC1;
 @end

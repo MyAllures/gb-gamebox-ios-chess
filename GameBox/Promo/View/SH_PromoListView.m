@@ -11,7 +11,6 @@
 #import "View+MASAdditions.h"
 #import "SH_NetWorkService.h"
 #import "NetWorkLineMangaer.h"
-#import "PopTool.h"
 #import "SH_PromoListModel.h"
 #import "SH_NetWorkService+Promo.h"
 #import <SDWebImage/SDWebImageFrame.h>

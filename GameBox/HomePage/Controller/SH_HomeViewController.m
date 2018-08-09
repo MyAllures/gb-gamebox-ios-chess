@@ -16,7 +16,6 @@
 #import "SH_RechargeCenterViewController.h"
 #import "View+MASAdditions.h"
 #import "SH_CycleScrollView.h"
-#import "AlertViewController.h"
 #import "SH_LoginView.h"
 #import "SH_GamesListScrollView.h"
 #import "SH_NetWorkService+Home.h"
@@ -44,6 +43,8 @@
 #import "SH_TimeZoneManager.h"
 #import "SH_UpdatedVersionModel.h"
 #import "RH_WebsocketManagar.h"
+#import "SH_BigWindowViewController.h"
+#import "SH_SmallWindowViewController.h"
 
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImg;
@@ -73,7 +74,7 @@
 @property (nonatomic, strong) NSTimer *keepAliveTimer;
 
 @property (nonatomic, strong) SH_GamesHomeViewController * vc;
-@property (nonatomic, strong) AlertViewController *acr;
+@property (nonatomic, strong) SH_BigWindowViewController *acr;
 
 @end
 
@@ -134,6 +135,7 @@
 {
     if ([textField.text isEqualToString:@""]) {
 //        self.isSearchStatus = NO;
+        [self.searchResultArr removeAllObjects];
         [self.searchResultArr addObjectsFromArray:self.localSearchGameModel.relation];
         [self.lastGamesListScrollView reloaData];
     }
@@ -340,10 +342,12 @@
     
     if ([RH_UserInfoManager  shareUserManager].isLogin) {
         if ([RH_UserInfoManager shareUserManager].mineSettingInfo.userSex.length > 0) {
-            if ([[RH_UserInfoManager shareUserManager].mineSettingInfo.userSex isEqualToString:@"男"]) {
+            if ([[RH_UserInfoManager shareUserManager].mineSettingInfo.userSex isEqualToString:@"male"]) {
                 self.avatarImg.image = [UIImage imageWithWebPImageName:@"photo_male"];
-            } else {
+            } else  if ([[RH_UserInfoManager shareUserManager].mineSettingInfo.userSex isEqualToString:@"female"]){
                 self.avatarImg.image = [UIImage imageWithWebPImageName:@"photo_female"];
+            } else {
+                self.avatarImg.image = [UIImage imageWithWebPImageName:@"photo_male"];
             }
         } else {
             self.avatarImg.image = [UIImage imageWithWebPImageName:@"photo_male"];
@@ -552,18 +556,19 @@
 
 -(void)login{
     SH_LoginView *login = [SH_LoginView InstanceLoginView];
-    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:login viewHeight:[UIScreen mainScreen].bounds.size.height-60 titleImageName:@"title01" alertViewType:AlertViewTypeLong];
-    login.targetVC = cvc;
+    
+    SH_BigWindowViewController *vc = [[SH_BigWindowViewController alloc] initWithNibName:@"SH_BigWindowViewController" bundle:nil];
+    vc.titleImageName = @"title01";
+    vc.customView = login;
     login.dismissBlock = ^{
-        [cvc  close];
-        [self  configUI];
+        [vc close:nil];
+        [self configUI];
     };
     login.changeChannelBlock = ^(NSString *string) {
-      [cvc setImageName:string];
-        
+        vc.titleImageName = string;
     };
-    
-    [self presentViewController:cvc addTargetViewController:self];
+
+    [self presentViewController:vc addTargetViewController:self];
 }
 
 - (IBAction)welfareClick:(id)sender {
@@ -634,7 +639,10 @@
         return;
     }
     SH_UserInformationView * inforView = [SH_UserInformationView  instanceInformationView];
-    AlertViewController * cvc = [[AlertViewController  alloc] initAlertView:inforView viewHeight:204 titleImageName:@"title04" alertViewType:AlertViewTypeShort];
+    SH_SmallWindowViewController *cvc = [[SH_SmallWindowViewController alloc] initWithNibName:@"SH_SmallWindowViewController" bundle:nil];
+    cvc.titleImageName = @"title04";
+    cvc.customView = inforView;
+    cvc.contentHeight = 204;
     inforView.vc = cvc;
     [self presentViewController:cvc addTargetViewController:self];
 }
@@ -674,17 +682,23 @@
         return;
     }
     SH_PrifitOutCoinView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_PrifitOutCoinView" owner:nil options:nil].lastObject;
-    self.acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:[UIScreen mainScreen].bounds.size.height-75 titleImageName:@"title07" alertViewType:AlertViewTypeLong];
+    self.acr = [SH_BigWindowViewController new];
+    self.acr.titleImageName = @"title07";
+    self.acr.customView = view;
     self.acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     self.acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:self.acr animated:YES completion:nil];
     [SH_NetWorkService getBankInforComplete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        NSDictionary *dic = [(NSDictionary *)response objectForKey:@"data"];
-        SH_ProfitModel *model = [[SH_ProfitModel alloc]initWithDictionary:dic error:nil];
-        NSString *code = response[@"code"];
-        NSString *message = response[@"message"];
-        [self refreshBalance:model.totalBalance];
-        [view updateUIWithBalance:model BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:self.acr Token:model.token Code:code Message:message];
+        NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
+        // ts333 账号返回的是json字符串 ，所以判断下
+        if (dict) {
+            NSDictionary *dic = [(NSDictionary *)response objectForKey:@"data"];
+            SH_ProfitModel *model = [[SH_ProfitModel alloc]initWithDictionary:dic error:nil];
+            NSString *code = response[@"code"];
+            NSString *message = response[@"message"];
+            [self refreshBalance:model.totalBalance];
+            [view updateUIWithBalance:model BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:nil Token:model.token Code:code Message:message];
+        }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
@@ -697,7 +711,7 @@
 }
 
 -(void) close {
-    [self.acr close];
+    [self.acr close:nil];
 }
 
 #pragma mark --- 玩家中心
@@ -717,8 +731,10 @@
 - (IBAction)shareClick:(id)sender {
     if ([RH_UserInfoManager shareUserManager].isLogin) {
           SH_ShareView * share = [SH_ShareView instanceShareView];
-        AlertViewController *vc  = [[AlertViewController  alloc] initAlertView:share viewHeight:260 titleImageName:@"title08" alertViewType:AlertViewTypeShort];
-        share.targetVC = vc;
+        SH_SmallWindowViewController * vc = [SH_SmallWindowViewController new];
+        vc.contentHeight = 260;
+        vc.titleImageName = @"title08";
+        vc.customView = share;
         [self presentViewController:vc addTargetViewController:self];
     }else{
         [self login];

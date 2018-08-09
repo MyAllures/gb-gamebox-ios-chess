@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		2209026620F053D400F8828E /* SH_PromoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2209026420F053D400F8828E /* SH_PromoViewCell.m */; };
 		2209026720F053D400F8828E /* SH_PromoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2209026520F053D400F8828E /* SH_PromoViewCell.xib */; };
+		221A427E211AE13F003DB774 /* nodata_bg2_slices.webp in Resources */ = {isa = PBXBuildFile; fileRef = 221A427D211AE13F003DB774 /* nodata_bg2_slices.webp */; };
 		2231283420F6F26D00D1BF5E /* SH_GameBulletinModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2231283320F6F26D00D1BF5E /* SH_GameBulletinModel.m */; };
 		2231283720F707F500D1BF5E /* SH_SystemNotificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2231283620F707F500D1BF5E /* SH_SystemNotificationModel.m */; };
-		223297E82119C6B400089E26 /* nodata_bg2_slices.webp in Resources */ = {isa = PBXBuildFile; fileRef = 223297E72119C6B300089E26 /* nodata_bg2_slices.webp */; };
 		22552CEE20F4CCE50090EFBC /* SH_NetWorkService+Promo.m in Sources */ = {isa = PBXBuildFile; fileRef = 22552CED20F4CCE50090EFBC /* SH_NetWorkService+Promo.m */; };
 		22552CF120F4E0BB0090EFBC /* SH_PromoListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22552CF020F4E0BB0090EFBC /* SH_PromoListModel.m */; };
 		22618C62210963F700E4A6F6 /* SH_WelfareNotesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22618C61210963F700E4A6F6 /* SH_WelfareNotesView.m */; };
@@ -146,6 +146,11 @@
 		547BCDF8210AFC4D00D7082F /* SH_SearchTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 547BCDF6210AFC4C00D7082F /* SH_SearchTypeModel.m */; };
 		5480CD4B210F0789008465C5 /* SH_SliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5480CD4A210F0789008465C5 /* SH_SliderView.m */; };
 		5482546B21198C6700ECBD5B /* SH_LineCheckErrManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5482546A21198C6700ECBD5B /* SH_LineCheckErrManager.m */; };
+		5482546F2119C3D400ECBD5B /* SH_BigWindowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5482546D2119C3D400ECBD5B /* SH_BigWindowViewController.m */; };
+		548254702119C3D400ECBD5B /* SH_BigWindowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5482546E2119C3D400ECBD5B /* SH_BigWindowViewController.xib */; };
+		54825473211A8D0700ECBD5B /* SH_TopLevelControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 54825472211A8D0700ECBD5B /* SH_TopLevelControllerManager.m */; };
+		54825477211A8FFE00ECBD5B /* SH_SmallWindowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54825475211A8FFE00ECBD5B /* SH_SmallWindowViewController.m */; };
+		54825478211A8FFE00ECBD5B /* SH_SmallWindowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54825476211A8FFE00ECBD5B /* SH_SmallWindowViewController.xib */; };
 		54C21AB120EE23B2006FCA0F /* SH_BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C21AB020EE23B2006FCA0F /* SH_BaseViewController.m */; };
 		54C21AB920F1B981006FCA0F /* SH_CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C21AB820F1B981006FCA0F /* SH_CycleScrollView.m */; };
 		54C8758020F3560100AA0594 /* SH_PromoListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C8757F20F3560100AA0594 /* SH_PromoListView.xib */; };
@@ -372,9 +377,6 @@
 		BFFEDCB820F34CDC002E69FD /* SH_RechargeCenterChannelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFEDCB720F34CDC002E69FD /* SH_RechargeCenterChannelModel.m */; };
 		BFFEDCBB20F35627002E69FD /* SH_RechargeCenterAccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFEDCBA20F35627002E69FD /* SH_RechargeCenterAccountModel.m */; };
 		BFFEDCBE20F3792E002E69FD /* SH_RechargeCenterDataHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFEDCBD20F3792E002E69FD /* SH_RechargeCenterDataHandle.m */; };
-		DA18EFBD20F0A9C3002B7E22 /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA18EFB920F0A9C3002B7E22 /* AlertViewController.xib */; };
-		DA18EFBE20F0A9C3002B7E22 /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA18EFBA20F0A9C3002B7E22 /* AlertViewController.m */; };
-		DA18EFBF20F0A9C3002B7E22 /* PopTool.m in Sources */ = {isa = PBXBuildFile; fileRef = DA18EFBB20F0A9C3002B7E22 /* PopTool.m */; };
 		DA1BCC5220FD7C6D00201DBC /* SH_NetWorkService+UserCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCC5120FD7C6D00201DBC /* SH_NetWorkService+UserCenter.m */; };
 		DA1BCC5820FD942A00201DBC /* SH_WelfareInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCC5720FD942A00201DBC /* SH_WelfareInfoModel.m */; };
 		DA1BCC5B20FDBFCD00201DBC /* SH_FundListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BCC5A20FDBFCD00201DBC /* SH_FundListModel.m */; };
@@ -433,11 +435,11 @@
 		2209026320F053D400F8828E /* SH_PromoViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoViewCell.h; sourceTree = "<group>"; };
 		2209026420F053D400F8828E /* SH_PromoViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoViewCell.m; sourceTree = "<group>"; };
 		2209026520F053D400F8828E /* SH_PromoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PromoViewCell.xib; sourceTree = "<group>"; };
+		221A427D211AE13F003DB774 /* nodata_bg2_slices.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = nodata_bg2_slices.webp; sourceTree = "<group>"; };
 		2231283220F6F26D00D1BF5E /* SH_GameBulletinModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_GameBulletinModel.h; sourceTree = "<group>"; };
 		2231283320F6F26D00D1BF5E /* SH_GameBulletinModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_GameBulletinModel.m; sourceTree = "<group>"; };
 		2231283520F707F500D1BF5E /* SH_SystemNotificationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SystemNotificationModel.h; sourceTree = "<group>"; };
 		2231283620F707F500D1BF5E /* SH_SystemNotificationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SystemNotificationModel.m; sourceTree = "<group>"; };
-		223297E72119C6B300089E26 /* nodata_bg2_slices.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = nodata_bg2_slices.webp; sourceTree = "<group>"; };
 		22552CEC20F4CCE50090EFBC /* SH_NetWorkService+Promo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+Promo.h"; sourceTree = "<group>"; };
 		22552CED20F4CCE50090EFBC /* SH_NetWorkService+Promo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+Promo.m"; sourceTree = "<group>"; };
 		22552CEF20F4E0BB0090EFBC /* SH_PromoListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoListModel.h; sourceTree = "<group>"; };
@@ -607,6 +609,14 @@
 		5480CD4A210F0789008465C5 /* SH_SliderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SliderView.m; sourceTree = "<group>"; };
 		5482546921198C6700ECBD5B /* SH_LineCheckErrManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_LineCheckErrManager.h; sourceTree = "<group>"; };
 		5482546A21198C6700ECBD5B /* SH_LineCheckErrManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_LineCheckErrManager.m; sourceTree = "<group>"; };
+		5482546C2119C3D400ECBD5B /* SH_BigWindowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_BigWindowViewController.h; sourceTree = "<group>"; };
+		5482546D2119C3D400ECBD5B /* SH_BigWindowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_BigWindowViewController.m; sourceTree = "<group>"; };
+		5482546E2119C3D400ECBD5B /* SH_BigWindowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_BigWindowViewController.xib; sourceTree = "<group>"; };
+		54825471211A8D0700ECBD5B /* SH_TopLevelControllerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_TopLevelControllerManager.h; sourceTree = "<group>"; };
+		54825472211A8D0700ECBD5B /* SH_TopLevelControllerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_TopLevelControllerManager.m; sourceTree = "<group>"; };
+		54825474211A8FFE00ECBD5B /* SH_SmallWindowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SmallWindowViewController.h; sourceTree = "<group>"; };
+		54825475211A8FFE00ECBD5B /* SH_SmallWindowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SmallWindowViewController.m; sourceTree = "<group>"; };
+		54825476211A8FFE00ECBD5B /* SH_SmallWindowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_SmallWindowViewController.xib; sourceTree = "<group>"; };
 		54C21AAF20EE23B2006FCA0F /* SH_BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_BaseViewController.h; sourceTree = "<group>"; };
 		54C21AB020EE23B2006FCA0F /* SH_BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_BaseViewController.m; sourceTree = "<group>"; };
 		54C21AB720F1B981006FCA0F /* SH_CycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_CycleScrollView.h; sourceTree = "<group>"; };
@@ -681,6 +691,7 @@
 		54CB4E4321107CED00170B1B /* SH_CustomerServiceManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_CustomerServiceManager.m; sourceTree = "<group>"; };
 		54CB4E45211088BD00170B1B /* SH_CustomerServiceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_CustomerServiceView.h; sourceTree = "<group>"; };
 		54CB4E46211088BD00170B1B /* SH_CustomerServiceView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_CustomerServiceView.m; sourceTree = "<group>"; };
+		54D13C07211BE08900E07E5A /* SitesConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SitesConfig.h; sourceTree = "<group>"; };
 		54D5F573210816A900439A94 /* column_bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = column_bg.webp; sourceTree = "<group>"; };
 		54D5F57621081C5300439A94 /* SH_XibView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_XibView.h; sourceTree = "<group>"; };
 		54D5F57721081C5300439A94 /* SH_XibView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_XibView.m; sourceTree = "<group>"; };
@@ -962,11 +973,6 @@
 		BFFEDCBC20F3792E002E69FD /* SH_RechargeCenterDataHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_RechargeCenterDataHandle.h; sourceTree = "<group>"; };
 		BFFEDCBD20F3792E002E69FD /* SH_RechargeCenterDataHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_RechargeCenterDataHandle.m; sourceTree = "<group>"; };
 		CD08B466133A38336C9BD914 /* Pods-GameBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GameBox/Pods-GameBox.debug.xcconfig"; sourceTree = "<group>"; };
-		DA18EFB820F0A9C3002B7E22 /* PopTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopTool.h; sourceTree = "<group>"; };
-		DA18EFB920F0A9C3002B7E22 /* AlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertViewController.xib; sourceTree = "<group>"; };
-		DA18EFBA20F0A9C3002B7E22 /* AlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewController.m; sourceTree = "<group>"; };
-		DA18EFBB20F0A9C3002B7E22 /* PopTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopTool.m; sourceTree = "<group>"; };
-		DA18EFBC20F0A9C3002B7E22 /* AlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewController.h; sourceTree = "<group>"; };
 		DA1BCC5020FD7C6D00201DBC /* SH_NetWorkService+UserCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+UserCenter.h"; sourceTree = "<group>"; };
 		DA1BCC5120FD7C6D00201DBC /* SH_NetWorkService+UserCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+UserCenter.m"; sourceTree = "<group>"; };
 		DA1BCC5620FD942900201DBC /* SH_WelfareInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_WelfareInfoModel.h; sourceTree = "<group>"; };
@@ -1162,6 +1168,7 @@
 				5401C53D20ECA1100027246D /* Info.plist */,
 				5401C53E20ECA1100027246D /* main.m */,
 				5401C55720ECA3870027246D /* PrefixHeader.pch */,
+				54D13C07211BE08900E07E5A /* SitesConfig.h */,
 			);
 			path = GameBox;
 			sourceTree = "<group>";
@@ -1233,6 +1240,8 @@
 				5401C54E20ECA1B80027246D /* SH_NetWorkService.m */,
 				54E83D9021100FAD00C606FC /* SH_HttpErrManager.h */,
 				54E83D9121100FAD00C606FC /* SH_HttpErrManager.m */,
+				54825471211A8D0700ECBD5B /* SH_TopLevelControllerManager.h */,
+				54825472211A8D0700ECBD5B /* SH_TopLevelControllerManager.m */,
 			);
 			path = NetWork;
 			sourceTree = "<group>";
@@ -2120,11 +2129,12 @@
 		DA18EFB720F0A9C3002B7E22 /* PopTools */ = {
 			isa = PBXGroup;
 			children = (
-				DA18EFB820F0A9C3002B7E22 /* PopTool.h */,
-				DA18EFBB20F0A9C3002B7E22 /* PopTool.m */,
-				DA18EFBC20F0A9C3002B7E22 /* AlertViewController.h */,
-				DA18EFBA20F0A9C3002B7E22 /* AlertViewController.m */,
-				DA18EFB920F0A9C3002B7E22 /* AlertViewController.xib */,
+				5482546C2119C3D400ECBD5B /* SH_BigWindowViewController.h */,
+				5482546D2119C3D400ECBD5B /* SH_BigWindowViewController.m */,
+				5482546E2119C3D400ECBD5B /* SH_BigWindowViewController.xib */,
+				54825474211A8FFE00ECBD5B /* SH_SmallWindowViewController.h */,
+				54825475211A8FFE00ECBD5B /* SH_SmallWindowViewController.m */,
+				54825476211A8FFE00ECBD5B /* SH_SmallWindowViewController.xib */,
 			);
 			path = PopTools;
 			sourceTree = "<group>";
@@ -2439,7 +2449,6 @@
 				543970A3210462BB0091C719 /* not-choose.webp in Resources */,
 				BFA2EBE2211BD9DB00B2678F /* SH_PromoAlertView.xib in Resources */,
 				5439708C210462BB0091C719 /* logo02.webp in Resources */,
-				223297E82119C6B400089E26 /* nodata_bg2_slices.webp in Resources */,
 				54DD033F21086E1000CE9199 /* SH_MsgCenterView.xib in Resources */,
 				54DD033821085A9100CE9199 /* SH_PromoWindowViewController.xib in Resources */,
 				54C875B520FB4E2D00AA0594 /* SH_DragableMenuView.xib in Resources */,
@@ -2447,6 +2456,7 @@
 				54C8758D20F498E200AA0594 /* SH_GameItemView.xib in Resources */,
 				BFA068AB20FD86BF00F5ADFE /* SH_OutCoinDetailTableViewCell.xib in Resources */,
 				5439709F210462BB0091C719 /* blueframe-click-1.webp in Resources */,
+				54825478211A8FFE00ECBD5B /* SH_SmallWindowViewController.xib in Resources */,
 				54397089210462BB0091C719 /* arrow.webp in Resources */,
 				BFFC845C20F2F260008AD801 /* RH_RechargeCenterFooterView.xib in Resources */,
 				543970DB210462BB0091C719 /* logo08.webp in Resources */,
@@ -2466,6 +2476,7 @@
 				5401C53C20ECA1100027246D /* LaunchScreen.storyboard in Resources */,
 				54C8759E20F756A500AA0594 /* moneyRing.mp3 in Resources */,
 				54397086210462BB0091C719 /* btn_top_recharge.webp in Resources */,
+				221A427E211AE13F003DB774 /* nodata_bg2_slices.webp in Resources */,
 				54E7D2E7210726390069F2CE /* mearkRead.webp in Resources */,
 				543970D1210462BB0091C719 /* unselect.webp in Resources */,
 				BFA2EBDB211AF0E900B2678F /* iconImage.webp in Resources */,
@@ -2508,6 +2519,7 @@
 				54DD034F21096C1400CE9199 /* title16nw.webp in Resources */,
 				DA6EE1C920F99F45009A01C5 /* SH_SettingView.xib in Resources */,
 				54DD034E21096C1400CE9199 /* title15nw.webp in Resources */,
+				548254702119C3D400ECBD5B /* SH_BigWindowViewController.xib in Resources */,
 				54C875A020F756A500AA0594 /* errRing.mp3 in Resources */,
 				BFA7DEBD2106C2CB00DD731F /* chip_blue.webp in Resources */,
 				22618C792109F27A00E4A6F6 /* SH_HandRecordTableViewCell.xib in Resources */,
@@ -2602,7 +2614,6 @@
 				54397082210462BB0091C719 /* logo09.webp in Resources */,
 				54E24836210D5B07005C5263 /* loading-1.webp in Resources */,
 				543970C7210462BB0091C719 /* black.webp in Resources */,
-				DA18EFBD20F0A9C3002B7E22 /* AlertViewController.xib in Resources */,
 				BF44EC5C20F4589D00BC6EF3 /* SH_BitCoinSubView.xib in Resources */,
 				54397083210462BB0091C719 /* effects_man._defaultwebp in Resources */,
 				22618C6F2109E7C900E4A6F6 /* SH_HandRecordView.xib in Resources */,
@@ -2741,7 +2752,6 @@
 				22FC6E892107549A001FA492 /* SH_FindPSWSureView.m in Sources */,
 				54E2485A210DE85C005C5263 /* SH_LRUManager.m in Sources */,
 				DA1BCDB12102D27C00201DBC /* SH_WelfareTableViewCell.m in Sources */,
-				DA18EFBF20F0A9C3002B7E22 /* PopTool.m in Sources */,
 				DA1BCC8B20FE200700201DBC /* RH_BettingInfoModel.m in Sources */,
 				BFA2EBF7211BF1E900B2678F /* SH_PromoModel.m in Sources */,
 				DA334C0021148A7800290D86 /* SH_RegistRulerView.m in Sources */,
@@ -2749,7 +2759,6 @@
 				22878ECA210029E3005D7652 /* SH_SysMsgDetailModel.m in Sources */,
 				BF44ECCF20F59A5800BC6EF3 /* SH_RechargeDetailBankView.m in Sources */,
 				BF44ECC120F4B4BF00BC6EF3 /* SH_RechargeDetailHeadView.m in Sources */,
-				DA18EFBE20F0A9C3002B7E22 /* AlertViewController.m in Sources */,
 				DA1BCD762100B0F500201DBC /* SH_ShareView.m in Sources */,
 				BF44ECFA20F7475A00BC6EF3 /* SH_BitCoinSuccessView.m in Sources */,
 				54C8763D2100B04300AA0594 /* SH_HorizontalscreenPicker.m in Sources */,
@@ -2814,11 +2823,13 @@
 				54C875AB20F84BFF00AA0594 /* SH_GameItemModel.m in Sources */,
 				BFA2EBE0211BD66500B2678F /* SH_PromoAlertView.m in Sources */,
 				BFFEDCBB20F35627002E69FD /* SH_RechargeCenterAccountModel.m in Sources */,
+				54825477211A8FFE00ECBD5B /* SH_SmallWindowViewController.m in Sources */,
 				DA22F40820F494C60058A54F /* ScreenAdaptation.m in Sources */,
 				54C875B320FB4E1200AA0594 /* SH_DragableMenuView.m in Sources */,
 				BFA2EBCD211ACE4700B2678F /* SH_PromoDetailView.m in Sources */,
 				DA1BCC8F20FEC91200201DBC /* SH_CardRecordTableViewCell.m in Sources */,
 				547BCDF8210AFC4D00D7082F /* SH_SearchTypeModel.m in Sources */,
+				5482546F2119C3D400ECBD5B /* SH_BigWindowViewController.m in Sources */,
 				BFA068C820FE0FF100F5ADFE /* SH_ModifyLoginPSDView.m in Sources */,
 				5434E0B92112987C00DCCC49 /* SH_XibButton.m in Sources */,
 				DA22F3D820F455C50058A54F /* UIImage+Representation.m in Sources */,
@@ -2863,6 +2874,7 @@
 				DA334C1021184CFB00290D86 /* SH_SiteMsgUnReadCountModel.m in Sources */,
 				DA22F40920F494C60058A54F /* UIViewController+Instance.m in Sources */,
 				BFA068B620FDE2EC00F5ADFE /* SH_JiHeModel.m in Sources */,
+				54825473211A8D0700ECBD5B /* SH_TopLevelControllerManager.m in Sources */,
 				BFD6CFC120F8901500EDBC5B /* SH_NetWorkService+Bank.m in Sources */,
 				DA21F37F20F58F9000D20672 /* SH_RegistView.m in Sources */,
 				54C8759320F7372D00AA0594 /* SH_HomeBannerModel.m in Sources */,
@@ -3051,7 +3063,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7001;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7000;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -3071,7 +3083,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7001;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7000;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

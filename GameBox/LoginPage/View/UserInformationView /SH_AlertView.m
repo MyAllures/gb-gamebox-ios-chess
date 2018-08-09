@@ -26,7 +26,7 @@
 - (IBAction)buttonClick:(UIButton *)sender {
 
     if (sender.tag == 100) {
-        [self.vc close];
+        [self.vc close:nil];
     }else{
         __weak typeof(self) weakSelf = self;
         MBProgressHUD * activityIndicatorView= showHUDWithMyActivityIndicatorView(self.window, nil, @"正在退出...");

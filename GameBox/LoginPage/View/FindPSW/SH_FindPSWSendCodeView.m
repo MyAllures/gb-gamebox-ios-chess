@@ -8,8 +8,9 @@
 //
 
 #import "SH_FindPSWSendCodeView.h"
-#import "AlertViewController.h"
 #import "SH_FindPSWSureView.h"
+#import "SH_SmallWindowViewController.h"
+#import "SH_TopLevelControllerManager.h"
 @interface SH_FindPSWSendCodeView()
 @property (weak, nonatomic) IBOutlet UIButton *verificationBtn;
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
@@ -25,11 +26,14 @@
         NSString *code = dict1[@"code"];
         if ([code isEqualToString:@"0"]) {
             SH_FindPSWSureView *view = [[[NSBundle mainBundle]loadNibNamed:@"SH_FindPSWSureView" owner:nil options:nil] lastObject];
-            AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:200 titleImageName:@"title19" alertViewType:AlertViewTypeShort];
-            view.targetVC3 = acr;
+            SH_SmallWindowViewController * acr = [SH_SmallWindowViewController new];
+            acr.contentHeight = 200;
+            acr.customView = view;
+            acr.titleImageName = @"title19";
             acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
             acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-            [self.targetVC2 presentViewController:acr animated:YES completion:nil];
+             UIViewController * svc = [SH_TopLevelControllerManager fetchTopLevelController];
+            [svc presentViewController:acr animated:YES completion:nil];
         } else {
             showMessage(self, @"", dict1[@"message"]);
         }
@@ -44,13 +48,12 @@
         [SH_NetWorkService_FindPsw forgetPswSendCode:self.encryptedId complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *dict1 = (NSDictionary *)response;
             NSLog(@"dict1===%@",dict1);
-//            NSString *code = dict1[@"code"];
-//            if ([code isEqualToString:@"0"]) {
-//
-//            } else {
-//
-//            }
-            showMessage(self, @"", dict1[@"message"]);
+            NSString *code = dict1[@"code"];
+            if ([code isEqualToString:@"0"]) {
+                showMessage(self, @"短信发送成功", nil);
+            } else {
+                showMessage(self, @"", dict1[@"message"]);
+            }
         } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
             
         }];

@@ -10,9 +10,10 @@
 #import "SH_NetWorkService+SaftyCenter.h"
 #import "RH_UserSafetyCodeModel.h"
 #import "SH_FillRealNameView.h"
-#import "AlertViewController.h"
 #import "SH_GamesHomeViewController.h"
-@interface SH_ModiftSaftyPSDView()
+#import "SH_SmallWindowViewController.h"
+#import "SH_TopLevelControllerManager.h"
+@interface SH_ModiftSaftyPSDView()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *currentTF;
 @property (weak, nonatomic) IBOutlet UITextField *NewTF;
 @property (weak, nonatomic) IBOutlet UITextField *sureTF;
@@ -35,6 +36,8 @@
     self.verificationBtn.hidden = YES;
     self.sureBtnTopDistance.constant = 15;
     [self updateView];
+    self.NewTF.delegate = self;
+    self.sureTF.delegate = self;
 
 }
 
@@ -59,6 +62,22 @@
 }
 
 - (IBAction)sureBtnClick:(id)sender {
+    
+    if([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length > 0){
+        
+    } else {
+        SH_FillRealNameView *view = [[[NSBundle mainBundle] loadNibNamed:@"SH_FillRealNameView" owner:nil options:nil] lastObject];
+        SH_SmallWindowViewController *acr = [SH_SmallWindowViewController new];
+        acr.contentHeight = 202;
+        acr.titleImageName = @"title18";
+        acr.customView = view;
+        acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+         UIViewController * svc= [SH_TopLevelControllerManager  fetchTopLevelController];
+        [svc presentViewController:acr animated:YES completion:nil];
+        return;
+    }
+    
     if (self.NewTF.text.length == 0){
         showMessage(self, @"请输入新密码", nil);
     } else if (self.sureTF.text.length == 0){
@@ -82,18 +101,19 @@
                 [[RH_UserInfoManager shareUserManager] setUserSafetyInfo:model];
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     if ([self.comeFromVC isEqualToString:@"setSafePsw"]) {
-                        [self.targetVC.presentingViewController dismissViewControllerAnimated:NO completion:nil];
+                         UIViewController * svc= [SH_TopLevelControllerManager  fetchTopLevelController];
+                        [svc.presentingViewController dismissViewControllerAnimated:NO completion:nil];
                     }
                     else{
-                        UIViewController *vc = self.targetVC;
-                        while (vc.presentingViewController) {
-                            if ([vc isKindOfClass:[UINavigationController class]]) {
+                         UIViewController * svc= [SH_TopLevelControllerManager  fetchTopLevelController];
+                        while (svc.presentingViewController) {
+                            if ([svc isKindOfClass:[UINavigationController class]]) {
                                 break;
                                 
                             }
-                            vc = vc.presentingViewController;
+                            svc = svc.presentingViewController;
                         }
-                        [vc dismissViewControllerAnimated:NO completion:nil];
+                        [svc dismissViewControllerAnimated:NO completion:nil];
                     }
                 });
             }else{
@@ -109,9 +129,6 @@
             
         }];
     }
-}
-- (void)setTargetVC:(UIViewController *)targetVC{
-    _targetVC = targetVC;
 }
 -(void)updateSaftyView{
     //当需要验证码的时候刷新UI布局
@@ -145,6 +162,25 @@
 }
 - (IBAction)verificationBtnClick:(id)sender {
     [self verificationImage];
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    
+    if([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length > 0){
+        return YES;
+    } else {
+        SH_FillRealNameView *view = [[[NSBundle mainBundle] loadNibNamed:@"SH_FillRealNameView" owner:nil options:nil] lastObject];
+        SH_SmallWindowViewController * acr = [SH_SmallWindowViewController new];
+        acr.customView = view;
+        acr.contentHeight = 202;
+        acr.titleImageName = @"title18";
+        acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+         UIViewController * svc= [SH_TopLevelControllerManager  fetchTopLevelController];
+        [svc presentViewController:acr animated:YES completion:nil];
+        return NO;
+    }
 }
 
 @end

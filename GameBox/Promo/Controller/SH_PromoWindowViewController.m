@@ -12,9 +12,14 @@
 #import "SH_PromoDeatilViewController.h"
 #import "SH_WebPButton.h"
 #import "SH_MsgCenterDetailView.h"
+<<<<<<< HEAD
 #import "AlertViewController.h"
 #import "SH_PromoActivitiesView.h"
 
+=======
+#import "SH_BigWindowViewController.h"
+#import "SH_SmallWindowViewController.h"
+>>>>>>> eb3bb850763d4636a779ca48933550a90567132e
 @interface SH_PromoWindowViewController () <SH_PromoListViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet SH_WebPButton *promoTypeBt;
@@ -82,7 +87,10 @@
         [_msgCenterView showDetail:^(NSString *content) {
             SH_MsgCenterDetailView *view = [[[NSBundle mainBundle]loadNibNamed:@"SH_MsgCenterDetailView" owner:nil options:nil] lastObject];
             view.content = content;
-            AlertViewController *acr  = [[AlertViewController alloc] initAlertView:view viewHeight:200 titleImageName:@"title03" alertViewType:AlertViewTypeShort];
+            SH_SmallWindowViewController * acr = [SH_SmallWindowViewController new];
+            acr.customView = view;
+            acr.titleImageName = @"title03";
+            acr.contentHeight = 200;
             acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
             acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
             [weakSelf presentViewController:acr animated:YES completion:nil];
@@ -90,9 +98,9 @@
                 [acr dismissViewControllerAnimated:NO completion:nil];
                 [self->_msgCenterView  fetchHttpData];
             }];
-            acr.dismissBlock = ^{
+            [acr close:^{
                  [self->_msgCenterView  fetchHttpData];
-            };
+            }];
         }];
     }
     return _msgCenterView;

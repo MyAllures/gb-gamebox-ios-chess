@@ -22,10 +22,11 @@
 #import "UIImage+SH_WebPImage.h"
 #import "SH_TimeZoneManager.h"
 #import "SH_FindPSWView.h"
-#import "AlertViewController.h"
 #import "SH_SafeCenterAlertView.h"
 #import "SH_CustomerServiceManager.h"
-
+#import "SH_BigWindowViewController.h"
+#import "SH_SmallWindowViewController.h"
+#import "SH_TopLevelControllerManager.h"
 @interface SH_LoginView(){
      RH_RegisetInitModel *registrationInitModel;
 }
@@ -197,11 +198,14 @@
                     [self popAlertView];
                 } else{
                     SH_FindPSWView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_FindPSWView" owner:self options:nil].firstObject;
-                    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:200 titleImageName:@"title19" alertViewType:AlertViewTypeShort];
-                    view.targetVC1 = acr;
+                    SH_SmallWindowViewController * acr = [SH_SmallWindowViewController new];
+                    acr.customView = view;
+                    acr.titleImageName = @"title19";
+                    acr.contentHeight = 200;
                     acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
                     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-                    [self.targetVC presentViewController:acr animated:YES completion:nil];
+                    UIViewController * svc = [SH_TopLevelControllerManager fetchTopLevelController];
+                    [svc presentViewController:acr animated:YES completion:nil];
                 }
             } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
                 
@@ -216,11 +220,15 @@
 
 -(void)popAlertView {
     SH_SafeCenterAlertView * alert = [SH_SafeCenterAlertView  instanceSafeCenterAlertView];
-    AlertViewController * acr = [[AlertViewController  alloc] initAlertView:alert viewHeight:174 titleImageName:@"title03" alertViewType:AlertViewTypeShort];
+    SH_SmallWindowViewController * acr = [SH_SmallWindowViewController new];
+    acr.customView = alert;
+    acr.titleImageName = @"title03";
+    acr.contentHeight = 174;
     alert.vc = acr;
     acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self.targetVC presentViewController:acr animated:YES completion:nil];
+     UIViewController * svc = [SH_TopLevelControllerManager fetchTopLevelController];
+    [svc presentViewController:acr animated:YES completion:nil];
 }
 
 #pragma mark --  简单的非空判断
@@ -365,9 +373,5 @@
         }];
     }
     return  _registView;
-}
-- (void)setTargetVC:(UIViewController *)targetVC{
-    _targetVC = targetVC;
-    self.registView.targetVC = targetVC;
 }
 @end

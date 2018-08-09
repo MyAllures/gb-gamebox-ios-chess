@@ -9,6 +9,7 @@
 #import "SH_BindPhoneNumView.h"
 #import "SH_NetWorkService+SaftyCenter.h"
 #import "SH_GamesHomeViewController.h"
+#import "SH_TopLevelControllerManager.h"
 @interface SH_BindPhoneNumView()
 @property (weak, nonatomic) IBOutlet UIView *olbPhone_view;
 @property (weak, nonatomic) IBOutlet UILabel *oldPhoneNumLab; //旧手机号码lable
@@ -195,7 +196,8 @@
         if ([code isEqualToString:@"0"]) {
             showMessage(self, @"绑定手机成功", nil);
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [weakSelf.targetVC dismissViewControllerAnimated:NO completion:nil];
+                 UIViewController * svc = [SH_TopLevelControllerManager fetchTopLevelController];
+                [svc dismissViewControllerAnimated:NO completion:nil];
             });
         } else {
             showMessage(self, dataDic[@"message"], nil);
@@ -205,7 +207,4 @@
     }];
 }
 
-- (void)setTargetVC:(UIViewController *)targetVC{
-    _targetVC = targetVC;
-}
 @end

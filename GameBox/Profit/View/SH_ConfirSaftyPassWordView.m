@@ -8,11 +8,13 @@
 
 #import "SH_ConfirSaftyPassWordView.h"
 #import "SH_NetWorkService+Profit.h"
-#import "AlertViewController.h"
 #import "SH_ProfitAlertView.h"
 #import "SH_NetWorkService+Home.h"
 #import "SH_NetWorkService+RegistAPI.h"
 
+#import "SH_SmallWindowViewController.h"
+#import "SH_BigWindowViewController.h"
+#import "SH_TopLevelControllerManager.h"
 @interface SH_ConfirSaftyPassWordView()
 @property (weak, nonatomic) IBOutlet UITextField *pswTF;
 
@@ -41,7 +43,7 @@
                 [defaults setObject:@"" forKey:@"saftyKoken"];
                 [defaults synchronize];
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    UIViewController *vc = self.targetVC;
+                    UIViewController *vc = [SH_TopLevelControllerManager fetchTopLevelController];
                     while (vc.presentingViewController) {
                         if ([vc isKindOfClass:[UINavigationController class]]) {
                             break;
@@ -99,18 +101,20 @@
     if ([content containsString:@"未设置安全密码"]) {
         view.sureBtn.tag = 100;
     }
-    view.targetVC = self.targetVC;
-    AlertViewController *acr  = [[AlertViewController  alloc] initAlertView:view viewHeight:202 titleImageName:@"title03" alertViewType:AlertViewTypeShort];
+    SH_SmallWindowViewController *acr = [SH_SmallWindowViewController new];
+    acr.customView = view;
+    acr.titleImageName = @"title03";
+    acr.contentHeight = 202;
     acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self.targetVC presentViewController:acr animated:YES completion:nil];
-    [view updateUIWithDetailArray:nil TargetVC:acr Token:nil];
+    UIViewController * svc = [SH_TopLevelControllerManager fetchTopLevelController];
+    [svc presentViewController:acr animated:YES completion:nil];
+    [view updateUIWithDetailArray:nil TargetVC:nil Token:nil];
 }
 
 - (void)updateUIWithDetailArray:(NSArray *)details
                        TargetVC:(UIViewController *)targetVC
                           Token:(NSString *)token{
-    self.targetVC = targetVC;
 }
 
 - (void)setMoney:(NSString *)money{
@@ -118,8 +122,5 @@
 }
 - (void)setToken:(NSString *)token{
     _token = token;
-}
-- (void)setTargetVC:(UIViewController *)targetVC{
-    _targetVC = targetVC;
 }
 @end

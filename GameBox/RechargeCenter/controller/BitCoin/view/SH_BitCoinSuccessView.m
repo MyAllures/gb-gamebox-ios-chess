@@ -8,6 +8,7 @@
 
 #import "SH_BitCoinSuccessView.h"
 #import "SH_BitCoinSuccessPopView.h"
+#import "SH_TopLevelControllerManager.h"
 @interface SH_BitCoinSuccessView()<SH_BitCoinSuccessPopViewDelegate>
 @property(nonatomic,strong)SH_BitCoinSuccessPopView *popView;
 @end
@@ -59,21 +60,20 @@
     }];
     
 }
-- (void)setTargetVC:(UIViewController *)targetVC{
-    _targetVC = targetVC;
-}
 #pragma mark--
 #pragma mark-- popViewDelegate
 - (void)SH_BitCoinSuccessPopViewTryAgainBtnClick{
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-      [self.targetVC.navigationController popViewControllerAnimated:YES];
+         UIViewController * svc = [SH_TopLevelControllerManager fetchTopLevelController];
+      [svc.navigationController popViewControllerAnimated:YES];
     });
     
 }
 
 - (void)SH_BitCoinSuccessPopViewBackToHomePage
 {
-    [self.targetVC.navigationController popToRootViewControllerAnimated:YES];
+     UIViewController * svc = [SH_TopLevelControllerManager fetchTopLevelController];
+    [svc.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end
