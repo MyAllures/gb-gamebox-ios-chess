@@ -707,7 +707,7 @@
 
 -(void)refreshBalance: (NSString *)balance {
     if (![self.suishenFuLiLab.text isEqualToString:balance]) {
-        self.suishenFuLiLab.text = balance;
+        self.suishenFuLiLab.text =  [NSString stringWithFormat:@"%.2f",[balance floatValue]];
     }
 }
 
