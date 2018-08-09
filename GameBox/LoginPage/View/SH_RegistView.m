@@ -273,7 +273,7 @@
     [label  mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.mas_equalTo(button_Check.mas_trailing).mas_offset(10);
         make.centerY.mas_equalTo(button_Check);
-        
+        make.trailing.mas_equalTo(self.stackView);
     }];
 
     label.titleLabel.font = [UIFont systemFontOfSize:9];
@@ -285,7 +285,12 @@
     [button  mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(button_Check.mas_bottom).mas_offset(20);
 //        make.centerX.mas_equalTo(self.scrollview);
-        make.width.mas_equalTo(145);
+//        make.width.mas_equalTo(145);
+        if (self.stackView.frameWidth >265) {
+            make.width.mas_equalTo(145);
+        }else{
+             make.trailing.mas_equalTo(self.stackView);
+        }
         make.leading.mas_equalTo(button_Check.mas_leading).mas_offset(5);
         make.height.mas_equalTo(48);
     }];
