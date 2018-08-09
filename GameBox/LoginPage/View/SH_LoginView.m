@@ -162,6 +162,10 @@
         }
         case 1:{//注册按钮的点击事件
             self.stackView.hidden = false;
+            [self.stackView addSubview:self.registView];
+            [self.registView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.edges.mas_equalTo(self.stackView);
+            }];
             [sender setWebpBGImage:@"login_button_click" forState:UIControlStateNormal];
             SH_WebPButton  * btn  = [self  viewWithTag:100];
             [btn setWebpBGImage:@"login_button" forState:UIControlStateNormal];
@@ -360,6 +364,7 @@
 -(SH_RegistView *)registView{
     if (!_registView) {
         _registView = [[SH_RegistView  alloc]init];
+        _registView.frame = CGRectZero;
         _registView.backgroundColor = [UIColor colorWithHexStr:@"0x4854A9"];
         __weak typeof(self) weakSelf = self;
         _registView.closeAlerViewBlock = ^{
@@ -367,10 +372,6 @@
                 weakSelf.dismissBlock();
             }
         };
-        [self.stackView addSubview:self.registView];
-        [self.registView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.mas_equalTo(self.stackView);
-        }];
     }
     return  _registView;
 }
