@@ -12,5 +12,4 @@
 @property(nonatomic,assign)IBInspectable CGFloat  cornerRadius;
 @property(nonatomic,strong)IBInspectable UIColor *color;
 @property(nonatomic,assign)IBInspectable CGFloat borderWidth;
-@property(nonatomic,assign)IBInspectable CGFloat defaultValue;
 @end

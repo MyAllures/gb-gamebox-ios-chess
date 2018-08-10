@@ -7,8 +7,7 @@
 //
 
 #import "UIView+CornerRadius.h"
-#import <objc/runtime.h>
-static const char  constKey;
+
 @implementation UIView (CornerRadius)
 IB_DESIGNABLE
 
@@ -23,9 +22,6 @@ IB_DESIGNABLE
 -(void)setBorderWidth:(CGFloat)borderWidth{
     self.layer.borderWidth = borderWidth;
 }
--(void)setDefaultValue:(CGFloat)defaultValue{
-    objc_setAssociatedObject(self, _cmd, @(defaultValue), OBJC_ASSOCIATION_ASSIGN);
-}
 
 -(CGFloat)cornerRadius{
     return self.layer.cornerRadius;
@@ -35,8 +31,5 @@ IB_DESIGNABLE
 }
 -(CGFloat)borderWidth{
     return self.layer.borderWidth;
-}
--(CGFloat)defaultValue{
-  return [objc_getAssociatedObject(self, _cmd) floatValue];
 }
 @end

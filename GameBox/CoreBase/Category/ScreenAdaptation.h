@@ -27,7 +27,7 @@ typedef NS_ENUM(int,CLScreenSizeType) {
 //---------------------------------------------
 
 //屏幕类型
-CLScreenSizeType mainScreenType();
+CLScreenSizeType mainScreenType(void);
 
 //适配后可以使用的资源名称
 NSArray * adaptationResourceNames(NSString * resourceName);
