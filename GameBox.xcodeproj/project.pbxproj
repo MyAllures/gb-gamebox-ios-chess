@@ -361,6 +361,7 @@
 		BFD6CFC520F997B800EDBC5B /* SavePhotoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFC420F997B800EDBC5B /* SavePhotoTool.m */; };
 		BFD6CFCC20F9D20C00EDBC5B /* AttributeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFCB20F9D20C00EDBC5B /* AttributeModel.m */; };
 		BFD6CFD320F9FAE700EDBC5B /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFD220F9FAE700EDBC5B /* TTTAttributedLabel.m */; };
+		BFD75A54211C6FD600AAC428 /* UIView+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD75A53211C6FD600AAC428 /* UIView+CornerRadius.m */; };
 		BFFC845220F2F253008AD801 /* SH_RechargeCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFC845120F2F252008AD801 /* SH_RechargeCenterViewController.m */; };
 		BFFC845920F2F260008AD801 /* DepositeHeadCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFFC845420F2F260008AD801 /* DepositeHeadCollectionReusableView.xib */; };
 		BFFC845A20F2F260008AD801 /* DepositeHeadCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFC845620F2F260008AD801 /* DepositeHeadCollectionReusableView.m */; };
@@ -943,6 +944,8 @@
 		BFD6CFCB20F9D20C00EDBC5B /* AttributeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AttributeModel.m; sourceTree = "<group>"; };
 		BFD6CFD120F9FAE700EDBC5B /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
 		BFD6CFD220F9FAE700EDBC5B /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
+		BFD75A52211C6FD500AAC428 /* UIView+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CornerRadius.h"; sourceTree = "<group>"; };
+		BFD75A53211C6FD600AAC428 /* UIView+CornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CornerRadius.m"; sourceTree = "<group>"; };
 		BFFC845020F2F252008AD801 /* SH_RechargeCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_RechargeCenterViewController.h; sourceTree = "<group>"; };
 		BFFC845120F2F252008AD801 /* SH_RechargeCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_RechargeCenterViewController.m; sourceTree = "<group>"; };
 		BFFC845320F2F260008AD801 /* DepositeHeadCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepositeHeadCollectionReusableView.h; sourceTree = "<group>"; };
@@ -2086,6 +2089,8 @@
 		BFFC846A20F344C8008AD801 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				BFD75A52211C6FD500AAC428 /* UIView+CornerRadius.h */,
+				BFD75A53211C6FD600AAC428 /* UIView+CornerRadius.m */,
 				DA1BCC6220FDC4B100201DBC /* UITableViewCell+ShowContent.h */,
 				DA1BCC6120FDC4B100201DBC /* UITableViewCell+ShowContent.m */,
 				BF44ECDE20F6F6AA00BC6EF3 /* UILabel+handle.h */,
@@ -2714,6 +2719,7 @@
 				DA21F3AF20F6FCD000D20672 /* RH_RegistrationSelectView.m in Sources */,
 				54CB4E4421107CED00170B1B /* SH_CustomerServiceManager.m in Sources */,
 				DA21F38D20F590A800D20672 /* RH_RegisetInitModel.m in Sources */,
+				BFD75A54211C6FD600AAC428 /* UIView+CornerRadius.m in Sources */,
 				BFA068A320FCBF1700F5ADFE /* SH_AuditMapModel.m in Sources */,
 				BFA068A620FCC0CF00F5ADFE /* SH_NetWorkService+Profit.m in Sources */,
 				DA22F3CC20F44F610058A54F /* CLNetReachability.m in Sources */,

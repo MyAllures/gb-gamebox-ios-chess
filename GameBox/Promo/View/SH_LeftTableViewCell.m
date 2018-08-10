@@ -18,6 +18,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.titleLab.font = [UIFont systemFontOfSize:14*screenSize().width/375];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

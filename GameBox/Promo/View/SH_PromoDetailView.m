@@ -12,6 +12,7 @@
 #import "SH_TimeZoneManager.h"
 #import "SH_SmallWindowViewController.h"
 @interface SH_PromoDetailView()
+@property (weak, nonatomic) IBOutlet UILabel *nameLab;
 @property (weak, nonatomic) IBOutlet UILabel *contentLab;
 @property (weak, nonatomic) IBOutlet UIImageView *bannerImageView;
 @property (weak, nonatomic) IBOutlet UILabel *dateLab;
@@ -22,6 +23,7 @@
     [super awakeFromNib];
 }
 -(void)updateWithModel:(SH_PromoDetailModel *)model{
+    self.nameLab.text = model.name;
     [self.bannerImageView setImageWithType:1 ImageName:model.photo];
     self.dateLab.text = model.time;
     self.contentLab.text = model.explain;
@@ -32,7 +34,7 @@
     SH_PromoAlertView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_PromoAlertView" owner:self options:nil].firstObject;
     SH_SmallWindowViewController * acr = [SH_SmallWindowViewController new];
     acr.customView = view;
-    acr.contentHeight = 250;
+    acr.contentHeight = 250*screenSize().width/375;
     acr.titleImageName = @"title03";
     acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;

@@ -93,7 +93,7 @@
     self.InputVerificationCodeLab.hidden = YES;
     self.InputCodeTF.hidden = YES;
     [self.sureBtn setTitle:@"更换绑定号码" forState:UIControlStateNormal];
-    self.NewPhoneLabTopDistance.constant = 20;
+    self.NewPhoneLabTopDistance.constant = 20*screenSize().width/375;
     [self layoutIfNeeded];
 }
 //未绑定过手机号码
@@ -106,7 +106,7 @@
     self.InputVerificationCodeLab.hidden = NO;
     self.InputCodeTF.hidden = NO;
     [self.sureBtn setTitle:@"立即绑定" forState:UIControlStateNormal];
-    self.NewPhoneLabTopDistance.constant = 40;
+    self.NewPhoneLabTopDistance.constant = 40*screenSize().width/375;
     [self layoutIfNeeded];
 }
 //更换手机号码
@@ -123,7 +123,7 @@
     self.NewPhoneNumTF.userInteractionEnabled = YES;
     self.InputCodeTF.hidden = NO;
     [self.sureBtn setTitle:@"确认" forState:UIControlStateNormal];
-    self.NewPhoneLabTopDistance.constant = 64;
+    self.NewPhoneLabTopDistance.constant = 64*screenSize().width/375;
     [self layoutIfNeeded];
 }
 - (IBAction)sendVerificationBtn:(id)sender {
