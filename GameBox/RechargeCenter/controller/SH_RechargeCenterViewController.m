@@ -160,7 +160,7 @@
     [self.tipLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
         make.height.equalTo(@20);
-        make.top.equalTo(self.view).offset(NavigationBarHeight);
+        make.top.equalTo(self.view).offset(NAVI_STATUBAR_HEIGHT);
     }];
     [self.mainCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.view);

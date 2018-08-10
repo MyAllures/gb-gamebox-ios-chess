@@ -8,7 +8,6 @@
 
 #import "UIView+CornerRadius.h"
 #import <objc/runtime.h>
-static const char  constKey;
 @implementation UIView (CornerRadius)
 IB_DESIGNABLE
 

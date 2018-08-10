@@ -25,7 +25,6 @@
 		226D950B2113254E000E466E /* SH_SafeCenterAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 226D950A2113254E000E466E /* SH_SafeCenterAlertView.m */; };
 		2274222120FE03BB003529FF /* SH_PromoListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8757D20F355F800AA0594 /* SH_PromoListView.m */; };
 		22878ECA210029E3005D7652 /* SH_SysMsgDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22878EC9210029E3005D7652 /* SH_SysMsgDetailModel.m */; };
-		22B328D7211C381E00ED376E /* nodata_bg2_slices.webp in Resources */ = {isa = PBXBuildFile; fileRef = 22B328D6211C381D00ED376E /* nodata_bg2_slices.webp */; };
 		22E486D920F9F8AE0051A68C /* SH_SysMsgDataListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E486D820F9F8AE0051A68C /* SH_SysMsgDataListModel.m */; };
 		22FC6E8421075262001FA492 /* SH_FindPSWSendCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC6E8321075262001FA492 /* SH_FindPSWSendCodeView.m */; };
 		22FC6E862107526E001FA492 /* SH_FindPSWSendCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FC6E852107526E001FA492 /* SH_FindPSWSendCodeView.xib */; };
@@ -363,6 +362,7 @@
 		BFD6CFCC20F9D20C00EDBC5B /* AttributeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFCB20F9D20C00EDBC5B /* AttributeModel.m */; };
 		BFD6CFD320F9FAE700EDBC5B /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFD220F9FAE700EDBC5B /* TTTAttributedLabel.m */; };
 		BFD75A54211C6FD600AAC428 /* UIView+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD75A53211C6FD600AAC428 /* UIView+CornerRadius.m */; };
+		BFD75A56211D25E600AAC428 /* nodata_bg2_slices.webp in Resources */ = {isa = PBXBuildFile; fileRef = BFD75A55211D25E600AAC428 /* nodata_bg2_slices.webp */; };
 		BFFC845220F2F253008AD801 /* SH_RechargeCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFC845120F2F252008AD801 /* SH_RechargeCenterViewController.m */; };
 		BFFC845920F2F260008AD801 /* DepositeHeadCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFFC845420F2F260008AD801 /* DepositeHeadCollectionReusableView.xib */; };
 		BFFC845A20F2F260008AD801 /* DepositeHeadCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFC845620F2F260008AD801 /* DepositeHeadCollectionReusableView.m */; };
@@ -461,7 +461,6 @@
 		226D950A2113254E000E466E /* SH_SafeCenterAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SafeCenterAlertView.m; sourceTree = "<group>"; };
 		22878EC8210029E3005D7652 /* SH_SysMsgDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SysMsgDetailModel.h; sourceTree = "<group>"; };
 		22878EC9210029E3005D7652 /* SH_SysMsgDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SysMsgDetailModel.m; sourceTree = "<group>"; };
-		22B328D6211C381D00ED376E /* nodata_bg2_slices.webp */ = {isa = PBXFileReference; lastKnownFileType = file; name = nodata_bg2_slices.webp; path = ../../../../../../Desktop/nodata_bg2_slices.webp; sourceTree = "<group>"; };
 		22E486D720F9F8AE0051A68C /* SH_SysMsgDataListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SysMsgDataListModel.h; sourceTree = "<group>"; };
 		22E486D820F9F8AE0051A68C /* SH_SysMsgDataListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SysMsgDataListModel.m; sourceTree = "<group>"; };
 		22FC6E8221075262001FA492 /* SH_FindPSWSendCodeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_FindPSWSendCodeView.h; sourceTree = "<group>"; };
@@ -947,6 +946,7 @@
 		BFD6CFD220F9FAE700EDBC5B /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
 		BFD75A52211C6FD500AAC428 /* UIView+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CornerRadius.h"; sourceTree = "<group>"; };
 		BFD75A53211C6FD600AAC428 /* UIView+CornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CornerRadius.m"; sourceTree = "<group>"; };
+		BFD75A55211D25E600AAC428 /* nodata_bg2_slices.webp */ = {isa = PBXFileReference; lastKnownFileType = file; name = nodata_bg2_slices.webp; path = ../../../../../../.Trash/nodata_bg2_slices.webp; sourceTree = "<group>"; };
 		BFFC845020F2F252008AD801 /* SH_RechargeCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_RechargeCenterViewController.h; sourceTree = "<group>"; };
 		BFFC845120F2F252008AD801 /* SH_RechargeCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_RechargeCenterViewController.m; sourceTree = "<group>"; };
 		BFFC845320F2F260008AD801 /* DepositeHeadCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepositeHeadCollectionReusableView.h; sourceTree = "<group>"; };
@@ -1324,7 +1324,7 @@
 		5435E7C32104349B00DB809F /* webpRes */ = {
 			isa = PBXGroup;
 			children = (
-				22B328D6211C381D00ED376E /* nodata_bg2_slices.webp */,
+				BFD75A55211D25E600AAC428 /* nodata_bg2_slices.webp */,
 				BFA2EBED211BE64800B2678F /* error.webp */,
 				BFA2EBEB211BE62100B2678F /* correct.webp */,
 				BFA2EBDC211AF48000B2678F /* btn_green_action.webp */,
@@ -2453,6 +2453,7 @@
 				543970C9210462BB0091C719 /* select2.webp in Resources */,
 				543970A3210462BB0091C719 /* not-choose.webp in Resources */,
 				BFA2EBE2211BD9DB00B2678F /* SH_PromoAlertView.xib in Resources */,
+				BFD75A56211D25E600AAC428 /* nodata_bg2_slices.webp in Resources */,
 				5439708C210462BB0091C719 /* logo02.webp in Resources */,
 				54DD033F21086E1000CE9199 /* SH_MsgCenterView.xib in Resources */,
 				54DD033821085A9100CE9199 /* SH_PromoWindowViewController.xib in Resources */,
@@ -2539,7 +2540,6 @@
 				543970C3210462BB0091C719 /* icon_promo.webp in Resources */,
 				54C875C820FCBE1900AA0594 /* SH_DZGameItemView.xib in Resources */,
 				543970B2210462BB0091C719 /* unselect2.webp in Resources */,
-				22B328D7211C381E00ED376E /* nodata_bg2_slices.webp in Resources */,
 				54C8761B20FE218B00AA0594 /* snow.png in Resources */,
 				54E24838210D5B07005C5263 /* loading-4.webp in Resources */,
 				54DD033A21085E1D00CE9199 /* title-bg-long.webp in Resources */,
