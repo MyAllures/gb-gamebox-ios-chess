@@ -7,6 +7,10 @@
 //
 
 #import "UIView+CornerRadius.h"
+<<<<<<< HEAD
+#import <objc/runtime.h>
+=======
+>>>>>>> b8fa266ee2f94a2934640f3fb25a4a522f754cad
 @implementation UIView (CornerRadius)
 IB_DESIGNABLE
 

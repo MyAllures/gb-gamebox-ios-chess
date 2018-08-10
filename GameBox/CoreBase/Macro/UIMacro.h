@@ -11,8 +11,7 @@
 
 #define iPhoneX  ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
 
-#define NavigationBarHeight     iPhoneX?84.f:64.f
-#define TabBarHeight            49.f
+#define NAVI_STATUBAR_HEIGHT     iPhoneX?84.f:64.f
 #define WIDTH   [UIScreen mainScreen].bounds.size.width
 #define HEIGHT   [UIScreen mainScreen].bounds.size.height
 #define SCREEN_WIDTH  WIDTH < HEIGHT ? WIDTH : HEIGHT
