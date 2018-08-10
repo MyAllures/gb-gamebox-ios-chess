@@ -128,7 +128,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SqL-w0-8Nr">
-                                                    <rect key="frame" x="96" y="4" width="50" height="15"/>
+                                                    <rect key="frame" x="58" y="4" width="88" height="15"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="Me7-bY-eRK"/>
                                                         <constraint firstAttribute="height" constant="15" id="SDI-Db-sc3"/>
@@ -159,6 +159,7 @@
                                                 <constraint firstItem="3EE-iu-I0p" firstAttribute="centerY" secondItem="Sqc-0Y-X69" secondAttribute="centerY" id="oC7-lV-bTy"/>
                                                 <constraint firstAttribute="bottom" secondItem="nba-f1-nWx" secondAttribute="bottom" id="u0T-uA-zFs"/>
                                                 <constraint firstAttribute="trailing" secondItem="nba-f1-nWx" secondAttribute="trailing" id="yvQ-46-K1c"/>
+                                                <constraint firstItem="SqL-w0-8Nr" firstAttribute="leading" secondItem="3EE-iu-I0p" secondAttribute="trailing" id="z71-YZ-sBv"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ts6-l1-fxJ">
@@ -611,7 +612,7 @@
                 <constraint firstItem="5xu-Rj-Dcf" firstAttribute="centerY" secondItem="lo0-ep-RC7" secondAttribute="centerY" id="oHW-C8-rT2"/>
                 <constraint firstItem="5xu-Rj-Dcf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="yhJ-Rm-kDQ"/>
             </constraints>
-            <point key="canvasLocation" x="-191" y="-15"/>
+            <point key="canvasLocation" x="-191.5" y="-15.5"/>
         </view>
     </objects>
     <resources>
