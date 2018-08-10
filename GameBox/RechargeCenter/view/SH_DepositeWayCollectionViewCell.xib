@@ -25,8 +25,8 @@
                             <constraint firstAttribute="height" constant="20" id="bEZ-WI-v1n"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4BR-3G-3h6">
-                        <rect key="frame" x="30" y="17.5" width="36" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4BR-3G-3h6">
+                        <rect key="frame" x="30" y="17.5" width="35.5" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -36,6 +36,7 @@
             <color key="backgroundColor" red="0.66666666666666663" green="0.66666668653488159" blue="0.66666668653488159" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="89l-IE-dGJ" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="CG9-TL-QYF"/>
+                <constraint firstItem="4BR-3G-3h6" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="gTV-IL-0wX" secondAttribute="trailing" id="jen-pZ-jWq"/>
                 <constraint firstItem="89l-IE-dGJ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="lC0-st-Rjg"/>
                 <constraint firstItem="4BR-3G-3h6" firstAttribute="centerY" secondItem="89l-IE-dGJ" secondAttribute="centerY" id="lyB-pm-fmW"/>
                 <constraint firstItem="4BR-3G-3h6" firstAttribute="leading" secondItem="89l-IE-dGJ" secondAttribute="trailing" constant="5" id="z2W-4O-QuY"/>

@@ -12,6 +12,7 @@
 #import "SH_TimeZoneManager.h"
 #import "SH_SmallWindowViewController.h"
 @interface SH_PromoDetailView()
+@property (weak, nonatomic) IBOutlet UILabel *nameLab;
 @property (weak, nonatomic) IBOutlet UILabel *contentLab;
 @property (weak, nonatomic) IBOutlet UIImageView *bannerImageView;
 @property (weak, nonatomic) IBOutlet UILabel *dateLab;
@@ -22,6 +23,7 @@
     [super awakeFromNib];
 }
 -(void)updateWithModel:(SH_PromoDetailModel *)model{
+    self.nameLab.text = model.name;
     [self.bannerImageView setImageWithType:1 ImageName:model.photo];
     self.dateLab.text = model.time;
     self.contentLab.text = model.explain;

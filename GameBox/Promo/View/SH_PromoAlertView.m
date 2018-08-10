@@ -8,6 +8,7 @@
 
 #import "SH_PromoAlertView.h"
 #import "SH_PromoAlertTableViewCell.h"
+#import "SH_CustomerServiceManager.h"
 @interface SH_PromoAlertView()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UILabel *titleLab;
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
@@ -36,5 +37,12 @@
     SH_PromoAlertTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SH_PromoAlertTableViewCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+}
+- (IBAction)contactServiceBtnClick:(id)sender {
+     [[SH_CustomerServiceManager sharedManager] open];
+}
+- (IBAction)sureBtnClick:(id)sender {
+    UIViewController *vc = [self getCurrentViewController];
+    [vc dismissViewControllerAnimated:NO completion:nil];
 }
 @end

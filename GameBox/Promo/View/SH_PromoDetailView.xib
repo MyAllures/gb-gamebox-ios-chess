@@ -167,6 +167,7 @@
                 <outlet property="bannerImageView" destination="bC4-kz-ALc" id="cSg-rf-w6y"/>
                 <outlet property="contentLab" destination="HFX-hn-sgq" id="UsU-F0-c9y"/>
                 <outlet property="dateLab" destination="Nwh-zz-itL" id="Bb9-0H-EDc"/>
+                <outlet property="nameLab" destination="dY3-RM-3ZB" id="3XF-kO-U7c"/>
             </connections>
         </view>
     </objects>

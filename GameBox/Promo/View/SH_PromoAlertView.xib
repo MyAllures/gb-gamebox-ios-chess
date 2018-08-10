@@ -109,6 +109,9 @@
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long-145"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="contactServiceBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="nf1-60-Nmt"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WW7-BV-Gt5" customClass="SH_WebPButton">
                     <rect key="frame" x="160" y="190" width="145" height="45"/>
@@ -129,6 +132,9 @@
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long-145"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="sureBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="JSU-kw-2lM"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.16470588235294117" green="0.20784313725490194" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
