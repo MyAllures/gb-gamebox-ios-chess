@@ -163,8 +163,9 @@
 -(void)configUI{
     [self.loginView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self).offset(10);
-        make.left.equalTo(self).offset(145);
-        make.bottom.right.equalTo(self).offset(-10);
+        make.left.equalTo(self).offset(145*screenSize().width/375.0);
+        make.right.equalTo(self).offset(-10*screenSize().width/375.0);
+        make.bottom.equalTo(self).offset(-10);
     }];
     
 }
