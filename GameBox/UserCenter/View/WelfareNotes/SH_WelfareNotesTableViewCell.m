@@ -9,6 +9,7 @@
 
 #import "SH_WelfareNotesTableViewCell.h"
 #import "SH_FundListModel.h"
+#import "SH_TimeZoneManager.h"
 
 @interface SH_WelfareNotesTableViewCell()
 
@@ -35,21 +36,9 @@
 - (void)setModel:(SH_FundListModel *)model
 {
     _model = model;
-    self.timeLabel.text = [self timeStampWithDate:model.createTime];
+    self.timeLabel.text = [[SH_TimeZoneManager sharedManager] timeStringFrom:model.createTime/1000.0 format:@"yyyy-MM-dd HH:MM:ss"];
     self.moneyLabel.text = _model.transactionMoney;
     self.statuLabel.text = _model.statusName;
     self.typeLabel.text = _model.transaction_typeName;
 }
-
--(NSString *)timeStampWithDate: (NSInteger)timeStamp {
-    // iOS 生成的时间戳是10位
-    NSTimeInterval interval    =timeStamp / 1000.0;
-    NSDate *date               = [NSDate dateWithTimeIntervalSince1970:interval];
-    
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSString *dateString       = [formatter stringFromDate: date];
-    return dateString;
-}
-
 @end

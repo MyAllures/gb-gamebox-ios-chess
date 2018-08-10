@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2209026620F053D400F8828E /* SH_PromoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2209026420F053D400F8828E /* SH_PromoViewCell.m */; };
 		2209026720F053D400F8828E /* SH_PromoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2209026520F053D400F8828E /* SH_PromoViewCell.xib */; };
+		22183433211D259F00C71068 /* nodata_bg2_slices.webp in Resources */ = {isa = PBXBuildFile; fileRef = 22183432211D259F00C71068 /* nodata_bg2_slices.webp */; };
 		2231283420F6F26D00D1BF5E /* SH_GameBulletinModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2231283320F6F26D00D1BF5E /* SH_GameBulletinModel.m */; };
 		2231283720F707F500D1BF5E /* SH_SystemNotificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2231283620F707F500D1BF5E /* SH_SystemNotificationModel.m */; };
 		22552CEE20F4CCE50090EFBC /* SH_NetWorkService+Promo.m in Sources */ = {isa = PBXBuildFile; fileRef = 22552CED20F4CCE50090EFBC /* SH_NetWorkService+Promo.m */; };
@@ -436,6 +437,7 @@
 		2209026320F053D400F8828E /* SH_PromoViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoViewCell.h; sourceTree = "<group>"; };
 		2209026420F053D400F8828E /* SH_PromoViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoViewCell.m; sourceTree = "<group>"; };
 		2209026520F053D400F8828E /* SH_PromoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PromoViewCell.xib; sourceTree = "<group>"; };
+		22183432211D259F00C71068 /* nodata_bg2_slices.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = nodata_bg2_slices.webp; sourceTree = "<group>"; };
 		2231283220F6F26D00D1BF5E /* SH_GameBulletinModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_GameBulletinModel.h; sourceTree = "<group>"; };
 		2231283320F6F26D00D1BF5E /* SH_GameBulletinModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_GameBulletinModel.m; sourceTree = "<group>"; };
 		2231283520F707F500D1BF5E /* SH_SystemNotificationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SystemNotificationModel.h; sourceTree = "<group>"; };
@@ -1136,6 +1138,7 @@
 				5401C52D20ECA10F0027246D /* Products */,
 				F14E4A72378CCD648FF29337 /* Pods */,
 				87BD6A1D16B97D20B3D1FCB6 /* Frameworks */,
+				DACDEC10211D3D2700432E12 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1325,6 +1328,7 @@
 			isa = PBXGroup;
 			children = (
 				BFD75A55211D25E600AAC428 /* nodata_bg2_slices.webp */,
+				22183432211D259F00C71068 /* nodata_bg2_slices.webp */,
 				BFA2EBED211BE64800B2678F /* error.webp */,
 				BFA2EBEB211BE62100B2678F /* correct.webp */,
 				BFA2EBDC211AF48000B2678F /* btn_green_action.webp */,
@@ -2358,6 +2362,13 @@
 			path = "UserInformationView ";
 			sourceTree = "<group>";
 		};
+		DACDEC10211D3D2700432E12 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		F14E4A72378CCD648FF29337 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -2374,7 +2385,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5401C54220ECA1100027246D /* Build configuration list for PBXNativeTarget "GameBox" */;
 			buildPhases = (
-				BBE1A7EF60A82CD6004C70C2 /* [CP] Check Pods Manifest.lock */,
 				5401C52820ECA10F0027246D /* Sources */,
 				5401C52920ECA10F0027246D /* Frameworks */,
 				5401C52A20ECA10F0027246D /* Resources */,
@@ -2454,6 +2464,7 @@
 				543970A3210462BB0091C719 /* not-choose.webp in Resources */,
 				BFA2EBE2211BD9DB00B2678F /* SH_PromoAlertView.xib in Resources */,
 				BFD75A56211D25E600AAC428 /* nodata_bg2_slices.webp in Resources */,
+				22183433211D259F00C71068 /* nodata_bg2_slices.webp in Resources */,
 				5439708C210462BB0091C719 /* logo02.webp in Resources */,
 				54DD033F21086E1000CE9199 /* SH_MsgCenterView.xib in Resources */,
 				54DD033821085A9100CE9199 /* SH_PromoWindowViewController.xib in Resources */,
@@ -2665,24 +2676,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameBox/Pods-GameBox-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BBE1A7EF60A82CD6004C70C2 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GameBox-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E597E229E073DE61BA35EBD9 /* [CP] Copy Pods Resources */ = {
@@ -3069,7 +3062,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7000;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid18;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -3089,7 +3082,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7000;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid18;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
