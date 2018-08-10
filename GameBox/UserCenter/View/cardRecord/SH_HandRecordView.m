@@ -14,6 +14,7 @@
 #import "RH_BettingInfoModel.h"
 #import "HLPopTableView.h"
 #import "SH_WaitingView.h"
+#import "SH_TimeZoneManager.h"
 
 @interface SH_HandRecordView() <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -154,17 +155,6 @@
     return date;
 }
 
--(NSString *)timeStampWithDate: (NSInteger)timeStamp {
-    // iOS 生成的时间戳是10位
-    NSTimeInterval interval    =timeStamp / 1000.0;
-    NSDate *date               = [NSDate dateWithTimeIntervalSince1970:interval];
-    
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSString *dateString       = [formatter stringFromDate: date];
-    return dateString;
-}
-
 #pragma mark --UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.bettingArr.count > 0) {
@@ -182,7 +172,7 @@
     }
     RH_BettingInfoModel *model = self.bettingArr[indexPath.row];
     cell.apiNameLabel.text = model.gameName;
-    cell.betTimeLabel.text = [self timeStampWithDate:model.betTime];
+    cell.betTimeLabel.text = [[SH_TimeZoneManager sharedManager] timeStringFrom:model.betTime/1000.0 format:@"yyyy-MM-dd HH:MM:ss"];
     cell.singleAmountLabel.text = [NSString stringWithFormat:@"%.2f",model.singleAmount];
     cell.profitAmountLabel.text = [NSString stringWithFormat:@"%.2f",model.profitAmount];
     cell.orderStateLabel.text = model.orderState;
@@ -196,7 +186,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 32;
+    return 36;
 }
 
 /*
