@@ -37,10 +37,10 @@
                     <constraint firstItem="Rxm-JD-n5r" firstAttribute="centerX" secondItem="jLt-XW-CWY" secondAttribute="centerX" id="Tch-2c-8AA"/>
                     <constraint firstItem="Rxm-JD-n5r" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jLt-XW-CWY" secondAttribute="top" id="V6G-7S-cDc"/>
                     <constraint firstItem="Rxm-JD-n5r" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="jLt-XW-CWY" secondAttribute="bottom" id="VZT-Gy-wh7"/>
-                    <constraint firstItem="Rxm-JD-n5r" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="jLt-XW-CWY" secondAttribute="trailing" id="Vfp-R4-KLa"/>
+                    <constraint firstItem="Rxm-JD-n5r" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="jLt-XW-CWY" secondAttribute="trailing" constant="-2" id="Vfp-R4-KLa"/>
                     <constraint firstAttribute="trailing" secondItem="jLt-XW-CWY" secondAttribute="trailing" constant="6" id="aNI-bW-Mvs"/>
                     <constraint firstItem="jLt-XW-CWY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="gBF-va-wlm"/>
-                    <constraint firstItem="Rxm-JD-n5r" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jLt-XW-CWY" secondAttribute="leading" id="i0u-n2-ykZ"/>
+                    <constraint firstItem="Rxm-JD-n5r" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jLt-XW-CWY" secondAttribute="leading" constant="2" id="i0u-n2-ykZ"/>
                     <constraint firstAttribute="bottom" secondItem="jLt-XW-CWY" secondAttribute="bottom" id="iWb-KC-Lx4"/>
                     <constraint firstItem="Rxm-JD-n5r" firstAttribute="centerY" secondItem="jLt-XW-CWY" secondAttribute="centerY" id="ll6-gh-BMN"/>
                 </constraints>

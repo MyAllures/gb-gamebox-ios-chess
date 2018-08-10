@@ -7,7 +7,6 @@
 //
 
 #import "UIView+CornerRadius.h"
-
 @implementation UIView (CornerRadius)
 IB_DESIGNABLE
 

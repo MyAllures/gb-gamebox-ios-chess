@@ -79,14 +79,14 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ula-a8-vQL">
-                            <rect key="frame" x="239" y="58.5" width="67" height="28"/>
+                            <rect key="frame" x="237" y="58.5" width="75" height="28"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="28" id="LOp-mD-obG">
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                 </constraint>
-                                <constraint firstAttribute="width" constant="67" id="yl1-qM-uBL">
+                                <constraint firstAttribute="width" constant="75" id="yl1-qM-uBL">
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                                     </userDefinedRuntimeAttributes>
@@ -141,10 +141,10 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eYU-ct-qFS">
-                            <rect key="frame" x="114" y="56" width="118.5" height="33"/>
+                            <rect key="frame" x="114" y="56" width="123" height="33"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MWe-jF-7oz">
-                                    <rect key="frame" x="8" y="0.0" width="110.5" height="33"/>
+                                    <rect key="frame" x="8" y="0.0" width="115" height="33"/>
                                     <color key="backgroundColor" red="0.13725490200000001" green="0.16862745100000001" blue="0.41568627450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -194,7 +194,7 @@
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </constraint>
-                        <constraint firstAttribute="trailing" secondItem="Ula-a8-vQL" secondAttribute="trailing" constant="11" id="FZ6-JN-7Bg">
+                        <constraint firstAttribute="trailing" secondItem="Ula-a8-vQL" secondAttribute="trailing" constant="5" id="FZ6-JN-7Bg">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                             </userDefinedRuntimeAttributes>
@@ -209,7 +209,7 @@
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </constraint>
-                        <constraint firstItem="Ula-a8-vQL" firstAttribute="leading" secondItem="MWe-jF-7oz" secondAttribute="trailing" constant="6.5" id="RxM-gR-A5S">
+                        <constraint firstItem="Ula-a8-vQL" firstAttribute="leading" secondItem="MWe-jF-7oz" secondAttribute="trailing" id="RxM-gR-A5S">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                             </userDefinedRuntimeAttributes>

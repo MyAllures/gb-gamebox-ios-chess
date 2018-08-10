@@ -29,6 +29,7 @@
 
 - (void)awakeFromNib{
     [super awakeFromNib];
+    self.VerificationBtn.titleLabel.font = [UIFont systemFontOfSize:11*screenSize().width/375.0];
 }
 
 - (IBAction)sureBtnClick:(id)sender {
