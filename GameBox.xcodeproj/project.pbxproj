@@ -194,6 +194,8 @@
 		54C876432100BFA000AA0594 /* SH_PromoDeatilViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C876412100BFA000AA0594 /* SH_PromoDeatilViewController.xib */; };
 		54CB4E4421107CED00170B1B /* SH_CustomerServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 54CB4E4321107CED00170B1B /* SH_CustomerServiceManager.m */; };
 		54CB4E47211088BD00170B1B /* SH_CustomerServiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54CB4E46211088BD00170B1B /* SH_CustomerServiceView.m */; };
+		54D13C4E211D96AB00E07E5A /* sid in Resources */ = {isa = PBXBuildFile; fileRef = 54D13C4C211D96AA00E07E5A /* sid */; };
+		54D13C4F211D96AB00E07E5A /* dores.sh in Resources */ = {isa = PBXBuildFile; fileRef = 54D13C4D211D96AB00E07E5A /* dores.sh */; };
 		54D5F574210816AA00439A94 /* column_bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54D5F573210816A900439A94 /* column_bg.webp */; };
 		54D5F57821081C5300439A94 /* SH_XibView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D5F57721081C5300439A94 /* SH_XibView.m */; };
 		54DD033721085A9100CE9199 /* SH_PromoWindowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DD033521085A9100CE9199 /* SH_PromoWindowViewController.m */; };
@@ -671,6 +673,8 @@
 		54CB4E45211088BD00170B1B /* SH_CustomerServiceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_CustomerServiceView.h; sourceTree = "<group>"; };
 		54CB4E46211088BD00170B1B /* SH_CustomerServiceView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_CustomerServiceView.m; sourceTree = "<group>"; };
 		54D13C07211BE08900E07E5A /* SitesConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SitesConfig.h; sourceTree = "<group>"; };
+		54D13C4C211D96AA00E07E5A /* sid */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sid; sourceTree = "<group>"; };
+		54D13C4D211D96AB00E07E5A /* dores.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = dores.sh; sourceTree = "<group>"; };
 		54D5F573210816A900439A94 /* column_bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = column_bg.webp; sourceTree = "<group>"; };
 		54D5F57621081C5300439A94 /* SH_XibView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_XibView.h; sourceTree = "<group>"; };
 		54D5F57721081C5300439A94 /* SH_XibView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_XibView.m; sourceTree = "<group>"; };
@@ -1076,6 +1080,8 @@
 		5401C52320ECA10F0027246D = {
 			isa = PBXGroup;
 			children = (
+				54D13C4D211D96AB00E07E5A /* dores.sh */,
+				54D13C4C211D96AA00E07E5A /* sid */,
 				5401C52E20ECA10F0027246D /* GameBox */,
 				5401C52D20ECA10F0027246D /* Products */,
 				F14E4A72378CCD648FF29337 /* Pods */,
@@ -2284,6 +2290,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5401C54220ECA1100027246D /* Build configuration list for PBXNativeTarget "GameBox" */;
 			buildPhases = (
+				54D13C50211D985A00E07E5A /* ShellScript */,
 				BBE1A7EF60A82CD6004C70C2 /* [CP] Check Pods Manifest.lock */,
 				5401C52820ECA10F0027246D /* Sources */,
 				5401C52920ECA10F0027246D /* Frameworks */,
@@ -2360,6 +2367,7 @@
 				54DD03662109FDAB00CE9199 /* SH_MsgCenterDetailView.xib in Resources */,
 				543970F32106C38E0091C719 /* logo14.webp in Resources */,
 				BF45748721074C0E006246B4 /* SH_FindPSWView.xib in Resources */,
+				54D13C4E211D96AB00E07E5A /* sid in Resources */,
 				543970C9210462BB0091C719 /* select2.webp in Resources */,
 				543970A3210462BB0091C719 /* not-choose.webp in Resources */,
 				5439708C210462BB0091C719 /* logo02.webp in Resources */,
@@ -2481,6 +2489,7 @@
 				54397085210462BB0091C719 /* logo07.webp in Resources */,
 				DA1BCD782100B10300201DBC /* SH_ShareView.xib in Resources */,
 				54E7D2E9210726580069F2CE /* down.webp in Resources */,
+				54D13C4F211D96AB00E07E5A /* dores.sh in Resources */,
 				5439708A210462BB0091C719 /* lookProfit.webp in Resources */,
 				543970C8210462BB0091C719 /* effects_star2.webp in Resources */,
 				DA6EE1BF20F8BEDA009A01C5 /* SH_UserInformationView.xib in Resources */,
@@ -2566,6 +2575,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameBox/Pods-GameBox-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		54D13C50211D985A00E07E5A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PROJECT_DIR}/dores.sh";
 		};
 		BBE1A7EF60A82CD6004C70C2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
