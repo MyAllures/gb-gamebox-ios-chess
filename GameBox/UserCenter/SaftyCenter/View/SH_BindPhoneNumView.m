@@ -9,6 +9,7 @@
 #import "SH_BindPhoneNumView.h"
 #import "SH_NetWorkService+SaftyCenter.h"
 #import "SH_GamesHomeViewController.h"
+#import "SH_TopLevelControllerManager.h"
 @interface SH_BindPhoneNumView()
 @property (weak, nonatomic) IBOutlet UIView *olbPhone_view;
 @property (weak, nonatomic) IBOutlet UILabel *oldPhoneNumLab; //旧手机号码lable
@@ -28,6 +29,7 @@
 
 - (void)awakeFromNib{
     [super awakeFromNib];
+    self.VerificationBtn.titleLabel.font = [UIFont systemFontOfSize:11*screenSize().width/375.0];
 }
 
 - (IBAction)sureBtnClick:(id)sender {
@@ -92,7 +94,7 @@
     self.InputVerificationCodeLab.hidden = YES;
     self.InputCodeTF.hidden = YES;
     [self.sureBtn setTitle:@"更换绑定号码" forState:UIControlStateNormal];
-    self.NewPhoneLabTopDistance.constant = 20;
+    self.NewPhoneLabTopDistance.constant = 20*screenSize().width/375;
     [self layoutIfNeeded];
 }
 //未绑定过手机号码
@@ -105,7 +107,7 @@
     self.InputVerificationCodeLab.hidden = NO;
     self.InputCodeTF.hidden = NO;
     [self.sureBtn setTitle:@"立即绑定" forState:UIControlStateNormal];
-    self.NewPhoneLabTopDistance.constant = 40;
+    self.NewPhoneLabTopDistance.constant = 40*screenSize().width/375;
     [self layoutIfNeeded];
 }
 //更换手机号码
@@ -122,7 +124,7 @@
     self.NewPhoneNumTF.userInteractionEnabled = YES;
     self.InputCodeTF.hidden = NO;
     [self.sureBtn setTitle:@"确认" forState:UIControlStateNormal];
-    self.NewPhoneLabTopDistance.constant = 64;
+    self.NewPhoneLabTopDistance.constant = 64*screenSize().width/375;
     [self layoutIfNeeded];
 }
 - (IBAction)sendVerificationBtn:(id)sender {
@@ -195,7 +197,8 @@
         if ([code isEqualToString:@"0"]) {
             showMessage(self, @"绑定手机成功", nil);
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [weakSelf.targetVC dismissViewControllerAnimated:NO completion:nil];
+                 UIViewController * svc = [SH_TopLevelControllerManager fetchTopLevelController];
+                [svc dismissViewControllerAnimated:NO completion:nil];
             });
         } else {
             showMessage(self, dataDic[@"message"], nil);
@@ -205,7 +208,4 @@
     }];
 }
 
-- (void)setTargetVC:(UIViewController *)targetVC{
-    _targetVC = targetVC;
-}
 @end

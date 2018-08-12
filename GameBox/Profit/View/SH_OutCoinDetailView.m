@@ -14,12 +14,12 @@
 #import "SH_ProfitAlertView.h"
 #import "SH_SmallWindowViewController.h"
 #import "SH_BigWindowViewController.h"
+#import "SH_TopLevelControllerManager.h"
 @interface SH_OutCoinDetailView()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
 @property(nonatomic,strong)NSArray *details;
 @property(nonatomic,strong)NSArray *titles;
-@property(nonatomic,strong)UIViewController *targetVC;
 @property(nonatomic,copy)NSString *token;
 @end
 @implementation SH_OutCoinDetailView
@@ -42,7 +42,7 @@
     return 6;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 32;
+    return 32*screenSize().width/375.0;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     SH_OutCoinDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SH_OutCoinDetailTableViewCell"];
@@ -58,8 +58,8 @@
     acr.title = @"牌局记录";
     acr.modalPresentationStyle = UIModalPresentationCurrentContext;
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self.targetVC presentViewController:acr animated:YES completion:nil];
-    view.targetVC = acr;
+     UIViewController * svc = [SH_TopLevelControllerManager fetchTopLevelController];
+    [svc presentViewController:acr animated:YES completion:nil];
 }
 
 - (IBAction)sureOutCoinBtnClick:(id)sender {
@@ -71,34 +71,33 @@
     SH_ConfirSaftyPassWordView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_ConfirSaftyPassWordView" owner:self options:nil].firstObject;
     view.money = self.details[1];
     view.token = self.token;
-    view.targetVC = self.targetVC;
     SH_SmallWindowViewController *acr = [SH_SmallWindowViewController new];
     acr.customView = view;
     acr.contentHeight = 210;
     acr.titleImageName = @"title17";
     acr.modalPresentationStyle = UIModalPresentationCurrentContext;
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self.targetVC presentViewController:acr animated:YES completion:nil];
-    [view updateUIWithDetailArray:nil TargetVC:acr Token:nil];
+     UIViewController * svc = [SH_TopLevelControllerManager fetchTopLevelController];
+    [svc presentViewController:acr animated:YES completion:nil];
+    [view updateUIWithDetailArray:nil TargetVC:nil Token:nil];
 }
 
 -(void)popAlertView: (NSString *)content{
     SH_ProfitAlertView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_ProfitAlertView" owner:self options:nil].firstObject;
     view.content = content;
-    view.targetVC = self.targetVC;
     SH_SmallWindowViewController * acr = [SH_SmallWindowViewController new];
     acr.customView = view;
     acr.contentHeight = 202;
     acr.titleImageName =@"title03";
     acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self.targetVC presentViewController:acr animated:YES completion:nil];
+     UIViewController * svc = [SH_TopLevelControllerManager fetchTopLevelController];
+    [svc presentViewController:acr animated:YES completion:nil];
 }
 
 - (void)updateUIWithDetailArray:(NSArray *)details
                        TargetVC:(UIViewController *)targetVC
                           Token:(NSString *)token{
-    self.targetVC = targetVC;
     self.details = details;
     self.token = token;
     [self.mainTableView reloadData];

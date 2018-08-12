@@ -9,5 +9,4 @@
 #import <UIKit/UIKit.h>
 
 @interface SH_LookJiHeView : UIView
-@property(nonatomic,strong)UIViewController *targetVC;
 @end

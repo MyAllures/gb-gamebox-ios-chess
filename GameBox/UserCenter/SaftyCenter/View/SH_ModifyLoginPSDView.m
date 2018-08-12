@@ -9,6 +9,7 @@
 #import "SH_ModifyLoginPSDView.h"
 #import "SH_NetWorkService+SaftyCenter.h"
 #import "SH_NetWorkService+RegistAPI.h"
+#import "SH_TopLevelControllerManager.h"
 @interface SH_ModifyLoginPSDView()
 @property (weak, nonatomic) IBOutlet UITextField *currentTX;
 @property (weak, nonatomic) IBOutlet UITextField *NewTX;
@@ -49,7 +50,8 @@
                     [defaults setObject:self.NewTX.text forKey:@"password"];
                     [defaults synchronize];
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                          [self.targetVC.presentingViewController dismissViewControllerAnimated:NO completion:nil];
+                         UIViewController * svc= [SH_TopLevelControllerManager  fetchTopLevelController];
+                          [svc.presentingViewController dismissViewControllerAnimated:NO completion:nil];
                     });
                   
                 }else{
@@ -72,9 +74,7 @@
 //        }
     }
 }
-- (void)setTargetVC:(UIViewController *)targetVC{
-    _targetVC = targetVC;
-}
+
 - (IBAction)verificationBtnClick:(id)sender {
     [self getLoginVerificationCode];
 }

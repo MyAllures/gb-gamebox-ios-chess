@@ -9,7 +9,7 @@
 #import "SH_FillRealNameView.h"
 //#import "SH_NetWorkService+SaftyCenter.h"ns
 #import "SH_NetWorkService+RegistAPI.h"
-
+#import "SH_TopLevelControllerManager.h"
 @interface SH_FillRealNameView()
 @property (weak, nonatomic) IBOutlet UITextField *realNameTF;
 @property (weak, nonatomic) IBOutlet UILabel *messageLab;
@@ -54,7 +54,8 @@
             }];
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [self.targetVC1 dismissViewControllerAnimated:NO completion:nil];
+                 UIViewController * svc = [SH_TopLevelControllerManager fetchTopLevelController];
+                [svc dismissViewControllerAnimated:NO completion:nil];
             });
         } else {
             self.messageLab.text = dict[@"message"];

@@ -12,6 +12,7 @@
 #import "SH_SettingView.h"
 #import "UIImage+SH_WebPImage.h"
 #import "SH_SmallWindowViewController.h"
+#import "SH_TopLevelControllerManager.h"
 @interface  SH_UserInformationView()
 @property (weak, nonatomic) IBOutlet UILabel *lastLoginTime_label;
 @property (weak, nonatomic) IBOutlet UILabel *titleNum_label;
@@ -48,9 +49,9 @@
     self.warehouseWelfare_label.text = @"0.00";
     if ([RH_UserInfoManager  shareUserManager].isLogin) {
         if ([RH_UserInfoManager shareUserManager].mineSettingInfo.userSex.length > 0) {
-            if ([[RH_UserInfoManager shareUserManager].mineSettingInfo.userSex isEqualToString:@"男"]) {
+            if ([[RH_UserInfoManager shareUserManager].mineSettingInfo.userSex isEqualToString:@"male"]) {
                 self.userAvatar.image = [UIImage imageWithWebPImageName:@"photo_male"];
-            } else if ([[RH_UserInfoManager shareUserManager].mineSettingInfo.userSex isEqualToString:@"女"]){
+            } else  if ([[RH_UserInfoManager shareUserManager].mineSettingInfo.userSex isEqualToString:@"female"]){
                 self.userAvatar.image = [UIImage imageWithWebPImageName:@"photo_female"];
             } else {
                 self.userAvatar.image = [UIImage imageWithWebPImageName:@"photo_male"];
@@ -63,23 +64,21 @@
     }
 }
 - (IBAction)btnClick:(UIButton *)sender {
-
+     UIViewController * svc = [SH_TopLevelControllerManager fetchTopLevelController];
     if (sender.tag == 100) {
         SH_AlertView * alert = [SH_AlertView  instanceAlertView];
         SH_SmallWindowViewController *vc = [SH_SmallWindowViewController new];
         vc.titleImageName = @"title03";
         vc.customView = alert;
         vc.contentHeight = 174;
-        alert.vc = vc;
-         [self  presentViewController:vc addTargetViewController:self.vc];
+        [self  presentViewController:vc addTargetViewController:svc];
     }else{
         SH_SettingView * settingView = [SH_SettingView instanceSettingView];
         SH_SmallWindowViewController * setVC = [SH_SmallWindowViewController new];
         setVC.customView = settingView;
         setVC.contentHeight = 130;
         setVC.titleImageName = @"title05";
-        settingView.vc = setVC;
-        [self  presentViewController:setVC addTargetViewController:self.vc];
+        [self  presentViewController:setVC addTargetViewController:svc];
     }
 }
 

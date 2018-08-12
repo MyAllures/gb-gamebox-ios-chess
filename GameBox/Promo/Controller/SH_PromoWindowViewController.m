@@ -12,6 +12,7 @@
 #import "SH_PromoDeatilViewController.h"
 #import "SH_WebPButton.h"
 #import "SH_MsgCenterDetailView.h"
+#import "SH_PromoActivitiesView.h"
 #import "SH_BigWindowViewController.h"
 #import "SH_SmallWindowViewController.h"
 @interface SH_PromoWindowViewController () <SH_PromoListViewDelegate>
@@ -21,6 +22,7 @@
 
 @property (strong, nonatomic) SH_PromoListView *promoListView;
 @property (strong, nonatomic) SH_MsgCenterView *msgCenterView;
+@property(nonatomic,strong)SH_PromoActivitiesView *promoActivitiseView;
 
 @end
 
@@ -56,6 +58,17 @@
     return _promoListView;
 }
 
+- (SH_PromoActivitiesView *)promoActivitiseView{
+    if (!_promoActivitiseView) {
+        _promoActivitiseView = [[NSBundle mainBundle]loadNibNamed:@"SH_PromoActivitiesView" owner:self options:nil].firstObject;
+        [self.contentView addSubview:_promoActivitiseView];
+        [_promoActivitiseView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(0);
+        }];
+    }
+    return _promoActivitiseView;
+}
+
 - (SH_MsgCenterView *)msgCenterView
 {
     __weak typeof(self) weakSelf = self;
@@ -81,7 +94,7 @@
                 [self->_msgCenterView  fetchHttpData];
             }];
             [acr close:^{
-                [self->_msgCenterView  fetchHttpData];
+                 [self->_msgCenterView  fetchHttpData];
             }];
         }];
     }
@@ -95,15 +108,17 @@
 - (IBAction)promoTypeSelected:(id)sender {
     self.promoTypeBt.selected = YES;
     self.msgTypeBt.selected = NO;
-    self.promoListView.hidden = NO;
+//    self.promoListView.hidden = NO;
+    self.promoActivitiseView.hidden = NO;
     self.msgCenterView.hidden = YES;
-    [self.promoListView reloadData];
+//    [self.promoListView reloadData];
 }
 
 - (IBAction)msgTypeSelect:(id)sender {
     self.promoTypeBt.selected = NO;
     self.msgTypeBt.selected = YES;
-    self.promoListView.hidden = YES;
+//    self.promoListView.hidden = YES;
+     self.promoActivitiseView.hidden = YES;
     self.msgCenterView.hidden = NO;
     [self.msgCenterView reloadData];
 }

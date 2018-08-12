@@ -12,6 +12,7 @@
 #import "SH_FillRealNameView.h"
 #import "SH_GamesHomeViewController.h"
 #import "SH_SmallWindowViewController.h"
+#import "SH_TopLevelControllerManager.h"
 @interface SH_ModiftSaftyPSDView()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *currentTF;
 @property (weak, nonatomic) IBOutlet UITextField *NewTF;
@@ -70,10 +71,10 @@
         acr.contentHeight = 202;
         acr.titleImageName = @"title18";
         acr.customView = view;
-        view.targetVC1 = acr;
         acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        [self.targetVC presentViewController:acr animated:YES completion:nil];
+         UIViewController * svc= [SH_TopLevelControllerManager  fetchTopLevelController];
+        [svc presentViewController:acr animated:YES completion:nil];
         return;
     }
     
@@ -100,18 +101,19 @@
                 [[RH_UserInfoManager shareUserManager] setUserSafetyInfo:model];
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     if ([self.comeFromVC isEqualToString:@"setSafePsw"]) {
-                        [self.targetVC.presentingViewController dismissViewControllerAnimated:NO completion:nil];
+                         UIViewController * svc= [SH_TopLevelControllerManager  fetchTopLevelController];
+                        [svc.presentingViewController dismissViewControllerAnimated:NO completion:nil];
                     }
                     else{
-                        UIViewController *vc = self.targetVC;
-                        while (vc.presentingViewController) {
-                            if ([vc isKindOfClass:[UINavigationController class]]) {
+                         UIViewController * svc= [SH_TopLevelControllerManager  fetchTopLevelController];
+                        while (svc.presentingViewController) {
+                            if ([svc isKindOfClass:[UINavigationController class]]) {
                                 break;
                                 
                             }
-                            vc = vc.presentingViewController;
+                            svc = svc.presentingViewController;
                         }
-                        [vc dismissViewControllerAnimated:NO completion:nil];
+                        [svc dismissViewControllerAnimated:NO completion:nil];
                     }
                 });
             }else{
@@ -127,9 +129,6 @@
             
         }];
     }
-}
-- (void)setTargetVC:(UIViewController *)targetVC{
-    _targetVC = targetVC;
 }
 -(void)updateSaftyView{
     //当需要验证码的时候刷新UI布局
@@ -176,10 +175,10 @@
         acr.customView = view;
         acr.contentHeight = 202;
         acr.titleImageName = @"title18";
-        view.targetVC1 = acr;
         acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        [self.targetVC presentViewController:acr animated:YES completion:nil];
+         UIViewController * svc= [SH_TopLevelControllerManager  fetchTopLevelController];
+        [svc presentViewController:acr animated:YES completion:nil];
         return NO;
     }
 }

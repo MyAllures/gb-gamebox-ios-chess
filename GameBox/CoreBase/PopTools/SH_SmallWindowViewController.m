@@ -34,11 +34,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void)setTitleImageName:(NSString *)titleImageName
+{
+    _titleImageName = titleImageName;
+    self.titleImgView.image = [UIImage imageNamed:_titleImageName];
+}
 -(void)close:(SH_SmallWindowViewControllerDismissBlock)closeBlock
 {
     self.dismissBlock = closeBlock;
-    [self closeAction:nil];
+//    [self closeAction:nil];
 }
 
 - (IBAction)closeAction:(id)sender {

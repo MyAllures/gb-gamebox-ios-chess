@@ -31,7 +31,7 @@
     [navi updateUIWithTitle:title];
     [navi mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(self.view);
-        make.height.equalTo(@(NavigationBarHeight));
+        make.height.equalTo(@(NAVI_STATUBAR_HEIGHT));
     }];
 }
 #pragma mark--
@@ -52,7 +52,7 @@
         [self.view addSubview:_bgScrollView];
         [_bgScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.bottom.right.equalTo(self.view);
-            make.top.equalTo(self.view).offset(NavigationBarHeight);
+            make.top.equalTo(self.view).offset(NAVI_STATUBAR_HEIGHT);
         }];
     }
     return _bgScrollView;

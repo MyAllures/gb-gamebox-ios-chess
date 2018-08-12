@@ -16,6 +16,7 @@
 #import "RH_RegisterClauseModel.h"
 #import "SH_RegistRulerView.h"
 #import "SH_BigWindowViewController.h"
+#import "SH_TopLevelControllerManager.h"
 @interface SH_RegistView()
 {
     RH_RegisetInitModel *registrationInitModel;
@@ -332,7 +333,8 @@
     SH_BigWindowViewController * alert = [SH_BigWindowViewController new];
     alert.customView = view;
     alert.titleImageName =@"title02";
-    [self presentViewController:alert addTargetViewController:self.targetVC];
+    UIViewController * svc = [SH_TopLevelControllerManager fetchTopLevelController];
+    [self presentViewController:alert addTargetViewController:svc];
     
 }
 #pragma mark --- 模态弹出viewController

@@ -18,6 +18,7 @@
 #import "SH_FillRealNameView.h"
 #import "SH_BigWindowViewController.h"
 #import "SH_SmallWindowViewController.h"
+#import "SH_TopLevelControllerManager.h"
 @interface SH_SaftyCenterView()
 @property (weak, nonatomic) IBOutlet SH_WebPButton *loginBtn;
 @property (weak, nonatomic) IBOutlet SH_WebPButton *saftyBtn;
@@ -55,6 +56,12 @@
     if (!_loginView) {
         _loginView = [[NSBundle mainBundle]loadNibNamed:@"SH_ModifyLoginPSDView" owner:self options:nil].firstObject;
         [self addSubview:_loginView];
+        [_loginView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self).offset(10);
+            make.left.equalTo(self).offset(145*screenSize().width/375.0);
+            make.right.equalTo(self).offset(-10*screenSize().width/375.0);
+            make.bottom.equalTo(self).offset(-10);
+        }];
     }
     return _loginView;
 }
@@ -64,8 +71,9 @@
         [self addSubview:_saftyView];
         [_saftyView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self).offset(10);
-            make.left.equalTo(self).offset(145);
-            make.bottom.right.equalTo(self).offset(-10);
+            make.left.equalTo(self).offset(145*screenSize().width/375.0);
+            make.right.equalTo(self).offset(-10*screenSize().width/375.0);
+            make.bottom.equalTo(self).offset(-10);
         }];
     }
     return _saftyView;
@@ -76,8 +84,9 @@
         [self addSubview:_bankView];
         [_bankView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self).offset(10);
-            make.left.equalTo(self).offset(145);
-            make.bottom.right.equalTo(self).offset(-10);
+            make.left.equalTo(self).offset(145*screenSize().width/375.0);
+            make.right.equalTo(self).offset(-10*screenSize().width/375.0);
+            make.bottom.equalTo(self).offset(-10);
         }];
     }
     return _bankView;
@@ -88,8 +97,12 @@
         _bindPhoneView = [[NSBundle mainBundle]loadNibNamed:@"SH_BindPhoneNumView" owner:self options:nil].firstObject;
         [self addSubview:_bindPhoneView];
         [_bindPhoneView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.bottom.right.equalTo(self);
-            make.left.equalTo(self).offset(135);
+//            make.top.bottom.right.equalTo(self);
+//            make.left.equalTo(self).offset(135);
+            make.top.equalTo(self).offset(10);
+            make.left.equalTo(self).offset(145*screenSize().width/375.0);
+            make.right.equalTo(self).offset(-10*screenSize().width/375.0);
+            make.bottom.equalTo(self).offset(-10);
         }];
     }
     return _bindPhoneView;
@@ -101,15 +114,15 @@
         [self addSubview:_profitExView];
         [_profitExView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self).offset(10);
-            make.left.equalTo(self).offset(145);
-            make.bottom.right.equalTo(self).offset(-10);
+            make.left.equalTo(self).offset(145*screenSize().width/375.0);
+            make.right.equalTo(self).offset(-10*screenSize().width/375.0);
+            make.bottom.equalTo(self).offset(-10);
         }];
     }
     return _profitExView;
 }
 
 - (IBAction)modifyLoginBtnClick:(id)sender {
-     self.loginView.targetVC = self.targetVC;
      [self setUIWithSelecteBtn:self.loginBtn SelectedView:self.loginView];
 }
 
@@ -123,13 +136,11 @@
         acr.customView = view;
         acr.titleImageName = @"title18";
         acr.contentHeight = 202;
-        view.targetVC1 = acr;
         acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        [self.targetVC presentViewController:acr animated:YES completion:nil];
+         UIViewController * svc= [SH_TopLevelControllerManager  fetchTopLevelController];
+        [svc presentViewController:acr animated:YES completion:nil];
     }
-    
-    self.saftyView.targetVC = self.targetVC;
     self.saftyView.comeFromVC  = self.bankView.from;
     [self setUIWithSelecteBtn:self.saftyBtn SelectedView:self.saftyView];
     //这里用户要请求有没有设置过安全密码接口
@@ -147,23 +158,19 @@
     }];
 }
 - (IBAction)bankCardBtnClick:(id)sender {
-    self.bankView.targetVC = self.targetVC;
     [self setUIWithSelecteBtn:self.bankBtn SelectedView:self.bankView];
 }
 -(void)configUI{
     [self.loginView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self).offset(10);
-        make.left.equalTo(self).offset(145);
-        make.bottom.right.equalTo(self).offset(-10);
+        make.left.equalTo(self).offset(145*screenSize().width/375.0);
+        make.right.equalTo(self).offset(-10*screenSize().width/375.0);
+        make.bottom.equalTo(self).offset(-10);
     }];
     
 }
 -(void)setButton:(SH_WebPButton *)button BackgroundImage:(NSString *)image{
     [button setWebpBGImage:image forState:UIControlStateNormal];
-}
-- (void)setTargetVC:(UIViewController *)targetVC{
-    _targetVC = targetVC;
-    self.loginView.targetVC = targetVC;
 }
 - (void)selectedWithType:(NSString *)type From:(NSString *)from{
     self.bankView.from = from;
@@ -174,7 +181,6 @@
     }
 }
 - (IBAction)bindPhoneBtnClick:(id)sender {
-    self.bindPhoneView.targetVC = self.targetVC;
     [self setUIWithSelecteBtn:self.bindPhoneBtn SelectedView:self.bindPhoneView];
     [self.bindPhoneView selectBindPhoneNumView];
 }

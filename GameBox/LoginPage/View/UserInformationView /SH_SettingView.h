@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 #import "SH_SmallWindowViewController.h"
 @interface SH_SettingView : UIView
-@property(nonatomic,strong)SH_SmallWindowViewController  * vc;
 +(instancetype)instanceSettingView;
 @end

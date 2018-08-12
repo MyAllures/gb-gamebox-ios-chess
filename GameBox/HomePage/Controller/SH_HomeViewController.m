@@ -342,9 +342,9 @@
     
     if ([RH_UserInfoManager  shareUserManager].isLogin) {
         if ([RH_UserInfoManager shareUserManager].mineSettingInfo.userSex.length > 0) {
-            if ([[RH_UserInfoManager shareUserManager].mineSettingInfo.userSex isEqualToString:@"男"]) {
+            if ([[RH_UserInfoManager shareUserManager].mineSettingInfo.userSex isEqualToString:@"male"]) {
                 self.avatarImg.image = [UIImage imageWithWebPImageName:@"photo_male"];
-            } else  if ([[RH_UserInfoManager shareUserManager].mineSettingInfo.userSex isEqualToString:@"女"]){
+            } else  if ([[RH_UserInfoManager shareUserManager].mineSettingInfo.userSex isEqualToString:@"female"]){
                 self.avatarImg.image = [UIImage imageWithWebPImageName:@"photo_female"];
             } else {
                 self.avatarImg.image = [UIImage imageWithWebPImageName:@"photo_male"];
@@ -356,7 +356,7 @@
         self.suishenFuLiLab.text = [NSString stringWithFormat:@"%.2f",[RH_UserInfoManager shareUserManager].mineSettingInfo.walletBalance];        
     }else{
         self.avatarImg.image = [UIImage imageWithWebPImageName:@"avatar"];
-        self.suishenFuLiLab.text = @"0";
+        self.suishenFuLiLab.text = @"0.00";
     }
 }
 
@@ -560,7 +560,6 @@
     SH_BigWindowViewController *vc = [[SH_BigWindowViewController alloc] initWithNibName:@"SH_BigWindowViewController" bundle:nil];
     vc.titleImageName = @"title01";
     vc.customView = login;
-    login.targetVC = vc;
     login.dismissBlock = ^{
         [vc close:nil];
         [self configUI];
@@ -644,7 +643,6 @@
     cvc.titleImageName = @"title04";
     cvc.customView = inforView;
     cvc.contentHeight = 204;
-    inforView.vc = cvc;
     [self presentViewController:cvc addTargetViewController:self];
 }
 #pragma mark --- 模态弹出viewController
@@ -698,7 +696,7 @@
             NSString *code = response[@"code"];
             NSString *message = response[@"message"];
             [self refreshBalance:model.totalBalance];
-            [view updateUIWithBalance:model BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:self.acr Token:model.token Code:code Message:message];
+            [view updateUIWithBalance:model BankNum:[model.bankcardMap objectForKey:@"1"][@"bankcardNumber"] TargetVC:nil Token:model.token Code:code Message:message];
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
@@ -707,7 +705,7 @@
 
 -(void)refreshBalance: (NSString *)balance {
     if (![self.suishenFuLiLab.text isEqualToString:balance]) {
-        self.suishenFuLiLab.text = balance;
+        self.suishenFuLiLab.text =  [NSString stringWithFormat:@"%.2f",[balance floatValue]];
     }
 }
 
@@ -736,7 +734,6 @@
         vc.contentHeight = 260;
         vc.titleImageName = @"title08";
         vc.customView = share;
-        share.targetVC = vc;
         [self presentViewController:vc addTargetViewController:self];
     }else{
         [self login];

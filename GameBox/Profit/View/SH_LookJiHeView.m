@@ -12,11 +12,19 @@
 @interface SH_LookJiHeView()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
 @property(nonatomic,strong)NSArray *dataArray;
+@property (weak, nonatomic) IBOutlet UIView *topView;
+
 @end
 @implementation SH_LookJiHeView
 
 - (void)awakeFromNib{
     [super awakeFromNib];
+    for (UIView *view in self.topView.subviews) {
+        if ([view isMemberOfClass:[UILabel class]]) {
+            UILabel *lab = ConvertToClassPointer(UILabel, view);
+            lab.font = [UIFont systemFontOfSize:14*screenSize().width/375];
+        }
+    }
     [self loadData];
     [self configUI];
 }
@@ -44,8 +52,5 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell updaetUIWithModel:self.dataArray[indexPath.row]];
     return cell;
-}
-- (void)setTargetVC:(UIViewController *)targetVC{
-    _targetVC = targetVC;
 }
 @end

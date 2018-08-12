@@ -33,11 +33,11 @@
 -(void)configUI{
     [self.wkWebView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.bottom.right.equalTo(self.view);
-        make.top.equalTo(self.view).offset(NavigationBarHeight);
+        make.top.equalTo(self.view).offset(NAVI_STATUBAR_HEIGHT);
     }];
     [self.wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.platformModel.code]]];
     
-    self.progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, NavigationBarHeight , screenSize().width, 2)];
+    self.progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, NAVI_STATUBAR_HEIGHT , screenSize().width, 2)];
     self.progressView.progressTintColor = [UIColor greenColor];
     self.progressView.backgroundColor = [UIColor blueColor];
     //设置进度条的高度，下面这句代码表示进度条的宽度变为原来的1倍，高度变为原来的1.5倍.

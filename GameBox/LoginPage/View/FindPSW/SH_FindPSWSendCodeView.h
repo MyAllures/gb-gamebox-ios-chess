@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SH_FindPSWSendCodeView : UIView
-@property (nonatomic, strong) UIViewController *targetVC2;
 @property (nonatomic, strong) NSString *phoneStr;
 @property (nonatomic, strong) NSString *encryptedId;
 @end

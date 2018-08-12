@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SH_UserInformationView : UIView
-@property (nonatomic,strong) id vc;
 
 +(instancetype)instanceInformationView;
 

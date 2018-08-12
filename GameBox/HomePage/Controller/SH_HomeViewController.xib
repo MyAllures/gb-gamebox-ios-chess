@@ -128,7 +128,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SqL-w0-8Nr">
-                                                    <rect key="frame" x="96" y="4" width="50" height="15"/>
+                                                    <rect key="frame" x="58" y="4" width="88" height="15"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="Me7-bY-eRK"/>
                                                         <constraint firstAttribute="height" constant="15" id="SDI-Db-sc3"/>
@@ -159,6 +159,7 @@
                                                 <constraint firstItem="3EE-iu-I0p" firstAttribute="centerY" secondItem="Sqc-0Y-X69" secondAttribute="centerY" id="oC7-lV-bTy"/>
                                                 <constraint firstAttribute="bottom" secondItem="nba-f1-nWx" secondAttribute="bottom" id="u0T-uA-zFs"/>
                                                 <constraint firstAttribute="trailing" secondItem="nba-f1-nWx" secondAttribute="trailing" id="yvQ-46-K1c"/>
+                                                <constraint firstItem="SqL-w0-8Nr" firstAttribute="leading" secondItem="3EE-iu-I0p" secondAttribute="trailing" id="z71-YZ-sBv"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ts6-l1-fxJ">
@@ -318,14 +319,26 @@
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="footer-bg" translatesAutoresizingMaskIntoConstraints="NO" id="EaS-ba-BNH">
                             <rect key="frame" x="0.0" y="15.5" width="667" height="38"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="38" id="WoV-8z-OTg"/>
+                                <constraint firstAttribute="height" constant="38" id="WoV-8z-OTg">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
                             </constraints>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kpt-Vi-QtD" customClass="SH_WebPImageView">
                             <rect key="frame" x="24" y="-8.5" width="139" height="62"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="139" id="YJ5-X4-Mgp"/>
-                                <constraint firstAttribute="height" constant="62" id="bxw-4l-ggv"/>
+                                <constraint firstAttribute="width" constant="139" id="YJ5-X4-Mgp">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
+                                <constraint firstAttribute="height" constant="62" id="bxw-4l-ggv">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="light"/>
@@ -334,8 +347,16 @@
                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dzF-kH-Jey" customClass="SH_WebPButton">
                             <rect key="frame" x="16.5" y="4.5" width="130.5" height="47"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="47" id="EOO-Aw-Nzf"/>
-                                <constraint firstAttribute="width" constant="130.5" id="GXo-uk-jk0"/>
+                                <constraint firstAttribute="height" constant="47" id="EOO-Aw-Nzf">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
+                                <constraint firstAttribute="width" constant="130.5" id="GXo-uk-jk0">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="btn_recharge"/>
@@ -353,7 +374,11 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbe-jn-DfO" customClass="SH_WebPButton">
                                     <rect key="frame" x="0.0" y="0.0" width="139" height="54"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="139" id="UGS-b2-fbq"/>
+                                        <constraint firstAttribute="width" constant="139" id="UGS-b2-fbq">
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </constraint>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="btn-welfare"/>
@@ -368,7 +393,11 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBQ-EQ-jrJ" customClass="SH_WebPButton">
                                     <rect key="frame" x="149" y="0.0" width="106" height="54"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="106" id="74L-Tg-4Tb"/>
+                                        <constraint firstAttribute="width" constant="106" id="74L-Tg-4Tb">
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </constraint>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="btn_income"/>
@@ -383,7 +412,11 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNI-Sq-0dm" customClass="SH_WebPButton">
                                     <rect key="frame" x="265" y="0.0" width="103" height="54"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="102.5" id="dBs-kI-snC"/>
+                                        <constraint firstAttribute="width" constant="102.5" id="dBs-kI-snC">
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </constraint>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="btn_share"/>
@@ -398,8 +431,16 @@
                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HeW-dE-RHz" customClass="SH_WebPButton">
                                     <rect key="frame" x="368" y="15.5" width="91" height="36.5"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="91.5" id="DDN-ic-QSZ"/>
-                                        <constraint firstAttribute="height" constant="36.5" id="wAE-Le-3sU"/>
+                                        <constraint firstAttribute="width" constant="91.5" id="DDN-ic-QSZ">
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </constraint>
+                                        <constraint firstAttribute="height" constant="36.5" id="wAE-Le-3sU">
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </constraint>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="btn_return"/>
@@ -412,15 +453,35 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="tBQ-EQ-jrJ" secondAttribute="bottom" id="33H-cM-tAA"/>
-                                <constraint firstAttribute="width" constant="462" id="6Dv-ah-GeI"/>
-                                <constraint firstItem="UNI-Sq-0dm" firstAttribute="leading" secondItem="tBQ-EQ-jrJ" secondAttribute="trailing" constant="10" id="8hl-7N-mpo"/>
-                                <constraint firstAttribute="bottom" secondItem="HeW-dE-RHz" secondAttribute="bottom" constant="2" id="Bjs-Mp-6XG"/>
+                                <constraint firstAttribute="width" constant="462" id="6Dv-ah-GeI">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
+                                <constraint firstItem="UNI-Sq-0dm" firstAttribute="leading" secondItem="tBQ-EQ-jrJ" secondAttribute="trailing" constant="10" id="8hl-7N-mpo">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
+                                <constraint firstAttribute="bottom" secondItem="HeW-dE-RHz" secondAttribute="bottom" constant="2" id="Bjs-Mp-6XG">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
                                 <constraint firstItem="HeW-dE-RHz" firstAttribute="leading" secondItem="UNI-Sq-0dm" secondAttribute="trailing" id="FNh-BH-mCD"/>
-                                <constraint firstItem="tBQ-EQ-jrJ" firstAttribute="leading" secondItem="tbe-jn-DfO" secondAttribute="trailing" constant="10" id="L0F-7T-uFF"/>
+                                <constraint firstItem="tBQ-EQ-jrJ" firstAttribute="leading" secondItem="tbe-jn-DfO" secondAttribute="trailing" constant="10" id="L0F-7T-uFF">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
                                 <constraint firstItem="tbe-jn-DfO" firstAttribute="top" secondItem="0Zi-QQ-yBM" secondAttribute="top" id="UP0-Q4-gkA"/>
                                 <constraint firstItem="tBQ-EQ-jrJ" firstAttribute="top" secondItem="0Zi-QQ-yBM" secondAttribute="top" id="jik-YV-IQA"/>
                                 <constraint firstAttribute="bottom" secondItem="tbe-jn-DfO" secondAttribute="bottom" id="mcY-yE-tEO"/>
-                                <constraint firstAttribute="trailing" secondItem="HeW-dE-RHz" secondAttribute="trailing" constant="3.5" id="qRH-yU-J0h"/>
+                                <constraint firstAttribute="trailing" secondItem="HeW-dE-RHz" secondAttribute="trailing" constant="3.5" id="qRH-yU-J0h">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
                                 <constraint firstAttribute="bottom" secondItem="UNI-Sq-0dm" secondAttribute="bottom" id="qnK-nt-3hZ"/>
                                 <constraint firstItem="UNI-Sq-0dm" firstAttribute="top" secondItem="0Zi-QQ-yBM" secondAttribute="top" id="rnJ-GX-jJU"/>
                             </constraints>
@@ -429,13 +490,25 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="0Zi-QQ-yBM" firstAttribute="top" secondItem="MK8-wC-CXH" secondAttribute="top" id="EjY-u3-rxg"/>
-                        <constraint firstItem="dzF-kH-Jey" firstAttribute="leading" secondItem="MK8-wC-CXH" secondAttribute="leading" constant="16.5" id="IEX-ZG-q3T"/>
+                        <constraint firstItem="dzF-kH-Jey" firstAttribute="leading" secondItem="MK8-wC-CXH" secondAttribute="leading" constant="16.5" id="IEX-ZG-q3T">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
                         <constraint firstAttribute="bottom" secondItem="0Zi-QQ-yBM" secondAttribute="bottom" id="LcZ-2F-iVg"/>
                         <constraint firstItem="EaS-ba-BNH" firstAttribute="leading" secondItem="MK8-wC-CXH" secondAttribute="leading" id="VZC-Dm-8QG"/>
                         <constraint firstAttribute="bottom" secondItem="EaS-ba-BNH" secondAttribute="bottom" id="Vlh-Bi-q9l"/>
-                        <constraint firstItem="kpt-Vi-QtD" firstAttribute="leading" secondItem="MK8-wC-CXH" secondAttribute="leading" constant="24" id="WJk-MM-dwh"/>
+                        <constraint firstItem="kpt-Vi-QtD" firstAttribute="leading" secondItem="MK8-wC-CXH" secondAttribute="leading" constant="24" id="WJk-MM-dwh">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
                         <constraint firstAttribute="trailing" secondItem="EaS-ba-BNH" secondAttribute="trailing" id="Xgc-bM-x2n"/>
-                        <constraint firstAttribute="height" constant="53.5" id="fLn-Qn-Uow"/>
+                        <constraint firstAttribute="height" constant="53.5" id="fLn-Qn-Uow">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
                         <constraint firstAttribute="bottom" secondItem="dzF-kH-Jey" secondAttribute="bottom" constant="2" id="hTH-nG-cJN"/>
                         <constraint firstAttribute="bottom" secondItem="kpt-Vi-QtD" secondAttribute="bottom" id="o1A-kQ-tsJ"/>
                         <constraint firstAttribute="trailing" secondItem="0Zi-QQ-yBM" secondAttribute="trailing" id="q3n-CY-rw2"/>
@@ -539,7 +612,7 @@
                 <constraint firstItem="5xu-Rj-Dcf" firstAttribute="centerY" secondItem="lo0-ep-RC7" secondAttribute="centerY" id="oHW-C8-rT2"/>
                 <constraint firstItem="5xu-Rj-Dcf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="yhJ-Rm-kDQ"/>
             </constraints>
-            <point key="canvasLocation" x="-191" y="-15"/>
+            <point key="canvasLocation" x="-191.5" y="-15.5"/>
         </view>
     </objects>
     <resources>

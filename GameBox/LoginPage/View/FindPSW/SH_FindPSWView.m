@@ -10,6 +10,7 @@
 #import "SH_FindPSWSendCodeView.h"
 #import "SH_SafeCenterAlertView.h"
 #import "SH_SmallWindowViewController.h"
+#import "SH_TopLevelControllerManager.h"
 @interface SH_FindPSWView ()
 @property (weak, nonatomic) IBOutlet UITextField *realNameTV;
 @end
@@ -34,12 +35,12 @@
                         acr.titleImageName = @"title19";
                         acr.contentHeight = 200;
                         acr.customView = view;
-                        view.targetVC2 = acr;
                         view.encryptedId = dict[@"data"][@"encryptedId"];
                         view.phoneStr = dict[@"data"][@"phone"];
                         acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
                         acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-                        [self.targetVC1 presentViewController:acr animated:YES completion:nil];
+                         UIViewController * svc = [SH_TopLevelControllerManager fetchTopLevelController];
+                        [svc presentViewController:acr animated:YES completion:nil];
                         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
                         [defaults setObject:self.realNameTV.text forKey:@"userName"];
                         [defaults synchronize];
@@ -73,7 +74,8 @@
     alert.context = context;
     acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self.targetVC1 presentViewController:acr animated:YES completion:nil];
+     UIViewController * svc = [SH_TopLevelControllerManager fetchTopLevelController];
+    [svc presentViewController:acr animated:YES completion:nil];
 }
 
 /*
