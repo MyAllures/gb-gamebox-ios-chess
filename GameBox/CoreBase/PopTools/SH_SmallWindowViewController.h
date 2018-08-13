@@ -17,5 +17,5 @@ typedef void(^SH_SmallWindowViewControllerDismissBlock)(void);
 @property (nonatomic, assign) CGFloat contentHeight;
 
 - (void)close:(SH_SmallWindowViewControllerDismissBlock)closeBlock;
-
+- (void)close;
 @end
