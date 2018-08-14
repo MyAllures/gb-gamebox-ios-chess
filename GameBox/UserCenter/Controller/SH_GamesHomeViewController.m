@@ -58,7 +58,7 @@
             self.avatar_imgView.image = [UIImage imageWithWebPImageName:@"photo_male"];
         }
     }else{
-        self.avatar_imgView.image = [UIImage imageWithWebPImageName:@"avatar"];
+        self.avatar_imgView.image = [UIImage imageWithWebPImageName:@"visitor"];
     }
     if (iPhoneX) {
         self.constraintWidth.constant = 200;
