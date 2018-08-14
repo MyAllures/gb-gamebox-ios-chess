@@ -79,7 +79,7 @@
                         </constraint>
                     </constraints>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="icon_gift"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="input_gife"/>
                     </userDefinedRuntimeAttributes>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95P-5W-htK">
@@ -332,7 +332,7 @@
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <state key="normal" title="+50"/>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="blueframe-click-1"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_blue_short_action"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="add50BtnClik:" destination="iN0-l3-epB" eventType="touchUpInside" id="zpz-GK-Iuj"/>
@@ -355,7 +355,7 @@
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <state key="normal" title="+100"/>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="blueframe-click-1"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_blue_short_action"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="add100BtnClik:" destination="iN0-l3-epB" eventType="touchUpInside" id="DK1-oA-Ii2"/>
