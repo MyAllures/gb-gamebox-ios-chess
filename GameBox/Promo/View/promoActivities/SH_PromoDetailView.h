@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "SH_PromoDetailModel.h"
 @interface SH_PromoDetailView : UIView
--(void)updateWithModel:(SH_PromoDetailModel *)model;
+-(void)updateWithModel:(SH_PromoDetailModel *)model
+                  Name:(NSString *)name
+              ImageUrl:(NSString *)imageUrl
+                  Date:(NSString *)date;
 @end
