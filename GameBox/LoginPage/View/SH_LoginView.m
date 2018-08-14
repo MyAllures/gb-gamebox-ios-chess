@@ -99,7 +99,7 @@
     self.captcha_label.hidden = YES;
     self.check_textField.hidden = YES;
     
-    UIImage  * img = [UIImage imageWithWebPImageName:@"left_bgImage"];
+    UIImage  * img = [UIImage imageWithWebPImageName:@"left_bg"];
     self.leftView.layer.contents = (__bridge id _Nullable)(img.CGImage);
    
     self.check_image.userInteractionEnabled = YES;

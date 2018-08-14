@@ -21,7 +21,7 @@
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MdN-Tw-rms" customClass="SH_WebPImageView">
                             <rect key="frame" x="0.0" y="0.0" width="135" height="306"/>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="left_bgImage"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="left_bg"/>
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EoG-PJ-hxP" customClass="SH_WebPButton">
