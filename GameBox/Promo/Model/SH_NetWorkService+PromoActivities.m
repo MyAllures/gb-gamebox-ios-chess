@@ -11,7 +11,7 @@
 @implementation SH_NetWorkService (PromoActivities)
 +(void)getActivityTypesSucess:(promoBlock)success
                       Failure:(SHNetWorkFailed)failure{
-    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/chess/getActivityTypes.html"];
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/chessActivity/getActivityTypes.html"];
     NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost};
     [self post:url parameter:[[NSMutableDictionary alloc]init] header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dic = ConvertToClassPointer(NSDictionary, response);
@@ -31,10 +31,10 @@
 +(void)getPromoActivitiesDetailPromoId:(NSString *)promoId
                                 Sucess:(promoDetailBlock)success
                               Failure:(SHNetWorkFailed)failure{
-    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/chess/getActivityById.html"];
+    NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/chessActivity/getActivityById.html"];
     NSDictionary *header = @{@"Host":[NetWorkLineMangaer sharedManager].currentHost};
     NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
-    [param setValue:promoId forKey:@"search.id"];
+    [param setValue:promoId forKey:@"searchId"];
     [self post:url parameter:param header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dic = ConvertToClassPointer(NSDictionary, response);
         NSString *code = dic[@"code"];

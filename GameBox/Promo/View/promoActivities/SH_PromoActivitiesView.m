@@ -149,12 +149,12 @@
 //选中left部分
 -(void)selectLeftIndex:(NSInteger)index{
     SH_PromoSubModel *model1 = self.leftDatas[index];
-    [self getPromoDetailProId:model1.code];
+    [self getPromoDetailProId:model1.searchId Name:model1.name ImageUrl:model1.photo  Date:model1.time];
 }
--(void)getPromoDetailProId:(NSString *)proId{
+-(void)getPromoDetailProId:(NSString *)proId Name:(NSString *)name ImageUrl:(NSString *)imageUrl Date:(NSString *)date{
     __weak typeof(self) weakSelf = self;
     [SH_NetWorkService getPromoActivitiesDetailPromoId:proId Sucess:^(SH_PromoDetailModel *model) {
-        [weakSelf.detailView updateWithModel:model];
+        [weakSelf.detailView updateWithModel:model Name:name ImageUrl:imageUrl Date:date];
     } Failure:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];

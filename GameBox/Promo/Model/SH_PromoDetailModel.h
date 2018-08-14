@@ -9,12 +9,6 @@
 #import <JSONModel/JSONModel.h>
 
 @interface SH_PromoDetailModel : JSONModel
-@property(nonatomic,copy)NSString <Optional>*photo;
-@property(nonatomic,copy)NSString <Optional>*url;
-@property(nonatomic,copy)NSString <Optional>*ID;
-@property(nonatomic,copy)NSString <Optional>*name;
-@property(nonatomic,copy)NSString <Optional>*status;
-@property(nonatomic,copy)NSString <Optional>*orderNum;
-@property(nonatomic,copy)NSString <Optional>*explain;
-@property(nonatomic,copy)NSString <Optional>*time;
+@property(nonatomic,copy)NSString *code;
+@property(nonatomic,copy)NSString *name;
 @end

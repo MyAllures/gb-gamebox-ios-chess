@@ -8,6 +8,14 @@
 
 #import "SH_ApplyFailTableViewCell.h"
 
+@interface SH_ApplyFailTableViewCell()
+@property (weak, nonatomic) IBOutlet SH_WebPImageView *iconImageView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLab;
+@property (weak, nonatomic) IBOutlet UIImageView *downImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *upImageView;
+@property (weak, nonatomic) IBOutlet UILabel *numLab;
+@property (weak, nonatomic) IBOutlet SH_WebPButton *applyBtn;
+@end
 @implementation SH_ApplyFailTableViewCell
 
 - (void)awakeFromNib {

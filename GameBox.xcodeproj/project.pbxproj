@@ -310,6 +310,7 @@
 		BF5FF7A521227BF70019EF30 /* success2.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5FF7A021227BF70019EF30 /* success2.webp */; };
 		BF5FF7A9212281E80019EF30 /* SH_ApplyFailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5FF7A7212281E80019EF30 /* SH_ApplyFailTableViewCell.m */; };
 		BF5FF7AA212281E80019EF30 /* SH_ApplyFailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF5FF7A8212281E80019EF30 /* SH_ApplyFailTableViewCell.xib */; };
+		BF5FF7AD212288710019EF30 /* UIView+BgColor.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5FF7AC212288710019EF30 /* UIView+BgColor.m */; };
 		BF66089C21070B800029C4A6 /* recovery.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF66089B21070B800029C4A6 /* recovery.webp */; };
 		BF66089E21070BC50029C4A6 /* refresh.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF66089D21070BC40029C4A6 /* refresh.webp */; };
 		BF6608A12107174A0029C4A6 /* SH_ConfirSaftyPassWordView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6608A02107174A0029C4A6 /* SH_ConfirSaftyPassWordView.m */; };
@@ -875,6 +876,8 @@
 		BF5FF7A6212281E80019EF30 /* SH_ApplyFailTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ApplyFailTableViewCell.h; sourceTree = "<group>"; };
 		BF5FF7A7212281E80019EF30 /* SH_ApplyFailTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_ApplyFailTableViewCell.m; sourceTree = "<group>"; };
 		BF5FF7A8212281E80019EF30 /* SH_ApplyFailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_ApplyFailTableViewCell.xib; sourceTree = "<group>"; };
+		BF5FF7AB212288710019EF30 /* UIView+BgColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+BgColor.h"; sourceTree = "<group>"; };
+		BF5FF7AC212288710019EF30 /* UIView+BgColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+BgColor.m"; sourceTree = "<group>"; };
 		BF66089B21070B800029C4A6 /* recovery.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = recovery.webp; sourceTree = "<group>"; };
 		BF66089D21070BC40029C4A6 /* refresh.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = refresh.webp; sourceTree = "<group>"; };
 		BF66089F2107174A0029C4A6 /* SH_ConfirSaftyPassWordView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ConfirSaftyPassWordView.h; sourceTree = "<group>"; };
@@ -1369,10 +1372,7 @@
 				BF5FF7A021227BF70019EF30 /* success2.webp */,
 				BF5FF79C21227BF60019EF30 /* warn.webp */,
 				BF5FF79521226CA30019EF30 /* show_messge.webp */,
-				22183432211D259F00C71068 /* nodata_bg2_slices.webp */,
 				228D1DC62121311400C1B32D /* nodata_bg2_slices.webp */,
-				BFA2EBED211BE64800B2678F /* error.webp */,
-				BFA2EBEB211BE62100B2678F /* correct.webp */,
 				BFA2EBDC211AF48000B2678F /* btn_green_action.webp */,
 				BFA2EBDA211AF0E900B2678F /* iconImage.webp */,
 				5404EA7C2112F954004D75AA /* nodata_bg.webp */,
@@ -2156,6 +2156,8 @@
 		BFFC846A20F344C8008AD801 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				BF5FF7AB212288710019EF30 /* UIView+BgColor.h */,
+				BF5FF7AC212288710019EF30 /* UIView+BgColor.m */,
 				BFD75A52211C6FD500AAC428 /* UIView+CornerRadius.h */,
 				BFD75A53211C6FD600AAC428 /* UIView+CornerRadius.m */,
 				DA1BCC6220FDC4B100201DBC /* UITableViewCell+ShowContent.h */,
@@ -2943,6 +2945,7 @@
 				543970EA210468D30091C719 /* SH_WebPButton.m in Sources */,
 				BF44EC5020F44BB900BC6EF3 /* SH_BitCoinView.m in Sources */,
 				BFA068A020FCBEEE00F5ADFE /* SH_ProfitModel.m in Sources */,
+				BF5FF7AD212288710019EF30 /* UIView+BgColor.m in Sources */,
 				BF44ECC620F4D4FB00BC6EF3 /* SH_RechargeDetailMainView.m in Sources */,
 				22552CEE20F4CCE50090EFBC /* SH_NetWorkService+Promo.m in Sources */,
 				BF5FF790212269F20019EF30 /* SH_NodataView.m in Sources */,
