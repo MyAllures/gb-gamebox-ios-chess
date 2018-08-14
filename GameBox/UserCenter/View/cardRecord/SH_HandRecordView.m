@@ -174,7 +174,8 @@
     }
     RH_BettingInfoModel *model = self.bettingArr[indexPath.row];
     cell.apiNameLabel.text = model.gameName;
-    cell.betTimeLabel.text = [[SH_TimeZoneManager sharedManager] timeStringFrom:model.betTime/1000.0 format:@"yyyy-MM-dd HH:MM:ss"];
+    cell.betTimeLabel.text = [[SH_TimeZoneManager sharedManager] timeStringFrom:model.betTime/1000.0 format:@"yyyy-MM-dd HH:mm:ss"];
+    
     cell.singleAmountLabel.text = [NSString stringWithFormat:@"%.2f",model.singleAmount];
     cell.profitAmountLabel.text = [NSString stringWithFormat:@"%.2f",model.profitAmount];
     NSString *status;
