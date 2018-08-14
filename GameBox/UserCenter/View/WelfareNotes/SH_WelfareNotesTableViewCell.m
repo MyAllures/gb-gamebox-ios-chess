@@ -36,7 +36,7 @@
 - (void)setModel:(SH_FundListModel *)model
 {
     _model = model;
-    self.timeLabel.text = [[SH_TimeZoneManager sharedManager] timeStringFrom:model.createTime/1000.0 format:@"yyyy-MM-dd HH:MM:ss"];
+    self.timeLabel.text = [[SH_TimeZoneManager sharedManager] timeStringFrom:model.createTime/1000.0 format:@"yyyy-MM-dd HH:mm:ss"];
     self.moneyLabel.text = _model.transactionMoney;
     self.statuLabel.text = _model.statusName;
     self.typeLabel.text = _model.transaction_typeName;

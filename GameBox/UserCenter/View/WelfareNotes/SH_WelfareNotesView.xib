@@ -265,7 +265,7 @@
                                 <constraint firstAttribute="height" constant="1" id="KZG-xl-JRZ"/>
                             </constraints>
                         </view>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r8v-O4-Ivb" customClass="SH_WebPImageView">
+                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r8v-O4-Ivb" customClass="SH_WebPImageView">
                             <rect key="frame" x="141" y="88" width="167" height="125"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="125" id="woz-mD-2uW"/>

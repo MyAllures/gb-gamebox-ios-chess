@@ -22,7 +22,7 @@
         //联系客服
         [[SH_CustomerServiceManager sharedManager] open];
     } else {
-         [self.vc close:nil];
+         [self.vc close];
     }
 }
 
