@@ -194,8 +194,8 @@
         NSLog(@"dict===%@",dict);
         NSString *code = dict[@"code"];
         if ([code intValue] == 0) {
-            self.totalRechargeLabel.text = [NSString stringWithFormat:@"优惠合计：%@",dict[@"data"][@"sumPlayerMap"][@"favorable"]];
-            self.totalDiscountlabel.text = [NSString stringWithFormat:@"充值合计：%@",dict[@"data"][@"sumPlayerMap"][@"recharge"]];
+            self.totalRechargeLabel.text = [NSString stringWithFormat:@"优惠合计：%.2f",[dict[@"data"][@"sumPlayerMap"][@"favorable"] floatValue]];
+            self.totalDiscountlabel.text = [NSString stringWithFormat:@"充值合计：%.2f",[dict[@"data"][@"sumPlayerMap"][@"recharge"] floatValue]];
             NSArray *arr = dict[@"data"][@"fundListApps"];
             if (arr.count > 0) {
                 for (NSDictionary *dict1 in arr) {

@@ -68,8 +68,8 @@
     [SH_NetWorkService fetchBettingList:self.startTimeStr EndDate:self.endTimeStr PageNumber:1 PageSize:500 withIsStatistics:YES complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dict = (NSDictionary *)response;
         NSLog(@"dict == %@",dict);
-        self.effectiveLabel.text = [NSString stringWithFormat:@"福利投注合计:%@",dict[@"data"][@"statisticsData"][@"single"]];
-        self.profitLabel.text = [NSString stringWithFormat:@"赛果合计:%@",dict[@"data"][@"statisticsData"][@"profit"]];
+        self.effectiveLabel.text = [NSString stringWithFormat:@"福利投注合计:%.2f",[dict[@"data"][@"statisticsData"][@"single"] floatValue]];
+        self.profitLabel.text = [NSString stringWithFormat:@"赛果合计:%.2f",[dict[@"data"][@"statisticsData"][@"profit"] floatValue]];
         NSArray *arr = dict[@"data"][@"list"];
         if (arr.count > 0) {
             for (NSDictionary *dict1 in dict[@"data"][@"list"]) {
