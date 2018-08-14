@@ -294,6 +294,18 @@
 		BF5C0BD62105D3530035B754 /* SH_ProfitExchangeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF5C0BD42105D3530035B754 /* SH_ProfitExchangeTableViewCell.xib */; };
 		BF5C0BD92105D7DB0035B754 /* SH_FillRealNameView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5C0BD82105D7DB0035B754 /* SH_FillRealNameView.m */; };
 		BF5C0BDB2105D9190035B754 /* SH_FillRealNameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF5C0BDA2105D9190035B754 /* SH_FillRealNameView.xib */; };
+		BF5FF790212269F20019EF30 /* SH_NodataView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5FF78F212269F20019EF30 /* SH_NodataView.m */; };
+		BF5FF79221226A030019EF30 /* SH_NodataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF5FF79121226A030019EF30 /* SH_NodataView.xib */; };
+		BF5FF79621226CA40019EF30 /* show_messge.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5FF79521226CA30019EF30 /* show_messge.webp */; };
+		BF5FF799212273590019EF30 /* SH_ApplyResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5FF798212273590019EF30 /* SH_ApplyResultView.m */; };
+		BF5FF79B212277A70019EF30 /* SH_ApplyResultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF5FF79A212277A70019EF30 /* SH_ApplyResultView.xib */; };
+		BF5FF7A121227BF70019EF30 /* warn.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5FF79C21227BF60019EF30 /* warn.webp */; };
+		BF5FF7A221227BF70019EF30 /* error2.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5FF79D21227BF60019EF30 /* error2.webp */; };
+		BF5FF7A321227BF70019EF30 /* error.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5FF79E21227BF60019EF30 /* error.webp */; };
+		BF5FF7A421227BF70019EF30 /* success.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5FF79F21227BF70019EF30 /* success.webp */; };
+		BF5FF7A521227BF70019EF30 /* success2.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5FF7A021227BF70019EF30 /* success2.webp */; };
+		BF5FF7A9212281E80019EF30 /* SH_ApplyFailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5FF7A7212281E80019EF30 /* SH_ApplyFailTableViewCell.m */; };
+		BF5FF7AA212281E80019EF30 /* SH_ApplyFailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF5FF7A8212281E80019EF30 /* SH_ApplyFailTableViewCell.xib */; };
 		BF66089C21070B800029C4A6 /* recovery.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF66089B21070B800029C4A6 /* recovery.webp */; };
 		BF66089E21070BC50029C4A6 /* refresh.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF66089D21070BC40029C4A6 /* refresh.webp */; };
 		BF6608A12107174A0029C4A6 /* SH_ConfirSaftyPassWordView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6608A02107174A0029C4A6 /* SH_ConfirSaftyPassWordView.m */; };
@@ -345,8 +357,6 @@
 		BFA2EBE6211BDD4400B2678F /* SH_PromoAlertTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA2EBE4211BDD4400B2678F /* SH_PromoAlertTableViewCell.m */; };
 		BFA2EBE7211BDD4400B2678F /* SH_PromoAlertTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA2EBE5211BDD4400B2678F /* SH_PromoAlertTableViewCell.xib */; };
 		BFA2EBEA211BE23700B2678F /* UIView+CurrentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA2EBE9211BE23700B2678F /* UIView+CurrentVC.m */; };
-		BFA2EBEC211BE62100B2678F /* correct.webp in Resources */ = {isa = PBXBuildFile; fileRef = BFA2EBEB211BE62100B2678F /* correct.webp */; };
-		BFA2EBEE211BE64800B2678F /* error.webp in Resources */ = {isa = PBXBuildFile; fileRef = BFA2EBED211BE64800B2678F /* error.webp */; };
 		BFA2EBF1211BE94100B2678F /* SH_NetWorkService+PromoActivities.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA2EBF0211BE94100B2678F /* SH_NetWorkService+PromoActivities.m */; };
 		BFA2EBF4211BF0D000B2678F /* SH_PromoSubModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA2EBF3211BF0D000B2678F /* SH_PromoSubModel.m */; };
 		BFA2EBF7211BF1E900B2678F /* SH_PromoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA2EBF6211BF1E900B2678F /* SH_PromoModel.m */; };
@@ -841,6 +851,21 @@
 		BF5C0BD72105D7DB0035B754 /* SH_FillRealNameView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_FillRealNameView.h; sourceTree = "<group>"; };
 		BF5C0BD82105D7DB0035B754 /* SH_FillRealNameView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_FillRealNameView.m; sourceTree = "<group>"; };
 		BF5C0BDA2105D9190035B754 /* SH_FillRealNameView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_FillRealNameView.xib; sourceTree = "<group>"; };
+		BF5FF78E212269F20019EF30 /* SH_NodataView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_NodataView.h; sourceTree = "<group>"; };
+		BF5FF78F212269F20019EF30 /* SH_NodataView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_NodataView.m; sourceTree = "<group>"; };
+		BF5FF79121226A030019EF30 /* SH_NodataView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_NodataView.xib; sourceTree = "<group>"; };
+		BF5FF79521226CA30019EF30 /* show_messge.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = show_messge.webp; sourceTree = "<group>"; };
+		BF5FF797212273590019EF30 /* SH_ApplyResultView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ApplyResultView.h; sourceTree = "<group>"; };
+		BF5FF798212273590019EF30 /* SH_ApplyResultView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_ApplyResultView.m; sourceTree = "<group>"; };
+		BF5FF79A212277A70019EF30 /* SH_ApplyResultView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_ApplyResultView.xib; sourceTree = "<group>"; };
+		BF5FF79C21227BF60019EF30 /* warn.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = warn.webp; sourceTree = "<group>"; };
+		BF5FF79D21227BF60019EF30 /* error2.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = error2.webp; sourceTree = "<group>"; };
+		BF5FF79E21227BF60019EF30 /* error.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = error.webp; sourceTree = "<group>"; };
+		BF5FF79F21227BF70019EF30 /* success.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = success.webp; sourceTree = "<group>"; };
+		BF5FF7A021227BF70019EF30 /* success2.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = success2.webp; sourceTree = "<group>"; };
+		BF5FF7A6212281E80019EF30 /* SH_ApplyFailTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ApplyFailTableViewCell.h; sourceTree = "<group>"; };
+		BF5FF7A7212281E80019EF30 /* SH_ApplyFailTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_ApplyFailTableViewCell.m; sourceTree = "<group>"; };
+		BF5FF7A8212281E80019EF30 /* SH_ApplyFailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_ApplyFailTableViewCell.xib; sourceTree = "<group>"; };
 		BF66089B21070B800029C4A6 /* recovery.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = recovery.webp; sourceTree = "<group>"; };
 		BF66089D21070BC40029C4A6 /* refresh.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = refresh.webp; sourceTree = "<group>"; };
 		BF66089F2107174A0029C4A6 /* SH_ConfirSaftyPassWordView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ConfirSaftyPassWordView.h; sourceTree = "<group>"; };
@@ -921,8 +946,6 @@
 		BFA2EBE5211BDD4400B2678F /* SH_PromoAlertTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PromoAlertTableViewCell.xib; sourceTree = "<group>"; };
 		BFA2EBE8211BE23700B2678F /* UIView+CurrentVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+CurrentVC.h"; sourceTree = "<group>"; };
 		BFA2EBE9211BE23700B2678F /* UIView+CurrentVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+CurrentVC.m"; sourceTree = "<group>"; };
-		BFA2EBEB211BE62100B2678F /* correct.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = correct.webp; sourceTree = "<group>"; };
-		BFA2EBED211BE64800B2678F /* error.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = error.webp; sourceTree = "<group>"; };
 		BFA2EBEF211BE94100B2678F /* SH_NetWorkService+PromoActivities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+PromoActivities.h"; sourceTree = "<group>"; };
 		BFA2EBF0211BE94100B2678F /* SH_NetWorkService+PromoActivities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+PromoActivities.m"; sourceTree = "<group>"; };
 		BFA2EBF2211BF0D000B2678F /* SH_PromoSubModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoSubModel.h; sourceTree = "<group>"; };
@@ -1330,9 +1353,13 @@
 		5435E7C32104349B00DB809F /* webpRes */ = {
 			isa = PBXGroup;
 			children = (
+				BF5FF79E21227BF60019EF30 /* error.webp */,
+				BF5FF79D21227BF60019EF30 /* error2.webp */,
+				BF5FF79F21227BF70019EF30 /* success.webp */,
+				BF5FF7A021227BF70019EF30 /* success2.webp */,
+				BF5FF79C21227BF60019EF30 /* warn.webp */,
+				BF5FF79521226CA30019EF30 /* show_messge.webp */,
 				22183432211D259F00C71068 /* nodata_bg2_slices.webp */,
-				BFA2EBED211BE64800B2678F /* error.webp */,
-				BFA2EBEB211BE62100B2678F /* correct.webp */,
 				BFA2EBDC211AF48000B2678F /* btn_green_action.webp */,
 				BFA2EBDA211AF0E900B2678F /* iconImage.webp */,
 				5404EA7C2112F954004D75AA /* nodata_bg.webp */,
@@ -1524,6 +1551,7 @@
 		54C8757620F3502000AA0594 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BF5FF78D212267C70019EF30 /* promoActivities */,
 				54C8757C20F355F800AA0594 /* SH_PromoListView.h */,
 				54C8757D20F355F800AA0594 /* SH_PromoListView.m */,
 				54C8757F20F3560100AA0594 /* SH_PromoListView.xib */,
@@ -1539,24 +1567,6 @@
 				54DD03622109FDA000CE9199 /* SH_MsgCenterDetailView.h */,
 				54DD03632109FDA000CE9199 /* SH_MsgCenterDetailView.m */,
 				54DD03652109FDAB00CE9199 /* SH_MsgCenterDetailView.xib */,
-				BFA2EBC3211AC70C00B2678F /* SH_PromoActivitiesView.h */,
-				BFA2EBC4211AC70C00B2678F /* SH_PromoActivitiesView.m */,
-				BFA2EBC6211AC71900B2678F /* SH_PromoActivitiesView.xib */,
-				BFA2EBCB211ACE4700B2678F /* SH_PromoDetailView.h */,
-				BFA2EBCC211ACE4700B2678F /* SH_PromoDetailView.m */,
-				BFA2EBCE211ACE5100B2678F /* SH_PromoDetailView.xib */,
-				BFA2EBD0211AD63100B2678F /* SH_LeftTableViewCell.h */,
-				BFA2EBD1211AD63100B2678F /* SH_LeftTableViewCell.m */,
-				BFA2EBD2211AD63100B2678F /* SH_LeftTableViewCell.xib */,
-				BFA2EBD5211AD7C600B2678F /* SH_TopCollectionViewCell.h */,
-				BFA2EBD6211AD7C600B2678F /* SH_TopCollectionViewCell.m */,
-				BFA2EBD7211AD7C600B2678F /* SH_TopCollectionViewCell.xib */,
-				BFA2EBDE211BD66500B2678F /* SH_PromoAlertView.h */,
-				BFA2EBDF211BD66500B2678F /* SH_PromoAlertView.m */,
-				BFA2EBE1211BD9DB00B2678F /* SH_PromoAlertView.xib */,
-				BFA2EBE3211BDD4400B2678F /* SH_PromoAlertTableViewCell.h */,
-				BFA2EBE4211BDD4400B2678F /* SH_PromoAlertTableViewCell.m */,
-				BFA2EBE5211BDD4400B2678F /* SH_PromoAlertTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1913,6 +1923,40 @@
 				22FC6E8A210754A2001FA492 /* SH_FindPSWSureView.xib */,
 			);
 			path = FindPSW;
+			sourceTree = "<group>";
+		};
+		BF5FF78D212267C70019EF30 /* promoActivities */ = {
+			isa = PBXGroup;
+			children = (
+				BFA2EBC3211AC70C00B2678F /* SH_PromoActivitiesView.h */,
+				BFA2EBC4211AC70C00B2678F /* SH_PromoActivitiesView.m */,
+				BFA2EBC6211AC71900B2678F /* SH_PromoActivitiesView.xib */,
+				BFA2EBCB211ACE4700B2678F /* SH_PromoDetailView.h */,
+				BFA2EBCC211ACE4700B2678F /* SH_PromoDetailView.m */,
+				BFA2EBCE211ACE5100B2678F /* SH_PromoDetailView.xib */,
+				BFA2EBD0211AD63100B2678F /* SH_LeftTableViewCell.h */,
+				BFA2EBD1211AD63100B2678F /* SH_LeftTableViewCell.m */,
+				BFA2EBD2211AD63100B2678F /* SH_LeftTableViewCell.xib */,
+				BFA2EBD5211AD7C600B2678F /* SH_TopCollectionViewCell.h */,
+				BFA2EBD6211AD7C600B2678F /* SH_TopCollectionViewCell.m */,
+				BFA2EBD7211AD7C600B2678F /* SH_TopCollectionViewCell.xib */,
+				BFA2EBDE211BD66500B2678F /* SH_PromoAlertView.h */,
+				BFA2EBDF211BD66500B2678F /* SH_PromoAlertView.m */,
+				BFA2EBE1211BD9DB00B2678F /* SH_PromoAlertView.xib */,
+				BFA2EBE3211BDD4400B2678F /* SH_PromoAlertTableViewCell.h */,
+				BFA2EBE4211BDD4400B2678F /* SH_PromoAlertTableViewCell.m */,
+				BFA2EBE5211BDD4400B2678F /* SH_PromoAlertTableViewCell.xib */,
+				BF5FF797212273590019EF30 /* SH_ApplyResultView.h */,
+				BF5FF798212273590019EF30 /* SH_ApplyResultView.m */,
+				BF5FF79A212277A70019EF30 /* SH_ApplyResultView.xib */,
+				BF5FF7A6212281E80019EF30 /* SH_ApplyFailTableViewCell.h */,
+				BF5FF7A7212281E80019EF30 /* SH_ApplyFailTableViewCell.m */,
+				BF5FF7A8212281E80019EF30 /* SH_ApplyFailTableViewCell.xib */,
+				BF5FF78E212269F20019EF30 /* SH_NodataView.h */,
+				BF5FF78F212269F20019EF30 /* SH_NodataView.m */,
+				BF5FF79121226A030019EF30 /* SH_NodataView.xib */,
+			);
+			path = promoActivities;
 			sourceTree = "<group>";
 		};
 		BF7B08B621019346008256FE /* DatePicker */ = {
@@ -2443,6 +2487,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54E7D2ED210726A30069F2CE /* betRec_calendar_icon.webp in Resources */,
+				BF5FF79B212277A70019EF30 /* SH_ApplyResultView.xib in Resources */,
 				543970B6210462BB0091C719 /* footer-bg.webp in Resources */,
 				54397087210462BB0091C719 /* btn_share.webp in Resources */,
 				543970C6210462BB0091C719 /* btn_recharge.webp in Resources */,
@@ -2481,6 +2526,7 @@
 				BFFC845C20F2F260008AD801 /* RH_RechargeCenterFooterView.xib in Resources */,
 				543970DB210462BB0091C719 /* logo08.webp in Resources */,
 				547BCDF5210AF43100D7082F /* table-bg.webp in Resources */,
+				BF5FF79621226CA40019EF30 /* show_messge.webp in Resources */,
 				543970D8210462BB0091C719 /* avatar.webp in Resources */,
 				54DD03522109B47E00CE9199 /* btn_blue.webp in Resources */,
 				543970CE210462BB0091C719 /* login_button_long.webp in Resources */,
@@ -2534,8 +2580,10 @@
 				5439708F210462BB0091C719 /* icon_search.webp in Resources */,
 				54C8758020F3560100AA0594 /* SH_PromoListView.xib in Resources */,
 				5439709A210462BB0091C719 /* btn_blue_long_action.webp in Resources */,
+				BF5FF79221226A030019EF30 /* SH_NodataView.xib in Resources */,
 				BFA0689220FC8C1A00F5ADFE /* SH_OutCoinDetailView.xib in Resources */,
 				54DD034F21096C1400CE9199 /* title16nw.webp in Resources */,
+				BF5FF7A421227BF70019EF30 /* success.webp in Resources */,
 				DA6EE1C920F99F45009A01C5 /* SH_SettingView.xib in Resources */,
 				54DD034E21096C1400CE9199 /* title15nw.webp in Resources */,
 				548254702119C3D400ECBD5B /* SH_BigWindowViewController.xib in Resources */,
@@ -2559,6 +2607,7 @@
 				54DD033A21085E1D00CE9199 /* title-bg-long.webp in Resources */,
 				54C8759D20F756A500AA0594 /* bgm.mp3 in Resources */,
 				BFA7DEC22106C85800DD731F /* backImage.webp in Resources */,
+				BF5FF7A121227BF70019EF30 /* warn.webp in Resources */,
 				543970D6210462BB0091C719 /* rectangle_bg-3.webp in Resources */,
 				543970D9210462BB0091C719 /* close.webp in Resources */,
 				BFA2EBC7211AC71900B2678F /* SH_PromoActivitiesView.xib in Resources */,
@@ -2571,6 +2620,7 @@
 				543970B0210462BB0091C719 /* photo_female.webp in Resources */,
 				BFA068CA20FE0FFC00F5ADFE /* SH_ModifyLoginPSDView.xib in Resources */,
 				BFA2EBE7211BDD4400B2678F /* SH_PromoAlertTableViewCell.xib in Resources */,
+				BF5FF7A221227BF70019EF30 /* error2.webp in Resources */,
 				BFA2EBD4211AD63100B2678F /* SH_LeftTableViewCell.xib in Resources */,
 				BF5C0BC82105AF0C0035B754 /* SH_BindPhoneNumView.xib in Resources */,
 				543970B5210462BB0091C719 /* Rounded-bg.webp in Resources */,
@@ -2599,6 +2649,8 @@
 				BF7B08C62101CF33008256FE /* SH_NiceDatePickerView.xib in Resources */,
 				5404EA7D2112F955004D75AA /* nodata_bg.webp in Resources */,
 				22618C692109755100E4A6F6 /* SH_WelfareNotesTableViewCell.xib in Resources */,
+				BF5FF7AA212281E80019EF30 /* SH_ApplyFailTableViewCell.xib in Resources */,
+				BF5FF7A321227BF70019EF30 /* error.webp in Resources */,
 				2209026720F053D400F8828E /* SH_PromoViewCell.xib in Resources */,
 				543970B1210462BB0091C719 /* yellow.webp in Resources */,
 				BF2F916020EF5FD600CEDE8C /* SH_DespositePlatformCollectionViewCell.xib in Resources */,
@@ -2608,6 +2660,7 @@
 				22FC6E8B210754A2001FA492 /* SH_FindPSWSureView.xib in Resources */,
 				BFA7DEBA2106C2CB00DD731F /* chip_green.webp in Resources */,
 				543970C4210462BB0091C719 /* effects_star3.webp in Resources */,
+				BF5FF7A521227BF70019EF30 /* success2.webp in Resources */,
 				543970B9210462BB0091C719 /* middle-bg.webp in Resources */,
 				BF44ECC320F4B53A00BC6EF3 /* SH_RechargeDetailHeadView.xib in Resources */,
 				BFFC845920F2F260008AD801 /* DepositeHeadCollectionReusableView.xib in Resources */,
@@ -2616,7 +2669,6 @@
 				543970D3210462BB0091C719 /* icon_gift.webp in Resources */,
 				54397099210462BB0091C719 /* top_bg.webp in Resources */,
 				5439709B210462BB0091C719 /* button-large-1.webp in Resources */,
-				BFA2EBEC211BE62100B2678F /* correct.webp in Resources */,
 				54397084210462BB0091C719 /* logo03.webp in Resources */,
 				543970BA210462BB0091C719 /* rounded.webp in Resources */,
 				54397088210462BB0091C719 /* button-long-click.webp in Resources */,
@@ -2645,7 +2697,6 @@
 				BFA2EBDD211AF48000B2678F /* btn_green_action.webp in Resources */,
 				543970D4210462BB0091C719 /* notice_bg.webp in Resources */,
 				54397094210462BB0091C719 /* start_bg.webp in Resources */,
-				BFA2EBEE211BE64800B2678F /* error.webp in Resources */,
 				BFA068B320FD9C3300F5ADFE /* SH_LookJiHeTableViewCell.xib in Resources */,
 				543970A2210462BB0091C719 /* circular.webp in Resources */,
 				54DD034621087BCC00CE9199 /* update.webp in Resources */,
@@ -2831,6 +2882,7 @@
 				BF44EC4D20F44BA300BC6EF3 /* SH_BitCoinViewController.m in Sources */,
 				54C8761720FE218B00AA0594 /* YFEmitterLeavesCell.m in Sources */,
 				DA1BCC5B20FDBFCD00201DBC /* SH_FundListModel.m in Sources */,
+				BF5FF7A9212281E80019EF30 /* SH_ApplyFailTableViewCell.m in Sources */,
 				54C876422100BFA000AA0594 /* SH_PromoDeatilViewController.m in Sources */,
 				DA21F3B220F742B700D20672 /* NSDate+CLCategory.m in Sources */,
 				DA21F39020F6069600D20672 /* UIView+FrameSize.m in Sources */,
@@ -2874,6 +2926,7 @@
 				BFA068A020FCBEEE00F5ADFE /* SH_ProfitModel.m in Sources */,
 				BF44ECC620F4D4FB00BC6EF3 /* SH_RechargeDetailMainView.m in Sources */,
 				22552CEE20F4CCE50090EFBC /* SH_NetWorkService+Promo.m in Sources */,
+				BF5FF790212269F20019EF30 /* SH_NodataView.m in Sources */,
 				BF44ECF020F7253500BC6EF3 /* SH_PreferentialPopSubView.m in Sources */,
 				5482546B21198C6700ECBD5B /* SH_LineCheckErrManager.m in Sources */,
 				5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */,
@@ -2944,6 +2997,7 @@
 				BF44EC6420F4875300BC6EF3 /* SH_NavigationView.m in Sources */,
 				54DD03642109FDA000CE9199 /* SH_MsgCenterDetailView.m in Sources */,
 				5401C53120ECA10F0027246D /* AppDelegate.m in Sources */,
+				BF5FF799212273590019EF30 /* SH_ApplyResultView.m in Sources */,
 				DA22F3D520F454840058A54F /* NSString+CLCategory.m in Sources */,
 				54C8761C20FE218B00AA0594 /* YFEmitterSnowCell.m in Sources */,
 				5480CD4B210F0789008465C5 /* SH_SliderView.m in Sources */,
@@ -3097,7 +3151,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7001;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid18;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -3117,7 +3171,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7001;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid18;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
