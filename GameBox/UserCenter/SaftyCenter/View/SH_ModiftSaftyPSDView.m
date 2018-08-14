@@ -13,6 +13,7 @@
 #import "SH_GamesHomeViewController.h"
 #import "SH_SmallWindowViewController.h"
 #import "SH_TopLevelControllerManager.h"
+#import "SH_BigWindowViewController.h"
 @interface SH_ModiftSaftyPSDView()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *currentTF;
 @property (weak, nonatomic) IBOutlet UITextField *NewTF;
@@ -62,7 +63,6 @@
 }
 
 - (IBAction)sureBtnClick:(id)sender {
-    
     if([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length > 0){
         
     } else {
@@ -101,8 +101,15 @@
                 [[RH_UserInfoManager shareUserManager] setUserSafetyInfo:model];
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     if ([self.comeFromVC isEqualToString:@"setSafePsw"]) {
-                         UIViewController * svc= [SH_TopLevelControllerManager  fetchTopLevelController];
-                        [svc.presentingViewController dismissViewControllerAnimated:NO completion:nil];
+                        UIViewController * svc= [SH_TopLevelControllerManager  fetchTopLevelController];
+                        while (svc.presentingViewController) {
+                            svc = svc.presentingViewController;
+                            if ([svc.presentingViewController isKindOfClass:[SH_SmallWindowViewController class]]) {
+                                SH_SmallWindowViewController *vc = (SH_SmallWindowViewController *)svc.presentingViewController;
+                                [vc dismissViewControllerAnimated:NO completion:nil];
+                                break;
+                            }
+                        }
                     }
                     else{
                          UIViewController * svc= [SH_TopLevelControllerManager  fetchTopLevelController];

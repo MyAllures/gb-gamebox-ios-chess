@@ -26,6 +26,7 @@
 
 @property(nonatomic,strong)UIScrollView * scrollview;
 @property(nonatomic,strong,readonly)UIView *stackView;
+@property(nonatomic,strong) NSString *status;
 @end
 @implementation SH_RegistView
 @synthesize stackView = _stackView;
@@ -90,6 +91,7 @@
             continue;
         }
         if ([field.name isEqualToString:@"serviceTerms"]) {
+            self.status = field.status;
             continue;
         }
         if ([field.name isEqualToString:@"verificationCode"]) {
@@ -281,6 +283,12 @@
     [label setTitleColor:[UIColor  whiteColor] forState:UIControlStateNormal]; ;
     [label setTitle:@"我已满合法博彩年龄，同意各项开户条约" forState:UIControlStateNormal];
     [label addTarget:self action:@selector(zhucetiaokuan) forControlEvents:UIControlEventTouchUpInside];
+    
+    if (![self.status isEqualToString:@"1"]) {
+        button_Check.hidden = YES;
+        label.hidden = YES;
+    }
+    
     UIButton *button = [UIButton new];
     [self.scrollview addSubview:button];
     [button  mas_makeConstraints:^(MASConstraintMaker *make) {

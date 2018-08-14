@@ -198,7 +198,6 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.3411764705882353" green="0.396078431372549" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="Gfy-cV-HV0" firstAttribute="leading" secondItem="JOr-0j-YBn" secondAttribute="leading" id="2YM-Ak-YLn"/>
                         <constraint firstItem="NH3-tB-QIO" firstAttribute="centerY" secondItem="N0y-Qo-ZTY" secondAttribute="centerY" id="6eO-Mn-53v"/>
@@ -241,6 +240,7 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                             <real key="value" value="2"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="colorCategory" value="category0"/>
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>

@@ -62,5 +62,7 @@ do
          mv Contents.json.tmp Contents.json
      fi
   done
+  #更换主题文件 webp png json
+  #todo
 done
 

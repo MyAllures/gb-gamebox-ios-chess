@@ -594,40 +594,32 @@
 #pragma mark--
 #pragma mark--一键回收按钮
 - (IBAction)oneKeyReciveBtnClick:(id)sender {
-      __weak typeof(self) weakSelf = self;
-    [SH_NetWorkService onekeyrecoveryApiId:nil Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        //刷新用户余额
-        if (![[response objectForKey:@"data"] isKindOfClass:[NSNull class]]) {
-//            weakSelf.suishenFuLiLab.text = response[@"data"][@"assets"];
-        }
+    [self recoveryAndRefreshUserInfo:nil];
+}
+
+- (void)recoveryAndRefreshUserInfo:(NSString *)apiId
+{
+    __weak typeof(self) weakSelf = self;
+    [SH_NetWorkService onekeyrecoveryApiId:apiId Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
+            if ([response[@"code"] isEqualToString:@"0"]) {
+                NSError *err;
+                NSArray *arr = [SH_BankListModel arrayOfModelsFromDictionaries:response[@"data"][@"bankList"] error:&err];
+                [[RH_UserInfoManager shareUserManager] setBankList:arr];
+                NSError *err2;
+                RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[response[@"data"] objectForKey:@"user"] error:&err2];
+                [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
+                [weakSelf  configUI];
+                weakSelf.suishenFuLiLab.text = [NSString stringWithFormat:@"%.2f",model.walletBalance];
+            }else{
+                [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
+            }
+        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+            //
+            [[RH_UserInfoManager shareUserManager] updateIsLogin:false];
+        }];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-
-    }];
-    if (![RH_UserInfoManager  shareUserManager].isLogin) {
-        [self login];
-        return;
-    }
-    [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
-        if ([dict[@"code"] isEqualToString:@"0"]) {
-            NSError *err;
-            NSArray *arr = [SH_BankListModel arrayOfModelsFromDictionaries:response[@"data"][@"bankList"] error:&err];
-            [[RH_UserInfoManager shareUserManager] setBankList:arr];
-            NSError *err2;
-            RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[response[@"data"] objectForKey:@"user"] error:&err2];
-            [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
-
-            NSLog(@"walletBalance==%f",model.walletBalance);
-            
-            [self  configUI];
-            weakSelf.suishenFuLiLab.text = [NSString stringWithFormat:@"%.2f",model.walletBalance];
-        }else{
-            [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
-        }
         
-    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        //
-        [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
     }];
 }
 
@@ -1004,6 +996,7 @@
                     gameVC.url = gameLink;
                     [gameVC close:^{
                         [[SH_RingManager sharedManager] playBGM];
+                        [weakSelf recoveryAndRefreshUserInfo:model.apiId];
                     }];
                     [weakSelf.navigationController pushViewController:gameVC animated:NO];
                 }

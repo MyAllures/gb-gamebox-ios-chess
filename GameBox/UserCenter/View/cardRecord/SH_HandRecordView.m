@@ -42,7 +42,8 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerNib:[UINib nibWithNibName:@"SH_HandRecordTableViewCell" bundle:nil] forCellReuseIdentifier:@"SH_HandRecordTableViewCell"];
     self.bettingArr = [NSMutableArray array];
-    [self changedSinceTimeString:3];
+    self.seleteIndex = 3;
+    [self changedSinceTimeString:self.seleteIndex];
     [self requestData];
 }
 
@@ -67,8 +68,8 @@
     [SH_NetWorkService fetchBettingList:self.startTimeStr EndDate:self.endTimeStr PageNumber:1 PageSize:500 withIsStatistics:YES complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dict = (NSDictionary *)response;
         NSLog(@"dict == %@",dict);
-        self.effectiveLabel.text = [NSString stringWithFormat:@"福利投注合计:%@",dict[@"data"][@"statisticsData"][@"effective"]];
-        self.profitLabel.text = [NSString stringWithFormat:@"赛果合计:%@",dict[@"data"][@"statisticsData"][@"profit"]];
+        self.effectiveLabel.text = [NSString stringWithFormat:@"福利投注合计:%.2f",[dict[@"data"][@"statisticsData"][@"single"] floatValue]];
+        self.profitLabel.text = [NSString stringWithFormat:@"赛果合计:%.2f",[dict[@"data"][@"statisticsData"][@"profit"] floatValue]];
         NSArray *arr = dict[@"data"][@"list"];
         if (arr.count > 0) {
             for (NSDictionary *dict1 in dict[@"data"][@"list"]) {
@@ -79,6 +80,7 @@
             }
         }else{
             [SH_WaitingView hide:self];
+            [self.tableView reloadData];
         }
         
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
@@ -172,10 +174,19 @@
     }
     RH_BettingInfoModel *model = self.bettingArr[indexPath.row];
     cell.apiNameLabel.text = model.gameName;
-    cell.betTimeLabel.text = [[SH_TimeZoneManager sharedManager] timeStringFrom:model.betTime/1000.0 format:@"yyyy-MM-dd HH:MM:ss"];
+    cell.betTimeLabel.text = [[SH_TimeZoneManager sharedManager] timeStringFrom:model.betTime/1000.0 format:@"yyyy-MM-dd HH:mm:ss"];
+    
     cell.singleAmountLabel.text = [NSString stringWithFormat:@"%.2f",model.singleAmount];
     cell.profitAmountLabel.text = [NSString stringWithFormat:@"%.2f",model.profitAmount];
-    cell.orderStateLabel.text = model.orderState;
+    NSString *status;
+    if ([model.orderState isEqualToString:@"pending_settle"]){
+        status = @"未结算" ;
+    }else if ([model.orderState isEqualToString:@"settle"]){
+        status = @"已结算" ;
+    }else{
+        status = @"取消订单" ;
+    }
+    cell.orderStateLabel.text = status;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
