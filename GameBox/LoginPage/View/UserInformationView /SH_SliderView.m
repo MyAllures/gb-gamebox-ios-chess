@@ -24,7 +24,7 @@
     self = [super init];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
-        self.progressBGImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bar_empty_ios"]];
+        self.progressBGImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bar_empty"]];
         [self addSubview:self.progressBGImg];
         [self.progressBGImg mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(0);
@@ -44,7 +44,7 @@
         self.thumbImg.userInteractionEnabled = YES;
         [self.thumbImg addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)]];
 
-        self.progressImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bar_ios"]];
+        self.progressImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bar"]];
         [self addSubview:self.progressImg];
         [self.progressImg mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(0);
