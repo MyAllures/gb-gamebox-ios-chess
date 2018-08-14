@@ -60,7 +60,7 @@
             self.userAvatar.image = [UIImage imageWithWebPImageName:@"photo_male"];
         }
     }else{
-        self.userAvatar.image = [UIImage  imageWithWebPImageName:@"avatar"];
+        self.userAvatar.image = [UIImage  imageWithWebPImageName:@"visitor"];
     }
 }
 - (IBAction)btnClick:(UIButton *)sender {

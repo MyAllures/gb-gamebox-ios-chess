@@ -355,7 +355,7 @@
         //刷新随身福利
         self.suishenFuLiLab.text = [NSString stringWithFormat:@"%.2f",[RH_UserInfoManager shareUserManager].mineSettingInfo.walletBalance];        
     }else{
-        self.avatarImg.image = [UIImage imageWithWebPImageName:@"avatar"];
+        self.avatarImg.image = [UIImage imageWithWebPImageName:@"visitor"];
         self.suishenFuLiLab.text = @"0.00";
     }
 }

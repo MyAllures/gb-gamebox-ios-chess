@@ -40,7 +40,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismiss) name:@"dismiss" object:nil];
     self.view.backgroundColor = [[UIColor  blackColor] colorWithAlphaComponent:0.5];
     UIImage *img = [UIImage imageWithWebPImageName:@"top-bg"];
-    UIImage *imgs = [UIImage imageWithWebPImageName:@"menu-bg"];
+    UIImage *imgs = [UIImage imageWithWebPImageName:@"menu_bg"];
     self.top_view.layer.contents = (__bridge id _Nullable)(img.CGImage);
     self.bottom_view.layer.contents = (__bridge id _Nullable)(imgs.CGImage);
     self.account_label.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.username;
@@ -58,7 +58,7 @@
             self.avatar_imgView.image = [UIImage imageWithWebPImageName:@"photo_male"];
         }
     }else{
-        self.avatar_imgView.image = [UIImage imageWithWebPImageName:@"avatar"];
+        self.avatar_imgView.image = [UIImage imageWithWebPImageName:@"visitor"];
     }
     if (iPhoneX) {
         self.constraintWidth.constant = 200;

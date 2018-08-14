@@ -316,7 +316,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MK8-wC-CXH">
                     <rect key="frame" x="0.0" y="321.5" width="667" height="53.5"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="footer-bg" translatesAutoresizingMaskIntoConstraints="NO" id="EaS-ba-BNH">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="footer" translatesAutoresizingMaskIntoConstraints="NO" id="EaS-ba-BNH">
                             <rect key="frame" x="0.0" y="15.5" width="667" height="38"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="38" id="WoV-8z-OTg">
@@ -616,7 +616,7 @@
         </view>
     </objects>
     <resources>
-        <image name="footer-bg" width="660" height="38"/>
+        <image name="footer" width="16" height="16"/>
         <image name="user_info_bg" width="28" height="28"/>
     </resources>
 </document>
