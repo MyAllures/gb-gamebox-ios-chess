@@ -137,6 +137,7 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     [self caculateWithMoney:textField.text];
 }
+
 -(void)caculateWithMoney:(NSString *)money{
     __weak typeof(self) weakSelf = self;
     //计算手续费
