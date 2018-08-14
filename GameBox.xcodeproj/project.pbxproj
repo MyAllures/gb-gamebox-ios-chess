@@ -124,7 +124,6 @@
 		543970CF210462BB0091C719 /* title_bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397070210462B60091C719 /* title_bg.webp */; };
 		543970D0210462BB0091C719 /* logo01.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397071210462B70091C719 /* logo01.webp */; };
 		543970D1210462BB0091C719 /* unselect.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397072210462B70091C719 /* unselect.webp */; };
-		543970D2210462BB0091C719 /* user_info_bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397073210462B70091C719 /* user_info_bg.webp */; };
 		543970D3210462BB0091C719 /* icon_gift.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397074210462B80091C719 /* icon_gift.webp */; };
 		543970D4210462BB0091C719 /* notice_bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397075210462B80091C719 /* notice_bg.webp */; };
 		543970D5210462BB0091C719 /* effects_star.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397076210462B80091C719 /* effects_star.webp */; };
@@ -587,7 +586,6 @@
 		54397070210462B60091C719 /* title_bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = title_bg.webp; sourceTree = "<group>"; };
 		54397071210462B70091C719 /* logo01.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo01.webp; sourceTree = "<group>"; };
 		54397072210462B70091C719 /* unselect.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = unselect.webp; sourceTree = "<group>"; };
-		54397073210462B70091C719 /* user_info_bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = user_info_bg.webp; sourceTree = "<group>"; };
 		54397074210462B80091C719 /* icon_gift.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = icon_gift.webp; sourceTree = "<group>"; };
 		54397075210462B80091C719 /* notice_bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = notice_bg.webp; sourceTree = "<group>"; };
 		54397076210462B80091C719 /* effects_star.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = effects_star.webp; sourceTree = "<group>"; };
@@ -1467,7 +1465,6 @@
 				54397072210462B70091C719 /* unselect.webp */,
 				54397053210462AD0091C719 /* unselect2.webp */,
 				5439704A210462AA0091C719 /* upper-bg.webp */,
-				54397073210462B70091C719 /* user_info_bg.webp */,
 				BF5C0BBE21057C780035B754 /* button-long-145.webp */,
 				BFA7DEC12106C85800DD731F /* backImage.webp */,
 				54397052210462AD0091C719 /* yellow.webp */,
@@ -2541,7 +2538,6 @@
 				54C875BA20FB788D00AA0594 /* SH_NoAccessViewController.xib in Resources */,
 				BFA7DEBC2106C2CB00DD731F /* chip_yellow.webp in Resources */,
 				54E24833210D5B07005C5263 /* loading_eaIcon3.webp in Resources */,
-				543970D2210462BB0091C719 /* user_info_bg.webp in Resources */,
 				543970AC210462BB0091C719 /* select.webp in Resources */,
 				54397091210462BB0091C719 /* left-bg.webp in Resources */,
 				54397081210462BB0091C719 /* top-bg.webp in Resources */,
