@@ -195,7 +195,7 @@
                                 <action selector="searchAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="obi-aq-tMx"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zcy-tE-pgf" customClass="SH_WebPImageView">
+                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zcy-tE-pgf" customClass="SH_WebPImageView">
                             <rect key="frame" x="145" y="119" width="161" height="121"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="Zcy-tE-pgf" secondAttribute="height" multiplier="150:112.5" id="nGo-ZE-bSs"/>
