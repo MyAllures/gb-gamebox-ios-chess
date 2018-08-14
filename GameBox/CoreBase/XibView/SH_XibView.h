@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SH_ColorConfigView.h"
 
 IB_DESIGNABLE
-@interface SH_XibView : UIView
+@interface SH_XibView : SH_ColorConfigView
 
 @property (nonatomic, assign) IBInspectable CGFloat cornerRadius;
 @property (nonatomic, strong) IBInspectable UIColor *borderColor;

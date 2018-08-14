@@ -197,6 +197,9 @@
 		54CB4E47211088BD00170B1B /* SH_CustomerServiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54CB4E46211088BD00170B1B /* SH_CustomerServiceView.m */; };
 		54D13C4E211D96AB00E07E5A /* sid in Resources */ = {isa = PBXBuildFile; fileRef = 54D13C4C211D96AA00E07E5A /* sid */; };
 		54D13C4F211D96AB00E07E5A /* dores.sh in Resources */ = {isa = PBXBuildFile; fileRef = 54D13C4D211D96AB00E07E5A /* dores.sh */; };
+		54D13C522121622C00E07E5A /* colors.json in Resources */ = {isa = PBXBuildFile; fileRef = 54D13C512121622B00E07E5A /* colors.json */; };
+		54D13C55212278AF00E07E5A /* SH_ColorConfigView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D13C54212278AF00E07E5A /* SH_ColorConfigView.m */; };
+		54D13C5821227CB100E07E5A /* SH_ColorsJsonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D13C5721227CB100E07E5A /* SH_ColorsJsonManager.m */; };
 		54D5F574210816AA00439A94 /* column_bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54D5F573210816A900439A94 /* column_bg.webp */; };
 		54D5F57821081C5300439A94 /* SH_XibView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D5F57721081C5300439A94 /* SH_XibView.m */; };
 		54DD033721085A9100CE9199 /* SH_PromoWindowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DD033521085A9100CE9199 /* SH_PromoWindowViewController.m */; };
@@ -698,6 +701,11 @@
 		54D13C07211BE08900E07E5A /* SitesConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SitesConfig.h; sourceTree = "<group>"; };
 		54D13C4C211D96AA00E07E5A /* sid */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sid; sourceTree = "<group>"; };
 		54D13C4D211D96AB00E07E5A /* dores.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = dores.sh; sourceTree = "<group>"; };
+		54D13C512121622B00E07E5A /* colors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = colors.json; sourceTree = "<group>"; };
+		54D13C53212278AF00E07E5A /* SH_ColorConfigView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ColorConfigView.h; sourceTree = "<group>"; };
+		54D13C54212278AF00E07E5A /* SH_ColorConfigView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_ColorConfigView.m; sourceTree = "<group>"; };
+		54D13C5621227CB100E07E5A /* SH_ColorsJsonManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ColorsJsonManager.h; sourceTree = "<group>"; };
+		54D13C5721227CB100E07E5A /* SH_ColorsJsonManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_ColorsJsonManager.m; sourceTree = "<group>"; };
 		54D5F573210816A900439A94 /* column_bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = column_bg.webp; sourceTree = "<group>"; };
 		54D5F57621081C5300439A94 /* SH_XibView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_XibView.h; sourceTree = "<group>"; };
 		54D5F57721081C5300439A94 /* SH_XibView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_XibView.m; sourceTree = "<group>"; };
@@ -1138,6 +1146,7 @@
 			children = (
 				54D13C4D211D96AB00E07E5A /* dores.sh */,
 				54D13C4C211D96AA00E07E5A /* sid */,
+				54D13C512121622B00E07E5A /* colors.json */,
 				5401C52E20ECA10F0027246D /* GameBox */,
 				5401C52D20ECA10F0027246D /* Products */,
 				F14E4A72378CCD648FF29337 /* Pods */,
@@ -1713,6 +1722,10 @@
 				54E2484F210DDF31005C5263 /* SH_XibImageView.m */,
 				5434E0B72112987C00DCCC49 /* SH_XibButton.h */,
 				5434E0B82112987C00DCCC49 /* SH_XibButton.m */,
+				54D13C53212278AF00E07E5A /* SH_ColorConfigView.h */,
+				54D13C54212278AF00E07E5A /* SH_ColorConfigView.m */,
+				54D13C5621227CB100E07E5A /* SH_ColorsJsonManager.h */,
+				54D13C5721227CB100E07E5A /* SH_ColorsJsonManager.m */,
 			);
 			path = XibView;
 			sourceTree = "<group>";
@@ -2572,6 +2585,7 @@
 				BFA068CA20FE0FFC00F5ADFE /* SH_ModifyLoginPSDView.xib in Resources */,
 				BFA2EBE7211BDD4400B2678F /* SH_PromoAlertTableViewCell.xib in Resources */,
 				BFA2EBD4211AD63100B2678F /* SH_LeftTableViewCell.xib in Resources */,
+				54D13C522121622C00E07E5A /* colors.json in Resources */,
 				BF5C0BC82105AF0C0035B754 /* SH_BindPhoneNumView.xib in Resources */,
 				543970B5210462BB0091C719 /* Rounded-bg.webp in Resources */,
 				5439709D210462BB0091C719 /* light.webp in Resources */,
@@ -2895,6 +2909,7 @@
 				54D5F57821081C5300439A94 /* SH_XibView.m in Sources */,
 				5401C55A20ECA48D0027246D /* NetWorkLineMangaer.m in Sources */,
 				22FC6E8421075262001FA492 /* SH_FindPSWSendCodeView.m in Sources */,
+				54D13C55212278AF00E07E5A /* SH_ColorConfigView.m in Sources */,
 				22E486D920F9F8AE0051A68C /* SH_SysMsgDataListModel.m in Sources */,
 				BF44ECE420F6FB7000BC6EF3 /* SH_NetWorkService+BitCoin.m in Sources */,
 				BF44ECF620F7399800BC6EF3 /* SH_PopSubViewTableViewCell.m in Sources */,
@@ -2904,6 +2919,7 @@
 				54C21AB120EE23B2006FCA0F /* SH_BaseViewController.m in Sources */,
 				DA22F40A20F494C60058A54F /* NSDictionary+CLCategory.m in Sources */,
 				54C8763221008D3800AA0594 /* SH_GameWebView.m in Sources */,
+				54D13C5821227CB100E07E5A /* SH_ColorsJsonManager.m in Sources */,
 				DA1BCC8320FE06D300201DBC /* SH_CardRecordHeaderView.m in Sources */,
 				BFA2EBC5211AC70C00B2678F /* SH_PromoActivitiesView.m in Sources */,
 				DA21F37C20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m in Sources */,
