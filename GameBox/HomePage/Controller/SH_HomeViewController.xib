@@ -97,10 +97,10 @@
                                 <constraint firstAttribute="height" constant="42.5" id="cAI-kw-uuC"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="icon_player"/>
                                 <userDefinedRuntimeAttribute type="number" keyPath="ringType">
                                     <integer key="value" value="1"/>
                                 </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="btn_player"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="userCenterClick:" destination="-1" eventType="touchUpInside" id="I2A-pV-0UI"/>
@@ -274,10 +274,10 @@
                                 <constraint firstAttribute="height" constant="42.5" id="lKa-Et-y2P"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="icon_promo"/>
                                 <userDefinedRuntimeAttribute type="number" keyPath="ringType">
                                     <integer key="value" value="1"/>
                                 </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="btn_promotions"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="activitiesClick:" destination="-1" eventType="touchUpInside" id="Hrr-5r-ZWd"/>
