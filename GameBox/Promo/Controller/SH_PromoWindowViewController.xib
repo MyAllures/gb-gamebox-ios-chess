@@ -33,7 +33,7 @@
                                 <constraint firstAttribute="width" secondItem="S3b-eD-5pP" secondAttribute="height" multiplier="485:49.5" id="iTU-5T-dym"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="title-bg-long"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="title_bg_long"/>
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KX6-7I-vXl">
@@ -41,16 +41,16 @@
                             <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2gI-tF-P4y">
-                            <rect key="frame" x="150.5" y="12" width="181" height="25.5"/>
+                            <rect key="frame" x="150" y="12" width="182" height="25.5"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nwV-pk-hdc" customClass="SH_WebPImageView">
-                                    <rect key="frame" x="0.0" y="0.0" width="181" height="25.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="182" height="25.5"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="classify-main"/>
                                     </userDefinedRuntimeAttributes>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIn-4J-cee" customClass="SH_WebPButton">
-                                    <rect key="frame" x="0.0" y="0.0" width="90.5" height="25.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="91" height="25.5"/>
                                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal">
                                         <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -60,7 +60,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5w-bE-1UN" customClass="SH_WebPButton">
-                                    <rect key="frame" x="90.5" y="0.0" width="90.5" height="25.5"/>
+                                    <rect key="frame" x="91" y="0.0" width="91" height="25.5"/>
                                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal">
                                         <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

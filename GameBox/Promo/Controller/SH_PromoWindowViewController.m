@@ -32,9 +32,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self.promoTypeBt setWebpBGImage:@"title15nw" forState:UIControlStateNormal];
-    [self.promoTypeBt setWebpBGImage:@"btn-activity" forState:UIControlStateSelected];
+    [self.promoTypeBt setWebpBGImage:@"btn_activity" forState:UIControlStateSelected];
     [self.msgTypeBt setWebpBGImage:@"title16nw" forState:UIControlStateNormal];
-    [self.msgTypeBt setWebpBGImage:@"btn-news" forState:UIControlStateSelected];
+    [self.msgTypeBt setWebpBGImage:@"btn_news" forState:UIControlStateSelected];
     self.promoTypeBt.selected = YES;
     
     [self promoTypeSelected:nil];
