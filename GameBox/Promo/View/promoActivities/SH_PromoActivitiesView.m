@@ -12,6 +12,7 @@
 #import "SH_PromoDetailView.h"
 #import "SH_NetWorkService+PromoActivities.h"
 #import "SH_PromoModel.h"
+#import "SH_NodataView.h"
 @interface SH_PromoActivitiesView()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *leftTableView;
 @property (weak, nonatomic) IBOutlet UICollectionView *topCollectionView;
@@ -36,17 +37,23 @@
 -(void)loadData{
     __weak typeof(self) weakSelf = self;
     [SH_NetWorkService getActivityTypesSucess:^(NSArray *datas) {
-        weakSelf.topDatas = datas;
-        for (int i = 0; i < datas.count; i++) {
-            if (i == 0) {
-                [self.topSelectedArray addObject:@"1"];
-            }else{
-                [self.topSelectedArray addObject:@"0"];
+        if (datas.count > 0) {
+            weakSelf.topDatas = datas;
+            for (int i = 0; i < datas.count; i++) {
+                if (i == 0) {
+                    [self.topSelectedArray addObject:@"1"];
+                }else{
+                    [self.topSelectedArray addObject:@"0"];
+                }
             }
+            //默认显示第一个
+            [weakSelf selectTopIndex:0];
+            [weakSelf.topCollectionView reloadData];
+        }else{
+            [SH_NodataView showAddTo:weakSelf Message:@"当前没有活动可参与"];
         }
-        //默认显示第一个
-        [weakSelf selectTopIndex:0];
-        [weakSelf.topCollectionView reloadData];
+      
+
     } Failure:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];

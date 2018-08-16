@@ -34,7 +34,7 @@
     self.nameLab.text = model.name;
     [self.bannerImageView setImageWithType:1 ImageName:imageUrl];
     self.dateLab.text = date;
-    self.webHeight.constant = 0;
+    self.webHeight.constant = 5;
     [self.webView loadHTMLString:model.code baseURL:nil];
 }
 - (IBAction)applyBtnClick:(id)sender {

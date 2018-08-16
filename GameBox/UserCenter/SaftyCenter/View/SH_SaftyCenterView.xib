@@ -98,7 +98,7 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.1647058824" green="0.20784313730000001" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="e2G-pc-F39" firstAttribute="height" secondItem="TnJ-eo-M3j" secondAttribute="height" id="0n6-gV-sJh"/>
                 <constraint firstItem="1Ev-Y9-032" firstAttribute="centerX" secondItem="KhX-Aj-sqP" secondAttribute="centerX" id="1gL-bN-l5v"/>
@@ -123,6 +123,9 @@
                 <constraint firstItem="1Ev-Y9-032" firstAttribute="top" secondItem="KhX-Aj-sqP" secondAttribute="bottom" constant="10" id="zh6-QL-kkf"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="bankBtn" destination="e2G-pc-F39" id="Ukx-eD-uKS"/>
                 <outlet property="bindPhoneBtn" destination="1Ev-Y9-032" id="s7M-zS-j92"/>

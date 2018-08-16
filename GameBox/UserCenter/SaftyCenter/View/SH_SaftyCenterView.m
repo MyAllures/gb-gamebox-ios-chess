@@ -47,7 +47,8 @@
             self.bindPhoneBtn.hidden = NO;
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
+       
+
     }];
 }
 #pragma mark--

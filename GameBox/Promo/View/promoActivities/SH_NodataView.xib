@@ -32,7 +32,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="0.16470588235294117" green="0.20392156862745098" blue="0.53725490196078429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.1647058824" green="0.20392156859999999" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="6Mg-iy-ZlQ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="10h-Hp-UBp"/>
                 <constraint firstItem="6Mg-iy-ZlQ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Jgj-vu-Wki"/>
@@ -42,7 +42,7 @@
             <connections>
                 <outlet property="massageLab" destination="hp6-Wm-pBB" id="943-Kb-xL2"/>
             </connections>
-            <point key="canvasLocation" x="-59" y="43"/>
+            <point key="canvasLocation" x="-59.5" y="42.5"/>
         </view>
     </objects>
 </document>

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SH_NodataView : UIView
--(void)updateWithTitle:(NSString *)title;
++(instancetype)showAddTo:(UIView *)view
+                 Message:(NSString *)message;
 @end

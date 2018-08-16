@@ -10,14 +10,19 @@
 
 @interface SH_NodataView()
 @property (weak, nonatomic) IBOutlet UILabel *massageLab;
-
 @end
 @implementation SH_NodataView
 
 - (void)awakeFromNib{
     [super awakeFromNib];
+    
 }
--(void)updateWithTitle:(NSString *)title{
-    self.massageLab.text = title;
++(instancetype)showAddTo:(UIView *)view
+                 Message:(NSString *)message{
+    SH_NodataView *noDataView = [[NSBundle mainBundle]loadNibNamed:@"SH_NodataView" owner:self options:nil].firstObject ;
+    noDataView.frame = view.bounds;
+    [view addSubview:noDataView];
+    noDataView.massageLab.text = message;
+    return noDataView;
 }
 @end
