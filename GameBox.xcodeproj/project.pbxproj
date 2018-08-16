@@ -64,7 +64,6 @@
 		543970AE210462BB0091C719 /* button-long.webp in Resources */ = {isa = PBXBuildFile; fileRef = 5439704F210462AD0091C719 /* button-long.webp */; };
 		543970B2210462BB0091C719 /* unselect2.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397053210462AD0091C719 /* unselect2.webp */; };
 		543970B5210462BB0091C719 /* Rounded-bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397056210462AE0091C719 /* Rounded-bg.webp */; };
-		543970B6210462BB0091C719 /* footer-bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397057210462AF0091C719 /* footer-bg.webp */; };
 		543970B7210462BB0091C719 /* login_button.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397058210462AF0091C719 /* login_button.webp */; };
 		543970B8210462BB0091C719 /* banner.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397059210462AF0091C719 /* banner.webp */; };
 		543970B9210462BB0091C719 /* middle-bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 5439705A210462AF0091C719 /* middle-bg.webp */; };
@@ -541,7 +540,6 @@
 		5439704F210462AD0091C719 /* button-long.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "button-long.webp"; sourceTree = "<group>"; };
 		54397053210462AD0091C719 /* unselect2.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = unselect2.webp; sourceTree = "<group>"; };
 		54397056210462AE0091C719 /* Rounded-bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rounded-bg.webp"; sourceTree = "<group>"; };
-		54397057210462AF0091C719 /* footer-bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "footer-bg.webp"; sourceTree = "<group>"; };
 		54397058210462AF0091C719 /* login_button.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = login_button.webp; sourceTree = "<group>"; };
 		54397059210462AF0091C719 /* banner.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = banner.webp; sourceTree = "<group>"; };
 		5439705A210462AF0091C719 /* middle-bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "middle-bg.webp"; sourceTree = "<group>"; };
@@ -1402,7 +1400,6 @@
 				54397024210462A30091C719 /* effects_man._defaultwebp */,
 				5439705C210462B00091C719 /* font_account.webp */,
 				54397033210462A60091C719 /* font_money.webp */,
-				54397057210462AF0091C719 /* footer-bg.webp */,
 				54397060210462B20091C719 /* game_chess_34_870.webp */,
 				5439705D210462B10091C719 /* green.webp */,
 				54397038210462A60091C719 /* icon_coin.webp */,
@@ -2529,7 +2526,6 @@
 				BF5FF7FE2122EFF80019EF30 /* btn_welfare.webp in Resources */,
 				BF5FF79B212277A70019EF30 /* SH_ApplyResultView.xib in Resources */,
 				BF5FF8272122EFF80019EF30 /* game-back.webp in Resources */,
-				543970B6210462BB0091C719 /* footer-bg.webp in Resources */,
 				BFA7DEB12105E58900DD731F /* mark.webp in Resources */,
 				BF5C0BCD2105B8330035B754 /* SH_ProfitExchangeView.xib in Resources */,
 				BF5FF868212569410019EF30 /* chip_yellow.webp in Resources */,
