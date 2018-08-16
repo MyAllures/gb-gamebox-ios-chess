@@ -206,5 +206,13 @@
     selectedView.hidden = NO;
 }
 
+-(void)drawRect:(CGRect)rect {
+    if([RH_UserInfoManager shareUserManager].userSafetyInfo.hasPermissionPwd){
+        [self.saftyBtn setTitle:@"修改安全密码" forState:UIControlStateNormal];
+    } else {
+        [self.saftyBtn setTitle:@"设置安全密码" forState:UIControlStateNormal];
+    }
+}
+
 
 @end

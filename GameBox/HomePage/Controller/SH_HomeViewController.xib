@@ -38,13 +38,13 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W8q-tW-WAo">
-                            <rect key="frame" x="29" y="10.5" width="121" height="29"/>
+                            <rect key="frame" x="29" y="14.5" width="109.5" height="21"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_info_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Ks0-Pr-oBR">
-                                    <rect key="frame" x="0.0" y="0.0" width="121" height="29"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="109.5" height="21"/>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大赢家desio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8V-nF-s7S">
-                                    <rect key="frame" x="32" y="0.0" width="79" height="27"/>
+                                    <rect key="frame" x="32" y="0.0" width="67.5" height="19"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" red="1" green="0.85098039215686272" blue="0.30588235294117649" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -58,7 +58,7 @@
                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="KQl-MG-fjx"/>
                                 <constraint firstAttribute="bottom" secondItem="k8V-nF-s7S" secondAttribute="bottom" constant="2" id="KwI-ya-pNi"/>
                                 <constraint firstItem="Ks0-Pr-oBR" firstAttribute="top" secondItem="W8q-tW-WAo" secondAttribute="top" id="RVf-lT-xyE"/>
-                                <constraint firstAttribute="height" constant="28.5" id="UfF-b6-QI5"/>
+                                <constraint firstAttribute="height" constant="21" id="UfF-b6-QI5"/>
                                 <constraint firstItem="Ks0-Pr-oBR" firstAttribute="leading" secondItem="W8q-tW-WAo" secondAttribute="leading" id="ibG-Vd-VAG"/>
                                 <constraint firstAttribute="trailing" secondItem="k8V-nF-s7S" secondAttribute="trailing" constant="10" id="kfg-1E-76q"/>
                                 <constraint firstItem="k8V-nF-s7S" firstAttribute="top" secondItem="W8q-tW-WAo" secondAttribute="top" id="rS5-8J-wGb"/>
@@ -80,7 +80,7 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Rm-T9-KIw" customClass="SH_RingButton">
-                            <rect key="frame" x="16.5" y="5" width="133.5" height="40"/>
+                            <rect key="frame" x="16.5" y="5" width="122" height="40"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="ringType">
                                     <integer key="value" value="1"/>
@@ -97,10 +97,10 @@
                                 <constraint firstAttribute="height" constant="42.5" id="cAI-kw-uuC"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="icon_player"/>
                                 <userDefinedRuntimeAttribute type="number" keyPath="ringType">
                                     <integer key="value" value="1"/>
                                 </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="btn_player"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="userCenterClick:" destination="-1" eventType="touchUpInside" id="I2A-pV-0UI"/>
@@ -274,10 +274,10 @@
                                 <constraint firstAttribute="height" constant="42.5" id="lKa-Et-y2P"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="icon_promo"/>
                                 <userDefinedRuntimeAttribute type="number" keyPath="ringType">
                                     <integer key="value" value="1"/>
                                 </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="btn_promotions"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="activitiesClick:" destination="-1" eventType="touchUpInside" id="Hrr-5r-ZWd"/>
@@ -317,9 +317,9 @@
                     <rect key="frame" x="0.0" y="321.5" width="667" height="53.5"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="footer" translatesAutoresizingMaskIntoConstraints="NO" id="EaS-ba-BNH">
-                            <rect key="frame" x="0.0" y="15.5" width="667" height="38"/>
+                            <rect key="frame" x="0.0" y="14.5" width="667" height="39"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="38" id="WoV-8z-OTg">
+                                <constraint firstAttribute="height" constant="39" id="WoV-8z-OTg">
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                                     </userDefinedRuntimeAttributes>
@@ -616,7 +616,7 @@
         </view>
     </objects>
     <resources>
-        <image name="footer" width="667" height="38"/>
-        <image name="user_info_bg" width="121" height="21"/>
+        <image name="footer" width="664" height="38"/>
+        <image name="user_info_bg" width="21" height="21"/>
     </resources>
 </document>

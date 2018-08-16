@@ -315,54 +315,56 @@
     __weak typeof(self) weakSelf = self;
 
     //只有收件箱有此操作
-    id model = self.msgArr[indexPath.row];
-    if ([model isMemberOfClass:[SH_SysMsgDataListModel class]]) {
-        //模型赋值
-        SH_SysMsgDataListModel *tModel = (SH_SysMsgDataListModel *)model;
-        tModel.selected = !tModel.selected;
-        tModel.read = YES;
-        //UI更新
-        SH_MsgCenterCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-        [cell updateSelectedStatus];
-        
-        [SH_WaitingView showOn:self];
-        [SH_NetWorkService_Promo startLoadSystemMessageDetailWithSearchId:tModel.searchId complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-            NSString *content = response[@"data"][@"content"];
-            if (weakSelf.showDetailBlock) {
-                weakSelf.showDetailBlock(content);
-            }
-            [SH_WaitingView hide:weakSelf];
-        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-            [SH_WaitingView hide:weakSelf];
-        }];
-    }
-    else if ([model isMemberOfClass:[SH_GameBulletinModel class]])
-    {
-        SH_GameBulletinModel *tModel = (SH_GameBulletinModel *)model;
-        [SH_WaitingView showOn:self];
-        [SH_NetWorkService_Promo getGameNoticeDetail:tModel.id complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-            NSString *content = response[@"data"][@"context"];
-            if (weakSelf.showDetailBlock) {
-                weakSelf.showDetailBlock(content);
-            }
-            [SH_WaitingView hide:weakSelf];
-        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-            [SH_WaitingView hide:weakSelf];
-        }];
-    }
-    else if ([model isMemberOfClass:[SH_SystemNotificationModel class]])
-    {
-        SH_SystemNotificationModel *tModel = (SH_SystemNotificationModel *)model;
-        [SH_WaitingView showOn:self];
-        [SH_NetWorkService_Promo getSysNoticeDetail:tModel.searchId complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
-            NSString *content = response[@"data"][@"content"];
-            if (weakSelf.showDetailBlock) {
-                weakSelf.showDetailBlock(content);
-            }
-            [SH_WaitingView hide:weakSelf];
-        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-            [SH_WaitingView hide:weakSelf];
-        }];
+    if (self.msgArr.count > 0) {
+        id model = self.msgArr[indexPath.row];
+        if ([model isMemberOfClass:[SH_SysMsgDataListModel class]]) {
+            //模型赋值
+            SH_SysMsgDataListModel *tModel = (SH_SysMsgDataListModel *)model;
+            tModel.selected = !tModel.selected;
+            tModel.read = YES;
+            //UI更新
+            SH_MsgCenterCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            [cell updateSelectedStatus];
+            
+            [SH_WaitingView showOn:self];
+            [SH_NetWorkService_Promo startLoadSystemMessageDetailWithSearchId:tModel.searchId complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+                NSString *content = response[@"data"][@"content"];
+                if (weakSelf.showDetailBlock) {
+                    weakSelf.showDetailBlock(content);
+                }
+                [SH_WaitingView hide:weakSelf];
+            } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+                [SH_WaitingView hide:weakSelf];
+            }];
+        }
+        else if ([model isMemberOfClass:[SH_GameBulletinModel class]])
+        {
+            SH_GameBulletinModel *tModel = (SH_GameBulletinModel *)model;
+            [SH_WaitingView showOn:self];
+            [SH_NetWorkService_Promo getGameNoticeDetail:tModel.id complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+                NSString *content = response[@"data"][@"context"];
+                if (weakSelf.showDetailBlock) {
+                    weakSelf.showDetailBlock(content);
+                }
+                [SH_WaitingView hide:weakSelf];
+            } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+                [SH_WaitingView hide:weakSelf];
+            }];
+        }
+        else if ([model isMemberOfClass:[SH_SystemNotificationModel class]])
+        {
+            SH_SystemNotificationModel *tModel = (SH_SystemNotificationModel *)model;
+            [SH_WaitingView showOn:self];
+            [SH_NetWorkService_Promo getSysNoticeDetail:tModel.searchId complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+                NSString *content = response[@"data"][@"content"];
+                if (weakSelf.showDetailBlock) {
+                    weakSelf.showDetailBlock(content);
+                }
+                [SH_WaitingView hide:weakSelf];
+            } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+                [SH_WaitingView hide:weakSelf];
+            }];
+        }
     }
 }
 

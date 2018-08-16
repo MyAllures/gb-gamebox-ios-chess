@@ -73,6 +73,9 @@
 //    }else{
 //        popTable.scrollEnabled = NO;
 //    }
+    popTable.separatorStyle = UITableViewCellSeparatorStyleNone;
+    popTable.backgroundColor = [UIColor colorWithRed:35.0/255.0 green:43.0/255.0 blue:106.0/255.0 alpha:1];
+    self.showView.backgroundColor = [UIColor redColor];
     self.tableView = popTable;
     [self.showView addSubview:popTable];
 
@@ -96,8 +99,10 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.text = [NSString stringWithFormat:@"%@",self.arry[indexPath.row]];
     cell.textLabel.font =[UIFont systemFontOfSize:self.fonts];
+    cell.backgroundColor = [UIColor colorWithRed:35.0/255.0 green:43.0/255.0 blue:106.0/255.0 alpha:1];
     return cell;
 }
 

@@ -45,7 +45,7 @@
 #import "RH_WebsocketManagar.h"
 #import "SH_BigWindowViewController.h"
 #import "SH_SmallWindowViewController.h"
-
+#import "SH_NetWorkService+SaftyCenter.h"
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImg;
 @property (weak, nonatomic) IBOutlet UILabel *userAccountLB;
@@ -712,7 +712,17 @@
 {
     if ([RH_UserInfoManager shareUserManager].isLogin) {
          self.vc = [SH_GamesHomeViewController new];
-        
+        //这里用户要请求有没有设置过安全密码接口
+        [SH_NetWorkService initUserSaftyInfoSuccess:^(NSHTTPURLResponse *httpURLResponse, id response) {
+            if (![response[@"data"] isKindOfClass:[NSNull class]]) {
+                NSError *err;
+                RH_UserSafetyCodeModel *model = [[RH_UserSafetyCodeModel alloc]initWithDictionary:response[@"data"] error:&err];
+                //更新安全模块
+                [[RH_UserInfoManager shareUserManager] setUserSafetyInfo:model];
+            }
+        } Fail:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+            
+        }];
         [self presentViewController:self.vc addTargetViewController:self];
     }else{
         [self login];

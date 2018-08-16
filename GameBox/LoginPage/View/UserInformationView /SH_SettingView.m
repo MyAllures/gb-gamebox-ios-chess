@@ -47,7 +47,7 @@
     [_musicSlider mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.musicLB.mas_right).mas_offset(15);
         make.right.mas_equalTo(-15);
-        make.height.mas_equalTo(30);
+        make.height.mas_equalTo(15);
         make.centerY.equalTo(self.musicLB);
     }];
     _musicSlider.progress = [[SH_RingManager sharedManager] bgmPlayerVolume];
@@ -65,11 +65,12 @@
         }
     }
     _soundEffectSlider = [[SH_SliderView alloc] init];
+    _soundEffectSlider.backgroundColor = [UIColor redColor];
     [self.containerView addSubview:_soundEffectSlider];
     [_soundEffectSlider mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.soundEffectLB.mas_right).mas_offset(15);
         make.right.mas_equalTo(-15);
-        make.height.mas_equalTo(30);
+        make.height.mas_equalTo(15);
         make.centerY.equalTo(self.soundEffectLB);
     }];
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
