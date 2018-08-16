@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLab;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *webHeight;
+@property(nonatomic,copy)NSString *promoId;
 
 @end
 @implementation SH_PromoDetailView
@@ -31,7 +32,8 @@
                   Name:(NSString *)name
               ImageUrl:(NSString *)imageUrl
                   Date:(NSString *)date{
-    self.nameLab.text = model.name;
+    self.promoId = model.name;
+    self.nameLab.text = name;
     [self.bannerImageView setImageWithType:1 ImageName:imageUrl];
     self.dateLab.text = date;
     self.webHeight.constant = 5;
@@ -47,6 +49,7 @@
     acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [vc presentViewController:acr animated:YES completion:nil];
+    [view loadDataWithPromoId:self.promoId];
 }
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
     [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('body')[0].style.background='#4757C6'"];

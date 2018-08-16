@@ -321,6 +321,7 @@
 		BF5FF87C212582880019EF30 /* bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5FF873212582880019EF30 /* bg.webp */; };
 		BF5FF87D212582880019EF30 /* recovery.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5FF874212582880019EF30 /* recovery.webp */; };
 		BF5FF87E212582880019EF30 /* refresh.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5FF875212582880019EF30 /* refresh.webp */; };
+		BF5FF88121259EFF0019EF30 /* SH__PromoApplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5FF88021259EFF0019EF30 /* SH__PromoApplyModel.m */; };
 		BF6608A12107174A0029C4A6 /* SH_ConfirSaftyPassWordView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6608A02107174A0029C4A6 /* SH_ConfirSaftyPassWordView.m */; };
 		BF6608A32107175E0029C4A6 /* SH_ConfirSaftyPassWordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF6608A22107175E0029C4A6 /* SH_ConfirSaftyPassWordView.xib */; };
 		BF7B08BE2101936B008256FE /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B08B72101936A008256FE /* NSDate+Extension.m */; };
@@ -890,6 +891,8 @@
 		BF5FF873212582880019EF30 /* bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = bg.webp; sourceTree = "<group>"; };
 		BF5FF874212582880019EF30 /* recovery.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = recovery.webp; sourceTree = "<group>"; };
 		BF5FF875212582880019EF30 /* refresh.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = refresh.webp; sourceTree = "<group>"; };
+		BF5FF87F21259EFF0019EF30 /* SH__PromoApplyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH__PromoApplyModel.h; sourceTree = "<group>"; };
+		BF5FF88021259EFF0019EF30 /* SH__PromoApplyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH__PromoApplyModel.m; sourceTree = "<group>"; };
 		BF66089F2107174A0029C4A6 /* SH_ConfirSaftyPassWordView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ConfirSaftyPassWordView.h; sourceTree = "<group>"; };
 		BF6608A02107174A0029C4A6 /* SH_ConfirSaftyPassWordView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_ConfirSaftyPassWordView.m; sourceTree = "<group>"; };
 		BF6608A22107175E0029C4A6 /* SH_ConfirSaftyPassWordView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_ConfirSaftyPassWordView.xib; sourceTree = "<group>"; };
@@ -1476,6 +1479,8 @@
 				BFA2EBF3211BF0D000B2678F /* SH_PromoSubModel.m */,
 				BFA2EBF8211C174B00B2678F /* SH_PromoDetailModel.h */,
 				BFA2EBF9211C174B00B2678F /* SH_PromoDetailModel.m */,
+				BF5FF87F21259EFF0019EF30 /* SH__PromoApplyModel.h */,
+				BF5FF88021259EFF0019EF30 /* SH__PromoApplyModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3025,6 +3030,7 @@
 				BFA068DE21002BC600F5ADFE /* SH_BankListModel.m in Sources */,
 				54E83D9221100FAD00C606FC /* SH_HttpErrManager.m in Sources */,
 				DA22F3E520F4597E0058A54F /* RH_WebsocketManagar.m in Sources */,
+				BF5FF88121259EFF0019EF30 /* SH__PromoApplyModel.m in Sources */,
 				BFA0688B20FC70AC00F5ADFE /* SH_PrifitOutCoinView.m in Sources */,
 				BF44EC5F20F45DA700BC6EF3 /* SH_BitCoinTextView.m in Sources */,
 				54DD033D21086D8200CE9199 /* SH_MsgCenterView.m in Sources */,

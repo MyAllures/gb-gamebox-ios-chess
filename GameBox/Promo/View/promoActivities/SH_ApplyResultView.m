@@ -8,6 +8,7 @@
 
 #import "SH_ApplyResultView.h"
 #import "SH_ApplyFailTableViewCell.h"
+#import "SH_NetWorkService+PromoActivities.h"
 @interface SH_ApplyResultView()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet SH_WebPImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLab;
@@ -24,6 +25,28 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"SH_ApplyFailTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SH_ApplyFailTableViewCell"];
     
 }
+-(void)loadDataWithPromoId:(NSString *)promoId{
+    __weak typeof(self) weakSelf = self;
+    [SH_NetWorkService applyPromoActivitiesPromoId:promoId Sucess:^(SH__PromoApplyModel *model) {
+        weakSelf.titleLab.text = model.actibityTitle;
+        weakSelf.messageLab.text = model.applyResult;
+        NSString *imageName;
+        if ([model.status isEqualToString:@"1"]) {
+            //成功
+            imageName = @"success";
+        }else if ([model.status isEqualToString:@"2"]){
+            //失败
+            imageName = @"error";
+        }else if ([model.status isEqualToString:@"3"]){
+            //部分可领取奖励
+            imageName = @"warn";
+        }
+        weakSelf.iconImageView.imageName = imageName;
+    } Failure:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        
+    }];
+}
+
 #pragma mark--
 #pragma mark--tableView
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
