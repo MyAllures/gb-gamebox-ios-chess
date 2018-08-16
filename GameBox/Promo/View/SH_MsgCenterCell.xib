@@ -73,6 +73,7 @@
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                 <real key="value" value="3"/>
                             </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
                         </userDefinedRuntimeAttributes>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dnX-r9-MRY" customClass="SH_WebPImageView">
@@ -94,6 +95,9 @@
                     <constraint firstItem="lzG-9g-vHp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="t0d-Dd-sGT"/>
                     <constraint firstItem="dnX-r9-MRY" firstAttribute="top" secondItem="lzG-9g-vHp" secondAttribute="top" constant="-3" id="zbz-op-oGL"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>

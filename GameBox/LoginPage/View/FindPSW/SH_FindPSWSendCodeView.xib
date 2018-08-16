@@ -57,6 +57,7 @@
                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                             <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zz5-dT-5bS">
@@ -73,6 +74,7 @@
                         <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                             <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category2"/>
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2v2-kR-bZb">
@@ -114,6 +116,9 @@
                 <constraint firstItem="fbS-gl-h8c" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="xyn-4g-tT6"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="codeTV" destination="zz5-dT-5bS" id="TLg-UI-Dy2"/>
                 <outlet property="phoneLabel" destination="6rU-IZ-sAA" id="sHz-o4-8Un"/>

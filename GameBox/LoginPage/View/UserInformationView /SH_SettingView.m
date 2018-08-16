@@ -65,7 +65,6 @@
         }
     }
     _soundEffectSlider = [[SH_SliderView alloc] init];
-    _soundEffectSlider.backgroundColor = [UIColor redColor];
     [self.containerView addSubview:_soundEffectSlider];
     [_soundEffectSlider mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.soundEffectLB.mas_right).mas_offset(15);

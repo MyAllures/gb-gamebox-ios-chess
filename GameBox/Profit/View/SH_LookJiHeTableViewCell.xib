@@ -26,6 +26,9 @@
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" red="0.82352941176470584" green="0.84313725490196079" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category3"/>
+                        </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBS-c5-IHj">
                         <rect key="frame" x="98.5" y="0.0" width="97" height="99.5"/>
@@ -33,6 +36,9 @@
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" red="0.82352941180000006" green="0.84313725490000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category3"/>
+                        </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCX-mV-Uyj">
                         <rect key="frame" x="197.5" y="0.0" width="96.5" height="99.5"/>
@@ -40,6 +46,9 @@
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" red="0.82352941180000006" green="0.84313725490000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category3"/>
+                        </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fs-i9-6HL">
                         <rect key="frame" x="296" y="0.0" width="96.5" height="99.5"/>
@@ -47,6 +56,9 @@
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" red="1" green="0.91764705882352937" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category3"/>
+                        </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMo-Bc-9ma">
                         <rect key="frame" x="394.5" y="0.0" width="97" height="99.5"/>
@@ -54,6 +66,9 @@
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" red="0.82352941180000006" green="0.84313725490000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category3"/>
+                        </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WgV-gM-3LL">
                         <rect key="frame" x="493.5" y="0.0" width="96.5" height="99.5"/>
@@ -61,6 +76,9 @@
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" red="1" green="0.91764705882352937" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category3"/>
+                        </userDefinedRuntimeAttributes>
                     </label>
                 </subviews>
                 <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -95,7 +113,13 @@
                     <constraint firstItem="WgV-gM-3LL" firstAttribute="leading" secondItem="LMo-Bc-9ma" secondAttribute="trailing" constant="2" id="xnm-Ql-XaW"/>
                     <constraint firstItem="8fs-i9-6HL" firstAttribute="leading" secondItem="FCX-mV-Uyj" secondAttribute="trailing" constant="2" id="zQn-HW-a3p"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category3"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="createTimeLB" destination="UDF-85-QY4" id="Gc9-Em-UBe"/>
                 <outlet property="favorableAmountLB" destination="8fs-i9-6HL" id="KTc-C6-40o"/>

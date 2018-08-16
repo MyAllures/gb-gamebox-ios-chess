@@ -39,6 +39,9 @@
                 <constraint firstItem="hp6-Wm-pBB" firstAttribute="centerX" secondItem="6Mg-iy-ZlQ" secondAttribute="centerX" id="N2R-cp-KsC"/>
                 <constraint firstItem="hp6-Wm-pBB" firstAttribute="bottom" secondItem="6Mg-iy-ZlQ" secondAttribute="bottom" constant="-30" id="oFm-rF-2ZV"/>
             </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="massageLab" destination="hp6-Wm-pBB" id="943-Kb-xL2"/>
             </connections>

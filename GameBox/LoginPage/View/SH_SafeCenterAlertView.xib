@@ -48,6 +48,9 @@
                         <constraint firstItem="4pV-NZ-saY" firstAttribute="top" secondItem="whb-rU-Cu0" secondAttribute="top" constant="8" id="B9A-Qh-zbm"/>
                         <constraint firstAttribute="bottom" secondItem="4pV-NZ-saY" secondAttribute="bottom" constant="8" id="Rdt-oz-bnA"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
+                    </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XoC-Rg-XMr" customClass="SH_WebPButton">
                     <rect key="frame" x="8" y="149" width="160.5" height="45"/>
@@ -78,6 +81,9 @@
                 <constraint firstItem="XoC-Rg-XMr" firstAttribute="leading" secondItem="iae-aI-JlP" secondAttribute="leading" constant="8" id="uf0-Hf-fpq"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="label" destination="4pV-NZ-saY" id="TFn-Ar-tT1"/>
             </connections>

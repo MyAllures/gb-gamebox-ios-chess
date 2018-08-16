@@ -34,6 +34,7 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                             <real key="value" value="15"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="contactService:" destination="iN0-l3-epB" eventType="touchUpInside" id="JzP-EZ-JAt"/>
@@ -75,6 +76,9 @@
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Iwy-Oi-Qpa">
                             <rect key="frame" x="90" y="96.5" width="355" height="149.5"/>
                             <color key="backgroundColor" red="0.2784313725" green="0.3411764706" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
+                            </userDefinedRuntimeAttributes>
                         </tableView>
                     </subviews>
                     <color key="backgroundColor" red="0.27843137254901962" green="0.3411764705882353" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -130,6 +134,7 @@
                         <userDefinedRuntimeAttribute type="color" keyPath="color">
                             <color key="value" white="1" alpha="0.29955051369863012" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
@@ -163,6 +168,9 @@
                 </constraint>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="iconImageView" destination="hme-oe-oww" id="3Oj-uC-M42"/>
                 <outlet property="messageLab" destination="B1n-BU-6pX" id="sc7-mo-FBd"/>

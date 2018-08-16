@@ -158,6 +158,9 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ovy-TN-Yre">
                     <rect key="frame" x="135" y="0.0" width="400" height="263.5"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+                    </userDefinedRuntimeAttributes>
                 </tableView>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WJJ-xw-Lzd">
                     <rect key="frame" x="135" y="263.5" width="400" height="42.5"/>
@@ -228,6 +231,9 @@
                         <constraint firstItem="rlv-j7-oa4" firstAttribute="centerY" secondItem="M6W-VX-sHV" secondAttribute="centerY" id="rqd-3z-ARh"/>
                         <constraint firstItem="rlv-j7-oa4" firstAttribute="centerY" secondItem="WJJ-xw-Lzd" secondAttribute="centerY" id="y6W-4z-emQ"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+                    </userDefinedRuntimeAttributes>
                 </view>
                 <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rv3-QU-d8G" customClass="SH_WebPImageView">
                     <rect key="frame" x="135" y="0.0" width="400" height="263.5"/>
@@ -254,6 +260,9 @@
                 <constraint firstAttribute="bottom" secondItem="WJJ-xw-Lzd" secondAttribute="bottom" id="xpX-yd-Dwu"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="gameNoticeBt" destination="Bzt-hg-G8v" id="EhY-yX-IbJ"/>
                 <outlet property="game_label" destination="QiL-Ih-FqE" id="xIR-rf-Wct"/>

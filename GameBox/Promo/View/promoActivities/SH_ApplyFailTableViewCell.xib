@@ -85,6 +85,9 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.2784313725" green="0.3411764706" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="applyBtn" destination="7Yz-R8-Wfb" id="S43-6o-5yh"/>
                 <outlet property="downImageView" destination="sde-oh-OoY" id="6Ac-7S-4NZ"/>

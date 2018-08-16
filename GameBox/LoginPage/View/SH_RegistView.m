@@ -39,6 +39,7 @@
 */
 -(instancetype)init{
     if (self = [super init]) {
+
         [self startV3RegisetInit];
         isAgreedServiceTerm = YES;
          animate_Item_Index = 1;
@@ -561,14 +562,16 @@
         _scrollview.showsVerticalScrollIndicator = YES;
         _scrollview.showsHorizontalScrollIndicator = false;
         _scrollview.contentSize = CGSizeMake(self.frameWidth, self.frameHeigh + 200);
-        _scrollview.backgroundColor =[UIColor colorWithHexStr:@"0x4854A9"] ;
+//        _scrollview.backgroundColor =[UIColor colorWithHexStr:@"0x4854A9"] ;
+        _scrollview.bgColor = @"category1";
     }
     return  _scrollview;
 }
 -(UIView *)stackView{
     if (!_stackView) {
         _stackView = [UIView  new];
-        _stackView.backgroundColor = [UIColor  colorWithHexStr:@"0x4854A9"];
+//        _stackView.backgroundColor = [UIColor  colorWithHexStr:@"0x4854A9"];
+        _stackView.bgColor = @"category1";
     }
     return  _stackView;
 }

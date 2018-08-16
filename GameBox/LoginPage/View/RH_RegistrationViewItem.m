@@ -73,8 +73,8 @@
         textField.font = [UIFont systemFontOfSize:15];
         textField.textColor = [UIColor  whiteColor];
         textField.delegate = self;
-        textField.backgroundColor = [UIColor  colorWithHexStr:@"0x232B6A"];
-        
+//        textField.backgroundColor = [UIColor  colorWithHexStr:@"0x232B6A"];
+        textField.bgColor = @"category2";
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeImageView_VerfyCode1) name:@"changeImageView_VerfyCode" object:nil];
         

@@ -25,6 +25,9 @@
                             </userDefinedRuntimeAttributes>
                         </constraint>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
+                    </userDefinedRuntimeAttributes>
                 </tableView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="fTE-9G-l5S">
                     <rect key="frame" x="135" y="0.0" width="240" height="40"/>
@@ -38,6 +41,9 @@
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+                    </userDefinedRuntimeAttributes>
                 </collectionView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -50,6 +56,9 @@
                 <constraint firstAttribute="trailing" secondItem="fTE-9G-l5S" secondAttribute="trailing" id="pQy-yP-iXm"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="leftTableView" destination="8zX-uw-3cH" id="kxe-2z-ZFa"/>
                 <outlet property="topCollectionView" destination="fTE-9G-l5S" id="Dt4-0a-nYT"/>

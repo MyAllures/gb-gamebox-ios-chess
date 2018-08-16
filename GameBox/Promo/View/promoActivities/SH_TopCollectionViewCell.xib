@@ -45,6 +45,9 @@
                 <constraint firstItem="C5j-pX-SZS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5iB-r6-pxb" secondAttribute="leading" id="v6J-XM-g5U"/>
                 <constraint firstItem="C5j-pX-SZS" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="5iB-r6-pxb" secondAttribute="bottom" id="yVJ-rd-g87"/>
             </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="bgImageView" destination="5iB-r6-pxb" id="Pje-zK-j4E"/>
                 <outlet property="titleLab" destination="C5j-pX-SZS" id="tM5-UU-SMC"/>
