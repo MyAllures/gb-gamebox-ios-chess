@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SH_ApplyResultView : UIView
-
+-(void)loadDataWithPromoId:(NSString *)promoId;
 @end
