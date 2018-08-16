@@ -107,7 +107,7 @@
                                 <constraint firstAttribute="width" constant="77" id="m5m-MP-klh"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="return"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="back"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="buttonClick:" destination="-1" eventType="touchUpInside" id="3em-Sv-RY1"/>

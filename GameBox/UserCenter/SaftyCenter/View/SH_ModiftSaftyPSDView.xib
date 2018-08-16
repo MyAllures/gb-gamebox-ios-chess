@@ -237,6 +237,7 @@
                 <outlet property="currentTF" destination="Tcr-pv-DXT" id="GEp-Iw-7Gz"/>
                 <outlet property="realNameLabel" destination="LIP-5j-gdb" id="WQX-KL-afN"/>
                 <outlet property="realNameTF" destination="CR3-h0-Scj" id="VNH-sk-DG9"/>
+                <outlet property="setBtn" destination="kGm-iR-Deh" id="JzS-TQ-Yms"/>
                 <outlet property="sureBtnTopDistance" destination="cz1-Gh-qiK" id="6Pj-fG-Gle"/>
                 <outlet property="sureTF" destination="5f3-aV-gNR" id="CDJ-Sf-GL8"/>
                 <outlet property="topDistance" destination="RDE-U6-M9I" id="ksk-GX-nDc"/>

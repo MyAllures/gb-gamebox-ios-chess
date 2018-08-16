@@ -66,7 +66,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="451" height="38"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="table-bg"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="table_bg"/>
                                     </userDefinedRuntimeAttributes>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="游戏名称" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3J-Bi-Hqo">
@@ -205,7 +205,7 @@
                                 <constraint firstAttribute="width" secondItem="Zcy-tE-pgf" secondAttribute="height" multiplier="150:112.5" id="nGo-ZE-bSs"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="nodata_bg2_slices"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="nodata_bg2"/>
                             </userDefinedRuntimeAttributes>
                         </imageView>
                     </subviews>

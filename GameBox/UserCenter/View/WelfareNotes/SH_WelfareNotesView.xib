@@ -162,7 +162,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="449" height="44"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="table-bg"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="table_bg"/>
                                     </userDefinedRuntimeAttributes>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时间" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEb-Ih-PtY">
@@ -272,7 +272,7 @@
                                 <constraint firstAttribute="width" constant="167" id="zak-Wr-7ky"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="nodata_bg2_slices"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="nodata_bg2"/>
                             </userDefinedRuntimeAttributes>
                         </imageView>
                     </subviews>

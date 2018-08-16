@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *sureBtnTopDistance;
 @property (weak, nonatomic) IBOutlet UIButton *verificationBtn;
 @property (weak, nonatomic) IBOutlet UILabel *realNameLabel;
+@property (weak, nonatomic) IBOutlet SH_WebPButton *setBtn;
 
 
 @end
@@ -39,7 +40,14 @@
     [self updateView];
     self.NewTF.delegate = self;
     self.sureTF.delegate = self;
-
+    if([RH_UserInfoManager shareUserManager].userSafetyInfo.hasPermissionPwd){
+        //设置过安全密码
+        [self.setBtn setTitle:@"修改" forState:UIControlStateNormal];
+    }else{
+        //没有设置过安全密码
+        [self.setBtn setTitle:@"设置" forState:UIControlStateNormal];
+    }
+    
 }
 
 
