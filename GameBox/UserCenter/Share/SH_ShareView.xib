@@ -57,6 +57,9 @@
                 <constraint firstItem="Fon-bZ-qem" firstAttribute="top" secondItem="NUt-v8-IUO" secondAttribute="bottom" constant="16" id="zq3-Ec-eVI"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="QRCode_imageView" destination="NUt-v8-IUO" id="bJf-Vp-Jte"/>
                 <outlet property="shareTitle_label" destination="Fon-bZ-qem" id="Fd3-SN-byA"/>

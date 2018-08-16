@@ -39,6 +39,9 @@
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category2"/>
+                            </userDefinedRuntimeAttributes>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7qi-V7-2sU">
                             <rect key="frame" x="130" y="63" width="215" height="33"/>
@@ -49,6 +52,9 @@
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category2"/>
+                            </userDefinedRuntimeAttributes>
                         </textField>
                     </subviews>
                     <color key="backgroundColor" red="0.19215686274509802" green="0.24705882352941178" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
@@ -76,6 +82,7 @@
                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                             <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OaW-4Q-4bF" customClass="SH_WebPButton">
@@ -103,6 +110,9 @@
                 <constraint firstItem="OaW-4Q-4bF" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="wx7-Vt-xSg"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="textField1" destination="HY6-tE-33b" id="qP5-RV-mba"/>
                 <outlet property="textField2" destination="7qi-V7-2sU" id="gvV-s2-ZJy"/>

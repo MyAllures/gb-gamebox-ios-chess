@@ -81,6 +81,7 @@
                                 <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
                                     <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category2"/>
                             </userDefinedRuntimeAttributes>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入密码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N0y-Qo-ZTY">
@@ -93,6 +94,7 @@
                                 <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
                                     <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category2"/>
                             </userDefinedRuntimeAttributes>
                         </textField>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V90-gp-QJ4">
@@ -118,6 +120,7 @@
                                 <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
                                     <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category2"/>
                             </userDefinedRuntimeAttributes>
                         </textField>
                         <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gfy-cV-HV0" customClass="SH_WebPButton">
@@ -196,6 +199,9 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RHZ-se-umN">
                             <rect key="frame" x="0.0" y="0.0" width="271" height="459"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
+                            </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
                     <constraints>
@@ -241,6 +247,7 @@
                             <real key="value" value="2"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="string" keyPath="colorCategory" value="category0"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
@@ -255,6 +262,9 @@
                 <constraint firstItem="dJ0-VR-dqr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="wUe-A9-13c"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="account_textField" destination="Ue5-ax-zvL" id="tWa-ng-jsO"/>
                 <outlet property="captcha_label" destination="uFg-tQ-BXA" id="mI9-6S-ofu"/>

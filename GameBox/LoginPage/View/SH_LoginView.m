@@ -365,7 +365,7 @@
     if (!_registView) {
         _registView = [[SH_RegistView  alloc]init];
         _registView.frame = CGRectZero;
-        _registView.backgroundColor = [UIColor colorWithHexStr:@"0x4854A9"];
+        _registView.bgColor = @"category1";
         __weak typeof(self) weakSelf = self;
         _registView.closeAlerViewBlock = ^{
             if (weakSelf.dismissBlock) {

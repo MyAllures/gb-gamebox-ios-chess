@@ -33,6 +33,9 @@
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category2"/>
+                            </userDefinedRuntimeAttributes>
                         </textField>
                     </subviews>
                     <color key="backgroundColor" red="0.19215686274509802" green="0.24705882352941178" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
@@ -54,6 +57,7 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                             <real key="value" value="2"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLC-Y9-whI" customClass="SH_WebPButton">
@@ -81,6 +85,9 @@
                 <constraint firstItem="ZLC-Y9-whI" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="yHK-gq-Ihb"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="realNameTV" destination="C8V-mM-hkg" id="LVf-3D-d8d"/>
             </connections>

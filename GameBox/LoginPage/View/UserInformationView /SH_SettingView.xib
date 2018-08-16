@@ -50,6 +50,9 @@
                                 <constraint firstItem="GKT-2A-PQs" firstAttribute="top" secondItem="47I-UM-ebP" secondAttribute="bottom" id="cg0-L5-s7F"/>
                                 <constraint firstItem="GKT-2A-PQs" firstAttribute="height" secondItem="47I-UM-ebP" secondAttribute="height" id="dzg-72-pqa"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
+                            </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
                     <color key="backgroundColor" red="0.28235294117647058" green="0.32941176470588235" blue="0.66274509803921566" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -63,6 +66,7 @@
                             <integer key="value" value="5"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
@@ -74,6 +78,9 @@
                 <constraint firstAttribute="bottom" secondItem="pcG-Df-bjA" secondAttribute="bottom" constant="8" id="aan-bJ-Ino"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="containerView" destination="dsW-fY-rak" id="zeE-9o-p4i"/>
                 <outlet property="musicLB" destination="47I-UM-ebP" id="EUT-fA-BNz"/>

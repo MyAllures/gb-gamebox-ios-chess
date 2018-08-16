@@ -16,7 +16,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AWg-oF-Z1M">
-                    <rect key="frame" x="0.0" y="0.0" width="350" height="260"/>
+                    <rect key="frame" x="5" y="0.0" width="345" height="260"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5co-P7-kE6" customClass="SH_WebPImageView">
                             <rect key="frame" x="15" y="12" width="25" height="14"/>
@@ -30,16 +30,16 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="客户首存" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dY3-RM-3ZB">
-                            <rect key="frame" x="46" y="10.5" width="304" height="17"/>
+                            <rect key="frame" x="46" y="10.5" width="294" height="17"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                             <color key="textColor" red="0.82352941176470584" green="0.85882352941176465" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bC4-kz-ALc">
-                            <rect key="frame" x="15" y="32" width="320" height="80"/>
+                            <rect key="frame" x="5" y="32" width="330" height="80"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="80" id="au9-Dv-5xh"/>
-                                <constraint firstAttribute="width" constant="320" id="t2X-bk-qM3">
+                                <constraint firstAttribute="width" constant="330" id="t2X-bk-qM3">
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                                     </userDefinedRuntimeAttributes>
@@ -47,11 +47,14 @@
                             </constraints>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hFM-Xm-45V">
-                            <rect key="frame" x="15" y="112" width="320" height="141.5"/>
+                            <rect key="frame" x="0.0" y="112" width="340" height="141.5"/>
                             <color key="backgroundColor" red="0.3411764706" green="0.39607843139999999" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
+                            </userDefinedRuntimeAttributes>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活动时间" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Sm-dw-1C2">
-                            <rect key="frame" x="20" y="124" width="73" height="17"/>
+                            <rect key="frame" x="10" y="124" width="73" height="17"/>
                             <color key="backgroundColor" red="0.20392156862745098" green="0.25490196078431371" blue="0.56470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="17" id="Jpk-a5-gVc"/>
@@ -63,16 +66,17 @@
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="8.5"/>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
                             </userDefinedRuntimeAttributes>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="长期有效" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nwh-zz-itL">
-                            <rect key="frame" x="27" y="146" width="49.5" height="14.5"/>
+                            <rect key="frame" x="17" y="146" width="49.5" height="14.5"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                             <color key="textColor" red="0.82352941180000006" green="0.85882352939999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活动说明" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AfT-HF-ipJ">
-                            <rect key="frame" x="20" y="173.5" width="73" height="17"/>
+                            <rect key="frame" x="10" y="173.5" width="73" height="17"/>
                             <color key="backgroundColor" red="0.20392156859999999" green="0.25490196079999999" blue="0.56470588239999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="73" id="R9A-Hs-aTM"/>
@@ -84,17 +88,21 @@
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="8.5"/>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
                             </userDefinedRuntimeAttributes>
                         </label>
                         <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z6K-Zh-B64">
-                            <rect key="frame" x="27" y="195.5" width="296" height="5"/>
+                            <rect key="frame" x="17" y="195.5" width="306" height="5"/>
                             <color key="backgroundColor" red="0.3411764706" green="0.39607843139999999" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="5" id="ZbA-5A-cas"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
+                            </userDefinedRuntimeAttributes>
                         </webView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zp-VH-PwE" customClass="SH_WebPButton">
-                            <rect key="frame" x="244" y="210.5" width="81" height="33"/>
+                            <rect key="frame" x="234" y="210.5" width="81" height="33"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="33" id="dIm-so-LaU"/>
                                 <constraint firstAttribute="width" constant="81" id="hqZ-Rr-1oP"/>
@@ -120,7 +128,7 @@
                         <constraint firstItem="z6K-Zh-B64" firstAttribute="leading" secondItem="Nwh-zz-itL" secondAttribute="leading" id="9a1-vb-rSa"/>
                         <constraint firstItem="dY3-RM-3ZB" firstAttribute="centerY" secondItem="5co-P7-kE6" secondAttribute="centerY" id="DtW-eO-OEq"/>
                         <constraint firstItem="5co-P7-kE6" firstAttribute="top" secondItem="AWg-oF-Z1M" secondAttribute="top" constant="12" id="HYq-kX-w8p"/>
-                        <constraint firstAttribute="trailing" secondItem="hFM-Xm-45V" secondAttribute="trailing" constant="15" id="K2Y-Ne-kFu">
+                        <constraint firstAttribute="trailing" secondItem="hFM-Xm-45V" secondAttribute="trailing" id="K2Y-Ne-kFu">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                             </userDefinedRuntimeAttributes>
@@ -134,36 +142,42 @@
                         <constraint firstItem="AfT-HF-ipJ" firstAttribute="top" secondItem="Nwh-zz-itL" secondAttribute="bottom" constant="13" id="bpu-32-DS8"/>
                         <constraint firstItem="0Sm-dw-1C2" firstAttribute="leading" secondItem="bC4-kz-ALc" secondAttribute="leading" constant="5" id="jVQ-UJ-zlB"/>
                         <constraint firstItem="6zp-VH-PwE" firstAttribute="top" secondItem="z6K-Zh-B64" secondAttribute="bottom" constant="10" id="m0h-Iw-Qn9"/>
-                        <constraint firstItem="hFM-Xm-45V" firstAttribute="leading" secondItem="AWg-oF-Z1M" secondAttribute="leading" constant="15" id="m3h-Gi-b87">
+                        <constraint firstItem="hFM-Xm-45V" firstAttribute="leading" secondItem="AWg-oF-Z1M" secondAttribute="leading" id="m3h-Gi-b87">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </constraint>
                         <constraint firstItem="bC4-kz-ALc" firstAttribute="trailing" secondItem="z6K-Zh-B64" secondAttribute="trailing" constant="12" id="nw7-cJ-r8G"/>
-                        <constraint firstItem="bC4-kz-ALc" firstAttribute="leading" secondItem="AWg-oF-Z1M" secondAttribute="leading" constant="15" id="pBO-ts-pCx">
+                        <constraint firstItem="bC4-kz-ALc" firstAttribute="leading" secondItem="AWg-oF-Z1M" secondAttribute="leading" constant="5" id="pBO-ts-pCx">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </constraint>
                         <constraint firstItem="Nwh-zz-itL" firstAttribute="top" secondItem="0Sm-dw-1C2" secondAttribute="bottom" constant="5" id="rQA-5j-jwi"/>
                         <constraint firstItem="0Sm-dw-1C2" firstAttribute="top" secondItem="bC4-kz-ALc" secondAttribute="bottom" constant="12" id="t8a-YQ-Wv6"/>
-                        <constraint firstAttribute="trailing" secondItem="bC4-kz-ALc" secondAttribute="trailing" constant="15" id="ydv-d9-YWL">
+                        <constraint firstItem="bC4-kz-ALc" firstAttribute="trailing" secondItem="AWg-oF-Z1M" secondAttribute="trailing" constant="-5" id="ydv-d9-YWL">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </constraint>
                         <constraint firstAttribute="trailing" secondItem="dY3-RM-3ZB" secondAttribute="trailing" id="zWM-Sx-KVc"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
+                    </userDefinedRuntimeAttributes>
                 </scrollView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="AWg-oF-Z1M" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7oH-IO-dBG"/>
+                <constraint firstItem="AWg-oF-Z1M" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="7oH-IO-dBG"/>
                 <constraint firstItem="AWg-oF-Z1M" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Bwu-ib-MQy"/>
                 <constraint firstAttribute="trailing" secondItem="AWg-oF-Z1M" secondAttribute="trailing" id="QiH-BN-6zA"/>
                 <constraint firstAttribute="bottom" secondItem="AWg-oF-Z1M" secondAttribute="bottom" id="VV9-io-abR"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="bannerImageView" destination="bC4-kz-ALc" id="cSg-rf-w6y"/>
                 <outlet property="dateLab" destination="Nwh-zz-itL" id="Bb9-0H-EDc"/>

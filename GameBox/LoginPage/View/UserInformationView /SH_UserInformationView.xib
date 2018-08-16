@@ -51,6 +51,9 @@
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                     <color key="textColor" red="1" green="0.95294117649999999" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+                                    </userDefinedRuntimeAttributes>
                                 </label>
                             </subviews>
                             <color key="backgroundColor" red="0.14901960780000001" green="0.22352941179999999" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -91,6 +94,9 @@
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                     <color key="textColor" red="1" green="0.95294117649999999" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+                                    </userDefinedRuntimeAttributes>
                                 </label>
                             </subviews>
                             <color key="backgroundColor" red="0.14901960780000001" green="0.22352941179999999" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -132,6 +138,7 @@
                                     <integer key="value" value="8"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category2"/>
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4OH-XP-lMy">
@@ -143,6 +150,9 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+                                    </userDefinedRuntimeAttributes>
                                 </label>
                             </subviews>
                             <color key="backgroundColor" red="0.14901960780000001" green="0.22352941179999999" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -192,6 +202,7 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                             <real key="value" value="2"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pLS-5F-KYe" customClass="SH_WebPButton">
@@ -239,6 +250,9 @@
                 <constraint firstAttribute="trailing" secondItem="GHd-wD-IHr" secondAttribute="trailing" constant="8" id="wS4-w2-VUj"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="lastLoginTime_label" destination="G3A-RN-ole" id="SeK-qU-Xbr"/>
                 <outlet property="titleNum_label" destination="rlb-Kd-IBN" id="Vwy-Mn-kaf"/>

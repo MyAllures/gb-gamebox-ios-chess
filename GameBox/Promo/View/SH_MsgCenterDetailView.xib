@@ -43,6 +43,7 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                             <real key="value" value="2"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bIj-8O-HPh" customClass="SH_WebPButton">
@@ -72,6 +73,9 @@
                 <constraint firstItem="2uD-bV-tuh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="9.5" id="f2c-Ei-mQi"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="detailLB" destination="Mnr-dk-hkF" id="XnL-R0-NKo"/>
             </connections>

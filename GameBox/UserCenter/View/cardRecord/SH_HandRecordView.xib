@@ -24,6 +24,9 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <outlet property="dataSource" destination="iN0-l3-epB" id="CwA-tn-513"/>
                                 <outlet property="delegate" destination="iN0-l3-epB" id="9Nd-24-Btr"/>
@@ -173,6 +176,7 @@
                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                     <color key="value" red="1" green="1" blue="1" alpha="0.25" colorSpace="calibratedRGB"/>
                                 </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category2"/>
                             </userDefinedRuntimeAttributes>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="434-ab-Jh0">
@@ -242,6 +246,7 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                             <real key="value" value="2"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
@@ -253,6 +258,9 @@
                 <constraint firstItem="geH-v8-jce" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="7" id="iM2-sd-xmQ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="effectiveLabel" destination="F9X-mm-4WE" id="SCQ-qN-ljn"/>
                 <outlet property="imageView" destination="Zcy-tE-pgf" id="78q-zG-bO1"/>

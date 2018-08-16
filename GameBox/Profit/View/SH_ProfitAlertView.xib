@@ -27,6 +27,7 @@
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
                     </userDefinedRuntimeAttributes>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zfo-JZ-3Li" customClass="SH_WebPButton">
@@ -56,6 +57,9 @@
                 <constraint firstItem="zfo-JZ-3Li" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ff0-Db-i84"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="lab" destination="rrb-QA-77k" id="8ae-Ya-LHP"/>
                 <outlet property="sureBtn" destination="zfo-JZ-3Li" id="NWU-DB-Nz9"/>

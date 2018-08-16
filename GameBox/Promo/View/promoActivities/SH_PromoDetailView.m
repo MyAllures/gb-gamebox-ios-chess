@@ -49,7 +49,7 @@
     [vc presentViewController:acr animated:YES completion:nil];
 }
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
-    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('body')[0].style.background='#5765C6'"];
+    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('body')[0].style.background='#4757C6'"];
     //字体大小
     [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '100%'"];
     //字体颜色
