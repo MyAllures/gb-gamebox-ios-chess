@@ -24,6 +24,9 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="3" id="776-S9-cMt"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c2j-70-WPB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="3"/>
@@ -31,6 +34,9 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="3" id="mSp-Xo-7LC"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HABA电子" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CcO-lm-dq8">
                         <rect key="frame" x="32.5" y="15" width="53" height="14"/>
@@ -74,6 +80,9 @@
                     <constraint firstAttribute="trailing" secondItem="c2j-70-WPB" secondAttribute="trailing" id="woa-j4-48H"/>
                 </constraints>
             </tableViewCellContentView>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category2"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="moneyLab" destination="fN0-5W-VZa" id="y7w-YC-326"/>
                 <outlet property="titleLab" destination="CcO-lm-dq8" id="tj8-gD-JZj"/>

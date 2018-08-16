@@ -16,7 +16,6 @@
 #import "SH_BigWindowViewController.h"
 #import "SH_TopLevelControllerManager.h"
 @interface SH_OutCoinDetailView()<UITableViewDelegate,UITableViewDataSource>
-@property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
 @property(nonatomic,strong)NSArray *details;
 @property(nonatomic,strong)NSArray *titles;
@@ -30,8 +29,6 @@
     [self configUI];
 }
 -(void)configUI{
-    self.bgView.layer.borderWidth = 2;
-    self.bgView.layer.borderColor = [UIColor colorWithWhite:1 alpha:0.25].CGColor;
     self.mainTableView.delegate = self;
     self.mainTableView.dataSource = self;
     [self.mainTableView registerNib:[UINib nibWithNibName:@"SH_OutCoinDetailTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SH_OutCoinDetailTableViewCell"];

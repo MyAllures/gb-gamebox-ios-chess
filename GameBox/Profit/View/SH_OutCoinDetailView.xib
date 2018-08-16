@@ -17,14 +17,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="66a-UP-S79">
-                    <rect key="frame" x="5" y="3" width="310" height="270"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="280"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QI9-Ws-ha7">
-                            <rect key="frame" x="0.0" y="5" width="310" height="205"/>
+                            <rect key="frame" x="0.0" y="5" width="320" height="215"/>
                             <color key="backgroundColor" red="0.18823529411764706" green="0.23529411764705882" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </tableView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Jx-pb-qEM" customClass="SH_WebPButton">
-                            <rect key="frame" x="22.5" y="216" width="130" height="47"/>
+                            <rect key="frame" x="27.5" y="226" width="130" height="47"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="47" id="3f8-jA-Dpp">
                                     <userDefinedRuntimeAttributes>
@@ -47,7 +47,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svl-rE-TNT" customClass="SH_WebPButton">
-                            <rect key="frame" x="157.5" y="216" width="130" height="47"/>
+                            <rect key="frame" x="162.5" y="226" width="130" height="47"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="130" id="Nca-sw-3fC">
                                     <userDefinedRuntimeAttributes>
@@ -96,24 +96,27 @@
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.16470588235294117" green="0.20784313725490194" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="66a-UP-S79" secondAttribute="bottom" constant="7" id="67t-ps-R7G"/>
-                <constraint firstItem="66a-UP-S79" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="3" id="N41-iZ-ycg">
+                <constraint firstAttribute="bottom" secondItem="66a-UP-S79" secondAttribute="bottom" id="67t-ps-R7G"/>
+                <constraint firstItem="66a-UP-S79" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="N41-iZ-ycg">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </constraint>
-                <constraint firstItem="66a-UP-S79" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="ZYn-37-Mic"/>
-                <constraint firstAttribute="trailing" secondItem="66a-UP-S79" secondAttribute="trailing" constant="5" id="ral-Kb-OAg"/>
+                <constraint firstItem="66a-UP-S79" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ZYn-37-Mic"/>
+                <constraint firstAttribute="trailing" secondItem="66a-UP-S79" secondAttribute="trailing" id="ral-Kb-OAg"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+            </userDefinedRuntimeAttributes>
             <connections>
-                <outlet property="bgView" destination="66a-UP-S79" id="T8G-XS-0qD"/>
                 <outlet property="mainTableView" destination="QI9-Ws-ha7" id="50Q-su-rhA"/>
             </connections>
             <point key="canvasLocation" x="-12" y="-4"/>

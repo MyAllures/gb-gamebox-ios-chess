@@ -40,6 +40,9 @@
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category2"/>
+                            </userDefinedRuntimeAttributes>
                         </textField>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8gG-nk-WqQ" customClass="SH_WebPImageView">
                             <rect key="frame" x="88" y="92" width="15" height="15"/>
@@ -74,6 +77,9 @@
                         <constraint firstAttribute="trailing" secondItem="gdy-9D-Y72" secondAttribute="trailing" constant="20" id="vAp-v0-CUU"/>
                         <constraint firstItem="8gG-nk-WqQ" firstAttribute="leading" secondItem="7Cb-d3-Y80" secondAttribute="leading" id="y5W-qv-c0e"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
+                    </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8V-vt-RTO" customClass="SH_WebPButton">
                     <rect key="frame" x="115" y="147" width="145" height="47"/>
@@ -100,6 +106,9 @@
                 <constraint firstItem="iw5-Hv-1Sn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="13" id="tmQ-yJ-4TM"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="messageLab" destination="aRN-38-Fpd" id="gUn-Ep-vIE"/>
                 <outlet property="realNameTF" destination="7Cb-d3-Y80" id="cvF-tf-xAW"/>

@@ -53,6 +53,7 @@
                                 <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                     <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category2"/>
                             </userDefinedRuntimeAttributes>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zwV-Rc-eZY" customClass="SH_WebPButton">
@@ -113,6 +114,7 @@
                                         <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                             <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category2"/>
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                             </subviews>
@@ -153,6 +155,7 @@
                                         <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                             <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category2"/>
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                             </subviews>
@@ -262,6 +265,7 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                             <real key="value" value="2"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QLz-oQ-9JM" userLabel="lineView">
@@ -315,6 +319,9 @@
                 </constraint>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="InputCodeTF" destination="kUB-Cf-MZh" id="5H6-Qc-oPg"/>
                 <outlet property="InputVerificationCodeLab" destination="qxL-Fa-b7X" id="zug-Vd-5Jx"/>

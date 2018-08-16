@@ -552,6 +552,9 @@
                 <constraint firstItem="Q2c-Mb-pm9" firstAttribute="centerY" secondItem="95P-5W-htK" secondAttribute="centerY" id="xut-Mi-amX"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="balanceLab" destination="95P-5W-htK" id="5EY-0J-L2c"/>
                 <outlet property="bandingBtn" destination="xau-X1-eQZ" id="qM5-lh-nQQ"/>

@@ -34,6 +34,7 @@
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category2"/>
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="福利账户" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAT-Ot-rab">
@@ -52,6 +53,9 @@
                     <constraint firstItem="WAT-Ot-rab" firstAttribute="trailing" secondItem="xoI-R6-qqY" secondAttribute="leading" constant="-10" id="tll-nu-1i1"/>
                 </constraints>
             </tableViewCellContentView>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="detailLab" destination="xoI-R6-qqY" id="Zef-SC-N23"/>
                 <outlet property="titleLab" destination="WAT-Ot-rab" id="Wov-Xn-eVq"/>

@@ -34,6 +34,9 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vqe-Q8-5ly">
                     <rect key="frame" x="12" y="40" width="309" height="242"/>
                     <color key="backgroundColor" red="0.3411764706" green="0.39607843139999999" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
+                    </userDefinedRuntimeAttributes>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="0.3411764705882353" green="0.396078431372549" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -65,6 +68,7 @@
                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                     <real key="value" value="2"/>
                 </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="mainTableView" destination="Vqe-Q8-5ly" id="2sM-Oh-f3z"/>
