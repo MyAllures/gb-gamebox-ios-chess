@@ -7,16 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		22037A442122FD4D00BAC60E /* input_gife.webp in Resources */ = {isa = PBXBuildFile; fileRef = 22037A432122FD4D00BAC60E /* input_gife.webp */; };
-		22037A462122FF7000BAC60E /* font_welfare.webp in Resources */ = {isa = PBXBuildFile; fileRef = 22037A452122FF7000BAC60E /* font_welfare.webp */; };
-		22037A48212300D500BAC60E /* font_fee.webp in Resources */ = {isa = PBXBuildFile; fileRef = 22037A47212300D400BAC60E /* font_fee.webp */; };
-		22037A5821230A9D00BAC60E /* chip_green.webp in Resources */ = {isa = PBXBuildFile; fileRef = 22037A5321230A9C00BAC60E /* chip_green.webp */; };
-		22037A5921230A9D00BAC60E /* chip_yellow.webp in Resources */ = {isa = PBXBuildFile; fileRef = 22037A5421230A9C00BAC60E /* chip_yellow.webp */; };
-		22037A5A21230A9D00BAC60E /* chip_black.webp in Resources */ = {isa = PBXBuildFile; fileRef = 22037A5521230A9C00BAC60E /* chip_black.webp */; };
-		22037A5B21230A9D00BAC60E /* chip_red.webp in Resources */ = {isa = PBXBuildFile; fileRef = 22037A5621230A9C00BAC60E /* chip_red.webp */; };
-		22037A5C21230A9D00BAC60E /* chip_blue.webp in Resources */ = {isa = PBXBuildFile; fileRef = 22037A5721230A9D00BAC60E /* chip_blue.webp */; };
-		22037A602123C6CA00BAC60E /* btn_promotions.webp in Resources */ = {isa = PBXBuildFile; fileRef = 22037A5F2123C6CA00BAC60E /* btn_promotions.webp */; };
-		22037A622123C81900BAC60E /* btn_player.webp in Resources */ = {isa = PBXBuildFile; fileRef = 22037A612123C81900BAC60E /* btn_player.webp */; };
 		2209026620F053D400F8828E /* SH_PromoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2209026420F053D400F8828E /* SH_PromoViewCell.m */; };
 		2209026720F053D400F8828E /* SH_PromoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2209026520F053D400F8828E /* SH_PromoViewCell.xib */; };
 		2231283420F6F26D00D1BF5E /* SH_GameBulletinModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2231283320F6F26D00D1BF5E /* SH_GameBulletinModel.m */; };
@@ -36,7 +26,6 @@
 		2274222120FE03BB003529FF /* SH_PromoListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8757D20F355F800AA0594 /* SH_PromoListView.m */; };
 		22878ECA210029E3005D7652 /* SH_SysMsgDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22878EC9210029E3005D7652 /* SH_SysMsgDetailModel.m */; };
 		228D1DC521212C3000C1B32D /* drop_down.webp in Resources */ = {isa = PBXBuildFile; fileRef = 228D1DC421212C3000C1B32D /* drop_down.webp */; };
-		228D1DC72121311400C1B32D /* nodata_bg2_slices.webp in Resources */ = {isa = PBXBuildFile; fileRef = 228D1DC62121311400C1B32D /* nodata_bg2_slices.webp */; };
 		22E486D920F9F8AE0051A68C /* SH_SysMsgDataListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E486D820F9F8AE0051A68C /* SH_SysMsgDataListModel.m */; };
 		22FC6E8421075262001FA492 /* SH_FindPSWSendCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC6E8321075262001FA492 /* SH_FindPSWSendCodeView.m */; };
 		22FC6E862107526E001FA492 /* SH_FindPSWSendCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FC6E852107526E001FA492 /* SH_FindPSWSendCodeView.xib */; };
@@ -59,7 +48,6 @@
 		5401C56220ECF9EA0027246D /* SH_HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C56020ECF9EA0027246D /* SH_HomeViewController.m */; };
 		5401C56320ECF9EA0027246D /* SH_HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5401C56120ECF9EA0027246D /* SH_HomeViewController.xib */; };
 		5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C56520ECFB3E0027246D /* SH_NetWorkService+Login.m */; };
-		5404EA7D2112F955004D75AA /* nodata_bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 5404EA7C2112F954004D75AA /* nodata_bg.webp */; };
 		5434E0B92112987C00DCCC49 /* SH_XibButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5434E0B82112987C00DCCC49 /* SH_XibButton.m */; };
 		5435E7C92104381C00DB809F /* SH_WebPImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5435E7C82104381C00DB809F /* SH_WebPImageView.m */; };
 		54397081210462BB0091C719 /* top-bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397022210462A30091C719 /* top-bg.webp */; };
@@ -188,7 +176,6 @@
 		54E2483C210D6DE2005C5263 /* SH_WaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E2483B210D6DE2005C5263 /* SH_WaitingView.m */; };
 		54E2483E210D6DFB005C5263 /* SH_WaitingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54E2483D210D6DFB005C5263 /* SH_WaitingView.xib */; };
 		54E24848210D9EEC005C5263 /* SH_TimeZoneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E24847210D9EEC005C5263 /* SH_TimeZoneManager.m */; };
-		54E2484A210DB7D1005C5263 /* gongxi.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54E24849210DB7D0005C5263 /* gongxi.webp */; };
 		54E24850210DDF31005C5263 /* SH_XibImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E2484F210DDF31005C5263 /* SH_XibImageView.m */; };
 		54E2485A210DE85C005C5263 /* SH_LRUManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E24852210DE85C005C5263 /* SH_LRUManager.m */; };
 		54E2485B210DE85C005C5263 /* SH_DiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E24853210DE85C005C5263 /* SH_DiskCache.m */; };
@@ -329,6 +316,19 @@
 		BF5FF8332122EFF80019EF30 /* loading-4.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5FF7F02122EFF80019EF30 /* loading-4.webp */; };
 		BF5FF8342122EFF80019EF30 /* title_bg_long.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5FF7F12122EFF80019EF30 /* title_bg_long.webp */; };
 		BF5FF842212523DE0019EF30 /* UIView+BgColor.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5FF841212523DE0019EF30 /* UIView+BgColor.m */; };
+		BF5FF860212569410019EF30 /* chip_green.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5FF8532125693F0019EF30 /* chip_green.webp */; };
+		BF5FF861212569410019EF30 /* nodata_bg2_slices.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5FF8542125693F0019EF30 /* nodata_bg2_slices.webp */; };
+		BF5FF862212569410019EF30 /* btn_player.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5FF8552125693F0019EF30 /* btn_player.webp */; };
+		BF5FF863212569410019EF30 /* chip_blue.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5FF8562125693F0019EF30 /* chip_blue.webp */; };
+		BF5FF864212569410019EF30 /* nodata_bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5FF8572125693F0019EF30 /* nodata_bg.webp */; };
+		BF5FF865212569410019EF30 /* chip_red.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5FF858212569400019EF30 /* chip_red.webp */; };
+		BF5FF866212569410019EF30 /* font_welfare.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5FF859212569400019EF30 /* font_welfare.webp */; };
+		BF5FF867212569410019EF30 /* input_gife.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5FF85A212569400019EF30 /* input_gife.webp */; };
+		BF5FF868212569410019EF30 /* chip_yellow.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5FF85B212569400019EF30 /* chip_yellow.webp */; };
+		BF5FF869212569410019EF30 /* chip_black.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5FF85C212569400019EF30 /* chip_black.webp */; };
+		BF5FF86A212569410019EF30 /* font_fee.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5FF85D212569400019EF30 /* font_fee.webp */; };
+		BF5FF86B212569410019EF30 /* gongxi.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5FF85E212569400019EF30 /* gongxi.webp */; };
+		BF5FF86C212569410019EF30 /* btn_promotions.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF5FF85F212569410019EF30 /* btn_promotions.webp */; };
 		BF66089C21070B800029C4A6 /* recovery.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF66089B21070B800029C4A6 /* recovery.webp */; };
 		BF66089E21070BC50029C4A6 /* refresh.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF66089D21070BC40029C4A6 /* refresh.webp */; };
 		BF6608A12107174A0029C4A6 /* SH_ConfirSaftyPassWordView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6608A02107174A0029C4A6 /* SH_ConfirSaftyPassWordView.m */; };
@@ -461,16 +461,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		22037A432122FD4D00BAC60E /* input_gife.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = input_gife.webp; sourceTree = "<group>"; };
-		22037A452122FF7000BAC60E /* font_welfare.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = font_welfare.webp; sourceTree = "<group>"; };
-		22037A47212300D400BAC60E /* font_fee.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = font_fee.webp; sourceTree = "<group>"; };
-		22037A5321230A9C00BAC60E /* chip_green.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = chip_green.webp; sourceTree = "<group>"; };
-		22037A5421230A9C00BAC60E /* chip_yellow.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = chip_yellow.webp; sourceTree = "<group>"; };
-		22037A5521230A9C00BAC60E /* chip_black.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = chip_black.webp; sourceTree = "<group>"; };
-		22037A5621230A9C00BAC60E /* chip_red.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = chip_red.webp; sourceTree = "<group>"; };
-		22037A5721230A9D00BAC60E /* chip_blue.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = chip_blue.webp; sourceTree = "<group>"; };
-		22037A5F2123C6CA00BAC60E /* btn_promotions.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = btn_promotions.webp; sourceTree = "<group>"; };
-		22037A612123C81900BAC60E /* btn_player.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = btn_player.webp; sourceTree = "<group>"; };
 		2209026320F053D400F8828E /* SH_PromoViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoViewCell.h; sourceTree = "<group>"; };
 		2209026420F053D400F8828E /* SH_PromoViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoViewCell.m; sourceTree = "<group>"; };
 		2209026520F053D400F8828E /* SH_PromoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PromoViewCell.xib; sourceTree = "<group>"; };
@@ -500,7 +490,6 @@
 		22878EC8210029E3005D7652 /* SH_SysMsgDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SysMsgDetailModel.h; sourceTree = "<group>"; };
 		22878EC9210029E3005D7652 /* SH_SysMsgDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SysMsgDetailModel.m; sourceTree = "<group>"; };
 		228D1DC421212C3000C1B32D /* drop_down.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = drop_down.webp; sourceTree = "<group>"; };
-		228D1DC62121311400C1B32D /* nodata_bg2_slices.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = nodata_bg2_slices.webp; sourceTree = "<group>"; };
 		22E486D720F9F8AE0051A68C /* SH_SysMsgDataListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SysMsgDataListModel.h; sourceTree = "<group>"; };
 		22E486D820F9F8AE0051A68C /* SH_SysMsgDataListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SysMsgDataListModel.m; sourceTree = "<group>"; };
 		22FC6E8221075262001FA492 /* SH_FindPSWSendCodeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_FindPSWSendCodeView.h; sourceTree = "<group>"; };
@@ -543,7 +532,6 @@
 		5401C56120ECF9EA0027246D /* SH_HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_HomeViewController.xib; sourceTree = "<group>"; };
 		5401C56420ECFB3E0027246D /* SH_NetWorkService+Login.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+Login.h"; sourceTree = "<group>"; };
 		5401C56520ECFB3E0027246D /* SH_NetWorkService+Login.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+Login.m"; sourceTree = "<group>"; };
-		5404EA7C2112F954004D75AA /* nodata_bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = nodata_bg.webp; sourceTree = "<group>"; };
 		5434E0B72112987C00DCCC49 /* SH_XibButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_XibButton.h; sourceTree = "<group>"; };
 		5434E0B82112987C00DCCC49 /* SH_XibButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_XibButton.m; sourceTree = "<group>"; };
 		5435E7C72104381C00DB809F /* SH_WebPImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_WebPImageView.h; sourceTree = "<group>"; };
@@ -725,7 +713,6 @@
 		54E2483D210D6DFB005C5263 /* SH_WaitingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_WaitingView.xib; sourceTree = "<group>"; };
 		54E24846210D9EEC005C5263 /* SH_TimeZoneManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_TimeZoneManager.h; sourceTree = "<group>"; };
 		54E24847210D9EEC005C5263 /* SH_TimeZoneManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_TimeZoneManager.m; sourceTree = "<group>"; };
-		54E24849210DB7D0005C5263 /* gongxi.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = gongxi.webp; sourceTree = "<group>"; };
 		54E2484E210DDF31005C5263 /* SH_XibImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_XibImageView.h; sourceTree = "<group>"; };
 		54E2484F210DDF31005C5263 /* SH_XibImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_XibImageView.m; sourceTree = "<group>"; };
 		54E24852210DE85C005C5263 /* SH_LRUManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_LRUManager.m; sourceTree = "<group>"; };
@@ -908,6 +895,19 @@
 		BF5FF7F12122EFF80019EF30 /* title_bg_long.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = title_bg_long.webp; sourceTree = "<group>"; };
 		BF5FF840212523DE0019EF30 /* UIView+BgColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+BgColor.h"; sourceTree = "<group>"; };
 		BF5FF841212523DE0019EF30 /* UIView+BgColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+BgColor.m"; sourceTree = "<group>"; };
+		BF5FF8532125693F0019EF30 /* chip_green.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = chip_green.webp; sourceTree = "<group>"; };
+		BF5FF8542125693F0019EF30 /* nodata_bg2_slices.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = nodata_bg2_slices.webp; sourceTree = "<group>"; };
+		BF5FF8552125693F0019EF30 /* btn_player.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = btn_player.webp; sourceTree = "<group>"; };
+		BF5FF8562125693F0019EF30 /* chip_blue.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = chip_blue.webp; sourceTree = "<group>"; };
+		BF5FF8572125693F0019EF30 /* nodata_bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = nodata_bg.webp; sourceTree = "<group>"; };
+		BF5FF858212569400019EF30 /* chip_red.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = chip_red.webp; sourceTree = "<group>"; };
+		BF5FF859212569400019EF30 /* font_welfare.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = font_welfare.webp; sourceTree = "<group>"; };
+		BF5FF85A212569400019EF30 /* input_gife.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = input_gife.webp; sourceTree = "<group>"; };
+		BF5FF85B212569400019EF30 /* chip_yellow.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = chip_yellow.webp; sourceTree = "<group>"; };
+		BF5FF85C212569400019EF30 /* chip_black.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = chip_black.webp; sourceTree = "<group>"; };
+		BF5FF85D212569400019EF30 /* font_fee.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = font_fee.webp; sourceTree = "<group>"; };
+		BF5FF85E212569400019EF30 /* gongxi.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = gongxi.webp; sourceTree = "<group>"; };
+		BF5FF85F212569410019EF30 /* btn_promotions.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = btn_promotions.webp; sourceTree = "<group>"; };
 		BF66089B21070B800029C4A6 /* recovery.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = recovery.webp; sourceTree = "<group>"; };
 		BF66089D21070BC40029C4A6 /* refresh.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = refresh.webp; sourceTree = "<group>"; };
 		BF66089F2107174A0029C4A6 /* SH_ConfirSaftyPassWordView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ConfirSaftyPassWordView.h; sourceTree = "<group>"; };
@@ -1936,18 +1936,19 @@
 		BF5FF7AE2122EFF80019EF30 /* webpRes1 */ = {
 			isa = PBXGroup;
 			children = (
-				22037A612123C81900BAC60E /* btn_player.webp */,
-				22037A5F2123C6CA00BAC60E /* btn_promotions.webp */,
-				5404EA7C2112F954004D75AA /* nodata_bg.webp */,
-				228D1DC62121311400C1B32D /* nodata_bg2_slices.webp */,
-				22037A5521230A9C00BAC60E /* chip_black.webp */,
-				22037A5721230A9D00BAC60E /* chip_blue.webp */,
-				22037A5321230A9C00BAC60E /* chip_green.webp */,
-				22037A5621230A9C00BAC60E /* chip_red.webp */,
-				22037A5421230A9C00BAC60E /* chip_yellow.webp */,
-				22037A47212300D400BAC60E /* font_fee.webp */,
-				22037A452122FF7000BAC60E /* font_welfare.webp */,
-				22037A432122FD4D00BAC60E /* input_gife.webp */,
+				BF5FF8552125693F0019EF30 /* btn_player.webp */,
+				BF5FF85F212569410019EF30 /* btn_promotions.webp */,
+				BF5FF85C212569400019EF30 /* chip_black.webp */,
+				BF5FF8562125693F0019EF30 /* chip_blue.webp */,
+				BF5FF8532125693F0019EF30 /* chip_green.webp */,
+				BF5FF858212569400019EF30 /* chip_red.webp */,
+				BF5FF85B212569400019EF30 /* chip_yellow.webp */,
+				BF5FF85D212569400019EF30 /* font_fee.webp */,
+				BF5FF859212569400019EF30 /* font_welfare.webp */,
+				BF5FF85E212569400019EF30 /* gongxi.webp */,
+				BF5FF85A212569400019EF30 /* input_gife.webp */,
+				BF5FF8572125693F0019EF30 /* nodata_bg.webp */,
+				BF5FF8542125693F0019EF30 /* nodata_bg2_slices.webp */,
 				BF5FF7AF2122EFF80019EF30 /* table_bg.webp */,
 				BF5FF7B02122EFF80019EF30 /* top_bg2.webp */,
 				BF5FF7B12122EFF80019EF30 /* logo03.webp */,
@@ -2015,7 +2016,6 @@
 				BF5FF7EF2122EFF80019EF30 /* title_bg_short.webp */,
 				BF5FF7F02122EFF80019EF30 /* loading-4.webp */,
 				BF5FF7F12122EFF80019EF30 /* title_bg_long.webp */,
-				54E24849210DB7D0005C5263 /* gongxi.webp */,
 			);
 			path = webpRes1;
 			sourceTree = "<group>";
@@ -2555,8 +2555,8 @@
 				BF5FF8272122EFF80019EF30 /* game-back.webp in Resources */,
 				543970B6210462BB0091C719 /* footer-bg.webp in Resources */,
 				BFA7DEB12105E58900DD731F /* mark.webp in Resources */,
-				22037A442122FD4D00BAC60E /* input_gife.webp in Resources */,
 				BF5C0BCD2105B8330035B754 /* SH_ProfitExchangeView.xib in Resources */,
+				BF5FF868212569410019EF30 /* chip_yellow.webp in Resources */,
 				BF5FF8192122EFF80019EF30 /* logo11.webp in Resources */,
 				543970C1210462BB0091C719 /* login_button_click.webp in Resources */,
 				BF5FF82F2122EFF80019EF30 /* btn_income.webp in Resources */,
@@ -2571,6 +2571,7 @@
 				BF5FF80A2122EFF80019EF30 /* visitor.webp in Resources */,
 				BF5FF81C2122EFF80019EF30 /* btn_blue.webp in Resources */,
 				BF5FF8152122EFF80019EF30 /* btn_green_action.webp in Resources */,
+				BF5FF865212569410019EF30 /* chip_red.webp in Resources */,
 				BF45748721074C0E006246B4 /* SH_FindPSWView.xib in Resources */,
 				54D13C4E211D96AB00E07E5A /* sid in Resources */,
 				543970C9210462BB0091C719 /* select2.webp in Resources */,
@@ -2583,14 +2584,15 @@
 				54C8758D20F498E200AA0594 /* SH_GameItemView.xib in Resources */,
 				BFA068AB20FD86BF00F5ADFE /* SH_OutCoinDetailTableViewCell.xib in Resources */,
 				54825478211A8FFE00ECBD5B /* SH_SmallWindowViewController.xib in Resources */,
+				BF5FF864212569410019EF30 /* nodata_bg.webp in Resources */,
 				BF5FF8252122EFF80019EF30 /* effects_star2.webp in Resources */,
 				54397089210462BB0091C719 /* arrow.webp in Resources */,
 				BFFC845C20F2F260008AD801 /* RH_RechargeCenterFooterView.xib in Resources */,
+				BF5FF863212569410019EF30 /* chip_blue.webp in Resources */,
 				547BCDF5210AF43100D7082F /* table-bg.webp in Resources */,
 				BF5FF82C2122EFF80019EF30 /* btn_blue_long_action.webp in Resources */,
 				BF5FF79621226CA40019EF30 /* show_messge.webp in Resources */,
 				543970CE210462BB0091C719 /* login_button_long.webp in Resources */,
-				22037A5A21230A9D00BAC60E /* chip_black.webp in Resources */,
 				BFA068BE20FE053A00F5ADFE /* SH_ProfitAlertView.xib in Resources */,
 				BF44EC6620F4878300BC6EF3 /* SH_NavigationView.xib in Resources */,
 				BF5C0BDB2105D9190035B754 /* SH_FillRealNameView.xib in Resources */,
@@ -2603,6 +2605,7 @@
 				54E7D2E7210726390069F2CE /* mearkRead.webp in Resources */,
 				543970D1210462BB0091C719 /* unselect.webp in Resources */,
 				BFA2EBDB211AF0E900B2678F /* iconImage.webp in Resources */,
+				BF5FF86B212569410019EF30 /* gongxi.webp in Resources */,
 				54DD034C21096C1400CE9199 /* classify-main.webp in Resources */,
 				BF5FF7FA2122EFF80019EF30 /* btn_return.webp in Resources */,
 				22FC6E862107526E001FA492 /* SH_FindPSWSendCodeView.xib in Resources */,
@@ -2616,13 +2619,13 @@
 				54DD034D21096C1400CE9199 /* btn-news.webp in Resources */,
 				DA334C0221148A8800290D86 /* SH_RegistRulerView.xib in Resources */,
 				543970BF210462BB0091C719 /* game_chess_34_870.webp in Resources */,
-				22037A462122FF7000BAC60E /* font_welfare.webp in Resources */,
 				54397096210462BB0091C719 /* title_bg_long.webp in Resources */,
 				BF5FF8172122EFF80019EF30 /* left_bg.webp in Resources */,
 				BF5FF8042122EFF80019EF30 /* photo_male.webp in Resources */,
 				BF44EC6120F45DB500BC6EF3 /* SH_BitCoinTextView.xib in Resources */,
 				BF5FF8062122EFF80019EF30 /* logo09.webp in Resources */,
 				BF5FF7F22122EFF80019EF30 /* table_bg.webp in Resources */,
+				BF5FF86C212569410019EF30 /* btn_promotions.webp in Resources */,
 				BF5FF80B2122EFF80019EF30 /* loading_eaIcon2.webp in Resources */,
 				54E7D2EB210726710069F2CE /* choose.webp in Resources */,
 				543970EE21046E200091C719 /* noaccess.webp in Resources */,
@@ -2630,10 +2633,11 @@
 				BF44ECD120F59A6300BC6EF3 /* SH_RechargeDetailBankView.xib in Resources */,
 				BF5C0BD62105D3530035B754 /* SH_ProfitExchangeTableViewCell.xib in Resources */,
 				BF5FF7F72122EFF80019EF30 /* logo14.webp in Resources */,
-				54E2484A210DB7D1005C5263 /* gongxi.webp in Resources */,
 				54C875BA20FB788D00AA0594 /* SH_NoAccessViewController.xib in Resources */,
 				BF5FF7FC2122EFF80019EF30 /* update.webp in Resources */,
 				BF5FF7F32122EFF80019EF30 /* top_bg2.webp in Resources */,
+				BF5FF86A212569410019EF30 /* font_fee.webp in Resources */,
+				BF5FF862212569410019EF30 /* btn_player.webp in Resources */,
 				BF5FF8322122EFF80019EF30 /* title_bg_short.webp in Resources */,
 				543970AC210462BB0091C719 /* select.webp in Resources */,
 				54397081210462BB0091C719 /* top-bg.webp in Resources */,
@@ -2665,7 +2669,6 @@
 				BF5FF7FF2122EFF80019EF30 /* btn_refresh.webp in Resources */,
 				54C875C820FCBE1900AA0594 /* SH_DZGameItemView.xib in Resources */,
 				543970B2210462BB0091C719 /* unselect2.webp in Resources */,
-				22037A5C21230A9D00BAC60E /* chip_blue.webp in Resources */,
 				54C8761B20FE218B00AA0594 /* snow.png in Resources */,
 				BF5FF8212122EFF80019EF30 /* loading-2.webp in Resources */,
 				BF5FF8142122EFF80019EF30 /* column_bg.webp in Resources */,
@@ -2695,6 +2698,7 @@
 				BF5FF80F2122EFF80019EF30 /* loading_eaIcon3.webp in Resources */,
 				543970B5210462BB0091C719 /* Rounded-bg.webp in Resources */,
 				5439709D210462BB0091C719 /* light.webp in Resources */,
+				BF5FF869212569410019EF30 /* chip_black.webp in Resources */,
 				54397097210462BB0091C719 /* icon_coin.webp in Resources */,
 				BF5FF7F82122EFF80019EF30 /* required.webp in Resources */,
 				DA1BCC9020FEC91200201DBC /* SH_CardRecordTableViewCell.xib in Resources */,
@@ -2712,7 +2716,6 @@
 				BF5FF8032122EFF80019EF30 /* logo13.webp in Resources */,
 				543970C5210462BB0091C719 /* promo_bg.webp in Resources */,
 				228D1DC521212C3000C1B32D /* drop_down.webp in Resources */,
-				22037A622123C81900BAC60E /* btn_player.webp in Resources */,
 				54397085210462BB0091C719 /* logo07.webp in Resources */,
 				DA1BCD782100B10300201DBC /* SH_ShareView.xib in Resources */,
 				54E7D2E9210726580069F2CE /* down.webp in Resources */,
@@ -2721,9 +2724,6 @@
 				DA6EE1BF20F8BEDA009A01C5 /* SH_UserInformationView.xib in Resources */,
 				BF7B08C62101CF33008256FE /* SH_NiceDatePickerView.xib in Resources */,
 				BF5FF81D2122EFF80019EF30 /* loading-3.webp in Resources */,
-				5404EA7D2112F955004D75AA /* nodata_bg.webp in Resources */,
-				22037A5921230A9D00BAC60E /* chip_yellow.webp in Resources */,
-				22037A5821230A9D00BAC60E /* chip_green.webp in Resources */,
 				22618C692109755100E4A6F6 /* SH_WelfareNotesTableViewCell.xib in Resources */,
 				BF5FF7AA212281E80019EF30 /* SH_ApplyFailTableViewCell.xib in Resources */,
 				BF5FF7A321227BF70019EF30 /* error.webp in Resources */,
@@ -2737,7 +2737,6 @@
 				543970B9210462BB0091C719 /* middle-bg.webp in Resources */,
 				BF44ECC320F4B53A00BC6EF3 /* SH_RechargeDetailHeadView.xib in Resources */,
 				BFFC845920F2F260008AD801 /* DepositeHeadCollectionReusableView.xib in Resources */,
-				22037A48212300D500BAC60E /* font_fee.webp in Resources */,
 				BF5FF8132122EFF80019EF30 /* logo12.webp in Resources */,
 				543970CF210462BB0091C719 /* title_bg.webp in Resources */,
 				BF5FF81A2122EFF80019EF30 /* btn_top_recharge.webp in Resources */,
@@ -2759,8 +2758,8 @@
 				54C8759F20F756A500AA0594 /* showAlertRing.mp3 in Resources */,
 				BF5FF8242122EFF80019EF30 /* logo10.webp in Resources */,
 				BF5FF8222122EFF80019EF30 /* menu_bg.webp in Resources */,
-				22037A602123C6CA00BAC60E /* btn_promotions.webp in Resources */,
 				BFA0688D20FC70C200F5ADFE /* SH_PrifitOutCoinView.xib in Resources */,
+				BF5FF861212569410019EF30 /* nodata_bg2_slices.webp in Resources */,
 				BF44ECF720F7399800BC6EF3 /* SH_PopSubViewTableViewCell.xib in Resources */,
 				BFA068D420FE154000F5ADFE /* SH_BankCardView.xib in Resources */,
 				BF5FF7F62122EFF80019EF30 /* deco.webp in Resources */,
@@ -2770,12 +2769,14 @@
 				22618C6F2109E7C900E4A6F6 /* SH_HandRecordView.xib in Resources */,
 				BF5FF8232122EFF80019EF30 /* logo06.webp in Resources */,
 				54397083210462BB0091C719 /* effects_man._defaultwebp in Resources */,
+				BF5FF867212569410019EF30 /* input_gife.webp in Resources */,
 				BF44ECF220F7259300BC6EF3 /* SH_PreferentialPopSubView.xib in Resources */,
 				54C8761820FE218B00AA0594 /* leaves.png in Resources */,
+				BF5FF866212569410019EF30 /* font_welfare.webp in Resources */,
 				543970D4210462BB0091C719 /* notice_bg.webp in Resources */,
-				22037A5B21230A9D00BAC60E /* chip_red.webp in Resources */,
 				54397094210462BB0091C719 /* start_bg.webp in Resources */,
 				BFA068B320FD9C3300F5ADFE /* SH_LookJiHeTableViewCell.xib in Resources */,
+				BF5FF860212569410019EF30 /* chip_green.webp in Resources */,
 				543970BC210462BB0091C719 /* green.webp in Resources */,
 				54C8763B2100B04300AA0594 /* SH_HorizontalscreenPicker.xib in Resources */,
 				BF44ECCB20F4D6CC00BC6EF3 /* SH_RechargeDetailMainSubmitView.xib in Resources */,
@@ -2785,7 +2786,6 @@
 				BF5FF82B2122EFF80019EF30 /* loading-5.webp in Resources */,
 				BF5FF8092122EFF80019EF30 /* arrow_next.webp in Resources */,
 				DA1BCC8520FE06E900201DBC /* SH_CardRecordHeaderView.xib in Resources */,
-				228D1DC72121311400C1B32D /* nodata_bg2_slices.webp in Resources */,
 				54DD0368210AAD6C00CE9199 /* search-bg.webp in Resources */,
 				BF5FF8282122EFF80019EF30 /* rounded_bg.webp in Resources */,
 				BF5FF81F2122EFF80019EF30 /* circular.webp in Resources */,
