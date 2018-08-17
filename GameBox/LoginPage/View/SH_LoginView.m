@@ -349,7 +349,7 @@
             showMessage(window, @"您账户已被停用,暂不支持登录", nil) ;
         }else
         {
-            showMessage(window, @"用户名或密码错误", nil);
+            showMessage(window, [result objectForKey:@"message"], nil);
         }
     }else if(![[result objectForKey:@"propMessages"] isEqual:[NSNull null]])
     {
