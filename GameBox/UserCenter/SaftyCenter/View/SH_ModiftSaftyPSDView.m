@@ -155,7 +155,6 @@
 }
 //设置验证码
 -(void)verificationImage{
-    __weak typeof(self) weakSelf = self;
     //获取验证码接口
     [SH_NetWorkService getSaftyVericationCodeSuccess:^(NSHTTPURLResponse *httpURLResponse, id response) {
         __block UIImage *image = [[UIImage alloc]init];
@@ -166,7 +165,7 @@
             }
             //回到主线程更新UI
             dispatch_async(dispatch_get_main_queue(), ^{
-                [weakSelf.verificationBtn setImage:image forState:UIControlStateNormal];
+                [self.verificationBtn setImage:image forState:UIControlStateNormal];
             });
         });
         

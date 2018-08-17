@@ -67,7 +67,6 @@
 }
 #pragma mark --- 获取玩家个人信息数据
 -(void)loadUserInfomationData{
-    __weak  typeof(self)  weakSelf = self;
     [SH_NetWorkService  fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary * dict = ConvertToClassPointer(NSDictionary, response);
         if ([dict[@"code"] isEqualToString:@"0"]) {
@@ -78,7 +77,7 @@
             [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
             //通知首页余额刷新
             [[NSNotificationCenter defaultCenter] postNotificationName:@"configUI" object:nil];
-            [weakSelf  configUI];
+            [self  configUI];
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         

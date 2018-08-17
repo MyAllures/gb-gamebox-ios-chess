@@ -42,13 +42,13 @@
     self.realName = realName;
     self.accountNum = accountNum;
     self.orderNum = orderNum;
-      __weak typeof(self) weakSelf = self;
+     
     //请求优惠
     [SH_NetWorkService getNormalDepositeNum:self.money Payway:self.channelModel.depositWay PayAccountId:self.channelModel.searchId Complete:^(SH_BitCoinSaleModel *model) {
         SH_PreferentialPopView *popView = [[SH_PreferentialPopView alloc]initWithFrame:CGRectMake(0, 0, screenSize().width, screenSize().height)];
         popView.delegate  =  self;
         [popView popViewShow];
-        [popView updateUIWithSaleModel:model Money:weakSelf.money];
+        [popView updateUIWithSaleModel:model Money:self.money];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];

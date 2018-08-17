@@ -81,12 +81,12 @@
     self.dataArray = [NSMutableArray array];
     self.selectedStatusArray = [NSMutableArray array];
     self.sectionTitles = @[@"",@"付款方式",@"请选择或输入金额"];
-      __weak typeof(self) weakSelf = self;
+    
     [SH_NetWorkService RechargeCenterComplete:^(NSArray *array) {
         NSArray *platforms= array;
-        [weakSelf.dataArray addObject:platforms?platforms:[NSArray array]];
+        [self.dataArray addObject:platforms?platforms:[NSArray array]];
         if (platforms.count > 0) {
-            weakSelf.platformModel = platforms[0];
+            self.platformModel = platforms[0];
             //添加第一组cell选择状态
             NSMutableArray *sectionOneArray = [NSMutableArray array];
             for (int i = 0; i < platforms.count; i++) {
@@ -96,19 +96,19 @@
                     [sectionOneArray addObject:@"unSelected"];
                 }
             }
-            [weakSelf.selectedStatusArray addObject:sectionOneArray];
+            [self.selectedStatusArray addObject:sectionOneArray];
             SH_RechargeCenterPlatformModel *platformModel = platforms[0];
             
             //请求默认的第一个
             [SH_NetWorkService RechargeCenterPayway:platformModel.code Complete:^(SH_RechargeCenterPaywayModel *model) {
                 SH_RechargeCenterPaywayModel *paywayModel = model;
-                weakSelf.paywayModel = paywayModel;
+                self.paywayModel = paywayModel;
                 NSArray *payways = paywayModel.arrayList;
                 NSArray *moneys = paywayModel.quickMoneys;
                 if (payways.count > 0) {
-                    weakSelf.channelModel = payways[0];
-                    [weakSelf.channelModelArray removeAllObjects];
-                    [weakSelf.channelModelArray addObjectsFromArray:payways];
+                    self.channelModel = payways[0];
+                    [self.channelModelArray removeAllObjects];
+                    [self.channelModelArray addObjectsFromArray:payways];
                 }
                 NSMutableArray *sectionTwoArray = [NSMutableArray array];
                 for (int i = 0; i < payways.count; i++) {
@@ -131,21 +131,21 @@
                             [chooseMoneyArray addObject:dic];
                     }
                 }
-                [weakSelf.selectedStatusArray addObject:sectionTwoArray];
-                [weakSelf.selectedStatusArray addObject:sectionThreeArray];
-                [weakSelf.dataArray addObject:payways?payways:[NSArray array]];
-                [weakSelf.dataArray addObject:chooseMoneyArray?chooseMoneyArray:[NSArray array]];
-                [weakSelf.mainCollectionView reloadData];
+                [self.selectedStatusArray addObject:sectionTwoArray];
+                [self.selectedStatusArray addObject:sectionThreeArray];
+                [self.dataArray addObject:payways?payways:[NSArray array]];
+                [self.dataArray addObject:chooseMoneyArray?chooseMoneyArray:[NSArray array]];
+                [self.mainCollectionView reloadData];
                 
-                if ([weakSelf.mainCollectionView.mj_header isRefreshing]) {
+                if ([self.mainCollectionView.mj_header isRefreshing]) {
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                        [weakSelf.mainCollectionView.mj_header endRefreshing];
+                        [self.mainCollectionView.mj_header endRefreshing];
                     });
                 }
             } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-                if ([weakSelf.mainCollectionView.mj_header isRefreshing]) {
+                if ([self.mainCollectionView.mj_header isRefreshing]) {
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                        [weakSelf.mainCollectionView.mj_header endRefreshing];
+                        [self.mainCollectionView.mj_header endRefreshing];
                     });
                 }
             }];
@@ -156,7 +156,7 @@
     }];
 }
 -(void)configUI{
-     __weak typeof(self) weakSelf = self;
+    
     [self.tipLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
         make.height.equalTo(@20);
@@ -164,7 +164,7 @@
     }];
     [self.mainCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.view);
-        make.top.equalTo(weakSelf.tipLab.mas_bottom);
+        make.top.equalTo(self.tipLab.mas_bottom);
     }];
    
     [self.mainCollectionView registerNib:[UINib nibWithNibName:@"SH_DepositeWayCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"SH_DepositeWayCollectionViewCell"];
@@ -224,26 +224,26 @@
                 [self.navigationController pushViewController:vc animated:YES];
             }
         }
-          __weak typeof(self) weakSelf = self;
+        
         [SH_RechargeCenterDataHandle dealSelectedStatusWithSlectedArray:self.selectedStatusArray indexPath:indexPath DataArray:self.dataArray ChannelArray:self.channelModelArray Block:^(SH_RechargeCenterChannelModel *model,NSArray *titles,SH_RechargeCenterPaywayModel *paywayModel) {
             if (paywayModel) {
-                weakSelf.paywayModel = paywayModel;
+                self.paywayModel = paywayModel;
             }
-            weakSelf.channelModel = model;
-            weakSelf.sectionTitles = titles;
+            self.channelModel = model;
+            self.sectionTitles = titles;
             if (indexPath.section == 0) {
                 if ([self.platformModel.code isEqualToString:@"bitcoin"]){
                     SH_BitCoinViewController *bvc = [[SH_BitCoinViewController alloc]init];
-                    bvc.channelModel = weakSelf.channelModel;
-                    [weakSelf.navigationController pushViewController:bvc animated:YES];
+                    bvc.channelModel = self.channelModel;
+                    [self.navigationController pushViewController:bvc animated:YES];
                 }
             }else{
                 if (titles.count == 2) {
                     //表示选中的是在线支付
-                    weakSelf.number = [NSString stringWithFormat:@"%@",weakSelf.dataArray[indexPath.section][indexPath.row][@"num"]];
+                    self.number = [NSString stringWithFormat:@"%@",self.dataArray[indexPath.section][indexPath.row][@"num"]];
                 }
             }
-            [weakSelf.mainCollectionView reloadData];
+            [self.mainCollectionView reloadData];
         }];
     }
    
@@ -372,12 +372,12 @@
 #pragma mark--请求优惠接口
 -(void)requestNormalPreferential{
     //获取优惠接口
-      __weak typeof(self) weakSelf = self;
+    
     [SH_NetWorkService getNormalDepositeNum:self.number Payway:self.channelModel.depositWay PayAccountId:self.channelModel.searchId Complete:^(SH_BitCoinSaleModel *model) {
         SH_PreferentialPopView *popView = [[SH_PreferentialPopView alloc]initWithFrame:CGRectMake(0, 0, screenSize().width, screenSize().height)];
-        popView.delegate  =  weakSelf;
+        popView.delegate  =  self;
         [popView popViewShow];
-        [popView updateUIWithSaleModel:model Money:weakSelf.number];
+        [popView updateUIWithSaleModel:model Money:self.number];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];

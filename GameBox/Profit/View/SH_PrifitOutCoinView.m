@@ -139,11 +139,10 @@
 }
 
 -(void)caculateWithMoney:(NSString *)money{
-    __weak typeof(self) weakSelf = self;
     //计算手续费
     [SH_NetWorkService caculateOutCoinFeeWithNum:self.numTextField.text Complete:^(SH_FeeModel *model) {
-        weakSelf.feeLab.text = [NSString stringWithFormat:@"%.2f",[model.counterFee floatValue]];
-        weakSelf.feeModel = model;
+        self.feeLab.text = [NSString stringWithFormat:@"%.2f",[model.counterFee floatValue]];
+        self.feeModel = model;
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
