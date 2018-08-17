@@ -18,12 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    __weak typeof(self) weakSelf = self;
-
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         UIStoryboard *mainSB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         LineCheckViewController *lineCheckViewController = [mainSB instantiateViewControllerWithIdentifier:@"LineCheckViewController"];
-        [weakSelf presentViewController:lineCheckViewController animated:NO completion:nil];
+        [self presentViewController:lineCheckViewController animated:NO completion:nil];
     });
 }
 
