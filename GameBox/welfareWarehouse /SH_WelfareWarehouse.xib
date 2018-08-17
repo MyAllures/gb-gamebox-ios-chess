@@ -24,7 +24,7 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="left_bg"/>
                     </userDefinedRuntimeAttributes>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dPZ-j1-OMu" customClass="SH_WebPButton">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dPZ-j1-OMu" customClass="SH_WebPButton">
                     <rect key="frame" x="8" y="10" width="119" height="46"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="46" id="h8g-gj-zZd">
@@ -37,13 +37,19 @@
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long-click"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="tapAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Mmf-yE-DC8"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nkw-RR-bcL" customClass="SH_WebPButton">
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nkw-RR-bcL" customClass="SH_WebPButton">
                     <rect key="frame" x="8" y="66" width="119" height="46"/>
                     <state key="normal" title="支取"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="tapAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="kok-BT-Zsh"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9C-XS-0tw">
                     <rect key="frame" x="143" y="103" width="333" height="192"/>
@@ -56,7 +62,11 @@
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                 </constraint>
-                                <constraint firstAttribute="height" constant="42" id="Rbm-s1-rYf"/>
+                                <constraint firstAttribute="height" constant="42" id="Rbm-s1-rYf">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="input_top_bg"/>
@@ -270,7 +280,11 @@
                 <constraint firstItem="lGf-lZ-CHA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="tvh-9d-J2e"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-92" y="93"/>
+            <connections>
+                <outlet property="depositBtn" destination="dPZ-j1-OMu" id="PvP-Sw-cGY"/>
+                <outlet property="withdrawalBtn" destination="nkw-RR-bcL" id="4Nu-hw-rsq"/>
+            </connections>
+            <point key="canvasLocation" x="-163" y="87"/>
         </view>
     </objects>
     <resources>
