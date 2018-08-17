@@ -582,7 +582,7 @@
     }
     SH_WelfareWarehouse *view = [[NSBundle mainBundle]loadNibNamed:@"SH_WelfareWarehouse" owner:nil options:nil].lastObject;
     self.acr = [SH_BigWindowViewController new];
-    self.acr.titleImageName = @"title06";
+    self.acr.titleImageName = @"title07";
     self.acr.customView = view;
     self.acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     self.acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;

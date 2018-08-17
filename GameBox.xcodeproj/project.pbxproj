@@ -121,6 +121,8 @@
 		220D1E222126B3520050C8BA /* loading-4.webp in Resources */ = {isa = PBXBuildFile; fileRef = 220D1DB22126B3510050C8BA /* loading-4.webp */; };
 		220D1E232126B3520050C8BA /* title_bg_long.webp in Resources */ = {isa = PBXBuildFile; fileRef = 220D1DB32126B3510050C8BA /* title_bg_long.webp */; };
 		220D1E242126B3520050C8BA /* error.webp in Resources */ = {isa = PBXBuildFile; fileRef = 220D1DB42126B3510050C8BA /* error.webp */; };
+		220D1E342126C5D70050C8BA /* SH_WelfareWarehouse.xib in Resources */ = {isa = PBXBuildFile; fileRef = 220D1E322126C5D70050C8BA /* SH_WelfareWarehouse.xib */; };
+		220D1E352126C5D70050C8BA /* SH_WelfareWarehouse.m in Sources */ = {isa = PBXBuildFile; fileRef = 220D1E332126C5D70050C8BA /* SH_WelfareWarehouse.m */; };
 		2231283420F6F26D00D1BF5E /* SH_GameBulletinModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2231283320F6F26D00D1BF5E /* SH_GameBulletinModel.m */; };
 		2231283720F707F500D1BF5E /* SH_SystemNotificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2231283620F707F500D1BF5E /* SH_SystemNotificationModel.m */; };
 		22552CEE20F4CCE50090EFBC /* SH_NetWorkService+Promo.m in Sources */ = {isa = PBXBuildFile; fileRef = 22552CED20F4CCE50090EFBC /* SH_NetWorkService+Promo.m */; };
@@ -455,9 +457,6 @@
 		2209026320F053D400F8828E /* SH_PromoViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoViewCell.h; sourceTree = "<group>"; };
 		2209026420F053D400F8828E /* SH_PromoViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoViewCell.m; sourceTree = "<group>"; };
 		2209026520F053D400F8828E /* SH_PromoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PromoViewCell.xib; sourceTree = "<group>"; };
-		220D1C482126621C0050C8BA /* SH_WelfareWarehouse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_WelfareWarehouse.h; sourceTree = "<group>"; };
-		220D1C492126621C0050C8BA /* SH_WelfareWarehouse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_WelfareWarehouse.m; sourceTree = "<group>"; };
-		220D1C4B212662240050C8BA /* SH_WelfareWarehouse.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_WelfareWarehouse.xib; sourceTree = "<group>"; };
 		220D1D452126B3510050C8BA /* input_safe.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = input_safe.webp; sourceTree = "<group>"; };
 		220D1D462126B3510050C8BA /* input_coin.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = input_coin.webp; sourceTree = "<group>"; };
 		220D1D472126B3510050C8BA /* table_bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = table_bg.webp; sourceTree = "<group>"; };
@@ -570,6 +569,9 @@
 		220D1DB22126B3510050C8BA /* loading-4.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "loading-4.webp"; sourceTree = "<group>"; };
 		220D1DB32126B3510050C8BA /* title_bg_long.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = title_bg_long.webp; sourceTree = "<group>"; };
 		220D1DB42126B3510050C8BA /* error.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = error.webp; sourceTree = "<group>"; };
+		220D1E312126C5D60050C8BA /* SH_WelfareWarehouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_WelfareWarehouse.h; sourceTree = "<group>"; };
+		220D1E322126C5D70050C8BA /* SH_WelfareWarehouse.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SH_WelfareWarehouse.xib; sourceTree = "<group>"; };
+		220D1E332126C5D70050C8BA /* SH_WelfareWarehouse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_WelfareWarehouse.m; sourceTree = "<group>"; };
 		2231283220F6F26D00D1BF5E /* SH_GameBulletinModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_GameBulletinModel.h; sourceTree = "<group>"; };
 		2231283320F6F26D00D1BF5E /* SH_GameBulletinModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_GameBulletinModel.m; sourceTree = "<group>"; };
 		2231283520F707F500D1BF5E /* SH_SystemNotificationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SystemNotificationModel.h; sourceTree = "<group>"; };
@@ -1132,16 +1134,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		220D1C47212661F80050C8BA /* welfareWarehouse  */ = {
-			isa = PBXGroup;
-			children = (
-				220D1C482126621C0050C8BA /* SH_WelfareWarehouse.h */,
-				220D1C492126621C0050C8BA /* SH_WelfareWarehouse.m */,
-				220D1C4B212662240050C8BA /* SH_WelfareWarehouse.xib */,
-			);
-			path = "welfareWarehouse ";
-			sourceTree = "<group>";
-		};
 		220D1D442126B3510050C8BA /* webpRes1 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1261,6 +1253,16 @@
 			path = webpRes1;
 			sourceTree = "<group>";
 		};
+		220D1E302126C5C90050C8BA /* welfareWarehouse  */ = {
+			isa = PBXGroup;
+			children = (
+				220D1E312126C5D60050C8BA /* SH_WelfareWarehouse.h */,
+				220D1E332126C5D70050C8BA /* SH_WelfareWarehouse.m */,
+				220D1E322126C5D70050C8BA /* SH_WelfareWarehouse.xib */,
+			);
+			path = "welfareWarehouse ";
+			sourceTree = "<group>";
+		};
 		2224CB6D20EF8C3100E6872B /* Promo */ = {
 			isa = PBXGroup;
 			children = (
@@ -1330,8 +1332,8 @@
 		5401C52E20ECA10F0027246D /* GameBox */ = {
 			isa = PBXGroup;
 			children = (
+				220D1E302126C5C90050C8BA /* welfareWarehouse  */,
 				220D1D442126B3510050C8BA /* webpRes1 */,
-				220D1C47212661F80050C8BA /* welfareWarehouse  */,
 				5435E7C32104349B00DB809F /* webpRes */,
 				54C8759820F7564000AA0594 /* Music */,
 				2224CB6D20EF8C3100E6872B /* Promo */,
@@ -2536,6 +2538,7 @@
 				220D1DE12126B3520050C8BA /* btn_player.webp in Resources */,
 				220D1DF62126B3520050C8BA /* left_bg.webp in Resources */,
 				220D1DD02126B3510050C8BA /* btn_refresh.webp in Resources */,
+				220D1E342126C5D70050C8BA /* SH_WelfareWarehouse.xib in Resources */,
 				220D1DBB2126B3510050C8BA /* logo03.webp in Resources */,
 				BF5C0BCD2105B8330035B754 /* SH_ProfitExchangeView.xib in Resources */,
 				543970C1210462BB0091C719 /* login_button_click.webp in Resources */,
@@ -3011,6 +3014,7 @@
 				DA21F37C20F4E97800D20672 /* SH_NetWorkService+RegistAPI.m in Sources */,
 				DA334C1021184CFB00290D86 /* SH_SiteMsgUnReadCountModel.m in Sources */,
 				DA22F40920F494C60058A54F /* UIViewController+Instance.m in Sources */,
+				220D1E352126C5D70050C8BA /* SH_WelfareWarehouse.m in Sources */,
 				BFA068B620FDE2EC00F5ADFE /* SH_JiHeModel.m in Sources */,
 				54825473211A8D0700ECBD5B /* SH_TopLevelControllerManager.m in Sources */,
 				BFD6CFC120F8901500EDBC5B /* SH_NetWorkService+Bank.m in Sources */,
