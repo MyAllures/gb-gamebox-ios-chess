@@ -46,6 +46,7 @@
 #import "SH_BigWindowViewController.h"
 #import "SH_SmallWindowViewController.h"
 #import "SH_NetWorkService+SaftyCenter.h"
+#import "SH_WelfareWarehouse.h"
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImg;
 @property (weak, nonatomic) IBOutlet UILabel *userAccountLB;
@@ -572,8 +573,21 @@
 }
 
 - (IBAction)welfareClick:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"尚未开放，敬请期待" message:@"" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-    [alert show];
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"尚未开放，敬请期待" message:@"" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+//    [alert show];
+    
+    if (![[RH_UserInfoManager shareUserManager] isLogin]) {
+        [self login];
+        return;
+    }
+    SH_WelfareWarehouse *view = [[NSBundle mainBundle]loadNibNamed:@"SH_WelfareWarehouse" owner:nil options:nil].lastObject;
+    self.acr = [SH_BigWindowViewController new];
+    self.acr.titleImageName = @"title06";
+    self.acr.customView = view;
+    self.acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    self.acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:self.acr animated:YES completion:nil];
+    
 }
 
 - (IBAction)searchAction:(id)sender {
