@@ -15,7 +15,6 @@
 @implementation SH_WelfareWarehouse
 
 - (IBAction)tapAction:(SH_WebPButton *)sender {
-    
         if (sender.tag == 0) {
             self.depositBtn.webpBGImage = @"button-long-click";
             self.withdrawalBtn.webpBGImage = @"button-long";
