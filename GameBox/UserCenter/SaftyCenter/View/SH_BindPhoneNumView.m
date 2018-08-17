@@ -189,8 +189,6 @@
 
 //绑定手机接口
 -(void)bindPhoneNum{
-    
-    __weak typeof(self) weakSelf = self;
     [SH_NetWorkService bindPhoneNum:self.NewPhoneNumTF.text OriginalPhoneNum:self.oldPhoneNumTF.text VerificationCode:self.InputCodeTF.text Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dataDic = ConvertToClassPointer(NSDictionary, response);
         NSString * code = [NSString stringWithFormat:@"%@",[dataDic objectForKey:@"code"]];

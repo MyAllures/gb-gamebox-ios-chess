@@ -80,7 +80,6 @@
 }
 //获取验证码
 -(void)getLoginVerificationCode{
-    __weak typeof(self) weakSelf = self;
     [SH_NetWorkService fetchVerifyCode:^(NSHTTPURLResponse *httpURLResponse, id response) {
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             __block UIImage *image = [[UIImage alloc]init];
@@ -89,7 +88,7 @@
                 image = [UIImage imageWithData:imageData];
             }
             dispatch_async(dispatch_get_main_queue(), ^{
-                [weakSelf.verificationBtn setImage:image forState:UIControlStateNormal];
+                [self.verificationBtn setImage:image forState:UIControlStateNormal];
             });
         });
         

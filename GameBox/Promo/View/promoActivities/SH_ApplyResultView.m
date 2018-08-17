@@ -26,10 +26,9 @@
     
 }
 -(void)loadDataWithPromoId:(NSString *)promoId{
-    __weak typeof(self) weakSelf = self;
     [SH_NetWorkService applyPromoActivitiesPromoId:promoId Sucess:^(SH__PromoApplyModel *model) {
-        weakSelf.titleLab.text = model.actibityTitle;
-        weakSelf.messageLab.text = model.applyResult;
+        self.titleLab.text = model.actibityTitle;
+        self.messageLab.text = model.applyResult;
         NSString *imageName;
         if ([model.status isEqualToString:@"1"]) {
             //成功
@@ -41,7 +40,7 @@
             //部分可领取奖励
             imageName = @"warn";
         }
-        weakSelf.iconImageView.imageName = imageName;
+        self.iconImageView.imageName = imageName;
     } Failure:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];

@@ -145,14 +145,13 @@
     self.saftyView.comeFromVC  = self.bankView.from;
     [self setUIWithSelecteBtn:self.saftyBtn SelectedView:self.saftyView];
     //这里用户要请求有没有设置过安全密码接口
-      __weak typeof(self) weakSelf = self;
     [SH_NetWorkService initUserSaftyInfoSuccess:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (![response[@"data"] isKindOfClass:[NSNull class]]) {
             NSError *err;
             RH_UserSafetyCodeModel *model = [[RH_UserSafetyCodeModel alloc]initWithDictionary:response[@"data"] error:&err];
             //更新安全模块
             [[RH_UserInfoManager shareUserManager] setUserSafetyInfo:model];
-            [weakSelf.saftyView updateView];
+            [self.saftyView updateView];
         }
     } Fail:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         

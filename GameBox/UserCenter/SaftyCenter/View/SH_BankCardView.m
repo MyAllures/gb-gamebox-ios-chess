@@ -87,7 +87,6 @@
 }
 
 -(void)bindBankcardRequeset {
-    __weak typeof(self) weakSelf = self;
     [SH_NetWorkService bindBankcardRealName:self.realNameTF.text BankName:self.bankTF.text CardNum:self.cardNumTF.text BankDeposit:self.addressTF.text?:@"" Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
         
         NSString *code = [NSString stringWithFormat:@"%@",response[@"code"]];
@@ -105,7 +104,7 @@
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                  UIViewController * svc = [SH_TopLevelControllerManager fetchTopLevelController];
                 [svc dismissViewControllerAnimated:NO completion:^{
-                    if ([weakSelf.from isEqualToString:@"profitView"]) {
+                    if ([self.from isEqualToString:@"profitView"]) {
                         //从收益跳过来要通知其刷新数据
                         [[NSNotificationCenter defaultCenter]postNotificationName:@"refreshBankNumer" object:nil];
                     }
