@@ -377,9 +377,6 @@
 		BFA2EBF7211BF1E900B2678F /* SH_PromoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA2EBF6211BF1E900B2678F /* SH_PromoModel.m */; };
 		BFA2EBFA211C174B00B2678F /* SH_PromoDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA2EBF9211C174B00B2678F /* SH_PromoDetailModel.m */; };
 		BFA7DEB42106077300DD731F /* SH_ApiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA7DEB32106077300DD731F /* SH_ApiModel.m */; };
-		BFB8A5042126B5900009F47E /* SH_test.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB8A4FE2126B5900009F47E /* SH_test.m */; };
-		BFB8A5052126B5900009F47E /* 屏幕快照 2018-08-14 15.15.05.png in Resources */ = {isa = PBXBuildFile; fileRef = BFB8A5002126B5900009F47E /* 屏幕快照 2018-08-14 15.15.05.png */; };
-		BFB8A5062126B5900009F47E /* SH_ttttt.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB8A5032126B5900009F47E /* SH_ttttt.m */; };
 		BFD6CFC120F8901500EDBC5B /* SH_NetWorkService+Bank.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFC020F8901500EDBC5B /* SH_NetWorkService+Bank.m */; };
 		BFD6CFC520F997B800EDBC5B /* SavePhotoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFC420F997B800EDBC5B /* SavePhotoTool.m */; };
 		BFD6CFCC20F9D20C00EDBC5B /* AttributeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD6CFCB20F9D20C00EDBC5B /* AttributeModel.m */; };
@@ -988,11 +985,6 @@
 		BFA2EBF9211C174B00B2678F /* SH_PromoDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PromoDetailModel.m; sourceTree = "<group>"; };
 		BFA7DEB22106077300DD731F /* SH_ApiModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ApiModel.h; sourceTree = "<group>"; };
 		BFA7DEB32106077300DD731F /* SH_ApiModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_ApiModel.m; sourceTree = "<group>"; };
-		BFB8A4FE2126B5900009F47E /* SH_test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_test.m; sourceTree = "<group>"; };
-		BFB8A4FF2126B5900009F47E /* SH_test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_test.h; sourceTree = "<group>"; };
-		BFB8A5002126B5900009F47E /* 屏幕快照 2018-08-14 15.15.05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "屏幕快照 2018-08-14 15.15.05.png"; sourceTree = "<group>"; };
-		BFB8A5022126B5900009F47E /* SH_ttttt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_ttttt.h; sourceTree = "<group>"; };
-		BFB8A5032126B5900009F47E /* SH_ttttt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_ttttt.m; sourceTree = "<group>"; };
 		BFD6CFBF20F8901500EDBC5B /* SH_NetWorkService+Bank.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+Bank.h"; sourceTree = "<group>"; };
 		BFD6CFC020F8901500EDBC5B /* SH_NetWorkService+Bank.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+Bank.m"; sourceTree = "<group>"; };
 		BFD6CFC320F997B800EDBC5B /* SavePhotoTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SavePhotoTool.h; sourceTree = "<group>"; };
@@ -1338,8 +1330,6 @@
 		5401C52E20ECA10F0027246D /* GameBox */ = {
 			isa = PBXGroup;
 			children = (
-				BFB8A4FD2126B5900009F47E /* New Group */,
-				BFB8A5012126B5900009F47E /* New Group1 */,
 				220D1D442126B3510050C8BA /* webpRes1 */,
 				220D1C47212661F80050C8BA /* welfareWarehouse  */,
 				5435E7C32104349B00DB809F /* webpRes */,
@@ -2137,25 +2127,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		BFB8A4FD2126B5900009F47E /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-				BFB8A4FE2126B5900009F47E /* SH_test.m */,
-				BFB8A4FF2126B5900009F47E /* SH_test.h */,
-				BFB8A5002126B5900009F47E /* 屏幕快照 2018-08-14 15.15.05.png */,
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
-		BFB8A5012126B5900009F47E /* New Group1 */ = {
-			isa = PBXGroup;
-			children = (
-				BFB8A5022126B5900009F47E /* SH_ttttt.h */,
-				BFB8A5032126B5900009F47E /* SH_ttttt.m */,
-			);
-			path = "New Group1";
-			sourceTree = "<group>";
-		};
 		BFD6CFBD20F88FE000EDBC5B /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -2765,7 +2736,6 @@
 				BFA068D420FE154000F5ADFE /* SH_BankCardView.xib in Resources */,
 				BF44EC5C20F4589D00BC6EF3 /* SH_BitCoinSubView.xib in Resources */,
 				220D1E142126B3520050C8BA /* btn_share.webp in Resources */,
-				BFB8A5052126B5900009F47E /* 屏幕快照 2018-08-14 15.15.05.png in Resources */,
 				220D1E032126B3520050C8BA /* input_bg2.webp in Resources */,
 				54397083210462BB0091C719 /* effects_man._defaultwebp in Resources */,
 				220D1E202126B3520050C8BA /* game-home.webp in Resources */,
@@ -2896,9 +2866,7 @@
 				BFFC846620F3043A008AD801 /* SH_RechargeCenterPaywayModel.m in Sources */,
 				BFA2EBFA211C174B00B2678F /* SH_PromoDetailModel.m in Sources */,
 				5401C56220ECF9EA0027246D /* SH_HomeViewController.m in Sources */,
-				BFB8A5062126B5900009F47E /* SH_ttttt.m in Sources */,
 				BFA068B220FD9C3300F5ADFE /* SH_LookJiHeTableViewCell.m in Sources */,
-				BFB8A5042126B5900009F47E /* SH_test.m in Sources */,
 				BFA2EBE6211BDD4400B2678F /* SH_PromoAlertTableViewCell.m in Sources */,
 				DA1BCCB321003C9B00201DBC /* CLActivityIndicatorView.m in Sources */,
 				54C21AB920F1B981006FCA0F /* SH_CycleScrollView.m in Sources */,
