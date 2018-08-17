@@ -33,7 +33,7 @@
                                 <constraint firstAttribute="width" secondItem="S3b-eD-5pP" secondAttribute="height" multiplier="485:49.5" id="iTU-5T-dym"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="title-bg-long"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="title_bg_long"/>
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KX6-7I-vXl">

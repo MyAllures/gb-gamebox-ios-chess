@@ -33,7 +33,7 @@
                                 <constraint firstAttribute="width" secondItem="7t9-Q3-EpY" secondAttribute="height" multiplier="315:46" id="3mK-wC-s4j"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="title_bg"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="title_bg_short"/>
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="title01" translatesAutoresizingMaskIntoConstraints="NO" id="w7P-wa-4h9">
@@ -93,6 +93,6 @@
         </view>
     </objects>
     <resources>
-        <image name="title01" width="60" height="22"/>
+        <image name="title01" width="62" height="25"/>
     </resources>
 </document>

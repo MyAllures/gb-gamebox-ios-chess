@@ -32,7 +32,7 @@
                                 <constraint firstAttribute="width" secondItem="pKz-b2-7jm" secondAttribute="height" multiplier="970:77" id="xvl-Fr-mI7"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="title-bg2"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="title_bg2"/>
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tqq-hG-FCW">
