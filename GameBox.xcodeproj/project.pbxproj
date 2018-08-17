@@ -123,6 +123,8 @@
 		220D1D372126AC1A0050C8BA /* loading-4.webp in Resources */ = {isa = PBXBuildFile; fileRef = 220D1CC72126AC1A0050C8BA /* loading-4.webp */; };
 		220D1D382126AC1A0050C8BA /* title_bg_long.webp in Resources */ = {isa = PBXBuildFile; fileRef = 220D1CC82126AC1A0050C8BA /* title_bg_long.webp */; };
 		220D1D392126AC1A0050C8BA /* error.webp in Resources */ = {isa = PBXBuildFile; fileRef = 220D1CC92126AC1A0050C8BA /* error.webp */; };
+		220D1D3D2126AE180050C8BA /* SH_test.m in Sources */ = {isa = PBXBuildFile; fileRef = 220D1D3C2126AE180050C8BA /* SH_test.m */; };
+		220D1D3F2126AE370050C8BA /* 屏幕快照 2018-08-14 15.15.05.png in Resources */ = {isa = PBXBuildFile; fileRef = 220D1D3E2126AE370050C8BA /* 屏幕快照 2018-08-14 15.15.05.png */; };
 		2231283420F6F26D00D1BF5E /* SH_GameBulletinModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2231283320F6F26D00D1BF5E /* SH_GameBulletinModel.m */; };
 		2231283720F707F500D1BF5E /* SH_SystemNotificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2231283620F707F500D1BF5E /* SH_SystemNotificationModel.m */; };
 		22552CEE20F4CCE50090EFBC /* SH_NetWorkService+Promo.m in Sources */ = {isa = PBXBuildFile; fileRef = 22552CED20F4CCE50090EFBC /* SH_NetWorkService+Promo.m */; };
@@ -571,6 +573,9 @@
 		220D1CC72126AC1A0050C8BA /* loading-4.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "loading-4.webp"; sourceTree = "<group>"; };
 		220D1CC82126AC1A0050C8BA /* title_bg_long.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = title_bg_long.webp; sourceTree = "<group>"; };
 		220D1CC92126AC1A0050C8BA /* error.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = error.webp; sourceTree = "<group>"; };
+		220D1D3B2126AE180050C8BA /* SH_test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_test.h; sourceTree = "<group>"; };
+		220D1D3C2126AE180050C8BA /* SH_test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_test.m; sourceTree = "<group>"; };
+		220D1D3E2126AE370050C8BA /* 屏幕快照 2018-08-14 15.15.05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "屏幕快照 2018-08-14 15.15.05.png"; sourceTree = "<group>"; };
 		2231283220F6F26D00D1BF5E /* SH_GameBulletinModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_GameBulletinModel.h; sourceTree = "<group>"; };
 		2231283320F6F26D00D1BF5E /* SH_GameBulletinModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_GameBulletinModel.m; sourceTree = "<group>"; };
 		2231283520F707F500D1BF5E /* SH_SystemNotificationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SystemNotificationModel.h; sourceTree = "<group>"; };
@@ -1261,6 +1266,16 @@
 			path = webpRes1;
 			sourceTree = "<group>";
 		};
+		220D1D3A2126AE010050C8BA /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				220D1D3E2126AE370050C8BA /* 屏幕快照 2018-08-14 15.15.05.png */,
+				220D1D3B2126AE180050C8BA /* SH_test.h */,
+				220D1D3C2126AE180050C8BA /* SH_test.m */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		2224CB6D20EF8C3100E6872B /* Promo */ = {
 			isa = PBXGroup;
 			children = (
@@ -1331,6 +1346,7 @@
 		5401C52E20ECA10F0027246D /* GameBox */ = {
 			isa = PBXGroup;
 			children = (
+				220D1D3A2126AE010050C8BA /* New Group */,
 				220D1C592126AC1A0050C8BA /* webpRes1 */,
 				220D1C47212661F80050C8BA /* welfareWarehouse  */,
 				5435E7C32104349B00DB809F /* webpRes */,
@@ -2743,6 +2759,7 @@
 				BFA068D420FE154000F5ADFE /* SH_BankCardView.xib in Resources */,
 				BF44EC5C20F4589D00BC6EF3 /* SH_BitCoinSubView.xib in Resources */,
 				220D1D292126AC1A0050C8BA /* btn_share.webp in Resources */,
+				220D1D3F2126AE370050C8BA /* 屏幕快照 2018-08-14 15.15.05.png in Resources */,
 				220D1D182126AC1A0050C8BA /* input_bg2.webp in Resources */,
 				54397083210462BB0091C719 /* effects_man._defaultwebp in Resources */,
 				220D1D352126AC1A0050C8BA /* game-home.webp in Resources */,
@@ -2852,6 +2869,7 @@
 				425A90C320F88746004B681A /* UIView+HLExtension.m in Sources */,
 				DA21F3AF20F6FCD000D20672 /* RH_RegistrationSelectView.m in Sources */,
 				54CB4E4421107CED00170B1B /* SH_CustomerServiceManager.m in Sources */,
+				220D1D3D2126AE180050C8BA /* SH_test.m in Sources */,
 				DA21F38D20F590A800D20672 /* RH_RegisetInitModel.m in Sources */,
 				BFD75A54211C6FD600AAC428 /* UIView+CornerRadius.m in Sources */,
 				BFA068A320FCBF1700F5ADFE /* SH_AuditMapModel.m in Sources */,
