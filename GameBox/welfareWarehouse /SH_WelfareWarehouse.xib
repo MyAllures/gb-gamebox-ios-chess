@@ -95,15 +95,15 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AX5-g7-O96">
                     <rect key="frame" x="143" y="8" width="333" height="87"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_info_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Z8e-rf-qnP">
-                            <rect key="frame" x="105" y="9" width="200" height="26"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Z8e-rf-qnP">
+                            <rect key="frame" x="105" y="11" width="200" height="23"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="200" id="4SJ-AP-Rnk">
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                 </constraint>
-                                <constraint firstAttribute="height" constant="26" id="oj9-dp-zEQ"/>
+                                <constraint firstAttribute="height" constant="23" id="oj9-dp-zEQ"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="bar"/>
@@ -124,7 +124,7 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2000000000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3b5-lx-1l3">
-                            <rect key="frame" x="205.5" y="15.5" width="86.5" height="14"/>
+                            <rect key="frame" x="205.5" y="15" width="86.5" height="14"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="14" id="5KJ-0h-dR8"/>
                             </constraints>
@@ -164,10 +164,10 @@
                                 <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="font_safe"/>
                             </userDefinedRuntimeAttributes>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_info_bg" translatesAutoresizingMaskIntoConstraints="NO" id="oVz-c5-F0W">
-                            <rect key="frame" x="105" y="45" width="200" height="26"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text_bg" translatesAutoresizingMaskIntoConstraints="NO" id="oVz-c5-F0W">
+                            <rect key="frame" x="105" y="47" width="200" height="23"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="26" id="feK-99-JnT"/>
+                                <constraint firstAttribute="height" constant="23" id="feK-99-JnT"/>
                                 <constraint firstAttribute="width" constant="200" id="s93-TJ-a3X"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
@@ -210,9 +210,9 @@
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </constraint>
-                        <constraint firstItem="Z8e-rf-qnP" firstAttribute="top" secondItem="AX5-g7-O96" secondAttribute="top" constant="9" id="3XF-BI-eag"/>
+                        <constraint firstItem="Z8e-rf-qnP" firstAttribute="top" secondItem="AX5-g7-O96" secondAttribute="top" constant="11" id="3XF-BI-eag"/>
                         <constraint firstItem="K04-oJ-f0Q" firstAttribute="top" secondItem="AX5-g7-O96" secondAttribute="top" constant="16" id="AF2-Ty-Wsl"/>
-                        <constraint firstAttribute="bottom" secondItem="oVz-c5-F0W" secondAttribute="bottom" constant="16" id="DV4-OT-ZmK"/>
+                        <constraint firstAttribute="bottom" secondItem="oVz-c5-F0W" secondAttribute="bottom" constant="17" id="DV4-OT-ZmK"/>
                         <constraint firstItem="Z8e-rf-qnP" firstAttribute="leading" secondItem="sif-Kz-Pff" secondAttribute="leading" constant="9" id="ENY-CT-rz8"/>
                         <constraint firstAttribute="bottom" secondItem="dGd-tg-2QO" secondAttribute="bottom" constant="8" id="FfD-Ks-ENU"/>
                         <constraint firstItem="sif-Kz-Pff" firstAttribute="top" secondItem="AX5-g7-O96" secondAttribute="top" constant="5" id="KbO-bQ-GwT"/>
@@ -228,10 +228,10 @@
                             </userDefinedRuntimeAttributes>
                         </constraint>
                         <constraint firstAttribute="height" constant="87" id="ca8-hK-Hcz"/>
-                        <constraint firstItem="YP6-PU-s77" firstAttribute="centerY" secondItem="oVz-c5-F0W" secondAttribute="centerY" id="d7k-oZ-Yln"/>
+                        <constraint firstItem="YP6-PU-s77" firstAttribute="centerY" secondItem="oVz-c5-F0W" secondAttribute="centerY" constant="-0.5" id="d7k-oZ-Yln"/>
                         <constraint firstItem="sif-Kz-Pff" firstAttribute="leading" secondItem="K04-oJ-f0Q" secondAttribute="trailing" constant="6" id="e7w-tI-dLZ"/>
                         <constraint firstItem="3b5-lx-1l3" firstAttribute="trailing" secondItem="Z8e-rf-qnP" secondAttribute="trailing" constant="-13" id="ebl-qg-R3N"/>
-                        <constraint firstItem="3b5-lx-1l3" firstAttribute="centerY" secondItem="Z8e-rf-qnP" secondAttribute="centerY" id="f7m-NX-UdS"/>
+                        <constraint firstItem="3b5-lx-1l3" firstAttribute="centerY" secondItem="Z8e-rf-qnP" secondAttribute="centerY" constant="-0.5" id="f7m-NX-UdS"/>
                         <constraint firstAttribute="trailing" secondItem="oVz-c5-F0W" secondAttribute="trailing" constant="28" id="gl4-A8-6cB">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
@@ -288,6 +288,6 @@
         </view>
     </objects>
     <resources>
-        <image name="user_info_bg" width="21" height="21"/>
+        <image name="text_bg" width="23" height="23"/>
     </resources>
 </document>
