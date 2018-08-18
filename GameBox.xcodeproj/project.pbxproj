@@ -23,7 +23,6 @@
 		220D1DC02126B3510050C8BA /* input_deco.webp in Resources */ = {isa = PBXBuildFile; fileRef = 220D1D502126B3510050C8BA /* input_deco.webp */; };
 		220D1DC12126B3510050C8BA /* font_account.webp in Resources */ = {isa = PBXBuildFile; fileRef = 220D1D512126B3510050C8BA /* font_account.webp */; };
 		220D1DC22126B3510050C8BA /* btn_blue_long.webp in Resources */ = {isa = PBXBuildFile; fileRef = 220D1D522126B3510050C8BA /* btn_blue_long.webp */; };
-		220D1DC32126B3510050C8BA /* nodata_bg2.webp in Resources */ = {isa = PBXBuildFile; fileRef = 220D1D532126B3510050C8BA /* nodata_bg2.webp */; };
 		220D1DC42126B3510050C8BA /* deco.webp in Resources */ = {isa = PBXBuildFile; fileRef = 220D1D542126B3510050C8BA /* deco.webp */; };
 		220D1DC52126B3510050C8BA /* logo14.webp in Resources */ = {isa = PBXBuildFile; fileRef = 220D1D552126B3510050C8BA /* logo14.webp */; };
 		220D1DC62126B3510050C8BA /* required.webp in Resources */ = {isa = PBXBuildFile; fileRef = 220D1D562126B3510050C8BA /* required.webp */; };
@@ -123,6 +122,7 @@
 		220D1E242126B3520050C8BA /* error.webp in Resources */ = {isa = PBXBuildFile; fileRef = 220D1DB42126B3510050C8BA /* error.webp */; };
 		220D1E342126C5D70050C8BA /* SH_WelfareWarehouse.xib in Resources */ = {isa = PBXBuildFile; fileRef = 220D1E322126C5D70050C8BA /* SH_WelfareWarehouse.xib */; };
 		220D1E352126C5D70050C8BA /* SH_WelfareWarehouse.m in Sources */ = {isa = PBXBuildFile; fileRef = 220D1E332126C5D70050C8BA /* SH_WelfareWarehouse.m */; };
+		2210ED9E2128237700D806E3 /* nodata_bg2.webp in Resources */ = {isa = PBXBuildFile; fileRef = 2210ED9D2128237600D806E3 /* nodata_bg2.webp */; };
 		2231283420F6F26D00D1BF5E /* SH_GameBulletinModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2231283320F6F26D00D1BF5E /* SH_GameBulletinModel.m */; };
 		2231283720F707F500D1BF5E /* SH_SystemNotificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2231283620F707F500D1BF5E /* SH_SystemNotificationModel.m */; };
 		22552CEE20F4CCE50090EFBC /* SH_NetWorkService+Promo.m in Sources */ = {isa = PBXBuildFile; fileRef = 22552CED20F4CCE50090EFBC /* SH_NetWorkService+Promo.m */; };
@@ -459,7 +459,6 @@
 		220D1D502126B3510050C8BA /* input_deco.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = input_deco.webp; sourceTree = "<group>"; };
 		220D1D512126B3510050C8BA /* font_account.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = font_account.webp; sourceTree = "<group>"; };
 		220D1D522126B3510050C8BA /* btn_blue_long.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = btn_blue_long.webp; sourceTree = "<group>"; };
-		220D1D532126B3510050C8BA /* nodata_bg2.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = nodata_bg2.webp; sourceTree = "<group>"; };
 		220D1D542126B3510050C8BA /* deco.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = deco.webp; sourceTree = "<group>"; };
 		220D1D552126B3510050C8BA /* logo14.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo14.webp; sourceTree = "<group>"; };
 		220D1D562126B3510050C8BA /* required.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = required.webp; sourceTree = "<group>"; };
@@ -560,6 +559,7 @@
 		220D1E312126C5D60050C8BA /* SH_WelfareWarehouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_WelfareWarehouse.h; sourceTree = "<group>"; };
 		220D1E322126C5D70050C8BA /* SH_WelfareWarehouse.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SH_WelfareWarehouse.xib; sourceTree = "<group>"; };
 		220D1E332126C5D70050C8BA /* SH_WelfareWarehouse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_WelfareWarehouse.m; sourceTree = "<group>"; };
+		2210ED9D2128237600D806E3 /* nodata_bg2.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = nodata_bg2.webp; sourceTree = "<group>"; };
 		2231283220F6F26D00D1BF5E /* SH_GameBulletinModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_GameBulletinModel.h; sourceTree = "<group>"; };
 		2231283320F6F26D00D1BF5E /* SH_GameBulletinModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_GameBulletinModel.m; sourceTree = "<group>"; };
 		2231283520F707F500D1BF5E /* SH_SystemNotificationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SystemNotificationModel.h; sourceTree = "<group>"; };
@@ -1113,6 +1113,7 @@
 		220D1D442126B3510050C8BA /* webpRes1 */ = {
 			isa = PBXGroup;
 			children = (
+				2210ED9D2128237600D806E3 /* nodata_bg2.webp */,
 				229CE8452128079700AB56E6 /* btn_large_click.webp */,
 				229CE843212805CA00AB56E6 /* btn_click.webp */,
 				229CE8412128054500AB56E6 /* btn_general.webp */,
@@ -1133,7 +1134,6 @@
 				220D1D502126B3510050C8BA /* input_deco.webp */,
 				220D1D512126B3510050C8BA /* font_account.webp */,
 				220D1D522126B3510050C8BA /* btn_blue_long.webp */,
-				220D1D532126B3510050C8BA /* nodata_bg2.webp */,
 				220D1D542126B3510050C8BA /* deco.webp */,
 				220D1D552126B3510050C8BA /* logo14.webp */,
 				220D1D562126B3510050C8BA /* required.webp */,
@@ -2572,6 +2572,7 @@
 				220D1DF02126B3520050C8BA /* back.webp in Resources */,
 				BF44EC6120F45DB500BC6EF3 /* SH_BitCoinTextView.xib in Resources */,
 				543970E7210467F90091C719 /* index_bg.webp in Resources */,
+				2210ED9E2128237700D806E3 /* nodata_bg2.webp in Resources */,
 				BF44ECD120F59A6300BC6EF3 /* SH_RechargeDetailBankView.xib in Resources */,
 				BF5C0BD62105D3530035B754 /* SH_ProfitExchangeTableViewCell.xib in Resources */,
 				220D1E102126B3520050C8BA /* photo_female.webp in Resources */,
@@ -2655,7 +2656,6 @@
 				220D1DC22126B3510050C8BA /* btn_blue_long.webp in Resources */,
 				220D1DDE2126B3510050C8BA /* arrow_next.webp in Resources */,
 				220D1DE52126B3520050C8BA /* light.webp in Resources */,
-				220D1DC32126B3510050C8BA /* nodata_bg2.webp in Resources */,
 				220D1DD92126B3510050C8BA /* game-bg.webp in Resources */,
 				220D1DB62126B3510050C8BA /* input_coin.webp in Resources */,
 				BF5FF7AA212281E80019EF30 /* SH_ApplyFailTableViewCell.xib in Resources */,
