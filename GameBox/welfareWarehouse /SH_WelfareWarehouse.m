@@ -35,6 +35,7 @@
 }
 //更新寄存UI
 -(void)updateDepositUI {
+    self.textField.text = @"";
     self.depositBtn.webpBGImage = @"button-long-click";
     self.withdrawalBtn.webpBGImage = @"button-long";
     self.numImageView.imageName = @"input_top_bg";
@@ -44,6 +45,7 @@
 }
 //更新支取UI
 -(void)updateWithdrawalUI {
+    self.textField.text = @"";
     self.numImageView.imageName = @"input_top_bg2";
     self.depositBtn.webpBGImage = @"button-long";
     self.withdrawalBtn.webpBGImage = @"button-long-click";

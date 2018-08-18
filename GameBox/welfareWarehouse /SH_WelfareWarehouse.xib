@@ -90,7 +90,7 @@
                                 <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="input_top_bg"/>
                             </userDefinedRuntimeAttributes>
                         </imageView>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fu4-MW-tp5">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fu4-MW-tp5">
                             <rect key="frame" x="40" y="52" width="255" height="26"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="26" id="leB-zL-Dj0">
@@ -99,7 +99,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </constraint>
                             </constraints>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" red="1" green="0.75294117650000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>

@@ -26,6 +26,8 @@
 
 - (void)awakeFromNib{
     [super awakeFromNib];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateRealName) name:@"realName" object:nil];
+    [self updateRealName];
     [self.chooseBankBtn ButtonPositionStyle:ButtonPositionStyleRight spacing:5];
     if ( [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard.bankcardNumber != nil) {
          //已经绑定了银行卡
@@ -60,8 +62,23 @@
         self.sureBtn.hidden = YES;
 
     }
-   
 }
+
+-(void)updateRealName {
+    if ([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length > 0) {
+        self.realNameTF.userInteractionEnabled = NO;
+        NSString *first = [[RH_UserInfoManager shareUserManager].mineSettingInfo.realName substringWithRange:NSMakeRange(0, 1)];
+        NSString *last = [[RH_UserInfoManager shareUserManager].mineSettingInfo.realName substringWithRange:NSMakeRange([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length-1, 1)];
+        if (self.realNameTF.text.length == 2) {
+            self.realNameTF.text = [NSString stringWithFormat:@"%@*",first];
+        } else {
+            self.realNameTF.text = [NSString stringWithFormat:@"%@*%@",first,last];
+        }
+    } else {
+        self.realNameTF.userInteractionEnabled = YES;
+    }
+}
+
 - (IBAction)sureBtnClick:(id)sender {
     if (self.realNameTF.text.length == 0) {
         showMessage(self, @"请输入真实姓名", nil);
@@ -87,6 +104,9 @@
 }
 
 -(void)bindBankcardRequeset {
+    if ([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length > 0) {
+        self.bankTF.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.realName;
+    }
     [SH_NetWorkService bindBankcardRealName:self.realNameTF.text BankName:self.bankTF.text CardNum:self.cardNumTF.text BankDeposit:self.addressTF.text?:@"" Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
         
         NSString *code = [NSString stringWithFormat:@"%@",response[@"code"]];
@@ -141,6 +161,10 @@
 }
 - (void)setFrom:(NSString *)from{
     _from = from;
+}
+
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"realName" object:nil];
 }
 
 @end
