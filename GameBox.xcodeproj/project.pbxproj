@@ -141,7 +141,6 @@
 		227CB5A22127BE720061AEDB /* input_top_bg2.webp in Resources */ = {isa = PBXBuildFile; fileRef = 227CB5A12127BE720061AEDB /* input_top_bg2.webp */; };
 		227CB5A42127FE2A0061AEDB /* loading.webp in Resources */ = {isa = PBXBuildFile; fileRef = 227CB5A32127FE2A0061AEDB /* loading.webp */; };
 		22878ECA210029E3005D7652 /* SH_SysMsgDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22878EC9210029E3005D7652 /* SH_SysMsgDetailModel.m */; };
-		229CE83E2128006400AB56E6 /* btn_welfare.webp in Resources */ = {isa = PBXBuildFile; fileRef = 229CE83D2128006400AB56E6 /* btn_welfare.webp */; };
 		229CE8402128021900AB56E6 /* btn_large_general.webp in Resources */ = {isa = PBXBuildFile; fileRef = 229CE83F2128021900AB56E6 /* btn_large_general.webp */; };
 		229CE8422128054500AB56E6 /* btn_general.webp in Resources */ = {isa = PBXBuildFile; fileRef = 229CE8412128054500AB56E6 /* btn_general.webp */; };
 		229CE844212805CA00AB56E6 /* btn_click.webp in Resources */ = {isa = PBXBuildFile; fileRef = 229CE843212805CA00AB56E6 /* btn_click.webp */; };
@@ -173,7 +172,6 @@
 		54397083210462BB0091C719 /* effects_man._defaultwebp in Resources */ = {isa = PBXBuildFile; fileRef = 54397024210462A30091C719 /* effects_man._defaultwebp */; };
 		54397094210462BB0091C719 /* start_bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397035210462A60091C719 /* start_bg.webp */; };
 		543970A9210462BB0091C719 /* upper-bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 5439704A210462AA0091C719 /* upper-bg.webp */; };
-		543970B5210462BB0091C719 /* Rounded-bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397056210462AE0091C719 /* Rounded-bg.webp */; };
 		543970B8210462BB0091C719 /* banner.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397059210462AF0091C719 /* banner.webp */; };
 		543970B9210462BB0091C719 /* middle-bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 5439705A210462AF0091C719 /* middle-bg.webp */; };
 		543970BA210462BB0091C719 /* rounded.webp in Resources */ = {isa = PBXBuildFile; fileRef = 5439705B210462B00091C719 /* rounded.webp */; };
@@ -589,7 +587,6 @@
 		227CB5A32127FE2A0061AEDB /* loading.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = loading.webp; sourceTree = "<group>"; };
 		22878EC8210029E3005D7652 /* SH_SysMsgDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SysMsgDetailModel.h; sourceTree = "<group>"; };
 		22878EC9210029E3005D7652 /* SH_SysMsgDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SysMsgDetailModel.m; sourceTree = "<group>"; };
-		229CE83D2128006400AB56E6 /* btn_welfare.webp */ = {isa = PBXFileReference; lastKnownFileType = file; name = btn_welfare.webp; path = ../../../../../../Downloads/btn_welfare.webp; sourceTree = "<group>"; };
 		229CE83F2128021900AB56E6 /* btn_large_general.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = btn_large_general.webp; sourceTree = "<group>"; };
 		229CE8412128054500AB56E6 /* btn_general.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = btn_general.webp; sourceTree = "<group>"; };
 		229CE843212805CA00AB56E6 /* btn_click.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = btn_click.webp; sourceTree = "<group>"; };
@@ -643,7 +640,6 @@
 		54397024210462A30091C719 /* effects_man._defaultwebp */ = {isa = PBXFileReference; lastKnownFileType = file; path = effects_man._defaultwebp; sourceTree = "<group>"; };
 		54397035210462A60091C719 /* start_bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = start_bg.webp; sourceTree = "<group>"; };
 		5439704A210462AA0091C719 /* upper-bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "upper-bg.webp"; sourceTree = "<group>"; };
-		54397056210462AE0091C719 /* Rounded-bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rounded-bg.webp"; sourceTree = "<group>"; };
 		54397059210462AF0091C719 /* banner.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = banner.webp; sourceTree = "<group>"; };
 		5439705A210462AF0091C719 /* middle-bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "middle-bg.webp"; sourceTree = "<group>"; };
 		5439705B210462B00091C719 /* rounded.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = rounded.webp; sourceTree = "<group>"; };
@@ -1121,7 +1117,6 @@
 				229CE843212805CA00AB56E6 /* btn_click.webp */,
 				229CE8412128054500AB56E6 /* btn_general.webp */,
 				229CE83F2128021900AB56E6 /* btn_large_general.webp */,
-				229CE83D2128006400AB56E6 /* btn_welfare.webp */,
 				227CB5A32127FE2A0061AEDB /* loading.webp */,
 				227CB5A12127BE720061AEDB /* input_top_bg2.webp */,
 				220D1D452126B3510050C8BA /* input_safe.webp */,
@@ -1504,7 +1499,6 @@
 				5439705A210462AF0091C719 /* middle-bg.webp */,
 				54397075210462B80091C719 /* notice_bg.webp */,
 				54397077210462B90091C719 /* rectangle_bg-3.webp */,
-				54397056210462AE0091C719 /* Rounded-bg.webp */,
 				5439705B210462B00091C719 /* rounded.webp */,
 				54397035210462A60091C719 /* start_bg.webp */,
 				5439704A210462AA0091C719 /* upper-bg.webp */,
@@ -2609,7 +2603,6 @@
 				220D1DC12126B3510050C8BA /* font_account.webp in Resources */,
 				227CB5A42127FE2A0061AEDB /* loading.webp in Resources */,
 				54C8759D20F756A500AA0594 /* bgm.mp3 in Resources */,
-				229CE83E2128006400AB56E6 /* btn_welfare.webp in Resources */,
 				220D1DDA2126B3510050C8BA /* logo09.webp in Resources */,
 				220D1DDB2126B3510050C8BA /* chip_yellow.webp in Resources */,
 				543970D6210462BB0091C719 /* rectangle_bg-3.webp in Resources */,
@@ -2634,7 +2627,6 @@
 				BF5C0BC82105AF0C0035B754 /* SH_BindPhoneNumView.xib in Resources */,
 				220D1DCE2126B3510050C8BA /* btn_search.webp in Resources */,
 				220D1E192126B3520050C8BA /* backImage.webp in Resources */,
-				543970B5210462BB0091C719 /* Rounded-bg.webp in Resources */,
 				220D1DFC2126B3520050C8BA /* btn_activity.webp in Resources */,
 				DA1BCC9020FEC91200201DBC /* SH_CardRecordTableViewCell.xib in Resources */,
 				5401C53920ECA1100027246D /* Assets.xcassets in Resources */,
