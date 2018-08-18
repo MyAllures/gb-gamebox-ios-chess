@@ -35,7 +35,7 @@
                     </constraints>
                     <state key="normal" title="寄存"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long-click"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_large_click"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="tapAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Mmf-yE-DC8"/>
@@ -45,7 +45,7 @@
                     <rect key="frame" x="8" y="66" width="119" height="46"/>
                     <state key="normal" title="支取"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_large_general"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="tapAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="kok-BT-Zsh"/>
@@ -101,7 +101,7 @@
                             </constraints>
                             <color key="textColor" red="1" green="0.75294117650000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yuh-RV-JgT" customClass="SH_WebPImageView">
                             <rect key="frame" x="19" y="15" width="89" height="79"/>
@@ -183,7 +183,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                             <state key="normal" title="确定寄存"/>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_large_general"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="sureAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="ZcB-ck-qjy"/>

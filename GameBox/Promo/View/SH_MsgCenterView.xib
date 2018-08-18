@@ -36,8 +36,8 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long"/>
-                                <userDefinedRuntimeAttribute type="string" keyPath="selectedBGImage" value="button-long-click"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_large_general"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="selectedBGImage" value="btn_large_click"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="systemNoticeClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="MpG-6Z-Nan"/>
@@ -73,8 +73,8 @@
                             </state>
                             <state key="selected" title="游戏公告"/>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long"/>
-                                <userDefinedRuntimeAttribute type="string" keyPath="selectedBGImage" value="button-long-click"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_large_general"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="selectedBGImage" value="btn_large_click"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="gameNoticeClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="uSg-93-leH"/>
@@ -92,8 +92,8 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long"/>
-                                <userDefinedRuntimeAttribute type="string" keyPath="selectedBGImage" value="button-long-click"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_large_general"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="selectedBGImage" value="btn_large_click"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="InboxClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="mrN-KH-ZQD"/>

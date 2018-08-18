@@ -152,9 +152,9 @@
     switch (tag) {
         case 0:{ //登陆按钮的点击事件
             self.stackView.hidden = YES;
-            [sender setWebpBGImage:@"login_button_click" forState:UIControlStateNormal];
+            [sender setWebpBGImage:@"btn_click" forState:UIControlStateNormal];
             SH_WebPButton  * btn  = [self  viewWithTag:101];
-            [btn setWebpBGImage:@"login_button" forState:UIControlStateNormal];
+            [btn setWebpBGImage:@"btn_general" forState:UIControlStateNormal];
             if (self.changeChannelBlock) {
                 self.changeChannelBlock(@"title01");
             }
@@ -166,9 +166,9 @@
             [self.registView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.edges.mas_equalTo(self.stackView);
             }];
-            [sender setWebpBGImage:@"login_button_click" forState:UIControlStateNormal];
+            [sender setWebpBGImage:@"btn_click" forState:UIControlStateNormal];
             SH_WebPButton  * btn  = [self  viewWithTag:100];
-            [btn setWebpBGImage:@"login_button" forState:UIControlStateNormal];
+            [btn setWebpBGImage:@"btn_general" forState:UIControlStateNormal];
             if (self.changeChannelBlock) {
                 self.changeChannelBlock(@"title02");
             }

@@ -45,7 +45,7 @@
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                     <state key="normal" title="修改登录密码"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long-click"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_large_click"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="modifyLoginBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="VCn-It-1yr"/>
@@ -58,7 +58,7 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_large_general"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="saftyBtnclick:" destination="iN0-l3-epB" eventType="touchUpInside" id="3PU-0e-1a3"/>
@@ -69,7 +69,7 @@
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                     <state key="normal" title="银行卡"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_large_general"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="bankCardBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="bdJ-qg-e19"/>
@@ -80,7 +80,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="福利转换"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_large_general"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="profitExchangeBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="rte-Lz-oyo"/>
@@ -91,7 +91,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="绑定手机"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_large_general"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="bindPhoneBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="WPL-qa-hUf"/>

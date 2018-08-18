@@ -36,8 +36,8 @@
 //更新寄存UI
 -(void)updateDepositUI {
     self.textField.text = @"";
-    self.depositBtn.webpBGImage = @"button-long-click";
-    self.withdrawalBtn.webpBGImage = @"button-long";
+    self.depositBtn.webpBGImage = @"btn_large_click";
+    self.withdrawalBtn.webpBGImage = @"btn_large_general";
     self.numImageView.imageName = @"input_top_bg";
     [self.thirtyPercentBtn setTitle:@"存30%" forState:UIControlStateNormal];
     [self.fiftyPercentBtn setTitle:@"存50%" forState:UIControlStateNormal];
@@ -47,8 +47,8 @@
 -(void)updateWithdrawalUI {
     self.textField.text = @"";
     self.numImageView.imageName = @"input_top_bg2";
-    self.depositBtn.webpBGImage = @"button-long";
-    self.withdrawalBtn.webpBGImage = @"button-long-click";
+    self.depositBtn.webpBGImage = @"btn_large_general";
+    self.withdrawalBtn.webpBGImage = @"btn_large_click";
     [self.thirtyPercentBtn setTitle:@"取30%" forState:UIControlStateNormal];
     [self.fiftyPercentBtn setTitle:@"取50%" forState:UIControlStateNormal];
     [self.sureBtn  setTitle:@"确定支取" forState:UIControlStateNormal];

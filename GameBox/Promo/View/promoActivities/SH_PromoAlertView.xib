@@ -107,7 +107,7 @@
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                     <state key="normal" title="联系客服"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long-145"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_large_general"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="contactServiceBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="nf1-60-Nmt"/>
@@ -130,7 +130,7 @@
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                     <state key="normal" title="确定"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long-145"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_large_general"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="sureBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="JSU-kw-2lM"/>

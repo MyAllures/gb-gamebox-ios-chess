@@ -25,7 +25,7 @@
                         <color key="titleShadowColor" red="0.72156862749999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="login_button"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_general"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="btnClick:" destination="iae-aI-JlP" eventType="touchUpInside" id="F2Y-4L-R3n"/>
@@ -59,7 +59,7 @@
                     </constraints>
                     <state key="normal" title="联系客服"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="login_button"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_general"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="btnClick:" destination="iae-aI-JlP" eventType="touchUpInside" id="fjL-qh-eNQ"/>

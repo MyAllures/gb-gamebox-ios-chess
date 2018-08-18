@@ -29,7 +29,7 @@
                                 <color key="titleShadowColor" red="0.72156862745098038" green="0.72156862745098038" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="login_button_click"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_click"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="btnlick:" destination="iN0-l3-epB" eventType="touchUpInside" id="QkG-jW-OfQ"/>
@@ -46,7 +46,7 @@
                                 <color key="titleShadowColor" red="0.72156862745098038" green="0.72156862745098038" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="login_button"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_general"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="btnlick:" destination="iN0-l3-epB" eventType="touchUpInside" id="sd7-2b-nCb"/>
@@ -172,7 +172,7 @@
                                 <color key="titleShadowColor" red="0.72156862749999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="login_button_long"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_large_general"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="btnlick:" destination="iN0-l3-epB" eventType="touchUpInside" id="oX2-Dk-6K8"/>

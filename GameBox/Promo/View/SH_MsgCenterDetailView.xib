@@ -56,7 +56,7 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-long"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_large_general"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="dismissAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="tvQ-R4-TSo"/>
