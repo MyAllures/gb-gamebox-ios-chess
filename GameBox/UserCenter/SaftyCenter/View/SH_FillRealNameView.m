@@ -44,6 +44,7 @@
                     NSError *err2;
                     RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[response[@"data"] objectForKey:@"user"] error:&err2];
                     [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"realName" object:nil];
                 }else{
 //                    [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
                 }

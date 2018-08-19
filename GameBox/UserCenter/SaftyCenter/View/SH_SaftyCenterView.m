@@ -194,9 +194,9 @@
 -(void)setUIWithSelecteBtn:(SH_WebPButton *)btn SelectedView:(UIView *)selectedView{
     for (int i = 1; i < 6; i++) {
         SH_WebPButton *unseletedBtn = [self viewWithTag:i];
-        [unseletedBtn setWebpBGImage:@"button-long" forState:UIControlStateNormal];
+        [unseletedBtn setWebpBGImage:@"btn_large_general" forState:UIControlStateNormal];
     }
-    [btn setWebpBGImage:@"button-long-click" forState:UIControlStateNormal];
+    [btn setWebpBGImage:@"btn_large_click" forState:UIControlStateNormal];
     
     for (int i = 11; i < 16; i++) {
         UIView *view = [self viewWithTag:i];

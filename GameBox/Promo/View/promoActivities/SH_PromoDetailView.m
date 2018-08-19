@@ -7,7 +7,6 @@
 //
 
 #import "SH_PromoDetailView.h"
-#import "SH_PromoAlertView.h"
 #import "SH_SmallWindowViewController.h"
 #import "SH_TimeZoneManager.h"
 #import "SH_BigWindowViewController.h"

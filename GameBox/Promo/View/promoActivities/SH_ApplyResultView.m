@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLab;
 @property (weak, nonatomic) IBOutlet UILabel *messageLab;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property(nonatomic,strong)NSArray *dataArray;
 @end
 @implementation SH_ApplyResultView
 
@@ -41,6 +41,8 @@
             imageName = @"warn";
         }
         self.iconImageView.imageName = imageName;
+        self.dataArray = model.applyDetails;
+        [self.tableView reloadData];
     } Failure:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
@@ -49,13 +51,21 @@
 #pragma mark--
 #pragma mark--tableView
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return self.dataArray.count;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 50;
+    SH_ApplyDetailsModel *model = self.dataArray[indexPath.row];
+    if ([model.showSchedule isEqualToString:@"0"]) {
+        //显示进度条
+        return 50;
+    }else{
+        return 30;
+    }
+    
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     SH_ApplyFailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SH_ApplyFailTableViewCell"];
+    [cell updateUIWithModel:self.dataArray[indexPath.row]];
     return cell;
 }
 - (IBAction)contactService:(id)sender {

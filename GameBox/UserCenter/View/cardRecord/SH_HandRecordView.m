@@ -28,12 +28,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *profitLabel;
 
 @property (weak, nonatomic) IBOutlet SH_WebPImageView *imageView;
-
+@property (assign, nonatomic) NSInteger page;
 @end
 
-@implementation SH_HandRecordView {
-    NSInteger page;
-}
+@implementation SH_HandRecordView
 +(instancetype)instanceCardRecordView {
     return  [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil] lastObject];
 }
@@ -45,15 +43,14 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"SH_HandRecordTableViewCell" bundle:nil] forCellReuseIdentifier:@"SH_HandRecordTableViewCell"];
     self.bettingArr = [NSMutableArray array];
     self.seleteIndex = 3;
-    page = 1;
     [self changedSinceTimeString:self.seleteIndex];
     [self requestData];
-    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
 }
 
 -(void)loadMoreData {
-    NSLog(@"page====%ld",self -> page+1);
-    [SH_NetWorkService fetchBettingList:self.startTimeStr EndDate:self.endTimeStr PageNumber:page+1 PageSize:5 withIsStatistics:YES complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    self.page = self.page + 1 ;
+    [SH_NetWorkService fetchBettingList:self.startTimeStr EndDate:self.endTimeStr PageNumber:self.page PageSize:20 withIsStatistics:YES complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dict = (NSDictionary *)response;
         NSLog(@"dict == %@",dict);
         [self.tableView.mj_footer endRefreshing];

@@ -7,10 +7,10 @@
 //
 
 #import <JSONModel/JSONModel.h>
-
+#import "SH_ApplyDetailsModel.h"
 @interface SH__PromoApplyModel : JSONModel
 @property(nonatomic,copy)NSString <Optional>*actibityTitle;
 @property(nonatomic,copy)NSString <Optional>*applyResult;
 @property(nonatomic,copy)NSString <Optional>*status;
-@property(nonatomic,copy)NSArray *applyDetails;
+@property(nonatomic,copy)NSArray <SH_ApplyDetailsModel>*applyDetails;
 @end

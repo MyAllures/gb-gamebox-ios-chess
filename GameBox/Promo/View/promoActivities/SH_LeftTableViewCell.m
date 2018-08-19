@@ -30,9 +30,9 @@
                   SelectedStatus:(NSString *)status{
     self.titleLab.text = model.name;
     if ([status isEqualToString:@"0"]) {
-        self.bgImageView.imageName = @"button-long";
+        self.bgImageView.imageName = @"btn_large_general";
     }else{
-        self.bgImageView.imageName = @"button-long-click";
+        self.bgImageView.imageName = @"btn_large_click";
     }
 }
 @end

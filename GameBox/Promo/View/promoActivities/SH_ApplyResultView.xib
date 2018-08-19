@@ -34,7 +34,7 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                             <real key="value" value="15"/>
                         </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category2"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="contactService:" destination="iN0-l3-epB" eventType="touchUpInside" id="JzP-EZ-JAt"/>

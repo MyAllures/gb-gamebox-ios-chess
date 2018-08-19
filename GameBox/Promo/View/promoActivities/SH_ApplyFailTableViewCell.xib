@@ -34,24 +34,7 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sde-oh-OoY" userLabel="Image View1">
-                        <rect key="frame" x="27" y="26.5" width="193" height="10"/>
-                        <color key="backgroundColor" red="1" green="0.18308327739999999" blue="0.1039782938" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="10" id="bfP-fI-EET"/>
-                        </constraints>
-                    </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OBs-Ar-NMd" userLabel="imageView2">
-                        <rect key="frame" x="27" y="26.5" width="93" height="10"/>
-                        <color key="backgroundColor" red="0.1069291686" green="1" blue="0.040969342489999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6000/6000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxH-9A-d0T">
-                        <rect key="frame" x="150.5" y="0.5" width="69.5" height="16"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Yz-R8-Wfb" customClass="SH_WebPButton">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Yz-R8-Wfb" customClass="SH_WebPButton">
                         <rect key="frame" x="239" y="7" width="81" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="KqU-0F-eg6"/>
@@ -64,24 +47,39 @@
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_blue"/>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="applyBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="L4H-yd-rtd"/>
+                        </connections>
                     </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="An8-9P-a9D" customClass="SH_PromoApplyProgressView">
+                        <rect key="frame" x="27" y="21.5" width="193" height="15"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="zTl-6R-U4C"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6000/6000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxH-9A-d0T">
+                        <rect key="frame" x="150.5" y="0.0" width="69.5" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="An8-9P-a9D" secondAttribute="trailing" constant="100" id="05O-g3-gtO"/>
                     <constraint firstItem="u8J-Lb-szV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="5XY-Hc-teH"/>
-                    <constraint firstItem="sde-oh-OoY" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailing" constant="-100" id="Iag-3d-Vi7"/>
+                    <constraint firstItem="zxH-9A-d0T" firstAttribute="trailing" secondItem="An8-9P-a9D" secondAttribute="trailing" id="FVu-LR-ipe"/>
                     <constraint firstAttribute="trailing" secondItem="7Yz-R8-Wfb" secondAttribute="trailing" id="OgV-Kd-cb4"/>
                     <constraint firstItem="7Yz-R8-Wfb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="QhJ-yh-0Lt"/>
                     <constraint firstItem="zxH-9A-d0T" firstAttribute="centerY" secondItem="ssN-Ol-3ee" secondAttribute="centerY" id="Qkt-iN-RWI"/>
-                    <constraint firstItem="OBs-Ar-NMd" firstAttribute="top" secondItem="sde-oh-OoY" secondAttribute="top" id="cI8-Ez-kSr"/>
-                    <constraint firstAttribute="trailing" secondItem="OBs-Ar-NMd" secondAttribute="trailing" constant="200" id="dnQ-sB-jPo"/>
+                    <constraint firstItem="An8-9P-a9D" firstAttribute="top" secondItem="ssN-Ol-3ee" secondAttribute="bottom" constant="5" id="S7i-vp-3Nr"/>
+                    <constraint firstItem="An8-9P-a9D" firstAttribute="leading" secondItem="ssN-Ol-3ee" secondAttribute="leading" id="VJd-pr-Sps"/>
                     <constraint firstItem="u8J-Lb-szV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="eRU-wC-7xL"/>
                     <constraint firstItem="ssN-Ol-3ee" firstAttribute="leading" secondItem="u8J-Lb-szV" secondAttribute="trailing" constant="10" id="kJ5-vg-JAA"/>
-                    <constraint firstItem="sde-oh-OoY" firstAttribute="leading" secondItem="ssN-Ol-3ee" secondAttribute="leading" id="kQM-oB-3Ke"/>
-                    <constraint firstItem="zxH-9A-d0T" firstAttribute="trailing" secondItem="sde-oh-OoY" secondAttribute="trailing" id="rf2-tF-06e"/>
-                    <constraint firstItem="OBs-Ar-NMd" firstAttribute="bottom" secondItem="sde-oh-OoY" secondAttribute="bottom" id="rs1-DJ-0Pw"/>
                     <constraint firstItem="ssN-Ol-3ee" firstAttribute="centerY" secondItem="u8J-Lb-szV" secondAttribute="centerY" id="s7d-kc-iVx"/>
-                    <constraint firstItem="sde-oh-OoY" firstAttribute="top" secondItem="ssN-Ol-3ee" secondAttribute="bottom" constant="10" id="vay-TA-fCQ"/>
-                    <constraint firstItem="OBs-Ar-NMd" firstAttribute="leading" secondItem="sde-oh-OoY" secondAttribute="leading" id="vcb-TR-dXQ"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.2784313725" green="0.3411764706" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -90,11 +88,11 @@
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="applyBtn" destination="7Yz-R8-Wfb" id="S43-6o-5yh"/>
-                <outlet property="downImageView" destination="sde-oh-OoY" id="6Ac-7S-4NZ"/>
                 <outlet property="iconImageView" destination="u8J-Lb-szV" id="Yd1-yM-Yfa"/>
                 <outlet property="numLab" destination="zxH-9A-d0T" id="Ukn-Co-sGt"/>
+                <outlet property="proTrailing" destination="05O-g3-gtO" id="Eqn-pN-M6M"/>
+                <outlet property="progressView" destination="An8-9P-a9D" id="HIb-pQ-JuA"/>
                 <outlet property="titleLab" destination="ssN-Ol-3ee" id="3A0-nE-hvC"/>
-                <outlet property="upImageView" destination="OBs-Ar-NMd" id="V5l-wc-UJP"/>
             </connections>
         </tableViewCell>
     </objects>

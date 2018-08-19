@@ -39,7 +39,7 @@
                                 <userDefinedRuntimeAttribute type="number" keyPath="ringType">
                                     <integer key="value" value="-1"/>
                                 </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="login_button"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_general"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="buttonClick:" destination="-1" eventType="touchUpInside" id="f0D-kQ-QNc"/>
@@ -52,7 +52,7 @@
                                 <color key="titleShadowColor" red="0.72156862749999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="login_button"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_general"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="buttonClick:" destination="-1" eventType="touchUpInside" id="gdf-hk-1tP"/>
@@ -65,7 +65,7 @@
                                 <color key="titleShadowColor" red="0.72156862749999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="login_button"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_general"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="buttonClick:" destination="-1" eventType="touchUpInside" id="vXO-Bt-6Kh"/>
@@ -90,7 +90,7 @@
                                 <color key="titleShadowColor" red="0.72156862749999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="login_button"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_general"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="buttonClick:" destination="-1" eventType="touchUpInside" id="eZl-GF-PuC"/>

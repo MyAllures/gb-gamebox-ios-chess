@@ -29,7 +29,7 @@
         [self.progressBGImg mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(0);
             make.right.mas_equalTo(0);
-            make.height.mas_equalTo(12.5);
+            make.height.mas_equalTo(16);
             make.centerY.equalTo(self);
         }];
         
@@ -49,7 +49,7 @@
         [self.progressImg mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(0);
             make.width.mas_equalTo(0);
-            make.height.mas_equalTo(12.5);
+            make.height.mas_equalTo(16);
             make.centerY.equalTo(self.mas_centerY);
         }];
         
@@ -109,7 +109,7 @@
     [self.progressImg mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(0);
         make.width.equalTo(self.progressBGImg.mas_width).multipliedBy(progress);
-        make.height.mas_equalTo(12.5);
+        make.height.mas_equalTo(16);
         make.centerY.equalTo(self.mas_centerY);
     }];
     

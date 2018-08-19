@@ -266,9 +266,9 @@
                             </constraints>
                         </view>
                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r8v-O4-Ivb" customClass="SH_WebPImageView">
-                            <rect key="frame" x="141" y="88" width="167" height="125"/>
+                            <rect key="frame" x="141" y="70" width="167" height="170"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="125" id="woz-mD-2uW"/>
+                                <constraint firstAttribute="height" constant="170" id="woz-mD-2uW"/>
                                 <constraint firstAttribute="width" constant="167" id="zak-Wr-7ky"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
@@ -278,7 +278,7 @@
                     </subviews>
                     <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="r8v-O4-Ivb" secondAttribute="bottom" constant="77" id="0TV-Vs-EXH"/>
+                        <constraint firstAttribute="bottom" secondItem="r8v-O4-Ivb" secondAttribute="bottom" constant="50" id="0TV-Vs-EXH"/>
                         <constraint firstItem="wla-Ba-jOw" firstAttribute="width" secondItem="w2b-Mt-WBe" secondAttribute="height" multiplier="81:290" id="0if-Hw-CAA"/>
                         <constraint firstItem="XY3-Lc-7wS" firstAttribute="leading" secondItem="w2b-Mt-WBe" secondAttribute="leading" id="22m-Ez-xXi"/>
                         <constraint firstItem="swy-eH-klZ" firstAttribute="leading" secondItem="z4o-dn-xKW" secondAttribute="leading" id="3f9-Na-98C"/>
