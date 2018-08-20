@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *webHeight;
 @property(nonatomic,copy)NSString *promoId;
+@property (weak, nonatomic) IBOutlet SH_WebPButton *applyBtn;
 
 @end
 @implementation SH_PromoDetailView
@@ -31,20 +32,26 @@
                   Name:(NSString *)name
               ImageUrl:(NSString *)imageUrl
                   Date:(NSString *)date{
+     if ([model.status isEqualToString:@"0"]) {
+        self.applyBtn.enabled = YES;
+        
+    }else{
+        self.applyBtn.enabled = NO;
+    }
     self.promoId = model.name;
     self.nameLab.text = name;
-    [self.bannerImageView setImageWithType:1 ImageName:imageUrl];
+    [self.bannerImageView setImageWithType:1 ImageName:imageUrl Placeholder:@"loading_activity"];
     self.dateLab.text = date;
-    self.webHeight.constant = 5;
+    self.webHeight.constant = 1;
     [self.webView loadHTMLString:model.code baseURL:nil];
 }
 - (IBAction)applyBtnClick:(id)sender {
+   
     UIViewController *vc = [self getCurrentViewController];
-//    SH_PromoAlertView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_PromoAlertView" owner:self options:nil].firstObject;
     SH_ApplyResultView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_ApplyResultView" owner:self options:nil].firstObject;
     SH_BigWindowViewController * acr = [SH_BigWindowViewController new];
     acr.customView = view;
-    acr.titleImageName = @"title03";
+//    acr.titleImageName = @"title03";
     acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [vc presentViewController:acr animated:YES completion:nil];

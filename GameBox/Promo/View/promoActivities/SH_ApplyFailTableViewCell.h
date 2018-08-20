@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SH_ApplyDetailsModel.h"
 @interface SH_ApplyFailTableViewCell : UITableViewCell
--(void)updateUIWithModel:(SH_ApplyDetailsModel *)model;
+-(void)updateUIWithModel:(SH_ApplyDetailsModel *)model
+           SearchId:(NSString *)searchId;
 @end

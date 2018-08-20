@@ -9,7 +9,9 @@
 #import "UIImageView+handle.h"
 @implementation UIImageView (handle)
 
--(void)setImageWithType:(NSInteger)type ImageName:(NSString *)imageName{
+-(void)setImageWithType:(NSInteger)type
+              ImageName:(NSString *)imageName
+            Placeholder:(NSString *)placeholder{
     if (type == 0) {
         self.image = [UIImage imageNamed:imageName];
     }else{
@@ -20,7 +22,11 @@
         {
             imageUrl = [NSString stringWithFormat:@"%@/%@",[NetWorkLineMangaer sharedManager].currentPreUrl,imageName] ;
         }
-        [self sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:nil options:SDWebImageAllowInvalidSSLCertificates];
+        UIImage * place ;
+        if (placeholder) {
+            place = [UIImage imageNamed:placeholder];
+        }
+        [self sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:place options:SDWebImageAllowInvalidSSLCertificates];
         
     }
 }

@@ -150,7 +150,7 @@
 }
 
 - (void)updateUIWithChannelModel:(SH_RechargeCenterChannelModel *)model{
-    [self.QRImageView setImageWithType:1 ImageName:model.qrCodeUrl];
+    [self.QRImageView setImageWithType:1 ImageName:model.qrCodeUrl Placeholder:nil];
     [self.bitConnHeadView updateUIWithChannelModel:model];
 }
 -(void)saveToPhoneBtnClick{

@@ -26,11 +26,11 @@
 }
 - (void)updateWithChannelModel:(SH_RechargeCenterChannelModel *)channelModel{
     self.channelModel = channelModel;
-    [self.iconImageView setImageWithType:1 ImageName:channelModel.imgUrl];
+    [self.iconImageView setImageWithType:1 ImageName:channelModel.imgUrl Placeholder:nil];
     self.bankLab.text = [NSString stringWithFormat:@"%@  %@",channelModel.aliasName,channelModel.customBankName];
     self.numLab.text = channelModel.account;
     self.nameLab.text = channelModel.fullName;
-    [self.qrImageView setImageWithType:1 ImageName:channelModel.qrCodeUrl];
+    [self.qrImageView setImageWithType:1 ImageName:channelModel.qrCodeUrl Placeholder:nil];
     if ([channelModel.bankCode isEqualToString:@"qqwallet"]) {
         [self.openBtn setTitle:@"启动QQ支付" forState:UIControlStateNormal];
     }
