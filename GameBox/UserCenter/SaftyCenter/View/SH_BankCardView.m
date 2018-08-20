@@ -91,12 +91,15 @@
         showMessage(self, @"请输入银行卡号", nil);
     }else if (self.cardNumTF.text.length < 14){
         showMessage(self, @"卡号至少14位数", nil);
-    }else if ([self.bankTF.text isEqualToString:@" 其它银行"]){
+    }else if ([self.bankTF.text isEqualToString:@"其它银行"]){
         if (self.addressTF.text.length > 0) {
-           [self bindBankcardRequeset];
+            if (self.addressTF.text != nil) {
+                [self bindBankcardRequeset];
+            } else {
+                showMessage(self, @"请输入开户银行", nil);
+            }
         } else {
             showMessage(self, @"请输入开户银行", nil);
-            return;
         }
     }else{
         [self bindBankcardRequeset];

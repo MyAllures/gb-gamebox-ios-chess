@@ -453,11 +453,6 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="tBQ-EQ-jrJ" secondAttribute="bottom" constant="2" id="33H-cM-tAA"/>
-                                <constraint firstAttribute="width" constant="462" id="6Dv-ah-GeI">
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
-                                    </userDefinedRuntimeAttributes>
-                                </constraint>
                                 <constraint firstItem="UNI-Sq-0dm" firstAttribute="leading" secondItem="tBQ-EQ-jrJ" secondAttribute="trailing" constant="10" id="8hl-7N-mpo">
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
@@ -511,7 +506,11 @@
                         </constraint>
                         <constraint firstAttribute="bottom" secondItem="dzF-kH-Jey" secondAttribute="bottom" constant="2" id="hTH-nG-cJN"/>
                         <constraint firstAttribute="bottom" secondItem="kpt-Vi-QtD" secondAttribute="bottom" id="o1A-kQ-tsJ"/>
-                        <constraint firstAttribute="trailing" secondItem="0Zi-QQ-yBM" secondAttribute="trailing" id="q3n-CY-rw2"/>
+                        <constraint firstAttribute="trailing" secondItem="0Zi-QQ-yBM" secondAttribute="trailing" id="q3n-CY-rw2">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5xu-Rj-Dcf">
@@ -610,13 +609,18 @@
                 <constraint firstAttribute="trailing" secondItem="tQ1-dV-GAz" secondAttribute="trailing" id="k6k-6y-rTk"/>
                 <constraint firstItem="T5H-Wr-I5l" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nmD-DT-8uu"/>
                 <constraint firstItem="5xu-Rj-Dcf" firstAttribute="centerY" secondItem="lo0-ep-RC7" secondAttribute="centerY" id="oHW-C8-rT2"/>
+                <constraint firstItem="0Zi-QQ-yBM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="205" id="v2e-dU-YJ9">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </constraint>
                 <constraint firstItem="5xu-Rj-Dcf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="yhJ-Rm-kDQ"/>
             </constraints>
             <point key="canvasLocation" x="-27" y="44"/>
         </view>
     </objects>
     <resources>
-        <image name="footer" width="664" height="38"/>
+        <image name="footer" width="491" height="38"/>
         <image name="user_info_bg" width="21" height="21"/>
     </resources>
 </document>
