@@ -21,7 +21,7 @@
 }
 -(void)updateUIWithContex:(id)contex Selected:(NSString *)selected{
     SH_RechargeCenterChannelModel *platformModel = (SH_RechargeCenterChannelModel *)contex;
-    [self.iconImageView setImageWithType:1 ImageName:platformModel.imgUrl];
+    [self.iconImageView setImageWithType:1 ImageName:platformModel.imgUrl Placeholder:nil];
     if ([platformModel.aliasName isEqualToString:@""] ||platformModel.aliasName == nil ) {
         self.titleLab.text = platformModel.payName;
     }

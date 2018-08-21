@@ -18,7 +18,7 @@
     [super awakeFromNib];
 }
 -(void)updateUIWithChannelModel:(SH_RechargeCenterChannelModel *)model{
-    [self.iconImageView setImageWithType:1 ImageName:model.imgUrl];
+    [self.iconImageView setImageWithType:1 ImageName:model.imgUrl Placeholder:nil];
     self.personLab.text = [NSString stringWithFormat:@"氏名  %@",model.fullName];
 }
 @end

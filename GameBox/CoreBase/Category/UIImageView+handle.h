@@ -10,5 +10,6 @@
 
 @interface UIImageView (handle)
 -(void)setImageWithType:(NSInteger)type
-              ImageName:(NSString *)imageName;
+              ImageName:(NSString *)imageName
+            Placeholder:(NSString *)placeholder;
 @end

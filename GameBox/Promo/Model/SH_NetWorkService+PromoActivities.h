@@ -22,6 +22,7 @@ typedef void(^promoApplyBlock)(SH__PromoApplyModel *model);
                               Failure:(SHNetWorkFailed)failure;
 //优惠活动申请
 +(void)applyPromoActivitiesPromoId:(NSString *)promoId
+                     TransactionNo:(NSString *)transactionNo
                             Sucess:(promoApplyBlock)success
                            Failure:(SHNetWorkFailed)failure;
 @end

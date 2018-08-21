@@ -55,7 +55,7 @@
       
 
     } Failure:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
+        [SH_NodataView showAddTo:self Message:err];
     }];
 }
 -(void)configUI{

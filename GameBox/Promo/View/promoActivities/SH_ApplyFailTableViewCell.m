@@ -8,6 +8,7 @@
 
 #import "SH_ApplyFailTableViewCell.h"
 #import "SH_PromoApplyProgressView.h"
+#import "SH_NetWorkService+PromoActivities.h"
 @interface SH_ApplyFailTableViewCell()
 @property (weak, nonatomic) IBOutlet SH_WebPImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLab;
@@ -15,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet SH_WebPButton *applyBtn;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *proTrailing;
 @property (weak, nonatomic) IBOutlet SH_PromoApplyProgressView *progressView;
+@property(nonatomic,copy)NSString *searchId;
+@property(nonatomic,copy)NSString *transactionNo;
 
 @end
 @implementation SH_ApplyFailTableViewCell
@@ -29,9 +32,12 @@
 
     // Configure the view for the selected state
 }
--(void)updateUIWithModel:(SH_ApplyDetailsModel *)model{
+-(void)updateUIWithModel:(SH_ApplyDetailsModel *)model
+           SearchId:(NSString *)searchId{
+    self.searchId = searchId;
+    self.transactionNo = model.transactionNo;
     self.titleLab.text = model.condition;
-    if ([model.mayApply isEqualToString:@"0"]) {
+    if ([model.mayApply isEqualToString:@"1"]) {
         //展示申请按钮
         self.applyBtn.hidden = NO;
         self.proTrailing.constant = 100;
@@ -39,12 +45,11 @@
         self.applyBtn.hidden = YES;
         self.proTrailing.constant = 0;
     }
-    if ([model.showSchedule isEqualToString:@"0"]) {
+    if ([model.showSchedule isEqualToString:@"1"]) {
         //展示进度条
         self.numLab.hidden = NO;
         self.progressView.hidden = NO;
-//        [self.progressView changeProgressValue:[model.reached floatValue]/[model.standard floatValue]];
-        [self.progressView changeProgressValue:0.6];
+        [self.progressView changeProgressValue:[model.reached floatValue]/[model.standard floatValue]];
     }else{
         self.numLab.hidden = YES;
         self.progressView.hidden = YES;
@@ -64,6 +69,11 @@
 }
 
 - (IBAction)applyBtnClick:(id)sender {
+    [SH_NetWorkService applyPromoActivitiesPromoId:self.searchId TransactionNo:self.transactionNo  Sucess:^(SH__PromoApplyModel *model) {
+        showMessage(self, @"申请成功", nil);
+ 
+    } Failure:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        showMessage(self, err, nil);
+    }];
 }
-
 @end
