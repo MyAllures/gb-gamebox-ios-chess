@@ -9,7 +9,7 @@
 #ifndef SitesConfig_h
 #define SitesConfig_h
 
-#define _7wt3 1
+#define _lcat 1
 
 #if _8l6r
 
@@ -40,6 +40,12 @@
 #define CODE    @"ty3a"
 #define S        @"e1576bc75aabd600d0b6b078af7a96a3"
 #define SID        @"7001"
+
+#elif _lcat
+
+#define CODE    @"lcat"
+#define S        @"54f9540412e52a4b43aefb0b461bf043"
+#define SID        @"7002"
 
 #endif
 
