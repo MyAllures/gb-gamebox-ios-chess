@@ -89,8 +89,8 @@
          showMessage(self, @"请选择银行", nil);
     }else if (self.cardNumTF.text.length == 0){
         showMessage(self, @"请输入银行卡号", nil);
-    }else if (self.cardNumTF.text.length < 14){
-        showMessage(self, @"卡号至少14位数", nil);
+    }else if (self.cardNumTF.text.length < 12){
+        showMessage(self, @"卡号至少12位数", nil);
     }else if ([self.bankTF.text isEqualToString:@"其它银行"]){
         if (self.addressTF.text.length > 0) {
             if (self.addressTF.text != nil) {
