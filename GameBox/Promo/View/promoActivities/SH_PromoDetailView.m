@@ -43,6 +43,7 @@
     [self.bannerImageView setImageWithType:1 ImageName:imageUrl Placeholder:@"loading_activity"];
     self.dateLab.text = date;
     self.webHeight.constant = 1;
+    NSLog(@"%@",model.code);
     [self.webView loadHTMLString:model.code baseURL:nil];
 }
 - (IBAction)applyBtnClick:(id)sender {

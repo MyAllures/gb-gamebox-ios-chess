@@ -573,20 +573,20 @@
 }
 
 - (IBAction)welfareClick:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"尚未开放，敬请期待" message:@"" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-    [alert show];
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"尚未开放，敬请期待" message:@"" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+//    [alert show];
     
-//    if (![[RH_UserInfoManager shareUserManager] isLogin]) {
-//        [self login];
-//        return;
-//    }
-//    SH_WelfareWarehouse *view = [[NSBundle mainBundle]loadNibNamed:@"SH_WelfareWarehouse" owner:nil options:nil].lastObject;
-//    self.acr = [SH_BigWindowViewController new];
-//    self.acr.titleImageName = @"title06";
-//    self.acr.customView = view;
-//    self.acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-//    self.acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-//    [self presentViewController:self.acr animated:YES completion:nil];
+    if (![[RH_UserInfoManager shareUserManager] isLogin]) {
+        [self login];
+        return;
+    }
+    SH_WelfareWarehouse *view = [[NSBundle mainBundle]loadNibNamed:@"SH_WelfareWarehouse" owner:nil options:nil].lastObject;
+    self.acr = [SH_BigWindowViewController new];
+    self.acr.titleImageName = @"title06";
+    self.acr.customView = view;
+    self.acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    self.acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:self.acr animated:YES completion:nil];
     
 }
 

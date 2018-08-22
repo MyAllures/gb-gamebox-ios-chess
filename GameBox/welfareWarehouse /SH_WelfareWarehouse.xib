@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -418,7 +419,11 @@
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </constraint>
-                        <constraint firstAttribute="height" constant="87" id="ca8-hK-Hcz"/>
+                        <constraint firstAttribute="height" constant="87" id="ca8-hK-Hcz">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
                         <constraint firstItem="YP6-PU-s77" firstAttribute="centerY" secondItem="oVz-c5-F0W" secondAttribute="centerY" constant="-0.5" id="d7k-oZ-Yln"/>
                         <constraint firstItem="sif-Kz-Pff" firstAttribute="leading" secondItem="K04-oJ-f0Q" secondAttribute="trailing" constant="6" id="e7w-tI-dLZ"/>
                         <constraint firstItem="3b5-lx-1l3" firstAttribute="trailing" secondItem="Z8e-rf-qnP" secondAttribute="trailing" constant="-13" id="ebl-qg-R3N"/>
