@@ -89,7 +89,7 @@
                 <constraint firstItem="2Lp-LN-rtB" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VUp-6n-nei"/>
                 <constraint firstItem="NRb-Eh-5PS" firstAttribute="top" secondItem="2Lp-LN-rtB" secondAttribute="top" constant="-10" id="jHc-Vx-GXd"/>
             </constraints>
-            <point key="canvasLocation" x="33.5" y="53.5"/>
+            <point key="canvasLocation" x="-89" y="-16"/>
         </view>
     </objects>
 </document>

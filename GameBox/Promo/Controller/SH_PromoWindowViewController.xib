@@ -133,7 +133,7 @@
                 <constraint firstItem="bDO-Mz-DwN" firstAttribute="top" secondItem="ayr-MP-PFx" secondAttribute="top" constant="-5" id="lmq-HF-9Se"/>
                 <constraint firstItem="ayr-MP-PFx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="vFv-aU-ltZ"/>
             </constraints>
-            <point key="canvasLocation" x="33.5" y="53.5"/>
+            <point key="canvasLocation" x="17" y="-6"/>
         </view>
     </objects>
 </document>
