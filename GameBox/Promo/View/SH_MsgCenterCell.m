@@ -76,7 +76,7 @@
 
 - (NSString*)getTimeFrom:(NSTimeInterval)time
 {    
-    NSString *currentTimeString = [[SH_TimeZoneManager sharedManager] timeStringFrom:time format:@"yyyy-MM-dd HH:MM:ss"];
+    NSString *currentTimeString = [[SH_TimeZoneManager sharedManager] timeStringFrom:time format:@"yyyy-MM-dd HH:mm:ss"];
     return currentTimeString;
 }
 
