@@ -152,9 +152,9 @@
     switch (tag) {
         case 0:{ //登陆按钮的点击事件
             self.stackView.hidden = YES;
-            [sender setWebpBGImage:@"login_button_click" forState:UIControlStateNormal];
+            [sender setWebpBGImage:@"btn_click" forState:UIControlStateNormal];
             SH_WebPButton  * btn  = [self  viewWithTag:101];
-            [btn setWebpBGImage:@"login_button" forState:UIControlStateNormal];
+            [btn setWebpBGImage:@"btn_general" forState:UIControlStateNormal];
             if (self.changeChannelBlock) {
                 self.changeChannelBlock(@"title01");
             }
@@ -166,9 +166,9 @@
             [self.registView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.edges.mas_equalTo(self.stackView);
             }];
-            [sender setWebpBGImage:@"login_button_click" forState:UIControlStateNormal];
+            [sender setWebpBGImage:@"btn_click" forState:UIControlStateNormal];
             SH_WebPButton  * btn  = [self  viewWithTag:100];
-            [btn setWebpBGImage:@"login_button" forState:UIControlStateNormal];
+            [btn setWebpBGImage:@"btn_general" forState:UIControlStateNormal];
             if (self.changeChannelBlock) {
                 self.changeChannelBlock(@"title02");
             }
@@ -349,7 +349,7 @@
             showMessage(window, @"您账户已被停用,暂不支持登录", nil) ;
         }else
         {
-            showMessage(window, @"用户名或密码错误", nil);
+            showMessage(window, [result objectForKey:@"message"], nil);
         }
     }else if(![[result objectForKey:@"propMessages"] isEqual:[NSNull null]])
     {

@@ -80,7 +80,7 @@
     }else{
         self.cardNumLab.text = [NSString stringWithFormat:@"账号代码：%@",channelModel.code];
     }
-    [self.iconImageView setImageWithType:1 ImageName:channelModel.imgUrl];
+    [self.iconImageView setImageWithType:1 ImageName:channelModel.imgUrl Placeholder:nil];
     self.titleLab.text = channelModel.aliasName;
     [self.personLab setTextWithFirstString:[NSString stringWithFormat:@"银行开户名:  %@",channelModel.fullName] SecondString:channelModel.fullName FontSize:14 Color:[UIColor blackColor]] ;
     [self.bankLab setTextWithFirstString:[NSString stringWithFormat:@"开户行:  %@",channelModel.openAcountName] SecondString:channelModel.openAcountName FontSize:14 Color:[UIColor blackColor]];

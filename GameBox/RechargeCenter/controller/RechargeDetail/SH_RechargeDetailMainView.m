@@ -71,26 +71,25 @@
     return _submitView;
 }
 -(void)configUI{
-      __weak typeof(self) weakSelf = self;
     [self.headView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(self);
         make.height.equalTo(@350);
     }];
     [self.messageLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.headView.mas_bottom).offset(5);
-        make.left.equalTo(weakSelf).offset(15);
-        make.right.equalTo(weakSelf).offset(-15);
+        make.top.equalTo(self.headView.mas_bottom).offset(5);
+        make.left.equalTo(self).offset(15);
+        make.right.equalTo(self).offset(-15);
     }];
     
     [self.submitView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.messageLab.mas_bottom).offset(25);
-        make.left.right.equalTo(weakSelf);
+        make.top.equalTo(self.messageLab.mas_bottom).offset(25);
+        make.left.right.equalTo(self);
         make.height.equalTo(@160);
     }];
     [self.tttLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.submitView.mas_bottom).offset(40);
-        make.left.equalTo(weakSelf).offset(20);
-        make.right.bottom.equalTo(weakSelf).offset(-20);
+        make.top.equalTo(self.submitView.mas_bottom).offset(40);
+        make.left.equalTo(self).offset(20);
+        make.right.bottom.equalTo(self).offset(-20);
     }];
 }
 - (void)updateWithChannelModel:(SH_RechargeCenterChannelModel *)channelModel PaywayModel:(SH_RechargeCenterPaywayModel *)paywayModel PlatformModel:(SH_RechargeCenterPlatformModel *)paltformModel{

@@ -54,11 +54,10 @@
              *动画时长0.25s，延时0.3s后开始动画
              *动画结束后将progressView隐藏
              */
-            __weak typeof (self)weakSelf = self;
             [UIView animateWithDuration:0.25f delay:0.3f options:UIViewAnimationOptionCurveEaseOut animations:^{
-                weakSelf.progressView.transform = CGAffineTransformMakeScale(1.0f, 1.4f);
+                self.progressView.transform = CGAffineTransformMakeScale(1.0f, 1.4f);
             } completion:^(BOOL finished) {
-                weakSelf.progressView.hidden = YES;
+                self.progressView.hidden = YES;
                 
             }];
         }

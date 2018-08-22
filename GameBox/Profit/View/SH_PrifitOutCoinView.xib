@@ -139,7 +139,7 @@
                         </constraint>
                     </constraints>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="icon_coin"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="input_coin"/>
                     </userDefinedRuntimeAttributes>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZL9-rA-b0O">
@@ -420,7 +420,7 @@
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                     <state key="normal" title="确定出币"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="button-large-1"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_large_general"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="sureBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="oHJ-WD-9bm"/>

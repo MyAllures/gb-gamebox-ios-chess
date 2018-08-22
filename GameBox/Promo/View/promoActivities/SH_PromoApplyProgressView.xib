@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SH_PromoApplyProgressView">
+            <connections>
+                <outlet property="bgImageView" destination="5Gm-Ff-dmf" id="Mlv-zG-2Pz"/>
+                <outlet property="progressImage" destination="FRB-jt-B9d" id="jlN-8v-gd0"/>
+                <outlet property="view" destination="iN0-l3-epB" id="dd4-Ac-pwD"/>
+                <outlet property="widthCon" destination="pYj-zU-bI4" id="yNW-yt-4w6"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="15"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar_empty_red" translatesAutoresizingMaskIntoConstraints="NO" id="5Gm-Ff-dmf">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="15"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar" translatesAutoresizingMaskIntoConstraints="NO" id="FRB-jt-B9d">
+                    <rect key="frame" x="0.0" y="0.0" width="37.5" height="15"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="5Gm-Ff-dmf" secondAttribute="bottom" id="13Z-zq-mPJ"/>
+                <constraint firstAttribute="trailing" secondItem="5Gm-Ff-dmf" secondAttribute="trailing" id="568-Oz-Txg"/>
+                <constraint firstItem="5Gm-Ff-dmf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Gaf-OZ-a1c"/>
+                <constraint firstItem="5Gm-Ff-dmf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="QEd-5t-AuC"/>
+                <constraint firstItem="FRB-jt-B9d" firstAttribute="top" secondItem="5Gm-Ff-dmf" secondAttribute="top" id="YoX-4f-zCk"/>
+                <constraint firstItem="FRB-jt-B9d" firstAttribute="bottom" secondItem="5Gm-Ff-dmf" secondAttribute="bottom" id="dXa-ge-j6e"/>
+                <constraint firstItem="FRB-jt-B9d" firstAttribute="leading" secondItem="5Gm-Ff-dmf" secondAttribute="leading" id="lhQ-U9-FeL"/>
+                <constraint firstItem="FRB-jt-B9d" firstAttribute="width" secondItem="5Gm-Ff-dmf" secondAttribute="width" multiplier="0.1" id="pYj-zU-bI4"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bar" width="14" height="15"/>
+        <image name="bar_empty_red" width="16" height="15"/>
+    </resources>
+</document>

@@ -46,6 +46,7 @@
 #import "SH_BigWindowViewController.h"
 #import "SH_SmallWindowViewController.h"
 #import "SH_NetWorkService+SaftyCenter.h"
+#import "SH_WelfareWarehouse.h"
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImg;
 @property (weak, nonatomic) IBOutlet UILabel *userAccountLB;
@@ -574,6 +575,19 @@
 - (IBAction)welfareClick:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"尚未开放，敬请期待" message:@"" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
     [alert show];
+    
+//    if (![[RH_UserInfoManager shareUserManager] isLogin]) {
+//        [self login];
+//        return;
+//    }
+//    SH_WelfareWarehouse *view = [[NSBundle mainBundle]loadNibNamed:@"SH_WelfareWarehouse" owner:nil options:nil].lastObject;
+//    self.acr = [SH_BigWindowViewController new];
+//    self.acr.titleImageName = @"title06";
+//    self.acr.customView = view;
+//    self.acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+//    self.acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+//    [self presentViewController:self.acr animated:YES completion:nil];
+    
 }
 
 - (IBAction)searchAction:(id)sender {
@@ -884,6 +898,25 @@
 
 -(void)didRegistratedSuccessful{
     [self  autoLoginIsRegist:YES];
+    [self updateUserInfo];
+}
+
+-(void)updateUserInfo {
+    [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        if ([response[@"code"] isEqualToString:@"0"]) {
+            NSError *err;
+            NSArray *arr = [SH_BankListModel arrayOfModelsFromDictionaries:response[@"data"][@"bankList"] error:&err];
+            [[RH_UserInfoManager shareUserManager] setBankList:arr];
+            NSError *err2;
+            RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[response[@"data"] objectForKey:@"user"] error:&err2];
+            [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
+        }else{
+            [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
+        }
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        //
+        [[RH_UserInfoManager shareUserManager] updateIsLogin:false];
+    }];
 }
 
 - (void)didLoginSuccess

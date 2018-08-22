@@ -309,7 +309,7 @@
     button.clipsToBounds = YES;
     [button setTitle:@"立即注册" forState:UIControlStateNormal];
 //    [button setBackgroundColor:colorWithRGB(20, 90, 180)];
-    [button setBackgroundImage:[UIImage imageWithWebPImageName:@"login_button_long"] forState:UIControlStateNormal];
+    [button setBackgroundImage:[UIImage imageWithWebPImageName:@"btn_large_general"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(buttonRegistrationHandle) forControlEvents:UIControlEventTouchUpInside];
 }
 

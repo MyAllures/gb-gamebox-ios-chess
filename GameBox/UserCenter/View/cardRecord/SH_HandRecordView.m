@@ -28,7 +28,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *profitLabel;
 
 @property (weak, nonatomic) IBOutlet SH_WebPImageView *imageView;
-
+@property (assign, nonatomic) NSInteger page;
 @end
 
 @implementation SH_HandRecordView
@@ -45,6 +45,36 @@
     self.seleteIndex = 3;
     [self changedSinceTimeString:self.seleteIndex];
     [self requestData];
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+}
+
+-(void)loadMoreData {
+    self.page = self.page + 1 ;
+    [SH_NetWorkService fetchBettingList:self.startTimeStr EndDate:self.endTimeStr PageNumber:self.page PageSize:20 withIsStatistics:YES complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        NSDictionary *dict = (NSDictionary *)response;
+        NSLog(@"dict == %@",dict);
+        [self.tableView.mj_footer endRefreshing];
+        self.effectiveLabel.text = [NSString stringWithFormat:@"福利投注合计:%.2f",[dict[@"data"][@"statisticsData"][@"single"] floatValue]];
+        self.profitLabel.text = [NSString stringWithFormat:@"赛果合计:%.2f",[dict[@"data"][@"statisticsData"][@"profit"] floatValue]];
+        NSArray *arr = dict[@"data"][@"list"];
+        if (arr.count > 0) {
+            for (NSDictionary *dict1 in dict[@"data"][@"list"]) {
+                RH_BettingInfoModel *model = [[RH_BettingInfoModel alloc] initWithDictionary:dict1 error:nil];
+                [self.bettingArr addObject:model];
+                [self.tableView reloadData];
+                [SH_WaitingView hide:self];
+            }
+        }else{
+            [SH_WaitingView hide:self];
+            [self.tableView reloadData];
+        }
+        
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        [SH_WaitingView hide:self];
+        [self.tableView.mj_footer endRefreshing];
+    }];
+    
+    
 }
 
 - (IBAction)searchAction:(id)sender {
@@ -65,7 +95,7 @@
 -(void)requestData {
     [self.bettingArr removeAllObjects];
     [SH_WaitingView showOn:self];
-    [SH_NetWorkService fetchBettingList:self.startTimeStr EndDate:self.endTimeStr PageNumber:1 PageSize:500 withIsStatistics:YES complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [SH_NetWorkService fetchBettingList:self.startTimeStr EndDate:self.endTimeStr PageNumber:1 PageSize:5 withIsStatistics:YES complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dict = (NSDictionary *)response;
         NSLog(@"dict == %@",dict);
         self.effectiveLabel.text = [NSString stringWithFormat:@"福利投注合计:%.2f",[dict[@"data"][@"statisticsData"][@"single"] floatValue]];

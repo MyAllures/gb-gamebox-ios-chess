@@ -46,7 +46,7 @@
                             </constraints>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hFM-Xm-45V">
-                            <rect key="frame" x="0.0" y="112" width="340" height="141.5"/>
+                            <rect key="frame" x="0.0" y="112" width="340" height="137.5"/>
                             <color key="backgroundColor" red="0.3411764706" green="0.39607843139999999" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
@@ -91,17 +91,17 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z6K-Zh-B64">
-                            <rect key="frame" x="17" y="195.5" width="306" height="5"/>
+                            <rect key="frame" x="17" y="195.5" width="306" height="1"/>
                             <color key="backgroundColor" red="0.3411764706" green="0.39607843139999999" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="5" id="ZbA-5A-cas"/>
+                                <constraint firstAttribute="height" constant="1" id="ZbA-5A-cas"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
                             </userDefinedRuntimeAttributes>
                         </webView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zp-VH-PwE" customClass="SH_WebPButton">
-                            <rect key="frame" x="234" y="210.5" width="81" height="33"/>
+                            <rect key="frame" x="234" y="206.5" width="81" height="33"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="33" id="dIm-so-LaU"/>
                                 <constraint firstAttribute="width" constant="81" id="hqZ-Rr-1oP"/>
@@ -178,6 +178,7 @@
                 <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
             </userDefinedRuntimeAttributes>
             <connections>
+                <outlet property="applyBtn" destination="6zp-VH-PwE" id="RNT-vX-3YD"/>
                 <outlet property="bannerImageView" destination="bC4-kz-ALc" id="cSg-rf-w6y"/>
                 <outlet property="dateLab" destination="Nwh-zz-itL" id="Bb9-0H-EDc"/>
                 <outlet property="nameLab" destination="dY3-RM-3ZB" id="3XF-kO-U7c"/>

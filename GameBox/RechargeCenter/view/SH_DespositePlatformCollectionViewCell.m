@@ -21,7 +21,7 @@
 }
 -(void)updateUIWithContex:(id)contex Selected:(NSString *)selected{
     SH_RechargeCenterPlatformModel *platformModel = (SH_RechargeCenterPlatformModel *)contex;
-    [self.iconImage setImageWithType:1 ImageName:platformModel.iconUrl];
+    [self.iconImage setImageWithType:1 ImageName:platformModel.iconUrl Placeholder:nil];
     self.titleLab.text = platformModel.name;
      [self setCellBoardWithSelected:selected];
 }

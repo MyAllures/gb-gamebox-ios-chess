@@ -72,7 +72,7 @@
     return _tttLab;
 }
 -(void)configUI{
-      __weak typeof(self) weakSelf = self;
+    
     UIView *colorView = [[UIView alloc]init];
     colorView.backgroundColor = colorWithRGB(0, 122, 255);
     [self addSubview:colorView];
@@ -102,7 +102,7 @@
     [self.QRImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.height.equalTo(@120);
         make.centerX.equalTo(self);
-        make.top.equalTo(weakSelf.bitConnHeadView.mas_bottom).offset(10);
+        make.top.equalTo(self.bitConnHeadView.mas_bottom).offset(10);
     }];
     
     UIButton *saveBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -113,9 +113,9 @@
     [saveBtn addTarget:self action:@selector(saveToPhoneBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:saveBtn];
     [saveBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.centerX.equalTo(weakSelf.QRImageView);
+        make.width.centerX.equalTo(self.QRImageView);
         make.height.equalTo(@30);
-        make.top.equalTo(weakSelf.QRImageView.mas_bottom).offset(5);
+        make.top.equalTo(self.QRImageView.mas_bottom).offset(5);
     }];
     
     [self.bitCoinView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -125,7 +125,7 @@
     }];
     
     [self.tttLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.bitCoinView.mas_bottom).offset(30);
+        make.top.equalTo(self.bitCoinView.mas_bottom).offset(30);
         make.left.equalTo(self).offset(15);
         make.right.bottom.equalTo(self).offset(-15);
 
@@ -135,7 +135,7 @@
 #pragma mark--
 #pragma mark-- SH_BitCoinTextView代理
 -(void)SH_BitCoinTextViewChooseDateBtnClick{
-      __weak typeof(self) weakSelf = self;
+    __weak typeof(self) weakSelf = self;
     SH_NiceDatePickerView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_NiceDatePickerView" owner:self options:nil].firstObject;
     [view setDateStyle:DateStyleShowYearMonthDayHourMinute CompleteBlock:^(NSDate *date) {
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
@@ -150,7 +150,7 @@
 }
 
 - (void)updateUIWithChannelModel:(SH_RechargeCenterChannelModel *)model{
-    [self.QRImageView setImageWithType:1 ImageName:model.qrCodeUrl];
+    [self.QRImageView setImageWithType:1 ImageName:model.qrCodeUrl Placeholder:nil];
     [self.bitConnHeadView updateUIWithChannelModel:model];
 }
 -(void)saveToPhoneBtnClick{

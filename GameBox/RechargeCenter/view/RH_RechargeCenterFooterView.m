@@ -29,9 +29,8 @@
 @implementation RH_RechargeCenterFooterView
 - (void)awakeFromNib{
     [super awakeFromNib];
-      __weak typeof(self) weakSelf = self;
     [self.tttLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.submitBtn.mas_bottom).offset(15);
+        make.top.equalTo(self.submitBtn.mas_bottom).offset(15);
         make.left.equalTo(self).offset(15);
         make.right.equalTo(self).offset(-15);
     }];

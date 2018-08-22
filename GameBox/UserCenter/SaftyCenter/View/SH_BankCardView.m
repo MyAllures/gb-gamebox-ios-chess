@@ -26,6 +26,8 @@
 
 - (void)awakeFromNib{
     [super awakeFromNib];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateRealName) name:@"realName" object:nil];
+    [self updateRealName];
     [self.chooseBankBtn ButtonPositionStyle:ButtonPositionStyleRight spacing:5];
     if ( [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard.bankcardNumber != nil) {
          //已经绑定了银行卡
@@ -60,8 +62,23 @@
         self.sureBtn.hidden = YES;
 
     }
-   
 }
+
+-(void)updateRealName {
+    if ([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length > 0) {
+        self.realNameTF.userInteractionEnabled = NO;
+        NSString *first = [[RH_UserInfoManager shareUserManager].mineSettingInfo.realName substringWithRange:NSMakeRange(0, 1)];
+        NSString *last = [[RH_UserInfoManager shareUserManager].mineSettingInfo.realName substringWithRange:NSMakeRange([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length-1, 1)];
+        if (self.realNameTF.text.length == 2) {
+            self.realNameTF.text = [NSString stringWithFormat:@"%@*",first];
+        } else {
+            self.realNameTF.text = [NSString stringWithFormat:@"%@*%@",first,last];
+        }
+    } else {
+        self.realNameTF.userInteractionEnabled = YES;
+    }
+}
+
 - (IBAction)sureBtnClick:(id)sender {
     if (self.realNameTF.text.length == 0) {
         showMessage(self, @"请输入真实姓名", nil);
@@ -72,14 +89,17 @@
          showMessage(self, @"请选择银行", nil);
     }else if (self.cardNumTF.text.length == 0){
         showMessage(self, @"请输入银行卡号", nil);
-    }else if (self.cardNumTF.text.length < 14){
-        showMessage(self, @"卡号至少14位数", nil);
-    }else if ([self.bankTF.text isEqualToString:@" 其它银行"]){
+    }else if (self.cardNumTF.text.length < 12){
+        showMessage(self, @"卡号至少12位数", nil);
+    }else if ([self.bankTF.text isEqualToString:@"其它银行"]){
         if (self.addressTF.text.length > 0) {
-           [self bindBankcardRequeset];
+            if (self.addressTF.text != nil) {
+                [self bindBankcardRequeset];
+            } else {
+                showMessage(self, @"请输入开户银行", nil);
+            }
         } else {
             showMessage(self, @"请输入开户银行", nil);
-            return;
         }
     }else{
         [self bindBankcardRequeset];
@@ -87,7 +107,9 @@
 }
 
 -(void)bindBankcardRequeset {
-    __weak typeof(self) weakSelf = self;
+    if ([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length > 0) {
+        self.realNameTF.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.realName;
+    }
     [SH_NetWorkService bindBankcardRealName:self.realNameTF.text BankName:self.bankTF.text CardNum:self.cardNumTF.text BankDeposit:self.addressTF.text?:@"" Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
         
         NSString *code = [NSString stringWithFormat:@"%@",response[@"code"]];
@@ -105,7 +127,7 @@
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                  UIViewController * svc = [SH_TopLevelControllerManager fetchTopLevelController];
                 [svc dismissViewControllerAnimated:NO completion:^{
-                    if ([weakSelf.from isEqualToString:@"profitView"]) {
+                    if ([self.from isEqualToString:@"profitView"]) {
                         //从收益跳过来要通知其刷新数据
                         [[NSNotificationCenter defaultCenter]postNotificationName:@"refreshBankNumer" object:nil];
                     }
@@ -142,6 +164,10 @@
 }
 - (void)setFrom:(NSString *)from{
     _from = from;
+}
+
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"realName" object:nil];
 }
 
 @end

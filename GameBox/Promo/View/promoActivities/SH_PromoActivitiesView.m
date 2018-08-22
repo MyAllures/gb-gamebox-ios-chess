@@ -35,10 +35,10 @@
 }
 
 -(void)loadData{
-    __weak typeof(self) weakSelf = self;
+   
     [SH_NetWorkService getActivityTypesSucess:^(NSArray *datas) {
         if (datas.count > 0) {
-            weakSelf.topDatas = datas;
+            self.topDatas = datas;
             for (int i = 0; i < datas.count; i++) {
                 if (i == 0) {
                     [self.topSelectedArray addObject:@"1"];
@@ -47,15 +47,15 @@
                 }
             }
             //默认显示第一个
-            [weakSelf selectTopIndex:0];
-            [weakSelf.topCollectionView reloadData];
+            [self selectTopIndex:0];
+            [self.topCollectionView reloadData];
         }else{
-            [SH_NodataView showAddTo:weakSelf Message:@"当前没有活动可参与"];
+            [SH_NodataView showAddTo:self Message:@"当前没有活动可参与"];
         }
       
 
     } Failure:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
+        [SH_NodataView showAddTo:self Message:err];
     }];
 }
 -(void)configUI{
@@ -159,9 +159,9 @@
     [self getPromoDetailProId:model1.searchId Name:model1.name ImageUrl:model1.photo  Date:model1.time];
 }
 -(void)getPromoDetailProId:(NSString *)proId Name:(NSString *)name ImageUrl:(NSString *)imageUrl Date:(NSString *)date{
-    __weak typeof(self) weakSelf = self;
+   
     [SH_NetWorkService getPromoActivitiesDetailPromoId:proId Sucess:^(SH_PromoDetailModel *model) {
-        [weakSelf.detailView updateWithModel:model Name:name ImageUrl:imageUrl Date:date];
+        [self.detailView updateWithModel:model Name:name ImageUrl:imageUrl Date:date];
     } Failure:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];

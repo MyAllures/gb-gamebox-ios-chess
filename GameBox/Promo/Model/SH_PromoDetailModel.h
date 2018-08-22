@@ -11,4 +11,5 @@
 @interface SH_PromoDetailModel : JSONModel
 @property(nonatomic,copy)NSString *code;
 @property(nonatomic,copy)NSString *name;
+@property(nonatomic,copy)NSString *status;
 @end
