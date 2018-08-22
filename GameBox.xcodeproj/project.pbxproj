@@ -145,6 +145,7 @@
 		229CE8422128054500AB56E6 /* btn_general.webp in Resources */ = {isa = PBXBuildFile; fileRef = 229CE8412128054500AB56E6 /* btn_general.webp */; };
 		229CE844212805CA00AB56E6 /* btn_click.webp in Resources */ = {isa = PBXBuildFile; fileRef = 229CE843212805CA00AB56E6 /* btn_click.webp */; };
 		229CE8462128079800AB56E6 /* btn_large_click.webp in Resources */ = {isa = PBXBuildFile; fileRef = 229CE8452128079700AB56E6 /* btn_large_click.webp */; };
+		22C4CC88212D564A000C12E7 /* unselect2.webp in Resources */ = {isa = PBXBuildFile; fileRef = 22C4CC87212D564A000C12E7 /* unselect2.webp */; };
 		22E486D920F9F8AE0051A68C /* SH_SysMsgDataListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E486D820F9F8AE0051A68C /* SH_SysMsgDataListModel.m */; };
 		22FC6E8421075262001FA492 /* SH_FindPSWSendCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC6E8321075262001FA492 /* SH_FindPSWSendCodeView.m */; };
 		22FC6E862107526E001FA492 /* SH_FindPSWSendCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FC6E852107526E001FA492 /* SH_FindPSWSendCodeView.xib */; };
@@ -590,6 +591,7 @@
 		229CE8412128054500AB56E6 /* btn_general.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = btn_general.webp; sourceTree = "<group>"; };
 		229CE843212805CA00AB56E6 /* btn_click.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = btn_click.webp; sourceTree = "<group>"; };
 		229CE8452128079700AB56E6 /* btn_large_click.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = btn_large_click.webp; sourceTree = "<group>"; };
+		22C4CC87212D564A000C12E7 /* unselect2.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = unselect2.webp; sourceTree = "<group>"; };
 		22E486D720F9F8AE0051A68C /* SH_SysMsgDataListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SysMsgDataListModel.h; sourceTree = "<group>"; };
 		22E486D820F9F8AE0051A68C /* SH_SysMsgDataListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SysMsgDataListModel.m; sourceTree = "<group>"; };
 		22FC6E8221075262001FA492 /* SH_FindPSWSendCodeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_FindPSWSendCodeView.h; sourceTree = "<group>"; };
@@ -1111,6 +1113,7 @@
 		220D1D442126B3510050C8BA /* webpRes1 */ = {
 			isa = PBXGroup;
 			children = (
+				22C4CC87212D564A000C12E7 /* unselect2.webp */,
 				2210ED9D2128237600D806E3 /* nodata_bg2.webp */,
 				229CE8452128079700AB56E6 /* btn_large_click.webp */,
 				229CE843212805CA00AB56E6 /* btn_click.webp */,
@@ -2630,6 +2633,7 @@
 				220D1DD12126B3510050C8BA /* top_bg.webp in Resources */,
 				BFA068C520FE0AE100F5ADFE /* SH_SaftyCenterView.xib in Resources */,
 				BF6608A32107175E0029C4A6 /* SH_ConfirSaftyPassWordView.xib in Resources */,
+				22C4CC88212D564A000C12E7 /* unselect2.webp in Resources */,
 				220D1E172126B3520050C8BA /* noaccess.webp in Resources */,
 				BFA2EBCF211ACE5100B2678F /* SH_PromoDetailView.xib in Resources */,
 				543970B8210462BB0091C719 /* banner.webp in Resources */,
