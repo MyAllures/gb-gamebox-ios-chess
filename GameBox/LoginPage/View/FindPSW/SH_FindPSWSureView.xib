@@ -117,7 +117,7 @@
                 <outlet property="textField1" destination="HY6-tE-33b" id="qP5-RV-mba"/>
                 <outlet property="textField2" destination="7qi-V7-2sU" id="gvV-s2-ZJy"/>
             </connections>
-            <point key="canvasLocation" x="-246" y="99"/>
+            <point key="canvasLocation" x="-50" y="15"/>
         </view>
     </objects>
 </document>

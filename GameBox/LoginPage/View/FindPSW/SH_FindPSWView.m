@@ -39,7 +39,7 @@
                         view.phoneStr = dict[@"data"][@"phone"];
                         acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
                         acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-                         UIViewController * svc = [SH_TopLevelControllerManager fetchTopLevelController];
+                        UIViewController * svc = [SH_TopLevelControllerManager fetchTopLevelController];
                         [svc presentViewController:acr animated:YES completion:nil];
                         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
                         [defaults setObject:self.realNameTV.text forKey:@"userName"];
