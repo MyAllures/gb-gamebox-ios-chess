@@ -260,7 +260,7 @@
                 <outlet property="userWelfare_label" destination="5RL-Xf-brI" id="c30-wx-XPa"/>
                 <outlet property="warehouseWelfare_label" destination="2x5-3U-LmE" id="pXx-BA-tfg"/>
             </connections>
-            <point key="canvasLocation" x="-210" y="-111"/>
+            <point key="canvasLocation" x="-217" y="-29"/>
         </view>
     </objects>
 </document>

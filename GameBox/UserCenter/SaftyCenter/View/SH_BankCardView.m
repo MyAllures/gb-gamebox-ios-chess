@@ -108,7 +108,7 @@
 
 -(void)bindBankcardRequeset {
     if ([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length > 0) {
-        self.bankTF.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.realName;
+        self.realNameTF.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.realName;
     }
     [SH_NetWorkService bindBankcardRealName:self.realNameTF.text BankName:self.bankTF.text CardNum:self.cardNumTF.text BankDeposit:self.addressTF.text?:@"" Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
         
