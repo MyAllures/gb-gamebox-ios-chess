@@ -62,12 +62,10 @@
     [param setValue:transactionNo forKey:@"search.code"];
     [SH_NetWorkService post:url parameter:param header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dic = ConvertToClassPointer(NSDictionary, response);
-        NSString *code = dic[@"code"];
-        if ([code isEqualToString:@"0"]) {
             SH__PromoApplyModel *model = [[SH__PromoApplyModel alloc]initWithDictionary:dic[@"data"] error:nil];
             if (success) {
                 success(model);
-            }
+            
         }
     } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
         if (failure) {

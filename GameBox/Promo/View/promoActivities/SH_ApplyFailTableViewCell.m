@@ -70,10 +70,10 @@
 
 - (IBAction)applyBtnClick:(id)sender {
     [SH_NetWorkService applyPromoActivitiesPromoId:self.searchId TransactionNo:self.transactionNo  Sucess:^(SH__PromoApplyModel *model) {
-        showMessage(self, @"申请成功", nil);
+        showMessage(self.superview.superview, @"申请成功", nil);
  
     } Failure:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        showMessage(self, err, nil);
+        showMessage(self.superview.superview, err, nil);
     }];
 }
 @end
