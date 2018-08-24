@@ -145,6 +145,7 @@
 		229CE8422128054500AB56E6 /* btn_general.webp in Resources */ = {isa = PBXBuildFile; fileRef = 229CE8412128054500AB56E6 /* btn_general.webp */; };
 		229CE844212805CA00AB56E6 /* btn_click.webp in Resources */ = {isa = PBXBuildFile; fileRef = 229CE843212805CA00AB56E6 /* btn_click.webp */; };
 		229CE8462128079800AB56E6 /* btn_large_click.webp in Resources */ = {isa = PBXBuildFile; fileRef = 229CE8452128079700AB56E6 /* btn_large_click.webp */; };
+		22B85C39212FE46B0017B089 /* classify_main.webp in Resources */ = {isa = PBXBuildFile; fileRef = 22B85C38212FE46B0017B089 /* classify_main.webp */; };
 		22C4CC88212D564A000C12E7 /* unselect2.webp in Resources */ = {isa = PBXBuildFile; fileRef = 22C4CC87212D564A000C12E7 /* unselect2.webp */; };
 		22E486D920F9F8AE0051A68C /* SH_SysMsgDataListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E486D820F9F8AE0051A68C /* SH_SysMsgDataListModel.m */; };
 		22FC6E8421075262001FA492 /* SH_FindPSWSendCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC6E8321075262001FA492 /* SH_FindPSWSendCodeView.m */; };
@@ -172,9 +173,7 @@
 		5435E7C92104381C00DB809F /* SH_WebPImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5435E7C82104381C00DB809F /* SH_WebPImageView.m */; };
 		54397083210462BB0091C719 /* effects_man._defaultwebp in Resources */ = {isa = PBXBuildFile; fileRef = 54397024210462A30091C719 /* effects_man._defaultwebp */; };
 		54397094210462BB0091C719 /* start_bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397035210462A60091C719 /* start_bg.webp */; };
-		543970A9210462BB0091C719 /* upper-bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 5439704A210462AA0091C719 /* upper-bg.webp */; };
 		543970B8210462BB0091C719 /* banner.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397059210462AF0091C719 /* banner.webp */; };
-		543970B9210462BB0091C719 /* middle-bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 5439705A210462AF0091C719 /* middle-bg.webp */; };
 		543970BA210462BB0091C719 /* rounded.webp in Resources */ = {isa = PBXBuildFile; fileRef = 5439705B210462B00091C719 /* rounded.webp */; };
 		543970D4210462BB0091C719 /* notice_bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397075210462B80091C719 /* notice_bg.webp */; };
 		543970D6210462BB0091C719 /* rectangle_bg-3.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397077210462B90091C719 /* rectangle_bg-3.webp */; };
@@ -245,7 +244,6 @@
 		54DD033F21086E1000CE9199 /* SH_MsgCenterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54DD033E21086E1000CE9199 /* SH_MsgCenterView.xib */; };
 		54DD03432108797200CE9199 /* SH_MsgCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DD03412108797200CE9199 /* SH_MsgCenterCell.m */; };
 		54DD03442108797200CE9199 /* SH_MsgCenterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54DD03422108797200CE9199 /* SH_MsgCenterCell.xib */; };
-		54DD034C21096C1400CE9199 /* classify-main.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54DD034721096C1400CE9199 /* classify-main.webp */; };
 		54DD03592109C84F00CE9199 /* SH_SplashNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DD03582109C84F00CE9199 /* SH_SplashNoticeViewController.m */; };
 		54DD03612109FC1D00CE9199 /* effects_man.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54DD03602109FC1C00CE9199 /* effects_man.webp */; };
 		54DD03642109FDA000CE9199 /* SH_MsgCenterDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DD03632109FDA000CE9199 /* SH_MsgCenterDetailView.m */; };
@@ -585,6 +583,7 @@
 		229CE8412128054500AB56E6 /* btn_general.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = btn_general.webp; sourceTree = "<group>"; };
 		229CE843212805CA00AB56E6 /* btn_click.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = btn_click.webp; sourceTree = "<group>"; };
 		229CE8452128079700AB56E6 /* btn_large_click.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = btn_large_click.webp; sourceTree = "<group>"; };
+		22B85C38212FE46B0017B089 /* classify_main.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = classify_main.webp; sourceTree = "<group>"; };
 		22C4CC87212D564A000C12E7 /* unselect2.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = unselect2.webp; sourceTree = "<group>"; };
 		22E486D720F9F8AE0051A68C /* SH_SysMsgDataListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SysMsgDataListModel.h; sourceTree = "<group>"; };
 		22E486D820F9F8AE0051A68C /* SH_SysMsgDataListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SysMsgDataListModel.m; sourceTree = "<group>"; };
@@ -634,9 +633,7 @@
 		5435E7C82104381C00DB809F /* SH_WebPImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_WebPImageView.m; sourceTree = "<group>"; };
 		54397024210462A30091C719 /* effects_man._defaultwebp */ = {isa = PBXFileReference; lastKnownFileType = file; path = effects_man._defaultwebp; sourceTree = "<group>"; };
 		54397035210462A60091C719 /* start_bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = start_bg.webp; sourceTree = "<group>"; };
-		5439704A210462AA0091C719 /* upper-bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "upper-bg.webp"; sourceTree = "<group>"; };
 		54397059210462AF0091C719 /* banner.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = banner.webp; sourceTree = "<group>"; };
-		5439705A210462AF0091C719 /* middle-bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "middle-bg.webp"; sourceTree = "<group>"; };
 		5439705B210462B00091C719 /* rounded.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = rounded.webp; sourceTree = "<group>"; };
 		54397075210462B80091C719 /* notice_bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = notice_bg.webp; sourceTree = "<group>"; };
 		54397077210462B90091C719 /* rectangle_bg-3.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "rectangle_bg-3.webp"; sourceTree = "<group>"; };
@@ -754,7 +751,6 @@
 		54DD03402108797200CE9199 /* SH_MsgCenterCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_MsgCenterCell.h; sourceTree = "<group>"; };
 		54DD03412108797200CE9199 /* SH_MsgCenterCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_MsgCenterCell.m; sourceTree = "<group>"; };
 		54DD03422108797200CE9199 /* SH_MsgCenterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_MsgCenterCell.xib; sourceTree = "<group>"; };
-		54DD034721096C1400CE9199 /* classify-main.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "classify-main.webp"; sourceTree = "<group>"; };
 		54DD03572109C84F00CE9199 /* SH_SplashNoticeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SplashNoticeViewController.h; sourceTree = "<group>"; };
 		54DD03582109C84F00CE9199 /* SH_SplashNoticeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SplashNoticeViewController.m; sourceTree = "<group>"; };
 		54DD03602109FC1C00CE9199 /* effects_man.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = effects_man.webp; sourceTree = "<group>"; };
@@ -1098,6 +1094,10 @@
 		220D1D442126B3510050C8BA /* webpRes1 */ = {
 			isa = PBXGroup;
 			children = (
+				22B85C38212FE46B0017B089 /* classify_main.webp */,
+				5439705B210462B00091C719 /* rounded.webp */,
+				543970E6210467F90091C719 /* index_bg.webp */,
+				54397075210462B80091C719 /* notice_bg.webp */,
 				22C4CC87212D564A000C12E7 /* unselect2.webp */,
 				2210ED9D2128237600D806E3 /* nodata_bg2.webp */,
 				229CE8452128079700AB56E6 /* btn_large_click.webp */,
@@ -1478,16 +1478,10 @@
 			isa = PBXGroup;
 			children = (
 				54DD03602109FC1C00CE9199 /* effects_man.webp */,
-				54DD034721096C1400CE9199 /* classify-main.webp */,
-				543970E6210467F90091C719 /* index_bg.webp */,
 				54397059210462AF0091C719 /* banner.webp */,
 				54397024210462A30091C719 /* effects_man._defaultwebp */,
-				5439705A210462AF0091C719 /* middle-bg.webp */,
-				54397075210462B80091C719 /* notice_bg.webp */,
 				54397077210462B90091C719 /* rectangle_bg-3.webp */,
-				5439705B210462B00091C719 /* rounded.webp */,
 				54397035210462A60091C719 /* start_bg.webp */,
-				5439704A210462AA0091C719 /* upper-bg.webp */,
 			);
 			path = webpRes;
 			sourceTree = "<group>";
@@ -2504,13 +2498,11 @@
 				220D1DC52126B3510050C8BA /* logo14.webp in Resources */,
 				220D1DDF2126B3520050C8BA /* visitor.webp in Resources */,
 				BF5C0BDB2105D9190035B754 /* SH_FillRealNameView.xib in Resources */,
-				543970A9210462BB0091C719 /* upper-bg.webp in Resources */,
 				220D1E222126B3520050C8BA /* loading-4.webp in Resources */,
 				220D1DFF2126B3520050C8BA /* title_bg2.webp in Resources */,
 				5401C53C20ECA1100027246D /* LaunchScreen.storyboard in Resources */,
 				54C8759E20F756A500AA0594 /* moneyRing.mp3 in Resources */,
 				220D1DF32126B3520050C8BA /* column_bg.webp in Resources */,
-				54DD034C21096C1400CE9199 /* classify-main.webp in Resources */,
 				220D1DFE2126B3520050C8BA /* gongxi.webp in Resources */,
 				22FC6E862107526E001FA492 /* SH_FindPSWSendCodeView.xib in Resources */,
 				220D1DE92126B3520050C8BA /* input_bg.webp in Resources */,
@@ -2570,6 +2562,7 @@
 				220D1E0E2126B3520050C8BA /* drop_down.webp in Resources */,
 				54C8761620FE218B00AA0594 /* rain.png in Resources */,
 				54DD03612109FC1D00CE9199 /* effects_man.webp in Resources */,
+				22B85C39212FE46B0017B089 /* classify_main.webp in Resources */,
 				220D1E092126B3520050C8BA /* title16nw.webp in Resources */,
 				220D1E212126B3520050C8BA /* title_bg_short.webp in Resources */,
 				BFA068CA20FE0FFC00F5ADFE /* SH_ModifyLoginPSDView.xib in Resources */,
@@ -2628,7 +2621,6 @@
 				BF44ECFF20F7478600BC6EF3 /* SH_BitCoinSuccessPopView.xib in Resources */,
 				22FC6E8B210754A2001FA492 /* SH_FindPSWSureView.xib in Resources */,
 				220D1E052126B3520050C8BA /* close.webp in Resources */,
-				543970B9210462BB0091C719 /* middle-bg.webp in Resources */,
 				220D1E002126B3520050C8BA /* btn_blue.webp in Resources */,
 				BF44ECC320F4B53A00BC6EF3 /* SH_RechargeDetailHeadView.xib in Resources */,
 				BFFC845920F2F260008AD801 /* DepositeHeadCollectionReusableView.xib in Resources */,

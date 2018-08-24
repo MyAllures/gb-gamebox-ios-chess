@@ -29,6 +29,7 @@
 
 @property (weak, nonatomic) IBOutlet SH_WebPImageView *imageView;
 @property (assign, nonatomic) NSInteger page;
+@property (assign, nonatomic) NSString *noMoreData;
 @end
 
 @implementation SH_HandRecordView
@@ -49,6 +50,11 @@
 }
 
 -(void)loadMoreData {
+    if ([self.noMoreData isEqualToString:@"noMoreData"]) {
+        [self.tableView.mj_footer resetNoMoreData];
+        [self.tableView.mj_footer endRefreshing];
+        return;
+    }
     self.page = self.page + 1 ;
     [SH_NetWorkService fetchBettingList:self.startTimeStr EndDate:self.endTimeStr PageNumber:self.page PageSize:20 withIsStatistics:YES complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dict = (NSDictionary *)response;
@@ -58,6 +64,9 @@
         self.profitLabel.text = [NSString stringWithFormat:@"赛果合计:%.2f",[dict[@"data"][@"statisticsData"][@"profit"] floatValue]];
         NSArray *arr = dict[@"data"][@"list"];
         if (arr.count > 0) {
+            if (arr.count < 20) {
+                self.noMoreData = @"noMoreData";
+            }
             for (NSDictionary *dict1 in dict[@"data"][@"list"]) {
                 RH_BettingInfoModel *model = [[RH_BettingInfoModel alloc] initWithDictionary:dict1 error:nil];
                 [self.bettingArr addObject:model];
