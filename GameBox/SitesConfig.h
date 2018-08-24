@@ -41,7 +41,7 @@
 #define S        @"e1576bc75aabd600d0b6b078af7a96a3"
 #define SID        @"7001"
 
-#elif _lcat //666棋牌
+#elif _lcat
 
 #define CODE    @"lcat"
 #define S        @"54f9540412e52a4b43aefb0b461bf043"
