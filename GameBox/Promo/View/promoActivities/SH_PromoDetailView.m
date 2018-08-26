@@ -34,9 +34,10 @@
                   Date:(NSString *)date{
      if ([model.status isEqualToString:@"0"]) {
         self.applyBtn.enabled = YES;
-        
+         self.applyBtn.hidden = NO;
     }else{
         self.applyBtn.enabled = NO;
+        self.applyBtn.hidden = YES;
     }
     self.promoId = model.name;
     self.nameLab.text = name;

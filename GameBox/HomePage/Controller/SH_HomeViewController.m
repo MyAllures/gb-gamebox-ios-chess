@@ -47,6 +47,8 @@
 #import "SH_SmallWindowViewController.h"
 #import "SH_NetWorkService+SaftyCenter.h"
 #import "SH_WelfareWarehouse.h"
+#import "SH_MaintainViewController.h"
+#import "SH_NoAccessViewController.h"
 @interface SH_HomeViewController () <SH_CycleScrollViewDataSource, SH_CycleScrollViewDelegate, GamesListScrollViewDataSource, GamesListScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImg;
 @property (weak, nonatomic) IBOutlet UILabel *userAccountLB;
@@ -194,7 +196,13 @@
     __weak typeof(self) weakSelf = self;
 
     [SH_NetWorkService checkVersionUpdate:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        if (response) {
+        if (httpURLResponse.statusCode == 607) {
+            SH_MaintainViewController *maintain = [[SH_MaintainViewController alloc] init];
+            [self.navigationController pushViewController:maintain animated:NO];
+        } else if (httpURLResponse.statusCode == 605) {
+            SH_NoAccessViewController *noAccess = [[SH_NoAccessViewController alloc] init];
+            [self.navigationController pushViewController:noAccess animated:NO];
+        }else  if (response) {
             NSError *err;
             SH_UpdatedVersionModel *updatedVersionModel = [[SH_UpdatedVersionModel alloc] initWithDictionary:response error:&err];
             if(updatedVersionModel.versionCode <= [GB_CURRENT_APPBUILD integerValue]&&updatedVersionModel.forceVersion <= [GB_CURRENT_APPBUILD integerValue]){
@@ -549,7 +557,12 @@
     [SH_NetWorkService fetchHttpCookie:^(NSHTTPURLResponse *httpURLResponse, id response) {
         [[NetWorkLineMangaer sharedManager] configCookieAndSid:httpURLResponse];
     } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
-        
+        if (httpURLResponse.statusCode == 607) {
+            SH_MaintainViewController *maintain = [[NSBundle mainBundle] loadNibNamed:@"SH_MaintainViewController" owner:nil options:nil].lastObject;
+            [self presentViewController:maintain addTargetViewController:nil];
+        } else if (httpURLResponse.statusCode == 605) {
+            
+        }
     }];
 }
 

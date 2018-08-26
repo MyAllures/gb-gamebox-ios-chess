@@ -2,7 +2,7 @@
 //  SH_NoAccessViewController.h
 //  GameBox
 //
-//  Created by shin on 2018/7/15.
+//  Created by sam on 2018/8/26.
 //  Copyright © 2018年 shin. All rights reserved.
 //
 
