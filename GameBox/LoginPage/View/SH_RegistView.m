@@ -282,7 +282,7 @@
 
     label.titleLabel.font = [UIFont systemFontOfSize:9];
     [label setTitleColor:[UIColor  whiteColor] forState:UIControlStateNormal]; ;
-    [label setTitle:@"我已满合法博彩年龄，同意各项开户条约" forState:UIControlStateNormal];
+    [label setTitle:@"我已满18周岁，同意各项开户条约" forState:UIControlStateNormal];
     [label addTarget:self action:@selector(zhucetiaokuan) forControlEvents:UIControlEventTouchUpInside];
     
     if (![self.status isEqualToString:@"1"]) {
