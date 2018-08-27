@@ -313,10 +313,26 @@ static BOOL isNetworkingOK = YES;//网络状态 默认畅通
 + (void)dealResultWithUrl:(NSString *)url parameter:(NSDictionary *)parameter header:(NSDictionary *)header cache:(BOOL)cache task:(NSURLSessionDataTask * _Nonnull)task responseObject:(id  _Nullable) responseObject complete:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
 {
     id response = [self translateResponseData:responseObject];
+    NSHTTPURLResponse * httpURLResponse = (NSHTTPURLResponse *)task.response;
     //先做code判断看是否需要做特点错误码的统一回调
-    if ([response isKindOfClass:[NSDictionary class]]) {
-        if ([[response allKeys] containsObject:@"code"]) {
-            int code = [response[@"code"] intValue];
+    if ([response isKindOfClass:[NSDictionary class]]||[response isKindOfClass:[NSString class]]) {
+        int code = 0;
+        if ([response isKindOfClass:[NSDictionary class]]) {
+            if ([[response allKeys] containsObject:@"code"]){
+                code = [response[@"code"] intValue];
+            }
+        }else if ([response isKindOfClass:[NSString class]]){
+            if ([httpURLResponse respondsToSelector:@selector(allHeaderFields)]) {
+                NSDictionary *dictionary = [httpURLResponse allHeaderFields];
+                code = [dictionary[@"headerStatus"] intValue];
+                
+            }
+        }else{
+            if (complete) {
+                complete((NSHTTPURLResponse *)task.response, response);
+            }
+            return;
+        }
             if (code == SH_API_ERRORCODE_403 ||
                 code == SH_API_ERRORCODE_404 ||
                 code == SH_API_ERRORCODE_500 ||
@@ -404,14 +420,7 @@ static BOOL isNetworkingOK = YES;//网络状态 默认畅通
                     complete((NSHTTPURLResponse *)task.response, response);
                 }
             }
-        }
-        else
-        {
-            if (complete) {
-                complete((NSHTTPURLResponse *)task.response, response);
-            }
-        }
-    }
+    } 
     else
     {
         if (complete) {

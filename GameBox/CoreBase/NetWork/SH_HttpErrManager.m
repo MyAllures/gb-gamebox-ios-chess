@@ -12,7 +12,7 @@
 #import "SH_NoAccessViewController.h"
 #import "SH_BigWindowViewController.h"
 #import "SH_TopLevelControllerManager.h"
-
+#import "SH_MaintainViewController.h"
 @interface SH_HttpErrManager ()
 
 @end
@@ -106,7 +106,22 @@
     }
     else if (code == SH_API_ERRORCODE_607)
     {
-        showErrorMessage([UIApplication sharedApplication].keyWindow, nil, @"站点维护");
+        //ip被限制
+        UINavigationController *rootViewController = (UINavigationController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+        LineCheckViewController *lineCheckViewController = (LineCheckViewController *)rootViewController.presentedViewController;
+        
+        //取到顶层navigation控制器
+        UIViewController *topNavController = [lineCheckViewController.rootNav.viewControllers lastObject];
+        //如果有push的VC先pop到首页控制器
+        [topNavController.navigationController popToRootViewControllerAnimated:NO];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            UIViewController *homeViewVC = [lineCheckViewController.rootNav.viewControllers firstObject];
+            static dispatch_once_t onceToken;
+            dispatch_once(&onceToken, ^{
+                SH_MaintainViewController *vc = [[SH_MaintainViewController alloc] initWithNibName:@"SH_MaintainViewController" bundle:nil];
+                [homeViewVC.navigationController pushViewController:vc animated:NO];
+            });
+        });
     }
     else if (code == SH_API_ERRORCODE_608)
     {

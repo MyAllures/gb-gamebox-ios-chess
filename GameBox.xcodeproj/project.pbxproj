@@ -125,6 +125,8 @@
 		2210ED9E2128237700D806E3 /* nodata_bg2.webp in Resources */ = {isa = PBXBuildFile; fileRef = 2210ED9D2128237600D806E3 /* nodata_bg2.webp */; };
 		2231283420F6F26D00D1BF5E /* SH_GameBulletinModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2231283320F6F26D00D1BF5E /* SH_GameBulletinModel.m */; };
 		2231283720F707F500D1BF5E /* SH_SystemNotificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2231283620F707F500D1BF5E /* SH_SystemNotificationModel.m */; };
+		224144682132D07F009D48ED /* SH_NoAccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 224144662132D07F009D48ED /* SH_NoAccessViewController.m */; };
+		224144692132D07F009D48ED /* SH_NoAccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 224144672132D07F009D48ED /* SH_NoAccessViewController.xib */; };
 		22552CEE20F4CCE50090EFBC /* SH_NetWorkService+Promo.m in Sources */ = {isa = PBXBuildFile; fileRef = 22552CED20F4CCE50090EFBC /* SH_NetWorkService+Promo.m */; };
 		22552CF120F4E0BB0090EFBC /* SH_PromoListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22552CF020F4E0BB0090EFBC /* SH_PromoListModel.m */; };
 		22618C62210963F700E4A6F6 /* SH_WelfareNotesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22618C61210963F700E4A6F6 /* SH_WelfareNotesView.m */; };
@@ -146,6 +148,8 @@
 		229CE844212805CA00AB56E6 /* btn_click.webp in Resources */ = {isa = PBXBuildFile; fileRef = 229CE843212805CA00AB56E6 /* btn_click.webp */; };
 		229CE8462128079800AB56E6 /* btn_large_click.webp in Resources */ = {isa = PBXBuildFile; fileRef = 229CE8452128079700AB56E6 /* btn_large_click.webp */; };
 		22B85C39212FE46B0017B089 /* classify_main.webp in Resources */ = {isa = PBXBuildFile; fileRef = 22B85C38212FE46B0017B089 /* classify_main.webp */; };
+		22C02DB021328DC600AFCEB7 /* SH_MaintainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C02DAE21328DC600AFCEB7 /* SH_MaintainViewController.m */; };
+		22C02DB121328DC600AFCEB7 /* SH_MaintainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22C02DAF21328DC600AFCEB7 /* SH_MaintainViewController.xib */; };
 		22C4CC88212D564A000C12E7 /* unselect2.webp in Resources */ = {isa = PBXBuildFile; fileRef = 22C4CC87212D564A000C12E7 /* unselect2.webp */; };
 		22E486D920F9F8AE0051A68C /* SH_SysMsgDataListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E486D820F9F8AE0051A68C /* SH_SysMsgDataListModel.m */; };
 		22FC6E8421075262001FA492 /* SH_FindPSWSendCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC6E8321075262001FA492 /* SH_FindPSWSendCodeView.m */; };
@@ -207,8 +211,6 @@
 		54C875AF20FB414200AA0594 /* SH_WKGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C875AD20FB414200AA0594 /* SH_WKGameViewController.m */; };
 		54C875B320FB4E1200AA0594 /* SH_DragableMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C875B220FB4E1200AA0594 /* SH_DragableMenuView.m */; };
 		54C875B520FB4E2D00AA0594 /* SH_DragableMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C875B420FB4E2D00AA0594 /* SH_DragableMenuView.xib */; };
-		54C875B920FB788D00AA0594 /* SH_NoAccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C875B720FB788D00AA0594 /* SH_NoAccessViewController.m */; };
-		54C875BA20FB788D00AA0594 /* SH_NoAccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C875B820FB788D00AA0594 /* SH_NoAccessViewController.xib */; };
 		54C875BD20FC4B0B00AA0594 /* SH_AnnouncementModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C875BC20FC4B0B00AA0594 /* SH_AnnouncementModel.m */; };
 		54C875C320FC846200AA0594 /* SH_AnnouncementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C875C220FC846200AA0594 /* SH_AnnouncementView.m */; };
 		54C875C620FCBE0E00AA0594 /* SH_DZGameItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C875C520FCBE0E00AA0594 /* SH_DZGameItemView.m */; };
@@ -556,6 +558,9 @@
 		2231283320F6F26D00D1BF5E /* SH_GameBulletinModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_GameBulletinModel.m; sourceTree = "<group>"; };
 		2231283520F707F500D1BF5E /* SH_SystemNotificationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SystemNotificationModel.h; sourceTree = "<group>"; };
 		2231283620F707F500D1BF5E /* SH_SystemNotificationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SystemNotificationModel.m; sourceTree = "<group>"; };
+		224144652132D07F009D48ED /* SH_NoAccessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_NoAccessViewController.h; sourceTree = "<group>"; };
+		224144662132D07F009D48ED /* SH_NoAccessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_NoAccessViewController.m; sourceTree = "<group>"; };
+		224144672132D07F009D48ED /* SH_NoAccessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_NoAccessViewController.xib; sourceTree = "<group>"; };
 		22552CEC20F4CCE50090EFBC /* SH_NetWorkService+Promo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SH_NetWorkService+Promo.h"; sourceTree = "<group>"; };
 		22552CED20F4CCE50090EFBC /* SH_NetWorkService+Promo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SH_NetWorkService+Promo.m"; sourceTree = "<group>"; };
 		22552CEF20F4E0BB0090EFBC /* SH_PromoListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PromoListModel.h; sourceTree = "<group>"; };
@@ -584,6 +589,9 @@
 		229CE843212805CA00AB56E6 /* btn_click.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = btn_click.webp; sourceTree = "<group>"; };
 		229CE8452128079700AB56E6 /* btn_large_click.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = btn_large_click.webp; sourceTree = "<group>"; };
 		22B85C38212FE46B0017B089 /* classify_main.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = classify_main.webp; sourceTree = "<group>"; };
+		22C02DAD21328DC600AFCEB7 /* SH_MaintainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_MaintainViewController.h; sourceTree = "<group>"; };
+		22C02DAE21328DC600AFCEB7 /* SH_MaintainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_MaintainViewController.m; sourceTree = "<group>"; };
+		22C02DAF21328DC600AFCEB7 /* SH_MaintainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_MaintainViewController.xib; sourceTree = "<group>"; };
 		22C4CC87212D564A000C12E7 /* unselect2.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = unselect2.webp; sourceTree = "<group>"; };
 		22E486D720F9F8AE0051A68C /* SH_SysMsgDataListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SysMsgDataListModel.h; sourceTree = "<group>"; };
 		22E486D820F9F8AE0051A68C /* SH_SysMsgDataListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SysMsgDataListModel.m; sourceTree = "<group>"; };
@@ -689,9 +697,6 @@
 		54C875B120FB4E1200AA0594 /* SH_DragableMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_DragableMenuView.h; sourceTree = "<group>"; };
 		54C875B220FB4E1200AA0594 /* SH_DragableMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_DragableMenuView.m; sourceTree = "<group>"; };
 		54C875B420FB4E2D00AA0594 /* SH_DragableMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_DragableMenuView.xib; sourceTree = "<group>"; };
-		54C875B620FB788D00AA0594 /* SH_NoAccessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_NoAccessViewController.h; sourceTree = "<group>"; };
-		54C875B720FB788D00AA0594 /* SH_NoAccessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_NoAccessViewController.m; sourceTree = "<group>"; };
-		54C875B820FB788D00AA0594 /* SH_NoAccessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_NoAccessViewController.xib; sourceTree = "<group>"; };
 		54C875BB20FC4B0B00AA0594 /* SH_AnnouncementModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_AnnouncementModel.h; sourceTree = "<group>"; };
 		54C875BC20FC4B0B00AA0594 /* SH_AnnouncementModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_AnnouncementModel.m; sourceTree = "<group>"; };
 		54C875C120FC846200AA0594 /* SH_AnnouncementView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_AnnouncementView.h; sourceTree = "<group>"; };
@@ -1268,6 +1273,26 @@
 			path = cardRecord;
 			sourceTree = "<group>";
 		};
+		22C02DAC21328DA800AFCEB7 /* maintain */ = {
+			isa = PBXGroup;
+			children = (
+				22C02DAD21328DC600AFCEB7 /* SH_MaintainViewController.h */,
+				22C02DAE21328DC600AFCEB7 /* SH_MaintainViewController.m */,
+				22C02DAF21328DC600AFCEB7 /* SH_MaintainViewController.xib */,
+			);
+			path = maintain;
+			sourceTree = "<group>";
+		};
+		22C02DB72132CAB100AFCEB7 /* NoAccess */ = {
+			isa = PBXGroup;
+			children = (
+				224144652132D07F009D48ED /* SH_NoAccessViewController.h */,
+				224144662132D07F009D48ED /* SH_NoAccessViewController.m */,
+				224144672132D07F009D48ED /* SH_NoAccessViewController.xib */,
+			);
+			path = NoAccess;
+			sourceTree = "<group>";
+		};
 		22FC6E8C21082487001FA492 /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1301,6 +1326,8 @@
 		5401C52E20ECA10F0027246D /* GameBox */ = {
 			isa = PBXGroup;
 			children = (
+				22C02DB72132CAB100AFCEB7 /* NoAccess */,
+				22C02DAC21328DA800AFCEB7 /* maintain */,
 				220D1E302126C5C90050C8BA /* welfareWarehouse  */,
 				220D1D442126B3510050C8BA /* webpRes1 */,
 				5435E7C32104349B00DB809F /* webpRes */,
@@ -1418,9 +1445,6 @@
 				5401C55F20ECF9EA0027246D /* SH_HomeViewController.h */,
 				5401C56020ECF9EA0027246D /* SH_HomeViewController.m */,
 				5401C56120ECF9EA0027246D /* SH_HomeViewController.xib */,
-				54C875B620FB788D00AA0594 /* SH_NoAccessViewController.h */,
-				54C875B720FB788D00AA0594 /* SH_NoAccessViewController.m */,
-				54C875B820FB788D00AA0594 /* SH_NoAccessViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2520,13 +2544,13 @@
 				220D1DC82126B3510050C8BA /* error2.webp in Resources */,
 				220D1E0D2126B3520050C8BA /* chip_red.webp in Resources */,
 				220D1DF02126B3520050C8BA /* back.webp in Resources */,
+				224144692132D07F009D48ED /* SH_NoAccessViewController.xib in Resources */,
 				BF44EC6120F45DB500BC6EF3 /* SH_BitCoinTextView.xib in Resources */,
 				543970E7210467F90091C719 /* index_bg.webp in Resources */,
 				2210ED9E2128237700D806E3 /* nodata_bg2.webp in Resources */,
 				BF44ECD120F59A6300BC6EF3 /* SH_RechargeDetailBankView.xib in Resources */,
 				BF5C0BD62105D3530035B754 /* SH_ProfitExchangeTableViewCell.xib in Resources */,
 				220D1E102126B3520050C8BA /* photo_female.webp in Resources */,
-				54C875BA20FB788D00AA0594 /* SH_NoAccessViewController.xib in Resources */,
 				220D1E1B2126B3520050C8BA /* success.webp in Resources */,
 				220D1DBA2126B3510050C8BA /* warn.webp in Resources */,
 				220D1E1C2126B3520050C8BA /* logo01.webp in Resources */,
@@ -2623,6 +2647,7 @@
 				220D1E052126B3520050C8BA /* close.webp in Resources */,
 				220D1E002126B3520050C8BA /* btn_blue.webp in Resources */,
 				BF44ECC320F4B53A00BC6EF3 /* SH_RechargeDetailHeadView.xib in Resources */,
+				22C02DB121328DC600AFCEB7 /* SH_MaintainViewController.xib in Resources */,
 				BFFC845920F2F260008AD801 /* DepositeHeadCollectionReusableView.xib in Resources */,
 				DA1BCCB020FF33BE00201DBC /* SH_GamesHomeViewController.xib in Resources */,
 				543970BA210462BB0091C719 /* rounded.webp in Resources */,
@@ -2797,7 +2822,6 @@
 				DA1BCD762100B0F500201DBC /* SH_ShareView.m in Sources */,
 				BF44ECFA20F7475A00BC6EF3 /* SH_BitCoinSuccessView.m in Sources */,
 				54C8763D2100B04300AA0594 /* SH_HorizontalscreenPicker.m in Sources */,
-				54C875B920FB788D00AA0594 /* SH_NoAccessViewController.m in Sources */,
 				BF7B08BE2101936B008256FE /* NSDate+Extension.m in Sources */,
 				BFFC847320F3452A008AD801 /* UIImageView+handle.m in Sources */,
 				BF5C0BC62105AF020035B754 /* SH_BindPhoneNumView.m in Sources */,
@@ -2873,6 +2897,7 @@
 				BF44EC5020F44BB900BC6EF3 /* SH_BitCoinView.m in Sources */,
 				BFA068A020FCBEEE00F5ADFE /* SH_ProfitModel.m in Sources */,
 				BF5FF842212523DE0019EF30 /* UIView+BgColor.m in Sources */,
+				224144682132D07F009D48ED /* SH_NoAccessViewController.m in Sources */,
 				BF44ECC620F4D4FB00BC6EF3 /* SH_RechargeDetailMainView.m in Sources */,
 				22552CEE20F4CCE50090EFBC /* SH_NetWorkService+Promo.m in Sources */,
 				BF5FF790212269F20019EF30 /* SH_NodataView.m in Sources */,
@@ -2952,6 +2977,7 @@
 				5401C53120ECA10F0027246D /* AppDelegate.m in Sources */,
 				BFB8A511212954360009F47E /* SH_PromoApplyProgressView.m in Sources */,
 				BF5FF799212273590019EF30 /* SH_ApplyResultView.m in Sources */,
+				22C02DB021328DC600AFCEB7 /* SH_MaintainViewController.m in Sources */,
 				DA22F3D520F454840058A54F /* NSString+CLCategory.m in Sources */,
 				54C8761C20FE218B00AA0594 /* YFEmitterSnowCell.m in Sources */,
 				5480CD4B210F0789008465C5 /* SH_SliderView.m in Sources */,
