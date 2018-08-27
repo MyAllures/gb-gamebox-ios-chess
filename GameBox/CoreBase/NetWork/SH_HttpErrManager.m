@@ -95,7 +95,7 @@
         UIViewController *topNavController = [lineCheckViewController.rootNav.viewControllers lastObject];
         //如果有push的VC先pop到首页控制器
         [topNavController.navigationController popToRootViewControllerAnimated:NO];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             UIViewController *homeViewVC = [lineCheckViewController.rootNav.viewControllers firstObject];
             static dispatch_once_t onceToken;
             dispatch_once(&onceToken, ^{
@@ -114,7 +114,7 @@
         UIViewController *topNavController = [lineCheckViewController.rootNav.viewControllers lastObject];
         //如果有push的VC先pop到首页控制器
         [topNavController.navigationController popToRootViewControllerAnimated:NO];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             UIViewController *homeViewVC = [lineCheckViewController.rootNav.viewControllers firstObject];
             static dispatch_once_t onceToken;
             dispatch_once(&onceToken, ^{
