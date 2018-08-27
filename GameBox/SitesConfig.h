@@ -9,7 +9,7 @@
 #ifndef SitesConfig_h
 #define SitesConfig_h
 
-#define _lcat 1
+#define _ty3a 1
 
 #if _8l6r
 
