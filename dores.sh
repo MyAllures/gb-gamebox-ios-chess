@@ -15,10 +15,10 @@ do
   echo ${line}
   sid=${line} #取sid value
   echo "sid:${sid}"
-
   all_res_path="${project_path}/icon" #存放所有渠道icon的路径
   assets_path="${project_path}/GameBox/Assets.xcassets" #工程中Assets文件夹的路径
   temp_icon_json_path="${project_path}/temp_json_file" #icon的Contents.json模板路径
+
 
   echo "${all_res_path}"
   echo "====="
@@ -62,7 +62,22 @@ do
          mv Contents.json.tmp Contents.json
      fi
   done
+
+
+done
+cat "${project_path}/themeFile" | while read line1
+do
   #更换主题文件 webp png json music
   #todo
-done
+  theme=${line1} #读取主题文件里面的theme
+  themeGroup="${project_path}/themeGroup" #存放当前皮肤的路径
+  all_theme="${project_path}/theme" #存放所有皮肤的路径
+    for fileDir in "${all_theme}"/*; do
+         folder=${fileDir##*/}
+     if [[ ${folder} == ${theme} ]]; then
+      cp -f "${fileDir}"/* "${themeGroup}"
+     fi
+  done
+
+  done
 

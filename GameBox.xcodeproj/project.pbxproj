@@ -268,7 +268,6 @@
 		54CB4E47211088BD00170B1B /* SH_CustomerServiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54CB4E46211088BD00170B1B /* SH_CustomerServiceView.m */; };
 		54D13C4E211D96AB00E07E5A /* sid in Resources */ = {isa = PBXBuildFile; fileRef = 54D13C4C211D96AA00E07E5A /* sid */; };
 		54D13C4F211D96AB00E07E5A /* dores.sh in Resources */ = {isa = PBXBuildFile; fileRef = 54D13C4D211D96AB00E07E5A /* dores.sh */; };
-		54D13C522121622C00E07E5A /* colors.json in Resources */ = {isa = PBXBuildFile; fileRef = 54D13C512121622B00E07E5A /* colors.json */; };
 		54D13C55212278AF00E07E5A /* SH_ColorConfigView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D13C54212278AF00E07E5A /* SH_ColorConfigView.m */; };
 		54D13C5821227CB100E07E5A /* SH_ColorsJsonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D13C5721227CB100E07E5A /* SH_ColorsJsonManager.m */; };
 		54D5F57821081C5300439A94 /* SH_XibView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D5F57721081C5300439A94 /* SH_XibView.m */; };
@@ -350,6 +349,7 @@
 		BF5FF88121259EFF0019EF30 /* SH__PromoApplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5FF88021259EFF0019EF30 /* SH__PromoApplyModel.m */; };
 		BF6608A12107174A0029C4A6 /* SH_ConfirSaftyPassWordView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6608A02107174A0029C4A6 /* SH_ConfirSaftyPassWordView.m */; };
 		BF6608A32107175E0029C4A6 /* SH_ConfirSaftyPassWordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF6608A22107175E0029C4A6 /* SH_ConfirSaftyPassWordView.xib */; };
+		BF6CC1EC2133EE0F00033F88 /* themeFile in Resources */ = {isa = PBXBuildFile; fileRef = BF6CC1EB2133EE0F00033F88 /* themeFile */; };
 		BF7B08BE2101936B008256FE /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B08B72101936A008256FE /* NSDate+Extension.m */; };
 		BF7B08BF2101936B008256FE /* SH_NiceDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B08B82101936A008256FE /* SH_NiceDatePickerView.m */; };
 		BF7B08C62101CF33008256FE /* SH_NiceDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7B08C52101CF33008256FE /* SH_NiceDatePickerView.xib */; };
@@ -804,7 +804,6 @@
 		54D13C07211BE08900E07E5A /* SitesConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SitesConfig.h; sourceTree = "<group>"; };
 		54D13C4C211D96AA00E07E5A /* sid */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sid; sourceTree = "<group>"; };
 		54D13C4D211D96AB00E07E5A /* dores.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = dores.sh; sourceTree = "<group>"; };
-		54D13C512121622B00E07E5A /* colors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = colors.json; sourceTree = "<group>"; };
 		54D13C53212278AF00E07E5A /* SH_ColorConfigView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ColorConfigView.h; sourceTree = "<group>"; };
 		54D13C54212278AF00E07E5A /* SH_ColorConfigView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_ColorConfigView.m; sourceTree = "<group>"; };
 		54D13C5621227CB100E07E5A /* SH_ColorsJsonManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ColorsJsonManager.h; sourceTree = "<group>"; };
@@ -940,6 +939,7 @@
 		BF66089F2107174A0029C4A6 /* SH_ConfirSaftyPassWordView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_ConfirSaftyPassWordView.h; sourceTree = "<group>"; };
 		BF6608A02107174A0029C4A6 /* SH_ConfirSaftyPassWordView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_ConfirSaftyPassWordView.m; sourceTree = "<group>"; };
 		BF6608A22107175E0029C4A6 /* SH_ConfirSaftyPassWordView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_ConfirSaftyPassWordView.xib; sourceTree = "<group>"; };
+		BF6CC1EB2133EE0F00033F88 /* themeFile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = themeFile; sourceTree = "<group>"; };
 		BF7B08B72101936A008256FE /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
 		BF7B08B82101936A008256FE /* SH_NiceDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SH_NiceDatePickerView.m; sourceTree = "<group>"; };
 		BF7B08BA2101936B008256FE /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
@@ -1415,9 +1415,10 @@
 		5401C52320ECA10F0027246D = {
 			isa = PBXGroup;
 			children = (
+				BF6CC1F12133F01700033F88 /* themeGroup */,
 				54D13C4D211D96AB00E07E5A /* dores.sh */,
+				BF6CC1EB2133EE0F00033F88 /* themeFile */,
 				54D13C4C211D96AA00E07E5A /* sid */,
-				54D13C512121622B00E07E5A /* colors.json */,
 				5401C52E20ECA10F0027246D /* GameBox */,
 				5401C52D20ECA10F0027246D /* Products */,
 				F14E4A72378CCD648FF29337 /* Pods */,
@@ -2089,6 +2090,13 @@
 			path = promoActivities;
 			sourceTree = "<group>";
 		};
+		BF6CC1F12133F01700033F88 /* themeGroup */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = themeGroup;
+			sourceTree = "<group>";
+		};
 		BF7B08B621019346008256FE /* DatePicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -2654,6 +2662,7 @@
 				22A179DE2133A1F300740F2C /* btn_blue_long.webp in Resources */,
 				22A179DC2133A1AC00740F2C /* btn_green_action.webp in Resources */,
 				220D1DE62126B3520050C8BA /* arrow_prev.webp in Resources */,
+				BF6CC1EC2133EE0F00033F88 /* themeFile in Resources */,
 				220D1E072126B3520050C8BA /* menu_bg.webp in Resources */,
 				220D1DD62126B3510050C8BA /* logo13.webp in Resources */,
 				BFA2EBD9211AD7C600B2678F /* SH_TopCollectionViewCell.xib in Resources */,
@@ -2722,7 +2731,6 @@
 				BFA2EBD4211AD63100B2678F /* SH_LeftTableViewCell.xib in Resources */,
 				220D1DB52126B3510050C8BA /* input_safe.webp in Resources */,
 				220D1DEE2126B3520050C8BA /* logo08.webp in Resources */,
-				54D13C522121622C00E07E5A /* colors.json in Resources */,
 				220D1E042126B3520050C8BA /* circular.webp in Resources */,
 				220D1DD52126B3510050C8BA /* btn_promotions.webp in Resources */,
 				220D1DED2126B3520050C8BA /* success2.webp in Resources */,
@@ -3275,7 +3283,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7002;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7003;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -3295,7 +3303,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7002;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7003;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

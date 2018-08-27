@@ -2,8 +2,8 @@ sites_list=(\
     # '7wt3^18^宏图棋牌'  \
     # 'ojzk^7000^宏图棋牌'  \
 	# 'ty3a^7001^宏图棋牌'  \
-    'lcat^7002^666棋牌'  \
-    'ou2t^7003^和记棋牌'  \
+    # 'lcat^7002^666棋牌'  \
+    'ou2t^7003^theme2^和记棋牌'  \
 )
 
 version='1.0.0' #app版本
@@ -18,12 +18,17 @@ for siteInfo in "${sites_list[@]}"; do
  	appname=${siteInfo##*^}     #取app显示名称
     sid=${siteInfo#*${code}^}   #取sid
     sid=${sid%%^*}
+    theme=${siteInfo#*${sid}^}
+    theme=${theme%%^*}
     echo "code :"${code}
   	echo "sid :"${sid}
     echo "appname :"${appname}
+    echo "themeColor :"${theme}
     echo "======================"
     #更改sid配置文件
     echo ${sid} > "${shell_path}/sid"
+    #更改themeFile配置文件
+    echo ${theme} > "${shell_path}/themeFile"
     #替换配置文件的第12行
     sed -i '' "12c\\
     #define _${code} 1
