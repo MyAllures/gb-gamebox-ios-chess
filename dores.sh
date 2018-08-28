@@ -9,7 +9,7 @@
 #根据SID配置文件决定需要使用的资源
 #读取sid的配置
 
-project_path=$(cd "$(dirname "$0")";pwd) #工程文件夹路径
+ project_path=$(cd "$(dirname "$0")";pwd) #工程文件夹路径
 cat "${project_path}/sid" | while read line
 do
   echo ${line}
@@ -72,10 +72,20 @@ do
   theme=${line1} #读取主题文件里面的theme
   themeGroup="${project_path}/themeGroup" #存放当前皮肤的路径
   all_theme="${project_path}/theme" #存放所有皮肤的路径
+   assetsPath="${project_path}/GameBox/Assets.xcassets" #工程中Assets文件夹的路径
     for fileDir in "${all_theme}"/*; do
          folder=${fileDir##*/}
      if [[ ${folder} == ${theme} ]]; then
-      cp -f "${fileDir}"/* "${themeGroup}"
+       for file in "${fileDir}"/*; do
+        picType=${file##*.}
+       if [[ ${picType} == "png" ]]; then
+        picName=${file##*/}
+        picName=${picName%%@*}
+       cp -f "${file}"  "${assetsPath}/${picName}.imageset"
+       else
+       cp -f "${file}"  "${themeGroup}"
+       fi
+done
      fi
   done
 
