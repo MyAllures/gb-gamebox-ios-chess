@@ -9,7 +9,8 @@
 #ifndef SitesConfig_h
 #define SitesConfig_h
 
-#define _ou2t 1
+#define _7wt3 1
+
 
 
 
