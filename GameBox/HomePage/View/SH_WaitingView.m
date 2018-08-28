@@ -59,7 +59,7 @@
     
     CABasicAnimation* rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
     rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI * 2.0 ];
-    rotationAnimation.duration = 2;
+    rotationAnimation.duration = 3.5;
     rotationAnimation.cumulative = YES;
     rotationAnimation.repeatCount = HUGE_VALF;
     [self.circleImg.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
