@@ -69,7 +69,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iBi-cS-9D7" customClass="SH_WebPButton">
-                    <rect key="frame" x="469" y="82.5" width="37" height="37"/>
+                    <rect key="frame" x="469" y="82.5" width="42" height="42"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="iBi-cS-9D7" secondAttribute="height" multiplier="1:1" id="Vxn-n7-b8y"/>
                     </constraints>
@@ -84,10 +84,10 @@
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="7du-JH-QX1" firstAttribute="centerY" secondItem="bqg-rQ-JMj" secondAttribute="centerY" id="MBJ-yi-wZw"/>
-                <constraint firstItem="iBi-cS-9D7" firstAttribute="height" secondItem="7t9-Q3-EpY" secondAttribute="height" multiplier="0.8" id="Q2L-6j-Vff"/>
+                <constraint firstItem="iBi-cS-9D7" firstAttribute="height" secondItem="7t9-Q3-EpY" secondAttribute="height" multiplier="0.8" constant="5.1999999999999957" id="Q2L-6j-Vff"/>
                 <constraint firstItem="iBi-cS-9D7" firstAttribute="top" secondItem="7du-JH-QX1" secondAttribute="top" constant="-5" id="UL8-wh-SeK"/>
                 <constraint firstItem="7du-JH-QX1" firstAttribute="centerX" secondItem="bqg-rQ-JMj" secondAttribute="centerX" id="UQo-Pa-vrd"/>
-                <constraint firstItem="iBi-cS-9D7" firstAttribute="trailing" secondItem="7du-JH-QX1" secondAttribute="trailing" constant="15" id="pBt-jg-Sl2"/>
+                <constraint firstItem="iBi-cS-9D7" firstAttribute="trailing" secondItem="7du-JH-QX1" secondAttribute="trailing" constant="20" id="pBt-jg-Sl2"/>
             </constraints>
             <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
