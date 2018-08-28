@@ -56,7 +56,7 @@
 - (IBAction)seleteTimeAction:(UIButton *)sender {
     NSArray *arr = @[@"今天",@"昨天",@"本周",@"近七天"];
     __weak typeof(self) weakSelf = self;
-    HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, sender.bounds.size.width, 125) dependView:sender textArr:arr textFont:14.0 block:^(NSString *region_name, NSInteger index) {
+    HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, sender.bounds.size.width + 5, 110) dependView:sender textArr:arr textFont:14.0 block:^(NSString *region_name, NSInteger index) {
         
         [weakSelf changedSinceTimeString:index];
         [weakSelf.timeBtn setTitle:region_name forState:UIControlStateNormal];
