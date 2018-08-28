@@ -32,11 +32,11 @@
                   Name:(NSString *)name
               ImageUrl:(NSString *)imageUrl
                   Date:(NSString *)date{
-     if ([model.status isEqualToString:@"0"]) {
-        self.applyBtn.hidden = YES;
+    if ([model.status isEqualToString:@"0"]) {
+        self.applyBtn.hidden = NO;
         
     }else{
-        self.applyBtn.hidden = NO;
+        self.applyBtn.hidden = YES;
     }
     self.promoId = model.name;
     self.nameLab.text = name;
