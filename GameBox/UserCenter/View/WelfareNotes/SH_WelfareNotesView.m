@@ -111,10 +111,9 @@
     return dateArr;
 }
 
-
 -(NSDate *)changedSinceTimeString:(NSInteger)row
 {
-    NSDate *date = [[NSDate alloc]init];
+    NSDate *date = [[NSDate alloc] init];
     //获取本周的日期
     NSArray *currentWeekarr = [self getWeekTimeOfCurrentWeekDay];
     switch (row) {
