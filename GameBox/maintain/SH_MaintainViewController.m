@@ -10,13 +10,14 @@
 #import "SH_CustomerServiceManager.h"
 
 @interface SH_MaintainViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *btn;
 @end
 
 @implementation SH_MaintainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [self.btn ButtonPositionStyle:ButtonPositionStyleDefault spacing:5];
     
 }
 - (IBAction)contactServiceBtnClick:(id)sender {
