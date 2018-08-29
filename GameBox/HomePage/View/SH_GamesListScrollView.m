@@ -171,7 +171,6 @@
     self.currentPage = currentPage;
     
     int totalPage = ceil(scrollView.contentSize.width/scrollView.frame.size.width);
-    NSLog(@"totalPage==%d",totalPage);
     if (totalPage == 2) {
         self.nextBT.hidden = YES;
         self.preBT.hidden = YES;

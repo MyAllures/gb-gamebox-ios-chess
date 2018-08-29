@@ -87,10 +87,10 @@
                         <action selector="chooseBankBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="I6z-ZJ-u8W"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CpY-lj-osM" customClass="SH_WebPImageView">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CpY-lj-osM" customClass="SH_WebPImageView">
                     <rect key="frame" x="282" y="95.5" width="12" height="5"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="CpY-lj-osM" secondAttribute="height" multiplier="16:9" id="33I-4b-gtg"/>
+                        <constraint firstAttribute="width" secondItem="CpY-lj-osM" secondAttribute="height" multiplier="16:9" constant="3.1111111111111107" id="33I-4b-gtg"/>
                         <constraint firstAttribute="width" constant="12" id="uVl-YS-lhX"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
@@ -200,7 +200,7 @@
                 <constraint firstItem="LQg-sq-ztu" firstAttribute="top" secondItem="5q4-02-0H2" secondAttribute="top" id="QCd-vY-qPM"/>
                 <constraint firstAttribute="trailing" secondItem="0E4-bh-MeB" secondAttribute="trailing" constant="30" id="QYD-QD-Ob6"/>
                 <constraint firstItem="Y1u-3x-fEA" firstAttribute="trailing" secondItem="0E4-bh-MeB" secondAttribute="leading" constant="-8" id="WlT-jQ-7j1"/>
-                <constraint firstItem="CpY-lj-osM" firstAttribute="trailing" secondItem="5q4-02-0H2" secondAttribute="trailing" constant="-12" id="XOZ-DS-LJu"/>
+                <constraint firstItem="CpY-lj-osM" firstAttribute="trailing" secondItem="5q4-02-0H2" secondAttribute="trailing" constant="-9" id="XOZ-DS-LJu"/>
                 <constraint firstItem="KS6-NG-6wd" firstAttribute="top" secondItem="5q4-02-0H2" secondAttribute="bottom" constant="10" id="YdO-Qh-WaC"/>
                 <constraint firstItem="f8y-Ig-hIU" firstAttribute="trailing" secondItem="oEi-UM-M0V" secondAttribute="trailing" id="Yve-SV-90L"/>
                 <constraint firstItem="LQg-sq-ztu" firstAttribute="leading" secondItem="5q4-02-0H2" secondAttribute="leading" constant="8" id="dN4-Lj-nSa"/>

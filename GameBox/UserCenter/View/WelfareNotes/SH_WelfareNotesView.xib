@@ -96,16 +96,6 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="si8-O7-s20" customClass="SH_XibView">
                                     <rect key="frame" x="54" y="7" width="105" height="31"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f9Q-4k-Ljp" customClass="SH_WebPImageView">
-                                            <rect key="frame" x="81" y="11" width="16" height="9"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="16" id="Anh-vO-3zR"/>
-                                                <constraint firstAttribute="height" constant="9" id="dav-eX-OwD"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="drop_down"/>
-                                            </userDefinedRuntimeAttributes>
-                                        </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5vH-xq-hrm">
                                             <rect key="frame" x="8" y="0.0" width="97" height="31"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -117,6 +107,16 @@
                                                 <action selector="seleteTimeAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="IyG-er-cXS"/>
                                             </connections>
                                         </button>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f9Q-4k-Ljp" customClass="SH_WebPImageView">
+                                            <rect key="frame" x="81" y="11" width="16" height="9"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="16" id="Anh-vO-3zR"/>
+                                                <constraint firstAttribute="height" constant="9" id="dav-eX-OwD"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="drop_down"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" red="0.13725490196078433" green="0.16862745098039217" blue="0.41568627450980389" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
