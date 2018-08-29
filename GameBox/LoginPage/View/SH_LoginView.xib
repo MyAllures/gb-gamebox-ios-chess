@@ -63,6 +63,9 @@
                         <constraint firstItem="hzc-wN-B7s" firstAttribute="top" secondItem="0ZP-Dx-Gh2" secondAttribute="top" constant="8" id="kSO-GL-L11"/>
                         <constraint firstItem="Vn4-9U-mLf" firstAttribute="trailing" secondItem="hzc-wN-B7s" secondAttribute="trailing" id="ouc-sS-uhy"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
+                    </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJ0-VR-dqr" customClass="SH_XibView">
                     <rect key="frame" x="143" y="8" width="271" height="459"/>
@@ -246,7 +249,7 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                             <real key="value" value="2"/>
                         </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="string" keyPath="colorCategory" value="category0"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="colorCategory" value="category1"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
                     </userDefinedRuntimeAttributes>
                 </view>

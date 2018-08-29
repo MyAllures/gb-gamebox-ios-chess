@@ -26,7 +26,7 @@
     [super awakeFromNib];
     self.webView.scrollView.scrollEnabled = NO;
     self.webView.delegate = self;
-    self.webView.scrollView.backgroundColor = colorWithRGB(87, 101, 198);
+//    self.webView.scrollView.backgroundColor = [;
 }
 -(void)updateWithModel:(SH_PromoDetailModel *)model
                   Name:(NSString *)name
@@ -59,7 +59,12 @@
     [view loadDataWithPromoId:self.promoId];
 }
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
-    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('body')[0].style.background='#4757C6'"];
+    NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"colors" ofType:@"json"];
+    NSData *data = [NSData dataWithContentsOfFile:jsonPath];
+    NSError *error = nil;
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+    NSString *colorString = dic[@"category1"];
+    [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementsByTagName('body')[0].style.background='%@'",colorString]];
 //    //字体大小
 //    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '100%'"];
 //    //字体颜色

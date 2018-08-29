@@ -52,6 +52,9 @@
                     <constraint firstAttribute="trailing" secondItem="xoI-R6-qqY" secondAttribute="trailing" constant="20" id="cSV-dm-6Eh"/>
                     <constraint firstItem="WAT-Ot-rab" firstAttribute="trailing" secondItem="xoI-R6-qqY" secondAttribute="leading" constant="-10" id="tll-nu-1i1"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>

@@ -29,26 +29,33 @@ do
       AppIconName=${AppIconFolder%%.*}
       if [[ ${AppIconName} == "AppIcon" ]]; then
         #删除现有icon资源
+echo "删除成功 == ${fileDir}"
         rm -r ${fileDir}
       fi
   done
 
-  # 将新的图片资源更换上去
-  # 替换icon
   for fileDir in "${all_res_path}"/*; do
      folder=${fileDir##*/} #截取得到sid文件夹名称
      if [[ ${folder} == ${sid} ]]; then
          #找到需要替换的sid资源目录
-
-         #去assets_path创建一个新的icon sid目录
+       for file in "${fileDir}"/*; do
+        picType=${file##*.}
+#        更换logo
+       if [[ ${picType} == "webp" ]]; then
+       cp -f "${file}"  "${project_path}/logo"
+       fi
+done    
+       # 将新的图片资源更换上去
+         # 替换icon
+        #去assets_path创建一个新的icon sid目录
          #AppIcon.appiconset
          cd ${assets_path}
          mkdir "AppIcon.appiconset"
 
          #将icon图片copy到新建的appiconset目录
          cd ${fileDir}
-         cp -i "app_icon_${sid}_120x120.png" "${assets_path}/AppIcon.appiconset"
-         cp -i "app_icon_${sid}_180x180.png" "${assets_path}/AppIcon.appiconset"
+         cp -f "app_icon_${sid}_120x120.png" "${assets_path}/AppIcon.appiconset"
+         cp -f "app_icon_${sid}_180x180.png" "${assets_path}/AppIcon.appiconset"
 
          #将icon的Contents.json模板拷贝到appiconset目录
          cd ${temp_icon_json_path}
@@ -60,11 +67,12 @@ do
          mv Contents.json.tmp Contents.json
          sed 's/app_icon_180x180.png/app_icon_'${sid}'_180x180.png/g' Contents.json > Contents.json.tmp
          mv Contents.json.tmp Contents.json
+
      fi
   done
-
-
 done
+
+
 cat "${project_path}/themeFile" | while read line1
 do
   #更换主题文件 webp png json music

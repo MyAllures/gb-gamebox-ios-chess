@@ -121,10 +121,10 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sqc-0Y-X69">
                                             <rect key="frame" x="-0.5" y="-3.5" width="159" height="23"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nba-f1-nWx" customClass="SH_WebPImageView">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn_search" translatesAutoresizingMaskIntoConstraints="NO" id="nba-f1-nWx">
                                                     <rect key="frame" x="0.0" y="0.0" width="159" height="23"/>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="rounded"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="rounded_bg"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SqL-w0-8Nr">
@@ -165,10 +165,10 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ts6-l1-fxJ">
                                             <rect key="frame" x="0.0" y="15.5" width="159" height="23"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Ge-Qj-ZLO" customClass="SH_WebPImageView">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn_search" translatesAutoresizingMaskIntoConstraints="NO" id="0Ge-Qj-ZLO">
                                                     <rect key="frame" x="0.0" y="0.0" width="159" height="23"/>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="rounded"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="rounded_bg"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEk-Ka-RAf">
@@ -620,6 +620,7 @@
         </view>
     </objects>
     <resources>
+        <image name="btn_search" width="23" height="23"/>
         <image name="footer" width="491" height="38"/>
         <image name="user_info_bg" width="21" height="21"/>
     </resources>
