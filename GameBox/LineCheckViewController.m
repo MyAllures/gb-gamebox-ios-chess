@@ -289,8 +289,19 @@
     NSString *appBuildVersion = GB_CURRENT_APPBUILD;
 
     NSString *ip = [self localIPAddress];
-    NSString *msg = [NSString stringWithFormat:@"\n错误码:%@\n当前ip:%@\n版本号:%@\n很抱歉,请联系客服并提供以上信息",code, ip, [NSString stringWithFormat:@"iOS %@.%@",appVersion,appBuildVersion]];
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"线路检测失败" message:msg preferredStyle:UIAlertControllerStyleAlert];
+    NSString *title;
+    NSString *msg ;
+    if ([code isEqualToString:@"001"]) {
+        title = @"网络连接失败";
+        msg = [NSString stringWithFormat:@"\n网络连接失败，请确认您的网络连接正常后再次尝试！"];
+    } else if ([code isEqualToString:@"003"]) {
+        title = @"线路获取失败";
+        msg = [NSString stringWithFormat:@"\n线路获取失败，请确认您的网络连接正常后再次尝试！"];
+    } else if ([code isEqualToString:@"002"]) {
+        title = @"服务器连接失败";
+        msg = [NSString stringWithFormat:@"\n出现未知错误，请联系在线客服并提供以下信息:\n\n当前ip:%@\n版本号:%@", ip, [NSString stringWithFormat:@"iOS %@.%@",appVersion,appBuildVersion]];
+    }
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:msg preferredStyle:UIAlertControllerStyleAlert];
     
     NSMutableAttributedString *messageText = [[NSMutableAttributedString alloc] initWithString:msg];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
