@@ -48,7 +48,7 @@
         [label_Title mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(0);
             make.height.mas_equalTo(24);
-            make.width.mas_equalTo(120);//120
+            make.width.mas_equalTo(80);//120
             make.centerY.mas_equalTo(self);
         }];
 
