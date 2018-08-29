@@ -796,10 +796,9 @@
         _topGamesListScrollView.delegate = self;
         [self.view addSubview:_topGamesListScrollView];
         UIInterfaceOrientation oriention = [UIApplication sharedApplication].statusBarOrientation;
-
         [_topGamesListScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.cycleAdView.mas_right).mas_offset(10);
-            make.top.mas_equalTo(80);
+            make.top.mas_equalTo(85);
             make.bottom.mas_equalTo(-53.5);
             make.right.mas_equalTo(oriention == UIInterfaceOrientationLandscapeLeft ? (iPhoneX ? -30 : 0) : 0);
         }];
