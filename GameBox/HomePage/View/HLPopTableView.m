@@ -74,7 +74,7 @@
 //        popTable.scrollEnabled = NO;
 //    }
     popTable.separatorStyle = UITableViewCellSeparatorStyleNone;
-    popTable.bgColor = @"category3";
+    popTable.bgColor = @"category2";
     self.showView.backgroundColor = [UIColor redColor];
     self.tableView = popTable;
     [self.showView addSubview:popTable];
@@ -103,7 +103,7 @@
     cell.textLabel.text = [NSString stringWithFormat:@"%@",self.arry[indexPath.row]];
     cell.textLabel.textAlignment = UITextAlignmentLeft;
     cell.textLabel.font = [UIFont systemFontOfSize:self.fonts];
-    cell.bgColor = @"category3";
+    cell.bgColor = @"category2";
     return cell;
 }
 

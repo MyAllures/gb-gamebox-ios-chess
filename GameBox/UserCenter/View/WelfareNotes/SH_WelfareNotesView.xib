@@ -45,9 +45,6 @@
                                             <rect key="frame" x="8" y="0.0" width="97" height="31"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <state key="normal" title="全部"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category2"/>
-                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="seleteTypeAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="ABy-L2-CUb"/>
                                             </connections>
@@ -84,7 +81,7 @@
                                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                             <real key="value" value="2"/>
                                         </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category2"/>
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="类型" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dH7-tb-479">
@@ -100,9 +97,6 @@
                                             <rect key="frame" x="8" y="0.0" width="97" height="31"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <state key="normal" title="近七天"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category2"/>
-                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="seleteTimeAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="IyG-er-cXS"/>
                                             </connections>
@@ -140,7 +134,7 @@
                                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                             <real key="value" value="2"/>
                                         </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category2"/>
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R5O-s8-n2j">
