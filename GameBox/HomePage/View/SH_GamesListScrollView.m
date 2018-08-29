@@ -78,14 +78,15 @@
     if (calculationW > self.scrollView.frame.size.width) {
         self.nextBT.hidden = NO;
         self.preBT.hidden = YES;
+        self.scrollView.contentSize = CGSizeMake(contentSizeW, self.scrollView.frame.size.height);
     }
     else
     {
+        self.scrollView.contentSize = CGSizeMake(contentSizeW+5, self.scrollView.frame.size.height);
         self.nextBT.hidden = YES;
         self.preBT.hidden = YES;
     }
     
-    self.scrollView.contentSize = CGSizeMake(contentSizeW, self.scrollView.frame.size.height);
     [self.scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
 }
 
@@ -168,19 +169,26 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     int currentPage = scrollView.contentOffset.x/scrollView.frame.size.width + ((int)scrollView.contentOffset.x%(int)scrollView.frame.size.width == 0 ? 0 : 1);
     self.currentPage = currentPage;
+    
     int totalPage = ceil(scrollView.contentSize.width/scrollView.frame.size.width);
-    if (currentPage+1 == totalPage) {
-        //最后一页
+    NSLog(@"totalPage==%d",totalPage);
+    if (totalPage == 2) {
         self.nextBT.hidden = YES;
-        self.preBT.hidden = NO;
-    }else if (currentPage == 0){
-        //第一页
-        self.nextBT.hidden = NO;
         self.preBT.hidden = YES;
-    }else{
-        //中间页
-        self.nextBT.hidden = NO;
-        self.preBT.hidden = NO;
+    } else {
+        if (currentPage+1 == totalPage) {
+            //最后一页
+            self.nextBT.hidden = YES;
+            self.preBT.hidden = NO;
+        }else if (currentPage == 0){
+            //第一页
+            self.nextBT.hidden = NO;
+            self.preBT.hidden = YES;
+        }else{
+            //中间页
+            self.nextBT.hidden = NO;
+            self.preBT.hidden = NO;
+        }
     }
 }
 
