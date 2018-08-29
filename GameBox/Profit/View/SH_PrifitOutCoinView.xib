@@ -46,15 +46,15 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="font_welfare"/>
                     </userDefinedRuntimeAttributes>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3pE-Od-FPa" customClass="SH_WebPImageView">
-                    <rect key="frame" x="99" y="10" width="123" height="31"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn_search" translatesAutoresizingMaskIntoConstraints="NO" id="3pE-Od-FPa">
+                    <rect key="frame" x="99" y="13" width="123" height="25"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="123" id="ZQP-hl-ycl">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </constraint>
-                        <constraint firstAttribute="height" constant="31" id="fRl-IU-yJn">
+                        <constraint firstAttribute="height" constant="25" id="fRl-IU-yJn">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                             </userDefinedRuntimeAttributes>
@@ -106,15 +106,15 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="font_fee"/>
                     </userDefinedRuntimeAttributes>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yg1-Fd-rMb" customClass="SH_WebPImageView">
-                    <rect key="frame" x="308" y="10" width="123" height="31"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn_search" translatesAutoresizingMaskIntoConstraints="NO" id="Yg1-Fd-rMb">
+                    <rect key="frame" x="308" y="13" width="123" height="25"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="123" id="2Ha-Dy-SUL">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </constraint>
-                        <constraint firstAttribute="height" constant="31" id="jOP-mC-fcY">
+                        <constraint firstAttribute="height" constant="25" id="jOP-mC-fcY">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                             </userDefinedRuntimeAttributes>
@@ -206,6 +206,9 @@
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                             <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category3"/>
+                            </userDefinedRuntimeAttributes>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xau-X1-eQZ" customClass="SH_WebPButton">
                             <rect key="frame" x="265" y="4" width="135" height="40"/>
@@ -311,9 +314,12 @@
                                     </userDefinedRuntimeAttributes>
                                 </constraint>
                             </constraints>
-                            <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category3"/>
+                            </userDefinedRuntimeAttributes>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0IP-nq-dCH" customClass="SH_WebPButton">
                             <rect key="frame" x="278" y="6" width="40" height="35"/>
@@ -332,7 +338,7 @@
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <state key="normal" title="+50"/>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_blue_short_action"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_blue_short"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="add50BtnClik:" destination="iN0-l3-epB" eventType="touchUpInside" id="zpz-GK-Iuj"/>
@@ -355,7 +361,7 @@
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <state key="normal" title="+100"/>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_blue_short_action"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_blue_short"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="add100BtnClik:" destination="iN0-l3-epB" eventType="touchUpInside" id="DK1-oA-Ii2"/>
@@ -432,6 +438,9 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="0.5" id="PFF-eX-y1o"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
+                    </userDefinedRuntimeAttributes>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owW-J2-wzf">
                     <rect key="frame" x="10" y="249" width="445" height="39.5"/>
@@ -565,4 +574,7 @@
             <point key="canvasLocation" x="-127.5" y="-10"/>
         </view>
     </objects>
+    <resources>
+        <image name="btn_search" width="24" height="23"/>
+    </resources>
 </document>

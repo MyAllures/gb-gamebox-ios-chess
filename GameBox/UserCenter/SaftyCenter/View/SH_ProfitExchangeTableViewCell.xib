@@ -79,9 +79,12 @@
                     <constraint firstItem="CcO-lm-dq8" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qII-Eo-JnB"/>
                     <constraint firstAttribute="trailing" secondItem="c2j-70-WPB" secondAttribute="trailing" id="woa-j4-48H"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category3"/>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <userDefinedRuntimeAttributes>
-                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category2"/>
+                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category3"/>
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="moneyLab" destination="fN0-5W-VZa" id="y7w-YC-326"/>
