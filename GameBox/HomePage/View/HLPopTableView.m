@@ -74,7 +74,7 @@
 //        popTable.scrollEnabled = NO;
 //    }
     popTable.separatorStyle = UITableViewCellSeparatorStyleNone;
-    popTable.backgroundColor = [UIColor colorWithRed:35.0/255.0 green:43.0/255.0 blue:106.0/255.0 alpha:1];
+    popTable.bgColor = @"category3";
     self.showView.backgroundColor = [UIColor redColor];
     self.tableView = popTable;
     [self.showView addSubview:popTable];
@@ -103,7 +103,7 @@
     cell.textLabel.text = [NSString stringWithFormat:@"%@",self.arry[indexPath.row]];
     cell.textLabel.textAlignment = UITextAlignmentLeft;
     cell.textLabel.font = [UIFont systemFontOfSize:self.fonts];
-    cell.backgroundColor = [UIColor colorWithRed:35.0/255.0 green:43.0/255.0 blue:106.0/255.0 alpha:1];
+    cell.bgColor = @"category3";
     return cell;
 }
 

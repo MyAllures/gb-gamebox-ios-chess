@@ -30,7 +30,7 @@
                     </userDefinedRuntimeAttributes>
                 </tableView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="fTE-9G-l5S">
-                    <rect key="frame" x="135" y="0.0" width="240" height="40"/>
+                    <rect key="frame" x="140" y="0.0" width="235" height="40"/>
                     <color key="backgroundColor" red="0.3411764706" green="0.39607843139999999" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="Bp0-RJ-Vqe"/>
@@ -52,7 +52,7 @@
                 <constraint firstItem="8zX-uw-3cH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="SZx-f3-WsX"/>
                 <constraint firstAttribute="bottom" secondItem="8zX-uw-3cH" secondAttribute="bottom" id="Td7-cl-CTo"/>
                 <constraint firstItem="fTE-9G-l5S" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="WZx-OX-FTL"/>
-                <constraint firstItem="fTE-9G-l5S" firstAttribute="leading" secondItem="8zX-uw-3cH" secondAttribute="trailing" id="mlH-Mx-lYK"/>
+                <constraint firstItem="fTE-9G-l5S" firstAttribute="leading" secondItem="8zX-uw-3cH" secondAttribute="trailing" constant="5" id="mlH-Mx-lYK"/>
                 <constraint firstAttribute="trailing" secondItem="fTE-9G-l5S" secondAttribute="trailing" id="pQy-yP-iXm"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

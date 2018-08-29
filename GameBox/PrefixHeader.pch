@@ -27,4 +27,5 @@
 #import "SH_ERRCodeMacro.h"
 #import "UIView+CurrentVC.h"
 #import "UIView+BgColor.h"
+#import "SH_WaitingView.h"
 #endif /* PrefixHeader_pch */

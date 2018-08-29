@@ -35,8 +35,9 @@
 }
 
 -(void)loadData{
-   
+    [SH_WaitingView showOn:self];
     [SH_NetWorkService getActivityTypesSucess:^(NSArray *datas) {
+        [SH_WaitingView hide:self];
         if (datas.count > 0) {
             self.topDatas = datas;
             for (int i = 0; i < datas.count; i++) {
@@ -52,9 +53,8 @@
         }else{
             [SH_NodataView showAddTo:self Message:@"当前没有活动可参与"];
         }
-      
-
     } Failure:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        [SH_WaitingView hide:self];
         [SH_NodataView showAddTo:self Message:err];
     }];
 }
@@ -71,7 +71,7 @@
         make.top.equalTo(self).offset(40);
         make.left.equalTo(self).offset(135*screenSize().width/375.0);
         make.bottom.equalTo(self);
-        make.width.equalTo(@(350*screenSize().width/375.0));
+        make.width.equalTo(@(345*screenSize().width/375.0));
     }];
 }
 #pragma mark--
