@@ -50,10 +50,10 @@
     
     self.showView = [[UIView alloc] init];
     if (popFrame.origin.y + frame.size.height <= WINDOW.height - 30) {
-        self.showView.frame = CGRectMake(popFrame.origin.x, popFrame.origin.y + popFrame.size.height , frame.size.width , frame.size.height );
+        self.showView.frame = CGRectMake(popFrame.origin.x - 7, popFrame.origin.y + popFrame.size.height , frame.size.width , frame.size.height );
     }
     if (popFrame.origin.y + frame.size.height > WINDOW.height - 30 ) {
-        self.showView.frame = CGRectMake(popFrame.origin.x , popFrame.origin.y - frame.size.height, frame.size.width , frame.size.height );
+        self.showView.frame = CGRectMake(popFrame.origin.x - 7 , popFrame.origin.y - frame.size.height, frame.size.width , frame.size.height );
     }
     
     self.showView.backgroundColor = [UIColor whiteColor];
@@ -101,7 +101,8 @@
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.text = [NSString stringWithFormat:@"%@",self.arry[indexPath.row]];
-    cell.textLabel.font =[UIFont systemFontOfSize:self.fonts];
+    cell.textLabel.textAlignment = UITextAlignmentLeft;
+    cell.textLabel.font = [UIFont systemFontOfSize:self.fonts];
     cell.backgroundColor = [UIColor colorWithRed:35.0/255.0 green:43.0/255.0 blue:106.0/255.0 alpha:1];
     return cell;
 }

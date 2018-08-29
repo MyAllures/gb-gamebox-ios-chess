@@ -781,7 +781,7 @@
     UIInterfaceOrientation oriention = [UIApplication sharedApplication].statusBarOrientation;
     [_cycleAdView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(oriention == UIInterfaceOrientationLandscapeLeft ? 18 : (iPhoneX ? 18+30 : 18));
-        make.top.mas_equalTo(self.topGamesListScrollView.mas_top);
+        make.top.mas_equalTo([UIScreen mainScreen].bounds.size.height/4.2);
         make.bottom.mas_equalTo(self.topGamesListScrollView.mas_bottom);
         make.height.mas_equalTo(self->_cycleAdView.mas_width).multipliedBy(224/190.0);
         make.right.equalTo(self.topGamesListScrollView.mas_left).mas_offset(-10);
@@ -796,10 +796,9 @@
         _topGamesListScrollView.delegate = self;
         [self.view addSubview:_topGamesListScrollView];
         UIInterfaceOrientation oriention = [UIApplication sharedApplication].statusBarOrientation;
-
         [_topGamesListScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.cycleAdView.mas_right).mas_offset(10);
-            make.top.mas_equalTo(80);
+            make.top.mas_equalTo(85);
             make.bottom.mas_equalTo(-53.5);
             make.right.mas_equalTo(oriention == UIInterfaceOrientationLandscapeLeft ? (iPhoneX ? -30 : 0) : 0);
         }];

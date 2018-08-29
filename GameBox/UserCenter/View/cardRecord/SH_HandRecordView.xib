@@ -279,7 +279,7 @@
                 <outlet property="tableView" destination="sZu-AP-xnB" id="7tm-OX-16X"/>
                 <outlet property="timeBtn" destination="YfY-eG-EeI" id="vMm-v4-jgc"/>
             </connections>
-            <point key="canvasLocation" x="-404.5" y="111.5"/>
+            <point key="canvasLocation" x="-159" y="-200"/>
         </view>
     </objects>
 </document>

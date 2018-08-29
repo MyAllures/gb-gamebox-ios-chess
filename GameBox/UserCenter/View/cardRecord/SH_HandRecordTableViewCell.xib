@@ -107,7 +107,7 @@
                 <outlet property="profitAmountLabel" destination="JAh-IW-J5N" id="4Fl-Qo-W29"/>
                 <outlet property="singleAmountLabel" destination="hz2-p9-1kO" id="uJe-x6-s0f"/>
             </connections>
-            <point key="canvasLocation" x="80" y="111"/>
+            <point key="canvasLocation" x="-202" y="2"/>
         </tableViewCell>
     </objects>
 </document>

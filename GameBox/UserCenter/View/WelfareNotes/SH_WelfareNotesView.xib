@@ -352,7 +352,7 @@
                 <outlet property="totalRechargeLabel" destination="swy-eH-klZ" id="yBs-iI-wXy"/>
                 <outlet property="typeBtn" destination="eZJ-RJ-h4n" id="Z5e-ic-M9l"/>
             </connections>
-            <point key="canvasLocation" x="118.5" y="113.5"/>
+            <point key="canvasLocation" x="-159" y="-143"/>
         </view>
     </objects>
 </document>

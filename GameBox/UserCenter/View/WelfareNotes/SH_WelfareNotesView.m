@@ -56,7 +56,7 @@
 - (IBAction)seleteTimeAction:(UIButton *)sender {
     NSArray *arr = @[@"今天",@"昨天",@"本周",@"近七天"];
     __weak typeof(self) weakSelf = self;
-    HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, sender.bounds.size.width, 125) dependView:sender textArr:arr textFont:14.0 block:^(NSString *region_name, NSInteger index) {
+    HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, sender.bounds.size.width + 5, 110) dependView:sender textArr:arr textFont:14.0 block:^(NSString *region_name, NSInteger index) {
         
         [weakSelf changedSinceTimeString:index];
         [weakSelf.timeBtn setTitle:region_name forState:UIControlStateNormal];
@@ -67,7 +67,7 @@
 
 #pragma mark 类型选择
 - (IBAction)seleteTypeAction:(UIButton *)sender {
-    HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, sender.bounds.size.width, 125) dependView:sender textArr:self.selectTypeNameArr textFont:14.0 block:^(NSString *region_name, NSInteger index) {
+    HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, sender.bounds.size.width + 5, 110) dependView:sender textArr:self.selectTypeNameArr textFont:14.0 block:^(NSString *region_name, NSInteger index) {
         [self.typeBtn setTitle:region_name forState:UIControlStateNormal];
         self.seleteTypeIndex = index;
     }];
@@ -111,10 +111,9 @@
     return dateArr;
 }
 
-
 -(NSDate *)changedSinceTimeString:(NSInteger)row
 {
-    NSDate *date = [[NSDate alloc]init];
+    NSDate *date = [[NSDate alloc] init];
     //获取本周的日期
     NSArray *currentWeekarr = [self getWeekTimeOfCurrentWeekDay];
     switch (row) {
@@ -156,6 +155,8 @@
 -(void)awakeFromNib {
     [super awakeFromNib];
 //    self.tableView.backgroundColor = [UIColor colorWithRed:52.00/255 green:55.00/255 blue:151.00/255 alpha:1];
+    
+//    self.imageView.hidden = YES;
     
     #pragma mark 默认获取近七天
     if (self.startTimeStr == nil || self.endTimeStr == nil) {

@@ -39,6 +39,9 @@
 
 -(void)awakeFromNib {
     [super awakeFromNib];
+    
+//    self.imageView.hidden = YES;
+    
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerNib:[UINib nibWithNibName:@"SH_HandRecordTableViewCell" bundle:nil] forCellReuseIdentifier:@"SH_HandRecordTableViewCell"];
@@ -94,7 +97,7 @@
 
 - (IBAction)seleteTimeAction:(UIButton *)sender {
     NSArray *searchTypeArr = @[@"今天",@"昨天",@"本周",@"近七天"];
-    HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, sender.bounds.size.width, 125) dependView:sender textArr:searchTypeArr textFont:14.0 block:^(NSString *region_name, NSInteger index) {
+    HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, sender.bounds.size.width + 5, 110) dependView:sender textArr:searchTypeArr textFont:14.0 block:^(NSString *region_name, NSInteger index) {
         [self.timeBtn setTitle:region_name forState:UIControlStateNormal];
         self.seleteIndex = index;
     }];
@@ -201,7 +204,10 @@
     if (self.bettingArr.count > 0) {
         self.imageView.hidden = YES;
     } else {
-        self.imageView.hidden = NO;
+        [UIView animateWithDuration:3.5
+                         animations:^{
+                             self.imageView.hidden = NO;
+                         }];
     }
     return self.bettingArr.count;
 }

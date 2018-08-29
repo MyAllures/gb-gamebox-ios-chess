@@ -72,7 +72,9 @@
         NSDictionary  * dic = ConvertToClassPointer(NSDictionary, response);
         if ([dic[@"code"] isEqualToString:@"0"]) {
              NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:[dic[@"data"] objectForKey:@"qrCodeUrl"]];
-            [weakSelf.QRCode_imageView sd_setImageWithURL:[NSURL  URLWithString:url] placeholderImage:[UIImage imageNamed:@""] options:SDWebImageAllowInvalidSSLCertificates];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakSelf.QRCode_imageView sd_setImageWithURL:[NSURL  URLWithString:url] placeholderImage:[UIImage imageNamed:@""] options:SDWebImageAllowInvalidSSLCertificates];
+            });
         }
         
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
