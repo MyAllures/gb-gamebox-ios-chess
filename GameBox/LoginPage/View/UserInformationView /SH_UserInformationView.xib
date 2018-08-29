@@ -55,7 +55,7 @@
                                     <color key="textColor" red="1" green="0.95294117649999999" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                     <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category2"/>
                                     </userDefinedRuntimeAttributes>
                                 </label>
                             </subviews>
@@ -102,7 +102,7 @@
                                     <color key="textColor" red="1" green="0.95294117649999999" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                     <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category2"/>
                                     </userDefinedRuntimeAttributes>
                                 </label>
                             </subviews>
@@ -162,7 +162,7 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                     <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category2"/>
                                     </userDefinedRuntimeAttributes>
                                 </label>
                             </subviews>

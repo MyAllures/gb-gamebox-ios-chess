@@ -24,13 +24,13 @@
                                 <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="left_bg"/>
                             </userDefinedRuntimeAttributes>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EoG-PJ-hxP" customClass="SH_WebPButton">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EoG-PJ-hxP" customClass="SH_WebPButton">
                             <rect key="frame" x="7.5" y="77.5" width="120" height="45.5"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="120" id="PCf-JQ-p6Q"/>
                                 <constraint firstAttribute="height" constant="45.5" id="gda-2b-G5y"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="系统公告">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -60,13 +60,13 @@
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzt-hg-G8v" customClass="SH_WebPButton">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzt-hg-G8v" customClass="SH_WebPButton">
                             <rect key="frame" x="7.5" y="16" width="120" height="45.5"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="45.5" id="4hE-y5-PCI"/>
                                 <constraint firstAttribute="width" constant="120" id="f0K-mW-sHl"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="游戏公告">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -80,13 +80,13 @@
                                 <action selector="gameNoticeClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="uSg-93-leH"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r97-Ox-5W1" customClass="SH_WebPButton">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r97-Ox-5W1" customClass="SH_WebPButton">
                             <rect key="frame" x="7.5" y="139" width="120" height="45.5"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="45.5" id="Bua-QT-tm4"/>
                                 <constraint firstAttribute="width" constant="120" id="pbW-7g-AsG"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="收件箱">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -104,7 +104,7 @@
                                         <rect key="frame" x="0.0" y="5.5" width="100" height="33"/>
                                         <color key="backgroundColor" red="0.26666666666666666" green="0.63529411764705879" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="eLF-A8-BUG"/>
+                                            <constraint firstAttribute="width" constant="100" id="d3o-f0-QYA"/>
                                             <constraint firstAttribute="height" constant="33" id="uQD-Kg-akp"/>
                                         </constraints>
                                         <state key="normal" title="线路检测">
@@ -144,7 +144,6 @@
                                     <constraint firstItem="9qs-It-C9D" firstAttribute="centerY" secondItem="0AM-qn-Qlc" secondAttribute="centerY" id="gVQ-dY-ESG"/>
                                     <constraint firstItem="eMO-lH-N3f" firstAttribute="width" secondItem="9qs-It-C9D" secondAttribute="width" id="hAx-So-xqH"/>
                                     <constraint firstItem="eMO-lH-N3f" firstAttribute="height" secondItem="9qs-It-C9D" secondAttribute="height" id="jQw-VH-RqG"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9qs-It-C9D" secondAttribute="trailing" constant="20" symbolic="YES" id="vzA-h2-RYV"/>
                                     <constraint firstAttribute="trailing" secondItem="eMO-lH-N3f" secondAttribute="trailing" id="wHk-rV-Zig"/>
                                     <constraint firstItem="eMO-lH-N3f" firstAttribute="centerY" secondItem="9qs-It-C9D" secondAttribute="centerY" id="z2v-RR-cIz"/>
                                 </constraints>

@@ -16,7 +16,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AWg-oF-Z1M">
-                    <rect key="frame" x="5" y="0.0" width="345" height="260"/>
+                    <rect key="frame" x="5" y="0.0" width="340" height="260"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5co-P7-kE6" customClass="SH_WebPImageView">
                             <rect key="frame" x="15" y="12" width="25" height="14"/>
@@ -29,16 +29,16 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="客户首存" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dY3-RM-3ZB">
-                            <rect key="frame" x="46" y="10.5" width="294" height="17"/>
+                            <rect key="frame" x="46" y="10.5" width="284" height="17"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                             <color key="textColor" red="0.82352941176470584" green="0.85882352941176465" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bC4-kz-ALc">
-                            <rect key="frame" x="5" y="32" width="330" height="80"/>
+                            <rect key="frame" x="5" y="32" width="320" height="80"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="80" id="au9-Dv-5xh"/>
-                                <constraint firstAttribute="width" constant="330" id="t2X-bk-qM3">
+                                <constraint firstAttribute="width" constant="320" id="t2X-bk-qM3">
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                                     </userDefinedRuntimeAttributes>
@@ -46,7 +46,7 @@
                             </constraints>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hFM-Xm-45V">
-                            <rect key="frame" x="0.0" y="112" width="340" height="137.5"/>
+                            <rect key="frame" x="0.0" y="112" width="330" height="137.5"/>
                             <color key="backgroundColor" red="0.3411764706" green="0.39607843139999999" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
@@ -91,14 +91,14 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z6K-Zh-B64">
-                            <rect key="frame" x="17" y="195.5" width="306" height="1"/>
+                            <rect key="frame" x="17" y="195.5" width="296" height="1"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="ZbA-5A-cas"/>
                             </constraints>
                         </webView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zp-VH-PwE" customClass="SH_WebPButton">
-                            <rect key="frame" x="234" y="206.5" width="81" height="33"/>
+                            <rect key="frame" x="224" y="206.5" width="81" height="33"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="33" id="dIm-so-LaU"/>
                                 <constraint firstAttribute="width" constant="81" id="hqZ-Rr-1oP"/>
@@ -167,12 +167,21 @@
             <constraints>
                 <constraint firstItem="AWg-oF-Z1M" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="7oH-IO-dBG"/>
                 <constraint firstItem="AWg-oF-Z1M" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Bwu-ib-MQy"/>
-                <constraint firstAttribute="trailing" secondItem="AWg-oF-Z1M" secondAttribute="trailing" id="QiH-BN-6zA"/>
+                <constraint firstAttribute="trailing" secondItem="AWg-oF-Z1M" secondAttribute="trailing" constant="5" id="QiH-BN-6zA"/>
                 <constraint firstAttribute="bottom" secondItem="AWg-oF-Z1M" secondAttribute="bottom" id="VV9-io-abR"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="0.0"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="color">
+                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                    <real key="value" value="0.0"/>
+                </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="applyBtn" destination="6zp-VH-PwE" id="RNT-vX-3YD"/>

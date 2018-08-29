@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SH_MaintainViewController">
             <connections>
-                <outlet property="btn" destination="nor-MW-xRu" id="NGc-Nv-JVa"/>
+                <outlet property="btn" destination="nor-MW-xRu" id="aEg-Cd-VbW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -64,14 +64,17 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nor-MW-xRu">
-                    <rect key="frame" x="252" y="281" width="163" height="30"/>
+                    <rect key="frame" x="252.5" y="281" width="163" height="30"/>
+                    <color key="backgroundColor" red="0.019607843140000001" green="0.43137254899999999" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="163" id="iHY-I9-r3N"/>
                         <constraint firstAttribute="height" constant="30" id="oud-bR-jLR"/>
                     </constraints>
-                    <state key="normal" title="在线客服"/>
+                    <state key="normal" title="在线客服" image="cs-white">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
                     <connections>
-                        <action selector="gotoCustomer:" destination="-1" eventType="touchUpInside" id="ocB-hm-Xai"/>
+                        <action selector="contactServiceBtnClick:" destination="-1" eventType="touchUpInside" id="nGn-8n-M67"/>
                     </connections>
                 </button>
             </subviews>
@@ -97,5 +100,6 @@
     </objects>
     <resources>
         <image name="Maintain" width="375" height="225"/>
+        <image name="cs-white" width="18" height="22"/>
     </resources>
 </document>
