@@ -94,19 +94,8 @@
         
         //取到顶层navigation控制器
         UIViewController *topNavController = [lineCheckViewController.rootNav.viewControllers lastObject];
-        //如果有push的VC先pop到首页控制器
-        if (![topNavController isKindOfClass:[SH_HomeViewController class]]) {
-             [topNavController.navigationController popToRootViewControllerAnimated:NO];
-        }
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            UIViewController *homeViewVC = [lineCheckViewController.rootNav.viewControllers firstObject];
-//            static dispatch_once_t onceToken;
-//            dispatch_once(&onceToken, ^{
-            //这里注释掉是因为 有时候有多个接口先push了ip受限页面  然后在进来上面走了pop到首页，但是这里代码又设置只执行一次导致ip受限页面出现后立马消失
-                SH_NoAccessViewController *vc = [[SH_NoAccessViewController alloc] initWithNibName:@"SH_NoAccessViewController" bundle:nil];
-                [homeViewVC.navigationController pushViewController:vc animated:NO];
-//            });
-        });
+        SH_NoAccessViewController *vc = [[SH_NoAccessViewController alloc] initWithNibName:@"SH_NoAccessViewController" bundle:nil];
+        [topNavController.navigationController pushViewController:vc animated:NO];
     }
     else if (code == SH_API_ERRORCODE_607)
     {
@@ -116,18 +105,8 @@
         
         //取到顶层navigation控制器
         UIViewController *topNavController = [lineCheckViewController.rootNav.viewControllers lastObject];
-        //如果有push的VC先pop到首页控制器
-        if (![topNavController isKindOfClass:[SH_HomeViewController class]]) {
-            [topNavController.navigationController popToRootViewControllerAnimated:NO];
-        }
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            UIViewController *homeViewVC = [lineCheckViewController.rootNav.viewControllers firstObject];
-//            static dispatch_once_t onceToken;
-//            dispatch_once(&onceToken, ^{
-                SH_MaintainViewController *vc = [[SH_MaintainViewController alloc] initWithNibName:@"SH_MaintainViewController" bundle:nil];
-                [homeViewVC.navigationController pushViewController:vc animated:NO];
-//            });
-        });
+        SH_MaintainViewController *vc = [[SH_MaintainViewController alloc] initWithNibName:@"SH_MaintainViewController" bundle:nil];
+        [topNavController.navigationController pushViewController:vc animated:NO];
     }
     else if (code == SH_API_ERRORCODE_608)
     {

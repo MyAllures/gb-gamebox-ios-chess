@@ -24,11 +24,39 @@
 @end
 @implementation SH_BankCardView
 
+-(NSAttributedString *) setAttributedPlaceholderColor: (NSString *)str {
+    NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:str attributes:
+                                      @{NSForegroundColorAttributeName:[UIColor lightGrayColor],
+                                        NSFontAttributeName:self.realNameTF.font
+                                        }];
+    return attrString;
+}
+
+-(void)setTextField: (UITextField *)textField {
+    CGRect frame = [textField frame];
+    
+    frame.size.width=8.0f;
+    
+    [textField setLeftView:[[UIView alloc]initWithFrame:frame]];
+    
+    [textField setLeftViewMode:UITextFieldViewModeAlways];
+}
+
 - (void)awakeFromNib{
     [super awakeFromNib];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateRealName) name:@"realName" object:nil];
     [self updateRealName];
-    [self.chooseBankBtn ButtonPositionStyle:ButtonPositionStyleRight spacing:5];
+    
+    self.realNameTF.attributedPlaceholder = [self setAttributedPlaceholderColor:@"请输入真实姓名"];
+    self.cardNumTF.attributedPlaceholder = [self setAttributedPlaceholderColor:@"请输入卡号"];
+    self.addressTF.attributedPlaceholder = [self setAttributedPlaceholderColor:@"如:河北唐山建设银行"];
+    [self setTextField:self.realNameTF];
+    [self setTextField:self.cardNumTF];
+    [self setTextField:self.addressTF];
+    self.realNameTF.textColor = [UIColor whiteColor];
+    self.cardNumTF.textColor = [UIColor whiteColor];
+    self.addressTF.textColor = [UIColor whiteColor];
+    
     if ( [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard.bankcardNumber != nil) {
          //已经绑定了银行卡
         for (UIView *TF in self.subviews) {
@@ -156,10 +184,9 @@
     __weak typeof(self) weakSelf = self;
     picker.confirmBlock = ^(NSInteger selectedIndex) {
         weakSelf.bankTF.text = bankNameArray[selectedIndex];
+        weakSelf.bankTF.textAlignment = NSTextAlignmentLeft;
+        [self setTextField:weakSelf.bankTF];
         [weakSelf.chooseBankBtn setTitle:nil forState:UIControlStateNormal];
-        [weakSelf.chooseBankBtn setImage:nil forState:UIControlStateNormal];
-
-        
     };   
 }
 - (void)setFrom:(NSString *)from{
