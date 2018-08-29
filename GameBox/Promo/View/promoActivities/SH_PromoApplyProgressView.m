@@ -32,9 +32,10 @@
 -(void)changeProgressValue:(CGFloat)value{
     NSString *imageName;
     NSString *bgImageName;
-    if (value == 1) {
+    if (value >= 1) {
         bgImageName = @"bar_empty";
         imageName = @"bar";
+        value=1.0;
     }else{
         imageName = @"bar_red";
         bgImageName = @"bar_empty_red";
