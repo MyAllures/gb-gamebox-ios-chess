@@ -294,10 +294,10 @@
     if ([code isEqualToString:@"001"]) {
         title = @"网络连接失败";
         msg = [NSString stringWithFormat:@"\n网络连接失败，请确认您的网络连接正常后再次尝试！"];
-    } else if ([code isEqualToString:@"003"]) {
+    } else if ([code isEqualToString:@"002"]) {
         title = @"线路获取失败";
         msg = [NSString stringWithFormat:@"\n线路获取失败，请确认您的网络连接正常后再次尝试！"];
-    } else if ([code isEqualToString:@"002"]) {
+    } else if ([code isEqualToString:@"003"]) {
         title = @"服务器连接失败";
         msg = [NSString stringWithFormat:@"\n出现未知错误，请联系在线客服并提供以下信息:\n\n当前ip:%@\n版本号:%@", ip, [NSString stringWithFormat:@"iOS %@.%@",appVersion,appBuildVersion]];
     }
