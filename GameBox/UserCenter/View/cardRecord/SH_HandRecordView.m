@@ -94,7 +94,6 @@
     [self requestData];
 }
 
-
 - (IBAction)seleteTimeAction:(UIButton *)sender {
     NSArray *searchTypeArr = @[@"今天",@"昨天",@"本周",@"近七天"];
     HLPopTableView *popTV = [HLPopTableView initWithFrame:CGRectMake(0, 0, sender.bounds.size.width + 5, 110) dependView:sender textArr:searchTypeArr textFont:14.0 block:^(NSString *region_name, NSInteger index) {
@@ -204,10 +203,11 @@
     if (self.bettingArr.count > 0) {
         self.imageView.hidden = YES;
     } else {
-        [UIView animateWithDuration:3.5
-                         animations:^{
-                             self.imageView.hidden = NO;
-                         }];
+//        [UIView animateWithDuration:3.5
+//                         animations:^{
+//                             self.imageView.hidden = NO;
+//                         }];
+        self.imageView.hidden = NO;
     }
     return self.bettingArr.count;
 }
