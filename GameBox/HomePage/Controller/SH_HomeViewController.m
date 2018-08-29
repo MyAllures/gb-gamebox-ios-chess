@@ -558,7 +558,7 @@
         [[NetWorkLineMangaer sharedManager] configCookieAndSid:httpURLResponse];
     } failed:^(NSHTTPURLResponse *httpURLResponse,  NSString *err) {
         if (httpURLResponse.statusCode == 607) {
-            SH_MaintainViewController *maintain = [[NSBundle mainBundle] loadNibNamed:@"SH_MaintainViewController" owner:nil options:nil].lastObject;
+            SH_MaintainViewController *maintain = [[NSBundle mainBundle] loadNibNamed:@"SH_MaintainViewController" owner:self options:nil].lastObject;
             [self presentViewController:maintain addTargetViewController:nil];
         } else if (httpURLResponse.statusCode == 605) {
             

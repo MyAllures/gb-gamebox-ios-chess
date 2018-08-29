@@ -10,20 +10,17 @@
 #import "SH_CustomerServiceManager.h"
 
 @interface SH_MaintainViewController ()
-@property (weak, nonatomic) IBOutlet UIButton *btn;
 @end
 
 @implementation SH_MaintainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
-    self.btn.backgroundColor = [UIColor colorWithRed:0.02 green:0.43 blue:0.17 alpha:1];
-    [self.btn setImage:[UIImage imageNamed:@"cs-white"] forState:UIControlStateNormal];
+
     
 }
-- (IBAction)gotoCustomer:(id)sender {
-    [[SH_CustomerServiceManager sharedManager] open];
+- (IBAction)contactServiceBtnClick:(id)sender {
+     [[SH_CustomerServiceManager sharedManager] open];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

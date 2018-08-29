@@ -620,7 +620,7 @@
         </view>
     </objects>
     <resources>
-        <image name="btn_search" width="23" height="23"/>
+        <image name="btn_search" width="24" height="23"/>
         <image name="footer" width="491" height="38"/>
         <image name="user_info_bg" width="21" height="21"/>
     </resources>
