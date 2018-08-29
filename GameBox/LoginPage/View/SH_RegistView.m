@@ -293,7 +293,11 @@
     UIButton *button = [UIButton new];
     [self.scrollview addSubview:button];
     [button  mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(button_Check.mas_bottom).mas_offset(20);
+        if (![self.status isEqualToString:@"1"]) {
+            make.top.mas_equalTo(button_Check.mas_bottom).mas_offset(-15);
+        } else {
+            make.top.mas_equalTo(button_Check.mas_bottom).mas_offset(17);
+        }
 //        make.centerX.mas_equalTo(self.scrollview);
 //        make.width.mas_equalTo(145);
         if (self.stackView.frameWidth >265) {
