@@ -42,6 +42,7 @@
                 <constraint firstItem="FRB-jt-B9d" firstAttribute="width" secondItem="5Gm-Ff-dmf" secondAttribute="width" multiplier="0.1" id="pYj-zU-bI4"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="91" y="32"/>
         </view>
     </objects>
     <resources>

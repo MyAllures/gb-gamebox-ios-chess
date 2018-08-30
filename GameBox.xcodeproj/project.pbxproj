@@ -18,7 +18,6 @@
 		221079B52133F37F002D6434 /* select.webp in Resources */ = {isa = PBXBuildFile; fileRef = 2210796F2133F37F002D6434 /* select.webp */; };
 		221079B62133F37F002D6434 /* input_deco.webp in Resources */ = {isa = PBXBuildFile; fileRef = 221079702133F37F002D6434 /* input_deco.webp */; };
 		221079B72133F37F002D6434 /* nodata_bg2.webp in Resources */ = {isa = PBXBuildFile; fileRef = 221079712133F37F002D6434 /* nodata_bg2.webp */; };
-		221079B82133F37F002D6434 /* deco.webp in Resources */ = {isa = PBXBuildFile; fileRef = 221079722133F37F002D6434 /* deco.webp */; };
 		221079B92133F37F002D6434 /* logo14.webp in Resources */ = {isa = PBXBuildFile; fileRef = 221079732133F37F002D6434 /* logo14.webp */; };
 		221079BA2133F37F002D6434 /* logo02.webp in Resources */ = {isa = PBXBuildFile; fileRef = 221079742133F37F002D6434 /* logo02.webp */; };
 		221079BB2133F37F002D6434 /* error2.webp in Resources */ = {isa = PBXBuildFile; fileRef = 221079752133F37F002D6434 /* error2.webp */; };
@@ -30,7 +29,6 @@
 		221079C12133F37F002D6434 /* btn_promotions.webp in Resources */ = {isa = PBXBuildFile; fileRef = 2210797B2133F37F002D6434 /* btn_promotions.webp */; };
 		221079C22133F37F002D6434 /* logo13.webp in Resources */ = {isa = PBXBuildFile; fileRef = 2210797C2133F37F002D6434 /* logo13.webp */; };
 		221079C32133F37F002D6434 /* photo_male.webp in Resources */ = {isa = PBXBuildFile; fileRef = 2210797D2133F37F002D6434 /* photo_male.webp */; };
-		221079C42133F37F002D6434 /* bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 2210797E2133F37F002D6434 /* bg.webp */; };
 		221079C52133F37F002D6434 /* game-bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 2210797F2133F37F002D6434 /* game-bg.webp */; };
 		221079C62133F37F002D6434 /* logo09.webp in Resources */ = {isa = PBXBuildFile; fileRef = 221079802133F37F002D6434 /* logo09.webp */; };
 		221079C72133F37F002D6434 /* chip_yellow.webp in Resources */ = {isa = PBXBuildFile; fileRef = 221079812133F37F002D6434 /* chip_yellow.webp */; };
@@ -444,7 +442,6 @@
 		2210796F2133F37F002D6434 /* select.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = select.webp; sourceTree = "<group>"; };
 		221079702133F37F002D6434 /* input_deco.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = input_deco.webp; sourceTree = "<group>"; };
 		221079712133F37F002D6434 /* nodata_bg2.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = nodata_bg2.webp; sourceTree = "<group>"; };
-		221079722133F37F002D6434 /* deco.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = deco.webp; sourceTree = "<group>"; };
 		221079732133F37F002D6434 /* logo14.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo14.webp; sourceTree = "<group>"; };
 		221079742133F37F002D6434 /* logo02.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo02.webp; sourceTree = "<group>"; };
 		221079752133F37F002D6434 /* error2.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = error2.webp; sourceTree = "<group>"; };
@@ -456,7 +453,6 @@
 		2210797B2133F37F002D6434 /* btn_promotions.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = btn_promotions.webp; sourceTree = "<group>"; };
 		2210797C2133F37F002D6434 /* logo13.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo13.webp; sourceTree = "<group>"; };
 		2210797D2133F37F002D6434 /* photo_male.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = photo_male.webp; sourceTree = "<group>"; };
-		2210797E2133F37F002D6434 /* bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = bg.webp; sourceTree = "<group>"; };
 		2210797F2133F37F002D6434 /* game-bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "game-bg.webp"; sourceTree = "<group>"; };
 		221079802133F37F002D6434 /* logo09.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo09.webp; sourceTree = "<group>"; };
 		221079812133F37F002D6434 /* chip_yellow.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = chip_yellow.webp; sourceTree = "<group>"; };
@@ -1110,7 +1106,6 @@
 				2210796F2133F37F002D6434 /* select.webp */,
 				221079702133F37F002D6434 /* input_deco.webp */,
 				221079712133F37F002D6434 /* nodata_bg2.webp */,
-				221079722133F37F002D6434 /* deco.webp */,
 				221079732133F37F002D6434 /* logo14.webp */,
 				221079742133F37F002D6434 /* logo02.webp */,
 				221079752133F37F002D6434 /* error2.webp */,
@@ -1122,7 +1117,6 @@
 				2210797B2133F37F002D6434 /* btn_promotions.webp */,
 				2210797C2133F37F002D6434 /* logo13.webp */,
 				2210797D2133F37F002D6434 /* photo_male.webp */,
-				2210797E2133F37F002D6434 /* bg.webp */,
 				2210797F2133F37F002D6434 /* game-bg.webp */,
 				221079802133F37F002D6434 /* logo09.webp */,
 				221079812133F37F002D6434 /* chip_yellow.webp */,
@@ -2484,7 +2478,6 @@
 			files = (
 				221079F52133F37F002D6434 /* error.webp in Resources */,
 				BF5FF79B212277A70019EF30 /* SH_ApplyResultView.xib in Resources */,
-				221079B82133F37F002D6434 /* deco.webp in Resources */,
 				220D1E342126C5D70050C8BA /* SH_WelfareWarehouse.xib in Resources */,
 				221079D52133F37F002D6434 /* nodata_bg.webp in Resources */,
 				BF5C0BCD2105B8330035B754 /* SH_ProfitExchangeView.xib in Resources */,
@@ -2493,7 +2486,6 @@
 				BF6CC24121342E6C00033F88 /* top_bg.webp in Resources */,
 				BF2F916520EF61BA00CEDE8C /* SH_DespositeChooseMoneyCollectionViewCell.xib in Resources */,
 				221079B22133F37F002D6434 /* warn.webp in Resources */,
-				221079C42133F37F002D6434 /* bg.webp in Resources */,
 				BFA0689720FC8DB300F5ADFE /* SH_LookJiHeView.xib in Resources */,
 				221079F42133F37F002D6434 /* betRec_calendar_icon.webp in Resources */,
 				54DD03662109FDAB00CE9199 /* SH_MsgCenterDetailView.xib in Resources */,
@@ -3142,7 +3134,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid22;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7001;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -3162,7 +3154,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid22;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7001;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

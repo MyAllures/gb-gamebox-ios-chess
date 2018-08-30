@@ -22,8 +22,8 @@
 {
     SH_WaitingView *waitingView = [[[NSBundle mainBundle] loadNibNamed:@"SH_WaitingView" owner:nil options:nil] lastObject];
     [waitingView runAnimation];
+    waitingView.layer.zPosition=100;
     [view addSubview:waitingView];
-    
     [waitingView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(view);
     }];

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -216,18 +217,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aOm-Ke-uh8" customClass="SH_WebPImageView">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="aOm-Ke-uh8" userLabel="bgImageView">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="bg"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e3h-wY-ihy" customClass="SH_WebPImageView">
-                                <rect key="frame" x="188.5" y="34" width="290" height="306"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="290" id="9s1-sW-yIk"/>
-                                    <constraint firstAttribute="height" constant="306" id="JjF-cP-cm4"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deco" translatesAutoresizingMaskIntoConstraints="NO" id="e3h-wY-ihy">
+                                <rect key="frame" x="188.5" y="35.5" width="290" height="303"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="deco"/>
                                 </userDefinedRuntimeAttributes>
@@ -239,6 +236,8 @@
                             <constraint firstItem="aOm-Ke-uh8" firstAttribute="bottom" secondItem="fSM-h7-NG6" secondAttribute="top" id="7Xx-P2-Xcz"/>
                             <constraint firstItem="e3h-wY-ihy" firstAttribute="centerY" secondItem="BZb-sa-ETa" secondAttribute="centerY" id="Coz-6O-CS3"/>
                             <constraint firstItem="aOm-Ke-uh8" firstAttribute="trailing" secondItem="BZb-sa-ETa" secondAttribute="trailing" id="LQe-Oo-hsv"/>
+                            <constraint firstItem="e3h-wY-ihy" firstAttribute="width" secondItem="aOm-Ke-uh8" secondAttribute="width" multiplier="290:667" id="Vea-0M-RFR"/>
+                            <constraint firstItem="e3h-wY-ihy" firstAttribute="height" secondItem="aOm-Ke-uh8" secondAttribute="height" multiplier="303:375" id="bFk-Uc-Mas"/>
                             <constraint firstItem="e3h-wY-ihy" firstAttribute="centerX" secondItem="BZb-sa-ETa" secondAttribute="centerX" id="gQm-cr-Ad4"/>
                             <constraint firstItem="aOm-Ke-uh8" firstAttribute="leading" secondItem="BZb-sa-ETa" secondAttribute="leading" id="vlf-JD-PWv"/>
                         </constraints>
@@ -250,4 +249,8 @@
             <point key="canvasLocation" x="-364" y="598"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bg" width="667" height="375"/>
+        <image name="deco" width="290" height="302"/>
+    </resources>
 </document>
