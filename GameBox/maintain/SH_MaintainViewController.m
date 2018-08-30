@@ -10,18 +10,52 @@
 #import "SH_CustomerServiceManager.h"
 
 @interface SH_MaintainViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *siteMaintainTipLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *loginImg;
 @property (weak, nonatomic) IBOutlet UIButton *btn;
+
+@property (strong, nonatomic) NSString *customerUrl;
 @end
 
 @implementation SH_MaintainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.customerUrl = @"";
     [self.btn ButtonPositionStyle:ButtonPositionStyleDefault spacing:5];
-    
+    NSString *domain = [NSString stringWithFormat:@"%@://%@",[NetWorkLineMangaer sharedManager].currentHttpType,[NetWorkLineMangaer sharedManager].currentHost];
+    NSString *urlStr = [domain stringByAppendingString:@"/__error_/608info.html"];
+    NSURL *url = [NSURL URLWithString:urlStr];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    //3.获得会话对象
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error == nil) {
+            //6.解析服务器返回的数据
+            //说明：（此处返回的数据是JSON格式的，因此使用NSJSONSerialization进行反序列化处理）
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+            NSString *mobileCustomerServiceUrl = dict[@"mobileCustomerServiceUrl"];
+            NSString *logoUrl = dict[@"logoUrl"];
+            NSString *siteMaintainTip = dict[@"siteMaintainTip"];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.customerUrl = mobileCustomerServiceUrl;
+                self.siteMaintainTipLabel.text = siteMaintainTip;
+                [self.loginImg sd_setImageWithURL:[NSURL URLWithString:logoUrl]];
+            });
+            NSLog(@"mobileCustomerServiceUrl==%@",mobileCustomerServiceUrl);
+            NSLog(@"logoUrl==%@",logoUrl);
+        }
+    }];
+    //5.执行任务
+    [dataTask resume];
 }
 - (IBAction)contactServiceBtnClick:(id)sender {
-     [[SH_CustomerServiceManager sharedManager] open];
+    if ([self.customerUrl isEqualToString:@""]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://chatserver.comm100.com/chatwindow.aspx?planId=403&siteId=229366"]];
+    } else {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.customerUrl]];
+    }
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

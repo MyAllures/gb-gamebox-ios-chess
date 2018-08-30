@@ -12,6 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SH_MaintainViewController">
             <connections>
                 <outlet property="btn" destination="nor-MW-xRu" id="aEg-Cd-VbW"/>
+                <outlet property="loginImg" destination="WBs-eL-Twb" id="jT4-3f-Kdv"/>
+                <outlet property="siteMaintainTipLabel" destination="M1S-lr-blA" id="CD6-8D-SjX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -49,8 +51,19 @@
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ajj-B4-G06">
                     <rect key="frame" x="0.0" y="0.0" width="667" height="44"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WBs-eL-Twb">
+                            <rect key="frame" x="228" y="0.0" width="211" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="2gc-P8-E7Y"/>
+                                <constraint firstAttribute="width" constant="211" id="Uzs-J5-Kks"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
                     <constraints>
+                        <constraint firstItem="WBs-eL-Twb" firstAttribute="top" secondItem="ajj-B4-G06" secondAttribute="top" id="Ger-bd-DmX"/>
                         <constraint firstAttribute="height" constant="44" id="Kju-MB-gdZ"/>
+                        <constraint firstItem="WBs-eL-Twb" firstAttribute="centerX" secondItem="ajj-B4-G06" secondAttribute="centerX" id="j3e-tU-txD"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="抱歉！本系统程序升级，将暂停访问，敬请期待！如有什么疑问，请联系我们的客服" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1S-lr-blA">
@@ -95,7 +108,7 @@
                 <constraint firstItem="ajj-B4-G06" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zZg-go-QDE"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-135.5" y="44"/>
+            <point key="canvasLocation" x="-579.5" y="105"/>
         </view>
     </objects>
     <resources>

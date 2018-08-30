@@ -10,6 +10,8 @@
 #import "SH_NetWorkService+RegistAPI.h"
 #import "SH_TopLevelControllerManager.h"
 #import "SH_SmallWindowViewController.h"
+#import "CALayer+SH_XibBorderColor.h"
+
 @interface  SH_AlertView()
 @property (weak, nonatomic) IBOutlet UILabel *content_label;
 
