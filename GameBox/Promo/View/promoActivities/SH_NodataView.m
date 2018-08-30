@@ -19,8 +19,13 @@
 }
 +(instancetype)showAddTo:(UIView *)view
                  Message:(NSString *)message{
+    UIView *view1 = [view viewWithTag:123456];
+    if (view1) {
+        [view1 removeFromSuperview];
+    }
     SH_NodataView *noDataView = [[NSBundle mainBundle]loadNibNamed:@"SH_NodataView" owner:self options:nil].firstObject ;
     noDataView.frame = view.bounds;
+    noDataView.tag = 123456;
     [view addSubview:noDataView];
     noDataView.massageLab.text = message;
     return noDataView;

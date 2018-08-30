@@ -7,7 +7,6 @@
 //
 
 #import "SH_PromoWindowViewController.h"
-#import "SH_PromoListView.h"
 #import "SH_MsgCenterView.h"
 #import "SH_PromoDeatilViewController.h"
 #import "SH_WebPButton.h"
@@ -15,12 +14,11 @@
 #import "SH_PromoActivitiesView.h"
 #import "SH_BigWindowViewController.h"
 #import "SH_SmallWindowViewController.h"
-@interface SH_PromoWindowViewController () <SH_PromoListViewDelegate>
+@interface SH_PromoWindowViewController ()
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet SH_WebPButton *promoTypeBt;
 @property (weak, nonatomic) IBOutlet SH_WebPButton *msgTypeBt;
 
-@property (strong, nonatomic) SH_PromoListView *promoListView;
 @property (strong, nonatomic) SH_MsgCenterView *msgCenterView;
 @property(nonatomic,strong)SH_PromoActivitiesView *promoActivitiseView;
 
@@ -45,18 +43,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (SH_PromoListView *)promoListView
-{
-    if (_promoListView == nil) {
-        _promoListView = [[[NSBundle mainBundle] loadNibNamed:@"SH_PromoListView" owner:nil options:nil] lastObject];
-        _promoListView.delegate = self;
-        [self.contentView addSubview:_promoListView];
-        [_promoListView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.mas_equalTo(0);
-        }];
-    }
-    return _promoListView;
-}
+
 
 - (SH_PromoActivitiesView *)promoActivitiseView{
     if (!_promoActivitiseView) {
@@ -108,30 +95,17 @@
 - (IBAction)promoTypeSelected:(id)sender {
     self.promoTypeBt.selected = YES;
     self.msgTypeBt.selected = NO;
-//    self.promoListView.hidden = NO;
     self.promoActivitiseView.hidden = NO;
     self.msgCenterView.hidden = YES;
-//    [self.promoListView reloadData];
 }
 
 - (IBAction)msgTypeSelect:(id)sender {
     self.promoTypeBt.selected = NO;
     self.msgTypeBt.selected = YES;
-//    self.promoListView.hidden = YES;
      self.promoActivitiseView.hidden = YES;
     self.msgCenterView.hidden = NO;
     [self.msgCenterView reloadData];
 }
 
-#pragma mark - SH_PromoListViewDelegate M
-
-- (void)promoListView:(SH_PromoListView *)view didSelect:(SH_PromoListModel *)model
-{
-    SH_PromoDeatilViewController *vc = [[SH_PromoDeatilViewController alloc] initWithNibName:@"SH_PromoDeatilViewController" bundle:nil];
-    vc.model = model;
-    vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    vc.modalTransitionStyle =UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:vc animated:YES completion:nil];
-}
 
 @end
