@@ -106,7 +106,7 @@
                 <outlet property="msgContentLB" destination="VxL-nY-ZBS" id="tyw-Za-71d"/>
                 <outlet property="selectBt" destination="U7t-rh-gxB" id="ar7-FS-9KQ"/>
             </connections>
-            <point key="canvasLocation" x="-23.5" y="14"/>
+            <point key="canvasLocation" x="88" y="2"/>
         </tableViewCell>
     </objects>
 </document>

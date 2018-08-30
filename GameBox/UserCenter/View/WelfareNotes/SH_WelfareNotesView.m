@@ -155,9 +155,7 @@
 -(void)awakeFromNib {
     [super awakeFromNib];
 //    self.tableView.backgroundColor = [UIColor colorWithRed:52.00/255 green:55.00/255 blue:151.00/255 alpha:1];
-    
-//    self.imageView.hidden = YES;
-    
+    self.imageView.hidden = YES;
     #pragma mark 默认获取近七天
     if (self.startTimeStr == nil || self.endTimeStr == nil) {
         [self changedSinceTimeString:3];
@@ -205,9 +203,13 @@
                     [self.tableView reloadData];
                     [SH_WaitingView hide:self];
                 }
+                
+                self.imageView.hidden = YES;
+
             } else {
                 [self.tableView reloadData];
                 [SH_WaitingView hide:self];
+                self.imageView.hidden = NO;
             }
             
         } else {
@@ -231,11 +233,6 @@
 
 #pragma mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.dataArr.count > 0) {
-        self.imageView.hidden = YES;
-    } else {
-        self.imageView.hidden = NO;
-    }
     return self.dataArr.count;
 }
 

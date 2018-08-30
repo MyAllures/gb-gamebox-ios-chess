@@ -11,6 +11,7 @@
 #import "SH_NetWorkService+RegistAPI.h"
 #import "SH_ApiModel.h"
 #import "SH_NetWorkService+SaftyCenter.h"
+#import "SH_NetWorkService+Home.h"
 @interface SH_ProfitExchangeView()<UITableViewDelegate,UITableViewDataSource,SH_ProfitExchangeTableViewCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
 @property(nonatomic,strong)NSArray *dataArray;
@@ -52,6 +53,32 @@
         [self.mainTableView reloadData];
         
     } Fail:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+        
+    }];
+}
+- (IBAction)recovery:(id)sender {
+    [self recoveryAndRefreshUserInfo:nil];
+}
+- (void)recoveryAndRefreshUserInfo:(NSString *)apiId
+{
+    [SH_NetWorkService onekeyrecoveryApiId:apiId Success:^(NSHTTPURLResponse *httpURLResponse, id response) {
+        [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
+            if ([response[@"code"] isEqualToString:@"0"]) {
+                NSError *err;
+                NSArray *arr = [SH_BankListModel arrayOfModelsFromDictionaries:response[@"data"][@"bankList"] error:&err];
+                [[RH_UserInfoManager shareUserManager] setBankList:arr];
+                NSError *err2;
+                RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[response[@"data"] objectForKey:@"user"] error:&err2];
+                [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
+                [self oneKeyRefresh:nil];
+            }else{
+                [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
+            }
+        } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
+            //
+            [[RH_UserInfoManager shareUserManager] updateIsLogin:false];
+        }];
+    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
 }
