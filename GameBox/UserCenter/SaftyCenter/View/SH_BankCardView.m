@@ -75,8 +75,12 @@
         }
         if ( [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard.bankName.length > 0) {
             self.bankTF.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard.bankName;
+            self.bankTF.textAlignment = NSTextAlignmentLeft;
+            [self setTextField:self.bankTF];
         } else {
             self.bankTF.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard.bankNameCode;
+            self.bankTF.textAlignment = NSTextAlignmentLeft;
+            [self setTextField:self.bankTF];
         }
         
         self.cardNumTF.text = [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard.bankcardNumber;
