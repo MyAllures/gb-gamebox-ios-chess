@@ -513,7 +513,7 @@
                 <outlet property="warehouseBalanceLabel" destination="YP6-PU-s77" id="off-lj-ALX"/>
                 <outlet property="withdrawalBtn" destination="nkw-RR-bcL" id="4Nu-hw-rsq"/>
             </connections>
-            <point key="canvasLocation" x="-163.5" y="86.5"/>
+            <point key="canvasLocation" x="-22" y="29"/>
         </view>
     </objects>
     <resources>

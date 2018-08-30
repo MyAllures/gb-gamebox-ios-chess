@@ -79,7 +79,7 @@
             <connections>
                 <outlet property="detailLB" destination="Mnr-dk-hkF" id="XnL-R0-NKo"/>
             </connections>
-            <point key="canvasLocation" x="-125" y="-94"/>
+            <point key="canvasLocation" x="36" y="-42"/>
         </view>
     </objects>
 </document>
