@@ -27,13 +27,11 @@
 @property (weak, nonatomic) IBOutlet SH_WebPButton *inboxBt;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *operationBarConstraint;
-@property (weak, nonatomic) IBOutlet SH_WebPImageView *nodataMarkView;
 @property (weak, nonatomic) IBOutlet SH_WebPButton *selectAllBT;
 @property (nonatomic, strong) NSMutableArray *msgArr;
 @property (nonatomic, copy) SH_MsgCenterViewShowDetail showDetailBlock;
-
 @property (nonatomic,strong)NSMutableDictionary  *data_dict;
-
+@property(nonatomic,strong)SH_NodataView *noDataView;
 @end
 
 @implementation SH_MsgCenterView
@@ -128,16 +126,20 @@
                 SH_GameBulletinModel *model = [[SH_GameBulletinModel alloc] initWithDictionary:dic error:&err];
                 [weakSelf.msgArr addObject:model];
             }
-            weakSelf.nodataMarkView.hidden = weakSelf.msgArr.count > 0;
+            if (self.msgArr.count==0) {
+              self.noDataView = self.noDataView = [SH_NodataView showAddTo:self.tableView Message:@"您暂无消息"];;
+            }else{
+                [self.noDataView removeFromSuperview];
+            }
         }
         else
         {
             showErrorMessage([UIApplication sharedApplication].keyWindow, nil, [response objectForKey:@"message"]);
-            weakSelf.nodataMarkView.hidden = NO;
+            self.noDataView = [SH_NodataView showAddTo:self.tableView Message:@"您暂无消息"];;
         }
         [weakSelf.tableView reloadData];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        weakSelf.nodataMarkView.hidden = NO;
+        self.noDataView = [SH_NodataView showAddTo:self.tableView Message:@"您暂无消息"];;
     }];
 }
 
@@ -162,16 +164,20 @@
                 SH_SystemNotificationModel *model = [[SH_SystemNotificationModel alloc] initWithDictionary:dic error:&err];
                 [weakSelf.msgArr addObject:model];
             }
-            weakSelf.nodataMarkView.hidden = weakSelf.msgArr.count > 0;
+            if (self.msgArr.count==0) {
+                self.noDataView = self.noDataView = [SH_NodataView showAddTo:self.tableView Message:@"您暂无消息"];;
+            }else{
+                [self.noDataView removeFromSuperview];
+            }
         }
         else
         {
             showErrorMessage([UIApplication sharedApplication].keyWindow, nil, [response objectForKey:@"message"]);
-            weakSelf.nodataMarkView.hidden = NO;
+            self.noDataView = [SH_NodataView showAddTo:self.tableView Message:@"您暂无消息"];;
         }
         [weakSelf.tableView reloadData];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        weakSelf.nodataMarkView.hidden = NO;
+         self.noDataView = [SH_NodataView showAddTo:self.tableView Message:@"您暂无消息"];;
     }];
 }
 - (IBAction)InboxClick:(id)sender {
@@ -197,16 +203,20 @@
                 SH_SysMsgDataListModel *model = [[SH_SysMsgDataListModel alloc] initWithDictionary:dic error:&err];
                 [weakSelf.msgArr addObject:model];
             }
-            weakSelf.nodataMarkView.hidden = weakSelf.msgArr.count > 0;
+            if (self.msgArr.count==0) {
+                self.noDataView = self.noDataView = [SH_NodataView showAddTo:self.tableView Message:@"您暂无消息"];;
+            }else{
+                [self.noDataView removeFromSuperview];
+            }
         }
         else
         {
             showErrorMessage([UIApplication sharedApplication].keyWindow, nil, [response objectForKey:@"message"]);
-            weakSelf.nodataMarkView.hidden = NO;
+            self.noDataView = [SH_NodataView showAddTo:self.tableView Message:@"您暂无消息"];;
         }
         [weakSelf.tableView reloadData];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        weakSelf.nodataMarkView.hidden = NO;
+        self.noDataView = [SH_NodataView showAddTo:self.tableView Message:@"您暂无消息"];;
     }];
 }
 - (IBAction)allSelectAction:(id)sender {

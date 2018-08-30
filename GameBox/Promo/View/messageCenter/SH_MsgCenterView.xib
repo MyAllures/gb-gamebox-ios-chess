@@ -235,27 +235,17 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category0"/>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rv3-QU-d8G" customClass="SH_WebPImageView">
-                    <rect key="frame" x="135" y="0.0" width="400" height="263.5"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="nodata_bg"/>
-                    </userDefinedRuntimeAttributes>
-                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="WJJ-xw-Lzd" firstAttribute="top" secondItem="Ovy-TN-Yre" secondAttribute="bottom" id="0EI-1l-yRC"/>
-                <constraint firstItem="Rv3-QU-d8G" firstAttribute="bottom" secondItem="Ovy-TN-Yre" secondAttribute="bottom" id="1eD-A4-ggt"/>
                 <constraint firstAttribute="trailing" secondItem="Ovy-TN-Yre" secondAttribute="trailing" id="6Db-EC-ZAU"/>
                 <constraint firstAttribute="trailing" secondItem="WJJ-xw-Lzd" secondAttribute="trailing" id="8Le-ab-x90"/>
                 <constraint firstItem="Ovy-TN-Yre" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="GUE-Q5-BDb"/>
                 <constraint firstAttribute="bottom" secondItem="5Eo-VD-BeG" secondAttribute="bottom" id="Gem-aF-m1c"/>
-                <constraint firstItem="Rv3-QU-d8G" firstAttribute="leading" secondItem="Ovy-TN-Yre" secondAttribute="leading" id="HzB-f5-4y5"/>
                 <constraint firstItem="WJJ-xw-Lzd" firstAttribute="leading" secondItem="5Eo-VD-BeG" secondAttribute="trailing" id="Tqt-Z6-5Jp"/>
                 <constraint firstItem="Ovy-TN-Yre" firstAttribute="leading" secondItem="5Eo-VD-BeG" secondAttribute="trailing" id="kDI-TV-unN"/>
                 <constraint firstItem="5Eo-VD-BeG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="kN2-MY-6mt"/>
-                <constraint firstItem="Rv3-QU-d8G" firstAttribute="top" secondItem="Ovy-TN-Yre" secondAttribute="top" id="sNh-ma-K0O"/>
-                <constraint firstItem="Rv3-QU-d8G" firstAttribute="trailing" secondItem="Ovy-TN-Yre" secondAttribute="trailing" id="tAA-vb-ga0"/>
                 <constraint firstItem="5Eo-VD-BeG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xSP-He-pl9"/>
                 <constraint firstAttribute="bottom" secondItem="WJJ-xw-Lzd" secondAttribute="bottom" id="xpX-yd-Dwu"/>
             </constraints>
@@ -268,14 +258,13 @@
                 <outlet property="game_label" destination="QiL-Ih-FqE" id="xIR-rf-Wct"/>
                 <outlet property="inboxBt" destination="r97-Ox-5W1" id="vT3-7X-KVj"/>
                 <outlet property="inbox_label" destination="oTk-pt-DUl" id="qpw-Or-kf4"/>
-                <outlet property="nodataMarkView" destination="Rv3-QU-d8G" id="XRi-K9-zLL"/>
                 <outlet property="operationBarConstraint" destination="nRk-bI-a5c" id="uVf-6V-1d9"/>
                 <outlet property="selectAllBT" destination="M6W-VX-sHV" id="NOJ-lD-5tp"/>
                 <outlet property="systemNoticeBt" destination="EoG-PJ-hxP" id="bCT-AE-FLV"/>
                 <outlet property="system_label" destination="bRq-nu-NWf" id="IgJ-QZ-T5A"/>
                 <outlet property="tableView" destination="Ovy-TN-Yre" id="kHt-if-EKI"/>
             </connections>
-            <point key="canvasLocation" x="-116" y="-19"/>
+            <point key="canvasLocation" x="-116.5" y="-19"/>
         </view>
     </objects>
 </document>
