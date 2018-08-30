@@ -112,7 +112,7 @@
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oBO-Af-BWO" customClass="SH_WebPImageView">
                                     <rect key="frame" x="0.0" y="0.0" width="229.5" height="42.5"/>
                                     <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="Rounded-bg"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="rounded_bg"/>
                                     </userDefinedRuntimeAttributes>
                                 </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hpg-9e-8jT">

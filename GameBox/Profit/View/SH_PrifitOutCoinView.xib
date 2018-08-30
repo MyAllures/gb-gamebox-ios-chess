@@ -46,15 +46,15 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="font_welfare"/>
                     </userDefinedRuntimeAttributes>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn_search" translatesAutoresizingMaskIntoConstraints="NO" id="3pE-Od-FPa">
-                    <rect key="frame" x="99" y="13" width="123" height="25"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rounded" translatesAutoresizingMaskIntoConstraints="NO" id="3pE-Od-FPa">
+                    <rect key="frame" x="99" y="16.5" width="123" height="18"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="123" id="ZQP-hl-ycl">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </constraint>
-                        <constraint firstAttribute="height" constant="25" id="fRl-IU-yJn">
+                        <constraint firstAttribute="height" constant="18" id="fRl-IU-yJn">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                             </userDefinedRuntimeAttributes>
@@ -106,15 +106,15 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="font_fee"/>
                     </userDefinedRuntimeAttributes>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn_search" translatesAutoresizingMaskIntoConstraints="NO" id="Yg1-Fd-rMb">
-                    <rect key="frame" x="308" y="13" width="123" height="25"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rounded" translatesAutoresizingMaskIntoConstraints="NO" id="Yg1-Fd-rMb">
+                    <rect key="frame" x="308" y="16.5" width="123" height="18"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="123" id="2Ha-Dy-SUL">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </constraint>
-                        <constraint firstAttribute="height" constant="25" id="jOP-mC-fcY">
+                        <constraint firstAttribute="height" constant="18" id="jOP-mC-fcY">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                             </userDefinedRuntimeAttributes>
@@ -575,6 +575,6 @@
         </view>
     </objects>
     <resources>
-        <image name="btn_search" width="24" height="23"/>
+        <image name="rounded" width="17" height="17"/>
     </resources>
 </document>
