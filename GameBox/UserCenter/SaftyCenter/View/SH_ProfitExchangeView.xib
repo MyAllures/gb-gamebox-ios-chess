@@ -25,35 +25,75 @@
                     <state key="normal" title="一键刷新"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_blue_long"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="refresh"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="oneKeyRefresh:" destination="iN0-l3-epB" eventType="touchUpInside" id="Rea-D7-edN"/>
                     </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vqe-Q8-5ly">
-                    <rect key="frame" x="12" y="40" width="309" height="242"/>
+                    <rect key="frame" x="12" y="43" width="309" height="239"/>
                     <color key="backgroundColor" red="0.3411764706" green="0.39607843139999999" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
                     </userDefinedRuntimeAttributes>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dck-Pt-HdZ" customClass="SH_WebPButton">
+                    <rect key="frame" x="190" y="7" width="131" height="33"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                    <state key="normal" title="一键回收"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpBGImage" value="btn_blue_long"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="recovery:" destination="iN0-l3-epB" eventType="touchUpInside" id="5I2-Ea-tkc"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Id-TP-yH0" customClass="SH_WebPImageView">
+                    <rect key="frame" x="105" y="16" width="12" height="14"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="12" id="fAN-Ei-1Fa"/>
+                        <constraint firstAttribute="height" constant="14" id="t09-xU-hVu"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="refresh"/>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xF8-kp-ZbP" customClass="SH_WebPImageView">
+                    <rect key="frame" x="284" y="16" width="16" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="C5J-VN-HPK"/>
+                        <constraint firstAttribute="width" constant="16" id="yoV-D9-tAp"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="recovery"/>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.3411764705882353" green="0.396078431372549" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="xF8-kp-ZbP" firstAttribute="centerY" secondItem="dck-Pt-HdZ" secondAttribute="centerY" id="2nw-pQ-OBW"/>
+                <constraint firstItem="xF8-kp-ZbP" firstAttribute="centerY" secondItem="dck-Pt-HdZ" secondAttribute="centerY" id="HqQ-Ya-LBW"/>
                 <constraint firstItem="Vqe-Q8-5ly" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="MIn-bs-aW4">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </constraint>
+                <constraint firstItem="0Id-TP-yH0" firstAttribute="centerY" secondItem="azb-3E-1Ox" secondAttribute="centerY" id="MoL-eW-ave"/>
+                <constraint firstItem="dck-Pt-HdZ" firstAttribute="centerY" secondItem="azb-3E-1Ox" secondAttribute="centerY" id="Qam-1I-Euu"/>
+                <constraint firstItem="dck-Pt-HdZ" firstAttribute="height" secondItem="azb-3E-1Ox" secondAttribute="height" id="VyT-iW-fIs"/>
+                <constraint firstItem="dck-Pt-HdZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="7" id="YNH-zn-N0h"/>
                 <constraint firstItem="azb-3E-1Ox" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="bHo-os-69c"/>
-                <constraint firstItem="Vqe-Q8-5ly" firstAttribute="top" secondItem="azb-3E-1Ox" secondAttribute="bottom" id="jd2-Hw-c2Q"/>
+                <constraint firstItem="Vqe-Q8-5ly" firstAttribute="top" secondItem="azb-3E-1Ox" secondAttribute="bottom" constant="3" id="jd2-Hw-c2Q"/>
                 <constraint firstAttribute="bottom" secondItem="Vqe-Q8-5ly" secondAttribute="bottom" constant="2" id="kCM-bO-fke">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </constraint>
+                <constraint firstAttribute="trailing" secondItem="dck-Pt-HdZ" secondAttribute="trailing" constant="12" id="nii-1X-lTo"/>
                 <constraint firstItem="azb-3E-1Ox" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="7" id="pGC-G5-8Jg"/>
+                <constraint firstItem="xF8-kp-ZbP" firstAttribute="trailing" secondItem="dck-Pt-HdZ" secondAttribute="trailing" constant="-21" id="rJu-WB-tzd"/>
+                <constraint firstItem="dck-Pt-HdZ" firstAttribute="width" secondItem="azb-3E-1Ox" secondAttribute="width" id="urd-dU-sRc"/>
+                <constraint firstItem="0Id-TP-yH0" firstAttribute="trailing" secondItem="azb-3E-1Ox" secondAttribute="trailing" constant="-26" id="xWQ-uY-NeG"/>
                 <constraint firstAttribute="trailing" secondItem="Vqe-Q8-5ly" secondAttribute="trailing" constant="12" id="yZl-te-SXr">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
@@ -74,6 +114,7 @@
                 <outlet property="mainTableView" destination="Vqe-Q8-5ly" id="2sM-Oh-f3z"/>
                 <outlet property="refreshBtn" destination="azb-3E-1Ox" id="eJH-09-mcT"/>
             </connections>
+            <point key="canvasLocation" x="60.5" y="88"/>
         </view>
     </objects>
 </document>

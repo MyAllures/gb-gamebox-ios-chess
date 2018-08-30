@@ -40,8 +40,7 @@
 -(void)awakeFromNib {
     [super awakeFromNib];
     
-//    self.imageView.hidden = YES;
-    
+    self.imageView.hidden = YES;
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerNib:[UINib nibWithNibName:@"SH_HandRecordTableViewCell" bundle:nil] forCellReuseIdentifier:@"SH_HandRecordTableViewCell"];
@@ -119,9 +118,11 @@
                 [self.tableView reloadData];
                 [SH_WaitingView hide:self];
             }
+            self.imageView.hidden = YES;
         }else{
             [SH_WaitingView hide:self];
             [self.tableView reloadData];
+            self.imageView.hidden = NO;
         }
         
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
@@ -200,15 +201,6 @@
 
 #pragma mark --UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.bettingArr.count > 0) {
-        self.imageView.hidden = YES;
-    } else {
-//        [UIView animateWithDuration:3.5
-//                         animations:^{
-//                             self.imageView.hidden = NO;
-//                         }];
-        self.imageView.hidden = NO;
-    }
     return self.bettingArr.count;
 }
 
