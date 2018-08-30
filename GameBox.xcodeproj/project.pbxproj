@@ -103,6 +103,7 @@
 		22FC6E892107549A001FA492 /* SH_FindPSWSureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC6E882107549A001FA492 /* SH_FindPSWSureView.m */; };
 		22FC6E8B210754A2001FA492 /* SH_FindPSWSureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FC6E8A210754A2001FA492 /* SH_FindPSWSureView.xib */; };
 		22FC6E8F210824EB001FA492 /* SH_NetWorkService_FindPsw.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC6E8E210824EB001FA492 /* SH_NetWorkService_FindPsw.m */; };
+		422093882137EB8200A7E367 /* CALayer+SH_XibBorderColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 422093872137EB8200A7E367 /* CALayer+SH_XibBorderColor.m */; };
 		425A90C020F8873E004B681A /* HLPopTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 425A90BF20F8873E004B681A /* HLPopTableView.m */; };
 		425A90C320F88746004B681A /* UIView+HLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 425A90C220F88746004B681A /* UIView+HLExtension.m */; };
 		5401C53120ECA10F0027246D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C53020ECA10F0027246D /* AppDelegate.m */; };
@@ -544,6 +545,8 @@
 		22FC6E8D210824EB001FA492 /* SH_NetWorkService_FindPsw.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_NetWorkService_FindPsw.h; sourceTree = "<group>"; };
 		22FC6E8E210824EB001FA492 /* SH_NetWorkService_FindPsw.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_NetWorkService_FindPsw.m; sourceTree = "<group>"; };
 		3BBE090F9B091E073F4BB10C /* Pods-GameBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameBox/Pods-GameBox.release.xcconfig"; sourceTree = "<group>"; };
+		422093862137EB8200A7E367 /* CALayer+SH_XibBorderColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CALayer+SH_XibBorderColor.h"; sourceTree = "<group>"; };
+		422093872137EB8200A7E367 /* CALayer+SH_XibBorderColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CALayer+SH_XibBorderColor.m"; sourceTree = "<group>"; };
 		425A90BE20F8873D004B681A /* HLPopTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLPopTableView.h; sourceTree = "<group>"; };
 		425A90BF20F8873E004B681A /* HLPopTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLPopTableView.m; sourceTree = "<group>"; };
 		425A90C120F88746004B681A /* UIView+HLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HLExtension.h"; sourceTree = "<group>"; };
@@ -2401,6 +2404,8 @@
 				DA6EE1C820F99F45009A01C5 /* SH_SettingView.xib */,
 				5480CD49210F0789008465C5 /* SH_SliderView.h */,
 				5480CD4A210F0789008465C5 /* SH_SliderView.m */,
+				422093862137EB8200A7E367 /* CALayer+SH_XibBorderColor.h */,
+				422093872137EB8200A7E367 /* CALayer+SH_XibBorderColor.m */,
 			);
 			path = "UserInformationView ";
 			sourceTree = "<group>";
@@ -2797,6 +2802,7 @@
 				BFA068DB20FF11E500F5ADFE /* SH_BankCardModel.m in Sources */,
 				BFA0689520FC8D9A00F5ADFE /* SH_LookJiHeView.m in Sources */,
 				BFFC846620F3043A008AD801 /* SH_RechargeCenterPaywayModel.m in Sources */,
+				422093882137EB8200A7E367 /* CALayer+SH_XibBorderColor.m in Sources */,
 				BFA2EBFA211C174B00B2678F /* SH_PromoDetailModel.m in Sources */,
 				5401C56220ECF9EA0027246D /* SH_HomeViewController.m in Sources */,
 				BFA068B220FD9C3300F5ADFE /* SH_LookJiHeTableViewCell.m in Sources */,
