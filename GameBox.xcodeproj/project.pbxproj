@@ -99,6 +99,7 @@
 		2274222120FE03BB003529FF /* SH_PromoListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C8757D20F355F800AA0594 /* SH_PromoListView.m */; };
 		22878ECA210029E3005D7652 /* SH_SysMsgDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22878EC9210029E3005D7652 /* SH_SysMsgDetailModel.m */; };
 		22A65DAB2136C2D5005CB736 /* drop_down.webp in Resources */ = {isa = PBXBuildFile; fileRef = 22A65DAA2136C2D5005CB736 /* drop_down.webp */; };
+		22A65DAD21379411005CB736 /* recharge_drop_down.webp in Resources */ = {isa = PBXBuildFile; fileRef = 22A65DAC21379411005CB736 /* recharge_drop_down.webp */; };
 		22C02DB021328DC600AFCEB7 /* SH_MaintainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C02DAE21328DC600AFCEB7 /* SH_MaintainViewController.m */; };
 		22C02DB121328DC600AFCEB7 /* SH_MaintainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22C02DAF21328DC600AFCEB7 /* SH_MaintainViewController.xib */; };
 		22E486D920F9F8AE0051A68C /* SH_SysMsgDataListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E486D820F9F8AE0051A68C /* SH_SysMsgDataListModel.m */; };
@@ -539,6 +540,7 @@
 		22878EC8210029E3005D7652 /* SH_SysMsgDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_SysMsgDetailModel.h; sourceTree = "<group>"; };
 		22878EC9210029E3005D7652 /* SH_SysMsgDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_SysMsgDetailModel.m; sourceTree = "<group>"; };
 		22A65DAA2136C2D5005CB736 /* drop_down.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = drop_down.webp; sourceTree = "<group>"; };
+		22A65DAC21379411005CB736 /* recharge_drop_down.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = recharge_drop_down.webp; sourceTree = "<group>"; };
 		22C02DAD21328DC600AFCEB7 /* SH_MaintainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_MaintainViewController.h; sourceTree = "<group>"; };
 		22C02DAE21328DC600AFCEB7 /* SH_MaintainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_MaintainViewController.m; sourceTree = "<group>"; };
 		22C02DAF21328DC600AFCEB7 /* SH_MaintainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_MaintainViewController.xib; sourceTree = "<group>"; };
@@ -1107,6 +1109,7 @@
 		221079692133F37F002D6434 /* publicPhoto */ = {
 			isa = PBXGroup;
 			children = (
+				22A65DAC21379411005CB736 /* recharge_drop_down.webp */,
 				22A65DAA2136C2D5005CB736 /* drop_down.webp */,
 				2210796A2133F37F002D6434 /* input_safe.webp */,
 				2210796B2133F37F002D6434 /* input_coin.webp */,
@@ -2616,6 +2619,7 @@
 				BF6CC26121342E6C00033F88 /* btn_share.webp in Resources */,
 				BF6608A32107175E0029C4A6 /* SH_ConfirSaftyPassWordView.xib in Resources */,
 				BF6CC24421342E6C00033F88 /* index_bg.webp in Resources */,
+				22A65DAD21379411005CB736 /* recharge_drop_down.webp in Resources */,
 				BFA2EBCF211ACE5100B2678F /* SH_PromoDetailView.xib in Resources */,
 				543970B8210462BB0091C719 /* banner.webp in Resources */,
 				221079DC2133F37F002D6434 /* loading-2.webp in Resources */,
