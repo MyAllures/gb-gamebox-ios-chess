@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,7 +21,25 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="d6j-Sz-dnb" userLabel="bgImageView">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deco" translatesAutoresizingMaskIntoConstraints="NO" id="Zy4-Vv-GBi">
+                                <rect key="frame" x="188.5" y="36" width="290" height="303"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="d6j-Sz-dnb" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="LT2-Cs-yOB"/>
+                            <constraint firstItem="Zy4-Vv-GBi" firstAttribute="width" secondItem="d6j-Sz-dnb" secondAttribute="width" multiplier="290:667" id="SBA-1u-0EP"/>
+                            <constraint firstItem="Zy4-Vv-GBi" firstAttribute="height" secondItem="d6j-Sz-dnb" secondAttribute="height" multiplier="303:375" id="VFQ-z8-TR5"/>
+                            <constraint firstItem="Zy4-Vv-GBi" firstAttribute="centerX" secondItem="d6j-Sz-dnb" secondAttribute="centerX" id="Wu1-TE-lCQ"/>
+                            <constraint firstItem="d6j-Sz-dnb" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="iXB-wn-8wa"/>
+                            <constraint firstItem="Zy4-Vv-GBi" firstAttribute="centerY" secondItem="d6j-Sz-dnb" secondAttribute="centerY" id="irI-Vl-3Kj"/>
+                            <constraint firstItem="d6j-Sz-dnb" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="lry-hB-2S4"/>
+                            <constraint firstItem="d6j-Sz-dnb" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="u0k-u9-nkI"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -28,4 +47,8 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bg" width="667" height="375"/>
+        <image name="deco" width="290" height="302"/>
+    </resources>
 </document>

@@ -50,15 +50,22 @@
                         <color key="textColor" red="0.82352941180000006" green="0.84313725490000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yDP-FK-5cz" customClass="SH_WebPImageView">
+                        <rect key="frame" x="279" y="15" width="12" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="ReG-On-EUc"/>
+                            <constraint firstAttribute="width" constant="12" id="nfI-j5-GSH"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="refresh"/>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BXq-Fi-pHS" customClass="SH_WebPButton">
                         <rect key="frame" x="265" y="2" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="aQp-zn-EdE"/>
                             <constraint firstAttribute="width" constant="40" id="zDo-Pi-77h"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="refresh"/>
-                        </userDefinedRuntimeAttributes>
                         <connections>
                             <action selector="refreshBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="nCL-1d-jq6"/>
                         </connections>
@@ -66,6 +73,7 @@
                 </subviews>
                 <color key="backgroundColor" red="0.1647058824" green="0.20784313730000001" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
+                    <constraint firstItem="yDP-FK-5cz" firstAttribute="centerX" secondItem="BXq-Fi-pHS" secondAttribute="centerX" id="0j8-Mg-l45"/>
                     <constraint firstAttribute="bottom" secondItem="5us-wu-0xq" secondAttribute="bottom" id="AFW-5r-P2a"/>
                     <constraint firstAttribute="trailing" secondItem="BXq-Fi-pHS" secondAttribute="trailing" constant="15" id="Bf4-em-gdd"/>
                     <constraint firstItem="5us-wu-0xq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="115" id="CCf-ul-vpV"/>
@@ -76,6 +84,7 @@
                     <constraint firstItem="BXq-Fi-pHS" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ef7-vf-i1l"/>
                     <constraint firstItem="5us-wu-0xq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="efa-51-HO3"/>
                     <constraint firstItem="c2j-70-WPB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="gLZ-DC-W3w"/>
+                    <constraint firstItem="yDP-FK-5cz" firstAttribute="centerY" secondItem="BXq-Fi-pHS" secondAttribute="centerY" id="hPg-8L-hq2"/>
                     <constraint firstItem="CcO-lm-dq8" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qII-Eo-JnB"/>
                     <constraint firstAttribute="trailing" secondItem="c2j-70-WPB" secondAttribute="trailing" id="woa-j4-48H"/>
                 </constraints>

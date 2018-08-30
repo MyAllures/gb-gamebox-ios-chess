@@ -36,6 +36,8 @@
 -(void)awakeFromNib{
     [super awakeFromNib];
     self.numTextField.delegate = self;
+    self.bankNumLab.textColor = [UIColor blackColor];
+    self.numTextField.textColor = [UIColor blackColor];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateBankNum) name:@"refreshBankNumer" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshBankcard) name:@"refreshBankcard" object:nil];
 }
