@@ -31,8 +31,6 @@
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error == nil) {
-            //6.解析服务器返回的数据
-            //说明：（此处返回的数据是JSON格式的，因此使用NSJSONSerialization进行反序列化处理）
             NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
             NSString *mobileCustomerServiceUrl = dict[@"mobileCustomerServiceUrl"];
             NSString *logoUrl = dict[@"logoUrl"];
@@ -51,7 +49,7 @@
 }
 - (IBAction)contactServiceBtnClick:(id)sender {
     if ([self.customerUrl isEqualToString:@""]) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://chatserver.comm100.com/chatwindow.aspx?planId=403&siteId=229366"]];
+        self.btn.hidden = NO;
     } else {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.customerUrl]];
     }
