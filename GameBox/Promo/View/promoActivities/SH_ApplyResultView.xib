@@ -44,7 +44,7 @@
                     <rect key="frame" x="10" y="10" width="465" height="248"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hme-oe-oww" customClass="SH_WebPImageView">
-                            <rect key="frame" x="20" y="25" width="50" height="50"/>
+                            <rect key="frame" x="20" y="15" width="50" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="Fje-WQ-LFc">
                                     <userDefinedRuntimeAttributes>
@@ -62,19 +62,19 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0N-29-a3j" userLabel="titleLab">
-                            <rect key="frame" x="90" y="20" width="0.0" height="0.0"/>
+                            <rect key="frame" x="90" y="15" width="0.0" height="0.0"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1n-BU-6pX">
-                            <rect key="frame" x="90" y="30" width="0.0" height="0.0"/>
+                            <rect key="frame" x="90" y="25" width="0.0" height="0.0"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Iwy-Oi-Qpa">
-                            <rect key="frame" x="90" y="45" width="355" height="201"/>
+                            <rect key="frame" x="90" y="40" width="355" height="206"/>
                             <color key="backgroundColor" red="0.2784313725" green="0.3411764706" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
@@ -110,7 +110,7 @@
                             </userDefinedRuntimeAttributes>
                         </constraint>
                         <constraint firstAttribute="bottom" secondItem="Iwy-Oi-Qpa" secondAttribute="bottom" constant="2" id="aXe-j0-gMS"/>
-                        <constraint firstItem="D0N-29-a3j" firstAttribute="top" secondItem="ILg-xP-QwW" secondAttribute="top" constant="20" id="bgj-yA-8lL">
+                        <constraint firstItem="D0N-29-a3j" firstAttribute="top" secondItem="hme-oe-oww" secondAttribute="top" id="bgj-yA-8lL">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                             </userDefinedRuntimeAttributes>
@@ -121,7 +121,7 @@
                             </userDefinedRuntimeAttributes>
                         </constraint>
                         <constraint firstItem="B1n-BU-6pX" firstAttribute="leading" secondItem="D0N-29-a3j" secondAttribute="leading" id="dJa-kE-25P"/>
-                        <constraint firstItem="hme-oe-oww" firstAttribute="top" secondItem="ILg-xP-QwW" secondAttribute="top" constant="25" id="eJx-9Q-YLo">
+                        <constraint firstItem="hme-oe-oww" firstAttribute="top" secondItem="ILg-xP-QwW" secondAttribute="top" constant="15" id="eJx-9Q-YLo">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
                             </userDefinedRuntimeAttributes>
