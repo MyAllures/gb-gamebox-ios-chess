@@ -135,11 +135,11 @@
         else
         {
             showErrorMessage([UIApplication sharedApplication].keyWindow, nil, [response objectForKey:@"message"]);
-            self.noDataView = [SH_NodataView showAddTo:self.tableView Message:@"您暂无消息"];;
+            self.noDataView = [SH_NodataView showAddTo:self.tableView Message:@"您暂无消息"];
         }
         [weakSelf.tableView reloadData];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        self.noDataView = [SH_NodataView showAddTo:self.tableView Message:@"您暂无消息"];;
+        self.noDataView = [SH_NodataView showAddTo:self.tableView Message:@"您暂无消息"];
     }];
 }
 
@@ -165,7 +165,7 @@
                 [weakSelf.msgArr addObject:model];
             }
             if (self.msgArr.count==0) {
-                self.noDataView = self.noDataView = [SH_NodataView showAddTo:self.tableView Message:@"您暂无消息"];;
+                self.noDataView = self.noDataView = [SH_NodataView showAddTo:self.tableView Message:@"您暂无消息"];
             }else{
                 [self.noDataView removeFromSuperview];
             }
@@ -173,11 +173,11 @@
         else
         {
             showErrorMessage([UIApplication sharedApplication].keyWindow, nil, [response objectForKey:@"message"]);
-            self.noDataView = [SH_NodataView showAddTo:self.tableView Message:@"您暂无消息"];;
+            self.noDataView = [SH_NodataView showAddTo:self.tableView Message:@"您暂无消息"];
         }
         [weakSelf.tableView reloadData];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-         self.noDataView = [SH_NodataView showAddTo:self.tableView Message:@"您暂无消息"];;
+         self.noDataView = [SH_NodataView showAddTo:self.tableView Message:@"您暂无消息"];
     }];
 }
 - (IBAction)InboxClick:(id)sender {
@@ -204,7 +204,7 @@
                 [weakSelf.msgArr addObject:model];
             }
             if (self.msgArr.count==0) {
-                self.noDataView = self.noDataView = [SH_NodataView showAddTo:self.tableView Message:@"您暂无消息"];;
+                self.noDataView = self.noDataView = [SH_NodataView showAddTo:self.tableView Message:@"您暂无消息"];
             }else{
                 [self.noDataView removeFromSuperview];
             }
@@ -212,11 +212,11 @@
         else
         {
             showErrorMessage([UIApplication sharedApplication].keyWindow, nil, [response objectForKey:@"message"]);
-            self.noDataView = [SH_NodataView showAddTo:self.tableView Message:@"您暂无消息"];;
+            self.noDataView = [SH_NodataView showAddTo:self.tableView Message:@"您暂无消息"];
         }
         [weakSelf.tableView reloadData];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        self.noDataView = [SH_NodataView showAddTo:self.tableView Message:@"您暂无消息"];;
+        self.noDataView = [SH_NodataView showAddTo:self.tableView Message:@"您暂无消息"];
     }];
 }
 - (IBAction)allSelectAction:(id)sender {
