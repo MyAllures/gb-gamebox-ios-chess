@@ -12,7 +12,8 @@
 
 + (void)fetchHomeInfo:(SHNetWorkComplete)complete failed:(SHNetWorkFailed)failed
 {
-   
+    NSLog(@"currentHost==%@",[NetWorkLineMangaer sharedManager].currentHost);
+    NSLog(@"currentPreUrl==%@",[NetWorkLineMangaer sharedManager].currentHttpType);
     NSString *url = [[NetWorkLineMangaer sharedManager].currentPreUrl stringByAppendingString:@"/mobile-api/chess/mainIndex.html"];
     [self post:url parameter:nil header:@{@"Host":[NetWorkLineMangaer sharedManager].currentHost} cache:YES complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         if (complete) {
