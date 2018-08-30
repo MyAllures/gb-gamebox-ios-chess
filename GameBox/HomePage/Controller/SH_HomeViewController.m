@@ -811,7 +811,7 @@
         UIInterfaceOrientation oriention = [UIApplication sharedApplication].statusBarOrientation;
         [_midGamesListScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(oriention == UIInterfaceOrientationLandscapeLeft ? 0 : (iPhoneX ? 30 : 0));
-            make.top.mas_equalTo(80);
+            make.top.mas_equalTo(85);
             make.bottom.mas_equalTo(-53.5);
             make.right.mas_equalTo(oriention == UIInterfaceOrientationLandscapeLeft ? (iPhoneX ? -30 : 0) : 0);
         }];
@@ -830,7 +830,7 @@
         UIInterfaceOrientation oriention = [UIApplication sharedApplication].statusBarOrientation;
         [_lastGamesListScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(oriention == UIInterfaceOrientationLandscapeLeft ? 0 : (iPhoneX ? 30 : 0));
-            make.top.mas_equalTo(80);
+            make.top.mas_equalTo(85);
             make.bottom.mas_equalTo(-53.5);
             make.right.mas_equalTo(oriention == UIInterfaceOrientationLandscapeLeft ? (iPhoneX ? -30 : 0) : 0);
         }];

@@ -70,7 +70,7 @@
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="drop_down"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="webpImage" value="recharge_drop_down"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="chooseBKBtnXClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="tYH-YG-NBd"/>

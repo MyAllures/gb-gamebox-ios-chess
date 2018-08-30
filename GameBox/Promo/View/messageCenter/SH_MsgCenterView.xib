@@ -264,7 +264,7 @@
                 <outlet property="system_label" destination="bRq-nu-NWf" id="IgJ-QZ-T5A"/>
                 <outlet property="tableView" destination="Ovy-TN-Yre" id="kHt-if-EKI"/>
             </connections>
-            <point key="canvasLocation" x="-116" y="-19"/>
+            <point key="canvasLocation" x="-116.5" y="-19"/>
         </view>
     </objects>
 </document>
