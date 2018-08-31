@@ -9,7 +9,7 @@
 #ifndef SitesConfig_h
 #define SitesConfig_h
 
-#define _7wt3 1
+#define _ksul 1
 
 
 
