@@ -299,8 +299,6 @@
         } else {
             make.top.mas_equalTo(button_Check.mas_bottom).mas_offset(17);
         }
-//        make.centerX.mas_equalTo(self.scrollview);
-//        make.width.mas_equalTo(145);
         if (self.stackView.frameWidth >265) {
             make.width.mas_equalTo(145);
         }else{
