@@ -101,7 +101,7 @@
         self.realNameTF.userInteractionEnabled = NO;
         NSString *first = [[RH_UserInfoManager shareUserManager].mineSettingInfo.realName substringWithRange:NSMakeRange(0, 1)];
         NSString *last = [[RH_UserInfoManager shareUserManager].mineSettingInfo.realName substringWithRange:NSMakeRange([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length-1, 1)];
-        if (self.realNameTF.text.length == 2) {
+        if ([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length == 2) {
             self.realNameTF.text = [NSString stringWithFormat:@"%@*",first];
         } else {
             self.realNameTF.text = [NSString stringWithFormat:@"%@*%@",first,last];

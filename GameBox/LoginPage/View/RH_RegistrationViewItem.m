@@ -260,12 +260,13 @@
     }
     if ([model.name isEqualToString:@"paymentPassword"]) {
         label_Title.text = @"6位数字安全密码";
+        label_Title.font = [UIFont systemFontOfSize:10];
         textField.secureTextEntry = YES;
         textField.placeholder = @"6位数字安全密码";
     }
     if ([model.name isEqualToString:@"paymentPassword2"]) {
         label_Title.text = @"验证6位数字安全密码";
-        label_Title.font = [UIFont systemFontOfSize:12];
+        label_Title.font = [UIFont systemFontOfSize:8];
         textField.secureTextEntry = YES;
         textField.placeholder = @"验证6位数字安全密码";
     }
@@ -293,6 +294,7 @@
     }
     if ([model.name isEqualToString:@"securityIssues"]) {
         label_Title.text = @"请选择安全问题";
+        label_Title.font = [UIFont systemFontOfSize:11];
         textField.placeholder = @"请选择安全问题";
     }
     if ([model.name isEqualToString:@"securityIssues2"]) {
