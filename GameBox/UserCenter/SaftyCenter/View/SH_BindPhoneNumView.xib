@@ -332,7 +332,7 @@
                 <outlet property="oldPhoneNumTF" destination="7L4-0o-smw" id="Ev4-4U-7My"/>
                 <outlet property="sureBtn" destination="zwV-Rc-eZY" id="Git-vV-VB2"/>
             </connections>
-            <point key="canvasLocation" x="-52.5" y="133"/>
+            <point key="canvasLocation" x="-164" y="40"/>
         </view>
     </objects>
 </document>
