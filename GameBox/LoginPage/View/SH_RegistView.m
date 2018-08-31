@@ -265,7 +265,7 @@
     [self.scrollview addSubview:button_Check];
     [button_Check mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.stackView.mas_bottom).mas_offset(8);
-        make.leading.mas_equalTo(130);
+        make.leading.mas_equalTo(90);
         make.width.height.mas_equalTo(14);
     }];
     
@@ -273,6 +273,7 @@
     [button_Check setImage:[UIImage imageWithWebPImageName:@"select"] forState:UIControlStateNormal];
     [button_Check addTarget:self action:@selector(button_CheckHandle:) forControlEvents:UIControlEventTouchUpInside];
     UIButton *label = [UIButton new];
+    label.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [self.scrollview addSubview:label];
     [label  mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.mas_equalTo(button_Check.mas_trailing).mas_offset(10);
@@ -298,8 +299,6 @@
         } else {
             make.top.mas_equalTo(button_Check.mas_bottom).mas_offset(17);
         }
-//        make.centerX.mas_equalTo(self.scrollview);
-//        make.width.mas_equalTo(145);
         if (self.stackView.frameWidth >265) {
             make.width.mas_equalTo(145);
         }else{

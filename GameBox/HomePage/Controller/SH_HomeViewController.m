@@ -99,7 +99,7 @@
     [self refreshAnnouncement];
     [self refreshHomeInfo];
     [self checkUpdate];
-    
+
     [[YFAnimationManager shareInstancetype] showAnimationInView:self.snowBGImg withAnimationStyle:YFAnimationStyleOfSnow];
 
     [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(didRegistratedSuccessful) name:@"didRegistratedSuccessful" object:nil];
