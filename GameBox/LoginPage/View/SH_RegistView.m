@@ -306,7 +306,7 @@
         }else{
              make.trailing.mas_equalTo(self.stackView);
         }
-        make.leading.mas_equalTo(button_Check.mas_leading).mas_offset(-35);//5
+        make.leading.mas_equalTo(button_Check.mas_leading).mas_offset(5);//5
         make.height.mas_equalTo(48);
     }];
     
