@@ -13,6 +13,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SH_SmallWindowViewController">
             <connections>
+                <outlet property="btn" destination="iBi-cS-9D7" id="A7Q-87-dlG"/>
                 <outlet property="contentView" destination="aQ5-MP-hcs" id="bE7-Y7-kix"/>
                 <outlet property="titleImgView" destination="w7P-wa-4h9" id="NGQ-49-T3d"/>
                 <outlet property="view" destination="bqg-rQ-JMj" id="FUE-rm-RAr"/>

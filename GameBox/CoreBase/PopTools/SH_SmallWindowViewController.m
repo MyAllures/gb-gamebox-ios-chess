@@ -9,6 +9,7 @@
 #import "SH_SmallWindowViewController.h"
 
 @interface SH_SmallWindowViewController ()
+@property (weak, nonatomic) IBOutlet SH_WebPButton *btn;
 
 @property (weak, nonatomic) IBOutlet UIImageView *titleImgView;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
@@ -49,6 +50,7 @@
 }
 
 - (IBAction)closeAction:(id)sender {
+    [self.btn setScale];
     [self dismissViewControllerAnimated:NO completion:nil];
     if (self.dismissBlock) {
         self.dismissBlock();
