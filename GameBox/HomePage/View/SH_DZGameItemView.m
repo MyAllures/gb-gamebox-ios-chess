@@ -29,6 +29,17 @@
 {
     ifRespondsSelector(self.delegate, @selector(dzGameItemView:didSelect:))
     {
+        [UIView animateKeyframesWithDuration:0.5 delay:0 options:0 animations: ^{
+            [UIView addKeyframeWithRelativeStartTime:1/3.0 relativeDuration:1/3.0 animations: ^{
+                self.transform = CGAffineTransformMakeScale(0.95, 0.95);
+            }];
+        } completion:nil];
+        
+        [UIView animateKeyframesWithDuration:0.5 delay:0 options:0 animations: ^{
+            [UIView addKeyframeWithRelativeStartTime:1/3.0 relativeDuration:1/3.0 animations: ^{
+                self.transform = CGAffineTransformMakeScale(1.0, 1.0);
+            }];
+        } completion:nil];
         [self.delegate dzGameItemView:self didSelect:self.gameItemModel];
     }
 }
