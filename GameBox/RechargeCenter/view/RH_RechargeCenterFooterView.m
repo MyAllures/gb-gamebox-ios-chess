@@ -95,7 +95,7 @@
     self.textField.placeholder = [NSString stringWithFormat:@"%@~%@",channelModel.singleDepositMin,channelModel.singleDepositMax];
     self.textField.text = number;
     
-    if (channelModel.randomAmount == NO) {
+    if ([channelModel.randomAmount isEqualToString:@"0"]||channelModel.randomAmount==nil) {
         self.randomBtn.hidden = YES;
     }else{
         self.randomBtn.hidden = NO;
@@ -116,7 +116,13 @@
         showMessage(self.superview.superview, nil, [NSString stringWithFormat:@"请输入%@~%@",self.channelModel.singleDepositMin,self.channelModel.singleDepositMax]);
         return;
     }
-    float money = [self.textField.text floatValue] + [self.randomBtn.titleLabel.text floatValue];
+    float money = 0.0;
+    if ([self.channelModel.randomAmount isEqualToString:@"0"]||self.channelModel.randomAmount==nil) {
+      money  = [self.textField.text floatValue];
+    }else{
+        money  = [self.textField.text floatValue] + [self.randomBtn.titleLabel.text floatValue];
+
+    }
     [self.delegate RH_RechargeCenterFooterViewSubmitBtnClickWithMoney:[NSString stringWithFormat:@"%.2f",money]];
 }
 - (IBAction)chooseBKBtnXClick:(id)sender {
