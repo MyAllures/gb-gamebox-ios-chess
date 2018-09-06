@@ -904,25 +904,6 @@
 
 -(void)didRegistratedSuccessful{
     [self  autoLoginIsRegist:YES];
-    [self updateUserInfo];
-}
-
--(void)updateUserInfo {
-    [SH_NetWorkService fetchUserInfo:^(NSHTTPURLResponse *httpURLResponse, id response) {
-        if ([response[@"code"] isEqualToString:@"0"]) {
-            NSError *err;
-            NSArray *arr = [SH_BankListModel arrayOfModelsFromDictionaries:response[@"data"][@"bankList"] error:&err];
-            [[RH_UserInfoManager shareUserManager] setBankList:arr];
-            NSError *err2;
-            RH_MineInfoModel * model = [[RH_MineInfoModel alloc] initWithDictionary:[response[@"data"] objectForKey:@"user"] error:&err2];
-            [[RH_UserInfoManager  shareUserManager] setMineSettingInfo:model];
-        }else{
-            [[RH_UserInfoManager  shareUserManager] updateIsLogin:false];
-        }
-    } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        //
-        [[RH_UserInfoManager shareUserManager] updateIsLogin:false];
-    }];
 }
 
 - (void)didLoginSuccess
