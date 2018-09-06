@@ -13,11 +13,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SH_PromoWindowViewController">
             <connections>
+                <outlet property="closeBtn" destination="bDO-Mz-DwN" id="hwP-gU-C7M"/>
                 <outlet property="contentView" destination="KX6-7I-vXl" id="Gua-a6-oRB"/>
                 <outlet property="imageView" destination="u31-TN-VXv" id="sSF-yx-KBv"/>
                 <outlet property="msgTypeBt" destination="f5w-bE-1UN" id="kgX-ce-rZX"/>
                 <outlet property="promoTypeBt" destination="cIn-4J-cee" id="ldz-F8-ppy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="xibView" destination="ayr-MP-PFx" id="MhB-oI-f58"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

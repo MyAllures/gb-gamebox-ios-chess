@@ -14,24 +14,29 @@
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (copy, nonatomic) SH_BigWindowViewControllerDismissBlock dismissBlock;
 @property (weak, nonatomic) IBOutlet SH_XibView *xibView;
+@property (weak, nonatomic) IBOutlet SH_WebPButton *closeBtn;
 
 @end
 
 @implementation SH_BigWindowViewController
 
 -(void)viewWillAppear:(BOOL)animated {
-    self.view.hidden = YES;
-}
-
--(void)viewDidAppear:(BOOL)animated {
-    self.view.hidden = NO;
-    self.view.transform = CGAffineTransformMakeScale(0.001, 0.001);
-    [UIView animateKeyframesWithDuration:1 delay:0 options:0 animations: ^{
+    [super viewWillAppear:animated];
+    self.closeBtn.alpha = 0.0;
+    self.xibView.transform = CGAffineTransformMakeScale(0.001, 0.001);
+    [UIView animateKeyframesWithDuration:0.3 delay:0 options:0 animations:^{
         [UIView addKeyframeWithRelativeStartTime:1/3.0 relativeDuration:1/3.0 animations: ^{
-           
-            self.view.transform = CGAffineTransformMakeScale(1.0, 1.0);
+            self.xibView.transform = CGAffineTransformMakeScale(1.0, 1.0);
         }];
-    } completion:nil];
+        [UIView animateWithDuration:1 animations:^{
+            self.closeBtn.alpha = 0.0;
+        }];
+        
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:.8 animations:^{
+            self.closeBtn.alpha = 1.0;
+        }];
+    }];
 }
 
 - (void)viewDidLoad {

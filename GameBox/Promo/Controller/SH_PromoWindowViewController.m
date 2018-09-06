@@ -14,11 +14,15 @@
 #import "SH_PromoActivitiesView.h"
 #import "SH_BigWindowViewController.h"
 #import "SH_SmallWindowViewController.h"
+#import "SH_XibView.h"
 @interface SH_PromoWindowViewController ()
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet SH_WebPButton *promoTypeBt;
 @property (weak, nonatomic) IBOutlet SH_WebPButton *msgTypeBt;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet SH_XibView *xibView;
+@property (weak, nonatomic) IBOutlet SH_WebPButton *closeBtn;
+
 
 @property (strong, nonatomic) SH_MsgCenterView *msgCenterView;
 @property(nonatomic,strong)SH_PromoActivitiesView *promoActivitiseView;
@@ -26,6 +30,25 @@
 @end
 
 @implementation SH_PromoWindowViewController
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.closeBtn.alpha = 0.0;
+    self.xibView.transform = CGAffineTransformMakeScale(0.001, 0.001);
+    [UIView animateKeyframesWithDuration:0.3 delay:0 options:0 animations:^{
+        [UIView addKeyframeWithRelativeStartTime:1/3.0 relativeDuration:1/3.0 animations: ^{
+            self.xibView.transform = CGAffineTransformMakeScale(1.0, 1.0);
+        }];
+        [UIView animateWithDuration:1 animations:^{
+            self.closeBtn.alpha = 0.0;
+        }];
+
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:.8 animations:^{
+            self.closeBtn.alpha = 1.0;
+        }];
+    }];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

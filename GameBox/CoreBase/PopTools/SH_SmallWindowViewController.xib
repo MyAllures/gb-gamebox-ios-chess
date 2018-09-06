@@ -13,11 +13,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SH_SmallWindowViewController">
             <connections>
-                <outlet property="btn" destination="iBi-cS-9D7" id="A7Q-87-dlG"/>
+                <outlet property="closeBtn" destination="iBi-cS-9D7" id="x25-TX-5J8"/>
                 <outlet property="contentView" destination="aQ5-MP-hcs" id="bE7-Y7-kix"/>
                 <outlet property="titleImgView" destination="w7P-wa-4h9" id="NGQ-49-T3d"/>
                 <outlet property="view" destination="bqg-rQ-JMj" id="FUE-rm-RAr"/>
                 <outlet property="windowHeightConstraint" destination="1N4-CE-ncU" id="4Xx-2N-cJG"/>
+                <outlet property="xibView" destination="7du-JH-QX1" id="hlD-qp-MUl"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
