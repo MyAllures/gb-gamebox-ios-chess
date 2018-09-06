@@ -701,6 +701,7 @@
     }
     SH_PrifitOutCoinView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_PrifitOutCoinView" owner:nil options:nil].lastObject;
     self.acr = [SH_BigWindowViewController new];
+//    self.acr.view.transform = CGAffineTransformMakeScale(0.1, 0.1);
     self.acr.titleImageName = @"title07";
     self.acr.customView = view;
     self.acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;

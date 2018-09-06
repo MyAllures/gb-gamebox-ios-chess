@@ -7,15 +7,32 @@
 //
 
 #import "SH_BigWindowViewController.h"
+#import "SH_XibView.h"
 
 @interface SH_BigWindowViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *titleImgView;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (copy, nonatomic) SH_BigWindowViewControllerDismissBlock dismissBlock;
+@property (weak, nonatomic) IBOutlet SH_XibView *xibView;
 
 @end
 
 @implementation SH_BigWindowViewController
+
+-(void)viewWillAppear:(BOOL)animated {
+    self.view.hidden = YES;
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    self.view.hidden = NO;
+    self.view.transform = CGAffineTransformMakeScale(0.001, 0.001);
+    [UIView animateKeyframesWithDuration:1 delay:0 options:0 animations: ^{
+        [UIView addKeyframeWithRelativeStartTime:1/3.0 relativeDuration:1/3.0 animations: ^{
+           
+            self.view.transform = CGAffineTransformMakeScale(1.0, 1.0);
+        }];
+    } completion:nil];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

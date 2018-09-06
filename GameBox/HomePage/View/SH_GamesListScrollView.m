@@ -25,9 +25,62 @@
 @property (nonatomic, strong) UIButton *nextBT;
 @property (nonatomic, assign) int currentPage;
 
+@property (strong, nonatomic) NSTimer *timer;
+
 @end
 
 @implementation SH_GamesListScrollView
+
+
+-(void)nextBtnAnimate {
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        self.nextBT.frame = CGRectMake(self.nextBT.frame.origin.x+10, self.nextBT.frame.origin.y, self.nextBT.frame.size.width, self.nextBT.frame.size.height);
+    }];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView animateWithDuration:0.2 animations:^{
+            self.nextBT.frame = CGRectMake(self.nextBT.frame.origin.x-5, self.nextBT.frame.origin.y, self.nextBT.frame.size.width, self.nextBT.frame.size.height);
+        }];
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.7 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView animateWithDuration:0.2 animations:^{
+            self.nextBT.frame = CGRectMake(self.nextBT.frame.origin.x+5, self.nextBT.frame.origin.y, self.nextBT.frame.size.width, self.nextBT.frame.size.height);
+        }];
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.9 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView animateWithDuration:0.5 animations:^{
+            self.nextBT.frame = CGRectMake(self.nextBT.frame.origin.x-10, self.nextBT.frame.origin.y, self.nextBT.frame.size.width, self.nextBT.frame.size.height);
+        }];
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView animateWithDuration:0.5 animations:^{
+            self.nextBT.frame = CGRectMake(self.nextBT.frame.origin.x+10, self.nextBT.frame.origin.y, self.nextBT.frame.size.width, self.nextBT.frame.size.height);
+        }];
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.9 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView animateWithDuration:0.2 animations:^{
+            self.nextBT.frame = CGRectMake(self.nextBT.frame.origin.x-5, self.nextBT.frame.origin.y, self.nextBT.frame.size.width, self.nextBT.frame.size.height);
+        }];
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView animateWithDuration:0.2 animations:^{
+            self.nextBT.frame = CGRectMake(self.nextBT.frame.origin.x+5, self.nextBT.frame.origin.y, self.nextBT.frame.size.width, self.nextBT.frame.size.height);
+        }];
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView animateWithDuration:0.5 animations:^{
+            self.nextBT.frame = CGRectMake(self.nextBT.frame.origin.x-10, self.nextBT.frame.origin.y, self.nextBT.frame.size.width, self.nextBT.frame.size.height);
+        }];
+    });
+   
+}
 
 - (void)reloaData
 {
@@ -103,8 +156,14 @@
             make.left.right.top.bottom.equalTo(self);
         }];
         [self layoutIfNeeded];
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(nextBtnAnimate) userInfo:nil repeats:YES];
     }
     return _scrollView;
+}
+
+-(void)dealloc {
+    [self.timer invalidate];
+    self.timer = nil;
 }
 
 - (UIButton *)nextBT

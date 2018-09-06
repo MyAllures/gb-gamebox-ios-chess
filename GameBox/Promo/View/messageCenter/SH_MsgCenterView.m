@@ -107,6 +107,7 @@
 
 }
 - (IBAction)gameNoticeClick:(id)sender {
+    [self.gameNoticeBt setScale];
     self.gameNoticeBt.selected = YES;
     self.systemNoticeBt.selected = NO;
     self.inboxBt.selected = NO;
@@ -144,6 +145,7 @@
 }
 
 - (IBAction)systemNoticeClick:(id)sender {
+    [self.systemNoticeBt setScale];
     self.gameNoticeBt.selected = NO;
     self.systemNoticeBt.selected = YES;
     self.inboxBt.selected = NO;
@@ -181,6 +183,7 @@
     }];
 }
 - (IBAction)InboxClick:(id)sender {
+    [self.inboxBt setScale];
     self.gameNoticeBt.selected = NO;
     self.systemNoticeBt.selected = NO;
     self.inboxBt.selected = YES;

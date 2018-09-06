@@ -16,6 +16,7 @@
                 <outlet property="contentView" destination="Qys-en-47Q" id="01u-bQ-I07"/>
                 <outlet property="titleImgView" destination="6MS-Qs-WKi" id="Q7h-Jc-KiM"/>
                 <outlet property="view" destination="cUO-HJ-XlN" id="Ii3-hN-2mS"/>
+                <outlet property="xibView" destination="AbI-HQ-Sts" id="q1r-iT-Cux"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
