@@ -27,28 +27,11 @@
 
 @implementation SH_PromoWindowViewController
 
--(void)viewWillAppear:(BOOL)animated {
-    self.view.hidden = YES;
-}
-
--(void)viewDidAppear:(BOOL)animated {
-    self.view.hidden = NO;
-    self.view.transform = CGAffineTransformMakeScale(0.001, 0.001);
-    [UIView animateKeyframesWithDuration:1 delay:0 options:0 animations: ^{
-        [UIView addKeyframeWithRelativeStartTime:1/3.0 relativeDuration:1/3.0 animations: ^{
-            
-            self.view.transform = CGAffineTransformMakeScale(1.0, 1.0);
-        }];
-    } completion:nil];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self.promoTypeBt setWebpBGImage:@"title15nw" forState:UIControlStateNormal];
-//    [self.promoTypeBt setWebpBGImage:@"btn_activity" forState:UIControlStateSelected];
     [self.msgTypeBt setWebpBGImage:@"title16nw" forState:UIControlStateNormal];
-//    [self.msgTypeBt setWebpBGImage:@"btn_news" forState:UIControlStateSelected];
     self.promoTypeBt.selected = YES;
     
     [self promoTypeSelected:nil];
