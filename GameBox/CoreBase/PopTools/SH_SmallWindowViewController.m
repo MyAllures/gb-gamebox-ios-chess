@@ -72,7 +72,18 @@
 
 - (IBAction)closeAction:(SH_WebPButton *)sender {
     [sender setScale];
-    [self dismissViewControllerAnimated:NO completion:nil];
+    [UIView animateKeyframesWithDuration:0.4 delay:0 options:0 animations:^{
+        [UIView addKeyframeWithRelativeStartTime:1/3.0 relativeDuration:1/3.0 animations: ^{
+            self.xibView.transform = CGAffineTransformMakeScale(0.001, 0.001);
+        }];
+        
+        [UIView animateWithDuration:0.1 animations:^{
+            self.closeBtn.alpha = 0.0;
+        }];
+    } completion:^(BOOL finished) {
+        [self dismissViewControllerAnimated:NO completion:nil];
+    }];
+
     if (self.dismissBlock) {
         self.dismissBlock();
     }
