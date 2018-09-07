@@ -9,11 +9,7 @@
 #ifndef SitesConfig_h
 #define SitesConfig_h
 
-#define _7wt3 1
-
-
-
-
+#define _grk9 1
 
 #if _8l6r
 #define CODE    @"8l6r"
@@ -64,6 +60,12 @@
 #define CODE    @"kezf"
 #define S        @"5293144a5858bc5464331f9c6ab28165"
 #define SID        @"7007"
+
+
+#elif _grk9 //安博棋牌
+#define CODE    @"grk9"
+#define S        @"9d68aa0d69c2cf734527ec499be98f1b"
+#define SID        @"7008"
 
 
 
