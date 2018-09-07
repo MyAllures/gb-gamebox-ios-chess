@@ -110,7 +110,8 @@
     return _msgCenterView;
 }
 
-- (IBAction)close:(id)sender {
+- (IBAction)close:(SH_WebPButton *)sender {
+    [sender setScale];
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 

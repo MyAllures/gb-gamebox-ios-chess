@@ -88,7 +88,8 @@
     
 }
 
-- (IBAction)searchAction:(id)sender {
+- (IBAction)searchAction:(SH_WebPButton *)sender {
+    [sender setScale];
     [self changedSinceTimeString:self.seleteIndex];
     [self requestData];
 }

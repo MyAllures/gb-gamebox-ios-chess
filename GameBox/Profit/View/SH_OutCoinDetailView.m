@@ -47,7 +47,8 @@
     [cell updateUIWithTitle:self.titles[indexPath.row] Detail:self.details[indexPath.row]];
     return cell;
 }
-- (IBAction)lookJiHeBtnClick:(id)sender {
+- (IBAction)lookJiHeBtnClick:(SH_WebPButton *)sender {
+    [sender setScale];
     SH_LookJiHeView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_LookJiHeView" owner:self options:nil].firstObject;
     SH_BigWindowViewController * acr = [SH_BigWindowViewController new];
     acr.customView = view;
@@ -59,7 +60,8 @@
     [svc presentViewController:acr animated:YES completion:nil];
 }
 
-- (IBAction)sureOutCoinBtnClick:(id)sender {
+- (IBAction)sureOutCoinBtnClick:(SH_WebPButton *)sender {
+    [sender setScale];
     NSString *actualWithdraw = self.details[5];
     if ([actualWithdraw floatValue] <= 0) {
         [self popAlertView:@"最后出币数量应大于0"];

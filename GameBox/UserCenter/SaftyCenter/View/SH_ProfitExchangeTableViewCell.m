@@ -35,7 +35,8 @@
     }
     self.apiId = model.apiID;
 }
-- (IBAction)refreshBtnClick:(id)sender {
+- (IBAction)refreshBtnClick:(SH_WebPButton *)sender {
+    [sender setScale];
     [self.delegate recoveryBtnWithApiId:self.apiId];
 }
 

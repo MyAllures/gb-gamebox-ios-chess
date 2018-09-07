@@ -523,7 +523,8 @@
     }
 }
 
-- (IBAction)upToLastLevel:(id)sender {
+- (IBAction)upToLastLevel:(SH_WebPButton *)sender {
+    [sender setScale];
     self.currentLevel --;
     if (self.enterDZGameLevel && self.currentLevel == 0) {
         self.enterDZGameLevel = NO;

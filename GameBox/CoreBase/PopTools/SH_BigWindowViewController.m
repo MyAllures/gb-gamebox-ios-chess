@@ -66,7 +66,8 @@
     [self closeAction:nil];
 }
 
-- (IBAction)closeAction:(id)sender {
+- (IBAction)closeAction:(SH_WebPButton *)sender {
+    [sender setScale];
     [self dismissViewControllerAnimated:NO completion:nil];
     if (self.dismissBlock) {
         self.dismissBlock();

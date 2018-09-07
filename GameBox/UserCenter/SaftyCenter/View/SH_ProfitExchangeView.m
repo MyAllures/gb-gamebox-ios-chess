@@ -41,7 +41,8 @@
     [cell updateUIWithApiModel:self.dataArray[indexPath.row]];
     return cell;
 }
-- (IBAction)oneKeyRefresh:(id)sender {
+- (IBAction)oneKeyRefresh:(SH_WebPButton *)sender {
+    [sender setScale];
     [SH_NetWorkService oneKeyRefreshSuccess:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary  * result = ConvertToClassPointer(NSDictionary, response);
         NSString *code = [NSString stringWithFormat:@"%@",result[@"code"]];
@@ -56,7 +57,8 @@
         
     }];
 }
-- (IBAction)recovery:(id)sender {
+- (IBAction)recovery:(SH_WebPButton *)sender {
+    [sender setScale];
     [self recoveryAndRefreshUserInfo:nil];
 }
 - (void)recoveryAndRefreshUserInfo:(NSString *)apiId

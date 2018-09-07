@@ -39,7 +39,8 @@
     self.detailLB.text = _content;
 }
 
-- (IBAction)dismissAction:(id)sender {
+- (IBAction)dismissAction:(SH_WebPButton *)sender {
+    [sender setScale];
     if (self.dismissBlock) {
         self.dismissBlock();
     }

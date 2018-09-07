@@ -123,12 +123,13 @@
     return _profitExView;
 }
 
-- (IBAction)modifyLoginBtnClick:(id)sender {
+- (IBAction)modifyLoginBtnClick:(SH_WebPButton *)sender {
+    [sender setScale];
      [self setUIWithSelecteBtn:self.loginBtn SelectedView:self.loginView];
 }
 
-- (IBAction)saftyBtnclick:(id)sender {
-    
+- (IBAction)saftyBtnclick:(SH_WebPButton *)sender {
+    [sender setScale];
     if([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length > 0){
         
     } else {
@@ -157,7 +158,8 @@
         
     }];
 }
-- (IBAction)bankCardBtnClick:(id)sender {
+- (IBAction)bankCardBtnClick:(SH_WebPButton *)sender {
+    [sender setScale];
     [self setUIWithSelecteBtn:self.bankBtn SelectedView:self.bankView];
 }
 -(void)configUI{
@@ -180,13 +182,14 @@
         [self saftyBtnclick:nil];
     }
 }
-- (IBAction)bindPhoneBtnClick:(id)sender {
+- (IBAction)bindPhoneBtnClick:(SH_WebPButton *)sender {
+    [sender setScale];
     [self setUIWithSelecteBtn:self.bindPhoneBtn SelectedView:self.bindPhoneView];
     [self.bindPhoneView selectBindPhoneNumView];
 }
 
-- (IBAction)profitExchangeBtnClick:(id)sender {
-
+- (IBAction)profitExchangeBtnClick:(SH_WebPButton *)sender {
+     [sender setScale];
      [self setUIWithSelecteBtn:self.profitExchangeBtn SelectedView:self.profitExView];
      [self.profitExView selectProfitExchangeView];//选中了额度转换
 }

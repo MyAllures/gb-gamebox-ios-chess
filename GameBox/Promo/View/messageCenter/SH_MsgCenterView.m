@@ -222,7 +222,8 @@
         self.noDataView = [SH_NodataView showAddTo:self.tableView Message:@"您暂无消息"];
     }];
 }
-- (IBAction)allSelectAction:(id)sender {
+- (IBAction)allSelectAction:(SH_WebPButton *)sender {
+    [sender setScale];
     SH_WebPButton *bt = (SH_WebPButton *)sender;
     bt.selected = !bt.selected;
     
@@ -232,9 +233,9 @@
     [self.tableView reloadData];
 }
 
-- (IBAction)markReadedAction:(id)sender {
+- (IBAction)markReadedAction:(SH_WebPButton *)sender {
     __weak typeof(self) weakSelf = self;
-
+    [sender setScale];
     NSString *ids = [NSString string];
     for (SH_SysMsgDataListModel *model in self.msgArr) {
         if (model.selected &&model.read == NO) {
@@ -265,9 +266,9 @@
     }
 }
 
-- (IBAction)deleteReadedAction:(id)sender {
+- (IBAction)deleteReadedAction:(SH_WebPButton *)sender {
     __weak typeof(self) weakSelf = self;
-
+    [sender setScale];
     NSString *ids = [NSString string];
     for (SH_SysMsgDataListModel *model in self.msgArr) {
         if (model.read) {

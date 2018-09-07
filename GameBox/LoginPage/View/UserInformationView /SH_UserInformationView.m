@@ -63,9 +63,11 @@
         self.userAvatar.image = [UIImage  imageWithWebPImageName:@"visitor"];
     }
 }
-- (IBAction)btnClick:(UIButton *)sender {
+- (IBAction)btnClick:(SH_WebPButton *)sender {
+    
      UIViewController * svc = [SH_TopLevelControllerManager fetchTopLevelController];
     if (sender.tag == 100) {
+        [sender setScale];
         SH_AlertView * alert = [SH_AlertView  instanceAlertView];
         SH_SmallWindowViewController *vc = [SH_SmallWindowViewController new];
         vc.titleImageName = @"title03";
@@ -73,6 +75,7 @@
         vc.contentHeight = 174;
         [self  presentViewController:vc addTargetViewController:svc];
     }else{
+        [sender setScale];
         SH_SettingView * settingView = [SH_SettingView instanceSettingView];
         SH_SmallWindowViewController * setVC = [SH_SmallWindowViewController new];
         setVC.customView = settingView;

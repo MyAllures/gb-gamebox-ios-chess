@@ -27,12 +27,14 @@
     // Drawing code
 }
 */
-- (IBAction)buttonClick:(UIButton *)sender {
+- (IBAction)buttonClick:(SH_WebPButton *)sender {
 
     if (sender.tag == 100) {
+        [sender setScale];
         UIViewController * vc = [SH_TopLevelControllerManager fetchTopLevelController];
         [vc dismissViewControllerAnimated:YES completion:nil];
     }else{
+        [sender setScale];
 //        __weak typeof(self) weakSelf = self;
         MBProgressHUD * activityIndicatorView= showHUDWithMyActivityIndicatorView(self.window, nil, @"正在退出...");
         [SH_NetWorkService  fetchUserLoginOut:^(NSHTTPURLResponse *httpURLResponse, id response) {

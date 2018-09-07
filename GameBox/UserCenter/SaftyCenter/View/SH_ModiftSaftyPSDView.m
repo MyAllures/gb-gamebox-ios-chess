@@ -70,7 +70,8 @@
     }
 }
 
-- (IBAction)sureBtnClick:(id)sender {
+- (IBAction)sureBtnClick:(SH_WebPButton *)sender {
+    [sender setScale];
     if([RH_UserInfoManager shareUserManager].mineSettingInfo.realName.length > 0){
         
     } else {
