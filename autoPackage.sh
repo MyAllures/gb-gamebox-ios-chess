@@ -1,12 +1,13 @@
 sites_list=(\
     # '7wt3^18^ching^宏图棋牌'  \
     # 'ojzk^7000^ching^宏图棋牌'  \
-	'ty3a^7001^purple^宏图棋牌'  \
+	# 'ty3a^7001^purple^宏图棋牌'  \
     # 'lcat^7002^blue^666棋牌'  \
     # 'ou2t^7003^blue^和记棋牌'  \
     # 'ksul^7005^blue^开元棋牌'  \
     # 'cilz^7006^blue^亿发娱乐'  \
     # 'kezf^7007^blue^九发棋牌'  \
+    'grk9^7008^ching^安博棋牌'  \
 )
 
 version='1.0.0' #app版本

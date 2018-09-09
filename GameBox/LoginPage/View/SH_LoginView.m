@@ -231,7 +231,7 @@
     alert.vc = acr;
     acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-     UIViewController * svc = [SH_TopLevelControllerManager fetchTopLevelController];
+    UIViewController * svc = [SH_TopLevelControllerManager fetchTopLevelController];
     [svc presentViewController:acr animated:YES completion:nil];
 }
 

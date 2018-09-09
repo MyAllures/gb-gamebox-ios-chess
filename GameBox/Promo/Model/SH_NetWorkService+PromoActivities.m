@@ -60,6 +60,7 @@
     NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
     [param setValue:promoId forKey:@"searchId"];
     [param setValue:transactionNo forKey:@"search.code"];
+    NSLog(@"transactionNo=%@",transactionNo);
     [SH_NetWorkService post:url parameter:param header:header cache:NO complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dic = ConvertToClassPointer(NSDictionary, response);
             SH__PromoApplyModel *model = [[SH__PromoApplyModel alloc]initWithDictionary:dic[@"data"] error:nil];

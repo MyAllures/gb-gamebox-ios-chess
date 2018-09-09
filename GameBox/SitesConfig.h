@@ -66,6 +66,12 @@
 #define SID        @"7007"
 
 
+#elif _grk9 //安博棋牌
+#define CODE    @"grk9"
+#define S        @"9d68aa0d69c2cf734527ec499be98f1b"
+#define SID        @"7008"
+
+
 
 #endif
 

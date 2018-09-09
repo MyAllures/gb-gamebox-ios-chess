@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.customerUrl = @"";
+    self.btn.hidden = YES;
     [self.btn ButtonPositionStyle:ButtonPositionStyleDefault spacing:5];
     NSString *domain = [NSString stringWithFormat:@"%@://%@",[NetWorkLineMangaer sharedManager].currentHttpType,[NetWorkLineMangaer sharedManager].currentHost];
     NSString *urlStr = [domain stringByAppendingString:@"/__error_/608info.html"];
@@ -38,20 +38,26 @@
             NSString *logoUrl = dict[@"logoUrl"];
             self.siteMaintainTip = dict[@"siteMaintainTip"];
             dispatch_async(dispatch_get_main_queue(), ^{
+                self.btn.hidden = NO;
                 self.customerUrl = mobileCustomerServiceUrl;
                 [self.loginImg sd_setImageWithURL:[NSURL URLWithString:logoUrl]];
             });
             NSLog(@"mobileCustomerServiceUrl==%@",mobileCustomerServiceUrl);
             NSLog(@"logoUrl==%@",logoUrl);
-        } else {
-            self.btn.hidden = YES;
+        }
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
+        if (httpResponse.statusCode == 404) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.btn.hidden = YES;
+            });
         }
     }];
     //5.执行任务
     [dataTask resume];
 }
 - (IBAction)contactServiceBtnClick:(id)sender {
-    if (![self.customerUrl isEqualToString:@""]) {
+    if (!self.customerUrl) {
+    } else {
         self.siteMaintainTipLabel.text = self.siteMaintainTip;
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.customerUrl]];
     }

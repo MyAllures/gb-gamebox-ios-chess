@@ -164,7 +164,7 @@
                             <rect key="frame" x="0.0" y="44" width="449" height="44"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Hz-jm-OaZ" customClass="SH_WebPImageView">
-                                    <rect key="frame" x="0.0" y="0.0" width="449" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="449" height="38"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="table_bg"/>
@@ -220,7 +220,7 @@
                                 <constraint firstItem="ECj-ds-fv5" firstAttribute="top" secondItem="TYi-KI-VZS" secondAttribute="top" id="LhD-1K-hVF"/>
                                 <constraint firstItem="PKa-Mb-BHP" firstAttribute="width" secondItem="xEb-Ih-PtY" secondAttribute="width" id="O0G-PA-iVr"/>
                                 <constraint firstAttribute="bottom" secondItem="PKa-Mb-BHP" secondAttribute="bottom" id="XWT-Xf-aBj"/>
-                                <constraint firstAttribute="bottom" secondItem="9Hz-jm-OaZ" secondAttribute="bottom" id="aR7-Es-Kny"/>
+                                <constraint firstAttribute="bottom" secondItem="9Hz-jm-OaZ" secondAttribute="bottom" constant="6" id="aR7-Es-Kny"/>
                                 <constraint firstItem="ECj-ds-fv5" firstAttribute="width" secondItem="xEb-Ih-PtY" secondAttribute="width" id="aYP-Du-MoS"/>
                                 <constraint firstAttribute="bottom" secondItem="xEb-Ih-PtY" secondAttribute="bottom" id="ajL-1q-Els"/>
                                 <constraint firstItem="OAl-Is-6TP" firstAttribute="top" secondItem="TYi-KI-VZS" secondAttribute="top" id="bJP-ux-TI2"/>

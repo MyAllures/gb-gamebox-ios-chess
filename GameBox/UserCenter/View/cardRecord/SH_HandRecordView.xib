@@ -149,6 +149,9 @@
                                 <constraint firstItem="9rX-J6-Mfo" firstAttribute="height" secondItem="n3J-Bi-Hqo" secondAttribute="height" id="xfe-cA-5M5"/>
                                 <constraint firstItem="PyK-N7-Egb" firstAttribute="top" secondItem="XUL-I3-bVi" secondAttribute="top" id="xw7-fk-uug"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="bgColor" value="category1"/>
+                            </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MGy-uS-Zy1" customClass="SH_XibView">
                             <rect key="frame" x="56" y="14" width="105" height="25"/>

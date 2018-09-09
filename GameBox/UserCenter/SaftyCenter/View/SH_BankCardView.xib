@@ -40,7 +40,7 @@
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="银行卡户名和真实姓名一致才能取款成功" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ZC-Ac-Zqy">
-                    <rect key="frame" x="117.5" y="62" width="166" height="11"/>
+                    <rect key="frame" x="106" y="62" width="166" height="11"/>
                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -162,7 +162,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择“其他”银行必填" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFe-Zw-dN8">
-                    <rect key="frame" x="159" y="196" width="83" height="11"/>
+                    <rect key="frame" x="106" y="196" width="83" height="11"/>
                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -188,12 +188,12 @@
                 <constraint firstItem="5q4-02-0H2" firstAttribute="top" secondItem="8ZC-Ac-Zqy" secondAttribute="bottom" constant="10" id="1AS-zM-VdQ"/>
                 <constraint firstItem="UDa-Xs-WL9" firstAttribute="centerY" secondItem="bcv-Q0-OsG" secondAttribute="centerY" id="2bU-Bb-Yyg"/>
                 <constraint firstItem="Y1u-3x-fEA" firstAttribute="centerY" secondItem="0E4-bh-MeB" secondAttribute="centerY" id="5IB-cD-3Te"/>
+                <constraint firstItem="8ZC-Ac-Zqy" firstAttribute="leading" secondItem="0E4-bh-MeB" secondAttribute="leading" constant="8" id="5f8-KR-Kyf"/>
                 <constraint firstItem="bcv-Q0-OsG" firstAttribute="centerX" secondItem="KS6-NG-6wd" secondAttribute="centerX" id="5fH-hx-Ij3"/>
                 <constraint firstItem="KS6-NG-6wd" firstAttribute="centerX" secondItem="5q4-02-0H2" secondAttribute="centerX" id="5gk-77-O0c"/>
                 <constraint firstItem="bcv-Q0-OsG" firstAttribute="top" secondItem="KS6-NG-6wd" secondAttribute="bottom" constant="10" id="6Pz-yG-ePC"/>
                 <constraint firstItem="UDa-Xs-WL9" firstAttribute="trailing" secondItem="f8y-Ig-hIU" secondAttribute="trailing" id="83M-gX-IvA"/>
-                <constraint firstItem="8ZC-Ac-Zqy" firstAttribute="centerX" secondItem="0E4-bh-MeB" secondAttribute="centerX" id="89c-WZ-wNd"/>
-                <constraint firstItem="CFe-Zw-dN8" firstAttribute="centerX" secondItem="bcv-Q0-OsG" secondAttribute="centerX" id="CHm-Sx-xyu"/>
+                <constraint firstItem="CFe-Zw-dN8" firstAttribute="leading" secondItem="bcv-Q0-OsG" secondAttribute="leading" constant="8" id="HK5-59-qIQ"/>
                 <constraint firstItem="9s2-FX-4AL" firstAttribute="top" secondItem="CFe-Zw-dN8" secondAttribute="bottom" constant="15" id="HqD-fg-aeG"/>
                 <constraint firstItem="LQg-sq-ztu" firstAttribute="trailing" secondItem="5q4-02-0H2" secondAttribute="trailing" id="NGa-g2-bbL"/>
                 <constraint firstItem="oEi-UM-M0V" firstAttribute="trailing" secondItem="Y1u-3x-fEA" secondAttribute="trailing" id="OGh-yD-ghE"/>

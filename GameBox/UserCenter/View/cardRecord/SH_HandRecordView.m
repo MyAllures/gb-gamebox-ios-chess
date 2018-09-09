@@ -105,13 +105,16 @@
 -(void)requestData {
     [self.bettingArr removeAllObjects];
     [SH_WaitingView showOn:self];
-    [SH_NetWorkService fetchBettingList:self.startTimeStr EndDate:self.endTimeStr PageNumber:1 PageSize:5 withIsStatistics:YES complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
+    [SH_NetWorkService fetchBettingList:self.startTimeStr EndDate:self.endTimeStr PageNumber:1 PageSize:20 withIsStatistics:YES complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dict = (NSDictionary *)response;
         NSLog(@"dict == %@",dict);
         self.effectiveLabel.text = [NSString stringWithFormat:@"福利投注合计:%.2f",[dict[@"data"][@"statisticsData"][@"single"] floatValue]];
         self.profitLabel.text = [NSString stringWithFormat:@"赛果合计:%.2f",[dict[@"data"][@"statisticsData"][@"profit"] floatValue]];
         NSArray *arr = dict[@"data"][@"list"];
         if (arr.count > 0) {
+            if (arr.count < 20) {
+                self.noMoreData = @"noMoreData";
+            }
             for (NSDictionary *dict1 in dict[@"data"][@"list"]) {
                 RH_BettingInfoModel *model = [[RH_BettingInfoModel alloc] initWithDictionary:dict1 error:nil];
                 [self.bettingArr addObject:model];
