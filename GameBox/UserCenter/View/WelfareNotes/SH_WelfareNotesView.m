@@ -74,7 +74,8 @@
     [self addSubview:popTV];
 }
 #pragma mark 搜索
-- (IBAction)searchAction:(id)sender {
+- (IBAction)searchAction:(SH_WebPButton *)sender {
+    [sender setScale];
     NSString *searchType = [self.selectTypeIdArr objectAtIndex:self.seleteTypeIndex];
     [self requestData:self.startTimeStr endTimeStr:self.endTimeStr searchType:searchType];
 }

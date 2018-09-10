@@ -68,7 +68,8 @@
     [self.numLab setTextWithFirstString:[NSString stringWithFormat:@"%@/%@",model.reached,model.standard] SecondString:model.reached FontSize:13 Color:numColor];
 }
 
-- (IBAction)applyBtnClick:(id)sender {
+- (IBAction)applyBtnClick:(SH_WebPButton *)sender {
+    [sender setScale];
     [SH_NetWorkService applyPromoActivitiesPromoId:self.searchId TransactionNo:self.transactionNo  Sucess:^(SH__PromoApplyModel *model) {
         showMessage(self.superview.superview, @"申请成功", nil);
  

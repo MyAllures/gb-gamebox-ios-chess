@@ -21,7 +21,8 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
 }
-- (IBAction)sureBtnClick:(id)sender {
+- (IBAction)sureBtnClick:(SH_WebPButton *)sender {
+    [sender setScale];
     if (self.realNameTF.text.length == 0) {
         showMessage(self, @"请输入真实姓名", @"");
         return;

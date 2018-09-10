@@ -20,5 +20,5 @@ IB_DESIGNABLE
 
 - (void)setWebpImage:(NSString *)webpImage forState:(UIControlState)state;
 - (void)setWebpBGImage:(NSString *)webpImage forState:(UIControlState)state;
-
+-(void)setScale;
 @end

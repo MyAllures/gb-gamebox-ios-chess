@@ -17,12 +17,14 @@
 +(instancetype)instanceSafeCenterAlertView {
     return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil] lastObject];
 }
-- (IBAction)btnClick:(UIButton *)sender {
+- (IBAction)btnClick:(SH_WebPButton *)sender {
     if (sender.tag == 100) {
+        [sender setScale];
         //联系客服
         [[SH_CustomerServiceManager sharedManager] open];
     } else {
-         [self.vc close];
+        [sender setScale];
+        [self.vc close];
     }
 }
 

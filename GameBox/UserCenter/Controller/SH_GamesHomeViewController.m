@@ -84,10 +84,11 @@
     }];
 }
 #pragma  mark --- 玩家中心界面跳转
-- (IBAction)buttonClick:(UIButton *)sender {
+- (IBAction)buttonClick:(SH_WebPButton *)sender {
     NSInteger  tag = sender.tag-100;
     switch (tag) {
         case 0:{
+            [sender setScale];
             //福利记录
             SH_WelfareNotesView   *welfare =  [SH_WelfareNotesView instanceWelfareRecordView];
             SH_BigWindowViewController * cvc = [SH_BigWindowViewController new];
@@ -99,6 +100,7 @@
             break;
         }
         case 1:{
+            [sender setScale];
             //牌局记录
             SH_HandRecordView *crv = [SH_HandRecordView  instanceCardRecordView];
             // 投注记录详情
@@ -110,6 +112,7 @@
             break;
         }
         case 2:{
+            [sender setScale];
             // 安全中心
             SH_SaftyCenterView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_SaftyCenterView" owner:self options:nil].firstObject;
             SH_BigWindowViewController *avc = [SH_BigWindowViewController new];
@@ -119,11 +122,13 @@
             break;
         }
         case 3:{
+            [sender setScale];
             //联系客服
             [[SH_CustomerServiceManager sharedManager] open];
             break;
         }
         case 4:{
+            [sender setScale];
             [self dismissViewControllerAnimated:YES completion:nil];
             break;
         }

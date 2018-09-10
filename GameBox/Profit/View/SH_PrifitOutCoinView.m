@@ -49,7 +49,8 @@
     self.bandingBtn.userInteractionEnabled = NO;
 }
 
-- (IBAction)bindProfitAccountNumBtnClick:(id)sender {
+- (IBAction)bindProfitAccountNumBtnClick:(SH_WebPButton *)sender {
+    [sender setScale];
     if ([self.bankNumLab.text isEqualToString:@"请绑定银行卡"]) {
         SH_SaftyCenterView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_SaftyCenterView" owner:self options:nil].firstObject;
         SH_BigWindowViewController *vc = [SH_BigWindowViewController new];
@@ -65,21 +66,24 @@
         showMessage(self, @"您已绑定银行卡", nil);
     }
 }
-- (IBAction)add50BtnClik:(id)sender {
+- (IBAction)add50BtnClik:(SH_WebPButton *)sender {
+    [sender setScale];
     NSInteger num = [self.numTextField.text integerValue];
     self.numTextField.text = [NSString stringWithFormat:@"%ld",num+50];
     [self caculateWithMoney:self.numTextField.text];
 }
-- (IBAction)add100BtnClik:(id)sender {
+- (IBAction)add100BtnClik:(SH_WebPButton *)sender {
+    [sender setScale];
     NSInteger num = [self.numTextField.text integerValue];
     self.numTextField.text = [NSString stringWithFormat:@"%ld",num+100];
     [self caculateWithMoney:self.numTextField.text];
 }
-- (IBAction)sureBtnClick:(id)sender {
-        NSDictionary *rank = self.model.rank;
-        float withdrawMinNum = [rank[@"withdrawMinNum"] floatValue];
-        float withdrawMaxNum = [rank[@"withdrawMaxNum"] floatValue];;
-     if ([self.bankNumLab.text isEqualToString:@"请绑定银行卡"]){
+- (IBAction)sureBtnClick:(SH_WebPButton *)sender {
+    [sender setScale];
+    NSDictionary *rank = self.model.rank;
+    float withdrawMinNum = [rank[@"withdrawMinNum"] floatValue];
+    float withdrawMaxNum = [rank[@"withdrawMaxNum"] floatValue];;
+    if ([self.bankNumLab.text isEqualToString:@"请绑定银行卡"]){
         showMessage(self, @"请绑定银行卡", nil);
     }else if (self.numTextField.text.length == 0) {
         [self popAlertView:@"请输入出币数量"];

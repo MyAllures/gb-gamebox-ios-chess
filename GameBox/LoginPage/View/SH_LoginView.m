@@ -148,7 +148,9 @@
 #pragma mark --  button click method
 - (IBAction)btnlick:(SH_WebPButton *)sender {
     NSInteger tag = sender.tag -100;
-   
+    if (tag == 0 || tag == 1 || tag == 2) {
+        [sender setScale];
+    }
     switch (tag) {
         case 0:{ //登陆按钮的点击事件
             self.stackView.hidden = YES;

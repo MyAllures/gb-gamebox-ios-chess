@@ -41,7 +41,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)dismiss:(id)sender {
+- (IBAction)dismiss:(SH_WebPButton *)sender {
+    [sender setScale];
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 

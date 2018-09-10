@@ -523,7 +523,8 @@
     }
 }
 
-- (IBAction)upToLastLevel:(id)sender {
+- (IBAction)upToLastLevel:(SH_WebPButton *)sender {
+    [sender setScale];
     self.currentLevel --;
     if (self.enterDZGameLevel && self.currentLevel == 0) {
         self.enterDZGameLevel = NO;
@@ -579,7 +580,8 @@
     [self presentViewController:vc addTargetViewController:self];
 }
 
-- (IBAction)welfareClick:(id)sender {
+- (IBAction)welfareClick:(SH_WebPButton *)sender {
+    [sender setScale];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"尚未开放，敬请期待" message:@"" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
     [alert show];
     
@@ -666,19 +668,23 @@
 }
 
 #pragma mark - 优惠活动
-- (IBAction)activitiesClick:(id)sender {
+- (IBAction)activitiesClick:(SH_WebPButton *)sender {
+    [sender setScale];
     if (![RH_UserInfoManager  shareUserManager].isLogin) {
         [self login];
         return;
     }
     SH_PromoWindowViewController *vc = [[SH_PromoWindowViewController alloc] initWithNibName:@"SH_PromoWindowViewController" bundle:nil];
+   
+
     [self presentViewController:vc addTargetViewController:self];
 }
 
 #pragma mark--
 #pragma mark--充值中心
 
-- (IBAction)recharegeBtnClick:(id)sender {
+- (IBAction)recharegeBtnClick:(SH_WebPButton *)sender {
+    [sender setScale];
     if (![[RH_UserInfoManager shareUserManager] isLogin]) {
         [self login];
         return;
@@ -688,13 +694,15 @@
 }
 #pragma mark--
 #pragma mark--收益按钮
-- (IBAction)profitBtnClick:(id)sender {
+- (IBAction)profitBtnClick:(SH_WebPButton *)sender {
+    [sender setScale];
     if (![[RH_UserInfoManager shareUserManager] isLogin]) {
         [self login];
         return;
     }
     SH_PrifitOutCoinView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_PrifitOutCoinView" owner:nil options:nil].lastObject;
     self.acr = [SH_BigWindowViewController new];
+//    self.acr.view.transform = CGAffineTransformMakeScale(0.1, 0.1);
     self.acr.titleImageName = @"title07";
     self.acr.customView = view;
     self.acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
@@ -729,8 +737,9 @@
 #pragma mark --- 玩家中心
 
 //玩家中心
-- (IBAction)userCenterClick:(id)sender
+- (IBAction)userCenterClick:(SH_WebPButton *)sender
 {
+    [sender setScale];
     if ([RH_UserInfoManager shareUserManager].isLogin) {
          self.vc = [SH_GamesHomeViewController new];
         //这里用户要请求有没有设置过安全密码接口
@@ -750,7 +759,8 @@
     }
 }
 
-- (IBAction)shareClick:(id)sender {
+- (IBAction)shareClick:(SH_WebPButton *)sender {
+    [sender setScale];
     if ([RH_UserInfoManager shareUserManager].isLogin) {
           SH_ShareView * share = [SH_ShareView instanceShareView];
         SH_SmallWindowViewController * vc = [SH_SmallWindowViewController new];

@@ -46,8 +46,8 @@
     NSLog(@"%@",model.code);
     [self.webView loadHTMLString:model.code baseURL:nil];
 }
-- (IBAction)applyBtnClick:(id)sender {
-   
+- (IBAction)applyBtnClick:(SH_WebPButton *)sender {
+    [sender setScale];
     UIViewController *vc = [self getCurrentViewController];
     SH_ApplyResultView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_ApplyResultView" owner:self options:nil].firstObject;
     SH_BigWindowViewController * acr = [SH_BigWindowViewController new];

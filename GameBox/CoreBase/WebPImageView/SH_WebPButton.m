@@ -65,4 +65,8 @@
     [self setBackgroundImage:img forState:state];
 }
 
+-(void)setScale {
+    [super setScale];
+}
+
 @end
