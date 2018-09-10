@@ -29,13 +29,12 @@
 @implementation RH_RechargeCenterFooterView
 - (void)awakeFromNib{
     [super awakeFromNib];
-    self.chooseBKBtn.imageEdgeInsets = UIEdgeInsetsMake(18, 125, 13, 10);
     [self.tttLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.submitBtn.mas_bottom).offset(15);
         make.left.equalTo(self).offset(15);
         make.right.equalTo(self).offset(-15);
     }];
-    _textField.delegate = self;
+    self.textField.delegate = self;
 }
 #pragma mark--
 #pragma mark--lazy
