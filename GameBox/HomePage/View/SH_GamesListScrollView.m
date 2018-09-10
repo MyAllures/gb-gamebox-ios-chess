@@ -86,6 +86,57 @@
    
 }
 
+-(void)leftBtnAnimate {
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [UIView animateWithDuration:0.5 animations:^{
+            self.preBT.frame = CGRectMake(self.preBT.frame.origin.x-10, self.preBT.frame.origin.y, self.preBT.frame.size.width, self.preBT.frame.size.height);
+        }];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:0.2 animations:^{
+                self.preBT.frame = CGRectMake(self.preBT.frame.origin.x+5, self.preBT.frame.origin.y, self.preBT.frame.size.width, self.preBT.frame.size.height);
+            }];
+        });
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.7 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:0.2 animations:^{
+                self.preBT.frame = CGRectMake(self.preBT.frame.origin.x-5, self.preBT.frame.origin.y, self.preBT.frame.size.width, self.preBT.frame.size.height);
+            }];
+        });
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.9 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:0.5 animations:^{
+                self.preBT.frame = CGRectMake(self.preBT.frame.origin.x+10, self.preBT.frame.origin.y, self.preBT.frame.size.width, self.preBT.frame.size.height);
+            }];
+        });
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:0.5 animations:^{
+                self.preBT.frame = CGRectMake(self.preBT.frame.origin.x-10, self.preBT.frame.origin.y, self.preBT.frame.size.width, self.preBT.frame.size.height);
+            }];
+        });
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.9 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:0.2 animations:^{
+                self.preBT.frame = CGRectMake(self.preBT.frame.origin.x+5, self.preBT.frame.origin.y, self.preBT.frame.size.width, self.preBT.frame.size.height);
+            }];
+        });
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:0.2 animations:^{
+                self.preBT.frame = CGRectMake(self.preBT.frame.origin.x-5, self.preBT.frame.origin.y, self.preBT.frame.size.width, self.preBT.frame.size.height);
+            }];
+        });
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:0.5 animations:^{
+                self.preBT.frame = CGRectMake(self.preBT.frame.origin.x+10, self.preBT.frame.origin.y, self.preBT.frame.size.width, self.preBT.frame.size.height);
+            }];
+        });
+    });
+}
+
 - (void)reloaData
 {
     if (@available(iOS 11.0, *)) {
@@ -165,6 +216,11 @@
     return _scrollView;
 }
 
+-(void)btnAnimate {
+    [self nextBtnAnimate];
+    [self leftBtnAnimate];
+}
+
 -(void)dealloc {
     [self.timer invalidate];
     self.timer = nil;
@@ -242,11 +298,15 @@
             //最后一页
             self.nextBT.hidden = YES;
             self.preBT.hidden = NO;
+            [self.timer invalidate];
+            self.timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(leftBtnAnimate) userInfo:nil repeats:YES];
         }else if (currentPage == 0){
             //第一页
             self.nextBT.hidden = NO;
             self.preBT.hidden = YES;
+            self.timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(nextBtnAnimate) userInfo:nil repeats:YES];
         }else{
+            [self.timer invalidate];
             //中间页
             self.nextBT.hidden = NO;
             self.preBT.hidden = NO;
