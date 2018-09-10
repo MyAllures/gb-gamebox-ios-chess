@@ -216,11 +216,6 @@
     return _scrollView;
 }
 
--(void)btnAnimate {
-    [self nextBtnAnimate];
-    [self leftBtnAnimate];
-}
-
 -(void)dealloc {
     [self.timer invalidate];
     self.timer = nil;
