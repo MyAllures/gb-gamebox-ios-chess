@@ -290,6 +290,7 @@
     self.currentPage = currentPage;
     
     int totalPage = ceil(scrollView.contentSize.width/scrollView.frame.size.width);
+    [self.timer invalidate];
     if (totalPage == 2) {
         self.nextBT.hidden = YES;
         self.preBT.hidden = YES;
@@ -298,7 +299,6 @@
             //最后一页
             self.nextBT.hidden = YES;
             self.preBT.hidden = NO;
-            [self.timer invalidate];
             self.timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(leftBtnAnimate) userInfo:nil repeats:YES];
         }else if (currentPage == 0){
             //第一页
@@ -306,7 +306,6 @@
             self.preBT.hidden = YES;
             self.timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(nextBtnAnimate) userInfo:nil repeats:YES];
         }else{
-            [self.timer invalidate];
             //中间页
             self.nextBT.hidden = NO;
             self.preBT.hidden = NO;
