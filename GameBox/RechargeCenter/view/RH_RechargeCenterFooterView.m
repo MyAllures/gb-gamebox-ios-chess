@@ -34,7 +34,7 @@
         make.left.equalTo(self).offset(15);
         make.right.equalTo(self).offset(-15);
     }];
-    _textField.delegate = self;
+    self.textField.delegate = self;
 }
 #pragma mark--
 #pragma mark--lazy
