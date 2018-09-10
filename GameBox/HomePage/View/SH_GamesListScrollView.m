@@ -34,51 +34,55 @@
 
 -(void)nextBtnAnimate {
     
-    [UIView animateWithDuration:0.5 animations:^{
-        self.nextBT.frame = CGRectMake(self.nextBT.frame.origin.x+10, self.nextBT.frame.origin.y, self.nextBT.frame.size.width, self.nextBT.frame.size.height);
-    }];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [UIView animateWithDuration:0.2 animations:^{
-            self.nextBT.frame = CGRectMake(self.nextBT.frame.origin.x-5, self.nextBT.frame.origin.y, self.nextBT.frame.size.width, self.nextBT.frame.size.height);
-        }];
-    });
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.7 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [UIView animateWithDuration:0.2 animations:^{
-            self.nextBT.frame = CGRectMake(self.nextBT.frame.origin.x+5, self.nextBT.frame.origin.y, self.nextBT.frame.size.width, self.nextBT.frame.size.height);
-        }];
-    });
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.9 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [UIView animateWithDuration:0.5 animations:^{
-            self.nextBT.frame = CGRectMake(self.nextBT.frame.origin.x-10, self.nextBT.frame.origin.y, self.nextBT.frame.size.width, self.nextBT.frame.size.height);
-        }];
-    });
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_async(dispatch_get_main_queue(), ^{
         [UIView animateWithDuration:0.5 animations:^{
             self.nextBT.frame = CGRectMake(self.nextBT.frame.origin.x+10, self.nextBT.frame.origin.y, self.nextBT.frame.size.width, self.nextBT.frame.size.height);
         }];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:0.2 animations:^{
+                self.nextBT.frame = CGRectMake(self.nextBT.frame.origin.x-5, self.nextBT.frame.origin.y, self.nextBT.frame.size.width, self.nextBT.frame.size.height);
+            }];
+        });
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.7 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:0.2 animations:^{
+                self.nextBT.frame = CGRectMake(self.nextBT.frame.origin.x+5, self.nextBT.frame.origin.y, self.nextBT.frame.size.width, self.nextBT.frame.size.height);
+            }];
+        });
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.9 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:0.5 animations:^{
+                self.nextBT.frame = CGRectMake(self.nextBT.frame.origin.x-10, self.nextBT.frame.origin.y, self.nextBT.frame.size.width, self.nextBT.frame.size.height);
+            }];
+        });
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:0.5 animations:^{
+                self.nextBT.frame = CGRectMake(self.nextBT.frame.origin.x+10, self.nextBT.frame.origin.y, self.nextBT.frame.size.width, self.nextBT.frame.size.height);
+            }];
+        });
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.9 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:0.2 animations:^{
+                self.nextBT.frame = CGRectMake(self.nextBT.frame.origin.x-5, self.nextBT.frame.origin.y, self.nextBT.frame.size.width, self.nextBT.frame.size.height);
+            }];
+        });
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:0.2 animations:^{
+                self.nextBT.frame = CGRectMake(self.nextBT.frame.origin.x+5, self.nextBT.frame.origin.y, self.nextBT.frame.size.width, self.nextBT.frame.size.height);
+            }];
+        });
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:0.5 animations:^{
+                self.nextBT.frame = CGRectMake(self.nextBT.frame.origin.x-10, self.nextBT.frame.origin.y, self.nextBT.frame.size.width, self.nextBT.frame.size.height);
+            }];
+        });
     });
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.9 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [UIView animateWithDuration:0.2 animations:^{
-            self.nextBT.frame = CGRectMake(self.nextBT.frame.origin.x-5, self.nextBT.frame.origin.y, self.nextBT.frame.size.width, self.nextBT.frame.size.height);
-        }];
-    });
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [UIView animateWithDuration:0.2 animations:^{
-            self.nextBT.frame = CGRectMake(self.nextBT.frame.origin.x+5, self.nextBT.frame.origin.y, self.nextBT.frame.size.width, self.nextBT.frame.size.height);
-        }];
-    });
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [UIView animateWithDuration:0.5 animations:^{
-            self.nextBT.frame = CGRectMake(self.nextBT.frame.origin.x-10, self.nextBT.frame.origin.y, self.nextBT.frame.size.width, self.nextBT.frame.size.height);
-        }];
-    });
+   
    
 }
 

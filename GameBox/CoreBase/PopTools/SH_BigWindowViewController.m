@@ -28,12 +28,12 @@
         [UIView addKeyframeWithRelativeStartTime:1/3.0 relativeDuration:1/3.0 animations: ^{
             self.xibView.transform = CGAffineTransformMakeScale(1.0, 1.0);
         }];
-        [UIView animateWithDuration:1 animations:^{
-            self.closeBtn.alpha = 0.0;
+        [UIView animateWithDuration:0.8 animations:^{
+            self.closeBtn.alpha = 0.8;
         }];
         
     } completion:^(BOOL finished) {
-        [UIView animateWithDuration:.8 animations:^{
+        [UIView animateWithDuration:.1 animations:^{
             self.closeBtn.alpha = 1.0;
         }];
     }];
