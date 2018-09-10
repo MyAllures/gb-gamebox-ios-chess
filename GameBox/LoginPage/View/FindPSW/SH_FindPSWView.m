@@ -17,7 +17,8 @@
 
 @implementation SH_FindPSWView
 
-- (IBAction)nextAction:(id)sender {
+- (IBAction)nextAction:(SH_WebPButton *)sender {
+    [sender setScale];
     if (self.realNameTV.text.length > 0) {
         [SH_NetWorkService_FindPsw findUserPhone:self.realNameTV.text complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
             NSDictionary *dict = (NSDictionary *)response;

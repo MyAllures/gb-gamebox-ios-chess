@@ -32,7 +32,8 @@
     self.VerificationBtn.titleLabel.font = [UIFont systemFontOfSize:11*screenSize().width/375.0];
 }
 
-- (IBAction)sureBtnClick:(id)sender {
+- (IBAction)sureBtnClick:(SH_WebPButton *)sender {
+    [sender setScale];
     UIButton *btn = sender;
     if ([btn.titleLabel.text isEqualToString:@"立即绑定"]) {
         //未绑定过手机号码

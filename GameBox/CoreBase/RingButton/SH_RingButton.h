@@ -18,5 +18,5 @@ IB_DESIGNABLE
 @interface SH_RingButton : UIButton
 
 @property (nonatomic, assign) IBInspectable int ringType;
-
+-(void)setScale;
 @end

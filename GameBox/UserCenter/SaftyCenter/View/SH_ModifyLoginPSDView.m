@@ -29,7 +29,8 @@
     self.verificationBtn.hidden = YES;
     self.sureBtnTopDistance.constant = 15;
 }
-- (IBAction)sureBtnClick:(id)sender {
+- (IBAction)sureBtnClick:(SH_WebPButton *)sender {
+    [sender setScale];
     if (self.currentTX.text.length == 0) {
         showMessage(self, @"请输入当前密码", nil);
     }else if (self.NewTX.text.length == 0){

@@ -13,10 +13,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SH_PromoWindowViewController">
             <connections>
+                <outlet property="closeBtn" destination="bDO-Mz-DwN" id="hwP-gU-C7M"/>
                 <outlet property="contentView" destination="KX6-7I-vXl" id="Gua-a6-oRB"/>
+                <outlet property="imageView" destination="u31-TN-VXv" id="sSF-yx-KBv"/>
                 <outlet property="msgTypeBt" destination="f5w-bE-1UN" id="kgX-ce-rZX"/>
                 <outlet property="promoTypeBt" destination="cIn-4J-cee" id="ldz-F8-ppy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="xibView" destination="ayr-MP-PFx" id="MhB-oI-f58"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -49,6 +52,9 @@
                                         <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="classify_main"/>
                                     </userDefinedRuntimeAttributes>
                                 </imageView>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn_activity_bg" translatesAutoresizingMaskIntoConstraints="NO" id="u31-TN-VXv">
+                                    <rect key="frame" x="-0.5" y="-0.5" width="107" height="26"/>
+                                </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIn-4J-cee" customClass="SH_WebPButton">
                                     <rect key="frame" x="0.0" y="0.0" width="107" height="26"/>
                                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -72,10 +78,13 @@
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
+                                <constraint firstItem="cIn-4J-cee" firstAttribute="centerY" secondItem="u31-TN-VXv" secondAttribute="centerY" id="2Rh-v0-qcD"/>
                                 <constraint firstAttribute="bottom" secondItem="nwV-pk-hdc" secondAttribute="bottom" id="686-l5-03H"/>
+                                <constraint firstItem="cIn-4J-cee" firstAttribute="height" secondItem="u31-TN-VXv" secondAttribute="height" id="6bA-0K-oRx"/>
                                 <constraint firstItem="f5w-bE-1UN" firstAttribute="height" secondItem="cIn-4J-cee" secondAttribute="height" id="Aoq-bE-fy0"/>
                                 <constraint firstAttribute="width" secondItem="2gI-tF-P4y" secondAttribute="height" multiplier="215:26" id="Chc-ZR-mOT"/>
                                 <constraint firstItem="cIn-4J-cee" firstAttribute="top" secondItem="2gI-tF-P4y" secondAttribute="top" id="Iye-30-9UM"/>
+                                <constraint firstItem="u31-TN-VXv" firstAttribute="leading" secondItem="2gI-tF-P4y" secondAttribute="leading" id="Mqj-JL-c6P"/>
                                 <constraint firstAttribute="bottom" secondItem="f5w-bE-1UN" secondAttribute="bottom" id="N5K-KU-jWo"/>
                                 <constraint firstItem="f5w-bE-1UN" firstAttribute="width" secondItem="cIn-4J-cee" secondAttribute="width" id="Qke-G9-PTz"/>
                                 <constraint firstItem="f5w-bE-1UN" firstAttribute="top" secondItem="2gI-tF-P4y" secondAttribute="top" id="TVI-Rm-ora"/>
@@ -84,8 +93,10 @@
                                 <constraint firstAttribute="bottom" secondItem="cIn-4J-cee" secondAttribute="bottom" id="ezK-Xh-9f7"/>
                                 <constraint firstItem="cIn-4J-cee" firstAttribute="leading" secondItem="2gI-tF-P4y" secondAttribute="leading" id="fV4-Kv-Xms"/>
                                 <constraint firstItem="f5w-bE-1UN" firstAttribute="leading" secondItem="cIn-4J-cee" secondAttribute="trailing" id="hak-Kk-c67"/>
+                                <constraint firstItem="cIn-4J-cee" firstAttribute="width" secondItem="u31-TN-VXv" secondAttribute="width" id="ngl-j6-PCl"/>
                                 <constraint firstItem="f5w-bE-1UN" firstAttribute="leading" secondItem="cIn-4J-cee" secondAttribute="trailing" id="pao-ca-fYG"/>
                                 <constraint firstAttribute="trailing" secondItem="nwV-pk-hdc" secondAttribute="trailing" id="pz3-gH-cGw"/>
+                                <constraint firstItem="cIn-4J-cee" firstAttribute="leading" secondItem="2gI-tF-P4y" secondAttribute="leading" id="yE3-ao-jkz"/>
                                 <constraint firstItem="nwV-pk-hdc" firstAttribute="leading" secondItem="2gI-tF-P4y" secondAttribute="leading" id="zv0-7Z-0Zi"/>
                             </constraints>
                         </view>
@@ -133,7 +144,10 @@
                 <constraint firstItem="bDO-Mz-DwN" firstAttribute="top" secondItem="ayr-MP-PFx" secondAttribute="top" constant="-5" id="lmq-HF-9Se"/>
                 <constraint firstItem="ayr-MP-PFx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="vFv-aU-ltZ"/>
             </constraints>
-            <point key="canvasLocation" x="-232" y="-25"/>
+            <point key="canvasLocation" x="-376" y="-39"/>
         </view>
     </objects>
+    <resources>
+        <image name="btn_activity_bg" width="105" height="27"/>
+    </resources>
 </document>

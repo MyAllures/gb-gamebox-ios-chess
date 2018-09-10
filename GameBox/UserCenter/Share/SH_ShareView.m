@@ -23,8 +23,8 @@
     [self fetchShareQRCode];
 }
 #pragma mark --- 保存二维码到相册
-- (IBAction)saveQRImageViewButton:(UIButton *)sender {
-    
+- (IBAction)saveQRImageViewButton:(SH_WebPButton *)sender {
+    [sender setScale];
     UIAlertController  * alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否需要保存图片到相册" preferredStyle:UIAlertControllerStyleAlert] ;
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         [alert  dismissViewControllerAnimated:YES completion:nil];

@@ -107,6 +107,7 @@
 
 }
 - (IBAction)gameNoticeClick:(id)sender {
+    [self.gameNoticeBt setScale];
     self.gameNoticeBt.selected = YES;
     self.systemNoticeBt.selected = NO;
     self.inboxBt.selected = NO;
@@ -144,6 +145,7 @@
 }
 
 - (IBAction)systemNoticeClick:(id)sender {
+    [self.systemNoticeBt setScale];
     self.gameNoticeBt.selected = NO;
     self.systemNoticeBt.selected = YES;
     self.inboxBt.selected = NO;
@@ -181,6 +183,7 @@
     }];
 }
 - (IBAction)InboxClick:(id)sender {
+    [self.inboxBt setScale];
     self.gameNoticeBt.selected = NO;
     self.systemNoticeBt.selected = NO;
     self.inboxBt.selected = YES;
@@ -219,7 +222,8 @@
         self.noDataView = [SH_NodataView showAddTo:self.tableView Message:@"您暂无消息"];
     }];
 }
-- (IBAction)allSelectAction:(id)sender {
+- (IBAction)allSelectAction:(SH_WebPButton *)sender {
+    [sender setScale];
     SH_WebPButton *bt = (SH_WebPButton *)sender;
     bt.selected = !bt.selected;
     
@@ -229,9 +233,9 @@
     [self.tableView reloadData];
 }
 
-- (IBAction)markReadedAction:(id)sender {
+- (IBAction)markReadedAction:(SH_WebPButton *)sender {
     __weak typeof(self) weakSelf = self;
-
+    [sender setScale];
     NSString *ids = [NSString string];
     for (SH_SysMsgDataListModel *model in self.msgArr) {
         if (model.selected &&model.read == NO) {
@@ -262,9 +266,9 @@
     }
 }
 
-- (IBAction)deleteReadedAction:(id)sender {
+- (IBAction)deleteReadedAction:(SH_WebPButton *)sender {
     __weak typeof(self) weakSelf = self;
-
+    [sender setScale];
     NSString *ids = [NSString string];
     for (SH_SysMsgDataListModel *model in self.msgArr) {
         if (model.read) {

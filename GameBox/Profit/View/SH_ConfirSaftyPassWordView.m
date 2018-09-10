@@ -22,7 +22,8 @@
 @implementation SH_ConfirSaftyPassWordView
 
 
-- (IBAction)sureBtnClick:(id)sender {
+- (IBAction)sureBtnClick:(SH_WebPButton *)sender {
+    [sender setScale];
     if (self.pswTF.text.length == 0) {
         showMessage(self, @"请输入安全密码", nil);
     }else{

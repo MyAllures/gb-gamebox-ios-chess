@@ -22,6 +22,7 @@
     self.lab.layer.borderColor = [UIColor colorWithWhite:1 alpha:0.25].CGColor;
 }
 - (IBAction)sureBtnClick:(SH_WebPButton *)sender {
+    [sender setScale];
     if (sender.tag == 100) {
         [self popAlertView];
         return;

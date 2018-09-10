@@ -19,7 +19,8 @@
 @end
 
 @implementation SH_FindPSWSendCodeView
-- (IBAction)nextAction:(id)sender {
+- (IBAction)nextAction:(SH_WebPButton *)sender {
+    [sender setScale];
     [SH_NetWorkService_FindPsw forgetPswCheckCode:self.codeTV.text complete:^(NSHTTPURLResponse *httpURLResponse, id response) {
         NSDictionary *dict1 = (NSDictionary *)response;
         NSLog(@"dict1===%@",dict1);

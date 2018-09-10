@@ -14,7 +14,8 @@
 @end
 
 @implementation SH_FindPSWSureView
-- (IBAction)sureAction:(id)sender {
+- (IBAction)sureAction:(SH_WebPButton *)sender {
+    [sender setScale];
     if (self.textField2.text.length == 0 || self.textField1.text.length == 0) {
         showMessage(self, @"", @"密码不能为空");
     } else if (self.textField2.text.length <6 || self.textField1.text.length <6) {

@@ -17,7 +17,8 @@
     [super awakeFromNib];
     [self.backBtn ButtonPositionStyle:ButtonPositionStyleDefault spacing:35];
 }
-- (IBAction)backBtnClick:(id)sender {
+- (IBAction)backBtnClick:(SH_WebPButton *)sender {
+    [sender setScale];
     [self.delegate SH_NavigationViewBackBtnClick];
 }
 -(void)updateUIWithTitle:(NSString *)title{
