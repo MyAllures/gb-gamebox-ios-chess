@@ -675,9 +675,12 @@
         return;
     }
     SH_PromoWindowViewController *vc = [[SH_PromoWindowViewController alloc] initWithNibName:@"SH_PromoWindowViewController" bundle:nil];
-   
+
 
     [self presentViewController:vc addTargetViewController:self];
+//    NSMutableArray *arr = [NSMutableArray array];
+//    NSString *obj;
+//    [arr addObject:obj];
 }
 
 #pragma mark--

@@ -103,6 +103,7 @@
     NSMutableString *domainList = [[NSMutableString alloc] init] ;
     NSMutableString *errorCodeList = [[NSMutableString alloc] init] ;
     NSMutableString *errorMessageList = [[NSMutableString alloc] init] ;
+    NSString *type;
     for (NSDictionary *dictTmp in errInfoArr) {
         if (domainList.length){
             [domainList appendString:@";"] ;
@@ -119,12 +120,13 @@
         [domainList appendString:[dictTmp stringValueForKey:RH_SP_COLLECTAPPERROR_DOMAIN]] ;
         [errorCodeList appendString:[dictTmp stringValueForKey:RH_SP_COLLECTAPPERROR_CODE]] ;
         [errorMessageList appendString:[dictTmp stringValueForKey:RH_SP_COLLECTAPPERROR_ERRORMESSAGE]] ;
+        type = [dictTmp stringValueForKey:RH_SP_COLLECTAPPERROR_TYPE];
     }
     
     [dictError setValue:domainList forKey:RH_SP_COLLECTAPPERROR_DOMAIN] ;
     [dictError setValue:errorCodeList forKey:RH_SP_COLLECTAPPERROR_CODE] ;
     [dictError setValue:errorMessageList forKey:RH_SP_COLLECTAPPERROR_ERRORMESSAGE] ;
-    [dictError setValue:@"1" forKey:RH_SP_COLLECTAPPERROR_TYPE];
+    [dictError setValue:type forKey:RH_SP_COLLECTAPPERROR_TYPE];
     NSString *appVersion = [NSString stringWithFormat:@"%@.%@",GB_CURRENT_APPVERSION,GB_CURRENT_APPBUILD];
     [dictError setValue:appVersion forKey:RH_SP_COLLECTAPPERROR_VERSIONNAME];
     NSString *sysVersion = [[UIDevice currentDevice] systemVersion];

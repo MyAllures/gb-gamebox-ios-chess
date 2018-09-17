@@ -13,6 +13,6 @@ pod 'IQKeyboardManager'
 pod 'JSONModel'
 pod 'Reachability', '~> 3.2'
 pod 'NJKWebViewProgress'
-
+pod 'AvoidCrash', '~> 2.5.2'
 end
 

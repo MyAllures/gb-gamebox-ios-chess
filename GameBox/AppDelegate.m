@@ -10,7 +10,8 @@
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import "coreLib.h"
 #import "SH_RingManager.h"
-
+#import <AvoidCrash.h>
+#import "SH_LineCheckErrManager.h"
 @interface AppDelegate ()
 
 @end
@@ -20,6 +21,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self avoidCrash];
     [self keyboardManagerConfig];
     return YES;
 }
@@ -42,6 +44,26 @@
     
     keyboardManager.keyboardDistanceFromTextField = 0.0f; // 输入框距离键盘的距离
     
+}
+-(void)avoidCrash{
+    [AvoidCrash makeAllEffective];
+    NSArray *noneSelClassStrings = @[
+                                     @"NSNull",
+                                     @"NSNumber",
+                                     @"NSString",
+                                     @"NSDictionary",
+                                     @"NSArray"
+                                     ];
+    [AvoidCrash setupNoneSelClassStringsArr:noneSelClassStrings];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dealwithCrashMessage:) name:AvoidCrashNotification object:nil];
+
+}
+- (void)dealwithCrashMessage:(NSNotification *)note {
+//    NSLog(@"崩溃信息 == %@",note);
+    NSDictionary *dic = ConvertToClassPointer(NSDictionary, note.userInfo);
+    //收集错误信息
+    [[SH_LineCheckErrManager sharedManager] collectErrInfo:@{RH_SP_COLLECTAPPERROR_DOMAIN:[NetWorkLineMangaer sharedManager].currentHost,RH_SP_COLLECTAPPERROR_CODE:CODE,RH_SP_COLLECTAPPERROR_ERRORMESSAGE:[NSString stringWithFormat:@"crashReason:%@;crashPlace:%@",dic[@"errorReason"],dic[@"errorPlace"]],RH_SP_COLLECTAPPERROR_TYPE:@"2"}];
+    [[SH_LineCheckErrManager sharedManager] send];
 }
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

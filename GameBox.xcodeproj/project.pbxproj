@@ -1255,6 +1255,7 @@
 		5401C52E20ECA10F0027246D /* GameBox */ = {
 			isa = PBXGroup;
 			children = (
+				BFC7CB28214B4FFF004AAAA7 /* Splash */,
 				221079692133F37F002D6434 /* publicPhoto */,
 				22C02DB72132CAB100AFCEB7 /* NoAccess */,
 				22C02DAC21328DA800AFCEB7 /* maintain */,
@@ -1270,10 +1271,6 @@
 				DA1BCC3F20FCB74400201DBC /* UserCenter */,
 				5401C52F20ECA10F0027246D /* AppDelegate.h */,
 				5401C53020ECA10F0027246D /* AppDelegate.m */,
-				5401C53220ECA10F0027246D /* LineCheckViewController.h */,
-				5401C53320ECA10F0027246D /* LineCheckViewController.m */,
-				54DD03572109C84F00CE9199 /* SH_SplashNoticeViewController.h */,
-				54DD03582109C84F00CE9199 /* SH_SplashNoticeViewController.m */,
 				5401C53520ECA10F0027246D /* Main.storyboard */,
 				5401C53820ECA1100027246D /* Assets.xcassets */,
 				5401C53A20ECA1100027246D /* LaunchScreen.storyboard */,
@@ -2095,6 +2092,17 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		BFC7CB28214B4FFF004AAAA7 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				5401C53220ECA10F0027246D /* LineCheckViewController.h */,
+				5401C53320ECA10F0027246D /* LineCheckViewController.m */,
+				54DD03572109C84F00CE9199 /* SH_SplashNoticeViewController.h */,
+				54DD03582109C84F00CE9199 /* SH_SplashNoticeViewController.m */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 		BFD6CFBD20F88FE000EDBC5B /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -2420,13 +2428,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5401C54220ECA1100027246D /* Build configuration list for PBXNativeTarget "GameBox" */;
 			buildPhases = (
-				54D13C50211D985A00E07E5A /* ShellScript */,
 				BBE1A7EF60A82CD6004C70C2 /* [CP] Check Pods Manifest.lock */,
+				54D13C50211D985A00E07E5A /* ShellScript */,
 				5401C52820ECA10F0027246D /* Sources */,
 				5401C52920ECA10F0027246D /* Frameworks */,
 				5401C52A20ECA10F0027246D /* Resources */,
 				E597E229E073DE61BA35EBD9 /* [CP] Copy Pods Resources */,
-				473C4B0B8D8E4C830DF4C154 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2697,21 +2704,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		473C4B0B8D8E4C830DF4C154 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameBox/Pods-GameBox-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		54D13C50211D985A00E07E5A /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2740,7 +2732,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E597E229E073DE61BA35EBD9 /* [CP] Copy Pods Resources */ = {
@@ -3132,7 +3124,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7008;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7001;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -3152,7 +3144,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7008;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7001;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
