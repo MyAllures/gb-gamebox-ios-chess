@@ -5,11 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-<<<<<<< HEAD
 	<string>18黑金</string>
-=======
-	<string>宏图棋牌</string>
->>>>>>> 590503794dc3110279f30a0e0e2106d0d0c291f1
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
