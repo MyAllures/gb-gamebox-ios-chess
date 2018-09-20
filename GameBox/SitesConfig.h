@@ -14,7 +14,7 @@
 
 
 
-#if _8l6r
+#if _lcat
 #define CODE    @"8l6r"
 #define S       @"6bf3b743e414045e5123fc317fb9b535"
 #define SID     @"71"

@@ -678,9 +678,6 @@
 
 
     [self presentViewController:vc addTargetViewController:self];
-//    NSMutableArray *arr = [NSMutableArray array];
-//    NSString *obj;
-//    [arr addObject:obj];
 }
 
 #pragma mark--
