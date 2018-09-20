@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - AvoidCrash (2.5.2)
   - IQKeyboardManager (6.1.1)
   - JSONModel (1.7.0)
   - libwebp (0.6.1):
@@ -42,7 +43,7 @@ PODS:
   - libwebp/webp (0.6.1)
   - Masonry (1.1.0)
   - MBProgressHUD (1.1.0)
-  - MJRefresh (3.1.15.3)
+  - MJRefresh (3.1.15.7)
   - NJKWebViewProgress (0.2.3):
     - NJKWebViewProgress/Core (= 0.2.3)
     - NJKWebViewProgress/ProgressView (= 0.2.3)
@@ -60,6 +61,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
+  - AvoidCrash (~> 2.5.2)
   - IQKeyboardManager
   - JSONModel
   - Masonry
@@ -72,20 +74,37 @@ DEPENDENCIES:
   - SocketRocket
   - WebViewJavascriptBridge (~> 6.0)
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - AvoidCrash
+    - IQKeyboardManager
+    - JSONModel
+    - libwebp
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - NJKWebViewProgress
+    - Reachability
+    - SDWebImage
+    - SocketRocket
+    - WebViewJavascriptBridge
+
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  AvoidCrash: 28c6916fe19bd2b84126b8dec7cbe61c9a12741d
   IQKeyboardManager: 79c57795f5c2408d259d37b9da2ed07efcbb5225
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
   libwebp: 0f01098c6c17175391af621b2f14150f3ca16e16
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
-  MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
+  MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
   WebViewJavascriptBridge: 7f5bc4d3581e672e8f32bd0f812d54bc69bb8e29
 
-PODFILE CHECKSUM: 2dab334f196671960936d387cd6fec51c0d3819b
+PODFILE CHECKSUM: 37e351d8fc385f725d64b2cf7984495e42c88a39
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.5.3

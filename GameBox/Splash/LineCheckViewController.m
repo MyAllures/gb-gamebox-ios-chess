@@ -191,7 +191,7 @@
             weakSelf.progress = (weakSelf.progress+0.05)>1.0 ? 1.0 : weakSelf.progress+0.05;
             weakSelf.lineCheckStatus = weakSelf.progress == 1.0 ? @"匹配服务器完成，即将进入..." : @"正在匹配服务器，请稍后...";
             //收集错误信息
-            [[SH_LineCheckErrManager sharedManager] collectErrInfo:@{RH_SP_COLLECTAPPERROR_DOMAIN:host,RH_SP_COLLECTAPPERROR_CODE:@([httpURLResponse statusCode]),RH_SP_COLLECTAPPERROR_ERRORMESSAGE:err}];
+            [[SH_LineCheckErrManager sharedManager] collectErrInfo:@{RH_SP_COLLECTAPPERROR_DOMAIN:host,RH_SP_COLLECTAPPERROR_CODE:@([httpURLResponse statusCode]),RH_SP_COLLECTAPPERROR_ERRORMESSAGE:err,RH_SP_COLLECTAPPERROR_TYPE:@"1"}];
         }
         if (totalCheckTimes == ips.count*4) {
             //所有ip 所有类型都check完毕了
