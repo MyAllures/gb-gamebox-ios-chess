@@ -8,7 +8,8 @@ sites_list=(\
     # 'cilz^7006^blue^亿发娱乐'  \
     # 'kezf^7007^blue^九发棋牌'  \
     # 'grk9^7008^ching^安博棋牌'  \
-    '4l76^7010^blue^盛大棋牌'  \
+    # '4l76^7010^blue^盛大棋牌'  \
+    '3twr^7012^blue^万豪国际'  \
 )
 
 version='1.0.0' #app版本

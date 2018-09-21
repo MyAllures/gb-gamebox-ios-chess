@@ -9,7 +9,7 @@
 #ifndef SitesConfig_h
 #define SitesConfig_h
 
-#define _4l76 1
+#define _3twr 1
 
 
 
@@ -76,6 +76,12 @@
 #define CODE    @"4l76"
 #define S        @"02dfe565259009a0279c438e887ff1c6"
 #define SID        @"7010"
+
+#elif _3twr //万豪国际
+
+#define CODE    @"3twr"
+#define S        @"87a46d844700e85faebc824244f68d4d"
+#define SID        @"7012"
 
 
 
