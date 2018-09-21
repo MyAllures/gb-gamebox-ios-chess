@@ -71,6 +71,13 @@
 #define S        @"9d68aa0d69c2cf734527ec499be98f1b"
 #define SID        @"7008"
 
+#elif _4l76 //盛大棋牌
+
+#define CODE    @"4l76"
+#define S        @"02dfe565259009a0279c438e887ff1c6"
+#define SID        @"7010"
+
+
 
 
 #endif
