@@ -9,7 +9,7 @@
 #ifndef SitesConfig_h
 #define SitesConfig_h
 
-#define _3twr 1
+#define _5th9 1
 
 
 
@@ -82,6 +82,12 @@
 #define CODE    @"3twr"
 #define S        @"87a46d844700e85faebc824244f68d4d"
 #define SID        @"7012"
+
+#elif _5th9 //超人对决
+
+#define CODE    @"5th9"
+#define S        @"24b063d1a78eaef72e507bceec314e46"
+#define SID        @"7009"
 
 
 
