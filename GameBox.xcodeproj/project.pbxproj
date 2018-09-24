@@ -122,7 +122,6 @@
 		5401C56620ECFB3E0027246D /* SH_NetWorkService+Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401C56520ECFB3E0027246D /* SH_NetWorkService+Login.m */; };
 		5434E0B92112987C00DCCC49 /* SH_XibButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5434E0B82112987C00DCCC49 /* SH_XibButton.m */; };
 		5435E7C92104381C00DB809F /* SH_WebPImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5435E7C82104381C00DB809F /* SH_WebPImageView.m */; };
-		54397083210462BB0091C719 /* effects_man._defaultwebp in Resources */ = {isa = PBXBuildFile; fileRef = 54397024210462A30091C719 /* effects_man._defaultwebp */; };
 		54397094210462BB0091C719 /* start_bg.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397035210462A60091C719 /* start_bg.webp */; };
 		543970B8210462BB0091C719 /* banner.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397059210462AF0091C719 /* banner.webp */; };
 		543970D6210462BB0091C719 /* rectangle_bg-3.webp in Resources */ = {isa = PBXBuildFile; fileRef = 54397077210462B90091C719 /* rectangle_bg-3.webp */; };
@@ -313,6 +312,7 @@
 		BF7B08BE2101936B008256FE /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B08B72101936A008256FE /* NSDate+Extension.m */; };
 		BF7B08BF2101936B008256FE /* SH_NiceDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B08B82101936A008256FE /* SH_NiceDatePickerView.m */; };
 		BF7B08C62101CF33008256FE /* SH_NiceDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7B08C52101CF33008256FE /* SH_NiceDatePickerView.xib */; };
+		BF9D0B8D2158793C00318C0F /* effects_man_default.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF9D0B8C2158793B00318C0F /* effects_man_default.webp */; };
 		BFA0688B20FC70AC00F5ADFE /* SH_PrifitOutCoinView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA0688A20FC70AC00F5ADFE /* SH_PrifitOutCoinView.m */; };
 		BFA0688D20FC70C200F5ADFE /* SH_PrifitOutCoinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA0688C20FC70C200F5ADFE /* SH_PrifitOutCoinView.xib */; };
 		BFA0689020FC8C1000F5ADFE /* SH_OutCoinDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA0688F20FC8C1000F5ADFE /* SH_OutCoinDetailView.m */; };
@@ -579,7 +579,6 @@
 		5434E0B82112987C00DCCC49 /* SH_XibButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_XibButton.m; sourceTree = "<group>"; };
 		5435E7C72104381C00DB809F /* SH_WebPImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_WebPImageView.h; sourceTree = "<group>"; };
 		5435E7C82104381C00DB809F /* SH_WebPImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_WebPImageView.m; sourceTree = "<group>"; };
-		54397024210462A30091C719 /* effects_man._defaultwebp */ = {isa = PBXFileReference; lastKnownFileType = file; path = effects_man._defaultwebp; sourceTree = "<group>"; };
 		54397035210462A60091C719 /* start_bg.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = start_bg.webp; sourceTree = "<group>"; };
 		54397059210462AF0091C719 /* banner.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = banner.webp; sourceTree = "<group>"; };
 		54397077210462B90091C719 /* rectangle_bg-3.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "rectangle_bg-3.webp"; sourceTree = "<group>"; };
@@ -864,6 +863,7 @@
 		BF7B08BA2101936B008256FE /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
 		BF7B08BC2101936B008256FE /* SH_NiceDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_NiceDatePickerView.h; sourceTree = "<group>"; };
 		BF7B08C52101CF33008256FE /* SH_NiceDatePickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_NiceDatePickerView.xib; sourceTree = "<group>"; };
+		BF9D0B8C2158793B00318C0F /* effects_man_default.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = effects_man_default.webp; sourceTree = "<group>"; };
 		BFA0688920FC70AC00F5ADFE /* SH_PrifitOutCoinView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_PrifitOutCoinView.h; sourceTree = "<group>"; };
 		BFA0688A20FC70AC00F5ADFE /* SH_PrifitOutCoinView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_PrifitOutCoinView.m; sourceTree = "<group>"; };
 		BFA0688C20FC70C200F5ADFE /* SH_PrifitOutCoinView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SH_PrifitOutCoinView.xib; sourceTree = "<group>"; };
@@ -1426,8 +1426,8 @@
 			isa = PBXGroup;
 			children = (
 				54397059210462AF0091C719 /* banner.webp */,
-				54397024210462A30091C719 /* effects_man._defaultwebp */,
 				54397077210462B90091C719 /* rectangle_bg-3.webp */,
+				BF9D0B8C2158793B00318C0F /* effects_man_default.webp */,
 			);
 			path = webpRes;
 			sourceTree = "<group>";
@@ -2655,6 +2655,7 @@
 				54DD03442108797200CE9199 /* SH_MsgCenterCell.xib in Resources */,
 				221079CD2133F37F002D6434 /* input_gife.webp in Resources */,
 				DA6EE1C420F98B7F009A01C5 /* SH_AlertView.xib in Resources */,
+				BF9D0B8D2158793C00318C0F /* effects_man_default.webp in Resources */,
 				54C8759F20F756A500AA0594 /* showAlertRing.mp3 in Resources */,
 				BF6CC23E21342E6C00033F88 /* btn_return.webp in Resources */,
 				BFA0688D20FC70C200F5ADFE /* SH_PrifitOutCoinView.xib in Resources */,
@@ -2668,14 +2669,12 @@
 				BF6CC24321342E6C00033F88 /* btn_income.webp in Resources */,
 				BF44EC5C20F4589D00BC6EF3 /* SH_BitCoinSubView.xib in Resources */,
 				221079E02133F37F002D6434 /* logo10.webp in Resources */,
-				54397083210462BB0091C719 /* effects_man._defaultwebp in Resources */,
 				BF6CC25B21342E6C00033F88 /* input_bg.webp in Resources */,
 				22618C6F2109E7C900E4A6F6 /* SH_HandRecordView.xib in Resources */,
 				BF6CC25421342E6C00033F88 /* btn_blue_long_action.webp in Resources */,
 				BF6CC24721342E6C00033F88 /* classify_main.webp in Resources */,
 				221079F22133F37F002D6434 /* game-home.webp in Resources */,
 				221079BE2133F37F002D6434 /* unselect2.webp in Resources */,
-				54397083210462BB0091C719 /* effects_man._defaultwebp in Resources */,
 				221079BF2133F37F002D6434 /* show_messge.webp in Resources */,
 				BF6CC26921342E6C00033F88 /* btn_blue_short.webp in Resources */,
 				BF6CC26821342E6C00033F88 /* icon_search.webp in Resources */,
