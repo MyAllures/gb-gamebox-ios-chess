@@ -200,7 +200,6 @@
 		54E2485C210DE85C005C5263 /* SH_MemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E24854210DE85C005C5263 /* SH_MemoryCache.m */; };
 		54E2485D210DE85C005C5263 /* SH_CacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E24858210DE85C005C5263 /* SH_CacheManager.m */; };
 		54E83D9221100FAD00C606FC /* SH_HttpErrManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E83D9121100FAD00C606FC /* SH_HttpErrManager.m */; };
-		BF04BA75213522C100C7C31B /* loading_eaIcon3.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF04BA44213522C000C7C31B /* loading_eaIcon3.webp */; };
 		BF2A82F821357B02000F6C76 /* app_logo.webp in Resources */ = {isa = PBXBuildFile; fileRef = BF2A82F721357B02000F6C76 /* app_logo.webp */; };
 		BF2F915A20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F915820EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m */; };
 		BF2F915B20EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2F915920EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.xib */; };
@@ -714,7 +713,6 @@
 		54E24859210DE85C005C5263 /* SH_MemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SH_MemoryCache.h; sourceTree = "<group>"; };
 		54E83D9021100FAD00C606FC /* SH_HttpErrManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_HttpErrManager.h; sourceTree = "<group>"; };
 		54E83D9121100FAD00C606FC /* SH_HttpErrManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_HttpErrManager.m; sourceTree = "<group>"; };
-		BF04BA44213522C000C7C31B /* loading_eaIcon3.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = loading_eaIcon3.webp; sourceTree = "<group>"; };
 		BF2A82F721357B02000F6C76 /* app_logo.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = app_logo.webp; sourceTree = "<group>"; };
 		BF2F915720EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SH_DepositeWayCollectionViewCell.h; sourceTree = "<group>"; };
 		BF2F915820EF5D2E00CEDE8C /* SH_DepositeWayCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SH_DepositeWayCollectionViewCell.m; sourceTree = "<group>"; };
@@ -1922,7 +1920,6 @@
 			isa = PBXGroup;
 			children = (
 				54397035210462A60091C719 /* start_bg.webp */,
-				BF04BA44213522C000C7C31B /* loading_eaIcon3.webp */,
 				BF6CC21C21342E6700033F88 /* arrow_next.webp */,
 				BF6CC23721342E6B00033F88 /* arrow_prev.webp */,
 				BF6CC21B21342E6700033F88 /* back.webp */,
@@ -2591,7 +2588,6 @@
 				BFA068CA20FE0FFC00F5ADFE /* SH_ModifyLoginPSDView.xib in Resources */,
 				221079BC2133F37F002D6434 /* chip_blue.webp in Resources */,
 				BFA2EBD4211AD63100B2678F /* SH_LeftTableViewCell.xib in Resources */,
-				BF04BA75213522C100C7C31B /* loading_eaIcon3.webp in Resources */,
 				221079DD2133F37F002D6434 /* input_top_bg.webp in Resources */,
 				BF6CC25A21342E6C00033F88 /* circular.webp in Resources */,
 				BF6CC23B21342E6C00033F88 /* btn_top_recharge.webp in Resources */,
@@ -3140,7 +3136,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7009;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7011;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -3160,7 +3156,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7009;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dawoo.gamebox.sid7011;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

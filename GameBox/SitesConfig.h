@@ -9,7 +9,7 @@
 #ifndef SitesConfig_h
 #define SitesConfig_h
 
-#define _5th9 1
+#define _uxct 1
 
 
 
@@ -88,6 +88,18 @@
 #define CODE    @"5th9"
 #define S        @"24b063d1a78eaef72e507bceec314e46"
 #define SID        @"7009"
+
+#elif _uxct //三宝棋牌
+
+#define CODE    @"uxct"
+#define S        @"f35c889f5e4ac258a1a05b637d0960d4"
+#define SID        @"7011"
+
+#elif _au35 //五元棋牌
+
+#define CODE    @"au35"
+#define S        @"814c903f379da2d7fef074be2ef6c591"
+#define SID        @"7013"
 
 
 

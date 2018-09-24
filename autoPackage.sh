@@ -10,7 +10,8 @@ sites_list=(\
     # 'grk9^7008^ching^安博棋牌'  \
     # '4l76^7010^blue^盛大棋牌'  \
     # '3twr^7012^blue^万豪国际'  \
-    '5th9^7009^blue^超人对决'  \
+    # '5th9^7009^blue^超人对决'  \
+    'uxct^7011^blue^三宝棋牌'  \
 )
 
 version='1.0.0' #app版本
