@@ -9,7 +9,7 @@
 #ifndef SitesConfig_h
 #define SitesConfig_h
 
-#define _uxct 1
+#define _3twr 1
 
 
 

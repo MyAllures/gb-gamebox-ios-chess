@@ -9,11 +9,11 @@
         "mode" : "3-part-horizontal",
         "center" : {
           "mode" : "tile",
-          "width" : 250
+          "width" : 1
         },
         "cap-insets" : {
-          "right" : 347,
-          "left" : 386
+          "right" : 1021,
+          "left" : 303
         }
       },
       "idiom" : "universal",
@@ -25,11 +25,11 @@
         "mode" : "3-part-horizontal",
         "center" : {
           "mode" : "tile",
-          "width" : 376
+          "width" : 1
         },
         "cap-insets" : {
-          "right" : 779,
-          "left" : 583
+          "right" : 1539,
+          "left" : 448
         }
       },
       "idiom" : "universal",
