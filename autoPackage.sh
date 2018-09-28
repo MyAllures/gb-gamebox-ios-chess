@@ -12,7 +12,8 @@ sites_list=(\
     # '3twr^7012^blue^万豪国际'  \
     # '5th9^7009^blue^超人对决'  \
     # 'uxct^7011^blue^三宝棋牌'  \
-    'au35^7013^blue^五元棋牌'  \
+    # 'au35^7013^blue^五元棋牌'  \
+    'jbwk^7017^blue^黑桃棋牌'  \
 )
 
 version='1.0.0' #app版本

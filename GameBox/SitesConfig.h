@@ -9,7 +9,7 @@
 #ifndef SitesConfig_h
 #define SitesConfig_h
 
-#define _au35 1
+#define _jbwk 1
 
 
 
@@ -100,6 +100,12 @@
 #define CODE    @"au35"
 #define S        @"814c903f379da2d7fef074be2ef6c591"
 #define SID        @"7013"
+
+#elif _jbwk //黑桃棋牌
+
+#define CODE    @"jbwk"
+#define S        @"172dfdc50d43f3f0621f0755ce3b90c4"
+#define SID        @"7017"
 
 
 
