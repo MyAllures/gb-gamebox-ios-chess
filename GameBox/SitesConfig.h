@@ -107,7 +107,11 @@
 #define S        @"172dfdc50d43f3f0621f0755ce3b90c4"
 #define SID        @"7017"
 
+#elif _6l8b //三国棋牌
 
+#define CODE    @"6l8b"
+#define S        @"239524eaacae11afe52434ac35f7c75d"
+#define SID        @"7015"
 
 
 #endif
