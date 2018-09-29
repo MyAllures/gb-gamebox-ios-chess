@@ -22,10 +22,11 @@ sites_list=(\
     # '4l76^7010^blue^盛大棋牌'  \
     # '3twr^7012^blue^万豪国际'  \
     # '5th9^7009^blue^超人对决'  \
-    'uxct^7011^blue^三宝棋牌'  \
+    # 'uxct^7011^blue^三宝棋牌'  \
     # 'au35^7013^blue^五元棋牌'  \
     # 'jbwk^7017^blue^黑桃棋牌'  \
-    # '6l8b^7015^blue^三国棋牌'
+    # '6l8b^7015^blue^三国棋牌'  \
+    'kxai^7016^blue^欢乐棋牌'  \  
 )
 
 version='1.0.0' #app版本

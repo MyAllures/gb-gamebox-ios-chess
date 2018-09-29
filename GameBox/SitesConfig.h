@@ -9,7 +9,7 @@
 #ifndef SitesConfig_h
 #define SitesConfig_h
 
-#define _uxct 1
+#define _  1
 
 
 
@@ -112,6 +112,13 @@
 #define CODE    @"6l8b"
 #define S        @"239524eaacae11afe52434ac35f7c75d"
 #define SID        @"7015"
+
+#elif _kxai //欢乐棋牌
+
+#define CODE    @"kxai"
+#define S        @"5db8ae8e9b1bdfecd60b877181699c0a"
+#define SID        @"7016"
+
 
 
 #endif
