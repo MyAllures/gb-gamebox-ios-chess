@@ -76,10 +76,10 @@
     [self caculateWithMoney:self.numTextField.text];
 }
 - (IBAction)sureBtnClick:(id)sender {
-        NSDictionary *rank = self.model.rank;
-        float withdrawMinNum = [rank[@"withdrawMinNum"] floatValue];
-        float withdrawMaxNum = [rank[@"withdrawMaxNum"] floatValue];;
-     if ([self.bankNumLab.text isEqualToString:@"请绑定银行卡"]){
+    NSDictionary *rank = self.model.rank;
+    float withdrawMinNum = [rank[@"withdrawMinNum"] floatValue];
+    float withdrawMaxNum = [rank[@"withdrawMaxNum"] floatValue];;
+    if ([self.bankNumLab.text isEqualToString:@"请绑定银行卡"]){
         showMessage(self, @"请绑定银行卡", nil);
     }else if (self.numTextField.text.length == 0) {
         [self popAlertView:@"请输入出币数量"];
@@ -92,24 +92,26 @@
         [self popAlertView:@"出币数量应大于0"];
         return;
     }else if ([self.numTextField.text floatValue] < withdrawMinNum){
-         [self popAlertView:[NSString stringWithFormat:@"出币数量应大于%.2f",withdrawMinNum]];
+        [self popAlertView:[NSString stringWithFormat:@"出币数量应大于%.2f",withdrawMinNum]];
     }else if ([self.numTextField.text floatValue] > withdrawMaxNum){
-         [self popAlertView:[NSString stringWithFormat:@"出币数量应小于%.2f",withdrawMaxNum]];
+        [self popAlertView:[NSString stringWithFormat:@"出币数量应小于%.2f",withdrawMaxNum]];
     }else{
-            if ([self.code intValue] == 1100) {
-                [self popAlertView:self.message];
-            } else if ([self.code intValue] == 0) {
+        if ([self.code intValue] == 1100) {
+            [self popAlertView:self.message];
+        } else if ([self.code intValue] == 0) {
+            if (self.feeModel) {
                 SH_OutCoinDetailView *view = [[NSBundle mainBundle]loadNibNamed:@"SH_OutCoinDetailView" owner:self options:nil].firstObject;
                 SH_BigWindowViewController *vc = [SH_BigWindowViewController new];
                 vc.titleImageName = @"title14";
                 vc.customView = view;
                 vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
                 vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-                 UIViewController * svc= [SH_TopLevelControllerManager  fetchTopLevelController];
+                UIViewController * svc= [SH_TopLevelControllerManager  fetchTopLevelController];
                 [svc presentViewController:vc animated:YES completion:nil];
                 self.feeModel.actualWithdraw = [NSString stringWithFormat:@"%.2f",[self.feeModel.actualWithdraw floatValue]];
                 [view updateUIWithDetailArray:@[self.bankNumLab.text,self.numTextField.text,self.feeModel.counterFee,self.feeModel.administrativeFee,self.feeModel.deductFavorable,self.feeModel.actualWithdraw] TargetVC:nil Token:self.token];
             }
+        }
     }
 }
 
@@ -119,7 +121,7 @@
                      Token:(NSString *)token
                       Code:(NSString *)code
                    Message:(NSString *)message{
-   
+    
     if (bankNum.length == 0) {
         self.bankNumLab.text = @"请绑定银行卡";
     }else{
@@ -129,7 +131,7 @@
     }
     self.balanceLab.text = [NSString stringWithFormat:@"%.2f",[model.totalBalance floatValue]];
     self.token = token;
-     self.model = model;
+    self.model = model;
     self.code = code;
     self.message = message;
 }
@@ -140,11 +142,13 @@
 
 -(void)caculateWithMoney:(NSString *)money{
     //计算手续费
+    MBProgressHUD *hud =showHUDWithMyActivityIndicatorView(self, nil, @"获取中...");
     [SH_NetWorkService caculateOutCoinFeeWithNum:self.numTextField.text Complete:^(SH_FeeModel *model) {
         self.feeLab.text = [NSString stringWithFormat:@"%.2f",[model.counterFee floatValue]];
         self.feeModel = model;
+        [hud setHidden:YES] ;
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        
+        [hud setHidden:YES] ;
     }];
 }
 -(void)popAlertView: (NSString *)content{
@@ -156,9 +160,9 @@
     acr.contentHeight = 202;
     acr.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     acr.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-     UIViewController * svc= [SH_TopLevelControllerManager  fetchTopLevelController];
+    UIViewController * svc= [SH_TopLevelControllerManager  fetchTopLevelController];
     [svc presentViewController:acr animated:YES completion:nil];
-
+    
 }
 -(void)updateBankNum {
     NSString *bankcardNumber = [RH_UserInfoManager shareUserManager].mineSettingInfo.bankcard.bankcardNumber;
