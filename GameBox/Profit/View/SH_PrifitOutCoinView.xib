@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -29,7 +29,7 @@
                     </userDefinedRuntimeAttributes>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rdp-rv-nXY" customClass="SH_WebPImageView">
-                    <rect key="frame" x="18" y="19" width="61" height="13"/>
+                    <rect key="frame" x="18" y="18.5" width="61" height="13"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="13" id="p2R-nE-G1F">
                             <userDefinedRuntimeAttributes>
@@ -47,7 +47,7 @@
                     </userDefinedRuntimeAttributes>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rounded" translatesAutoresizingMaskIntoConstraints="NO" id="3pE-Od-FPa">
-                    <rect key="frame" x="99" y="16.5" width="123" height="18"/>
+                    <rect key="frame" x="99" y="16" width="123" height="18"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="123" id="ZQP-hl-ycl">
                             <userDefinedRuntimeAttributes>
@@ -83,13 +83,13 @@
                     </userDefinedRuntimeAttributes>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95P-5W-htK">
-                    <rect key="frame" x="202.5" y="17" width="9.5" height="17"/>
+                    <rect key="frame" x="202.5" y="16.5" width="9.5" height="17"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                     <color key="textColor" red="1" green="0.94901960784313721" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q2c-Mb-pm9" customClass="SH_WebPImageView">
-                    <rect key="frame" x="247" y="19" width="45" height="13"/>
+                    <rect key="frame" x="247" y="18.5" width="45" height="13"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="45" id="KK4-3Y-ClA">
                             <userDefinedRuntimeAttributes>
@@ -107,7 +107,7 @@
                     </userDefinedRuntimeAttributes>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rounded" translatesAutoresizingMaskIntoConstraints="NO" id="Yg1-Fd-rMb">
-                    <rect key="frame" x="308" y="16.5" width="123" height="18"/>
+                    <rect key="frame" x="308" y="16" width="123" height="18"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="123" id="2Ha-Dy-SUL">
                             <userDefinedRuntimeAttributes>
@@ -143,7 +143,7 @@
                     </userDefinedRuntimeAttributes>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZL9-rA-b0O">
-                    <rect key="frame" x="411.5" y="17" width="9.5" height="17"/>
+                    <rect key="frame" x="411.5" y="16.5" width="9.5" height="17"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                     <color key="textColor" red="1" green="0.94901960780000005" blue="0.1137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -189,7 +189,7 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7E-T3-NgX">
-                            <rect key="frame" x="80" y="9" width="180" height="30"/>
+                            <rect key="frame" x="80" y="8.5" width="180" height="30"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="180" id="GPW-1N-bM3">
@@ -211,7 +211,7 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xau-X1-eQZ" customClass="SH_WebPButton">
-                            <rect key="frame" x="265" y="4" width="135" height="40"/>
+                            <rect key="frame" x="265" y="3.5" width="135" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="Jl0-cL-OzM">
                                     <userDefinedRuntimeAttributes>
@@ -300,7 +300,7 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E25-4K-mCq">
-                            <rect key="frame" x="80" y="8" width="180" height="30"/>
+                            <rect key="frame" x="80" y="8.5" width="180" height="30"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="TnW-t2-3O9">
@@ -410,7 +410,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgy-oS-Fai" customClass="SH_WebPButton">
-                    <rect key="frame" x="173" y="183" width="120" height="45"/>
+                    <rect key="frame" x="172.5" y="183" width="120" height="45"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="Ih2-Ym-tKr">
                             <userDefinedRuntimeAttributes>
@@ -433,7 +433,7 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o5T-O7-JjP" userLabel="lineView">
-                    <rect key="frame" x="0.0" y="238" width="465" height="1"/>
+                    <rect key="frame" x="0.0" y="238" width="465" height="0.5"/>
                     <color key="backgroundColor" red="0.25882352941176467" green="0.29411764705882354" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="0.5" id="PFF-eX-y1o"/>
@@ -443,7 +443,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owW-J2-wzf">
-                    <rect key="frame" x="10" y="249" width="445" height="39.5"/>
+                    <rect key="frame" x="10" y="248.5" width="445" height="39.5"/>
                     <string key="text">1、福利到账一般需3-5分钟，受银行维护等问题可能出现延迟到账。
 2、出币前请确认福利账号和真实姓名准确无误。
 3、出币必须绑定银行卡号，若需修改绑定卡号，请联系客服。</string>
@@ -570,6 +570,7 @@
                 <outlet property="bankNumLab" destination="I7E-T3-NgX" id="CvN-Y5-en4"/>
                 <outlet property="feeLab" destination="ZL9-rA-b0O" id="4Fj-BO-zfB"/>
                 <outlet property="numTextField" destination="E25-4K-mCq" id="BaA-oi-Bw9"/>
+                <outlet property="sureBtn" destination="wgy-oS-Fai" id="KtR-fW-4Ah"/>
             </connections>
             <point key="canvasLocation" x="-127.5" y="-10"/>
         </view>

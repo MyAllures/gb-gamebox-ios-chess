@@ -28,7 +28,7 @@
 @property(nonatomic,strong)SH_ProfitModel *model;
 @property(nonatomic,copy)NSString *code;
 @property(nonatomic,copy)NSString *message;
-
+@property (weak, nonatomic) IBOutlet SH_WebPButton *sureBtn;
 
 @end
 @implementation SH_PrifitOutCoinView
@@ -69,11 +69,13 @@
     NSInteger num = [self.numTextField.text integerValue];
     self.numTextField.text = [NSString stringWithFormat:@"%ld",num+50];
     [self caculateWithMoney:self.numTextField.text];
+    self.sureBtn.userInteractionEnabled = NO;
 }
 - (IBAction)add100BtnClik:(id)sender {
     NSInteger num = [self.numTextField.text integerValue];
     self.numTextField.text = [NSString stringWithFormat:@"%ld",num+100];
     [self caculateWithMoney:self.numTextField.text];
+    self.sureBtn.userInteractionEnabled = NO;
 }
 - (IBAction)sureBtnClick:(id)sender {
         NSDictionary *rank = self.model.rank;
@@ -109,6 +111,12 @@
                 [svc presentViewController:vc animated:YES completion:nil];
                 self.feeModel.actualWithdraw = [NSString stringWithFormat:@"%.2f",[self.feeModel.actualWithdraw floatValue]];
                 [view updateUIWithDetailArray:@[self.bankNumLab.text,self.numTextField.text,self.feeModel.counterFee,self.feeModel.administrativeFee,self.feeModel.deductFavorable,self.feeModel.actualWithdraw] TargetVC:nil Token:self.token];
+                NSLog(@"1-----%@",self.bankNumLab.text);
+                NSLog(@"%@",self.numTextField.text);
+                NSLog(@"%@",self.feeModel.counterFee);
+                NSLog(@"%@",self.feeModel.administrativeFee);
+                NSLog(@"%@",self.bankNumLab.text);
+                NSLog(@"%@",self.bankNumLab.text);
             }
     }
 }
@@ -143,6 +151,7 @@
     [SH_NetWorkService caculateOutCoinFeeWithNum:self.numTextField.text Complete:^(SH_FeeModel *model) {
         self.feeLab.text = [NSString stringWithFormat:@"%.2f",[model.counterFee floatValue]];
         self.feeModel = model;
+        self.sureBtn.userInteractionEnabled = YES;
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
         
     }];
