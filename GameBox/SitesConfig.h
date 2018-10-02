@@ -119,6 +119,12 @@
 #define S        @"5db8ae8e9b1bdfecd60b877181699c0a"
 #define SID        @"7016"
 
+#elif _n6tj //开元棋牌
+
+#define CODE    @"n6tj"
+#define S        @"3e35dbb057d0c11d2e0184599523d499"
+#define SID        @"7018"
+
 
 
 #endif

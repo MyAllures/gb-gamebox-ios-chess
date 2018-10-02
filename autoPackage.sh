@@ -27,6 +27,7 @@ sites_list=(\
     # 'jbwk^7017^blue^黑桃棋牌'  \
     # '6l8b^7015^blue^三国棋牌'  \
     'kxai^7016^blue^欢乐棋牌'  \  
+    # 'n6tj^7018^blue^开元棋牌'  \
 )
 
 version='1.0.0' #app版本
