@@ -9,7 +9,11 @@
 #ifndef SitesConfig_h
 #define SitesConfig_h
 
+<<<<<<< HEAD
 #define _jbwk 1
+=======
+#define _kxai 1
+>>>>>>> bc039260f9c6a82356840510ffaa6c5f09e9f1a9
 
 
 

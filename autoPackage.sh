@@ -26,7 +26,7 @@ sites_list=(\
     # 'au35^7013^blue^五元棋牌'  \
     'jbwk^7017^blue^黑桃棋牌'  \
     # '6l8b^7015^blue^三国棋牌'  \
-    # 'kxai^7016^blue^欢乐棋牌'  \  
+    # 'kxai^7016^blue^欢乐棋牌'  \
     # 'n6tj^7018^blue^开元棋牌'  \
 )
 
