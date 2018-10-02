@@ -9,11 +9,7 @@
 #ifndef SitesConfig_h
 #define SitesConfig_h
 
-//#define _kxai 1
-
-
-
-
+#define _kxai 1
 
 #if _8l6r
 #define CODE    @"8l6r"

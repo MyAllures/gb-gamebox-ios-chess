@@ -570,6 +570,7 @@
                 <outlet property="bankNumLab" destination="I7E-T3-NgX" id="CvN-Y5-en4"/>
                 <outlet property="feeLab" destination="ZL9-rA-b0O" id="4Fj-BO-zfB"/>
                 <outlet property="numTextField" destination="E25-4K-mCq" id="BaA-oi-Bw9"/>
+                <outlet property="sureBtn" destination="wgy-oS-Fai" id="KtR-fW-4Ah"/>
             </connections>
             <point key="canvasLocation" x="-127.5" y="-10"/>
         </view>
