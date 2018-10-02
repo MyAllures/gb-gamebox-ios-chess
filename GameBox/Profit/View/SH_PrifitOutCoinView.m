@@ -69,13 +69,11 @@
     NSInteger num = [self.numTextField.text integerValue];
     self.numTextField.text = [NSString stringWithFormat:@"%ld",num+50];
     [self caculateWithMoney:self.numTextField.text];
-    self.sureBtn.userInteractionEnabled = NO;
 }
 - (IBAction)add100BtnClik:(id)sender {
     NSInteger num = [self.numTextField.text integerValue];
     self.numTextField.text = [NSString stringWithFormat:@"%ld",num+100];
     [self caculateWithMoney:self.numTextField.text];
-    self.sureBtn.userInteractionEnabled = NO;
 }
 - (IBAction)sureBtnClick:(id)sender {
     NSDictionary *rank = self.model.rank;
@@ -150,13 +148,15 @@
 
 -(void)caculateWithMoney:(NSString *)money{
     //计算手续费
-    MBProgressHUD *hud =showHUDWithMyActivityIndicatorView(self, nil, @"获取中...");
+    [SH_WaitingView showOn:self];
     [SH_NetWorkService caculateOutCoinFeeWithNum:self.numTextField.text Complete:^(SH_FeeModel *model) {
         self.feeLab.text = [NSString stringWithFormat:@"%.2f",[model.counterFee floatValue]];
         self.feeModel = model;
-        [hud setHidden:YES] ;
+        NSLog(@"111 %@",model) ;
+        [SH_WaitingView hide:self];
     } failed:^(NSHTTPURLResponse *httpURLResponse, NSString *err) {
-        [hud setHidden:YES] ;
+        [SH_WaitingView hide:self];
+        showMessage(self, err, nil) ;
     }];
 }
 -(void)popAlertView: (NSString *)content{
